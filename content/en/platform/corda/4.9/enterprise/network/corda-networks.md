@@ -27,11 +27,11 @@ should be consistent with their existing policies on such things.{{< note >}}
 Alternatively, the service can be configured to automatically accept signature requests. However, this is
 not the recommended deployment model outside of a testing setup.{{< /note >}}
 
-* Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network.Signing is performed by a separately deployed process called “The Signing Service”. It is important to realise how
-this service should be deployed (for more details on this see the Signing Service documentation), in brief, it is the
+* Once accepted, the requests have a certificate signed by the PKI infrastructure that governs the network. Signing is performed by a separately deployed process called the *Signing Service*. It is important to realise how
+this service should be deployed. For more information, see {{< cenmlatestrelref "cenm/signing-service.md" "Signing Service" >}}. In brief, it is the
 intention that, unlike the Identity Manager, the signer is completely isolated from external communication. It only
 addresses a data source it shares with the Identity Manager. This ensure no hostile entity can penetrate the system
-and force the signing of a certificate. See signing-service
+and force the signing of a certificate.
 * The signed certificates are recognised by the Identity Manager and returned to the requesting node (Nodes poll the
 Identity Manager periodically to see if their signature request has been fulfilled).
 
@@ -63,21 +63,20 @@ Operator, with a suitable out-of-band process established with the party to comm
 entity.
 
 {{< note >}}
-Realistically, a segregated zone will operate to allow a third party to operate a notary on it’s own
+Realistically, a segregated zone will operate to allow a third party to operate a notary on its own
 terms rather than submit to the scrutiny of the global zone community or where the zone operator wishes to allow
 stratification of the min platform version applied to a network
 
 {{< /note >}}
 
 {{< important >}}
-Each subzone requires it’s own notary pool as no node, including notaries, can exist in more than
+Each subzone requires its own notary pool as no node, including notaries, can exist in more than
 one subzone
 
 
 {{< /important >}}
 
-For more information, see subzones
-
+For more information, see {{< cenmlatestrelref "cenm/sub-zones.md" "Subzones" >}}.
 
 ### Operating a segregated subzone
 
@@ -100,7 +99,7 @@ Each Network Map requires:
 * [What is a compatibility zone?]({{< relref "compatibility-zones.md" >}})
     * [How do I become part of a compatibility zone?]({{< relref "compatibility-zones.md#how-do-i-become-part-of-a-compatibility-zone" >}})
         * [Bootstrapping a compatibility zone]({{< relref "compatibility-zones.md#bootstrapping-a-compatibility-zone" >}})
-        * [Joining an existing compatibility zone]({{< relref "compatibility-zones.md#joining-compatibility-zones" >}})
+        * [Joining an existing compatibility zone]({{< relref "compatibility-zones.md#joining-an-existing-compatibility-zone" >}})
         * [Setting up a dynamic compatibility zone]({{< relref "setting-up-a-dynamic-compatibility-zone.md" >}}) (in detail)
             * [Do you need to create your own dynamic compatibility zone?]({{< relref "setting-up-a-dynamic-compatibility-zone.md#do-you-need-to-create-your-own-dynamic-compatibility-zone" >}})
             * [Why create your own zone?]({{< relref "setting-up-a-dynamic-compatibility-zone.md#why-create-your-own-zone" >}})

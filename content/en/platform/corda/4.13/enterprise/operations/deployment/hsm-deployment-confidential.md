@@ -201,7 +201,7 @@ credentials: 123456
 ```
 
 {{<note>}}
-The `FXPKCS11_CFG` environment variable must be set as detailed in the Futurex documentation. The `<WRAP-PRESERVE-USAGE>` tag **must** be set to `NO`. This tag doesn't affect the legal identity functions of the HSM. Currently Corda Enterprise only supports Futurex HSMs at Java version 8.271 or earlier.
+The `FXPKCS11_CFG` environment variable must be set as detailed in the Futurex documentation. The `<WRAP-PRESERVE-USAGE>` tag **must** be set to `NO`. This tag does not affect the legal identity functions of the HSM. Currently Corda Enterprise only supports Futurex HSMs at Java version 8.271 or earlier.
 {{</note>}}
 
 ## Azure Key Vault

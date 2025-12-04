@@ -383,7 +383,7 @@ To create a communication session between your `initiator` flow and the `receive
   * Sends a potentially different payload to each `FlowSession`, as specified by the provided `payloadsPerSession`.
 
 {{% note %}}
-It's more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It's also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
+It is more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It is also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
 {{% /note %}}
 
 ### Create communication sessions with `InitiateFlow`
@@ -1204,7 +1204,7 @@ Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size" >}}).
+The size of the external operation thread pool can be configured. See [the node configuration documentation]({{< relref "../node/setup/corda-configuration-fields.md#flowexternaloperationthreadpoolsize" >}}).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:

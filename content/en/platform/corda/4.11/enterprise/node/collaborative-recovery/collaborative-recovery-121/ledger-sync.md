@@ -109,7 +109,7 @@ The flow will first check that the node is self-consistent - a check facilitated
 
 If the other party being reconciled with is too busy, the scheduler will make numerous attempts to perform the reconciliation with an appropriate fallback so as not to overwhelm the other party's node with repeated attempts. The number of attempts depends on the node's LedgerSync configuration - see the `maxReconciliationRetryAttemptTimeout` configuration parameter in the table above.
 
-Reconciliation is bound by the `maxMessageSize` [network parameter]({{< relref "../../../network/network-map.md#network-parameters" >}}). This means that if there is a very large number of differences between two nodes, it may not be possible to perform the reconciliation. In that event, the reconciliation would fail with `MaxMessageSizeExceededException`. You can see this in the logs, or by calling `GetReconciliationStatusForPartyFlow`.
+Reconciliation is bound by the `maxMessageSize` [network parameter]({{< relref "../../../network/network-parameters.md" >}}). This means that if there is a very large number of differences between two nodes, it may not be possible to perform the reconciliation. In that event, the reconciliation would fail with `MaxMessageSizeExceededException`. You can see this in the logs, or by calling `GetReconciliationStatusForPartyFlow`.
 
 {{< attention >}}
 When you request a reconciliation to be performed with a party, if the execution pool is full, the reconciliation will be delayed until an open spot in the pool becomes available. If the node is restarted, and the reconciliation job has not entered the execution pool prior to the restart, the job will be lost and will need to be re-requested by calling this flow again.
@@ -483,7 +483,7 @@ In this scenario, we'll make the following assumptions:
 
 ### Process
 
-This process, or a similar process, should be followed every time after recovering your vault from backup. It should involve every other party you've previously transacted with. In our example, we're only reconciling with one other party, but it's likely you've transacted with more than one party in the past.
+This process, or a similar process, should be followed every time after recovering your vault from backup. It should involve every other party you have previously transacted with. In our example, we're only reconciling with one other party, but it is likely you have transacted with more than one party in the past.
 
 ### Step 1. Reconciliation
 
@@ -503,7 +503,7 @@ This flow will return immediately, and should indicate success.
 
 It is possible to get an exception when executing this flow.
 
-**`ReconciliationAlreadyScheduledException`** &mdash; As the name suggests, this exception will be thrown if there is already an ongoing reconciliation with the party you've tried to reconcile with. This exception can also occur if the other party (party B) has already initiated a reconciliation with you in the other direction; B -&gt; A instead of A -&gt; B.
+**`ReconciliationAlreadyScheduledException`** &mdash; As the name suggests, this exception will be thrown if there is already an ongoing reconciliation with the party you have tried to reconcile with. This exception can also occur if the other party (party B) has already initiated a reconciliation with you in the other direction; B -&gt; A instead of A -&gt; B.
 
 **`MaxIncomingSessionsExceededException`** &mdash; This exception can be thrown if the other party (party B) is already overloaded processing reconciliations from other parties. In this event, R3 recommends that you try again at a later time.
 

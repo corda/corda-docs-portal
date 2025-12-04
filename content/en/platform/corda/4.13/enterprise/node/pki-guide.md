@@ -140,6 +140,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see the documentation on the [Public Key Infrastructure (PKI) Tool]({{< relref "../../../../../../en/platform/corda/1.6/cenm/pki-tool.md" >}}).
+To learn more about running the tool, see the documentation on the {{< cenmlatestrelref "cenm/pki-tool.md" "Public key infrastructure (PKI) tool" >}}.
 
 {{< /note >}}

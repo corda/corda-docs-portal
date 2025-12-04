@@ -19,7 +19,7 @@ The Operating System platforms supported in Corda Enterprise Network Manager are
 
 Production use of Corda Enterprise Network Manager 1.3+ is only supported on Linux OS, see details below.
 
-For information about supported Operating Systems for Corda Enterprise, see the Corda Enterprise Edition 4.12 [platform support matrix]({{< relref "../../4.12/enterprise/platform-support-matrix.md" >}}) section or check the relevant [support documentation]({{< relref "../../4.12/enterprise/_index.md" >}}) for previous versions of Corda Enterprise.
+For information about supported operating systems for Corda Enterprise, see {{< cordalatestrelref "enterprise/platform-support-matrix.md" "Corda Enterprise 4.12 platform support" >}} or check the relevant support documentation for [previous versions of Corda Enterprise]({{< relref "../../_index.md" >}}).
 
 ## Hardware security modules (HSMs)
 
@@ -50,7 +50,7 @@ CENM currently supports the following databases:
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6 |
 |Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
-|PostgreSQL|x86-64|12.19, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
 
 ## JDK support
 
@@ -103,6 +103,6 @@ for your deployment needs.
 |Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|12.19, 13.3, 13.15, 14.12, 15.7, 16.3|PostgreSQL JDBC Driver 42.5.2|
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x|PostgreSQL JDBC Driver 42.5.2|
 
 {{< /table >}}

@@ -915,4 +915,4 @@ The shell will be enhanced over time. The currently known limitations include:
 * Command history is not preserved across restarts.
 * The `jdbc` command requires you to explicitly log into the database first.
 * Commands placed in the `shell-commands` directory are only noticed after the node is restarted.
-* The `jul` command advertises access to logs, but it doesn’t work with the logging framework used in Corda.
+* The `jul` command advertises access to logs, but it does not work with the logging framework used in Corda.

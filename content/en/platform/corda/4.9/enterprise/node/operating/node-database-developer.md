@@ -43,8 +43,8 @@ Setting up a Corda node to connect to a database requires:
 * [Corda node configuration changes](#2-corda-node-configuration)
 * [Run the node](#3-run-the-run-migration-scripts-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
 
-Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}), hence when using H2 database it’s sufficient to [start the node]({{< relref "node-database-admin.md#3-corda-node-configuration" >}}) and the database will be created.
+Corda ships out of the box with an [H2 database](http://www.h2database.com) which does not require any configuration
+(see the documentation on [Database access when running H2]({{< relref "../../node-database-access-h2.md" >}}), hence when using H2 database it is sufficient to [start the node]({{< relref "node-database-admin.md#3-corda-node-configuration" >}}) and the database will be created.
 
 
 
@@ -208,7 +208,7 @@ database = {
 ```
 
 
-See [Node configuration]({{< relref "../setup/corda-configuration-file.md#database" >}}) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+See [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 * Run the `run-migration-scripts` sub-command to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.

@@ -22,6 +22,6 @@ you’re at a stage of your development that requires planning for post-launch i
 * How the ledger expresses to what extent business logic can be changed and by who.
 * How change is managed in a world where there are no privileged administrators who can force upgrades.
 
-It’s worth planning for versioning and upgrades from the start, especially if you plan for your CorDapp to itself provide APIs to other
+It is worth planning for versioning and upgrades from the start, especially if you plan for your CorDapp to itself provide APIs to other
 apps. Apps extending the platform with industry-specific data models is a common case, and ensuring you can evolve your data model as
 the world changes is a key part of any professionally built software.

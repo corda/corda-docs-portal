@@ -13,8 +13,7 @@ title: Obfuscation configuration file changes
 # Obfuscated configuration file changes
 
 When you work with obfuscated configuration files, note the following:
-1. Use the Corda Enterprise configuration obfuscator tool. See [Configuration obfuscator]({{< relref "../../../../../en/platform/corda/4.8/enterprise/tools-config-obfuscator.md" >}}) for more information.
-
+1. Use the Corda Enterprise configuration obfuscator tool. See {{< cordalatestrelref "enterprise/tools-config-obfuscator.md" "Configuration obfuscator" >}} for more information.
 2. The updated arguments, required to run the service with obfuscation options, are as follows:
 
 * `--config-obfuscation-passphrase[=<cliPassphrase>]` - the passphrase used in the key derivation function when generating an AES key.

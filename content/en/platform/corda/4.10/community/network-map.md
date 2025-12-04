@@ -65,7 +65,7 @@ Note that only HTTP OK (response code 200) is supported - any other kind of resp
 ### Additional endpoints from R3
 
 Network maps hosted by R3 or other parties using R3’s commercial network management tools typically provide some
-additional endpoints for users. These additional endpoints can be found [here]({{< relref "../../1.5/cenm/network-map-overview.md" >}}).
+additional endpoints for users. These additional endpoints can be found {{< cenmlatestrelref "cenm/network-map-overview.md" "here" >}}.
 
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
 enable the server to be placed behind caching content delivery networks like Cloudflare, Akamai, Amazon Cloudfront and so on.
@@ -92,7 +92,7 @@ Usually, test networks have a structure that is known ahead of time. For the cre
 `network-bootstrapper` tool. This tool pre-generates node configuration directories if given the IP addresses/domain
 names of each machine in the network. The generated node directories contain the NodeInfos for every other node on
 the network, along with the network parameters file and identity certificates. Generated nodes do not need to all be
-online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
+online at once - an offline node that isn’t being interacted with does not impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
 More information can be found in [Network Bootstrapper]({{< relref "network-bootstrapper.md" >}}).
@@ -122,7 +122,7 @@ that the parameters can be downloaded again.
 {{< /warning >}}
 
 
-If the node isn’t using a HTTP network map service then it’s expected the signed file is provided by some other means.
+If the node isn’t using a HTTP network map service then it is expected the signed file is provided by some other means.
 For such a scenario there is the network bootstrapper tool which in addition to generating the network parameters file
 also distributes the node info files to the node directories.
 

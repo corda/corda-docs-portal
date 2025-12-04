@@ -19,9 +19,9 @@ title: Signing Service
 
 The Signing Service acts as a bridge between the main CENM services and the PKI/HSM infrastructure, enabling a network operator to verify and sign incoming requests and changes to the network.
 
-The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager service]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}}) and the [Network Map service]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}}) (and complemented by the [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}), the [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}), the [Angel Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/angel-service.md" >}}), and the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}})).
+The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager service]({{< relref "identity-manager.md" >}}) and the [Network Map service]({{< relref "network-map.md" >}}) (and complemented by the {{< cordalatestrelref "enterprise/node/auth-service.md" "Auth Service" >}}, the [Zone Service]({{< relref "zone-service.md" >}}), the [Angel Service]({{< relref "angel-service.md" >}}), and the {{< cordalatestrelref "enterprise/node/gateway-service.md" "Gateway Service" >}}).
 
-As mentioned in other CENM service documentation ([Identity Manager service]({{< relref "../../../../../en/platform/corda/1.5/cenm/identity-manager.md" >}}) and [Network Map service]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}})), the main CENM services
+As mentioned in other CENM service documentation ([Identity Manager service]({{< relref "identity-manager.md" >}}) and [Network Map service]({{< relref "network-map.md" >}})), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
 While this is convenient, it is intended for use for development and testing environments, and **should not** be used in
 production environments. Instead, large and important changes to the network should go through a series of checks before
@@ -31,7 +31,7 @@ particular data to require authentication from multiple users.
 
 ## Signing Service overview
 
-The Signing Service supports the following HSMs (see [CENM support matrix]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-support-matrix.md#hardware-security-modules-hsms" >}}) for more information):
+The Signing Service supports the following HSMs (see [CENM support matrix]({{< relref "cenm-support-matrix.md#hardware-security-modules-hsms" >}}) for more information):
 
 * Utimaco SecurityServer Se Gen2.
 * Gemalto Luna.
@@ -65,7 +65,7 @@ for the configured signing keys. The overall flow of communication can be seen i
 
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
-[Configuring the CENM services to use SSL]({{< relref "../../../../../en/platform/corda/1.5/cenm/enm-with-ssl.md" >}}) for more information.
+[Configuring the CENM services to use SSL]({{< relref "enm-with-ssl.md" >}}) for more information.
 {{< /note >}}
 
 {{< note >}}
@@ -141,7 +141,7 @@ The configuration for the Signing Service consists of the following sections:
 
 The Signing Service is interacted with via the shell, which is configured at the top level of the configuration file. This
 shell is similar to the interactive shell available in other CENM services and is configured in a similar way. See
-[Shell Configuration]({{< relref "../../../../../en/platform/corda/1.5/cenm/shell.md#shell-config" >}}) for more information on how to configure the shell.
+[Shell Configuration]({{< relref "shell.md#shell-configuration" >}}) for more information on how to configure the shell.
 
 
 #### HSM libraries
@@ -314,7 +314,7 @@ not be configured in production environments.
 Even though scheduled signing of CRLs should not be configured in production environment, they should be signed
 manually from time to time depending on its’ `nextUpdate` property. This is to ensure an up-to-date CRL is
 distributed in the network before the previous one expires. Conventionally they have a lifecycle of 6 months
-and are manually signed every 3 months. See [CRL Endpoint Check Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/crl-endpoint-check-tool.md" >}}) for more information how to check
+and are manually signed every 3 months. See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool.md" >}}) for more information how to check
 CRLs’ update deadlines.
 
 {{< /note >}}
@@ -1361,7 +1361,7 @@ class must implement `CASigningPlugin` or `NonCASigningPlugin` interface dependi
 it will handle.
 
 Both interfaces extend common `StartablePlugin` interface containing a single method `start()`. The method is run by
-Signing Service upon the service start-up and it’s intended to contain plugin’s initialization code (e.g. a database
+Signing Service upon the service start-up and it is intended to contain plugin’s initialization code (e.g. a database
 connection initialization).
 
 ```java
@@ -1896,7 +1896,7 @@ However, the tracking ID will still be returned and the request can be tracked v
 
 ### Other Sample Plugins
 
-See [EJBCA sample plugin]({{< relref "../../../../../en/platform/corda/1.5/cenm/ejbca-plugin.md" >}}) for sample open source CA implementation.
+See [EJBCA sample plugin]({{< relref "ejbca-plugin.md" >}}) for sample open source CA implementation.
 
 ### Admin RPC Interface
 
@@ -1952,4 +1952,4 @@ authServiceConfig {
 
 ## Obfuscated configuration files
 
-To view the latest changes to the obfuscated configuration files, see [Obfuscation configuration file changes]({{< relref "../../../../../en/platform/corda/1.5/cenm/obfuscated-config-file-changes.md" >}}).
+To view the latest changes to the obfuscated configuration files, see [Obfuscation configuration file changes]({{< relref "obfuscated-config-file-changes.md" >}}).

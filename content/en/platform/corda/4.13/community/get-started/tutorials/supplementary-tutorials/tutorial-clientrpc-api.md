@@ -369,7 +369,7 @@ thread {
 ```kotlin
     /**
      * Clear all network map data from local node cache. Notice that after invoking this method your node will lose
-     * network map data and effectively won't be able to start any flow with the peers until network map is downloaded
+     * network map data and effectively will not be able to start any flow with the peers until network map is downloaded
      * again on next poll - from `additional-node-infos` directory or from network map server. It depends on the
      * polling interval when it happens. You can also use [refreshNetworkMapCache] to force next fetch from network map server
      * (not from directory - it will happen automatically).

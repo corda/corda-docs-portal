@@ -102,7 +102,7 @@ Next, Farmer Bob prepares the amount of apples Peter requested by self-issuing a
 
 `run vaultQuery contractStateType: com.tutorial.states.BasketOfApple`
 
-If you run the same query on the `PartyB` node, you won't get any data because they were not involved in this transaction.
+If you run the same query on the `PartyB` node, you will not get any data because they were not involved in this transaction.
 
 ### Redeem the `AppleStamp` voucher
 

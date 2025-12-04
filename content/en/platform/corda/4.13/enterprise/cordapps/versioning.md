@@ -12,7 +12,7 @@ weight: 2
 
 # Versioning
 
-As the Corda platform evolves and new features are added, it's important the versioning system allows users to easily compare versions and know what features are available.
+As the Corda platform evolves and new features are added, it is important the versioning system allows users to easily compare versions and know what features are available.
 
 Each Corda release uses the standard semantic versioning scheme of `major.minor`.
 This is useful when referring to releases in the public domain, but is not a practical platform versioning system for a developer.
@@ -43,7 +43,7 @@ For a node to run on a network, the node's platform version must be greater than
 
 Features fall into one of three categories and each category has different implications for node operators, CorDapp developers, and business network operators. There are:
 
-* Changes that may affect node operators, but don't impact CorDapp developers or the Corda network protocol. For example, introducing support for a new HSM or database system.
+* Changes that may affect node operators, but do not impact CorDapp developers or the Corda network protocol. For example, introducing support for a new HSM or database system.
 * New or updated APIs.
 * Changes that affect the operation of a Corda network. For example, changes to the serialization format, flow/wire protocol, or the introduction of a new transaction component. These are changes to the core data model and should only be taken advantage of if they can be supported by all nodes on a network. Such features are only enabled in a node if the network it connects to has published a `minimumPlatformVersion` in its network parameters that is greater than or equal to the Corda platform version that introduced the feature. For example, Corda 4.0 nodes can only take advantage of the Corda reference states feature when connected to a network with a `minimumPlatformVersion` of 4 (Corda 4.0 is equivalent to Corda platform version 4).
 
@@ -54,25 +54,25 @@ When a release includes features from either of the last two categories, the [Co
 The table below highlights key features and the corresponding version numbers.
 
 {{< table >}}
-|Feature|Corda platform version |Minimum network platform version |Introduced in OS version|Introduced in Enterprise version|
-|--------------------|--------------------|--------------------|--------------------|--------------------|
-|API update|140|4|4.12|4.12|
-|API update|13|4|4.11|4.11|
-|API update|12|4|4.10|4.10|
-|API update|11|4|4.9|4.9|
-|API update|10|4|4.8|4.8|
-|API update|9|4|4.7|4.7|
-|API update|8|4|4.6|4.6|
-|New flow framework APIs|7|4|4.5|4.5|
-|Prevent CorDapp hosting issue|6|4|4.4|4.4|
-|Underlying support for accounts|5|4|4.3|4.3|
-|Signature constraints|4|4|4.0|4.0|
-|Reference states|4|4|4.0|4.0|
-|Inline finality flow|4|3|4.0|4.0|
-|Whitelist constraints|3|3|3.0|3.0|
-|Corda serialization framework|3|3|3.0|3.0|
-|Observer nodes|2|2|2.0|n/a|
-
+| Feature                         | Corda platform version | Minimum network platform version | Introduced in OS version  | Introduced in Enterprise version |
+|---------------------------------|------------------------|----------------------------------|---------------------------|----------------------------------|
+| API update                      | 150                    | 4                                | 4.13                      | 4.13                             |
+| API update                      | 140                    | 4                                | 4.12                      | 4.12                             |
+| API update                      | 13                     | 4                                | 4.11                      | 4.11                             |
+| API update                      | 12                     | 4                                | 4.10                      | 4.10                             |
+| API update                      | 11                     | 4                                | 4.9                       | 4.9                              |
+| API update                      | 10                     | 4                                | 4.8                       | 4.8                              |
+| API update                      | 9                      | 4                                | 4.7                       | 4.7                              |
+| API update                      | 8                      | 4                                | 4.6                       | 4.6                              |
+| New flow framework APIs         | 7                      | 4                                | 4.5                       | 4.5                              |
+| Prevent CorDapp hosting issue   | 6                      | 4                                | 4.4                       | 4.4                              |
+| Underlying support for accounts | 5                      | 4                                | 4.3                       | 4.3                              |
+| Signature constraints           | 4                      | 4                                | 4.0                       | 4.0                              |
+| Reference states                | 4                      | 4                                | 4.0                       | 4.0                              |
+| Inline finality flow            | 4                      | 3                                | 4.0                       | 4.0                              |
+| Whitelist constraints           | 3                      | 3                                | 3.0                       | 3.0                              |
+| Corda serialization framework   | 3                      | 3                                | 3.0                       | 3.0                              |
+| Observer nodes                  | 2                      | 2                                | 2.0                       | n/a                              |
 {{< /table >}}
 
 {{< note >}}

@@ -184,7 +184,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration]({{< relref "../../../../../en/platform/corda/1.4/cenm/shell.md#shell-configuration" >}}) for more information on how to configure the shell.
+See [Shell Configuration]({{< relref "shell.md#shell-configuration" >}}) for more information on how to configure the shell.
 
 
 ### Issuance workflow
@@ -693,7 +693,7 @@ if the cached values are too old to use and the Identity Manager Service is not 
 After configuring the proxy and the Application Gateway, all the configuration files and certificates that would point to
 the Identity Manager Service CRL endpoint must be pointing to the Gateway endpoint instead.
 
-After you've made these changes and you have spun up a CENM ecosystem with an Identity Manager Service, a Network Map Service, a Signing Service, and Nodes,
+After you have made these changes and you have spun up a CENM ecosystem with an Identity Manager Service, a Network Map Service, a Signing Service, and Nodes,
 you can observe a successful retrieval of revocation lists from the registered nodes even when the
 Identity Manager Service is not operating (using the CRL endpoint health check tool provided by CENM). However, operations that require
 additional calls, such as signing a new CRL from the Signing Service, may not be possible to perform.

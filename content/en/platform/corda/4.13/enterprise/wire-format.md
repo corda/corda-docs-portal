@@ -24,7 +24,7 @@ All messages start with the 5-byte sequence `corda` followed by three versioning
 That means you can’t directly feed a Corda message into an AMQP library. You must check the header string and
 then skip it. This is deliberate, to enable other message formats in the future.
 
-The first version byte is set to 1 by default. This indicates the major version of the format. Any other version byte indicates a serialization format that isn't backwards compatible, and you should abort.
+The first version byte is set to 1 by default. This indicates the major version of the format. Any other version byte indicates a serialization format that is not backwards compatible, and you should abort.
 The second byte is the minor version. Your code will tolerate this incrementing if it is robust
 to unknown data (for example, new schema elements).
 The third byte is an encoding byte. This indicates that new features, such as

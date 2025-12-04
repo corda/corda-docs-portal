@@ -275,7 +275,7 @@ To produce:
 ```
 
 {{< note >}}
-You can only add to the whitelist. Once added, you can't remove a contract implementation.
+You can only add to the whitelist. Once added, you cannot remove a contract implementation.
 
 {{< /note >}}
 
@@ -304,7 +304,7 @@ Or the short form version:
 
 `java -jar network-bootstrapper-4.11.jar -n=<path_to_file>`
 
-The network parameter overrides file is a HOCON file with several configuration fields, all of which are optional. If you don't provide a field, it will be ignored. If a field is not provided and you are bootstrapping a new network, a sensible default value will be used. If a field is not provided
+The network parameter overrides file is a HOCON file with several configuration fields, all of which are optional. If you do not provide a field, it will be ignored. If a field is not provided and you are bootstrapping a new network, a sensible default value will be used. If a field is not provided
 when you are updating an existing network, the value in the existing network parameters file will be used.
 
 {{< note >}}

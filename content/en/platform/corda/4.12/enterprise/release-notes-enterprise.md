@@ -17,6 +17,129 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.8 release notes
+
+Corda Enterprise Edition 4.12.8 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation
+
+### Fixed issues
+
+- Fixed an issue where the Transaction Builder was ignoring a missing class name with dots in the NoClassDefFoundError. Class names in this class can now be handled using either dots or slashes. <!-- ENT-14431 -->
+- A number of dependencies have been upgraded; see [Third-party components upgrade]({{< relref "#third-party-components-upgrade" >}}) below. <!-- ENT-13054  - -->
+- Fixed an issue with attachment handling by TransactionBuilder when searching for a missing class. This is now done as follows: <!-- ENT-14451 -->
+  - Attachment lookup prioritization: TransactionBuilder now searches installed CorDapps first, falling back to the database only when needed. Only JDK 17–compatible attachments are considered. Legacy CorDapps never use database fallback. 
+  - Deterministic selection: Depending on the attachment type, attachments are now sorted by version (descending), ID (ascending), or insertion date (descending), ensuring consistent and predictable attachment resolution across nodes.
+  For more information, see [How attachments are resolved]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md#how-attachments-are-resolved" >}}).
+- A regression was discovered in quasar 0.9.1_r3 which is used in 4.12.6 and 4.12.7. This has now been resolved. If you were previously considering upgrading to 4.12.6 or 4.12.7, then please instead upgrade to 4.12.8 where quasar 0.9.2_r3 is used. <!-- ENT-14477 --> 
+- The notary health check contract CorDapp is now signed by the R3 production key. Previously it was signed by the R3 developer key.
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.8. Dependencies with unchanged versions are omitted.
+
+| Dependency                                           | 4.12.8 Enterprise |
+|------------------------------------------------------|-------------------|
+| co.paralleluniverse:quasar-core                      | 0.9.2_r3          |
+| com.github.docker-java:docker-java                   | 3.6.0             |
+| com.github.docker-java:docker-java-transport-httpclient5 | 3.6.0         |
+| org.bouncycastle:*                                   | 2.73.9            |
+| com.nimbusds:oauth2-oidc-sdk                         | 8.36.2            |
+| com.nimbusds:nimbus-jose-jwt                         | 10.0.2            |
+| org.apache.zookeeper:zookeeper                       | 3.9.4             |
+
+## Corda Enterprise Edition 4.12.7 release notes
+
+Corda Enterprise Edition 4.12.7 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation
+
+### Fixed issues
+
+- The Corda Network Builder tool now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+- Netty has been upgraded to 4.1.127.Final due to a vulnerability.
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.12.6 and 4.12.7 Enterprise Editions. Dependencies with unchanged versions
+are omitted. 
+
+Dependency                           | Name         | 4.12.6 Enterprise    | 4.12.7 Enterprise
+-------------------------------------|--------------|----------------------|-------------------
+io.netty:\*                          | Netty        | 4.1.122.Final        | 4.1.127.Final  
+
+## Corda Enterprise Edition 4.12.6 release notes
+
+Corda Enterprise Edition 4.12.6 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+- On extremely rare occasions, a message may get stuck in Artemis. This issue has been reported to the Artemis team. As a workaround, Corda now automatically detects when this happens and resends the message. <!-- ENT-12803 -->
+
+- Previously, the wrong legacy attachment was being selected when searching for a missing class. Now, the legacy attachment JARs for any missing class must also be present in the `legacy-contracts` folder.
+ 
+  In more detail: previously, the attachment storage table was searched for an attachment containing the missing class. The only check performed was to make sure this attachment was not also in the `cordapps` folder. If it was not in the `cordapps` folder, it was assumed it was a legacy attachment. But this ignores the fact that there could be multiple JDK17 attachments in the database (the same CorDapp but different versions), with only the latest one in the `cordapps` folder.
+  
+  Now, the attachments table is checked but filtered against the contents of the `legacy-contracts` folder. <!-- ENT-12595 -->
+  
+- `newrelic-api.jar` is no longer bundled within `corda.jar`. New Relic functionality is unchanged: if the New Relic library is present on the classpath and properly configured, metrics will still be reported as before. <!-- ENT-14070 -->
+
+-  Previously, the flow `recoverAllFinalityFlows` did not treat inactive flows as active. This behavior has been corrected. <!-- ENT-13814 --> 
+
+### Third-party components upgrade
+
+The following table lists the dependency version changes between 4.12.5 and 4.12.6 Enterprise Editions. Dependencies with unchanged versions
+are omitted. 
+
+ Dependency                          | Name         | 4.12.5 Enterprise    |  4.12.6 Enterprise
+-------------------------------------|--------------|----------------------|---------------
+org.apache.activemq:\*               | Artemis      |  2.36.0              |   2.42.0
+commons-beanutils:commons-beanutils  | beanutils    |  1.9.4               |   1.11.0
+org.apache.curator:\*                | Curator      |  5.6.0               |   5.9.0
+com.github.docker-java:docker-java   | docker Java  |  3.2.5               |   3.5.3
+org.apache.logging.log4j:\*          | Log4j        |  2.23.0              |   2.24.3
+io.netty:\*                          | Netty        |  4.1.115.Final       |   4.1.122.Final
+co.paralleluniverse:quasar           | Quasar       |  0.9.0_r3            |   0.9.1_r3
+org.apache.shiro:\*                  | Shiro        |  1.10.0              |   1.13.0
+
 ## Corda Enterprise Edition 4.12.5 release notes
 
 Corda Enterprise Edition 4.12.5 is a patch release of Corda Enterprise Edition focused on resolving issues.

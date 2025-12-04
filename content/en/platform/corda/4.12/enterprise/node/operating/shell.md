@@ -137,7 +137,7 @@ Where:
   - `password=<password>`: The RPC user password. If not provided it will be prompted for on startup.
   - `truststore-password=<trustStorePassword>`: The password to unlock the node's `truststore.jks` file.
   - `truststore-file=<trustStoreFile>`: The path to the node's `truststore.jks` file.
-  - `truststore-type=<trustStoreType>`: The type of the node's trustStore file (in this case, it's `.jks`).
+  - `truststore-type=<trustStoreType>`: The type of the node's trustStore file (in this case, it is `.jks`).
   - `verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
   - `logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
   - `help`, `-h`: Show this help message and exit.
@@ -261,7 +261,7 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here]({{ https://docs.r3.com/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here](../../../../../../api-ref/corda/4.12/community/kotlin/docs/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
@@ -807,4 +807,4 @@ The shell will be enhanced over time. The currently known limitations include:
 * Command history is not preserved across restarts.
 * The `jdbc` command requires you to explicitly log into the database first.
 * Commands placed in the `shell-commands` directory are only noticed after the node is restarted.
-* The `jul` command advertises access to logs, but it doesn’t work with the logging framework used in Corda.
+* The `jul` command advertises access to logs, but it does not work with the logging framework used in Corda.

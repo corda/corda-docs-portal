@@ -97,7 +97,7 @@ parties).
 
 
 
-### What constitutes a non-backwards compatible flow change?
+### Non-backwards compatible flow changes
 
 A flow can become backwards-incompatible in two main ways:
 
@@ -294,7 +294,7 @@ this type include utility flows for querying the vault and flows for reaching ou
 
 
 
-### Flow drains
+### Draining the node
 
 A flow *checkpoint* is a serialized snapshot of the flow’s stack frames and any objects reachable from the stack.
 Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when
@@ -339,7 +339,7 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-vs-explicit-upgrades" >}}).
+The general recommendation for Corda is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-and-explicit-contract-upgrades" >}}).
 
 
 
@@ -347,7 +347,7 @@ The general recommendation for Corda is to use **implicit** upgrades for the rea
 
 In an explicit upgrade, contracts and states can be changed in arbitrary ways, if and only if all of the state’s
 participants agree to the proposed upgrade. To ensure the continuity of the chain the upgraded contract needs to declare the contract and
-constraint of the states it’s allowed to replace.
+constraint of the states it is allowed to replace.
 
 
 {{< warning >}}

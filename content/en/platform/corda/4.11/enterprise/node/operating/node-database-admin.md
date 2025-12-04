@@ -499,7 +499,7 @@ The option `-b` points to the base directory with a `node.conf` file and *driver
 A script will be generated named *migration/*.sql* in the base directory.
 This script contains all the statements to create/modify data structures (e.g. tables/indexes)
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-The command doesn’t alter any tables.
+The command does not alter any tables.
 Refer to the [Corda Database Management Tool]({{< relref "node-database.md#database-management-tool" >}}) manual for more detail.
 
 
@@ -792,7 +792,7 @@ If the user was created with *administrative* permissions, the schema name `data
 
 When connecting with a database user with restricted permissions, all queries need to be prefixed with the other schema name.
 Set the `database.schema` value to *my_admin_user*.
-The Corda node doesn’t guarantee to prefix all SQL queries with the schema namespace.
+The Corda node does not guarantee to prefix all SQL queries with the schema namespace.
 The additional configuration entry `connectionInitSql` sets the current schema to the admin user (*my_user*) on connection to the database.
 
 Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).

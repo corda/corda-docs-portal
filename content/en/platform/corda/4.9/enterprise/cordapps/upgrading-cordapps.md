@@ -342,13 +342,13 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-vs-explicit-contract-upgrades" >}}).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints.md#implicit-and-explicit-contract-upgrades" >}}).
 
 
 
 ### Performing explicit contract and state upgrades
 
-In an explicit upgrade, contracts and states can be changed in arbitrary ways, if and only if all of the state’s participants agree to the proposed upgrade. To ensure the continuity of the chain the upgraded contract needs to declare the contract and constraint of the states it’s allowed to replace.
+In an explicit upgrade, contracts and states can be changed in arbitrary ways, if and only if all of the state’s participants agree to the proposed upgrade. To ensure the continuity of the chain the upgraded contract needs to declare the contract and constraint of the states it is allowed to replace.
 
 
 {{< warning >}}

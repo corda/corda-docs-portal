@@ -89,7 +89,7 @@ First create the `AppleStamp` state. This state is the voucher issued to custome
 
 The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
 
-1. If you've copied in the template state, change the `TemplateContract.class` to `AppleStampContract.class`.
+1. If you have copied in the template state, change the `TemplateContract.class` to `AppleStampContract.class`.
 
 2. Add the annotation `@BelongsToContract(AppleStampContract.class)` to your state.
 
@@ -103,7 +103,7 @@ This what your code should look like so far:
 Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract]({{< relref "basic-cordapp-contract.md" >}}) tutorial.
 {{< /note >}}
 
-When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
+When naming your CorDapp files, it is best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
 
 {{< note >}}
 You've probably noticed that the state template includes imports at the top of the file. Don't worry, we'll get back to these in a little while.
@@ -234,7 +234,7 @@ public class AppleStamp implements LinearState {
 
 To access a private variable outside of its class in Java, you must use a getter. If you do not use getters, your Corda node cannot pick up the variables.
 
-Add a getter for each variable. After you've added the getters, your code should look like this:
+Add a getter for each variable. After you have added the getters, your code should look like this:
 
 ```java
 @BelongsToContract(AppleStampContract.class)
@@ -378,7 +378,7 @@ public class AppleStamp implements LinearState {
 
 ## Create the `BasketOfApples` state
 
-The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues to prepare the apples for Peter. Now that you've written your first state, try writing the `BasketOfApples` state using the following information.
+The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues to prepare the apples for Peter. Now that you have written your first state, try writing the `BasketOfApples` state using the following information.
 
 Private variables:
 * `description` - The brand or type of apple. Use type `String`.
@@ -392,7 +392,7 @@ If you are writing in Java, when you have multiple constructors in one state cla
 
 ### Check your work
 
-Once you've written the `BasketOfApples` state, check your code against the sample below. Your code should look something like this:
+Once you have written the `BasketOfApples` state, check your code against the sample below. Your code should look something like this:
 
 ```java
 package com.tutorial.states;

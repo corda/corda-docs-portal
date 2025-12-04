@@ -31,7 +31,7 @@ particular data to require authentication from multiple users.
 
 ## Signing Service overview
 
-The Signing Service supports the following HSMs (see [CENM support matrix]({{< relref "../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.md#hardware-security-modules-hsms" >}}) for more information):
+The Signing Service supports the following HSMs (see [CENM support matrix]({{< relref "cenm-support-matrix.md#hardware-security-modules-hsms" >}}) for more information):
 
 * Utimaco SecurityServer Se Gen2.
 * Gemalto Luna.
@@ -141,7 +141,7 @@ The configuration for the Signing Service consists of the following sections:
 
 The Signing Service is interacted with via the shell, which is configured at the top level of the configuration file. This
 shell is similar to the interactive shell available in other CENM services and is configured in a similar way. See
-[Shell Configuration]({{< relref "../../../../../en/platform/corda/1.4/cenm/shell.md#shell-configuration" >}}) for more information on how to configure the shell.
+[Shell Configuration]({{< relref "shell.md#shell-configuration" >}}) for more information on how to configure the shell.
 
 
 #### HSM libraries
@@ -1361,7 +1361,7 @@ class must implement `CASigningPlugin` or `NonCASigningPlugin` interface dependi
 it will handle.
 
 Both interfaces extend common `StartablePlugin` interface containing a single method `start()`. The method is run by
-Signing Service upon the service start-up and it’s intended to contain plugin’s initialization code (e.g. a database
+Signing Service upon the service start-up and it is intended to contain plugin’s initialization code (e.g. a database
 connection initialization).
 
 ```java

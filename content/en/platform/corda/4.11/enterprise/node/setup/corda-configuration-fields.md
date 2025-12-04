@@ -195,7 +195,7 @@ does not exist, a developer keystore will be used if `devMode` is true.
 The node will exit if `devMode` is false and the keystore does not exist.
 `devMode` also turns on background checking of flow checkpoints to shake out any bugs in the checkpointing process.
 Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
-If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set `devMode=true` in that case.
+If no value is specified in the node configuration file, the node will attempt to detect if it is running on a developer machine and set `devMode=true` in that case.
 This value can be overridden from the command line using the `--dev-mode` option.
 
 This flag affects the default value for Java heap size.
@@ -338,7 +338,7 @@ Allows fine-grained controls of various features only available in the enterpris
     * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation]({{< relref "../operating/monitoring-and-logging/node-metrics.md" >}}).
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 
-* `tuning`
+# `tuning`
 
     * The Corda node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
 
@@ -586,7 +586,7 @@ If an item in a list is overridden via an environment variable/system property, 
 *Default:* not defined
 
 This property is only available for Corda distributed with Capsule. For the Corda tarball distribution this option is unavailable.
-It's advisable to copy any required JAR files to the 'drivers' subdirectory of the node base directory.
+It is advisable to copy any required JAR files to the 'drivers' subdirectory of the node base directory.
 
 ### `jmxMonitoringHttpPort`
 
@@ -657,7 +657,7 @@ The legal identity of the node.
 This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
 This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
 At runtime, Corda checks whether this name matches the name in the node's certificates.
-The name must be a valid X.500 distinguished name, as per the [node naming constraints]({{< relref "node-naming.md" >}}).
+The name must be a valid X.500 distinguished name; see [Node identity]({{< relref "node-naming.md" >}}).
 
 *Default:* not defined
 

@@ -42,7 +42,7 @@ Serializers inheriting from `SerializationCustomSerializer` must implement two m
 
 ## Custom serializer example
 
-In the example below, imagine that you must serialize this class, but are constrained from making the constructor public. That means you can't use a public constructor to initialize all the properties, and therefore can't serialize the class.
+In the example below, imagine that you must serialize this class, but are constrained from making the constructor public. That means you cannot use a public constructor to initialize all the properties, and therefore cannot serialize the class.
 
 ```java
 public final class Example {
@@ -72,7 +72,7 @@ class into a form the platform can serialize. You could write a serializer like 
 ```java
 /**
  * The class lacks a public constructor that takes parameters it can associate
- * with its properties, so it isn't serializable by the Corda serialization
+ * with its properties, so it is not serializable by the Corda serialization
  * framework.
  */
 class Example {

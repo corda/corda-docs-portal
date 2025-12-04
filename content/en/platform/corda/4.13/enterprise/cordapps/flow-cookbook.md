@@ -172,7 +172,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // - Instead of sending a message back, the counterparty throws a
         //   ``FlowException``. This exception is propagated back to us,
         //   and we can use the error message to establish what happened.
-        // - We receive a message back, but it's of the wrong type. In
+        // - We receive a message back, but it is of the wrong type. In
         //   this case, a ``FlowException`` is thrown.
         // - We receive back a message of the correct type. All is good.
         //
@@ -193,7 +193,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
 
         // We can also use a single call to send data to a counterparty
         // and wait to receive data of a specific type back. The type of
-        // data sent doesn't need to match the type of the data received
+        // data sent does not need to match the type of the data received
         // back.
         val packet2: UntrustworthyData<Boolean> = counterpartySession.sendAndReceive<Boolean>("You can send and receive any class!")
         val boolean: Boolean = packet2.unwrap { data ->
@@ -426,7 +426,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
 
         // We'll often want to perform our own additional verification
         // too. Just because a transaction is valid based on the contract
-        // rules and requires our signature doesn't mean we have to
+        // rules and requires our signature does not mean we have to
         // sign it! We need to make sure the transaction represents an
         // agreement we actually want to enter into.
 
@@ -449,7 +449,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // Of course, if you are not a required signer on the transaction,
         // you have no power to decide whether it is valid or not. If it
         // requires signatures from all the required signers and is
-        // contractually valid, it's a valid ledger update.
+        // contractually valid, it is a valid ledger update.
 
         /**-----------------------
          * GATHERING SIGNATURES *
@@ -751,7 +751,7 @@ public class FlowCookbook {
             // - Instead of sending a message back, the counterparty throws a
             //   ``FlowException``. This exception is propagated back to us,
             //   and we can use the error message to establish what happened.
-            // - We receive a message back, but it's of the wrong type. In
+            // - We receive a message back, but it is of the wrong type. In
             //   this case, a ``FlowException`` is thrown.
             // - We receive back a message of the correct type. All is good.
             //
@@ -772,7 +772,7 @@ public class FlowCookbook {
 
             // We can also use a single call to send data to a counterparty
             // and wait to receive data of a specific type back. The type of
-            // data sent doesn't need to match the type of the data received
+            // data sent does not need to match the type of the data received
             // back.
             UntrustworthyData<Boolean> packet2 = counterpartySession.sendAndReceive(Boolean.class, "You can send and receive any class!");
             Boolean bool = packet2.unwrap(data -> {
@@ -991,7 +991,7 @@ public class FlowCookbook {
 
                 // We'll often want to perform our own additional verification
                 // too. Just because a transaction is valid based on the contract
-                // rules and requires our signature doesn't mean we have to
+                // rules and requires our signature does not mean we have to
                 // sign it! We need to make sure the transaction represents an
                 // agreement we actually want to enter into.
 
@@ -1018,7 +1018,7 @@ public class FlowCookbook {
             // Of course, if you are not a required signer on the transaction,
             // you have no power to decide whether it is valid or not. If it
             // requires signatures from all the required signers and is
-            // contractually valid, it's a valid ledger update.
+            // contractually valid, it is a valid ledger update.
 
             /*------------------------
              * GATHERING SIGNATURES *

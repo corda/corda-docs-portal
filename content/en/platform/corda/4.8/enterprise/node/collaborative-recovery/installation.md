@@ -20,7 +20,7 @@ weight: 150
 * Business Network Operators (BNOs)
 * Corda developers
 
-For Collaborative Recovery to be effective if it’s ever needed, you should install the required CorDapps as early as possible. You may be able to install them during a disaster scenario, but it saves valuable time to prepare in advance. This also allows other nodes in the network to reconcile/recover from you.
+For Collaborative Recovery to be effective if it is ever needed, you should install the required CorDapps as early as possible. You may be able to install them during a disaster scenario, but it saves valuable time to prepare in advance. This also allows other nodes in the network to reconcile/recover from you.
 
 If you are part of an operating Business Network, Corda Network or segregated subzone that does not currently mandate that all nodes run disaster recovery, you should recommend these measures are taken. Collaborative Recovery can only be successful if all nodes on the network have the appropriate CorDapps installed and up to date.
 

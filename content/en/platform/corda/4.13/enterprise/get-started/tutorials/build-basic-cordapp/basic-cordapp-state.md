@@ -68,7 +68,7 @@ git clone https://github.com/corda/cordapp-template-java/tree/release/4.12.git
 
 
 4. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp]({{< relref "../../../cordapps/tutorial-cordapp.md#step-2-open-the-sample-cordapp-in-intellij-idea" >}}).
+If you do not know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp]({{< relref "../../../cordapps/tutorial-cordapp.md#step-2-open-the-sample-cordapp-in-intellij-idea" >}}).
 
 
 5. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. In the drop-down menu that appears, select **Rename module**.
@@ -103,7 +103,7 @@ This what your code should look like so far:
 Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract]({{< relref "basic-cordapp-contract.md" >}}) tutorial.
 {{< /note >}}
 
-When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
+When naming your CorDapp files, it is best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
 
 {{< note >}}
 You've probably noticed that the state template includes imports at the top of the file. Don't worry, we'll get back to these in a little while.

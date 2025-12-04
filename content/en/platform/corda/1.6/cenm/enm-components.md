@@ -107,7 +107,7 @@ environments:
 * PostgreSQL
 * SQL Server
 
-For details of supported versions and configuration, see [CENM Databases]({{< relref "../../../../../en/platform/corda/1.6/cenm/database-set-up.md" >}}).
+For details of supported versions and configuration, see [CENM Databases]({{< relref "database-set-up.md" >}}).
 
 
 ## Public Key Infrastructure (PKI)
@@ -119,12 +119,12 @@ By design, they only have the ability to talk *to* the other CENM components, th
 In addition, signing a CRR or CSR, and potentially the Network Parameters, *should* require a human to interact with
 the HSM via some manual authentication mechanism.
 
-See [Certificate hierarchy guide]({{< relref "../../../../../en/platform/corda/1.6/cenm/pki-guide.md" >}}) for a detailed guide to PKI.
+See [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}) for a detailed guide to PKI.
 
 
 ## The Node
 
 Run by entities who wish to join the network, a node submits its Legal Identity to the Identity Manager for approval.
 On success, it will receive a PKI certificate linking that legal identity with its public key. It will then use that
-certificate to sign it’s Node Info (detailing its externally addressable location on the internet) and submit that to
+certificate to sign its Node Info (detailing its externally addressable location on the internet) and submit that to
 the Network Map.

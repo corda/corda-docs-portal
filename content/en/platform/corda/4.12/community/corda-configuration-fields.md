@@ -143,7 +143,7 @@ dataSource.password = ""
   The node will exit if `devMode` is false and the keystore does not exist.
   `devMode` also turns on background checking of flow checkpoints to shake out any bugs in the checkpointing process.
   Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
-  If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set `devMode=true` in that case.
+  If no value is specified in the node configuration file, the node will attempt to detect if it is running on a developer machine and set `devMode=true` in that case.
   This value can be overridden from the command line using the `--dev-mode` option.
 
   This flag affects the default value for Java heap size.
@@ -303,7 +303,7 @@ Please do not change.
   This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
   This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
   At runtime, Corda checks whether this name matches the name in the node's certificates.
-  The name must be a valid X.500 distinguished name, as per the [node naming constraints]({{< relref "node-naming.md" >}}).
+  The name must be a valid X.500 distinguished name; see [Node identity]({{< relref "node-naming.md" >}}).
 
   *Default:* not defined
 

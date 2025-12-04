@@ -31,9 +31,9 @@ title: Transactions
 
 ## Transactions on Corda
 
-You can't edit the Corda ledger—the only way to change it is to add new transactions to it. A transaction updates the [ledger]({{< relref "key-concepts-ledger.md" >}}) by consuming existing [input states]({{< relref "key-concepts-states.md" >}}) and outputting new states. The states the transaction consumes are marked "historic".
+You cannot edit the Corda ledger—the only way to change it is to add new transactions to it. A transaction updates the [ledger]({{< relref "key-concepts-ledger.md" >}}) by consuming existing [input states]({{< relref "key-concepts-states.md" >}}) and outputting new states. The states the transaction consumes are marked "historic".
 
-Every [state]({{< relref "key-concepts-states.md" >}}) is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model.
+Every [state]({{< relref "key-concepts-states.md" >}}) is *immutable*—it cannot be changed. This is called an *UTXO* (unspent transaction output) model.
 
 Here is an example of a transaction with two inputs and two outputs:
 
@@ -41,8 +41,8 @@ Here is an example of a transaction with two inputs and two outputs:
 A transaction can contain any number of inputs, outputs and references of any type. Transactions can:
 
 * Include different types of states representing multiple financial instruments, such as cash or bonds.
-* *Issue* states, by creating a transaction without inputs. These states won't replace any existing states because none are marked "historic".
-* *Exit* states, by creating transactions without outputs. This doesn't create any new states to replace the ones consumed.
+* *Issue* states, by creating a transaction without inputs. These states will not replace any existing states because none are marked "historic".
+* *Exit* states, by creating transactions without outputs. This does not create any new states to replace the ones consumed.
 * Merge or split fungible assets. For example, they may combine a $2 state and a $5 state into a $7 cash state.
 
 Transactions are *atomic*. Either all of the transaction’s proposed changes are accepted, or none are.

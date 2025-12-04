@@ -30,7 +30,7 @@ you’re at a stage of your development that requires planning for post-launch i
 * How the ledger expresses to what extent business logic can be changed and by who.
 * How change is managed in a world where there are no privileged administrators who can force upgrades.
 
-It’s worth planning for versioning and upgrades from the start, especially if you plan for your CorDapp to itself provide APIs to other
+It is worth planning for versioning and upgrades from the start, especially if you plan for your CorDapp to itself provide APIs to other
 apps. Apps extending the platform with industry-specific data models is a common case, and ensuring you can evolve your data model as
 the world changes is a key part of any professionally built software.
 
@@ -39,7 +39,7 @@ the world changes is a key part of any professionally built software.
 * [API stability guarantees]({{< relref "api-stability-guarantees.md" >}})
 * [Public API]({{< relref "api-stability-guarantees.md#public-api" >}})
 * [Non-public API (experimental)]({{< relref "api-stability-guarantees.md#non-public-api-experimental" >}})
-* [The `@DoNotImplement` annotation]({{< relref "api-stability-guarantees.md#the-donotimplement-annotation" >}})
+* [The @DoNotImplement annotation]({{< relref "api-stability-guarantees.md#the-donotimplement-annotation" >}})
 * [Versioning]({{< relref "versioning.md" >}})
 * [Release new CorDapp versions]({{< relref "upgrading-cordapps.md" >}})
 * [CorDapp constraints migration]({{< relref "cordapp-constraint-migration.md" >}})

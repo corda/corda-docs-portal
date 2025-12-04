@@ -24,7 +24,7 @@ be advertised to the entire network to allow nodes time to agree to the changes.
 This process changed extensively in CENM 1.3. The legacy process is still
 supported for services which use the shell interface instead of the admin RPC
 interface - for example, in the CENM Command-Line Interface (CLI) tool. However, this document presumes  that you
-use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation]({{< relref "../../../../../en/platform/corda/1.2/cenm/updating-network-parameters.md" >}}).
+use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation]({{< relref "../../1.2/cenm/updating-network-parameters.md" >}}).
 {{< /note >}}
 
 At a high level, the process is as follows:
@@ -40,7 +40,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters]({{< relref "../../../../../en/platform/corda/1.6/cenm/network-map.md#network-parameters" >}})
+See [Setting the Network Parameters]({{< relref "network-map.md#network-parameters" >}})
 for information on the network parameters configuration file format and options.
 
 When updating the network parameters, ensure that the network parameters file has the
@@ -100,7 +100,7 @@ security actions:
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
-update. See [the Corda node RPC API]({{< relref "../../4.8/enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}) for further details.
+update. See {{< cordalatestrelref "enterprise/get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" "the Corda node RPC API" >}} for further details.
 
 To list network participants that have or have not accepted the new network parameters,
 run the following command:

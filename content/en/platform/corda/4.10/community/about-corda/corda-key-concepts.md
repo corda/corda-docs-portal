@@ -1,5 +1,5 @@
 ---
-title: "Corda Community Edition Key Concepts"
+title: "Corda Community Edition key concepts"
 date: '2021-07-02'
 menu:
   corda-community-4-10:
@@ -60,7 +60,7 @@ Finally, some concepts that expand on other areas:
 
 ## CorDapps tutorial 
 
-After you've become familiar with the key concepts of Corda, see them in action by [running a sample CorDapp]({{< relref "../tutorial-cordapp.md" >}}).
+After you have become familiar with the key concepts of Corda, see them in action by [running a sample CorDapp]({{< relref "../tutorial-cordapp.md" >}}).
 
 ## Corda white papers
 

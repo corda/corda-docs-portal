@@ -168,7 +168,7 @@ There are four implementations of this interface. You can chain them together to
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
-`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types]({{< relref "api-contract-constraints.md#implicit-constraint-types" >}}), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
+`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types]({{< relref "api-contract-constraints.md#implicit-and-explicit-contract-upgrades" >}}), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
 {{< note >}}
 Sensible defaults are defined for frequently used attributes (`status` = `UNCONSUMED`, always include soft
 locked states).{{< /note >}}
@@ -362,7 +362,7 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", false
 ## Pagination
 
 The API supports paging if you expect many results. The default page size shows 200
-results. This enables efficient checkpointing within flows, and means you don't have to worry about pagination if you expect fewer than 200 results. If you expect more than 200 results (for example, if you are using the RPC API for reporting and/or UI display),
+results. This enables efficient checkpointing within flows, and means you do not have to worry about pagination if you expect fewer than 200 results. If you expect more than 200 results (for example, if you are using the RPC API for reporting and/or UI display),
 define a `PageSpecification` to process results correctly with efficient memory utilisation. A fail-fast mode alerts you to the need for pagination if a single query returns more than 200 results and no
 `PageSpecification` has been supplied.
 

@@ -58,7 +58,7 @@ table th:nth-of-type(4) {
 Tags:
 
 * `operation_name`: The name of the operation that the metric is related to.
-* `tenant`: The identifier of a tenant: it's either a virtual node identifier or a category for cluster level keys, for example {{< tooltip >}}TLS{{< /tooltip >}}.
+* `tenant`: The identifier of a tenant: it is either a virtual node identifier or a category for cluster level keys, for example {{< tooltip >}}TLS{{< /tooltip >}}.
 * `signature_spec`: The signature signing scheme name to create signatures during crypto signing operations.
 * `lookup_method`: The method used to look up signing key IDs, either public key IDs or public key short IDs.
 * `publickey_type`: The type of public key used in sign operations.

@@ -1,24 +1,24 @@
 ---
-title: "About the Docs"
+title: "About the docs"
 date: 2023-08-16
 section_menu: about-the-docs
 ---
-# About the Docs
+# About the docs
 
 The following topics are explained on this page:
 
-* [Reading the Docs]({{< relref "#reading-the-docs">}})
-* [Documentation End of Life Strategy]({{< relref "#documentation-end-of-life-strategy">}})
-* [Reporting an Error in the Docs]({{< relref "#reporting-an-error-in-the-docs">}})
+* [Reading the docs]({{< relref "#reading-the-docs">}})
+* [Documentation end of life strategy]({{< relref "#documentation-end-of-life-strategy">}})
+* [Reporting an error in the docs]({{< relref "#reporting-an-error-in-the-docs">}})
 
-## Reading the Docs
+## Reading the docs
 
 The Corda documentation is written from the perspectives of a collection of people; each with their own problems to solve. Relevant sections of the documentation should resonate with you, depending on the persona whose goals you share. The documentation currently addresses the following personas:
 
 * [Architect]({{< relref "#architect">}})
-* [CorDapp Developer]({{< relref "#cordapp-developer">}})
-* [Cluster Administrator]({{< relref "#cluster-administrator">}})
-* [Network Operator]({{< relref "#network-operator">}})
+* [CorDapp developer]({{< relref "#cordapp-developer">}})
+* [Cluster administrator]({{< relref "#cluster-administrator">}})
+* [Network operator]({{< relref "#network-operator">}})
 
 ### Architect
 
@@ -34,7 +34,7 @@ As an Architect considering or planning a project with Corda, you:
   * How do I maintain business continuity for Corda?
   * How do I deploy Corda into my enterprise infrastructure and integrate it with my enterprise applications?
 
-### CorDapp Developer
+### CorDapp developer
 
 A {{< tooltip >}}CorDapp{{< /tooltip >}} Developer uses Corda to:
 
@@ -45,7 +45,7 @@ A {{< tooltip >}}CorDapp{{< /tooltip >}} Developer uses Corda to:
 * implement a method in the API to make something simpler.
 * discover best practice design tips for distributed applications.
 
-### Cluster Administrator
+### Cluster administrator
 
 A Cluster Administrator is responsible for:
 
@@ -56,7 +56,7 @@ A Cluster Administrator is responsible for:
 * the disaster recovery story for Corda.
 * monitoring the health metrics of Corda.
 
-### Network Operator
+### Network operator
 
 The Network Operator is concerned with:
 
@@ -72,7 +72,7 @@ The Network Operator:
 * defines and applies network membership rules for participation in the business network.
 * distributes CorDapps to network participants.
 
-## Documentation End of Life Strategy
+## Documentation end of life strategy
 
 Use the following table to track the end of life schedule for each version of Corda. Each version of Corda has R3 support available for a fixed period.
 After this period has ended, these versions are no longer supported by R3 and associated documentation is archived. You should always aim to upgrade to the latest version of Corda whenever possible.
@@ -95,7 +95,11 @@ The highest released version of Corda 4 Enterprise Edition at any point in time 
 
 {{< snippet "corda-4/end-of-life-corda4.md" >}}
 
-## Reporting an Error in the Docs
+### CENM
+
+{{< snippet "cenm/end-of-life-cenm.md" >}}
+
+## Reporting an error in the docs
 
 The R3 Technical Writing team continuously strive to improve our documentation and overall content strategy. As we make improvements, we would love to get your feedback on what we are doing well, and what we could be doing better.
 

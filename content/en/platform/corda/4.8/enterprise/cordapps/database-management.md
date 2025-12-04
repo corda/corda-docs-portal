@@ -16,7 +16,7 @@ Corda and your installed CorDapps store their data in a relational database. Whe
 but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enterprise, CorDapps’ custom tables are created or upgraded automatically based on
-database management scripts written in [Liquibase]({{< relref "../node/operating/node-database.md#liquibase-ref" >}}) format and embedded in CorDapp JARs.
+database management scripts written in [Liquibase]({{< relref "../node/operating/node-database.md" >}}) format and embedded in CorDapp JARs.
 Any CorDapp with custom tables (`MappedSchema`)  must contain a matching database management script.
 
 
@@ -228,7 +228,7 @@ The database management tool is a standalone .`jar` file named `tools-database-m
 Enterprise customers can use it to develop Liquibase scripts for CorDapps.
 
 A generated script contains an instruction in SQL format (DDL statements), which may be not portable across different databases.
-Only use the SQL format script development purposes, or when a CorDapp doesn’t need to be portable across
+Only use the SQL format script development purposes, or when a CorDapp does not need to be portable across
 different databases (for example, if the CorDapp is deployed on nodes running against PostgreSQL),
 You can use this script to create a portable Liquibase script in XML format. The tool only lets you create a Liquibase script for the initial database object. You cannot alter or delete tables.
 
@@ -323,10 +323,10 @@ Test the migration by running with the database management tool and inspecting t
 
 If you upgrade a node to Enterprise, then any CorDapps running on the node must contain Liquibase scripts.
 Any custom tables (which are required by CorDapps) were created manually or by Hibernate upon node startup.
-Therefore, the database doesn’t contain an entry in the *DATABASECHANGELOG* table, which is created by the Liquibase runner.
+Therefore, the database does not contain an entry in the *DATABASECHANGELOG* table, which is created by the Liquibase runner.
 You need to create the entries and provide them to a node operator to run them manually.
 
-See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure]({{< relref "../node-operations-upgrading-os-to-ent.md#upgrade-from-corda-open-source-to-corda-enterprise" >}}) to learn how to obtain SQL statements.
+See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure]({{< relref "../node-operations-upgrading-os-to-ent.md#upgrading-a-corda-os-node-to-corda-enterprise" >}}) to learn how to obtain SQL statements.
 
 
 

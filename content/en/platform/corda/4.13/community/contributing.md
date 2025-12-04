@@ -20,7 +20,7 @@ title: How to contribute
 
 ## Identifying an area to contribute
 
-* If you'd like to contribute, but don't have a specific project in mind:
+* If you'd like to contribute, but do not have a specific project in mind:
     * Message a [Community Maintainer]({{< relref "contributing-philosophy.md#community-maintainers" >}}) saying “I want to help!”. They’ll work
 with you to find an area for you to contribute.
     * Browse the issues labelled `help wanted` on the

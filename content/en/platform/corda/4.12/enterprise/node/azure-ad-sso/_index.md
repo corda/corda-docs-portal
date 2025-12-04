@@ -20,7 +20,7 @@ To set up SSO with Azure AD, you need to:
 
 1. Configure your Azure AD using the Azure online console.
 2. Configure your [Auth Service]({{< relref "../auth-service.md" >}}).
-3. If you use the [CENM Command-line Interface]({{< relref "../../../../1.6/cenm/cenm-cli-tool.md" >}}), you also need to configure Azure AD to enable commands.
+3. If you use the {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "CENM Command-line Interface" >}}, you also need to configure Azure AD to enable commands.
 
 {{< note >}}
 Some steps in the Auth configuration require reference to your Azure AD account and setup, so you should be able to access both when setting up Azure AD SSO.
@@ -153,7 +153,7 @@ To allow use of the CENM Command-line Interface Tool, you need to enable a few a
 If the custom redirect URI fails, you can select the URI: `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 {{< /note >}}
 
-You can now access Azure login using the [CENM Command-line Interface]({{< relref "../../../../1.6/cenm/cenm-cli-tool.md" >}}).
+You can now access Azure login using the {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "CENM Command-line Interface" >}}. 
 
 To log in:
 

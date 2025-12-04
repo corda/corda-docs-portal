@@ -328,7 +328,7 @@ The Bank in a Box application uses [Oracles]({{< relref "../../key-concepts-orac
 
 Oracle signatures use [partial Merkle tree signing]({{< relref "../../key-concepts-tearoffs.md" >}}), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
 
-When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states]({{< relref "../../../enterprise/event-scheduling.md#how-to-implement-scheduled-events" >}}) to create a recurring payment for that loan, into the loan account.
+When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states]({{< relref "../../../enterprise/event-scheduling.md#implementing-scheduled-events" >}}) to create a recurring payment for that loan, into the loan account.
 
 ### Business logic
 
@@ -685,7 +685,7 @@ Use `WithdrawFiatFlow` to withdraw a specified amount from an account with the p
 This operation will fail if any of the following conditions is true:
 
 * The provided `accountId` is a reference to a loan account or savings account in savings period.
-* The specified account doesn't have sufficient funds on accounts balance.
+* The specified account does not have sufficient funds on accounts balance.
 * The specified account has reached daily withdrawal limit.
 * The specified account is not in `ACTIVE` status.
 

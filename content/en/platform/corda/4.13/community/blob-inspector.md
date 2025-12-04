@@ -30,7 +30,7 @@ java -jar corda-tools-blob-inspector-4.12.jar <file or URL>
 
 Use the `--help` flag for a full list of command line options.
 
-The serialization framework can synthesize any classes found in the blob that are not on the classpath. That means you don't need to include the JARs containing the class definitions when inspecting your custom data structures.
+The serialization framework can synthesize any classes found in the blob that are not on the classpath. That means you do not need to include the JARs containing the class definitions when inspecting your custom data structures.
 
 
 ## Supported formats

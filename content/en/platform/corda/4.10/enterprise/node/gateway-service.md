@@ -32,7 +32,7 @@ When you configure the Gateway Service, you need to:
 
 1. Specify the endpoint where the Auth Service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
 
-2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool]({{< relref "../../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}).
+2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the {{< cenmlatestrelref "cenm/pki-tool.md" "Public key infrastructure (PKI) tool" >}}.
 
 3. Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "auth-service.md" >}}).
 
@@ -102,6 +102,6 @@ Command line arguments:
 [Auth Service]({{< relref "auth-service.md" >}}) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console]({{< relref "../../../../../../en/platform/corda/1.5/cenm/cenm-console.md#installation" >}})
+* {{< cenmlatestrelref "cenm/cenm-console.md#installation" "CENM management console" >}}
 * [Node management console]({{< relref "management-console.md#installation" >}})
 * [Flow management console]({{< relref "node-flow-management-console.md#installation" >}})

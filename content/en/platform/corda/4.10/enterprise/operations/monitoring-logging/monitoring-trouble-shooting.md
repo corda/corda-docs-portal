@@ -14,9 +14,9 @@ weight: 20
 
 If you are a Corda Enterprise Network Manager (CENM) services user in your Corda Enterprise environment, you can make use of the CENM node troubleshooting guide.
 
-Here you can find [troubleshooting solutions]({{< relref "../../../../1.5/cenm/troubleshooting-common-issues.md" >}}) to issues such as:
+Here you can find {{< cenmlatestrelref "cenm/troubleshooting-common-issues.md" "troubleshooting solutions" >}} to issues such as:
 
-* **Verifying a service is running and responsive** - As well as the service logs, the CENM services provideendpoints which can be used to determine the current status of the service, whether it is executing and if it is reachable.
+* **Verifying a service is running and responsive** - As well as the service logs, the CENM services provide endpoints which can be used to determine the current status of the service, whether it is executing and if it is reachable.
 * **Nodes are not appearing in the Network Map** - The Network Map Service and node is up and running, but the node cannot be seen from any other nodes on the network. There are a few different reasons why this could be:
     * The publishing of the node info was successfully, but the updated network map has not been signed yet.
     * There was an issue with the node info publishing such as the node’s certificate was not valid.

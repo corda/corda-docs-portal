@@ -70,6 +70,7 @@ can be disabled.
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.13 | 150 |
 | 4.12 | 140 |
 | 4.11 | 13 |
 | 4.10 | 12 |

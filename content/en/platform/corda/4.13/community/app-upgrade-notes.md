@@ -37,6 +37,7 @@ If you are using them you should re-namespace them to a package namespace you co
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.13| 150 |
 | 4.12| 140 |
 | 4.11 | 13 |
 | 4.10 | 12 |
@@ -52,6 +53,11 @@ If you are using them you should re-namespace them to a package namespace you co
 | 4.0 | 4 |
 | 3.3 | 3 |
 {{< /table >}}
+
+
+## Upgrading CordDapps to platform version 150
+
+*X*X*
 
 ## Upgrading CorDapps to platform version 140
 
@@ -143,7 +149,7 @@ used as an `AbstractParty` but has an actual value that is one of `Party` or `An
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
 For more information on `Destination`, see the KDocs for the interface
-[here]({{< relref "../../../../api-ref/api-ref-corda-4.md#corda-community-edition-4x-api-reference" >}}).
+[here]({{< relref "../../../../api-ref/api-ref-corda-4.md#corda-community-and-open-source-4x" >}}).
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
 as `AbstractParty`.

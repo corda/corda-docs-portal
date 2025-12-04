@@ -19,7 +19,7 @@ title: Network parameters
 
 # Network parameters
 
-Allowed parameters are:
+The available network parameters are:
 
 
 * **minimumPlatformVersion**:

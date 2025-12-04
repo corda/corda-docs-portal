@@ -8,7 +8,7 @@ tags:
 - configuration
 - file
 title: Node configuration
-weight: 3
+weight: 30
 ---
 
 # Node configuration
@@ -138,7 +138,7 @@ java -Dcorda.jarDirs_0=./newdir1
 
 The resulting value of `jarDirs` will be `["./newdir1"]`.
 
-* You can't override a populated list with an empty list. For example, when `devMode=false`, `cordappSignerKeyFingerprintBlacklist` is pre-populated with Corda development keys. It isn't possible to set this to an empty list via the commandline. You can however override the list with an all zero hash which will remove the keys:
+* You cannot override a populated list with an empty list. For example, when `devMode=false`, `cordappSignerKeyFingerprintBlacklist` is pre-populated with Corda development keys. It is not possible to set this to an empty list via the commandline. You can however override the list with an all zero hash which will remove the keys:
 
 ```shell script
 java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="0000000000000000000000000000000000000000000000000000000000000000"

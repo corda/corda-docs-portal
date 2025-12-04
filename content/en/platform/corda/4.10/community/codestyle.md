@@ -29,17 +29,17 @@ when interpreting them. The rules that are currently being enforced via the Dete
 
 We use the standard [Kotlin coding style from JetBrains](https://kotlinlang.org/docs/reference/coding-conventions.html).
 
-In Kotlin code, KDoc is used rather than JavaDoc. It’s very similar except it uses Markdown for formatting instead
+In Kotlin code, KDoc is used rather than JavaDoc. It is very similar except it uses Markdown for formatting instead
 of HTML tags.
 
 We target Java 8 and use the latest Java APIs whenever convenient. We use `java.time.Instant` to represent timestamps
 and `java.nio.file.Path` to represent file paths.
 
 Never apply any design pattern religiously. There are no silver bullets in programming and if something is fashionable,
-that doesn’t mean it’s always better. In particular:
+that does not mean it is always better. In particular:
 
 
-* Use functional programming patterns like map, filter, fold only where it’s genuinely more convenient. Never be afraid
+* Use functional programming patterns like map, filter, fold only where it is genuinely more convenient. Never be afraid
 to use a simple imperative construct like a for loop or a mutable counter if that results in more direct, English-like
 code.
 * Use immutability when you don’t anticipate very rapid or complex changes to the content. Immutability can help avoid
@@ -88,8 +88,8 @@ explanations of things.
 When writing code, imagine that you have an intelligent colleague looking over your shoulder asking you questions
 as you go. Think about what they might ask, and then put your answers in the code.
 
-Don’t be afraid of redundancy, many people will start reading your code in the middle with little or no idea of what
-it’s about (e.g. due to a bug or a need to introduce a new feature). It’s OK to repeat basic facts or descriptions in
+Do not be afraid of redundancy, many people will start reading your code in the middle with little or no idea of what
+it is about (for example, due to a bug or a need to introduce a new feature). It is OK to repeat basic facts or descriptions in
 different places if that increases the chance developers will see something important.
 
 API docs: all public methods, constants and classes **must** have doc comments in either JavaDoc or KDoc. API docs should:
@@ -137,16 +137,16 @@ When writing multi-line TODO comments, indent the body text past the TODO line, 
 ## Threading
 
 Classes that are thread safe should be annotated with the `@ThreadSafe` annotation. The class or method comments
-should describe how threads are expected to interact with your code, unless it’s obvious because the class is
+should describe how threads are expected to interact with your code, unless it is obvious because the class is
 (for example) a simple immutable data holder.
 
 Code that supports callbacks or event listeners should always accept an `Executor` argument that defaults to
 `MoreExecutors.directThreadExecutor()` (i.e. the calling thread) when registering the callback. This makes it easy
 to integrate the callbacks with whatever threading environment the calling code expects, e.g. serialised onto a single
 worker thread if necessary, or run directly on the background threads used by the class if the callback is thread safe
-and doesn’t care in what context it’s invoked.
+and does not care in what context it is invoked.
 
-In the prototyping code it’s OK to use synchronised methods i.e. with an exposed lock when the use of locking is quite
+In the prototyping code it is OK to use synchronised methods i.e. with an exposed lock when the use of locking is quite
 trivial. If the synchronisation in your code is getting more complex, consider the following:
 
 
@@ -180,7 +180,7 @@ accidentally being used in a multi-threaded way when it didn’t expect that.
 We use them liberally and we use them at runtime, in production. That means we avoid the “assert” keyword in Java,
 and instead prefer to use the `check()` or `require()` functions in Kotlin (for an `IllegalStateException` or
 `IllegalArgumentException` respectively), or the Guava `Preconditions.check` method from Java. Assertions should
-always have messages associated with them describing what went wrong, even if it’s just a copy of the expression (but
+always have messages associated with them describing what went wrong, even if it is just a copy of the expression (but
 ideally is more helpful).
 
 We define new exception types liberally. We prefer not to provide English language error messages in exceptions at
@@ -256,5 +256,5 @@ You should additionally update the [release notes]({{< relref "release-notes.md"
 not directly visible.
 
 Because this is a developer platform, *many* changes are user visible. That means *many* PRs will require docsite changes.
-When you review a PR that doesn’t change the docsite, you should be asking yourself “why does this PR not require docs
+When you review a PR that does not change the docsite, you should be asking yourself “why does this PR not require docs
 changes” rather than the other way around (“does this PR require changes”), which is easier to forget about.

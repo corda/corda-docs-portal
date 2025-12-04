@@ -136,7 +136,7 @@ From now on the development organisation that signed the JAR is responsible for 
 Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * If using a local network created using the Network Bootstrapper tool, please follow the instructions in
-[Updating the contract whitelist for bootstrapped networks]({{< relref "../network-bootstrapper.md#bootstrapper-updating-whitelisted-contracts" >}}) to can add both CorDapp Contract JAR hashes.
+[Updating the contract whitelist for bootstrapped networks]({{< relref "../network-bootstrapper.md#updating-the-contract-whitelist-for-bootstrapped-networks" >}}) to can add both CorDapp Contract JAR hashes.
 
 * Any flow that builds transactions using this CorDapp will automatically transition states to use the `SignatureAttachmentConstraint` if
 no other constraint is specified and the CorDapp continues to be whitelisted. Therefore, there are two ways to alter the existing code.

@@ -107,6 +107,8 @@ Note that metrics related to the default thread pool do not have a *.default* su
 |net.corda:type=Flows,name=Error|The total number of flows failed with an error.|
 |net.corda:type=Flows,name=ErrorPerMinute|The rate at which flows fail with an error.|
 |net.corda:type=Flows,name=Finished|The total number of completed flows (both successfully and unsuccessfully).|
+|net.corda:type=Flows,name=Hospitalized | Number of flows that are currently hospitalized. |
+|net.corda:type=Flows,name=HospitalizedPerMinute | Number of flows being hospitalized per minute. |
 |net.corda:type=Flows,name=InFlight|The number of in-flight flows.|
 |net.corda:type=Flows,name=QueueSize.{threadpool}|The current size of the queue for flows waiting to be executed for the specified thread pool|
 |net.corda:type=Flows,name=QueueSizeOnInsert.{threadpool}|A histogram showing the queue size at the point new flows are added for the specified thread pool|
@@ -120,6 +122,9 @@ Note that metrics related to the default thread pool do not have a *.default* su
 |net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}|  The flow duration for the default thread pool of the specified flow, if failed. | 
 |net.corda:type=Flows,name=FlowDuration.Success.{flowclassname}.{threadpoolname} |  The flow duration for the specified thread pool of the specified flow, if successful. | 
 |net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}.{threadpoolname} | The flow duration for the specified thread pool of the specified flow, if failed. |  
+| net.corda:type=Flows,name=HeartbeatLatencyInMilliseconds | Indicates the time, in milliseconds, required to start a flow. |
+| net.corda:type=Flows,name=TimeSinceLastPickedUpInSeconds | Indicates the elapsed time since the last flow was picked up from the queue, assuming other flows are still waiting to be processed. A high value suggests that flows are being starved. |
+| net.corda:type=Flows,name=TimeInQueueOldestInSeconds | Indicates how long the oldest flow has been waiting in the flow executor queue. |
 
 {{< /table >}}
 
@@ -189,6 +194,13 @@ Actions are reified IO actions to execute as part of state machine transitions. 
 |net.corda:type=P2P,name=SendMessageSize|A histogram measuring the size of sent messages.|
 |net.corda:type=P2P,name=SendQueueSize|The size of the in-memory send queue in the state machine for messages waiting to be sent to Artemis.|
 |net.corda:type=P2P,name=SendQueueSizeOnInsert|A histogram measuring the size of the in-memory send queue in the state machine when new messages are added.|
+|net.corda:type=P2P,name=inbound.QueueLength | The number of inbound P2P messages waiting to be processed.|
+|net.corda:type=P2P,name=outbound.LongestQueueLength | The number of P2P messages in the longest outbound queue to a peer node.|
+|net.corda:type=P2P,name=outbound.LongestQueueNodeName | The node to which messages in the longest P2P outbound queue are waiting to be sent.|
+|net.corda:type=P2P,name=outbound.OldestFirstMessageAge | The age, in milliseconds, of the oldest message across all P2P outbound queues.|
+|net.corda:type=P2P,name=outbound.OldestFirstMessageNodeName | The node to which the oldest message across all P2P outbound queues is intended to be sent.|
+|net.corda:type=P2P,name=outbound.<legalIdentity>.FirstMessageAge | The age, in milliseconds, of the oldest message in the P2P outbound queue destined for the node with <legalIdentity>.|
+|net.corda:type=P2P,name=outbound.<legalIdentity>.QueueLength | The number of messages in the P2P outbound queue waiting to be sent to the node with <legalIdentity>.|
 
 {{< /table >}}
 

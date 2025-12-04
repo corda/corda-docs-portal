@@ -278,7 +278,7 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 Replace corda.jar with its latest version.
 
 Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.9.8/corda-node-4.9.8.jar).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java that the node requires.
+Make sure it is available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes-enterprise.md" >}}). Pay particular attention to which version of Java that the node requires.
 
 {{< important >}}
 Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.

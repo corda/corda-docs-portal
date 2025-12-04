@@ -18,13 +18,14 @@ weight: 150
 # Collaborative Recovery
 
 {{< note >}}
-The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated in Corda 4.11 and will be removed in Corda 4.12. You are now advised to use the new recovery tools introduced in version 4.11, as detailed in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../../release-notes-enterprise.md#corda-enterprise-edition-411-release-notes-1" >}}).
+The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated in Corda 4.11 and will be removed in Corda 4.12. You are now advised to use the new [Ledger Recovery]({{< relref "../ledger-recovery/overview.md" >}}) recovery tools introduced in version 4.11, as detailed in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../../release-notes-enterprise.md#corda-enterprise-edition-411-release-notes-1" >}}).
 {{</ note >}}
 
-**Who this documentation is for:**
-* Node operators
-* Business Network Operators (BNOs)
-* Corda developers
+## Who this documentation is for
+
+- Node operators
+- Business Network Operators (BNOs)
+- Corda developers
 
 
 ## Introducing Collaborative Recovery V1.2.1
@@ -77,7 +78,7 @@ There are seven stages in the Collaborative Recovery process. You should perform
 
 ## When to use Collaborative Recovery
 
-Collaborative Recovery is a last-resort option to recover your data. Whilst it provides tools to detect and recover missing ledger data, it's
+Collaborative Recovery is a last-resort option to recover your data. Whilst it provides tools to detect and recover missing ledger data, it is
 not sufficient as a disaster recovery strategy on its own. You must use Collaborative Recovery in conjunction with conventional disaster recovery strategies, such as backups and replication.
 
 Ideally, you should never need to use Collaborative Recovery. To protect the data on your node, each node you transact with should be part of a robust disaster recovery plan, agreed at the Business Network level. This strategy should mean you have backups include the following:
