@@ -31,7 +31,24 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-The Corda [Network Builder]({{< relref "network-builder.md" >}}) now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+- The Corda [Network Builder]({{< relref "network-builder.md" >}}) now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+
+### Third-party components upgrade
+
+The following table lists the dependency upgrades for 4.10.7 Enterprise Edition. Dependencies with unchanged versions are omitted.
+
+| Dependency                                            | New Version        |
+|-------------------------------------------------------|--------------------|
+| com.github.docker-java:docker-java                    | 3.5.2              |
+| com.github.docker-java:docker-java-transport-httpclient5 | 3.5.2           |
+| io.netty:tcnative*                                    | 2.0.74.Final       |
+| com.fasterxml.jackson.core:jackson-annotations        | 2.17.3             |
+| io.netty:*                                            | 4.1.128.Final      |
+| commons-beanutils:commons-beanutils                   | 1.11.0             |
+| org.apache.commons:commons-lang3                      | 3.19.0             |
+| org.controlsfx:controlsfx                             | 11.2.2             |
+| com.azure.resourcemanager:azure-resourcemanager       | 2.52.0             |
+| com.azure:azure-identity                              | 1.18.1             |
 
 ## Corda Enterprise Edition 4.10.6 release notes
 
