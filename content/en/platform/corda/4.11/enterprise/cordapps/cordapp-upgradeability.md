@@ -23,7 +23,7 @@ The following guarantees are made for CorDapps running on Corda 4.0
 * Compliant CorDapps compiled with previous versions of Corda (from 3.0) will execute without change on Corda 4.0{{< note >}}
 by “compliant”, we mean CorDapps that do not utilise Corda internal, non-stable or other non-committed public Corda APIs.{{< /note >}}
 Recommendation: security hardening changes in flow processing, specifically the `FinalityFlow`, recommend upgrading existing CorDapp
-receiver flows to use the new APIs and thus opting in to platform version 4. See [Step 5. Security: Upgrade your use of FinalityFlow]({{< relref "../app-upgrade-notes.md#5-improve-the-security-of-your-cordapp-by-upgrading-how-you-use-finalityflow" >}})for more information.
+receiver flows to use the new APIs and thus opting in to platform version 4. 
 * All constraint types (hash, CZ whitelisted, signature) are consumable within the same transaction if there is an associated contract attachment that satisfies all of them.
 * CorDapp Contract states generated on ledger using hash constraints are not directly migratable to signature constraints in this release.
 Your compatibility zone operator may whitelist a JAR previously used to issue hash constrained states, and then you can follow the manual

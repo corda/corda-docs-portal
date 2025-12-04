@@ -458,7 +458,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation]({{< relref "../../../../../../en/api-ref/api-ref-corda-4.md" >}}).
+You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}).
 
 
 ## Minimum and target platform version

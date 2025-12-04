@@ -28,8 +28,8 @@ Frequently asked questions for anything notary related:
     * [How are clustered notaries resolved by Artemis?]({{< relref "notary-load-balancing.md#how-are-clustered-notaries-resolved-by-artemis" >}})
     * [Why is the load balancing on the client side?]({{< relref "notary-load-balancing.md#why-is-the-load-balancing-on-the-client-side" >}})
     * [What happens if a notary in cluster becomes unavailable and does not respond?]({{< relref "notary-load-balancing.md#what-happens-if-a-notary-in-cluster-becomes-unavailable-and-does-not-respond" >}})
-    * [Can a specific notary from the cluster be selected for notarisation?]({{< relref "notary-load-balancing.md#can-a-specific-notary-from-the-cluster-be-selected-for-notarisation" >}})
-    * [In what order are notarisation requests processed?]({{< relref "notary-load-balancing.md#in-what-order-are-notarisation-requests-processed" >}})
+    * [Can a specific notary from the cluster be selected for notarisation?]({{< relref "notary-load-balancing.md#can-a-specific-notary-from-the-cluster-be-selected-for-notarization" >}})
+    * [In what order are notarisation requests processed?]({{< relref "notary-load-balancing.md#in-what-order-are-notarization-requests-processed" >}})
 
 
 * [Notary failover]({{< relref "notary-failover.md" >}})

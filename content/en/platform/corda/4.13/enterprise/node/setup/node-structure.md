@@ -7,7 +7,7 @@ tags:
 - node
 - structure
 title: Node folder structure
-weight: 1
+weight: 10
 ---
 
 

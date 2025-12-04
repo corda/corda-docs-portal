@@ -28,23 +28,28 @@ If you do use them, re-namespace them to a package namespace you control and sig
 ## Platform version matrix
 
 {{< table >}}
-| Corda release  | Platform version |
-| :------------- | :------------- |
-| 4.12| 140 |
-| 4.11| 13 |
-| 4.10| 12 |
-| 4.9 | 11 |
-| 4.8 | 10 |
-| 4.7 | 9 |
-| 4.6 | 8 |
-| 4.5 | 7 |
-| 4.4 | 6 |
-| 4.3 | 5 |
-| 4.2 | 4 |
-| 4.1 | 4 |
-| 4.0 | 4 |
-| 3.3 | 3 |
+| Corda release | Platform version |
+|:--------------|:----------------|
+| 4.13          | 150             |
+| 4.12          | 140             |
+| 4.11          | 13              |
+| 4.10          | 12              |
+| 4.9           | 11              |
+| 4.8           | 10              |
+| 4.7           | 9               |
+| 4.6           | 8               |
+| 4.5           | 7               |
+| 4.4           | 6               |
+| 4.3           | 5               |
+| 4.2           | 4               |
+| 4.1           | 4               |
+| 4.0           | 4               |
+| 3.3           | 3               |
 {{< /table >}}
+
+## Upgrading CorDapps to platform version 150
+
+*X*X*
 
 ## Upgrading CorDapps to platform version 140
 
@@ -60,7 +65,7 @@ No manual upgrade steps are required.
 
 To upgrade your CorDapps to platform version 8, you need to:
 1. [Upgrade existing nodes to version 4.6]({{< relref "#upgrade-existing-nodes-to-version-46" >}}).
-2. [Check that you are using Corda Gradle plugins version 5.1.1]({{< relref "#check-that-you-are-using-corda-gradle-plugins-version-511" >}}).
+2. [Check that you are using Corda Gradle plugins version 5.0.12]({{< relref "#check-that-you-are-using-corda-gradle-plugins-version-5012" >}}).
 
 ### Upgrade existing nodes to version 4.6
 

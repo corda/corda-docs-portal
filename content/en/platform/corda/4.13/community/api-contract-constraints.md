@@ -117,7 +117,7 @@ If you need to prevent a signer from processing transactions, you can *blacklist
 CorDapps and other attachments installed on a node still run, even if they are signed by a blacklisted key. Only attachments
 received from a peer are affected.
 
-You can also [blacklist keys]({{< relref "corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys" >}}).
+You can also [blacklist keys]({{< relref "corda-configuration-fields.md#blacklistedattachmentsigningkeys" >}}).
 
 Below are two examples of scenarios involving blacklisted signing keys. In each example:
 

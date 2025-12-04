@@ -23,7 +23,7 @@ This page provides links to the API reference documentation for all API modules 
 |4.8|<a href="../../../en/api-ref/corda/4.8/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.8/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 {{< /table >}}
 
-## Corda Community & Open Source 4.x
+## Corda Community and Open Source 4.x
 
 {{< table >}}
 

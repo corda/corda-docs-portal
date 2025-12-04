@@ -741,3 +741,7 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
 `@CordaSerializable` annotation (see [Serialization]({{< relref "../../../../../../../en/platform/corda/4.13/enterprise/serialization-index.md" >}})). An example is shown in [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
+
+## RPC operations list
+
+For a list of the key RPC operations available, see [RPC operations]({{< relref "../../api-rpc.md" >}}).

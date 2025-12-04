@@ -12,7 +12,7 @@ title: Using additional thread pools
 weight: 10
 ---
 
-Corda Enterprise executes flows in *thread pools*. A thread pool is a group of pre-created, idle threads, ready to execute tasks. The default Corda Enterprise configuration creates a single thread pool, whose size is configured by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. Open Source Corda is single-threaded.
+Corda Enterprise executes flows in *thread pools*. A thread pool is a group of pre-created, idle threads, ready to execute tasks. The default Corda Enterprise configuration creates a single thread pool, whose size is configured by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* parameter. Open Source Corda is single-threaded.
 
 In Corda 4.12 and previous versions, only the single, default thread pool described above was supported. From Corda 4.13 onward, the Enterprise version enables operators to define *multiple* thread pools and assign flows to them. The reason for this is to enable operators to prioritize particular flows and to segregate them from other flows.
 
@@ -59,7 +59,7 @@ and
 
 ### Example 2: One Defined Thread Pool and Default Thread Pool
 
-An alternative configuration, rather than defining two thread pools, could instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default thread pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.html#enterpriseconfiguration" >}})* parameter. 
+An alternative configuration, rather than defining two thread pools, could instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default thread pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* parameter. 
 
 ```json
 enterpriseConfiguration {

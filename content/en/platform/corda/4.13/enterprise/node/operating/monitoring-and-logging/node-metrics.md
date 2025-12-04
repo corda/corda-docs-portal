@@ -107,6 +107,8 @@ Note that metrics related to the default thread pool do not have a *.default* su
 |net.corda:type=Flows,name=Error|The total number of flows failed with an error.|
 |net.corda:type=Flows,name=ErrorPerMinute|The rate at which flows fail with an error.|
 |net.corda:type=Flows,name=Finished|The total number of completed flows (both successfully and unsuccessfully).|
+|net.corda:type=Flows,name=Hospitalized | Number of flows that are currently hospitalized. |
+|net.corda:type=Flows,name=HospitalizedPerMinute | Number of flows being hospitalized per minute. |
 |net.corda:type=Flows,name=InFlight|The number of in-flight flows.|
 |net.corda:type=Flows,name=QueueSize.{threadpool}|The current size of the queue for flows waiting to be executed for the specified thread pool|
 |net.corda:type=Flows,name=QueueSizeOnInsert.{threadpool}|A histogram showing the queue size at the point new flows are added for the specified thread pool|
@@ -123,6 +125,9 @@ Note that metrics related to the default thread pool do not have a *.default* su
 | net.corda:type=Flows,name=HeartbeatLatencyInMilliseconds | Indicates the time, in milliseconds, required to start a flow. |
 | net.corda:type=Flows,name=TimeSinceLastPickedUpInSeconds | Indicates the elapsed time since the last flow was picked up from the queue, assuming other flows are still waiting to be processed. A high value suggests that flows are being starved. |
 | net.corda:type=Flows,name=TimeInQueueOldestInSeconds | Indicates how long the oldest flow has been waiting in the flow executor queue. |
+| net.corda:type=Flows,name=SuspendedDurationMax | Longest suspension duration among all currently suspended flows. |
+| net.corda:type=Flows,name=SuspendedForMoreThanThreshold.Count | Number of flows suspended longer than the configured threshold, which is set via NodeConfiguration.flowMonitorSuspensionLoggingThresholdMillis. |
+| net.corda:type=Flows,name=SuspendedForMoreThanThreshold.ThresholdInSeconds | The value in seconds to which the threshold is set. |
 
 {{< /table >}}
 
