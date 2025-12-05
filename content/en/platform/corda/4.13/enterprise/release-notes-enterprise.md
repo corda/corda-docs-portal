@@ -17,21 +17,10 @@ weight: 10
 
 # Corda Enterprise Edition 4.13 release notes
 
-The Corda Enterprise Edition 4.13 release introduces .... In this release, Java has been upgraded to Java x from Java x and Kotlin has been upgraded to Kotlin x from x.
+The Corda Enterprise Edition 4.13 release introduces .... 
 
-When a CorDapp(s) and a node are successfully upgraded to 4.13, you are able to seamlessly interoperate 4.12 and 4.11 (or earlier) nodes on the same network, including the existing transactions on the ledger.
-
-Supporting new Java and Kotlin versions is a major feature, as we must also handle legacy contracts from existing backchains. The upgraded Java and Kotlin versions also have implications for CorDapp developers. Simply replacing the Corda JAR without introducing other changes is not possible.
 
 ### Upgrade recommendation
-
-{{< important >}}
-When upgrading a node to Corda 4.13, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
-
-To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
-
-For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
-{{< /important >}}
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.12 to 4.13 upgrade guide]({{< relref "upgrade-guide.md" >}}).
 
@@ -39,17 +28,16 @@ The steps from this guide only work for direct upgrades from Corda 4.12 to 4.13.
 
 ### Platform version change
 
-Corda 4.13 uses platform version xxxx.
+Corda 4.13 uses platform version 150.
 
 For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
 ### New features, enhancements and restrictions
 
-* [Multiple thread pools can now be defined and have flows assigned to them]({{< relref "cordapps/thread-pools.md" >}}). Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
-
-* Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between starting flows if one pool is performing badly and has a big queue.
-
-* Nodes can now be configured to be [read-only]({{< relref "node/setup/read-only-nodes.md" >}}). Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
+- [Multiple thread pools can now be defined and have flows assigned to them]({{< relref "cordapps/thread-pools.md" >}}). Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
+- Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between starting flows if one pool is performing badly and has a big queue.
+- Nodes can now be configured to be [read-only]({{< relref "node/setup/read-only-nodes.md" >}}). Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
+- The transaction hierarchy, [FinalityFlow]({{< relref "cordapps/api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
 
 
 ### Fixed issues
