@@ -25,7 +25,7 @@ in the same way), when writing states you must add a `JsonRepresentable`.
 
 Here's an example of a transaction, with two inputs and two outputs:
 
-{{< figure alt="basic tx" width=80% zoom="/en/images/basic-tx.png" >}}
+{{< figure alt="basic tx" width=80% src="/en/images/basic-tx.png" >}}
 
 A transaction can contain any number of inputs, outputs, and references. They can:
 
@@ -52,24 +52,24 @@ Input state references are a combination of:
 
 These input state references link transactions together, forming a *transaction chain*:
 
-{{< figure alt="tx chain" width=80% zoom="/en/images/tx-chain.png" >}}
+{{< figure alt="tx chain" width=80% src="/en/images/tx-chain.png" >}}
 
 ## Committing transactions
 
 Initially, a transaction is just a *proposal* to update the ledger. It represents the future state of the ledger
 that is desired by the transaction builders:
 
-{{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
+{{< figure alt="uncommitted tx" width=80% src="/en/images/uncommitted_tx.png" >}}
 
 To become reality, the transaction must receive signatures from all *required signers*
 (see **[commands](#commands)**). Each required signer appends their signature to the transaction to indicate that
 they accept the proposal:
 
-{{< figure alt="tx with sigs" width=80% zoom="/en/images/tx_with_sigs.png" >}}
+{{< figure alt="tx with sigs" width=80% src="/en/images/tx_with_sigs.png" >}}
 
 If all required signatures are gathered, the transaction becomes committed:
 
-{{< figure alt="committed tx" width=80% zoom="/en/images/committed_tx.png" >}}
+{{< figure alt="committed tx" width=80% src="/en/images/committed_tx.png" >}}
 
 This means that the transaction's:
 
@@ -119,7 +119,7 @@ For example, a transaction where Alice uses a £5 cash payment to pay off £5 of
 It also has two supporting attachments, and will only be notarised by NotaryClusterA if the notary pool
 receives it within the specified time-window. This transaction would look like:
 
-{{< figure alt="full tx" width=80% zoom="/en/images/full-tx.png" >}}
+{{< figure alt="full tx" width=80% src="/en/images/full-tx.png" >}}
 
 ### Commands
 
@@ -144,7 +144,7 @@ listed in the commands, you get the list of the transaction’s required signers
 
 Here's a visualization of this example.
 
-{{< figure alt="commands" width=80% zoom="/en/images/commands.png" >}}
+{{< figure alt="commands" width=80% src="/en/images/commands.png" >}}
 
 ### Attachments
 

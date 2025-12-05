@@ -92,6 +92,6 @@ countable (in cents), barrels of oil are fungible and countable (oil from two sm
 container), shares of the same class in a specific company are fungible and countable, and so on.
 This diagram illustrates the complete contract state hierarchy:
 
-{{< figure alt="financialContractStateModel" width=80% zoom="/en/images/financialContractStateModel.png" >}}
+{{< figure alt="financialContractStateModel" width=80% src="/en/images/financialContractStateModel.png" >}}
 Corda provides two packages: a core library and a finance model-specific library.
 You can re-use or extend the finance types directly, or write your own by extending the base types from the core library.

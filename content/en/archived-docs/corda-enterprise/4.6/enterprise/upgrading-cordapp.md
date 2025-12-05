@@ -37,7 +37,7 @@ The `version` property, which defaults to 1, specifies the flow’s version. Thi
 
 The flow interface is defined by the sequence of `send` and `receive` calls between an `InitiatingFlow` and an `InitiatedBy` flow, including the types of the data sent and received. We can picture a flow’s interface as follows:
 
-{{< figure alt="flow interface" width=80% zoom="./resources/flow-interface.png" >}}
+{{< figure alt="flow interface" width=80% src="./resources/flow-interface.png" >}}
 In the diagram above, the `InitiatingFlow`:
 
 

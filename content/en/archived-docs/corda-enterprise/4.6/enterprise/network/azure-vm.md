@@ -44,7 +44,7 @@ Define the basic parameters which will be used to pre-configure your Corda nodes
 * **Resource group**: Choose to ‘Create new’ and provide a useful name of your choice
 * **Location**: Select the geographical location physically closest to you
 
-{{< figure alt="azure multi node step1" width=80% zoom="../resources/azure_multi_node_step1.png" >}}
+{{< figure alt="azure multi node step1" width=80% src="../resources/azure_multi_node_step1.png" >}}
 Click ‘OK’
 
 STEP 2: Network Size and Performance
@@ -58,7 +58,7 @@ Define the number of Corda nodes in your network and the size of VM.
 * **Storage performance**: Leave as ‘Standard’
 * **Virtual machine size**: The size of the VM is automatically adjusted to suit the number of participant nodes selected. It is recommended to use the suggested values
 
-{{< figure alt="azure multi node step2" width=80% zoom="../resources/azure_multi_node_step2.png" >}}
+{{< figure alt="azure multi node step2" width=80% src="../resources/azure_multi_node_step2.png" >}}
 Click ‘OK’
 
 STEP 3: Corda Specific Options
@@ -69,14 +69,14 @@ Define the version of Corda you want on your nodes and the type of notary.
 * **Corda version (as seen in Maven Central)**: Select the version of Corda you want your nodes to use from the drop down list. The version numbers can be seen in [Maven Central](http://repo1.maven.org/maven2/net/corda/corda/), for example 0.11.0
 * **Notary type**: Select either ‘Non Validating’ (notary only checks whether a state has been previously used and marked as historic) or ‘Validating’ (notary performs transaction verification by seeing input and output states, attachments and other transaction information). More information on notaries can be found [here](https://vimeo.com/album/4555732/video/214138458)
 
-{{< figure alt="azure multi node step3" width=80% zoom="../resources/azure_multi_node_step3.png" >}}
+{{< figure alt="azure multi node step3" width=80% src="../resources/azure_multi_node_step3.png" >}}
 Click ‘OK’
 
 STEP 4: Summary
 
 A summary of your selections is shown.
 
-{{< figure alt="azure multi node step4" width=80% zoom="../resources/azure_multi_node_step4.png" >}}
+{{< figure alt="azure multi node step4" width=80% src="../resources/azure_multi_node_step4.png" >}}
 Click ‘OK’ for your selection to be validated. If everything is ok you will see the message ‘Validation passed’
 
 Click ‘OK’
@@ -91,7 +91,7 @@ Once deployed click ‘Resources Groups’, select the resource group you define
 
 The Network Map Service node is suffixed nm0. The Notary node is suffixed not0. Your Corda participant nodes are suffixed node0, node1, node2 etc. Note down the **Public IP address** for your Corda nodes. You will need these to connect to UI screens via your web browser:
 
-{{< figure alt="azure ip" width=80% zoom="../resources/azure_ip.png" >}}
+{{< figure alt="azure ip" width=80% src="../resources/azure_ip.png" >}}
 
 ## Using the Yo! CorDapp
 
@@ -133,7 +133,7 @@ where (public IP address) is the public IP address of one of your Corda nodes on
 
 You will now see the Yo! CorDapp web interface:
 
-{{< figure alt="Yo web ui" width=80% zoom="../resources/Yo_web_ui.png" >}}
+{{< figure alt="Yo web ui" width=80% src="../resources/Yo_web_ui.png" >}}
 
 * **Sending a Yo message via the web interface**
 
@@ -155,7 +155,7 @@ An easy way to see the Legal Names of Corda nodes on the network is to use the p
 http://(public IP address):(port)/api/yo/peers
 ```
 
-{{< figure alt="yo peers2" width=80% zoom="../resources/yo_peers2.png" >}}
+{{< figure alt="yo peers2" width=80% src="../resources/yo_peers2.png" >}}
 
 * **Viewing Yo messages**
 
@@ -165,7 +165,7 @@ To see Yo! messages sent to a particular node open a browser window and browse t
 http://(public IP address):(port)/api/yo/yos
 ```
 
-{{< figure alt="azure yos" width=80% zoom="../resources/azure_yos.png" >}}
+{{< figure alt="azure yos" width=80% src="../resources/azure_yos.png" >}}
 
 ## Viewing logs
 
@@ -186,8 +186,8 @@ And navigate to the following directory for system logs (syslog):
 
 You can open log files with any text editor.
 
-{{< figure alt="azure vm 10 49" width=80% zoom="../resources/azure_vm_10_49.png" >}}
-{{< figure alt="azure syslog" width=80% zoom="../resources/azure_syslog.png" >}}
+{{< figure alt="azure vm 10 49" width=80% src="../resources/azure_vm_10_49.png" >}}
+{{< figure alt="azure syslog" width=80% src="../resources/azure_syslog.png" >}}
 
 ## Next Steps
 

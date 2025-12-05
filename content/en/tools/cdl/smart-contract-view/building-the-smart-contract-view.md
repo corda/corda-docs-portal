@@ -28,4 +28,4 @@ You will follow a simple negotiation use case, where a buyer is negotiating to b
 
 You can follow the steps in the build up to a full Smart Contract view diagram which, will look like this:
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-full.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-full.png" width="1000" title="Click to zoom image in new tab/window" >}}

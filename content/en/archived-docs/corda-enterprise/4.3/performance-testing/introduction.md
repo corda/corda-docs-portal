@@ -114,7 +114,7 @@ measuring the throughput of a node, the test definition instructs all JMeter ser
 thus saturating the RPC handler and driving the node as hard as possible. The test typically e.g. issues cash on the node
 (no interaction with other nodes) or sends cash to a second node which requires sending P2P messages back and forth.
 
-{{< figure alt="jmeter network overview" width=80% zoom="/en/jmeter-network-overview.png" >}}
+{{< figure alt="jmeter network overview" width=80% src="/en/jmeter-network-overview.png" >}}
 
 ## Performance Tests
 

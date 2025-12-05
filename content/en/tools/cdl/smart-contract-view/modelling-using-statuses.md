@@ -24,7 +24,7 @@ For simple Smart Contracts there may only be one, implicit status. The Smart Con
 
 For example, you may wish to represent a smart contract made up of a `CashState` and `CashContract` using a single status:
 
- {{< figure zoom="../resources/../resources/cdl-overview-cashstate.png" width="750" title="Click to zoom image in new tab/window" >}}
+ {{< figure src="../resources/../resources/cdl-overview-cashstate.png" width="750" title="Click to zoom image in new tab/window" >}}
 
 This shows a `CashState` with its properties and participants. It then shows the various constraints imposed on that `CashState` by the `CashContract`, specifically:
 

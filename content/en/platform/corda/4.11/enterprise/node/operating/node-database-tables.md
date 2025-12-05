@@ -42,7 +42,7 @@ By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and rec
 
 Read more in [Network map]({{< relref "../../network/network-map.md" >}}).
 
-{{< figure alt="node info tables" width=80% zoom="/en/images/node_info_tables.png" >}}
+{{< figure alt="node info tables" width=80% src="/en/images/node_info_tables.png" >}}
 
 {{< table >}}
 
@@ -170,7 +170,7 @@ Read more in [Ledger]({{< relref "../../key-concepts-ledger.md" >}}).
 ### Attachments
 Read more in [Working with attachments]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}) and [Node services]({{< relref "../../node-services.md" >}}).
 
-{{< figure alt="attachments tables" width=80% zoom="/en/images/attachments_tables.png" >}}
+{{< figure alt="attachments tables" width=80% src="/en/images/attachments_tables.png" >}}
 
 {{< table >}}
 
@@ -518,7 +518,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 ### Fungible states
 
-{{< figure alt="vault fungible states" width=80% zoom="/en/images/vault_fungible_states.png" >}}
+{{< figure alt="vault fungible states" width=80% src="/en/images/vault_fungible_states.png" >}}
 
 {{< table >}}
 
@@ -547,7 +547,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 ### Linear states
 
-{{< figure alt="vault linear states" width=80% zoom="/en/images/vault_linear_states.png" >}}
+{{< figure alt="vault linear states" width=80% src="/en/images/vault_linear_states.png" >}}
 
 {{< table >}}
 

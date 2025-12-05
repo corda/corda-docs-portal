@@ -54,7 +54,7 @@ A Corda network has 8 types of keys and a regular node requires 4 of them:
 We can visualise the certificate structure as follows (for a detailed description of cert-hierarchy,
 see [Network certificates](permissioning.md)):
 
-{{< figure alt="certificate structure" width=80% zoom="/en/images/certificate_structure.png" >}}
+{{< figure alt="certificate structure" width=80% src="/en/images/certificate_structure.png" >}}
 
 ## Supported cipher suites
 

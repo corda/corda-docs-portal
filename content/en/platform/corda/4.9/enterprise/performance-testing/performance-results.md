@@ -40,7 +40,7 @@ the time of Corda Enterprise Edition 4 release).  This is with each node running
 running **Microsoft SQL Server**.  Similar results were obtained against the other supported databases.
 
 
-{{< figure alt="ce4 comparison chart" width=80% zoom="/en/images/ce4-comparison-chart.png" >}}
+{{< figure alt="ce4 comparison chart" width=80% src="/en/images/ce4-comparison-chart.png" >}}
 Figure 1
 
 
@@ -52,7 +52,7 @@ varies with the number of those payments combined together.  This can be useful 
 be a technique for even greater throughput.
 
 
-{{< figure alt="states per second" width=80% zoom="/en/images/states-per-second.png" >}}
+{{< figure alt="states per second" width=80% src="/en/images/states-per-second.png" >}}
 Figure 2
 
 
@@ -65,7 +65,7 @@ of Figure 3 were achieved using Corda Enterprise 3.0 on **Microsoft Azure** virt
 with minimal latency between the node VM and the database server VM.
 
 
-{{< figure alt="comparison chart" width=80% zoom="/en/images/comparison-chart.png" >}}
+{{< figure alt="comparison chart" width=80% src="/en/images/comparison-chart.png" >}}
 Figure 3
 
 
@@ -303,7 +303,7 @@ All these machines were 24 core (48 hyper-threads), based on 2x Intel Xeon E5-26
 
 The first test performed was focused on the latency aspect. Load was generated from a single client initialised in a machine that was separate from the ones hosting the Corda nodes and their databases. The load consisted of a pre-defined number of flows (400) that were executed one after the other sequentially. Each one of those flows was initiated on the central exchange node, which was responsible for collecting signatures from all the parties involved and for finalising the transaction. Each of those flows performed a swap of two states between every pair of nodes, thus leading to a Corda transaction with 10 input and 10 output states. During the test setup, the necessary amount of states was initially issued and each one of those states would be swapped once during the test. In order to also measure the impact of transaction resolution, during  the test setup each of these states was transferred bilaterally between the nodes in each pair ten times, thus generating a backchain of depth 10. This meant that during every Corda transaction, each node would have to resolve the backchain of the states belonging to the other pairs - so each node would have to resolve 80 states (8 nodes x 10 states each). In order to also measure the scaling with regard to the number of nodes, the exact same test was repeated with a varying number of participants, starting from 4 nodes and going up to 10. The test was also repeated three times with Corda Enterprise versions 4.3, 4.4, and 4.5. The goal was to isolate the benefits from bulk transaction resolution, introduced in version 4.4, and parallelised flows (`CollectSignaturesFlow` / `FinalityFlow`), introduced in version 4.5. The diagram below shows the results of this test, where the *x* axis indicates the number of nodes participating in the test, and the *y* axis indicates the average latency of the flow that performed the asset swap in milliseconds.
 
-{{< figure alt="CE 4.3/4.5 latency comparison chart" width=80% zoom="../resources/performance-testing/4-3_4-5_latency_comparison.png" >}}
+{{< figure alt="CE 4.3/4.5 latency comparison chart" width=80% src="../resources/performance-testing/4-3_4-5_latency_comparison.png" >}}
 
 The main observations from the tests follow below:
 * Corda Enterprise Edition 4.3 shows an exponential increase in the latency of the flow as the number of nodes that participate in the transaction is increased. This can be attributed to the following two reasons. Firstly, during the tests the exchange node was performing the `CollectSignaturesFlow` and `FinalityFlow` flows sequentially across the involved nodes, so the more nodes these flows had to iterate over, the more time it took. Secondly, these flows have the capability to trigger the execution of transaction resolution if they identify states for which the node is missing the provenance chain. In Corda Enterprise Edition 4.3, transaction resolution is not performed in bulk - it is performed one state at a time. As a result, every additional node causes a significant amount of extra work to be done.
@@ -314,7 +314,7 @@ The main observations from the tests follow below:
 
 The second test was focused on the throughput aspect. Load was generated from multiple clients initialised on the machines that were hosting the Corda nodes, which were acting as JMeter servers orchestrated by a JMeter client running on a separate machine. The goal was to saturate the participating Corda nodes and to prevent the single client from becoming the bottleneck. During the test setup, each client issued one state to every node. Each client was then performing one flow at a time, swapping these states between the participating nodes. No backchain was generated as part of this test. As a result, the test was executed only between Corda Enterprise Edition 4.3 and Corda Enterprise Edition 4.5, and with a varying number of nodes ranging from 2 up to 10. Each of the machines driving the load was using 120 concurrent clients, which summed up to 480 concurrent clients in total. Additional measurements were performed with a varying number of clients, in order to ensure that this was the optimal number of clients to saturate the nodes without overloading them. Since the throughput was different depending on the number of participating nodes, the total number of requests was also adjusted accordingly in order to get roughly the same total duration of approximately 20 minutes. In all the scenarios, it was confirmed that the nodes had reached a stable state when the test ended. The diagram below shows the results of this test, where the *x* axis indicates the number of nodes participating in the test, and the *y* axis indicates the average throughput measured in the number of flows completed per second.
 
-{{< figure alt="CE 4.3/4.5 throughput comparison chart" width=80% zoom="../resources/performance-testing/4-3_4-5_throughput_comparison.png" >}}
+{{< figure alt="CE 4.3/4.5 throughput comparison chart" width=80% src="../resources/performance-testing/4-3_4-5_throughput_comparison.png" >}}
 
 The main observations from the tests follow below:
 * Corda Enterprise Edition 4.5 can achieve a significantly higher throughput when compared to Corda Enterprise Edition 4.3. This can be attributed to the following factors:
@@ -336,9 +336,9 @@ Five different variations were tested, as follows:
 
 The purpose of this last test was to investigate the effects of these options in both throughput and latency because some of these options introduce trade-offs between these two aspects. To this end, the tests described earlier in this analysis were repeated using the variations listed above. For the latency measurements, 10 nodes were used because, thanks to the low load, there was no expectation for any big interference between nodes on the same machine. For the throughput measurements, only 4 nodes were used in order to avoid any interference between nodes on the same machine due to the high load. The results are shown in the diagrams below - the *x* axis contains the variations used, and the *y* axis shows the average throughput and latency achieved with each variation along with error bars indicating the standard deviation.
 
-{{< figure alt="CE 4.5 variants latency comparison chart" width=80% zoom="../resources/performance-testing/4-5_variants_latency.png" >}}
+{{< figure alt="CE 4.5 variants latency comparison chart" width=80% src="../resources/performance-testing/4-5_variants_latency.png" >}}
 
-{{< figure alt="CE 4.5 variants throughput comparison chart" width=80% zoom="../resources/performance-testing/4-5_variants_throughput.png" >}}
+{{< figure alt="CE 4.5 variants throughput comparison chart" width=80% src="../resources/performance-testing/4-5_variants_throughput.png" >}}
 
 The main observations from the test are as follows:
 * Disabling compression leads to lower throughput and higher latency. This is expected because compression introduces a trade-off between CPU and network bandwidth utilisation and in most cases the network would prove to be a bigger bottleneck.

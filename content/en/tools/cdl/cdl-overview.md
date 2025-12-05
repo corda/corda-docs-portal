@@ -55,7 +55,7 @@ In earlier versions of CDL, the Smart Contract view was known as the State Machi
 
 #### An example Smart Contract view:
 
-{{< figure zoom="./resources/cdl-agreement-smart-contract-full.png" width="800" title="Click to zoom image in new tab/window" >}}
+{{< figure src="./resources/cdl-agreement-smart-contract-full.png" width="800" title="Click to zoom image in new tab/window" >}}
 
 This diagram shows the three statuses an agreement can have, together with the possible transitions from one status to another, and the constraints governing both statuses and transitions.
 
@@ -88,7 +88,7 @@ You can't show the whole Corda Ledger in a single view (and wouldn't be useful t
 
 An example Ledger Evolution view:
 
-{{< figure zoom="./resources/cdl-agreement-naive-billing-ledger-evolution-charlie.png" width="800" title="Click to zoom image in new tab/window" >}}
+{{< figure src="./resources/cdl-agreement-naive-billing-ledger-evolution-charlie.png" width="800" title="Click to zoom image in new tab/window" >}}
 
 Here both states and transactions are represented as "nodes" in the graph. There is a connecting arrow from a transaction to a state when the state is an output of the transaction, and from a state to a transaction when the state is consumed by that transaction.
 
@@ -107,7 +107,7 @@ The Business Process Modelling Notation view is, as the name suggests, a BPMN di
 
 An example BPMN view:
 
-{{< figure zoom="./resources/cdl-bpmn-simultaneous-action.png" width="750" title="Click to zoom image in new tab/window" >}}
+{{< figure src="./resources/cdl-bpmn-simultaneous-action.png" width="750" title="Click to zoom image in new tab/window" >}}
 
 The notation follows BPMN v2 standards, with a few small additions:
 
