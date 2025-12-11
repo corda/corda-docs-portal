@@ -109,6 +109,8 @@ To make a node read-only, first its database must be preinitialised. This preini
 - Replicating a normal node's database
 - Configuring a normal node to a read-only node while keeping its database intact
 
+The node's network map cache in the database must have an entry matching the node's `myLegalName` configuration option. The previous options all satisfy this, assuming the read-only node's `myLegalName` stays the same as the original node's one.
+
 The node will not run any mutating operations on the database; however, the CorDapps installed by end-users may contain mutating queries.
 To restrict any unintentional mutating operations, it is recommended to ensure the read-only state of the database by either:
 
@@ -135,14 +137,7 @@ enterpriseConfiguration {
 
 Instead of changing the node configuration, you can start a node in read-only mode by using the `--readonly-mode` flag.
 
-First, add an entry to the node's network map cache matching the node's `myLegalName` configuration option.
-
-
-<!-- Are the following two steps for both read-only mode methods? -->
-
-
-
-### Read-only node output
+## Read-only node output
 
 A read-only node will display the following line when started in read-only mode:
 
