@@ -376,9 +376,9 @@ The Collaborative Recovery solution, along with the associated CorDapps (LedgerS
 
 Corda 4.12 introduces the Transaction Validator Utility (TVU), a tool that validates transactions committed to the database to avoid post-migration errors when upgrading to Corda 4.12. For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
 
-#### Support for signature constraints only
+#### Support for signature constraints and AlwaysAcceptAttachmentConstraint only
 
-Only CorDapps using signature constraints are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12.
+Only CorDapps using signature constraints and AlwaysAcceptAttachmentConstraint are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12. If you have 4.11 CorDapps using AlwaysAcceptAttachmentConstraint then these CorDapps can continue to use AlwaysAcceptAttachmentConstraint in 4.12.
 
 #### Corda 4.11 and 4.12 CorDapps must be signed by the same set of keys
 
