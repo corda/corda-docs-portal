@@ -65,11 +65,6 @@ You can use two types of contract constraints:
 * **Signature constraints**: This constraint lets participants use any version of the CorDapp signed by the `CompositeKey`. This allows CorDapp issuers to express the complex social and business relationships that arise around code ownership. You could release a new version of a CorDapp and apply it to an existing state as long as it has been signed by the same key(s) as the original version.
 * **Always accept constraint**: Allows any version of the CorDapp. This is insecure and only intended for testing.
 
-Before signature constraints were released with Corda 4.0, constraints were managed with hash and compatibility zone whitelist constraints. These constraints are still available, but make it difficult to upgrade your CorDapp:
-
-* **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
-* **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
-
 You can [migrate CorDapp contraints]({{< relref "cordapp-constraint-migration.md" >}}) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
 
 
