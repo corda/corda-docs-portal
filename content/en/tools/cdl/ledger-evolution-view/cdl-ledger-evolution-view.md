@@ -16,4 +16,4 @@ The Ledger Evolution view shows a sequence of Ledger transactions involving the 
 
 For example, a Ledger Evolution diagram for your Agreement example smart contract might look like this:
 
-{{< figure zoom="../resources/cdl-agreement-ledger-evolution-full.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-ledger-evolution-full.png" width="1000" title="Click to zoom image in new tab/window" >}}

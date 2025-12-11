@@ -241,7 +241,7 @@ You’ll build your transaction proposal in two steps:
 Our transaction will have the following structure:
 
 
-{{< figure alt="simple tutorial transaction" width=80% zoom="/en/images/simple-tutorial-transaction.png" >}}
+{{< figure alt="simple tutorial transaction" width=80% src="/en/images/simple-tutorial-transaction.png" >}}
 
 
 * The output `IOUState` on the right represents the state you will be adding to the ledger. As you can see, there are

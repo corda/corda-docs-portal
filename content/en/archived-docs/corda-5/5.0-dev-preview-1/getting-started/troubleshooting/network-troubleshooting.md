@@ -54,10 +54,9 @@ ERROR: for smoke-tests-network-bootstrapper  Cannot create container for service
 
 To resolve this, add the path to the **File sharing** options:
 
-{{<
-  figure
+{{< figure
 	 src="docker-windows-file-sharing.png"
-	 zoom="docker-windows-file-sharing.png"
+	 
    width=80%
 	 figcaption="Docker Windows File Sharing"
 	 alt="docker windows file sharing"

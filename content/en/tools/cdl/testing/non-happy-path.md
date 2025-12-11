@@ -18,7 +18,7 @@ At the end of the testing we want to have confidence we have covered all of the 
 
 The approach used in the cdl-example builds up a layered tree structure:
 
-{{< figure zoom="../resources/cdl-testing-structure.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-testing-structure.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 We take each constraint in turn, for each constraint we take each of the predicates that drives the constraint's behaviour, then for each predicate value we identify a potential error type, then for each error type the error value.
 

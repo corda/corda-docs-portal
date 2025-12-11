@@ -23,7 +23,7 @@ After the pre-check, we need to identify the situations where it is appropriate 
 
 From the diagram we can see that occurs for the Reject, Repropose and Agree commands:
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-full.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-full.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 Hence, we will perform a switch (`when` in Kotlin) on the commands and apply the linear ID check for those commands.
 

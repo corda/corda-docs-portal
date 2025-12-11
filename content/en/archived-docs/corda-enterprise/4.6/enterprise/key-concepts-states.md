@@ -36,7 +36,7 @@ identity information…).
 
 For example, the following state represents an IOU - an agreement that Alice owes Bob an amount X:
 
-{{< figure alt="state" width=80% zoom="/en/images/state.png" >}}
+{{< figure alt="state" width=80% src="/en/images/state.png" >}}
 Specifically, this state represents an IOU of £10 from Alice to Bob.
 
 As well as any information about the fact itself, the state also contains a reference to the *contract* that governs
@@ -53,14 +53,14 @@ historic.
 This sequence of state replacements gives us a full view of the evolution of the shared fact over time. We can
 picture this situation as follows:
 
-{{< figure alt="state sequence" width=80% zoom="/en/images/state-sequence.png" >}}
+{{< figure alt="state sequence" width=80% src="/en/images/state-sequence.png" >}}
 
 ## The vault
 
 Each node on the network maintains a *vault* - a database where it tracks all the current and historic states that it
 is aware of, and which it considers to be relevant to itself:
 
-{{< figure alt="vault simple" width=80% zoom="/en/images/vault-simple.png" >}}
+{{< figure alt="vault simple" width=80% src="/en/images/vault-simple.png" >}}
 We can think of the ledger from each node’s point of view as the set of all the current (i.e. non-historic) states that
 it is aware of.
 

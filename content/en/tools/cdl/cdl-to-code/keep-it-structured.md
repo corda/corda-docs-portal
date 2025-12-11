@@ -14,13 +14,13 @@ title: Keep it structured
 
 The CDL Smart Contract view deliberately separates the design into a set of considerations either to do with data structures or constraints over those data structures. You can show this diagrammatically:
 
-{{< figure zoom="../resources/cdl-to-code-smart-contract-to-concerns.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-to-code-smart-contract-to-concerns.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 To minimise the risks of making mistakes when implementing the smart contract, you should consider each of the considerations separately. Narrowing the focus can give you greater confidence that each consideration is implemented correctly.
 
 In the Agreement example, as implemented in the cdl-example CorDapp, the CDL considerations map to the following code structures:
 
-{{< figure zoom="../resources/cdl-to-code-concerns-to-structures.png" width="650" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-to-code-concerns-to-structures.png" width="650" title="Click to zoom image in new tab/window" >}}
 
 You can see in this diagram that:
 

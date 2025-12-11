@@ -93,6 +93,6 @@ countable (in cents), barrels of West Texas crude are fungible and countable (oi
 container), shares of the same class in a specific company are fungible and countable, and so on.
 The following diagram illustrates the complete Contract State hierarchy:
 
-{{< figure alt="financialContractStateModel" width=80% zoom="/en/images/financialContractStateModel.png" >}}
+{{< figure alt="financialContractStateModel" width=80% src="/en/images/financialContractStateModel.png" >}}
 Note there are currently two packages, a core library and a finance model specific library.
 Developers may re-use or extend the Finance types directly or write their own by extending the base types from the Core library.

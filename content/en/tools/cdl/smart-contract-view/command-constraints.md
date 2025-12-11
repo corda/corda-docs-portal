@@ -15,7 +15,7 @@ title: Command constraints
 The final type of constraint to add to the Smart Contract view is the Command constraint. Command constraints are constraints which apply when a particular Command is used in the transaction. They can place constraints on any part of the transaction, including on states which are not part of this Smart Contract.
 
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-command-constraints.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-command-constraints.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 You can use Command constraints to indicate, amongst other things:
 

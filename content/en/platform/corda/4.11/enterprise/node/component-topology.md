@@ -33,7 +33,7 @@ The key node components and services are:
 * The Corda firewall
 
 
-{{< figure alt="node architecture" width=80% zoom="/en/images/node-architecture.png" figcaption="Node internal architecture.">}}
+{{< figure alt="node architecture" width=80% src="/en/images/node-architecture.png" figcaption="Node internal architecture.">}}
 
 ### CorDapps
 
@@ -83,14 +83,14 @@ Nodes communicate with other nodes using asynchronous AMQP/TLS 1.2 protocols. HT
 
 Nodes communicate with client applications using RPC calls.
 
-{{< figure alt="overview" width=80% zoom="../resources/overview.png" >}}
+{{< figure alt="overview" width=80% src="../resources/overview.png" >}}
 
 
 ## Typical node deployments
 
 In most cases, nodes are deployed with this architecture:
 
-{{< figure alt="nodebridgefloat nbrs" width=80% zoom="../resources/nodebridgefloat_nbrs.png" figcaption="A typical node deployment.">}}
+{{< figure alt="nodebridgefloat nbrs" width=80% src="../resources/nodebridgefloat_nbrs.png" figcaption="A typical node deployment.">}}
 
 Most production deployments of Corda Enterprise include nodes, vaults, and firewalls.
 

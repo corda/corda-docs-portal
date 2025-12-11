@@ -39,7 +39,7 @@ Merkle trees split transactions into "leaves". Each leaf contains
 either an input, an output, a command, or an attachment. The final nested tree structure also contains the
 other fields of the transaction, such as the time window, the notary, and the required signers. The only component type that requires two trees instead of one is the command, which is split into
 command data and required signers for visibility purposes.
-{{< figure alt="merkleTreeFull" width=80% zoom="/en/images/merkleTreeFull.png" >}}
+{{< figure alt="merkleTreeFull" width=80% src="/en/images/merkleTreeFull.png" >}}
 
 Corda uses one nested Merkle tree per component type. A component sub-tree
 is generated for each component type (for example, inputs, outputs, or attachments). The roots of these sub-trees
@@ -65,7 +65,7 @@ obtained belongs to that particular transaction.
 In this example, assume that only the first command should be visible to the oracle. You must provide guarantees that all
 the commands the oracle needs to sign are visible to the oracle entity, but no other data. The transaction would be represented in the Merkle tree structure like this:
 
-{{< figure alt="SubMerkleTree Oracle" width=80% zoom="/en/images/SubMerkleTree_Oracle.png" >}}
+{{< figure alt="SubMerkleTree Oracle" width=80% src="/en/images/SubMerkleTree_Oracle.png" >}}
 
 The blue nodes and `H(c2)` are provided to the oracle service, while the black ones are omitted. The oracle needs `H(c2)` so it can compute `H(commandData)` without being to able to see the second command. At the same time, this
 ensures that `CommandData1` is part of the transaction. All signers are visible as
@@ -79,4 +79,4 @@ To send the same transaction to a non-validating notary, hide all components
 apart from input states, time window, and the notary information. This data is enough for the notary to know which
 input states to check for double-spending, if the time-window is valid, and if the transaction is being notarized by the correct notary.
 
-{{< figure alt="SubMerkleTree Notary" width=80% zoom="/en/images/SubMerkleTree_Notary.png" >}}
+{{< figure alt="SubMerkleTree Notary" width=80% src="/en/images/SubMerkleTree_Notary.png" >}}

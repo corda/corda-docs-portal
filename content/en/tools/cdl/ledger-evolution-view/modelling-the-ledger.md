@@ -21,7 +21,7 @@ The Corda Ledger can be considered as a Directed Acyclic Graph (DAG) in which:
 
 You could illustrate this as follows:
 
-{{< figure zoom="../resources/cdl-ledger-dag.png" width="800" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-ledger-dag.png" width="800" title="Click to zoom image in new tab/window" >}}
 
 However, it is difficult to get all the information you may want to show into this format. To convey more information, you can use a similar form but modify the graph's nodes to align more closely to the representations of states already introduced in the Smart Contract view.
 

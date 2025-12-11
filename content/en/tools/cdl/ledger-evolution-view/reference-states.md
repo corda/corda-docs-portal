@@ -18,4 +18,4 @@ You can show reference states as input states but with a dashed line from the st
 
 In the Agreement example, the Smart Contract requires that the BillingChip value is the same as the value specified by a ratecard state. This rate card needs to be used in multiple transactions so it is included as a reference state:
 
-{{< figure zoom="../resources/cdl-agreement-ledger-evolution-tx4-c.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-ledger-evolution-tx4-c.png" width="1000" title="Click to zoom image in new tab/window" >}}

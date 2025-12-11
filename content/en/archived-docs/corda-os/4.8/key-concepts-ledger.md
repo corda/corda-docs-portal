@@ -39,7 +39,7 @@ loan are Alice and Bob, then they are the only nodes that ever see or store this
 This diagram shows a network with five nodes (Alice, Bob, Carl, Demi, and Ed). Each numbered circle on an intersection
 represents a fact shared between two or more nodes:
 
-{{< figure alt="ledger venn" width=80% zoom="/en/images/ledger-venn.png" >}}
+{{< figure alt="ledger venn" width=80% src="/en/images/ledger-venn.png" >}}
 
 In the diagram, facts 1 and 7 are known by both Alice and Bob. Alice only shares facts with Bob, Alice doesn't share
 any facts with Carl, Demi, or Ed.
@@ -56,7 +56,7 @@ each node maintains its own vault, which contains all of its known facts.
 You can think of a vault as being a database or simple table. In this diagram, facts 1 and 7 appear on both Alice's
 vault and Bob's vault, and are therefore shared facts:
 
-{{< figure alt="ledger table" width=80% zoom="/en/images/ledger-table.png" >}}
+{{< figure alt="ledger table" width=80% src="/en/images/ledger-table.png" >}}
 
 When multiple nodes on a network share an evolving fact, the changes to the fact update at the same time in each node's vault. This means that Alice and Bob will both see an *identical version* of shared facts 1 and 7.
 

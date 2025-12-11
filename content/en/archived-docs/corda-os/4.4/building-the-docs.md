@@ -83,7 +83,7 @@ Or if you want to use Docker:
 
 As a result, there will be an extra icon in the title bar of your local docs site, which should open the current page in Visual Studio Code:
 
-{{< figure alt="Visual Studio Code" width=80% zoom="/en/images/hugo-vscode-page-edit.png" >}}
+{{< figure alt="Visual Studio Code" width=80% src="/en/images/hugo-vscode-page-edit.png" >}}
 
 ## Edit web pages directly in Atom
 

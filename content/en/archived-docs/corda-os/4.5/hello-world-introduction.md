@@ -67,7 +67,7 @@ For a state, you will use the `IOUState`, representing an IOU. It will contain t
 `IOUState` as follows:
 
 
-{{< figure alt="tutorial state" width=80% zoom="/en/images/tutorial-state.png" >}}
+{{< figure alt="tutorial state" width=80% src="/en/images/tutorial-state.png" >}}
 
 
 ### IOUFlow
@@ -76,7 +76,7 @@ For a flow, you will use the `IOUFlow`. This flow will completely automate the p
 steps:
 
 
-{{< figure alt="simple tutorial flow" width=80% zoom="/en/images/simple-tutorial-flow.png" >}}
+{{< figure alt="simple tutorial flow" width=80% src="/en/images/simple-tutorial-flow.png" >}}
 
 
 ### IOUContract

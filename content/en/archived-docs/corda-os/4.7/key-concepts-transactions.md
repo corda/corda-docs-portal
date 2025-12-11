@@ -39,7 +39,7 @@ single link in the state sequences seen in [States](key-concepts-states.md).
 
 Here is an example of an update transaction, with two inputs and two outputs:
 
-{{< figure alt="basic tx" width=80% zoom="/en/images/basic-tx.png" >}}
+{{< figure alt="basic tx" width=80% src="/en/images/basic-tx.png" >}}
 A transaction can contain any number of inputs, outputs and references of any type:
 
 * They can include many different state types (states may represent cash or bonds, for example)
@@ -66,7 +66,7 @@ These input states references are a combination of:
 
 This situation can be illustrated as follows:
 
-{{< figure alt="tx chain" width=80% zoom="/en/images/tx-chain.png" >}}
+{{< figure alt="tx chain" width=80% src="/en/images/tx-chain.png" >}}
 These input state references link transactions together over time, forming what is known as a *transaction chain*.
 
 {{< note >}}
@@ -78,14 +78,14 @@ See [Reissuing states](reissuing-states.md) for information about reissuing stat
 Initially, a transaction is just a **proposal** to update the ledger. It represents the future state of the ledger
 that is desired by the transaction builders:
 
-{{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
+{{< figure alt="uncommitted tx" width=80% src="/en/images/uncommitted_tx.png" >}}
 To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
 required signer appends their signature to the transaction to indicate that they approve the proposal:
 
-{{< figure alt="tx with sigs" width=80% zoom="/en/images/tx_with_sigs.png" >}}
+{{< figure alt="tx with sigs" width=80% src="/en/images/tx_with_sigs.png" >}}
 If all of the required signatures are gathered, the transaction becomes committed:
 
-{{< figure alt="committed tx" width=80% zoom="/en/images/committed_tx.png" >}}
+{{< figure alt="committed tx" width=80% src="/en/images/committed_tx.png" >}}
 This means that:
 
 * The transaction’s inputs are marked as historic, and cannot be used in any future transactions
@@ -132,7 +132,7 @@ This transaction comprises two commands: a settlement command which reduces the 
 has two supporting attachments, and will only be notarised by NotaryClusterA if the notary pool
 receives it within the specified time-window. This transaction would look as follows:
 
-{{< figure alt="full tx" width=80% zoom="/en/images/full-tx.png" >}}
+{{< figure alt="full tx" width=80% src="/en/images/full-tx.png" >}}
 
 ### Commands
 
@@ -160,7 +160,7 @@ listed in the commands, we get the list of the transaction’s required signers.
 
 We can visualize this situation as follows:
 
-{{< figure alt="commands" width=80% zoom="/en/images/commands.png" >}}
+{{< figure alt="commands" width=80% src="/en/images/commands.png" >}}
 
 ### Attachments
 

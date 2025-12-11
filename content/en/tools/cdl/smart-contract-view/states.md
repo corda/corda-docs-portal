@@ -18,7 +18,7 @@ The first element of the diagram to consider is the Primary state type, in this 
 * **Properties**: Contains the properties in the state class together with their classes.
 * **Participants**: Contains the participants - the Parties that will get a copy of any transaction in which this state is included as an input or output (but not reference state).
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-state.png" width="350" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-state.png" width="350" title="Click to zoom image in new tab/window" >}}
 
 In the Agreement example use case, the following properties are required:
 

@@ -35,7 +35,7 @@ title: Nodes
 A Corda node runs within a Java Virtual Machine (JVM) runtime environment with a [unique network identity](key-concepts-ecosystem.html#node-identities). JVM runtime environments provide a consistent platform on which you can run and deploy Java applications, such as Corda services and
 CorDapps. Here is a visualization of the node’s internal architecture:
 
-{{< figure alt="node architecture" width=80% zoom="/en/images/node-architecture.png" >}}
+{{< figure alt="node architecture" width=80% src="/en/images/node-architecture.png" >}}
 
 The core elements of the architecture are:
 

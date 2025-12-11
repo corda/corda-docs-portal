@@ -14,7 +14,7 @@ title: Signing constraints
 
 An important aspect of any CorDapp is the permissioning model, in other words who needs to sign which transactions. In Corda, the required signers are attached to the transaction's Command. This can be mirrored in the CDL Smart Contract view by including the require signer in brackets underneath the Command on the Path constraint.
 
-{{< figure zoom="../resources/cdl-agreement-smart-contract-signing.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure src="../resources/cdl-agreement-smart-contract-signing.png" width="1000" title="Click to zoom image in new tab/window" >}}
 
 The signer is usually defined in terms of some property in the State. You would not usually specify that a particular Party, say PartyA must sign, instead you would specify that the party referenced in the seller property needs to sign, which may on some instances of the state happen to be PartyA.
 

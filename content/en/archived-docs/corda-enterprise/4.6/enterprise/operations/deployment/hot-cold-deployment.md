@@ -37,7 +37,7 @@ resources for both **Microsoft Azure** and **Amazon Web Services**. The image be
 result from following the guide. There will be two Corda Enterprise nodes, one active and the other inactive. Each node will represent
 the same legal identity inside the Corda network. Both will share a database and a network file system.
 
-{{< figure alt="hot cold" width=80% zoom="../../resources/hot-cold.png" >}}
+{{< figure alt="hot cold" width=80% src="../../resources/hot-cold.png" >}}
 
 ## Configuring the load balancer
 

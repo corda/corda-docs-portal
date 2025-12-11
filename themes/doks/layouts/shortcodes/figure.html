@@ -1,64 +1,96 @@
-{{/* initialize image variables */}}
+{{/* 
+-----------------------------------------------
+FIGURE SHORTCODE — WHAT THIS DOES
+-----------------------------------------------
+This shortcode inserts an image (<figure> and <img>) with optional 
+caption, title, alt text, width, height, and alignment attributes.
+
+It automatically searches for the image in several locations in order:
+  1. Inside the current page bundle (.Page.Resources)
+  2. In Hugo’s assets/images/<versionfolder>
+  3. In the static folder
+  4. In the same folder as the current page file
+  5. In a "resources" subfolder beside the page
+
+For bundle pages (those with index.md or _index.md):
+  - If an image path uses "../" to go outside the bundle folder,
+    the build will FAIL with an error message.
+  - This ensures all bundle images stay self-contained.
+
+For standalone markdown files (non-bundles):
+  - "../" paths are allowed, e.g. "../resources/my-image.png".
+
+If no valid image can be found in any of the locations,
+  the build FAILS with a clear error message showing
+  the missing image path and the markdown file’s location.
+
+In summary:
+  ✔ Works for both bundle and non-bundle pages
+  ✔ Supports named or positional parameters
+  ✔ Fails loudly when an image cannot be displayed
+  ✔ Keeps image references safe and predictable
+-----------------------------------------------
+*/}}
+
 {{ $src        := "" }}
-{{ $zoom       := "" }}
 {{ $figcaption := "" }}
 {{ $alt        := "" }}
 {{ $title      := "" }}
 {{ $width      := "" }}
 {{ $height     := "" }}
 {{ $align      := "" }}
-{{/* set image variables if passed as named params */}}
+
 {{ if .IsNamedParams }}
   {{ $src        = .Get "src" }}
-  {{ $zoom       = .Get "zoom" }}
   {{ $figcaption = .Get "figcaption" }}
   {{ $alt        = .Get "alt" }}
   {{ $title      = .Get "title" }}
   {{ $width      = .Get "width" }}
   {{ $height     = .Get "height" }}
   {{ $align      = .Get "align" }}
-  {{if not $src}}
-    {{$src = $zoom }}
-  {{end}}
-{{/* assume src is first param and alt is second if params not named */}}
 {{ else }}
   {{ $src = .Get 0 }}
   {{ $alt = .Get 1 }}
-{{end}}
-{{/* retrieve image file if part of page resources */}}
-{{ $image := .Page.Resources.GetMatch (printf "*%s*" $src ) -}}
-{{/* retrieve image file if in assets\images\<versionfolder> - used if figure is called from a snippet */}}
-{{/* Figure out what folder in corda-docs-portal\themes\doks\assets\images to look in based on version of the page calling the shortcode */}}
+{{ end }}
+
+{{ $image := .Page.Resources.GetMatch (path.Base $src) }}
 {{ $versionfolder := replace (lower (.Page.Params.version)) " " "-" }}
 {{ $path := printf "%s" $src | printf "%s%s" "/" | printf "%s%s" $versionfolder | printf "%s%s" "images/" | printf "%s" }}
-{{ $assetimage := resources.Get (printf "%s" $path ) -}}
+{{ $assetimage := resources.Get (printf "%s" $path ) }}
+
 <figure>
-  {{if $zoom}}<a href="{{$zoom}}" target="_blank">{{end}}
-    <img
-    {{if $image }}
+  <img
+    {{ if $image }}
         src="{{ $image.RelPermalink }}"
     {{ else if $assetimage }}
-        src="{{ $assetimage.RelPermalink }}"        
-    {{ else if or (ne .Page.Params.version "Corda 5.0") (eq (.Page.Resources.GetMatch $src) true) }}
-        src="{{$src}}" 
-    {{/* stop build if image file specified in Corda 5 content is not found in the page resources or the assets folder */}}
-    {{ else }}	 
-        {{ errorf "Image not found: %q in %s" $src .Position }}
+        src="{{ $assetimage.RelPermalink }}"
+    {{ else }}
+        {{ $clean := replaceRE "^/" "" $src }}
+
+        {{ if fileExists (printf "static/%s" $clean) }}
+            src="{{ $src }}"
+        {{ else if fileExists (printf "static%s" $src) }}
+            src="{{ $src }}"
+        {{ else if fileExists (printf "%s/%s" .Page.File.Dir $src) }}
+            {{/* Detect if current page is a bundle (index.md or _index.md) */}}
+            {{ $isBundle := or (fileExists (printf "%s/index.md" .Page.File.Dir)) (fileExists (printf "%s/_index.md" .Page.File.Dir)) }}
+
+            {{ if and $isBundle (in $src "../") }}
+                {{ errorf "Image path %q for bundle page %s points outside its bundle and will not be published." $src .Page.File.Path }}
+            {{ else }}
+                src="{{ $src }}"
+            {{ end }}
+        {{ else if fileExists (printf "%s/resources/%s" .Page.File.Dir (path.Base $src)) }}
+            src="{{ $src }}"
+        {{ else }}
+            {{ errorf "Image not found: %q in %s" $src .Position }}
+        {{ end }}
     {{ end }}
-    alt="{{$alt}}"
-    {{if $title }} 
-        title="{{$title}}"
-    {{end}}
-    {{if $width}}
-        width="{{$width}}"
-    {{end}}
-    {{if $height }}
-        height="{{$height}}"
-    {{end}}
-    {{if $align}}
-        align="{{$align}}"
-    {{end}}
-/>
-  {{if $figcaption }}<figcaption>{{$figcaption}}</figcaption>{{end}}
-  {{if $zoom}}</a>{{end}}
+    alt="{{ $alt }}"
+    {{ if $title }} title="{{ $title }}"{{ end }}
+    {{ if $width }} width="{{ $width }}"{{ end }}
+    {{ if $height }} height="{{ $height }}"{{ end }}
+    {{ if $align }} align="{{ $align }}"{{ end }}
+  />
+  {{ if $figcaption }}<figcaption>{{ $figcaption }}</figcaption>{{ end }}
 </figure>
