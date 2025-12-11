@@ -22,7 +22,7 @@ Making a node read-only is a feature that is used for many reasons, including th
 
 ## Making nodes read-only for regulatory reasons
 
-Sometimes you may want to configure a node on a network so that is has no more involvement in new transactions, but there is still a regulatory requirement to keep its data available for further use. Corda ledger data is not easily interpreted outside of a Corda node because it is stored as binary blobs in an AMQP encoding. It is possible to interpret that data externally, but we currently provide no such tooling. Keeping the node online in the network is not a good option, as it continues to be an active participant in the network and could participate in new transactions on the ledger.
+Sometimes you may want to configure a node on a network so that it has no more involvement in new transactions, but there is still a regulatory requirement to keep its data available for further use. Corda ledger data is not easily interpreted outside of a Corda node because it is stored as binary blobs in an AMQP encoding. It is possible to interpret that data externally, but we currently provide no such tooling. Keeping the node online in the network is not a good option, as it continues to be an active participant in the network and could participate in new transactions on the ledger.
 
 It is possible to re-configure a node as read-only, with no ability to mutate data or participate with peers, but continue to perform vault queries or other reporting operations (read-only flows) to aid with data extraction or regulatory investigations.
 
