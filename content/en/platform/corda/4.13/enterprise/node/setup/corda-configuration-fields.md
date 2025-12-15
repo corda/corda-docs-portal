@@ -234,11 +234,11 @@ Allows fine-grained controls of various features only available in the Enterpris
 
 - `smmStartMode`
   - Enables you to [pause all nodes]({{< relref "../../flow-pause-and-resume.md" >}}) when they are restarted by setting this option to `"safe"`.
-  
+
 - `maintenanceCustomFlow`
   - Enables you to configure a single custom flow to be executed during [node maintenance mode]({{< relref "../operating/maintenance-mode.md" >}}). It must contain a single `flowName` parameter, as shown in the following example:
-  
-     ```  
+
+     ```
      enterpriseConfiguration {
        maintenanceMode {
          schedule = "00 30 14,15 * * 5"
@@ -249,12 +249,15 @@ Allows fine-grained controls of various features only available in the Enterpris
          flowName = "net.corda.node.maintenance.package.MyFlow"
        }
      ```
-  - Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the flow specified in `maintenanceCustomFlow` will not run.  
+  - Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the flow specified in `maintenanceCustomFlow` will not run.
 
 - `systemFlowsStuckSkipThreshold`
 
-  - This parameter specifies the number of seconds that a [system flow]]({{< relref "../../cordapps/system-flows.md" >}}) can be stuck on a suspension point during the system flow phase before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows, then again in startup system flows.
-  
+  - This parameter specifies the duration that a [system flow]]({{< relref "../../cordapps/system-flows.md" >}}) can be stuck on a suspension point during the system flow phase before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows, then again in startup system flows.
+  - The duration is specified in the Human-Optimized Config Object Notation (HOCON) format with suffixes of `h` (hours),
+        `m` (minutes) and `s` (seconds); for example, `1h` means one hour. For additional information on the HOCON duration
+        format parsing, see the [HOCON duration format file](https://github.com/lightbend/config/blob/master/HOCON.md) on GitHub.
+    * *Default:* 1m
 * `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 * `on`
@@ -369,7 +372,7 @@ Allows fine-grained controls of various features only available in the Enterpris
 
 ## tuning
 
-* `tuning` <a name="tuning"> 
+* `tuning` <a name="tuning">
 
     * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise nodes.
 
@@ -956,7 +959,7 @@ quasarExcludePackages=["org.xml**", "org.yaml**"]
 ```
 ## readOnlyMode
 
-`readOnlyMode` is a Boolean property. If set to true, then the node is set to be a [read-only node](read-only-nodes.md). 
+`readOnlyMode` is a Boolean property. If set to true, then the node is set to be a [read-only node](read-only-nodes.md).
 *Default:* false
 
 ## relay

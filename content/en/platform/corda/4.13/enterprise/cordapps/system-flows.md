@@ -15,13 +15,13 @@ weight: 70
 
 # System flows
 
-*System flows* are [flows]({{< relref "api-flows.md" >}}) that run at node startup, before any services flows or user flows. The only currently supported system flow is [automatic ledger recovery]({{< relref "../node/ledger-recovery/automatic-ledger-recovery.md" >}}). 
+*System flows* are [flows]({{< relref "api-flows.md" >}}) that run at node startup, before any services flows or user flows. The only currently supported system flow is [automatic ledger recovery]({{< relref "../node/ledger-recovery/automatic-ledger-recovery.md" >}}). That is the flow net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow.
 
-To configure a node to run system flows, including the automatic ledger recovery flow, the Boolean parameter `runSystemFlowsAtStartup` in the *[enterpriseConfiguration]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* section of the [node configuration]({{< relref "../node/setup/corda-configuration-fields.md" >}}) must be set to `true`. The node will now have a system flow phase after startup, during which system flows are run. 
+To configure a node to run system flows, including the automatic ledger recovery flow, the Boolean parameter `runSystemFlowsAtStartup` in the *[enterpriseConfiguration]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* section of the [node configuration]({{< relref "../node/setup/corda-configuration-fields.md" >}}) must be set to `true`. The node will now have a system flow phase after startup, during which system flows are run.
 
-A second parameter, `systemFlowsStuckSkipThreshold`, must also be configured. This integer parameter specifies the number of seconds that a system flow can be stuck on a suspension point during a system flow phase before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows phase, then again in startup system flows phase.
+A second parameter, `systemFlowsStuckSkipThreshold`, may also be configured (its default is 1m). This integer parameter specifies the duration that a system flow can be stuck on a suspension point during the system flow phase before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows phase, then again in startup system flows phase.
 
-System flow annotation has the property `supersedes`. This is used with the fully qualified name of another system flow to run that in its place at startup.  For example, the following example shows how an existing system flow A could be superseded by flow B:
+If you specify runSystemFlowsAtStartup then EnterpriseLedgerRecoveryFlow will run at startup with default parameters, which means recovery will be attempted from all the nodes in the network map. It is possible to override this with your own system flow that invokes EnterpriseLedgerRecovery flow where you can then specify your own parameters. This is done via the supercedes property. The System flow annotation has the property `supersedes`. This is used with the fully qualified name of another system flow to run that in its place at startup.  For example, the following example shows how an existing system flow A could be superseded by flow B:
 
 ```
 @SystemFlow(supersedes = "com.r3.mypackage.FlowA")
@@ -37,9 +37,9 @@ class FlowB : FlowLogic<Unit>() {
 
 Once a node is configured to run system flows at startup, the following sequence of actions occurs during the system flow phase:
 
-1. If there are system flows that were previously checkpointed, these checkpointed system flows will run before the startup system flows.  
-2. Once any checkpointed system flows have either completed or resulted in an exception, normal system flows then run. 
-3. If there are paused flows, unpausing flows during the system flow phase will only unpause system flows. 
+1. If there are system flows that were previously checkpointed, these checkpointed system flows will run before the startup system flows.
+2. Once any checkpointed system flows have either completed or resulted in an exception, normal system flows then run.
+3. If there are paused flows, unpausing flows during the system flow phase will only unpause system flows.
 4. If a system flow gets stuck on a suspension point during the system flow phase for longer than the value (in seconds) of the `systemFlowsStuckSkipThreshold` configured in the [node configuration]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}}), it will skip up to two times: once for checkpoint system flows and then again for startup system flows (each system flow is checked for being stuck every one minute).
 4. If the node is configured with the "[pause all flows]({{< relref "../flow-pause-and-resume.md#starting-the-node-and-pausing-all-flows" >}})" option (`smmStartMode="Safe"`) or flow draining mode is on, then system flows will not run at startup.
 5. While system flows at startup are running, if [a flow is started via RPC]({{< relref "../api-rpc.md" >}}), it will be blocked until the system flows have finished.
