@@ -17,67 +17,65 @@ weight: 10
 
 # Corda Enterprise Edition 4.13 release notes
 
-The Corda Enterprise Edition 4.13 release introduces ....
+The Corda Enterprise Edition 4.13 release introduces new functionality and third-party component upgrades.
 
-
-### Upgrade recommendation
+## Upgrade recommendation 
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.12 to 4.13 upgrade guide]({{< relref "upgrade-guide.md" >}}).
 
 The steps from this guide only work for direct upgrades from Corda 4.12 to 4.13. If you have any nodes on versions 4.11 and below, you must upgrade them to 4.12 first. To do that, consult the relevant release upgrade documentation.
 
-### Platform version change
+## Platform version change
 
 Corda 4.13 uses platform version 150.
 
 For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
-### New features, enhancements and restrictions
+## New features, enhancements and restrictions
 
-#### Segregated Thread Pools
+### Segregated thread pools
 
 [Segregated thread pools can now be defined and have flows assigned to them]({{< relref "cordapps/thread-pools.md" >}}).
 Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
 Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between
 starting flows if one pool is performing badly and has a big queue.
 
-#### Automatic Ledger Recovery
-Ledger recovery flow can now be launched automatically at node startup. For more information see XXXX (Link to Automatic Ledger Recovery]. To faciliate this
-a new phase has been added to the node where only system flows run. The only supported runnable system flow is
-Ledger Recovery. For more information see XXXX (link to System Flows).
+### Automatic ledger recovery
+Ledger recovery flow can now be launched automatically at node startup. For more information see [Automatic Ledger Recovery]({{< relref "node/ledger-recovery/automatic-ledger-recovery.md" >}}). To facilitate this, a new phase has been added to the node where only system flows run. The only supported runnable system flow is
+Ledger Recovery. For more information, see [System Flows]({{< relref "cordapps/system-flows.md" >}}).
 
-#### Read Only Nodes
+### Read-only nodes
 
 Nodes can now be configured to be [read-only]({{< relref "node/setup/read-only-nodes.md" >}}). Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
 
-#### Monitoring Metrics
+### Additional monitoring metrics
 
-Additional metrics have been implemented. See XXXX(link to enterprise/node/operating/monitoring-and-logging/node-metrics.html)
-#### RPC Thread Pool
+Additional metrics have been implemented. For the latest list, see [Node Metrics]({{< relref "node/operating/monitoring-and-logging/node-metrics.md" >}}).
+ 
+### RPC thread pool
 
 The RPC clients (CordaRPCClient, RPCClient, and MultiRPCClient) can now be configured to use Artemis global thread pools
 by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded
 set of scheduler and worker threads, rather than creating dedicated pools per client.
 
-
-#### Notary Change Flow
+### Notary change flow
 
 The transaction hierarchy, [FinalityFlow]({{< relref "cordapps/api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
 
-### Fixed issues
+## Fixed issues
 
-### Known issues
+## Known issues
 
-#### Automatic Ledger Recovery and Finalisation
-Automatic ledger recover is run with alsoFinalize set to false. This means when recovering transactions if any are in the IN_FLIGHT status
-they are not automatically recovered to Verified status. To have your in flight transactions recovered you would need to manually run the flow ledger finality recovery.
-To do this you need manually run the finality recovery flow.
+### Automatic ledger recovery and finalization
 
-### Third party component upgrades
+Automatic ledger recovery is run with `alsoFinalize` set to false. This means when recovering transactions if any are in the IN_FLIGHT status
+they are not automatically recovered to Verified status. To have your in-flight transactions recovered, you need to manually run the flow ledger finality recovery.
+
+## Third-party component upgrades
 
 **Following table needs to be updated for 4.13**
 
-The following table lists the dependency version changes between 4.11 and 4.12 Enterprise Editions:
+The following table lists the dependency version changes between 4.12 and 4.13 Enterprise Editions:
 
 | Dependency                                     | Name                   | Version 4.11 Enterprise   | Version 4.12 Enterprise  |
 |------------------------------------------------|------------------------|---------------------------|------------------------- |
