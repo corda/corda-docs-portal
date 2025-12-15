@@ -202,8 +202,8 @@ Actions are reified IO actions to execute as part of state machine transitions. 
 |net.corda:type=P2P,name=outbound.LongestQueueNodeName | The node to which messages in the longest P2P outbound queue are waiting to be sent.|
 |net.corda:type=P2P,name=outbound.OldestFirstMessageAge | The age, in milliseconds, of the oldest message across all P2P outbound queues.|
 |net.corda:type=P2P,name=outbound.OldestFirstMessageNodeName | The node to which the oldest message across all P2P outbound queues is intended to be sent.|
-|net.corda:type=P2P,name=outbound.<legalIdentity>.FirstMessageAge | The age, in milliseconds, of the oldest message in the P2P outbound queue destined for the node with <legalIdentity>.|
-|net.corda:type=P2P,name=outbound.<legalIdentity>.QueueLength | The number of messages in the P2P outbound queue waiting to be sent to the node with <legalIdentity>.|
+|net.corda:type=P2P,name=outbound.{legalIdentity}.FirstMessageAge | The age, in milliseconds, of the oldest message in the P2P outbound queue destined for the node with {legalIdentity}.|
+|net.corda:type=P2P,name=outbound.{legalIdentity}.QueueLength | The number of messages in the P2P outbound queue waiting to be sent to the node with {legalIdentity}.|
 
 {{< /table >}}
 
