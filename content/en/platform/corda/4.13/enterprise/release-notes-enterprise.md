@@ -17,7 +17,7 @@ weight: 10
 
 # Corda Enterprise Edition 4.13 release notes
 
-The Corda Enterprise Edition 4.13 release introduces .... 
+The Corda Enterprise Edition 4.13 release introduces ....
 
 
 ### Upgrade recommendation
@@ -34,19 +34,45 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ### New features, enhancements and restrictions
 
-- [Multiple thread pools can now be defined and have flows assigned to them]({{< relref "cordapps/thread-pools.md" >}}). Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
-- Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between starting flows if one pool is performing badly and has a big queue.
-- Nodes can now be configured to be [read-only]({{< relref "node/setup/read-only-nodes.md" >}}). Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
-- The transaction hierarchy, [FinalityFlow]({{< relref "cordapps/api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
-- The RPC clients (CordaRPCClient, RPCClient, and MultiRPCClient) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.  
+#### Segregated Thread Pools
+
+[Segregated thread pools can now be defined and have flows assigned to them]({{< relref "cordapps/thread-pools.md" >}}).
+Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
+Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between
+starting flows if one pool is performing badly and has a big queue.
+
+#### Automatic Ledger Recovery
+Ledger recovery flow can now be launched automatically at node startup. For more information see XXXX (Link to Automatic Ledger Recovery]. To faciliate this
+a new phase has been added to the node where only system flows run. The only supported runnable system flow is
+Ledger Recovery. For more information see XXXX (link to System Flows).
+
+#### Read Only Nodes
+
+Nodes can now be configured to be [read-only]({{< relref "node/setup/read-only-nodes.md" >}}). Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
+
+#### Monitoring Metrics
+
+Additional metrics have been implemented. See XXXX(link to enterprise/node/operating/monitoring-and-logging/node-metrics.html)
+#### RPC Thread Pool
+
+The RPC clients (CordaRPCClient, RPCClient, and MultiRPCClient) can now be configured to use Artemis global thread pools
+by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded
+set of scheduler and worker threads, rather than creating dedicated pools per client.
+
+
+#### Notary Change Flow
+
+The transaction hierarchy, [FinalityFlow]({{< relref "cordapps/api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
 
 ### Fixed issues
 
-
-
 ### Known issues
 
- 
+#### Automatic Ledger Recovery and Finalisation
+Automatic ledger recover is run with alsoFinalize set to false. This means when recovering transactions if any are in the IN_FLIGHT status
+they are not automatically recovered to Verified status. To have your in flight transactions recovered you would need to manually run the flow ledger finality recovery.
+To do this you need manually run the finality recovery flow.
+
 ### Third party component upgrades
 
 **Following table needs to be updated for 4.13**
