@@ -128,7 +128,7 @@ Note that metrics related to the default thread pool do not have a *.default* su
 | net.corda:type=Flows,name=SuspendedDurationMax | Longest suspension duration among all currently suspended flows. |
 | net.corda:type=Flows,name=SuspendedForMoreThanThreshold.Count | Number of flows suspended longer than the configured threshold, which is set via NodeConfiguration.flowMonitorSuspensionLoggingThresholdMillis. |
 | net.corda:type=Flows,name=SuspendedForMoreThanThreshold.ThresholdInSeconds | The value in seconds to which the threshold is set. |
-
+| net.corda:type={hikariConfigConnectionPoolName},name=pool.Status | Database reachability status: OK if reachable, FAILED if the node cannot connect. |
 {{< /table >}}
 
 ### Actions
