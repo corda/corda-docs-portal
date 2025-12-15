@@ -8,7 +8,7 @@ tags:
 - api
 - service
 - classes
-title: Using additional thread pools
+title: Segregated Thread Pools
 weight: 10
 ---
 
@@ -45,21 +45,29 @@ enterpriseConfiguration {
 }
 ```
 
-The related flows then need to be tagged accordingly:
+The flows that you want to run in a named thread pool need to be annotated accordingly with the thread pool name:
 
-```
+```kotlin
 @FlowThreadPool("reporting")
+class MyReportingFlow(private val party: Party) :
+            FlowLogic<Unit>() {
+...
+}
 ```
 
 and
 
-```
+```kotlin
 @FlowThreadPool("transactions")
+class MyTransactionFlow(private val party: Party) :
+            FlowLogic<Unit>() {
+...
+}
 ```
 
 ### Example 2: One Defined Thread Pool and Default Thread Pool
 
-An alternative configuration, rather than defining two thread pools, could instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default thread pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* parameter. 
+An alternative configuration, rather than defining two thread pools, could instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default thread pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* parameter.
 
 ```json
 enterpriseConfiguration {
@@ -75,10 +83,14 @@ enterpriseConfiguration {
 }
 ```
 
-Only the flows related to reporting then need to be tagged accordingly:
+Only the flows related to reporting then need to be annotated accordingly:
 
-```
+```kotlin
 @FlowThreadPool("reporting")
+class MyReportingFlow(private val party: Party) :
+            FlowLogic<Unit>() {
+...
+}
 ```
 
 ## Logging
@@ -98,7 +110,7 @@ How flows are mapped to thread pools depends on:
 
 The Corda default FlowSchedulerMapper follows these rules, in order of highest priority first:
 
-1. If a flow is annotated with `@FlowThreadPool("threadpoolname")` and the referenced thread pool is defined in the configuration, then that flow is executed in the specified pool. 
+1. If a flow is annotated with `@FlowThreadPool("threadpoolname")` and the referenced thread pool is defined in the configuration, then that flow is executed in the specified pool.
    If the specified thread pool is not present in the node configuration, then the default thread pool is used instead.
 
 2. If a thread pool named `Peer-Origin` is defined, then all flows started via a peer Corda node and **not** annotated with a specific thread pool will be executed in that thread pool. Otherwise, such flows are executed in the default thread pool.
@@ -154,8 +166,8 @@ The following metrics have now been updated to be divided by thread pool:
 
 | Previously                                     | Corda 4.13 onward                                                  |
 |------------------------------------------------|--------------------------------------------------------------------|
-| ActiveThreads                                  | ActiveThreads.{threadpoolname}                                     | 
-| QueueSize                                      | QueueSize.{threadpoolname}                                         | 
+| ActiveThreads                                  | ActiveThreads.{threadpoolname}                                     |
+| QueueSize                                      | QueueSize.{threadpoolname}                                         |
 | QueueSizeOnInsert                              | QueueSizeOnInsert.{threadpoolname}                                 |
 | StartupQueueTime                               | StartupQueueTime.{threadpoolname}                                  |
 | FlowDuration.{Success/Failure}.{flowclassname} | FlowDuration.{Success/Failure}.{flowclassname}.{threadpoolname>}   |
