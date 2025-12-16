@@ -1,0 +1,874 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>VaultService 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.node.services</a></div>
+        <h2 title="Interface VaultService" class="title">Interface VaultService</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+@<a href=../../DoNotImplement.html>DoNotImplement</a>() 
+public interface <span class="typeNameLabel"><a href=VaultService.html>VaultService</a></span>
+
+                    </pre>
+                    <div class="block"><p>A <a href=VaultService.html>VaultService</a> is responsible for securely and safely persisting the current state of a vault to storage. The vault service vends immutable snapshots of the current vault for working with: if you build a transaction based on a vault that isn't current, be aware that it may end up being invalid if the states that were used have been consumed by someone else first!</p><p>Note that transactions we've seen are held by the storage service, not the vault.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code><a href=../../concurrent/CordaFuture.html>CordaFuture</a>&lt;<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=../../contracts/ContractState.html>ContractState</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#whenConsumed(net.corda.core.contracts.StateRef)>whenConsumed</a>(<a href=../../contracts/StateRef.html>StateRef</a> ref) </code>
+                                            </th>
+                                            <td class="colLast">Provide a <a href=../../concurrent/CordaFuture.html>CordaFuture</a> for when a <a href=../../contracts/StateRef.html>StateRef</a> is consumed, which can be very useful in building tests.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#addNoteToTransaction(net.corda.core.crypto.SecureHash,java.lang.String)>addNoteToTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> txnId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> noteText) </code>
+                                            </th>
+                                            <td class="colLast">Add a note to an existing <a href=../../transactions/LedgerTransaction.html>LedgerTransaction</a> given by its unique <a href=../../crypto/SecureHash.html>SecureHash</a> id.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#getTransactionNotes(net.corda.core.crypto.SecureHash)>getTransactionNotes</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> txnId) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#softLockReserve(java.util.UUID,net.corda.core.utilities.NonEmptySet)>softLockReserve</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=../../utilities/NonEmptySet.html>NonEmptySet</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>&gt; stateRefs) </code>
+                                            </th>
+                                            <td class="colLast">Reserve a set of <a href=../../contracts/StateRef.html>StateRef</a> for a given <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> unique identifier.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#softLockRelease(java.util.UUID,net.corda.core.utilities.NonEmptySet)>softLockRelease</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=../../utilities/NonEmptySet.html>NonEmptySet</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>&gt; stateRefs) </code>
+                                            </th>
+                                            <td class="colLast">Release all or an explicitly specified set of <a href=../../contracts/StateRef.html>StateRef</a> for a given <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> unique identifier.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../../contracts/FungibleState.html>FungibleState</a>&lt;?&gt;&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=VaultService.html#tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)>tryLockFungibleStatesForSpending</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=vault/QueryCriteria.html>QueryCriteria</a> eligibleStatesQuery, <a href=../../contracts/Amount.html>Amount</a>&lt;?&gt; amount, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)>T</a>&gt; contractStateType) </code>
+                                            </th>
+                                            <td class="colLast">Helper function to determine spendable states and soft locking them.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#_queryBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#_queryBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>_queryBy</a>(<a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#_queryBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt; contractStateType) </code>
+                                            </th>
+                                            <td class="colLast">Generic vault query function which takes a <a href=vault/QueryCriteria.html>QueryCriteria</a> object to define filters, optional <a href=vault/PageSpecification.html>PageSpecification</a> and optional <a href=vault/Sort.html>Sort</a> modification criteria (default unsorted), and returns a <a href=Vault.Page.html>Vault.Page</a> object containing the following:<ul><li><p>states as a List of &lt;StateAndRef&gt; (page number and size defined by <a href=vault/PageSpecification.html>PageSpecification</a>)</p></li><li><p>states metadata as a List of <a href=Vault.StateMetadata.html>Vault.StateMetadata</a> held in the Vault States table.</p></li><li><p>total number of results available if <a href=vault/PageSpecification.html>PageSpecification</a> supplied (otherwise returns -1).</p></li><li><p>status types used in this query: <a href=Vault.StateStatus.html#UNCONSUMED>StateStatus.UNCONSUMED</a>, <a href=Vault.StateStatus.html#CONSUMED>StateStatus.CONSUMED</a>, <a href=Vault.StateStatus.html#ALL>StateStatus.ALL</a>.</p></li><li><p>other results (aggregate functions with/without using value groups).</p></li></ul></td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>_trackBy</a>(<a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt; contractStateType) </code>
+                                            </th>
+                                            <td class="colLast">Generic vault query function which takes a <a href=vault/QueryCriteria.html>QueryCriteria</a> object to define filters, optional <a href=vault/PageSpecification.html>PageSpecification</a> and optional <a href=vault/Sort.html>Sort</a> modification criteria (default unsorted), and returns a <a href=../../messaging/DataFeed.html>DataFeed</a> object containing:<ul><li><p>a snapshot as a <a href=Vault.Page.html>Vault.Page</a> (described previously in <a href=VaultService.html#queryBy(java.lang.Class)>queryBy</a>).</p></li><li><p>an <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Observable.html>Observable</a> of <a href=Vault.Update.html>Vault.Update</a>.</p></li></ul></td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#queryBy(java.lang.Class)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class)>T</a>&gt; contractStateType) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/PageSpecification.html>PageSpecification</a> paging) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/Sort.html>Sort</a> sorting) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#trackBy(java.lang.Class)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class)>T</a>&gt; contractStateType) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/PageSpecification.html>PageSpecification</a> paging) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/Sort.html>Sort</a> sorting) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;Error class: unknown class&gt;&lt;<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=../../contracts/ContractState.html>ContractState</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#getRawUpdates()>getRawUpdates</a>() </code>
+                                            </th>
+                                            <td class="colLast">Prefer the use of updates unless you know why you want to use this instead.</td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;Error class: unknown class&gt;&lt;<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=../../contracts/ContractState.html>ContractState</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=VaultService.html#getUpdates()>getUpdates</a>() </code>
+                                            </th>
+                                            <td class="colLast">Get a synchronous <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Observable.html>Observable</a> of updates.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="whenConsumed(net.corda.core.contracts.StateRef)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>whenConsumed</h4>
+                                        <pre class="methodSignature"> <a href=../../concurrent/CordaFuture.html>CordaFuture</a>&lt;<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=../../contracts/ContractState.html>ContractState</a>&gt;&gt; <a href=VaultService.html#whenConsumed(net.corda.core.contracts.StateRef)>whenConsumed</a>(<a href=../../contracts/StateRef.html>StateRef</a> ref)</pre>
+                                        <div class="block"><p>Provide a <a href=../../concurrent/CordaFuture.html>CordaFuture</a> for when a <a href=../../contracts/StateRef.html>StateRef</a> is consumed, which can be very useful in building tests.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addNoteToTransaction(net.corda.core.crypto.SecureHash,java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addNoteToTransaction</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=VaultService.html#addNoteToTransaction(net.corda.core.crypto.SecureHash,java.lang.String)>addNoteToTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> txnId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> noteText)</pre>
+                                        <div class="block"><p>Add a note to an existing <a href=../../transactions/LedgerTransaction.html>LedgerTransaction</a> given by its unique <a href=../../crypto/SecureHash.html>SecureHash</a> id. Multiple notes may be attached to the same <a href=../../transactions/LedgerTransaction.html>LedgerTransaction</a>. These are additively and immutably persisted within the node local vault database in a single textual field. using a semi-colon separator.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTransactionNotes(net.corda.core.crypto.SecureHash)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTransactionNotes</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; <a href=VaultService.html#getTransactionNotes(net.corda.core.crypto.SecureHash)>getTransactionNotes</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> txnId)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="softLockReserve(java.util.UUID,net.corda.core.utilities.NonEmptySet)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>softLockReserve</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=VaultService.html#softLockReserve(java.util.UUID,net.corda.core.utilities.NonEmptySet)>softLockReserve</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=../../utilities/NonEmptySet.html>NonEmptySet</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>&gt; stateRefs)</pre>
+                                        <div class="block"><p>Reserve a set of <a href=../../contracts/StateRef.html>StateRef</a> for a given <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> unique identifier. Typically, the unique identifier will refer to a <a href=../../../finance/internal/CashConfigDataFlow.html#runId>FlowLogic.runId</a>'s <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> associated with an in-flight flow. In this case if the flow terminates the locks will automatically be freed, even if there is an error. However, the user can specify their own <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> and manage this manually, possibly across the lifetime of multiple flows, or from other thread contexts e.g. <a href=CordaService.html>CordaService</a> instances. In the case of coin selection, soft locks are automatically taken upon gathering relevant unconsumed input refs.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="softLockRelease(java.util.UUID,net.corda.core.utilities.NonEmptySet)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>softLockRelease</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=VaultService.html#softLockRelease(java.util.UUID,net.corda.core.utilities.NonEmptySet)>softLockRelease</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=../../utilities/NonEmptySet.html>NonEmptySet</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>&gt; stateRefs)</pre>
+                                        <div class="block"><p>Release all or an explicitly specified set of <a href=../../contracts/StateRef.html>StateRef</a> for a given <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> unique identifier. A <a href=Vault.html>Vault</a> soft-lock manager is automatically notified from flows that are terminated, such that any soft locked states may be released. In the case of coin selection, soft-locks are automatically released once previously gathered unconsumed input refs are consumed as part of cash spending.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>tryLockFungibleStatesForSpending</h4>
+                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../../contracts/FungibleState.html>FungibleState</a>&lt;?&gt;&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=VaultService.html#tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)>T</a>&gt;&gt; <a href=VaultService.html#tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)>tryLockFungibleStatesForSpending</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=vault/QueryCriteria.html>QueryCriteria</a> eligibleStatesQuery, <a href=../../contracts/Amount.html>Amount</a>&lt;?&gt; amount, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)>T</a>&gt; contractStateType)</pre>
+                                        <div class="block"><p>Helper function to determine spendable states and soft locking them. Currently performance will be worse than for the hand optimised version in <a href=../../../finance/workflows/asset/selection/CashSelectionSQLServerImpl.html#unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub,net.corda.core.contracts.Amount,java.util.Set,net.corda.core.identity.Party,java.util.UUID,java.util.Set)>net.corda.finance.workflows.asset.selection.AbstractCashSelection.unconsumedCashStatesForSpending</a>. However, this is fully generic and can operate with custom <a href=../../contracts/FungibleState.html>FungibleState</a> and <a href=../../contracts/FungibleAsset.html>FungibleAsset</a> states.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>lockId</code> - The <a href=../../../finance/internal/CashConfigDataFlow.html#runId>FlowLogic.runId</a>'s <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> of the current flow used to soft lock the states.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>eligibleStatesQuery</code> - A custom query object that selects down to the appropriate subset of all states of the <a href=VaultService.html#tryLockFungibleStatesForSpending(java.util.UUID,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.contracts.Amount,java.lang.Class)>contractStateType</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>amount</code> - The required amount of the asset.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>contractStateType</code> - class type of the result set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="_queryBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>_queryBy</h4>
+                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#_queryBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt; <a href=VaultService.html#_queryBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>_queryBy</a>(<a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#_queryBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt; contractStateType)</pre>
+                                        <div class="block"><p>Generic vault query function which takes a <a href=vault/QueryCriteria.html>QueryCriteria</a> object to define filters, optional <a href=vault/PageSpecification.html>PageSpecification</a> and optional <a href=vault/Sort.html>Sort</a> modification criteria (default unsorted), and returns a <a href=Vault.Page.html>Vault.Page</a> object containing the following:</p><ul><li><p>states as a List of &lt;StateAndRef&gt; (page number and size defined by <a href=vault/PageSpecification.html>PageSpecification</a>)</p></li><li><p>states metadata as a List of <a href=Vault.StateMetadata.html>Vault.StateMetadata</a> held in the Vault States table.</p></li><li><p>total number of results available if <a href=vault/PageSpecification.html>PageSpecification</a> supplied (otherwise returns -1).</p></li><li><p>status types used in this query: <a href=Vault.StateStatus.html#UNCONSUMED>StateStatus.UNCONSUMED</a>, <a href=Vault.StateStatus.html#CONSUMED>StateStatus.CONSUMED</a>, <a href=Vault.StateStatus.html#ALL>StateStatus.ALL</a>.</p></li><li><p>other results (aggregate functions with/without using value groups).</p></li></ul></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>_trackBy</h4>
+                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt;&gt; <a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>_trackBy</a>(<a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#_trackBy(net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort,java.lang.Class)>T</a>&gt; contractStateType)</pre>
+                                        <div class="block"><p>Generic vault query function which takes a <a href=vault/QueryCriteria.html>QueryCriteria</a> object to define filters, optional <a href=vault/PageSpecification.html>PageSpecification</a> and optional <a href=vault/Sort.html>Sort</a> modification criteria (default unsorted), and returns a <a href=../../messaging/DataFeed.html>DataFeed</a> object containing:</p><ul><li><p>a snapshot as a <a href=Vault.Page.html>Vault.Page</a> (described previously in <a href=VaultService.html#queryBy(java.lang.Class)>queryBy</a>).</p></li><li><p>an <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Observable.html>Observable</a> of <a href=Vault.Update.html>Vault.Update</a>.</p></li></ul></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="queryBy(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>queryBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class)>T</a>&gt; <a href=VaultService.html#queryBy(java.lang.Class)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class)>T</a>&gt; contractStateType)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>queryBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt; <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="queryBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>queryBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/PageSpecification.html>PageSpecification</a> paging)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>queryBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>queryBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt; <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/Sort.html>Sort</a> sorting)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>queryBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt; <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>queryBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#queryBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackBy(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class)>T</a>&gt;&gt; <a href=VaultService.html#trackBy(java.lang.Class)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class)>T</a>&gt; contractStateType)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt;&gt; <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;&gt; <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/PageSpecification.html>PageSpecification</a> paging)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt;&gt; <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt;&gt; <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/Sort.html>Sort</a> sorting)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackBy</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=../../messaging/DataFeed.html>DataFeed</a>&lt;<a href=Vault.Page.html>Vault.Page</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt;, <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt;&gt; <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>trackBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=VaultService.html#trackBy(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification,net.corda.core.node.services.vault.Sort)>T</a>&gt; contractStateType, <a href=vault/QueryCriteria.html>QueryCriteria</a> criteria, <a href=vault/PageSpecification.html>PageSpecification</a> paging, <a href=vault/Sort.html>Sort</a> sorting)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getRawUpdates()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getRawUpdates</h4>
+                                        <pre class="methodSignature"> abstract &lt;Error class: unknown class&gt;&lt;<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=../../contracts/ContractState.html>ContractState</a>&gt;&gt; <a href=VaultService.html#getRawUpdates()>getRawUpdates</a>()</pre>
+                                        <div class="block"><p>Prefer the use of updates unless you know why you want to use this instead.</p><p>Get a synchronous <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Observable.html>Observable</a> of updates.  When observations are pushed to the Observer, the <a href=Vault.html>Vault</a> will already incorporate the update, and the database transaction associated with the update will still be open and current. If for some reason the processing crosses outside of the database transaction (for example, the update is pushed outside the current JVM or across to another <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html>Thread</a>, which is executing in a different database transaction), then the <a href=Vault.html>Vault</a> may not incorporate the update due to racing with committing the current database transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getUpdates()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getUpdates</h4>
+                                        <pre class="methodSignature"> abstract &lt;Error class: unknown class&gt;&lt;<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=../../contracts/ContractState.html>ContractState</a>&gt;&gt; <a href=VaultService.html#getUpdates()>getUpdates</a>()</pre>
+                                        <div class="block"><p>Get a synchronous <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Observable.html>Observable</a> of updates.  When observations are pushed to the Observer, the <a href=Vault.html>Vault</a> will already incorporate the update and the database transaction associated with the update will have been committed and closed.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

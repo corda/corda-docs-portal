@@ -83,6 +83,7 @@ The main elements that need to be configured for the Identity Manager are:
 
 
 {{< note >}}
+
 See [Identity Manager configuration parameters]({{< relref "config-identity-manager-parameters.md" >}}) for a detailed explanation about each possible parameter.
 {{< /note >}}
 

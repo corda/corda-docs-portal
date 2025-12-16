@@ -96,7 +96,6 @@ java -jar corda.jar --config-file <NODE_CONF_FILE> --just-generate-node-info
 
 Follow instructions here [Network Map service]({{< relref "network-map.md" >}})
 
-
 ### Run the notary
 
 ```bash

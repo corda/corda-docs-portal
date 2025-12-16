@@ -27,14 +27,12 @@ Corda network that gives the operator full control over all aspects of deploymen
 
 The *Corda Enterprise Network Manager* encompasses three main services:
 
-
 * [Identity Manager service]({{< relref "identity-manager.md" >}}) - Enables nodes to join the network, as well as handles revocation of a nodes certificate
 * [Network Map service]({{< relref "network-map.md" >}}) - Provides a global view of the network
 * [Signing services]({{< relref "signing-service.md" >}}) - Provides a way to sign approved requests to join the network (CSRs) or revoke a certificate
 (CRRs) as well as changes to the network map
 
 For a quick start guide on running the ENM services see [Network Manager quick-start guide]({{< relref "quick-start.md" >}}).
-
 
 Concepts and Overview
 
@@ -48,18 +46,12 @@ Concepts and Overview
 * [Network Map overview]({{< relref "network-map-overview.md" >}})
 * [Certificate Revocation List]({{< relref "certificate-revocation.md" >}})
 
-
-
-
 CENM Releases
 
 * [Release notes]({{< relref "release-notes.md" >}})
 * [Upgrading Corda Enterprise Network Manager]({{< relref "upgrade-notes.md" >}})
 * [Changelog]({{< relref "changelog.md" >}})
 * [Legal notice]({{< relref "legal-info/legal-info-1.2.3.md" >}})
-
-
-
 
 Operations
 
@@ -74,9 +66,6 @@ Operations
 * [Troubleshooting common issues]({{< relref "troubleshooting-common-issues.md" >}})
 * [CENM support matrix]({{< relref "cenm-support-matrix.md" >}})
 
-
-
-
 Configuration
 
 * [Identity Manager configuration parameters]({{< relref "config-identity-manager-parameters.md" >}})
@@ -85,24 +74,15 @@ Configuration
 * [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl.md" >}})
 * [Workflow]({{< relref "workflow.md" >}})
 
-
-
-
 Tools & Utilities
 
 * [Tools and utilities]({{< relref "tools-index.md" >}})
 * [Embedded Shell]({{< relref "shell.md" >}})
 
-
-
-
 Public Key Infrastructure
 
 * [Certificate hierarchy guide]({{< relref "pki-guide.md" >}})
 * [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}})
-
-
-
 
 Signing Plugin Samples
 

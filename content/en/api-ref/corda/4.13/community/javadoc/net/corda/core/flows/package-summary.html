@@ -1,0 +1,534 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>Package net.corda.core.flows </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li class="navBarCell1Rev">Package</li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+<main role="main">
+    <div class="header">
+        <h1 title="Package" class="title">Package net.corda.core.flows </h1>
+    </div>
+        <div class="header">
+            <div class="subtitle">
+                <div class="block"></div>
+            </div>
+            <p>See: <a href="#overview_description">Description</a></p>
+        </div>
+    <div class="contentContainer">
+        
+            <ul class="blockList">
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Proposal.html>Proposal</a></th><td class="colLast">The <a href=AbstractStateReplacementFlow.Proposal.html>Proposal</a> contains the details of proposed state modification.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.UpgradeTx.html>UpgradeTx</a></th><td class="colLast">The assembled transaction for upgrading a contract.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Instigator.html>Instigator</a></th><td class="colLast">The <a href=AbstractStateReplacementFlow.Instigator.html>Instigator</a> assembles the transaction for state replacement and sends out change proposals to all participants (<a href=AbstractStateReplacementFlow.Acceptor.html>Acceptor</a>) of that state.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Acceptor.html>Acceptor</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.html>AbstractStateReplacementFlow</a></th><td class="colLast">Abstract flow to be used for replacing one state with another, for example when changing the notary of a state.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=StateReplacementException.html>StateReplacementException</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=CollectSignaturesFlow.html>CollectSignaturesFlow</a></th><td class="colLast">The <a href=CollectSignaturesFlow.html>CollectSignaturesFlow</a> is used to automate the collection of counterparty signatures for a given transaction.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=CollectSignatureFlow.html>CollectSignatureFlow</a></th><td class="colLast">Get and check the required signature.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=SignTransactionFlow.html>SignTransactionFlow</a></th><td class="colLast">The <a href=SignTransactionFlow.html>SignTransactionFlow</a> should be called in response to the <a href=CollectSignaturesFlow.html>CollectSignaturesFlow</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ContractUpgradeFlow.Authorise.html>Authorise</a></th><td class="colLast">Authorise a contract state upgrade.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ContractUpgradeFlow.Deauthorise.html>Deauthorise</a></th><td class="colLast">Deauthorise a contract state upgrade.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ContractUpgradeFlow.Initiate.html>Initiate</a></th><td class="colLast">This flow begins the contract upgrade process.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FinalityFlow.ExtraConstructorArgs.html>ExtraConstructorArgs</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FinalityFlow.html>FinalityFlow</a></th><td class="colLast">Verifies the given transaction, then sends it to the named notary.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ReceiveFinalityFlow.html>ReceiveFinalityFlow</a></th><td class="colLast">The receiving counterpart to <a href=FinalityFlow.html>FinalityFlow</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FinalityRecoveryFlow.ExtraConstructorArgs.html>ExtraConstructorArgs</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FinalityRecoveryFlow.html>FinalityRecoveryFlow</a></th><td class="colLast">TWO_PHASE_FINALITY Recovery Flow This flow is exposed via the Core API for use by any CorDapp but its implementation is available in Enterprise only.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowRecoveryException.html>FlowRecoveryException</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowRecoveryQuery.html>FlowRecoveryQuery</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowTimeWindow.html>FlowTimeWindow</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowException.html>FlowException</a></th><td class="colLast">Exception which can be thrown by a <a href=FlowLogic.html>FlowLogic</a> at any point in its logic to unexpectedly bring it to a permanent end.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=UnexpectedFlowEndException.html>UnexpectedFlowEndException</a></th><td class="colLast">Thrown when a flow session ends unexpectedly due to a type mismatch (the other side sent an object of a type that we were not expecting), or the other side had an internal error, or the other side terminated when we were waiting for a response.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowInitiator.RPC.html>RPC</a></th><td class="colLast">Started using <a href=../messaging/CordaRPCOps.html#startFlowDynamic(java.lang.Class,java.lang.Object)>net.corda.core.messaging.CordaRPCOps.startFlowDynamic</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowInitiator.Peer.html>Peer</a></th><td class="colLast">Started when we get new session initiation request.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowInitiator.Service.html>Service</a></th><td class="colLast">Started by a CordaService.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowInitiator.Scheduled.html>Scheduled</a></th><td class="colLast">Started as scheduled activity.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowInitiator.System.html>System</a></th><td class="colLast">Started by the system.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowInitiator.html>FlowInitiator</a></th><td class="colLast">Please note that <a href=FlowInitiator.html>FlowInitiator</a> has been superceded by <a href=../context/InvocationContext.html>net.corda.core.context.InvocationContext</a>, which offers more detail for the same event.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowLogic.html>FlowLogic</a></th><td class="colLast">A sub-class of FlowLogic&lt;T&gt; implements a flow using direct, straight line blocking code.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowInfo.html>FlowInfo</a></th><td class="colLast">Version and name of the CorDapp hosting the other side of the flow.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=IllegalFlowLogicException.html>IllegalFlowLogicException</a></th><td class="colLast">Thrown if the structure of a class implementing a flow is not correct.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowSession.html>FlowSession</a></th><td class="colLast">A <a href=FlowSession.html>FlowSession</a> is a handle on a communication sequence between two paired flows, possibly running on separate nodes.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowStackSnapshot.Frame.html>Frame</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowStackSnapshot.html>FlowStackSnapshot</a></th><td class="colLast">Main data object representing snapshot of the flow stack, extracted from the Quasar stack.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StackFrameDataToken.html>StackFrameDataToken</a></th><td class="colLast">Token class, used to indicate stack presence of the corda internal data.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=HospitalizeFlowException.html>HospitalizeFlowException</a></th><td class="colLast">This exception allows a flow to pass itself to the flow hospital.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=KilledFlowException.html>KilledFlowException</a></th><td class="colLast">An exception that is thrown when a flow has been killed.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=LedgerRecoveryFlow.ExtraConstructorArgs.html>ExtraConstructorArgs</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=LedgerRecoveryFlow.html>LedgerRecoveryFlow</a></th><td class="colLast">Ledger Recovery Flow (available in Enterprise only).</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=LedgerRecoveryException.html>LedgerRecoveryException</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=LedgerRecoveryParameters.html>LedgerRecoveryParameters</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=LedgerRecoveryResult.html>LedgerRecoveryResult</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryChangeFlow.html>NotaryChangeFlow</a></th><td class="colLast">A flow to be used for changing a state's Notary.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotaryException.html>NotaryException</a></th><td class="colLast">Exception thrown by the notary service if any issues are encountered while trying to commit a transaction.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryError.Conflict.html>Conflict</a></th><td class="colLast">Occurs when one or more input states have already been consumed by another transaction.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotaryError.TimeWindowInvalid.html>TimeWindowInvalid</a></th><td class="colLast">Occurs when time specified in the <a href=../contracts/TimeWindow.html>TimeWindow</a> command is outside the allowed tolerance.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryError.TransactionInvalid.html>TransactionInvalid</a></th><td class="colLast">Occurs when the provided transaction fails to verify.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotaryError.RequestSignatureInvalid.html>RequestSignatureInvalid</a></th><td class="colLast">Occurs when the notarisation request signature does not verify for the provided transaction.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryError.General.html>General</a></th><td class="colLast">Occurs when the notary service encounters an unexpected issue or becomes temporarily unavailable.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotaryError.html>NotaryError</a></th><td class="colLast">Specifies the cause for notarisation request failure.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StateConsumptionDetails.html>StateConsumptionDetails</a></th><td class="colLast">Contains information about the consuming transaction for a particular state.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotaryFlow.Client.html>Client</a></th><td class="colLast">A flow to be used by a party for obtaining signature(s) from a NotaryService ascertaining the transaction time-window is correct and none of its inputs have been used in another completed transaction.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryFlow.html>NotaryFlow</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotarisationRequest.html>NotarisationRequest</a></th><td class="colLast">A notarisation request specifies a list of states to consume and the id of the consuming transaction.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotarisationRequestSignature.html>NotarisationRequestSignature</a></th><td class="colLast">A wrapper around a digital signature used for notarisation requests.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotarisationPayload.html>NotarisationPayload</a></th><td class="colLast">Container for the transaction and notarisation request signature.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotarisationResponse.html>NotarisationResponse</a></th><td class="colLast">Payload returned by the notary service flow to the client.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=WaitTimeUpdate.html>WaitTimeUpdate</a></th><td class="colLast">Sent by the notary when the notary detects it will unlikely respond before the client retries.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ReceiveTransactionFlow.html>ReceiveTransactionFlow</a></th><td class="colLast">The <a href=ReceiveTransactionFlow.html>ReceiveTransactionFlow</a> should be called in response to the <a href=SendTransactionFlow.html>SendTransactionFlow</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ReceiveStateAndRefFlow.html>ReceiveStateAndRefFlow</a></th><td class="colLast">The <a href=ReceiveStateAndRefFlow.html>ReceiveStateAndRefFlow</a> should be called in response to the <a href=SendStateAndRefFlow.html>SendStateAndRefFlow</a>.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowTransactionInfo.html>FlowTransactionInfo</a></th><td class="colLast">Transaction recovery type information.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionMetadata.html>TransactionMetadata</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=DistributionList.SenderDistributionList.html>SenderDistributionList</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=DistributionList.ReceiverDistributionList.html>ReceiverDistributionList</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=DistributionList.html>DistributionList</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=DistributionRecords.html>DistributionRecords</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=DistributionRecord.html>DistributionRecord</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SenderDistributionRecord.html>SenderDistributionRecord</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ReceiverDistributionRecord.html>ReceiverDistributionRecord</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=DistributionRecordKey.html>DistributionRecordKey</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=RecoveryTimeWindow.html>RecoveryTimeWindow</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ComparableRecoveryTimeWindow.html>ComparableRecoveryTimeWindow</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ResultSerializationException.html>ResultSerializationException</a></th><td class="colLast">Thrown whenever a flow result cannot be serialized when attempting to save it in the database</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=MaybeSerializedSignedTransaction.html>MaybeSerializedSignedTransaction</a></th><td class="colLast">In the words of Matt working code is more important then pretty code.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=SendTransactionFlow.html>SendTransactionFlow</a></th><td class="colLast">The <a href=SendTransactionFlow.html>SendTransactionFlow</a> should be used to send a transaction to another peer that wishes to verify that transaction's integrity by resolving and checking the dependencies as well.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SendStateAndRefFlow.html>SendStateAndRefFlow</a></th><td class="colLast">The <a href=SendStateAndRefFlow.html>SendStateAndRefFlow</a> should be used to send a list of input <a href=../contracts/StateAndRef.html>StateAndRef</a> to another peer that wishes to verify the input's integrity by resolving and checking the dependencies as well.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=DataVendingFlow.html>DataVendingFlow</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SignedTransactionWithDistributionList.html>SignedTransactionWithDistributionList</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StateMachineRunId.html>StateMachineRunId</a></th><td class="colLast">A unique identifier for a single state machine run, valid across node restarts.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=WithReferencedStatesFlow.html>WithReferencedStatesFlow</a></th><td class="colLast">Given a flow which uses reference states, the <a href=WithReferencedStatesFlow.html>WithReferencedStatesFlow</a> will execute the flow as a subFlow.</td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Object Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Object</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Instigator.Companion.SIGNING.html>SIGNING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Instigator.Companion.NOTARY.html>NOTARY</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Instigator.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Acceptor.Companion.VERIFYING.html>VERIFYING</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Acceptor.Companion.APPROVING.html>APPROVING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AbstractStateReplacementFlow.Acceptor.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=CollectSignaturesFlow.Companion.COLLECTING.html>COLLECTING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=CollectSignaturesFlow.Companion.VERIFYING.html>VERIFYING</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=CollectSignaturesFlow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SignTransactionFlow.Companion.RECEIVING.html>RECEIVING</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=SignTransactionFlow.Companion.VERIFYING.html>VERIFYING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SignTransactionFlow.Companion.SIGNING.html>SIGNING</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=SignTransactionFlow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ContractUpgradeFlow.html>ContractUpgradeFlow</a></th><td class="colLast">A flow to be used for authorising and upgrading state objects of an old contract to a new contract.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.NOTARISING.html>NOTARISING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.RECORD_UNNOTARISED.html>RECORD_UNNOTARISED</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.BROADCASTING_PRE_NOTARISATION.html>BROADCASTING_PRE_NOTARISATION</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.BROADCASTING_POST_NOTARISATION.html>BROADCASTING_POST_NOTARISATION</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.BROADCASTING_NOTARY_ERROR.html>BROADCASTING_NOTARY_ERROR</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.FINALISING_TRANSACTION.html>FINALISING_TRANSACTION</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.BROADCASTING.html>BROADCASTING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FinalityFlow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotarySigCheck.html>NotarySigCheck</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowTimeWindow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowInitiator.Shell.html>Shell</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowLogic.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryError.TimeWindowInvalid.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotaryError.WrongNotary.html>WrongNotary</a></th><td class="colLast">Occurs when the transaction sent for notarisation is assigned to a different notary identity.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryFlow.Client.Companion.REQUESTING.html>REQUESTING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=NotaryFlow.Client.Companion.VALIDATING.html>VALIDATING</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NotaryFlow.Client.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=RecoveryTimeWindow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ComparableRecoveryTimeWindow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SendTransactionFlow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StateMachineRunId.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=WithReferencedStatesFlow.Companion.ATTEMPT.html>ATTEMPT</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=WithReferencedStatesFlow.Companion.RETRYING.html>RETRYING</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=WithReferencedStatesFlow.Companion.SUCCESS.html>SUCCESS</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=WithReferencedStatesFlow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowExternalAsyncOperation.html>FlowExternalAsyncOperation</a></th><td class="colLast"><a href=FlowExternalAsyncOperation.html>FlowExternalAsyncOperation</a> represents an external future that blocks a flow from continuing until the future returned by <a href=FlowExternalAsyncOperation.html#execute(java.lang.String)>FlowExternalAsyncOperation.execute</a> has completed.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowExternalOperation.html>FlowExternalOperation</a></th><td class="colLast"><a href=FlowExternalOperation.html>FlowExternalOperation</a> represents an external process that blocks a flow from continuing until the result of <a href=FlowExternalOperation.html#execute(java.lang.String)>execute</a> has been retrieved.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FlowLogicRefFactory.html>FlowLogicRefFactory</a></th><td class="colLast">The public factory interface for creating validated <a href=FlowLogicRef.html>FlowLogicRef</a> instances as part of the scheduling framework.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FlowLogicRef.html>FlowLogicRef</a></th><td class="colLast">A handle interface representing a <a href=FlowLogic.html>FlowLogic</a> instance which would be possible to safely pass out of the contract sandbox.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Destination.html>Destination</a></th><td class="colLast">An abstraction for flow session destinations.</td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Annotation Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Annotation</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=InitiatedBy.html>InitiatedBy</a></th><td class="colLast">This annotation is required by any <a href=FlowLogic.html>FlowLogic</a> that is designed to be initiated by a counterparty flow.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=InitiatingFlow.html>InitiatingFlow</a></th><td class="colLast">This annotation is required by any <a href=FlowLogic.html>FlowLogic</a> which has been designated to initiate communication with a counterparty and request they start their side of the flow communication.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=SchedulableFlow.html>SchedulableFlow</a></th><td class="colLast">Any <a href=FlowLogic.html>FlowLogic</a> which is schedulable and is designed to be invoked by a <a href=../contracts/SchedulableState.html>net.corda.core.contracts.SchedulableState</a> must have this annotation.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=StartableByRPC.html>StartableByRPC</a></th><td class="colLast">Any <a href=FlowLogic.html>FlowLogic</a> which is to be started by the RPC interface (<a href=../messaging/CordaRPCOps.html#startFlowDynamic(java.lang.Class,java.lang.Object)>net.corda.core.messaging.CordaRPCOps.startFlowDynamic</a> and <a href=../messaging/CordaRPCOps.html#startTrackedFlowDynamic(java.lang.Class,java.lang.Object)>net.corda.core.messaging.CordaRPCOps.startTrackedFlowDynamic</a>) must have this annotation.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StartableByService.html>StartableByService</a></th><td class="colLast">Any <a href=FlowLogic.html>FlowLogic</a> which is to be started by the AppServiceHub interface from within a CordaService must have this annotation.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SystemFlow.html>SystemFlow</a></th><td class="colLast">Classifies <a href=FlowLogic.html>FlowLogic</a> classes that are part of the system flows.</td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StateConsumptionDetails.ConsumedStateType.html>ConsumedStateType</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=DistributionRecordType.html>DistributionRecordType</a></th><td class="colLast"></td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+            </ul>
+        
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li class="navBarCell1Rev">Package</li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

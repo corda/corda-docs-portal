@@ -1,0 +1,1298 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>FlowLogic 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.flows</a></div>
+        <h2 title="Class FlowLogic" class="title">Class FlowLogic</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public abstract class <span class="typeNameLabel"><a href=FlowLogic.html>FlowLogic</a>&lt;T extends <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;</span>
+
+                    </pre>
+                    <div class="block"><p>A sub-class of FlowLogic&lt;T&gt; implements a flow using direct, straight line blocking code. Thus you can write complex flow logic in an ordinary fashion, without having to think about callbacks, restarting after a node crash, how many instances of your flow there are running and so on.</p><p>Invoking the network will cause the call stack to be suspended onto the heap and then serialized to a database using the Quasar fibers framework. Because of this, if you need access to data that might change over time, you should request it just-in-time via the <a href=../../finance/internal/CashConfigDataFlow.html#serviceHub>serviceHub</a> property which is provided. Don't try and keep data you got from a service across calls to send/receive/sendAndReceive because the world might change in arbitrary ways out from underneath you, for instance, if the node is restarted or reconfigured!</p><p>Additionally, be aware of what data you pin either via the stack or in your <a href=FlowLogic.html>FlowLogic</a> implementation. Very large objects or datasets will hurt performance by increasing the amount of data stored in each checkpoint.</p><p>If you'd like to use another FlowLogic class as a component of your own, construct it on the fly and then pass it to the <a href=../../finance/internal/CashConfigDataFlow.html#subFlow(net.corda.core.flows.FlowLogic)>subFlow</a> method. It will return the result of that flow when it completes.</p><p>If your flow (whether it's a top-level flow or a subflow) is supposed to initiate a session with the counterparty and request they start their counterpart flow, then make sure it's annotated with <a href=InitiatingFlow.html>InitiatingFlow</a>. This annotation also has a version property to allow you to version your flow and enables a node to restrict support for the flow to that particular version.</p><p>Functions that suspend the flow (including all functions on <a href=FlowSession.html>FlowSession</a>) accept a maySkipCheckpoint parameter defaulting to false, false meaning a checkpoint should always be created on suspend. This parameter may be set to true which allows the implementation to potentially optimise away the checkpoint, saving a roundtrip to the database.</p><p>This option however comes with a big warning sign: Setting the parameter to true requires the flow's code to be replayable from the previous checkpoint (or start of flow) up until the next checkpoint (or end of flow) in order to prepare for hard failures. As suspending functions always commit the flow's database transaction regardless of this parameter the flow must be prepared for scenarios where a previous running of the flow <i>already committed its relevant database transactions</i>. Only set this option to true if you know what you're doing.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="FlowLogic.Companion.html">FlowLogic.Companion</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#logger>logger</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=StateMachineRunId.html>StateMachineRunId</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#runId>runId</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../node/ServiceHub.html>ServiceHub</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#serviceHub>serviceHub</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#isKilled()>isKilled</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../identity/PartyAndCertificate.html>PartyAndCertificate</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#ourIdentityAndCert>ourIdentityAndCert</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../identity/Party.html>Party</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#ourIdentity>ourIdentity</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../utilities/ProgressTracker.html>ProgressTracker</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=FlowLogic.Companion.html>FlowLogic.Companion</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=FlowLogic.html#Companion>Companion</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FlowLogic()">FlowLogic</a></span>()</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#getLogger()>getLogger</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=StateMachineRunId.html>StateMachineRunId</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#getRunId()>getRunId</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../node/ServiceHub.html>ServiceHub</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#getServiceHub()>getServiceHub</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#isKilled()>isKilled</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../identity/PartyAndCertificate.html>PartyAndCertificate</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#getOurIdentityAndCert()>getOurIdentityAndCert</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=../identity/Party.html>Party</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#getOurIdentity()>getOurIdentity</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code><a href=../utilities/ProgressTracker.html>ProgressTracker</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#getProgressTracker()>getProgressTracker</a>() </code>
+                                            </th>
+                                            <td class="colLast">Override this to provide a <a href=../utilities/ProgressTracker.html>ProgressTracker</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=FlowSession.html>FlowSession</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.flows.Destination)>initiateFlow</a>(<a href=Destination.html>Destination</a> destination) </code>
+                                            </th>
+                                            <td class="colLast">Creates a communication session with <a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.flows.Destination)>destination</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=FlowSession.html>FlowSession</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.identity.Party)>initiateFlow</a>(<a href=../identity/Party.html>Party</a> party) </code>
+                                            </th>
+                                            <td class="colLast">Creates a communication session with <a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.identity.Party)>party</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=FlowInfo.html>FlowInfo</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#getFlowInfo(net.corda.core.identity.Party)>getFlowInfo</a>(<a href=../identity/Party.html>Party</a> otherParty) </code>
+                                            </th>
+                                            <td class="colLast">Returns a <a href=FlowInfo.html>FlowInfo</a> object describing the flow <a href=../../finance/internal/CashConfigDataFlow.html#getFlowInfo(net.corda.core.identity.Party)>otherParty</a> is using.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>R</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>sendAndReceive</a>(<a href=../identity/Party.html>Party</a> otherParty, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload) </code>
+                                            </th>
+                                            <td class="colLast">Serializes and queues the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>payload</a> object for sending to the <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>otherParty</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>&lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>R</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>sendAndReceive</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>R</a>&gt; receiveType, <a href=../identity/Party.html>Party</a> otherParty, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload) </code>
+                                            </th>
+                                            <td class="colLast">Serializes and queues the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>payload</a> object for sending to the <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>otherParty</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>R</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>receive</a>(<a href=../identity/Party.html>Party</a> otherParty) </code>
+                                            </th>
+                                            <td class="colLast">Suspends until the specified <a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>otherParty</a> sends us a message of type <a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>R</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>&lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>R</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>receive</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>R</a>&gt; receiveType, <a href=../identity/Party.html>Party</a> otherParty) </code>
+                                            </th>
+                                            <td class="colLast">Suspends until the specified <a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>otherParty</a> sends us a message of type <a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>receiveType</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>send</a>(<a href=../identity/Party.html>Party</a> otherParty, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload) </code>
+                                            </th>
+                                            <td class="colLast">Queues the given <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>payload</a> for sending to the <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>otherParty</a> and continues without suspending.</td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=FlowSession.html>FlowSession</a>, <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#receiveAllMap(java.util.Map,java.lang.Boolean)>receiveAllMap</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=FlowSession.html>FlowSession</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint) </code>
+                                            </th>
+                                            <td class="colLast">Suspends until a message has been received for each session in the specified <a href=../../finance/internal/CashConfigDataFlow.html#receiveAllMap(java.util.Map,java.lang.Boolean)>sessions</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>&lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>R</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>receiveAll</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>R</a>&gt; receiveType, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint) </code>
+                                            </th>
+                                            <td class="colLast">Suspends until a message has been received for each session in the specified <a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>sessions</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)>sendAll</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint) </code>
+                                            </th>
+                                            <td class="colLast">Queues the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)>payload</a> for sending to the provided <a href=../../finance/internal/CashConfigDataFlow.html#sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)>sessions</a> and continues without suspending.</td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#sendAllMap(java.util.Map,java.lang.Boolean)>sendAllMap</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=FlowSession.html>FlowSession</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; payloadsPerSession, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint) </code>
+                                            </th>
+                                            <td class="colLast">Queues the given payloads for sending to the provided sessions and continues without suspending.</td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#close(net.corda.core.utilities.NonEmptySet)>close</a>(<a href=../utilities/NonEmptySet.html>NonEmptySet</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions) </code>
+                                            </th>
+                                            <td class="colLast">Closes the provided sessions and performs cleanup of any resources tied to these sessions.</td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>&lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#subFlow(net.corda.core.flows.FlowLogic)>R</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#subFlow(net.corda.core.flows.FlowLogic)>subFlow</a>(<a href=FlowLogic.html>FlowLogic</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#subFlow(net.corda.core.flows.FlowLogic)>R</a>&gt; subLogic) </code>
+                                            </th>
+                                            <td class="colLast">Invokes the given subflow.</td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#checkFlowPermission(java.lang.String,java.util.Map)>checkFlowPermission</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> permissionName, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; extraAuditData) </code>
+                                            </th>
+                                            <td class="colLast">Flows can call this method to ensure that the active FlowInitiator is authorised for a particular action.</td>
+                                        </tr>
+                                        
+                                        <tr id="i22" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#recordAuditEvent(java.lang.String,java.lang.String,java.util.Map)>recordAuditEvent</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> eventType, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> comment, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; extraAuditData) </code>
+                                            </th>
+                                            <td class="colLast">Flows can call this method to record application level flow audit events</td>
+                                        </tr>
+                                        
+                                        <tr id="i23" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=FlowLogic.html>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/flows/AbstractCashFlow.html#call()>call</a>() </code>
+                                            </th>
+                                            <td class="colLast">This is where you fill out your business logic.</td>
+                                        </tr>
+                                        
+                                        <tr id="i24" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../messaging/DataFeed.html>DataFeed</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#track()>track</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns a pair of the current progress step, as a string, and an observable of stringified changes to the <a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i25" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=../messaging/DataFeed.html>DataFeed</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#trackStepsTreeIndex()>trackStepsTreeIndex</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns a pair of the current progress step index (as integer) in steps tree of current <a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a>, and an observable of its upcoming changes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i26" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../messaging/DataFeed.html>DataFeed</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#trackStepsTree()>trackStepsTree</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns a pair of the current steps tree of current <a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a> as pairs of zero-based depth and stringified step label and observable of upcoming changes to the structure.</td>
+                                        </tr>
+                                        
+                                        <tr id="i27" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#waitForLedgerCommit(net.corda.core.crypto.SecureHash,java.lang.Boolean)>waitForLedgerCommit</a>(<a href=../crypto/SecureHash.html>SecureHash</a> hash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint) </code>
+                                            </th>
+                                            <td class="colLast">Suspends the flow until the transaction with the specified ID is received, successfully verified and sent to the vault for processing.</td>
+                                        </tr>
+                                        
+                                        <tr id="i28" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#waitForStateConsumption(java.util.Set)>waitForStateConsumption</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; stateRefs) </code>
+                                            </th>
+                                            <td class="colLast">Suspends the current flow until all the provided <a href=../contracts/StateRef.html>StateRef</a>s have been consumed.</td>
+                                        </tr>
+                                        
+                                        <tr id="i29" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=FlowStackSnapshot.html>FlowStackSnapshot</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#flowStackSnapshot()>flowStackSnapshot</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns a shallow copy of the Quasar stack frames at the time of call to <a href=../../finance/internal/CashConfigDataFlow.html#flowStackSnapshot()>flowStackSnapshot</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i30" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#persistFlowStackSnapshot()>persistFlowStackSnapshot</a>() </code>
+                                            </th>
+                                            <td class="colLast">Persists a shallow copy of the Quasar stack frames at the time of call to <a href=../../finance/internal/CashConfigDataFlow.html#persistFlowStackSnapshot()>persistFlowStackSnapshot</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i31" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>R</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>await</a>(<a href=FlowExternalAsyncOperation.html>FlowExternalAsyncOperation</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>R</a>&gt; operation) </code>
+                                            </th>
+                                            <td class="colLast">Executes the specified <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>operation</a> and suspends until operation completion.</td>
+                                        </tr>
+                                        
+                                        <tr id="i32" class="altColor">
+                                            <td class="colFirst"><code>final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>R</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>await</a>(<a href=FlowExternalOperation.html>FlowExternalOperation</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>R</a>&gt; operation) </code>
+                                            </th>
+                                            <td class="colLast">Executes the specified <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>operation</a> and suspends until operation completion.</td>
+                                        </tr>
+                                        
+                                        <tr id="i33" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#checkFlowIsNotKilled()>checkFlowIsNotKilled</a>() </code>
+                                            </th>
+                                            <td class="colLast">Helper function that throws a <a href=KilledFlowException.html>KilledFlowException</a> if the current <a href=FlowLogic.html>FlowLogic</a> has been killed.</td>
+                                        </tr>
+                                        
+                                        <tr id="i34" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#checkFlowIsNotKilled(kotlin.jvm.functions.Function0)>checkFlowIsNotKilled</a>(Function0&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; lazyMessage) </code>
+                                            </th>
+                                            <td class="colLast">Helper function that throws a <a href=KilledFlowException.html>KilledFlowException</a> if the current <a href=FlowLogic.html>FlowLogic</a> has been killed.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="FlowLogic()"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FlowLogic</h4>
+                                        <pre>FlowLogic()</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getLogger()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getLogger</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=../../finance/internal/CashConfigDataFlow.html#getLogger()>getLogger</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getRunId()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getRunId</h4>
+                                        <pre class="methodSignature"> final <a href=StateMachineRunId.html>StateMachineRunId</a> <a href=../../finance/internal/CashConfigDataFlow.html#getRunId()>getRunId</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getServiceHub()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getServiceHub</h4>
+                                        <pre class="methodSignature"> final <a href=../node/ServiceHub.html>ServiceHub</a> <a href=../../finance/internal/CashConfigDataFlow.html#getServiceHub()>getServiceHub</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="isKilled()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>isKilled</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=../../finance/internal/CashConfigDataFlow.html#isKilled()>isKilled</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getOurIdentityAndCert()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getOurIdentityAndCert</h4>
+                                        <pre class="methodSignature"> final <a href=../identity/PartyAndCertificate.html>PartyAndCertificate</a> <a href=../../finance/internal/CashConfigDataFlow.html#getOurIdentityAndCert()>getOurIdentityAndCert</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getOurIdentity()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getOurIdentity</h4>
+                                        <pre class="methodSignature"> final <a href=../identity/Party.html>Party</a> <a href=../../finance/internal/CashConfigDataFlow.html#getOurIdentity()>getOurIdentity</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getProgressTracker()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getProgressTracker</h4>
+                                        <pre class="methodSignature"> <a href=../utilities/ProgressTracker.html>ProgressTracker</a> <a href=../../finance/internal/CashConfigDataFlow.html#getProgressTracker()>getProgressTracker</a>()</pre>
+                                        <div class="block"><p>Override this to provide a <a href=../utilities/ProgressTracker.html>ProgressTracker</a>. If one is provided and stepped, the framework will do something helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another, then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track progress.</p><p>Note that this has to return a tracker before the flow is invoked. You can't change your mind half way through.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="initiateFlow(net.corda.core.flows.Destination)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>initiateFlow</h4>
+                                        <pre class="methodSignature"> final <a href=FlowSession.html>FlowSession</a> <a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.flows.Destination)>initiateFlow</a>(<a href=Destination.html>Destination</a> destination)</pre>
+                                        <div class="block"><p>Creates a communication session with <a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.flows.Destination)>destination</a>. Subsequently you may send/receive using this session object. How the messaging is routed depends on the <a href=Destination.html>Destination</a> type, including whether this call does any initial communication.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="initiateFlow(net.corda.core.identity.Party)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>initiateFlow</h4>
+                                        <pre class="methodSignature"> final <a href=FlowSession.html>FlowSession</a> <a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.identity.Party)>initiateFlow</a>(<a href=../identity/Party.html>Party</a> party)</pre>
+                                        <div class="block"><p>Creates a communication session with <a href=../../finance/internal/CashConfigDataFlow.html#initiateFlow(net.corda.core.identity.Party)>party</a>. Subsequently you may send/receive using this session object. Note that this function does not communicate in itself, the counter-flow will be kicked off by the first send/receive.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getFlowInfo(net.corda.core.identity.Party)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getFlowInfo</h4>
+                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html>Deprecated</a>(message = &quot;Use FlowSession.getCounterpartyFlowInfo()&quot;, level = <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecation-level/-w-a-r-n-i-n-g/index.html>DeprecationLevel.WARNING</a>) final <a href=FlowInfo.html>FlowInfo</a> <a href=../../finance/internal/CashConfigDataFlow.html#getFlowInfo(net.corda.core.identity.Party)>getFlowInfo</a>(<a href=../identity/Party.html>Party</a> otherParty)</pre>
+                                        <div class="block"><p>Returns a <a href=FlowInfo.html>FlowInfo</a> object describing the flow <a href=../../finance/internal/CashConfigDataFlow.html#getFlowInfo(net.corda.core.identity.Party)>otherParty</a> is using. With <a href=FlowInfo.html#flowVersion>FlowInfo.flowVersion</a> it provides the necessary information needed for the evolution of flows and enabling backwards compatibility.</p><p>This method can be called before any send or receive has been done with <a href=../../finance/internal/CashConfigDataFlow.html#getFlowInfo(net.corda.core.identity.Party)>otherParty</a>. In such a case this will force them to start their flow.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="sendAndReceive(net.corda.core.identity.Party,java.lang.Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>sendAndReceive</h4>
+                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html>Deprecated</a>(message = &quot;Use FlowSession.sendAndReceive()&quot;, level = <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecation-level/-w-a-r-n-i-n-g/index.html>DeprecationLevel.WARNING</a>) final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>R</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>sendAndReceive</a>(<a href=../identity/Party.html>Party</a> otherParty, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload)</pre>
+                                        <div class="block"><p>Serializes and queues the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>payload</a> object for sending to the <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>otherParty</a>. Suspends until a response is received, which must be of the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(net.corda.core.identity.Party,java.lang.Object)>R</a> type.</p><p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p><p>Note that this function is not just a simple send+receive pair: it is more efficient and more correct to use this when you expect to do a message swap than do use <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>send</a> and then <a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>receive</a> in turn.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>sendAndReceive</h4>
+                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html>Deprecated</a>(message = &quot;Use FlowSession.sendAndReceive()&quot;, level = <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecation-level/-w-a-r-n-i-n-g/index.html>DeprecationLevel.WARNING</a>) &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>R</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>sendAndReceive</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>R</a>&gt; receiveType, <a href=../identity/Party.html>Party</a> otherParty, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload)</pre>
+                                        <div class="block"><p>Serializes and queues the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>payload</a> object for sending to the <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>otherParty</a>. Suspends until a response is received, which must be of the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAndReceive(java.lang.Class,net.corda.core.identity.Party,java.lang.Object)>receiveType</a>. Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p><p>Note that this function is not just a simple send+receive pair: it is more efficient and more correct to use this when you expect to do a message swap than do use <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>send</a> and then <a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>receive</a> in turn.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="receive(net.corda.core.identity.Party)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>receive</h4>
+                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html>Deprecated</a>(message = &quot;Use FlowSession.receive()&quot;, level = <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecation-level/-w-a-r-n-i-n-g/index.html>DeprecationLevel.WARNING</a>) final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>R</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>receive</a>(<a href=../identity/Party.html>Party</a> otherParty)</pre>
+                                        <div class="block"><p>Suspends until the specified <a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>otherParty</a> sends us a message of type <a href=../../finance/internal/CashConfigDataFlow.html#receive(net.corda.core.identity.Party)>R</a>.</p><p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="receive(java.lang.Class,net.corda.core.identity.Party)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>receive</h4>
+                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html>Deprecated</a>(message = &quot;Use FlowSession.receive()&quot;, level = <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecation-level/-w-a-r-n-i-n-g/index.html>DeprecationLevel.WARNING</a>) &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>R</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>receive</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>R</a>&gt; receiveType, <a href=../identity/Party.html>Party</a> otherParty)</pre>
+                                        <div class="block"><p>Suspends until the specified <a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>otherParty</a> sends us a message of type <a href=../../finance/internal/CashConfigDataFlow.html#receive(java.lang.Class,net.corda.core.identity.Party)>receiveType</a>.</p><p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="send(net.corda.core.identity.Party,java.lang.Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>send</h4>
+                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html>Deprecated</a>(message = &quot;Use FlowSession.send()&quot;, level = <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecation-level/-w-a-r-n-i-n-g/index.html>DeprecationLevel.WARNING</a>) <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>send</a>(<a href=../identity/Party.html>Party</a> otherParty, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload)</pre>
+                                        <div class="block"><p>Queues the given <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>payload</a> for sending to the <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>otherParty</a> and continues without suspending.</p><p>Note that the other party may receive the message at some arbitrary later point or not at all: if <a href=../../finance/internal/CashConfigDataFlow.html#send(net.corda.core.identity.Party,java.lang.Object)>otherParty</a> is offline then message delivery will be retried until it comes back or until the message is older than the network's event horizon time.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="receiveAllMap(java.util.Map,java.lang.Boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>receiveAllMap</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=FlowSession.html>FlowSession</a>, <a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=../../finance/internal/CashConfigDataFlow.html#receiveAllMap(java.util.Map,java.lang.Boolean)>receiveAllMap</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=FlowSession.html>FlowSession</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint)</pre>
+                                        <div class="block"><p>Suspends until a message has been received for each session in the specified <a href=../../finance/internal/CashConfigDataFlow.html#receiveAllMap(java.util.Map,java.lang.Boolean)>sessions</a>.</p><p>Consider receiveAll(receiveType: Class&lt;R&gt;, sessions: List&lt;FlowSession&gt;): List&lt;UntrustworthyData&lt;R&gt;&gt; when the same type is expected from all sessions.</p><p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>receiveAll</h4>
+                                        <pre class="methodSignature"> &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../utilities/UntrustworthyData.html>UntrustworthyData</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>R</a>&gt;&gt; <a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>receiveAll</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>R</a>&gt; receiveType, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint)</pre>
+                                        <div class="block"><p>Suspends until a message has been received for each session in the specified <a href=../../finance/internal/CashConfigDataFlow.html#receiveAll(java.lang.Class,java.util.List,java.lang.Boolean)>sessions</a>.</p><p>Consider sessions: Map&lt;FlowSession, Class&lt;out Any&gt;&gt;): Map&lt;FlowSession, UntrustworthyData&lt;Any&gt;&gt; when sessions are expected to receive different types.</p><p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>sendAll</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)>sendAll</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> payload, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint)</pre>
+                                        <div class="block"><p>Queues the given <a href=../../finance/internal/CashConfigDataFlow.html#sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)>payload</a> for sending to the provided <a href=../../finance/internal/CashConfigDataFlow.html#sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)>sessions</a> and continues without suspending.</p><p>Note that the other parties may receive the message at some arbitrary later point or not at all: if one of the provided <a href=../../finance/internal/CashConfigDataFlow.html#sendAll(java.lang.Object,java.util.Set,java.lang.Boolean)>sessions</a> is offline then message delivery will be retried until the corresponding node comes back or until the message is older than the network's event horizon time.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>payload</code> - the payload to send.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sessions</code> - the sessions to send the provided payload to.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>maySkipCheckpoint</code> - whether checkpointing should be skipped.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="sendAllMap(java.util.Map,java.lang.Boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>sendAllMap</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#sendAllMap(java.util.Map,java.lang.Boolean)>sendAllMap</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=FlowSession.html>FlowSession</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; payloadsPerSession, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint)</pre>
+                                        <div class="block"><p>Queues the given payloads for sending to the provided sessions and continues without suspending.</p><p>Note that the other parties may receive the message at some arbitrary later point or not at all: if one of the provided sessions is offline then message delivery will be retried until the corresponding node comes back or until the message is older than the network's event horizon time.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>payloadsPerSession</code> - a mapping that contains the payload to be sent to each session.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>maySkipCheckpoint</code> - whether checkpointing should be skipped.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="close(net.corda.core.utilities.NonEmptySet)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>close</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#close(net.corda.core.utilities.NonEmptySet)>close</a>(<a href=../utilities/NonEmptySet.html>NonEmptySet</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions)</pre>
+                                        <div class="block"><p>Closes the provided sessions and performs cleanup of any resources tied to these sessions.</p><p>Note that sessions are closed automatically when the corresponding top-level flow terminates. So, it's beneficial to eagerly close them in long-lived flows that might have many open sessions that are not needed anymore and consume resources (e.g. memory, disk etc.). A closed session cannot be used anymore, e.g. to send or receive messages. So, you have to ensure you are calling this method only when the provided sessions are not going to be used anymore. As a result, any operations on a closed session will fail with an <a href=UnexpectedFlowEndException.html>UnexpectedFlowEndException</a>. When a session is closed, the other side is informed and the session is closed there too eventually. To prevent misuse of the API, if there is an attempt to close an uninitialised session the invocation will fail with an <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="subFlow(net.corda.core.flows.FlowLogic)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>subFlow</h4>
+                                        <pre class="methodSignature"> &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#subFlow(net.corda.core.flows.FlowLogic)>R</a> <a href=../../finance/internal/CashConfigDataFlow.html#subFlow(net.corda.core.flows.FlowLogic)>subFlow</a>(<a href=FlowLogic.html>FlowLogic</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#subFlow(net.corda.core.flows.FlowLogic)>R</a>&gt; subLogic)</pre>
+                                        <div class="block"><p>Invokes the given subflow. This function returns once the subflow completes successfully with the result returned by that subflow's <a href=../../finance/flows/AbstractCashFlow.html#call()>call</a> method. If the subflow has a progress tracker, it is attached to the current step in this flow's progress tracker.</p><p>If the subflow is not an initiating flow (i.e. not annotated with <a href=InitiatingFlow.html>InitiatingFlow</a>) then it will continue to use the existing sessions this flow has created with its counterparties. This allows for subflows which can act as building blocks for other flows, for example removing the boilerplate of common sequences of sends and receives.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="checkFlowPermission(java.lang.String,java.util.Map)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>checkFlowPermission</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#checkFlowPermission(java.lang.String,java.util.Map)>checkFlowPermission</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> permissionName, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; extraAuditData)</pre>
+                                        <div class="block"><p>Flows can call this method to ensure that the active FlowInitiator is authorised for a particular action. This provides fine grained control over application level permissions, when RPC control over starting the flow is insufficient, or the permission is runtime dependent upon the choices made inside long lived flow code. For example some users may have restricted limits on how much cash they can transfer, or whether they can change certain fields. An audit event is always recorded whenever this method is used. If the permission is not granted for the FlowInitiator a FlowException is thrown.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>permissionName</code> - is a string representing the desired permission.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>extraAuditData</code> - in the audit log for this permission check these extra key value pairs will be recorded.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordAuditEvent(java.lang.String,java.lang.String,java.util.Map)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordAuditEvent</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#recordAuditEvent(java.lang.String,java.lang.String,java.util.Map)>recordAuditEvent</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> eventType, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> comment, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; extraAuditData)</pre>
+                                        <div class="block"><p>Flows can call this method to record application level flow audit events</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>eventType</code> - is a string representing the type of event.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>comment</code> - a general human readable summary of the event.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>extraAuditData</code> - in the audit log for this permission check these extra key value pairs will be recorded.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="call()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>call</h4>
+                                        <pre class="methodSignature"> abstract <a href=FlowLogic.html>T</a> <a href=../../finance/flows/AbstractCashFlow.html#call()>call</a>()</pre>
+                                        <div class="block"><p>This is where you fill out your business logic.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="track()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>track</h4>
+                                        <pre class="methodSignature"> final <a href=../messaging/DataFeed.html>DataFeed</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#track()>track</a>()</pre>
+                                        <div class="block"><p>Returns a pair of the current progress step, as a string, and an observable of stringified changes to the <a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackStepsTreeIndex()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackStepsTreeIndex</h4>
+                                        <pre class="methodSignature"> final <a href=../messaging/DataFeed.html>DataFeed</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#trackStepsTreeIndex()>trackStepsTreeIndex</a>()</pre>
+                                        <div class="block"><p>Returns a pair of the current progress step index (as integer) in steps tree of current <a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a>, and an observable of its upcoming changes.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="trackStepsTree()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>trackStepsTree</h4>
+                                        <pre class="methodSignature"> final <a href=../messaging/DataFeed.html>DataFeed</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;&gt; <a href=../../finance/internal/CashConfigDataFlow.html#trackStepsTree()>trackStepsTree</a>()</pre>
+                                        <div class="block"><p>Returns a pair of the current steps tree of current <a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a> as pairs of zero-based depth and stringified step label and observable of upcoming changes to the structure.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="waitForLedgerCommit(net.corda.core.crypto.SecureHash,java.lang.Boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>waitForLedgerCommit</h4>
+                                        <pre class="methodSignature"> final <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=../../finance/internal/CashConfigDataFlow.html#waitForLedgerCommit(net.corda.core.crypto.SecureHash,java.lang.Boolean)>waitForLedgerCommit</a>(<a href=../crypto/SecureHash.html>SecureHash</a> hash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> maySkipCheckpoint)</pre>
+                                        <div class="block"><p>Suspends the flow until the transaction with the specified ID is received, successfully verified and sent to the vault for processing. Note that this call suspends until the transaction is considered valid by the local node, but that doesn't imply the vault will consider it relevant.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="waitForStateConsumption(java.util.Set)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>waitForStateConsumption</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#waitForStateConsumption(java.util.Set)>waitForStateConsumption</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; stateRefs)</pre>
+                                        <div class="block"><p>Suspends the current flow until all the provided <a href=../contracts/StateRef.html>StateRef</a>s have been consumed.</p><p>WARNING! Remember that the flow which uses this async operation will <i>NOT</i> wake-up until all the supplied StateRefs have been consumed. If the node isn't aware of the supplied StateRefs or if the StateRefs are never consumed, then the calling flow will remain suspended FOREVER!!</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>stateRefs</code> - the StateRefs which will be consumed in the future.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="flowStackSnapshot()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>flowStackSnapshot</h4>
+                                        <pre class="methodSignature"> final <a href=FlowStackSnapshot.html>FlowStackSnapshot</a> <a href=../../finance/internal/CashConfigDataFlow.html#flowStackSnapshot()>flowStackSnapshot</a>()</pre>
+                                        <div class="block"><p>Returns a shallow copy of the Quasar stack frames at the time of call to <a href=../../finance/internal/CashConfigDataFlow.html#flowStackSnapshot()>flowStackSnapshot</a>. Use this to inspect what objects would be serialised at the time of call to a suspending action (e.g. send/receive). Note: This logic is only available during tests and is not meant to be used during the production deployment. Therefore the default implementation does nothing.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="persistFlowStackSnapshot()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>persistFlowStackSnapshot</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#persistFlowStackSnapshot()>persistFlowStackSnapshot</a>()</pre>
+                                        <div class="block"><p>Persists a shallow copy of the Quasar stack frames at the time of call to <a href=../../finance/internal/CashConfigDataFlow.html#persistFlowStackSnapshot()>persistFlowStackSnapshot</a>. Use this to track the monitor evolution of the quasar stack values during the flow execution. The flow stack snapshot is stored in a file located in {baseDir}/flowStackSnapshots/YYYY-MM-DD/{flowId}/ where baseDir is the node running directory and flowId is the flow unique identifier generated by the platform.</p><p>Note: With respect to the <a href=../../finance/internal/CashConfigDataFlow.html#flowStackSnapshot()>flowStackSnapshot</a>, the snapshot being persisted by this method is partial, meaning that only flow relevant traces and local variables are persisted. Also, this logic is only available during tests and is not meant to be used during the production deployment. Therefore the default implementation does nothing.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="await(net.corda.core.flows.FlowExternalAsyncOperation)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>await</h4>
+                                        <pre class="methodSignature"> final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>R</a> <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>await</a>(<a href=FlowExternalAsyncOperation.html>FlowExternalAsyncOperation</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>R</a>&gt; operation)</pre>
+                                        <div class="block"><p>Executes the specified <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalAsyncOperation)>operation</a> and suspends until operation completion.</p><p>An implementation of <a href=FlowExternalAsyncOperation.html>FlowExternalAsyncOperation</a> should be provided that creates a new future that the state machine awaits completion of.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="await(net.corda.core.flows.FlowExternalOperation)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>await</h4>
+                                        <pre class="methodSignature"> final &lt;R extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>R</a> <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>await</a>(<a href=FlowExternalOperation.html>FlowExternalOperation</a>&lt;<a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>R</a>&gt; operation)</pre>
+                                        <div class="block"><p>Executes the specified <a href=../../finance/internal/CashConfigDataFlow.html#await(net.corda.core.flows.FlowExternalOperation)>operation</a> and suspends until operation completion.</p><p>An implementation of <a href=FlowExternalOperation.html>FlowExternalOperation</a> should be provided that returns a result which the state machine will run on a separate thread (using the node's external operation thread pool).</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="checkFlowIsNotKilled()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>checkFlowIsNotKilled</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#checkFlowIsNotKilled()>checkFlowIsNotKilled</a>()</pre>
+                                        <div class="block"><p>Helper function that throws a <a href=KilledFlowException.html>KilledFlowException</a> if the current <a href=FlowLogic.html>FlowLogic</a> has been killed.</p><p>Call this function in long-running computation loops to exit a flow that has been killed:</p><pre><code>for (item in list) {
+  checkFlowIsNotKilled()
+  // do some computation
+}</code></pre><p>See the <a href=../../finance/internal/CashConfigDataFlow.html#isKilled()>isKilled</a> property for more information.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="checkFlowIsNotKilled(kotlin.jvm.functions.Function0)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>checkFlowIsNotKilled</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../finance/internal/CashConfigDataFlow.html#checkFlowIsNotKilled(kotlin.jvm.functions.Function0)>checkFlowIsNotKilled</a>(Function0&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; lazyMessage)</pre>
+                                        <div class="block"><p>Helper function that throws a <a href=KilledFlowException.html>KilledFlowException</a> if the current <a href=FlowLogic.html>FlowLogic</a> has been killed. The provided message is added to the thrown <a href=KilledFlowException.html>KilledFlowException</a>.</p><p>Call this function in long-running computation loops to exit a flow that has been killed:</p><pre><code>for (item in list) {
+  checkFlowIsNotKilled { &quot;The flow $runId was killed while iterating through the list of items&quot; }
+  // do some computation
+}</code></pre><p>See the <a href=../../finance/internal/CashConfigDataFlow.html#isKilled()>isKilled</a> property for more information.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

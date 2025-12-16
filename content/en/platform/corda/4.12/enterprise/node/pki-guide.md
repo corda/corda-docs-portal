@@ -55,6 +55,7 @@ as they root to the same certificate.
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 {{< figure alt="hierarchy agnostic" width=80% zoom="../resources/hierarchy-agnostic.png" >}}
+
 At the time of writing this document, a Corda network assumes the certificate hierarchy that can be found in the [Certificate hierarchy guide]({{< relref "../network/permissioning.md#certificate-hierarchy" >}}).
 
 

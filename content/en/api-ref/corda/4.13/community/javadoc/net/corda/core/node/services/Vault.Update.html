@@ -1,0 +1,714 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>Update 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.node.services</a></div>
+        <h2 title="Class Vault.Update" class="title">Class Vault.Update</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public final class <span class="typeNameLabel"><a href=Vault.Update.html>Vault.Update</a>&lt;U extends <a href=../../contracts/ContractState.html>ContractState</a>&gt;</span>
+
+                    </pre>
+                    <div class="block"><p>Represents an update observed by the vault that will be notified to observers.  Include the <a href=../../contracts/StateRef.html>StateRef</a>s of transaction outputs that were consumed (inputs) and the <a href=../../contracts/ContractState.html>ContractState</a>s produced (outputs) to/by the transaction or transactions observed and the vault.</p><p>If the vault observes multiple transactions simultaneously, where some transactions consume the outputs of some of the other transactions observed, then the changes are observed &quot;net&quot; of those.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#consumed>consumed</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#produced>produced</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#flowId>flowId</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=Vault.UpdateType.html>Vault.UpdateType</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#type>type</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#references>references</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>, <a href=../../crypto/SecureHash.html>SecureHash</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#consumingTxIds>consumingTxIds</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#Vault.Update(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType,java.util.Set)">Vault.Update</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; references)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#Vault.Update(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType,java.util.Set,java.util.Map)">Vault.Update</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; references, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>, <a href=../../crypto/SecureHash.html>SecureHash</a>&gt; consumingTxIds)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#getConsumed()>getConsumed</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#getProduced()>getProduced</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#getFlowId()>getFlowId</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=Vault.UpdateType.html>Vault.UpdateType</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#getType()>getType</a>() </code>
+                                            </th>
+                                            <td class="colLast">Specifies the type of update, currently supported types are general and, contract upgrade and notary change.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#getReferences()>getReferences</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>, <a href=../../crypto/SecureHash.html>SecureHash</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#getConsumingTxIds()>getConsumingTxIds</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#containsType()>containsType</a>() </code>
+                                            </th>
+                                            <td class="colLast">Checks whether the update contains a state of the specified type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#containsType(java.lang.Class,net.corda.core.node.services.Vault.StateStatus)>containsType</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=Vault.Update.html#containsType(java.lang.Class,net.corda.core.node.services.Vault.StateStatus)>T</a>&gt; clazz, <a href=Vault.StateStatus.html>Vault.StateStatus</a> status) </code>
+                                            </th>
+                                            <td class="colLast">Checks whether the update contains a state of the specified type and state status</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#isEmpty()>isEmpty</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#plus(net.corda.core.node.services.Vault.Update)>plus</a>(<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt; rhs) </code>
+                                            </th>
+                                            <td class="colLast">Combine two updates into a single update with the combined inputs and outputs of the two updates but net any outputs of the left-hand-side (this) that are consumed by the inputs of the right-hand-side (rhs).</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#toString()>toString</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#copy(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type) </code>
+                                            </th>
+                                            <td class="colLast">Additional copy method to maintain backwards compatibility.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>final <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Vault.Update.html#copy(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType,java.util.Set)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; references) </code>
+                                            </th>
+                                            <td class="colLast">Additional copy method to maintain backwards compatibility.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="Vault.Update(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType,java.util.Set)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>Vault.Update</h4>
+                                        <pre>Vault.Update(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; references)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="Vault.Update(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType,java.util.Set,java.util.Map)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>Vault.Update</h4>
+                                        <pre>Vault.Update(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; references, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>, <a href=../../crypto/SecureHash.html>SecureHash</a>&gt; consumingTxIds)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getConsumed()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getConsumed</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; <a href=Vault.Update.html#getConsumed()>getConsumed</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getProduced()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getProduced</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; <a href=Vault.Update.html#getProduced()>getProduced</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getFlowId()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getFlowId</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> <a href=Vault.Update.html#getFlowId()>getFlowId</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getType()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getType</h4>
+                                        <pre class="methodSignature"> final <a href=Vault.UpdateType.html>Vault.UpdateType</a> <a href=Vault.Update.html#getType()>getType</a>()</pre>
+                                        <div class="block"><p>Specifies the type of update, currently supported types are general and, contract upgrade and notary change. Notary change transactions only modify the notary field on states, and potentially need to be handled differently.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getReferences()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getReferences</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; <a href=Vault.Update.html#getReferences()>getReferences</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getConsumingTxIds()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getConsumingTxIds</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=../../contracts/StateRef.html>StateRef</a>, <a href=../../crypto/SecureHash.html>SecureHash</a>&gt; <a href=Vault.Update.html#getConsumingTxIds()>getConsumingTxIds</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="containsType()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>containsType</h4>
+                                        <pre class="methodSignature"> final &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Vault.Update.html#containsType()>containsType</a>()</pre>
+                                        <div class="block"><p>Checks whether the update contains a state of the specified type.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="containsType(java.lang.Class,net.corda.core.node.services.Vault.StateStatus)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>containsType</h4>
+                                        <pre class="methodSignature"> final &lt;T extends <a href=../../contracts/ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Vault.Update.html#containsType(java.lang.Class,net.corda.core.node.services.Vault.StateStatus)>containsType</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=Vault.Update.html#containsType(java.lang.Class,net.corda.core.node.services.Vault.StateStatus)>T</a>&gt; clazz, <a href=Vault.StateStatus.html>Vault.StateStatus</a> status)</pre>
+                                        <div class="block"><p>Checks whether the update contains a state of the specified type and state status</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="isEmpty()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>isEmpty</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Vault.Update.html#isEmpty()>isEmpty</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="plus(net.corda.core.node.services.Vault.Update)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>plus</h4>
+                                        <pre class="methodSignature"> final <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt; <a href=Vault.Update.html#plus(net.corda.core.node.services.Vault.Update)>plus</a>(<a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt; rhs)</pre>
+                                        <div class="block"><p>Combine two updates into a single update with the combined inputs and outputs of the two updates but net any outputs of the left-hand-side (this) that are consumed by the inputs of the right-hand-side (rhs).</p><p>i.e. the net effect in terms of state live-ness of receiving the combined update is the same as receiving this followed by rhs.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toString()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toString</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=Vault.Update.html#toString()>toString</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="copy(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>copy</h4>
+                                        <pre class="methodSignature"> final <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt; <a href=Vault.Update.html#copy(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type)</pre>
+                                        <div class="block"><p>Additional copy method to maintain backwards compatibility.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="copy(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType,java.util.Set)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>copy</h4>
+                                        <pre class="methodSignature"> final <a href=Vault.Update.html>Vault.Update</a>&lt;<a href=Vault.Update.html>U</a>&gt; <a href=Vault.Update.html#copy(java.util.Set,java.util.Set,java.util.UUID,net.corda.core.node.services.Vault.UpdateType,java.util.Set)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; consumed, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; produced, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> flowId, <a href=Vault.UpdateType.html>Vault.UpdateType</a> type, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=Vault.Update.html>U</a>&gt;&gt; references)</pre>
+                                        <div class="block"><p>Additional copy method to maintain backwards compatibility.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

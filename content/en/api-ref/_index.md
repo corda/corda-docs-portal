@@ -14,7 +14,7 @@ menu:
 
 ## Corda 4
 
-See the [Corda 4 API reference]({{< relref "api-ref-corda-4.md" >}}) page to access the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community 4.9, Corda Community and Open Source Edition 4.10 and 4.11, Corda Open Source Edition 4.12, Corda Enterprise 4.8 to 4.12, and Corda Enterprise Network Manager (CENM) 1.2 to 1.6.
+See the [Corda 4 API reference]({{< relref "api-ref-corda-4.md" >}}) page to access the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community 4.9, Corda Community and Open Source Edition 4.10 and 4.11, Corda Open Source Edition 4.12 and 4.13, Corda Enterprise 4.8 to 4.13, and Corda Enterprise Network Manager (CENM) 1.2 to 1.7.
 
 ## Older versions of Corda
 

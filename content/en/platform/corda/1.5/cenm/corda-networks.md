@@ -82,7 +82,6 @@ one subzone
 
 For more information, see [Subzones]({{< relref "sub-zones.md" >}})
 
-
 ### Operating a segregated subzone
 
 In all supported versions (CENM 1.2 onwards), operating a subzone is the same as operating a single

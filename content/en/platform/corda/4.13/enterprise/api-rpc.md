@@ -1,0 +1,33 @@
+---
+date: '2020-04-07T12:00:00Z'
+menu:
+  corda-enterprise-4-13:
+    parent: corda-enterprise-4-13-corda-nodes-operating-interacting
+tags:
+- api
+- rpc
+title: 'RPC operations'
+weight: 2
+---
+
+
+# RPC operations
+
+The node’s owner interacts with the node solely via remote procedure calls (RPC). The node’s owner does not have
+access to the node’s `ServiceHub`.
+
+The key RPC operations exposed by the node are:
+
+- `CordaRPCOps.currentNodeTime`: Returns the current time according to the node’s clock. It is a 'quick RPC'. It bypasses the thread pool and other regular RPCs waiting in it, allowing the node to reply relatively quickly.
+- `CordaRPCOps.isReadOnlyNode`: Allows you to check the [read-only status]({{< relref "node/setup/read-only-nodes.md" >}}) of a node. It returns true if the node is configured as read-only, otherwise false
+- `CordaRPCOps.killFlow()`: Attempts to kill a flow. This is not a clean termination and should be reserved for exceptional cases such as stuck fibers. Returns whether the flow existed and was killed.
+- `CordaRPCOps.networkMapFeed`: Returns a list of network nodes and observable changes to the network map
+- `CordaRPCOps.nodeDiagnosticInfo`: Returns diagnostic information about the node, including the version and CorDapp details
+- `CordaRPCOps.nodeInfo`: Returns the network map entry of the node, including its address and identity details as well as the platform version information
+- `CordaRPCOps.partyFromKey/CordaRPCOps.wellKnownPartyFromX500Name`: Retrieves a party on the network based on a public key or X.500 name
+- `CordaRPCOps.registeredFlows`: Returns a list of registered flows on the node
+- `CordaRPCOps.startFlowDynamic`: Start one of the node’s registered flows
+- `CordaRPCOps.startTrackedFlowDynamic`: The same as `startFlowDynamic` above, but also returns a progress handle for the flow
+- `CordaRPCOps.uploadAttachment`/`CordaRPCOps.openAttachment`/`CordaRPCOps.attachmentExists`: Uploads, opens and checks for the existence of attachments
+- `CordaRPCOps.vaultQueryBy`: Extract states from the node’s vault based on a query criteria
+- `CordaRPCOps.vaultTrackBy`: The same as `vaultQueryBy` above, but also returns an observable of future states matching the query

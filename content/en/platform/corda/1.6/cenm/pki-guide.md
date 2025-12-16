@@ -275,5 +275,4 @@ defaults and have the configuration adjusted to the specific needs of different 
 
 {{< note >}}
 To learn more about running the tool, see [Public key infrastructure (PKI) tool]({{< relref "pki-tool.md" >}}).
-
 {{< /note >}}

@@ -13,7 +13,7 @@ menu:
 tags:
 - upgrade
 - notes
-title: Upgrading Corda Enterprise Network Manager
+title: Upgrading the Network Manager
 ---
 
 # Upgrading Corda Enterprise Network Manager

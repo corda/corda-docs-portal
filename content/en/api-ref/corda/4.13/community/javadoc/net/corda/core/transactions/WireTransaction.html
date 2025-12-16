@@ -1,0 +1,787 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>WireTransaction 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.transactions</a></div>
+        <h2 title="Class WireTransaction" class="title">Class WireTransaction</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                            <code>net.corda.core.contracts.NamedByHash</code>
+                            
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public final class <span class="typeNameLabel"><a href=WireTransaction.html>WireTransaction</a></span>
+extends <a href=TraversableTransaction.html>TraversableTransaction</a>
+                    </pre>
+                    <div class="block"><p>A transaction ready for serialisation, without any signatures attached. A WireTransaction is usually wrapped by a <a href=SignedTransaction.html>SignedTransaction</a> that carries the signatures over this payload. The identity of the transaction is the Merkle tree root of its components (see <a href=../crypto/MerkleTree.html>MerkleTree</a>).</p><p>For privacy purposes, each part of a transaction should be accompanied by a nonce. To avoid storing a random number (nonce) per component, an initial <a href=WireTransaction.html#privacySalt>privacySalt</a> is the sole value utilised, so that all component nonces are deterministically computed.</p><p>A few notes about backwards compatibility: A wire transaction can be backwards compatible, in the sense that if an old client receives a componentGroups with more elements than expected, it will normally deserialise the required objects and omit any checks in the optional new fields. Moreover, because the Merkle tree is constructed from the received list of <a href=ComponentGroup.html>ComponentGroup</a>, which internally deals with bytes, any client can compute the Merkle tree and on the same time relay a <a href=WireTransaction.html>WireTransaction</a> object even if she is unable to read some of the &quot;optional&quot; component types. We stress that practically, a new type of <a href=WireTransaction.html>WireTransaction</a> should only be considered compatible if and only if the following rules apply:</p>&lt;p&gt;&lt;ul&gt;
+&lt;li&gt;Component-type ordering is fixed (eg. inputs, then outputs, then commands etc, see [ComponentGroupEnum] for the actual ordering).
+&lt;li&gt;Removing a component-type that existed in older wire transaction types is not allowed, because it will affect the Merkle tree structure.
+&lt;li&gt;Changing the order of existing component types is also not allowed, for the same reason.
+&lt;li&gt;New component types must be added at the end of the list of [ComponentGroup] and update the [ComponentGroupEnum] with the new type. After a component is added, its ordinal must never change.
+&lt;li&gt;A new component type should always be an &quot;optional value&quot;, in the sense that lack of its visibility does not change the transaction and contract logic and details. An example of &quot;optional&quot; components could be a transaction summary or some statistics.
+&lt;/ul&gt;&lt;/p&gt;</div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../crypto/SecureHash.html>SecureHash</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#id>id</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#requiredSigningKeys>requiredSigningKeys</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../crypto/MerkleTree.html>MerkleTree</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#merkleTree>merkleTree</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../contracts/PrivacySalt.html>PrivacySalt</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#privacySalt>privacySalt</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#legacyAttachments>legacyAttachments</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#attachments>attachments</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#inputs>inputs</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#references>references</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#outputs>outputs</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#commands>commands</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../identity/Party.html>Party</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#notary>notary</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../contracts/TimeWindow.html>TimeWindow</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#timeWindow>timeWindow</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../crypto/SecureHash.html>SecureHash</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#networkParametersHash>networkParametersHash</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#availableComponentGroups>availableComponentGroups</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ComponentGroup.html>ComponentGroup</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#componentGroups>componentGroups</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../crypto/DigestService.html>DigestService</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#digestService>digestService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#outputStates>outputStates</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#WireTransaction(java.util.List)">WireTransaction</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ComponentGroup.html>ComponentGroup</a>&gt; componentGroups)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#WireTransaction(java.util.List,net.corda.core.contracts.PrivacySalt)">WireTransaction</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ComponentGroup.html>ComponentGroup</a>&gt; componentGroups, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt)</code></th>
+                                                <td class="colLast">Old version of <a href=WireTransaction.html>WireTransaction</a> constructor for ABI compatibility.</td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#WireTransaction(java.util.List,java.util.List,java.util.List,java.util.List,net.corda.core.identity.Party,net.corda.core.contracts.TimeWindow,net.corda.core.contracts.PrivacySalt)">WireTransaction</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; inputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; attachments, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;&gt; outputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt; commands, <a href=../identity/Party.html>Party</a> notary, <a href=../contracts/TimeWindow.html>TimeWindow</a> timeWindow, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#WireTransaction(java.util.List,net.corda.core.contracts.PrivacySalt,net.corda.core.crypto.DigestService)">WireTransaction</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ComponentGroup.html>ComponentGroup</a>&gt; componentGroups, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt, <a href=../crypto/DigestService.html>DigestService</a> digestService)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code><a href=../crypto/SecureHash.html>SecureHash</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#getId()>getId</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#getRequiredSigningKeys()>getRequiredSigningKeys</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../crypto/MerkleTree.html>MerkleTree</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#getMerkleTree()>getMerkleTree</a>() </code>
+                                            </th>
+                                            <td class="colLast">Builds whole Merkle tree for a transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=../contracts/PrivacySalt.html>PrivacySalt</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#getPrivacySalt()>getPrivacySalt</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=LedgerTransaction.html>LedgerTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#toLedgerTransaction(net.corda.core.node.ServicesForResolution)>toLedgerTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services) </code>
+                                            </th>
+                                            <td class="colLast">Looks up identities and attachments from storage to generate a <a href=LedgerTransaction.html>LedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=LedgerTransaction.html>LedgerTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#toLedgerTransaction(kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1)>toLedgerTransaction</a>(Function1&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>, <a href=../identity/Party.html>Party</a>&gt; resolveIdentity, Function1&lt;<a href=../crypto/SecureHash.html>SecureHash</a>, <a href=../contracts/Attachment.html>Attachment</a>&gt; resolveAttachment, Function1&lt;<a href=../contracts/StateRef.html>StateRef</a>, <a href=../contracts/TransactionState.html>TransactionState</a>&lt;?&gt;&gt; resolveStateRef, Function1&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;, <a href=../crypto/SecureHash.html>SecureHash</a>&gt; resolveContractAttachment) </code>
+                                            </th>
+                                            <td class="colLast">Looks up identities, attachments and dependent input states using the provided lookup functions in order to construct a <a href=LedgerTransaction.html>LedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final <a href=FilteredTransaction.html>FilteredTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#buildFilteredTransaction(java.util.function.Predicate)>buildFilteredTransaction</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html>Predicate</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; filtering) </code>
+                                            </th>
+                                            <td class="colLast">Build filtered transaction using provided filtering functions.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#checkSignature(net.corda.core.crypto.TransactionSignature)>checkSignature</a>(<a href=../crypto/TransactionSignature.html>TransactionSignature</a> sig) </code>
+                                            </th>
+                                            <td class="colLast">Checks that the given signature matches one of the commands and that it is a correct signature over the tx.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#toString()>toString</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#equals(java.lang.Object)>equals</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> other) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=WireTransaction.html#hashCode()>hashCode</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.net.corda.core.transactions.TraversableTransaction">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;net.corda.core.transactions.TraversableTransaction</h3>
+                                            <code>getAttachments, getAvailableComponentGroups, getCommands, getComponentGroups, getDigestService, getInputs, getLegacyAttachments, getNetworkParametersHash, getNotary, getOutputs, getReferences, getTimeWindow</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.net.corda.core.transactions.BaseTransaction">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;net.corda.core.transactions.BaseTransaction</h3>
+                                            <code>filterOutRefs, filterOutRefs, filterOutputs, filterOutputs, findOutRef, findOutRef, findOutput, findOutput, getOutput, getOutputStates, outRef, outRef, outRefsOfType, outRefsOfType, outputsOfType, outputsOfType</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="WireTransaction(java.util.List)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>WireTransaction</h4>
+                                        <pre>WireTransaction(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ComponentGroup.html>ComponentGroup</a>&gt; componentGroups)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="WireTransaction(java.util.List,net.corda.core.contracts.PrivacySalt)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>WireTransaction</h4>
+                                        <pre>WireTransaction(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ComponentGroup.html>ComponentGroup</a>&gt; componentGroups, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt)</pre>
+                                        <div class="block">Old version of <a href=WireTransaction.html>WireTransaction</a> constructor for ABI compatibility.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="WireTransaction(java.util.List,java.util.List,java.util.List,java.util.List,net.corda.core.identity.Party,net.corda.core.contracts.TimeWindow,net.corda.core.contracts.PrivacySalt)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>WireTransaction</h4>
+                                        <pre>WireTransaction(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; inputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; attachments, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;&gt; outputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt; commands, <a href=../identity/Party.html>Party</a> notary, <a href=../contracts/TimeWindow.html>TimeWindow</a> timeWindow, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="WireTransaction(java.util.List,net.corda.core.contracts.PrivacySalt,net.corda.core.crypto.DigestService)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>WireTransaction</h4>
+                                        <pre>WireTransaction(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ComponentGroup.html>ComponentGroup</a>&gt; componentGroups, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt, <a href=../crypto/DigestService.html>DigestService</a> digestService)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getId()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getId</h4>
+                                        <pre class="methodSignature"> <a href=../crypto/SecureHash.html>SecureHash</a> <a href=WireTransaction.html#getId()>getId</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getRequiredSigningKeys()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getRequiredSigningKeys</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=WireTransaction.html#getRequiredSigningKeys()>getRequiredSigningKeys</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMerkleTree()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMerkleTree</h4>
+                                        <pre class="methodSignature"> final <a href=../crypto/MerkleTree.html>MerkleTree</a> <a href=WireTransaction.html#getMerkleTree()>getMerkleTree</a>()</pre>
+                                        <div class="block"><p>Builds whole Merkle tree for a transaction. Briefly, each component group has its own sub Merkle tree and all of the roots of these trees are used as leaves in a top level Merkle tree. Note that ordering of elements inside a <a href=ComponentGroup.html>ComponentGroup</a> matters when computing the Merkle root. On the other hand, insertion group ordering does not affect the top level Merkle tree construction, as it is actually an ordered Merkle tree, where its leaves are ordered based on the group ordinal in <a href=../contracts/ComponentGroupEnum.html>ComponentGroupEnum</a>. If any of the groups is an empty list or a null object, then <a href=../crypto/SecureHash.Companion.html#allOnesHash>SecureHash.allOnesHash</a> is used as its hash. Also, <a href=WireTransaction.html#privacySalt>privacySalt</a> is not a Merkle tree leaf, because it is already &quot;inherently&quot; included via the component nonces.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getPrivacySalt()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getPrivacySalt</h4>
+                                        <pre class="methodSignature"> final <a href=../contracts/PrivacySalt.html>PrivacySalt</a> <a href=WireTransaction.html#getPrivacySalt()>getPrivacySalt</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toLedgerTransaction(net.corda.core.node.ServicesForResolution)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toLedgerTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=LedgerTransaction.html>LedgerTransaction</a> <a href=WireTransaction.html#toLedgerTransaction(net.corda.core.node.ServicesForResolution)>toLedgerTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services)</pre>
+                                        <div class="block"><p>Looks up identities and attachments from storage to generate a <a href=LedgerTransaction.html>LedgerTransaction</a>. A transaction is expected to have been fully resolved using the resolution flow by this point.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toLedgerTransaction(kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toLedgerTransaction</h4>
+                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html>Deprecated</a>(message = &quot;Use toLedgerTransaction(ServicesForResolution) instead&quot;) final <a href=LedgerTransaction.html>LedgerTransaction</a> <a href=WireTransaction.html#toLedgerTransaction(kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function1)>toLedgerTransaction</a>(Function1&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>, <a href=../identity/Party.html>Party</a>&gt; resolveIdentity, Function1&lt;<a href=../crypto/SecureHash.html>SecureHash</a>, <a href=../contracts/Attachment.html>Attachment</a>&gt; resolveAttachment, Function1&lt;<a href=../contracts/StateRef.html>StateRef</a>, <a href=../contracts/TransactionState.html>TransactionState</a>&lt;?&gt;&gt; resolveStateRef, Function1&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;, <a href=../crypto/SecureHash.html>SecureHash</a>&gt; resolveContractAttachment)</pre>
+                                        <div class="block"><p>Looks up identities, attachments and dependent input states using the provided lookup functions in order to construct a <a href=LedgerTransaction.html>LedgerTransaction</a>. Note that identity lookup failure does <i>not</i> cause an exception to be thrown. This invocation doesn't check various rules like no-downgrade or package namespace ownership.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="buildFilteredTransaction(java.util.function.Predicate)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>buildFilteredTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=FilteredTransaction.html>FilteredTransaction</a> <a href=WireTransaction.html#buildFilteredTransaction(java.util.function.Predicate)>buildFilteredTransaction</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html>Predicate</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; filtering)</pre>
+                                        <div class="block"><p>Build filtered transaction using provided filtering functions.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="checkSignature(net.corda.core.crypto.TransactionSignature)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>checkSignature</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=WireTransaction.html#checkSignature(net.corda.core.crypto.TransactionSignature)>checkSignature</a>(<a href=../crypto/TransactionSignature.html>TransactionSignature</a> sig)</pre>
+                                        <div class="block"><p>Checks that the given signature matches one of the commands and that it is a correct signature over the tx.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toString()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toString</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=WireTransaction.html#toString()>toString</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(java.lang.Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=WireTransaction.html#equals(java.lang.Object)>equals</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> other)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="hashCode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>hashCode</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=WireTransaction.html#hashCode()>hashCode</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

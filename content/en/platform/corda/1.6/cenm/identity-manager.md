@@ -275,7 +275,6 @@ See [Workflow]({{< relref "workflow.md" >}}) for more information.
 
 See [Jira setup]({{< relref "jira-setup.md" >}}) for more information about how to configure a Jira project for CSR approval.
 
-
 #### CSR Signing Mechanism
 
 Once a CSR signing request has been approved then a certificate can be signed and issued to the node. Similarly to the

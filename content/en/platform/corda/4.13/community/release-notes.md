@@ -1,0 +1,59 @@
+---
+title: Corda Open Source Edition 4.13 release notes
+aliases:
+- /head/release-notes.html
+- /HEAD/release-notes.html
+- /release-notes.html
+date: '2024-06-04'
+menu:
+  corda-community-4-13:
+    identifier: corda-community-4-13-release-notes
+    parent: about-corda-landing-4-13-community
+    weight: 10
+    name: "Release notes"
+tags:
+- release
+- community
+- notes
+
+---
+
+# Corda Open Source Edition 4.13 release notes
+
+The Corda Open Source Edition 4.13 release introduces new functionality and third-party component upgrades.
+
+## Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+## Platform version change
+
+Corda 4.13 uses platform version 150.
+
+For more information about platform versions, see [Versioning]({{< relref "versioning.md" >}}).
+
+## New features, enhancements and restrictions
+
+### Notary change flow
+
+The transaction hierarchy, [FinalityFlow]({{< relref "api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
+
+### RPC thread pool
+
+The RPC clients (CordaRPCClient, RPCClient, and MultiRPCClient) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.  
+ 
+## Third-party component upgrades
+
+The following table lists the dependency version changes for 4.13 Open Source Editions:
+
+| Dependency                                      | Name                    | New Version   |
+|-------------------------------------------------|-------------------------|---------------|
+| org.apache.activemq:*                           | Apache ActiveMQ Artemis | 2.44.0        |
+| com.azure:azure-identity:*                      | Azure Identity          | 1.18.1        |
+| org.apache.commons:commons-lang3                | Commons Lang            | 3.19.0        |
+| org.glassfish.jersey.*                          | Jersey                  | 3.1.11        |
+| org.apache.logging.log4j:*                      | Log4j                   | 2.25.1        |
+| io.netty:*                                      | Netty                   | 4.1.128.Final |
+| io.netty:netty-tcnative-boringssl-static        | Netty TCNative          | 2.0.74.Final  |
+| org.apache.qpid:proton-j                        | ProtonJ                 | 0.34.1        |
+

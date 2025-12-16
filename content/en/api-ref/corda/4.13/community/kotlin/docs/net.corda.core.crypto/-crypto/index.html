@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Crypto</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="docs::net.corda.core.crypto/Crypto///PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.core.crypto</a><span class="delimiter">/</span><span class="current">Crypto</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Crypto</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">Crypto</a></div><p class="paragraph">This object controls and provides the available and supported signature schemes for Corda. Any implemented <a href="../-signature-scheme/index.html">SignatureScheme</a> should be strictly defined here. However, only the schemes returned by {@link #listSupportedSignatureSchemes()} are supported. Note that Corda currently supports the following signature schemes by their code names:</p><p><ul>
+<li>RSA_SHA256 (RSA PKCS#1 using SHA256 as hash algorithm).
+<li>ECDSA_SECP256K1_SHA256 (ECDSA using the secp256k1 Koblitz curve and SHA256 as hash algorithm).
+<li>ECDSA_SECP256R1_SHA256 (ECDSA using the secp256r1 (NIST P-256) curve and SHA256 as hash algorithm).
+<li>EDDSA_ED25519_SHA512 (EdDSA using the ed25519 twisted Edwards curve and SHA512 as hash algorithm).
+</ul></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1264995767%2FProperties%2F-367327816" anchor-label="COMPOSITE_KEY" id="-1264995767%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-m-p-o-s-i-t-e_-k-e-y.html"><span><span>COMPOSITE_KEY</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1264995767%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-c-o-m-p-o-s-i-t-e_-k-e-y.html">COMPOSITE_KEY</a><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">Corda <a href="../-composite-key/index.html">CompositeKey</a> signature type.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1585138304%2FProperties%2F-367327816" anchor-label="DEFAULT_SIGNATURE_SCHEME" id="1585138304%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html"><span><span>DEFAULT_SIGNATURE_SCHEME</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1585138304%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html">DEFAULT_SIGNATURE_SCHEME</a><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">Our default signature scheme if no algorithm is specified (e.g. for key generation).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1371108077%2FProperties%2F-367327816" anchor-label="ECDSA_SECP256K1_SHA256" id="-1371108077%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e-c-d-s-a_-s-e-c-p256-k1_-s-h-a256.html"><span><span>ECDSA_SECP256K1_SHA256</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1371108077%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-e-c-d-s-a_-s-e-c-p256-k1_-s-h-a256.html">ECDSA_SECP256K1_SHA256</a><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">ECDSA signature scheme using the secp256k1 Koblitz curve and SHA256 for message hashing.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1512368620%2FProperties%2F-367327816" anchor-label="ECDSA_SECP256R1_SHA256" id="1512368620%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e-c-d-s-a_-s-e-c-p256-r1_-s-h-a256.html"><span><span>ECDSA_SECP256R1_SHA256</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1512368620%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-e-c-d-s-a_-s-e-c-p256-r1_-s-h-a256.html">ECDSA_SECP256R1_SHA256</a><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">ECDSA signature scheme using the secp256r1 (NIST P-256) curve and SHA256 for message hashing.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1198589008%2FProperties%2F-367327816" anchor-label="EDDSA_ED25519_SHA512" id="1198589008%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e-d-d-s-a_-e-d25519_-s-h-a512.html"><span><span>EDDSA_ED25519_SHA512</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1198589008%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-e-d-d-s-a_-e-d25519_-s-h-a512.html">EDDSA_ED25519_SHA512</a><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">EdDSA signature scheme using the ed25519 twisted Edwards curve and SHA512 for message hashing. The actual algorithm is PureEdDSA Ed25519 as defined in https://tools.ietf.org/html/rfc8032 Not to be confused with the EdDSA variants, Ed25519ctx and Ed25519ph.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1272567548%2FProperties%2F-367327816" anchor-label="RSA_SHA256" id="-1272567548%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-s-a_-s-h-a256.html"><span><span>RSA_SHA256</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1272567548%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-r-s-a_-s-h-a256.html">RSA_SHA256</a><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">RSA PKCS#1 signature scheme using SHA256 for message hashing. The actual algorithm id is 1.2.840.113549.1.1.1 Note: Recommended key size >= 3072 bits.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="609382316%2FProperties%2F-367327816" anchor-label="SHA512_256" id="609382316%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-h-a512_256.html"><span><span>SHA512_256</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="609382316%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="-s-h-a512_256.html">SHA512_256</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">DLSequence (ASN1Sequence) for SHA512 truncated to 256 bits, used in SPHINCS-256 signature scheme.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1042206071%2FFunctions%2F-367327816" anchor-label="decodePrivateKey" id="1042206071%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="decode-private-key.html"><span>decode</span><wbr></wbr><span>Private</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1042206071%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="decode-private-key.html"><span class="token function">decodePrivateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a></div><div class="brief "><p class="paragraph">Decode a PKCS8 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object. Use this method if the key type is a-priori unknown.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="decode-private-key.html"><span class="token function">decodePrivateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeCodeName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">encodedKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="decode-private-key.html"><span class="token function">decodePrivateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">encodedKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a></div><div class="brief "><p class="paragraph">Decode a PKCS8 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object based on the input scheme code name. This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2020383945%2FFunctions%2F-367327816" anchor-label="decodePublicKey" id="2020383945%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="decode-public-key.html"><span>decode</span><wbr></wbr><span>Public</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2020383945%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="decode-public-key.html"><span class="token function">decodePublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></div><div class="brief "><p class="paragraph">Decode an X509 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> object. Use this method if the key type is a-priori unknown.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="decode-public-key.html"><span class="token function">decodePublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeCodeName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">encodedKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="decode-public-key.html"><span class="token function">decodePublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">encodedKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></div><div class="brief "><p class="paragraph">Decode an X509 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object based on the input scheme code name. This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="203791114%2FFunctions%2F-367327816" anchor-label="deriveKeyPair" id="203791114%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="derive-key-pair.html"><span>derive</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="203791114%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="derive-key-pair.html"><span class="token function">deriveKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">seed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><div class="brief "><p class="paragraph">Deterministically generate/derive a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> using an existing private key and a seed as inputs. Use this method if the <a href="../-signature-scheme/index.html">SignatureScheme</a> of the private key input is not known.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="derive-key-pair.html"><span class="token function">deriveKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">seed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><div class="brief "><p class="paragraph">Deterministically generate/derive a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> using an existing private key and a seed as inputs. This operation is currently supported for ECDSA secp256r1 (NIST P-256), ECDSA secp256k1 and EdDSA ed25519.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1884571918%2FFunctions%2F-367327816" anchor-label="deriveKeyPairFromEntropy" id="1884571918%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="derive-key-pair-from-entropy.html"><span>derive</span><wbr></wbr><span>Key</span><wbr></wbr><span>Pair</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Entropy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1884571918%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="derive-key-pair-from-entropy.html"><span class="token function">deriveKeyPairFromEntropy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">entropy<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><div class="brief "><p class="paragraph">Returns a <a href="-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html">DEFAULT_SIGNATURE_SCHEME</a> key pair derived from the given <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> entropy.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="derive-key-pair-from-entropy.html"><span class="token function">deriveKeyPairFromEntropy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">entropy<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><div class="brief "><p class="paragraph">Returns a key pair derived from the given <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> entropy. This is useful for unit tests and other cases where you want hard-coded private keys. Currently, the following schemes are supported: <a href="-e-d-d-s-a_-e-d25519_-s-h-a512.html">EDDSA_ED25519_SHA512</a>, <a href="-e-c-d-s-a_-s-e-c-p256-r1_-s-h-a256.html">ECDSA_SECP256R1_SHA256</a> and <a href="-e-c-d-s-a_-s-e-c-p256-k1_-s-h-a256.html">ECDSA_SECP256K1_SHA256</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="982351907%2FFunctions%2F-367327816" anchor-label="doSign" id="982351907%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="do-sign.html"><span>do</span><wbr></wbr><span><span>Sign</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="982351907%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-sign.html"><span class="token function">doSign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">keyPair<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a><span class="token punctuation">, </span></span><span class="parameter ">signableData<span class="token operator">: </span><a href="../-signable-data/index.html">SignableData</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-transaction-signature/index.html">TransactionSignature</a></div><div class="brief "><p class="paragraph">Generic way to sign <a href="../-signable-data/index.html">SignableData</a> objects with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a>. <a href="../-signable-data/index.html">SignableData</a> is a wrapper over the transaction's id (Merkle root) in order to attach extra information, such as a timestamp or partial and blind signature indicators.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-sign.html"><span class="token function">doSign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Generic way to sign <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a> data with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a>. Strategy on on identifying the actual signing scheme is based on the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> type, but if the schemeCodeName is known, then better use doSign(signatureScheme: String, privateKey: PrivateKey, clearData: ByteArray).</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-sign.html"><span class="token function">doSign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeCodeName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Generic way to sign <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a> data with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> and a known schemeCodeName <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-sign.html"><span class="token function">doSign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Generic way to sign <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a> data with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> and a known <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html">Signature</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1937771413%2FFunctions%2F-367327816" anchor-label="doVerify" id="1937771413%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="do-verify.html"><span>do</span><wbr></wbr><span><span>Verify</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1937771413%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-verify.html"><span class="token function">doVerify</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">txId<span class="token operator">: </span><a href="../-secure-hash/index.html">SecureHash</a><span class="token punctuation">, </span></span><span class="parameter ">transactionSignature<span class="token operator">: </span><a href="../-transaction-signature/index.html">TransactionSignature</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Utility to simplify the act of verifying a <a href="../-transaction-signature/index.html">TransactionSignature</a>. It returns true if it succeeds, but it always throws an exception if verification fails.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-verify.html"><span class="token function">doVerify</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">signatureData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type. It returns true if it succeeds, but it always throws an exception if verification fails. Strategy on identifying the actual signing scheme is based on the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> type, but if the schemeCodeName is known, then better use doVerify(schemeCodeName: String, publicKey: PublicKey, signatureData: ByteArray, clearData: ByteArray).</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-verify.html"><span class="token function">doVerify</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeCodeName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">signatureData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Utility to simplify the act of verifying a digital signature. It returns true if it succeeds, but it always throws an exception if verification fails.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-verify.html"><span class="token function">doVerify</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">signatureData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Method to verify a digital signature. It returns true if it succeeds, but it always throws an exception if verification fails.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1236178750%2FFunctions%2F-367327816" anchor-label="encodePublicKey" id="1236178750%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="encode-public-key.html"><span>encode</span><wbr></wbr><span>Public</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1236178750%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="encode-public-key.html"><span class="token function">encodePublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1846659004%2FFunctions%2F-367327816" anchor-label="findProvider" id="-1846659004%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="find-provider.html"><span>find</span><wbr></wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1846659004%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-provider.html"><span class="token function">findProvider</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html">Provider</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1226488638%2FFunctions%2F-367327816" anchor-label="findSignatureScheme" id="-1226488638%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="find-signature-scheme.html"><span>find</span><wbr></wbr><span>Signature</span><wbr></wbr><span><span>Scheme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1226488638%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-signature-scheme.html"><span class="token function">findSignatureScheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">algorithm<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><br><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-signature-scheme.html"><span class="token function">findSignatureScheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-signature-scheme.html"><span class="token function">findSignatureScheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">Retrieve the corresponding <a href="../-signature-scheme/index.html">SignatureScheme</a> based on the type of the input <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Key.html">Key</a>. This function is usually called when requiring to verify signatures and the signing schemes must be defined. For the supported signature schemes see <a href="index.html">Crypto</a>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-signature-scheme.html"><span class="token function">findSignatureScheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeNumberID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">Find <a href="../-signature-scheme/index.html">SignatureScheme</a> by platform specific schemeNumberID.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-signature-scheme.html"><span class="token function">findSignatureScheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeCodeName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></div><div class="brief "><p class="paragraph">Factory pattern to retrieve the corresponding <a href="../-signature-scheme/index.html">SignatureScheme</a> based on <a href="../-signature-scheme/scheme-code-name.html">SignatureScheme.schemeCodeName</a>. This function is usually called by key generators and verify signature functions. In case the input is not a key in the supportedSignatureSchemes map, null will be returned.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-895377057%2FFunctions%2F-367327816" anchor-label="generateKeyPair" id="-895377057%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="generate-key-pair.html"><span>generate</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-895377057%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="generate-key-pair.html"><span class="token function">generateKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeCodeName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><div class="brief "><p class="paragraph">Utility to simplify the act of generating keys. Normally, we don't expect other errors here, assuming that key generation parameters for every supported signature scheme have been unit-tested.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="generate-key-pair.html"><span class="token function">generateKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token operator"> = </span>DEFAULT_SIGNATURE_SCHEME</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><div class="brief "><p class="paragraph">Generate a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> for the selected <a href="../-signature-scheme/index.html">SignatureScheme</a>. Note that RSA is the sole algorithm initialized specifically by its supported keySize.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-750995218%2FFunctions%2F-367327816" anchor-label="isSupportedSignatureScheme" id="-750995218%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-supported-signature-scheme.html"><span>is</span><wbr></wbr><span>Supported</span><wbr></wbr><span>Signature</span><wbr></wbr><span><span>Scheme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-750995218%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-supported-signature-scheme.html"><span class="token function">isSupportedSignatureScheme</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Check if the requested <a href="../-signature-scheme/index.html">SignatureScheme</a> is supported by the system.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1670296780%2FFunctions%2F-367327816" anchor-label="isValid" id="-1670296780%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-valid.html"><span>is</span><wbr></wbr><span><span>Valid</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1670296780%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-valid.html"><span class="token function">isValid</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">txId<span class="token operator">: </span><a href="../-secure-hash/index.html">SecureHash</a><span class="token punctuation">, </span></span><span class="parameter ">transactionSignature<span class="token operator">: </span><a href="../-transaction-signature/index.html">TransactionSignature</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type. It returns true if it succeeds and false if not. In comparison to <a href="do-verify.html">doVerify</a> if the key and signature do not match it returns false rather than throwing an exception. Normally you should use the function which throws, as it avoids the risk of failing to test the result.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-valid.html"><span class="token function">isValid</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">signatureData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type. It returns true if it succeeds and false if not. In comparison to <a href="do-verify.html">doVerify</a> if the key and signature do not match it returns false rather than throwing an exception. Normally you should use the function which throws, as it avoids the risk of failing to test the result. Use this method if the signature scheme is not a-priori known.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-valid.html"><span class="token function">isValid</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">signatureData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">clearData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Method to verify a digital signature. In comparison to <a href="do-verify.html">doVerify</a> if the key and signature do not match it returns false rather than throwing an exception. Use this method if the signature scheme type is a-priori unknown.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="883259166%2FFunctions%2F-367327816" anchor-label="publicKeyOnCurve" id="883259166%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="public-key-on-curve.html"><span>public</span><wbr></wbr><span>Key</span><wbr></wbr><span>On</span><wbr></wbr><span><span>Curve</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="883259166%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="public-key-on-curve.html"><span class="token function">publicKeyOnCurve</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Check if a point's coordinates are on the expected curve to avoid certain types of ECC attacks. Point-at-infinity is not permitted as well. See <a href="https://safecurves.cr.yp.to/twist.html">Small subgroup and invalid-curve attacks</a> for a more descriptive explanation on such attacks. We use this function on <a href="validate-public-key.html">validatePublicKey</a>, which is currently used for signature verification only. Thus, as these attacks are mostly not relevant to signature verification, we should note that we are doing it out of an abundance of caution and specifically to proactively protect developers against using these points as part of a DH key agreement or for use cases as yet unimagined. This method currently applies to BouncyCastle's ECDSA (both R1 and K1 curves) and JCA EdDSA (ed25519 curve).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-494081295%2FFunctions%2F-367327816" anchor-label="registerProviders" id="-494081295%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-providers.html"><span>register</span><wbr></wbr><span><span>Providers</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-494081295%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="register-providers.html"><span class="token function">registerProviders</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method to force registering all <a href="index.html">Crypto</a>-related cryptography <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html">Provider</a>s. It is recommended that it is invoked first thing on <code class="lang-kotlin">main</code> functions, so the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html">Provider</a>s are in place before any cryptographic operation is requested outside <a href="index.html">Crypto</a> (i.e., SecureRandom, KeyStore, cert-path validation, CRL & CSR checks etc.).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-370032532%2FFunctions%2F-367327816" anchor-label="supportedSignatureSchemes" id="-370032532%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="supported-signature-schemes.html"><span>supported</span><wbr></wbr><span>Signature</span><wbr></wbr><span><span>Schemes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-370032532%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="supported-signature-schemes.html"><span class="token function">supportedSignatureSchemes</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1615721309%2FFunctions%2F-367327816" anchor-label="toSupportedPrivateKey" id="-1615721309%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-supported-private-key.html"><span>to</span><wbr></wbr><span>Supported</span><wbr></wbr><span>Private</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1615721309%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="to-supported-private-key.html"><span class="token function">toSupportedPrivateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a></div><div class="brief "><p class="paragraph">Convert a private key to a supported implementation. This can be used to convert a SUN's EC key to an BC key. This method is usually required to retrieve keys from JKS keystores that by default return SUN implementations.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1130462416%2FFunctions%2F-367327816" anchor-label="toSupportedPublicKey" id="1130462416%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-supported-public-key.html"><span>to</span><wbr></wbr><span>Supported</span><wbr></wbr><span>Public</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1130462416%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="to-supported-public-key.html"><span class="token function">toSupportedPublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></div><div class="brief "><p class="paragraph">Convert a public key to a supported implementation.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="to-supported-public-key.html"><span class="token function">toSupportedPublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></div><div class="brief "><p class="paragraph">Convert a public key to a supported implementation. This can be used to convert a SUN's EC key to an BC key. This method is usually required to retrieve a key (via its corresponding cert) from JKS keystores that by default return SUN implementations.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1063011074%2FFunctions%2F-367327816" anchor-label="validatePublicKey" id="-1063011074%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="validate-public-key.html"><span>validate</span><wbr></wbr><span>Public</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1063011074%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="validate-public-key.html"><span class="token function">validatePublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Check if a public key satisfies algorithm specs. For instance, an ECC key should lie on the curve and not being point-at-infinity.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

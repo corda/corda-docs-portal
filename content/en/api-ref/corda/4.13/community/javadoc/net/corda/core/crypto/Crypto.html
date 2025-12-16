@@ -1,0 +1,1830 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>Crypto 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.crypto</a></div>
+        <h2 title="Object Crypto" class="title">Object Crypto</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public class <span class="typeNameLabel"><a href=Crypto.html>Crypto</a></span>
+
+                    </pre>
+                    <div class="block"><p>This object controls and provides the available and supported signature schemes for Corda. Any implemented <a href=SignatureScheme.html>SignatureScheme</a> should be strictly defined here. However, only the schemes returned by {@link #listSupportedSignatureSchemes()} are supported. Note that Corda currently supports the following signature schemes by their code names:</p>&lt;p&gt;&lt;ul&gt;
+&lt;li&gt;RSA_SHA256 (RSA PKCS#1 using SHA256 as hash algorithm).
+&lt;li&gt;ECDSA_SECP256K1_SHA256 (ECDSA using the secp256k1 Koblitz curve and SHA256 as hash algorithm).
+&lt;li&gt;ECDSA_SECP256R1_SHA256 (ECDSA using the secp256r1 (NIST P-256) curve and SHA256 as hash algorithm).
+&lt;li&gt;EDDSA_ED25519_SHA512 (EdDSA using the ed25519 twisted Edwards curve and SHA512 as hash algorithm).
+&lt;/ul&gt;</div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=SignatureScheme.html>SignatureScheme</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#RSA_SHA256>RSA_SHA256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=SignatureScheme.html>SignatureScheme</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#ECDSA_SECP256K1_SHA256>ECDSA_SECP256K1_SHA256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=SignatureScheme.html>SignatureScheme</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#ECDSA_SECP256R1_SHA256>ECDSA_SECP256R1_SHA256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=SignatureScheme.html>SignatureScheme</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#EDDSA_ED25519_SHA512>EDDSA_ED25519_SHA512</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#SHA512_256>SHA512_256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=SignatureScheme.html>SignatureScheme</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#COMPOSITE_KEY>COMPOSITE_KEY</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=SignatureScheme.html>SignatureScheme</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#DEFAULT_SIGNATURE_SCHEME>DEFAULT_SIGNATURE_SCHEME</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=Crypto.html>Crypto</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#INSTANCE>INSTANCE</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SignatureScheme.html>SignatureScheme</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#supportedSignatureSchemes()>supportedSignatureSchemes</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html>Provider</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#findProvider(java.lang.String)>findProvider</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> name) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#findSignatureScheme(.<Error class: unknown class>)>findSignatureScheme</a>(&lt;Error class: unknown class&gt; algorithm) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#findSignatureScheme(java.lang.Integer)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> schemeNumberID) </code>
+                                            </th>
+                                            <td class="colLast">Find <a href=SignatureScheme.html>SignatureScheme</a> by platform specific schemeNumberID.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#findSignatureScheme(java.lang.String)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName) </code>
+                                            </th>
+                                            <td class="colLast">Factory pattern to retrieve the corresponding <a href=SignatureScheme.html>SignatureScheme</a> based on <a href=SignatureScheme.html#schemeCodeName>SignatureScheme.schemeCodeName</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#findSignatureScheme(java.security.PublicKey)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key) </code>
+                                            </th>
+                                            <td class="colLast">Retrieve the corresponding <a href=SignatureScheme.html>SignatureScheme</a> based on the type of the input <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Key.html>Key</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#findSignatureScheme(java.security.PrivateKey)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> key) </code>
+                                            </th>
+                                            <td class="colLast">Retrieve the corresponding <a href=SignatureScheme.html>SignatureScheme</a> based on the type of the input <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Key.html>Key</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#decodePrivateKey(kotlin.ByteArray)>decodePrivateKey</a>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey) </code>
+                                            </th>
+                                            <td class="colLast">Decode a PKCS8 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#decodePrivateKey(java.lang.String,kotlin.ByteArray)>decodePrivateKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey) </code>
+                                            </th>
+                                            <td class="colLast">Decode a PKCS8 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#decodePrivateKey(net.corda.core.crypto.SignatureScheme,kotlin.ByteArray)>decodePrivateKey</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey) </code>
+                                            </th>
+                                            <td class="colLast">Decode a PKCS8 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#decodePublicKey(kotlin.ByteArray)>decodePublicKey</a>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey) </code>
+                                            </th>
+                                            <td class="colLast">Decode an X509 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#decodePublicKey(java.lang.String,kotlin.ByteArray)>decodePublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey) </code>
+                                            </th>
+                                            <td class="colLast">Decode an X509 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#decodePublicKey(net.corda.core.crypto.SignatureScheme,kotlin.ByteArray)>decodePublicKey</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey) </code>
+                                            </th>
+                                            <td class="colLast">Decode an X509 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#encodePublicKey(java.security.PublicKey)>encodePublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doSign(java.security.PrivateKey,kotlin.ByteArray)>doSign</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Generic way to sign <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> data with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doSign(java.lang.String,java.security.PrivateKey,kotlin.ByteArray)>doSign</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Generic way to sign <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> data with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> and a known schemeCodeName <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html>String</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doSign(net.corda.core.crypto.SignatureScheme,java.security.PrivateKey,kotlin.ByteArray)>doSign</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Generic way to sign <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> data with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> and a known <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html>Signature</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=TransactionSignature.html>TransactionSignature</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doSign(java.security.KeyPair,net.corda.core.crypto.SignableData)>doSign</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> keyPair, <a href=SignableData.html>SignableData</a> signableData) </code>
+                                            </th>
+                                            <td class="colLast">Generic way to sign <a href=SignableData.html>SignableData</a> objects with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doVerify(java.lang.String,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Utility to simplify the act of verifying a digital signature.</td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doVerify(java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doVerify(net.corda.core.crypto.SignatureScheme,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Method to verify a digital signature.</td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#doVerify(net.corda.core.crypto.SecureHash,net.corda.core.crypto.TransactionSignature)>doVerify</a>(<a href=SecureHash.html>SecureHash</a> txId, <a href=TransactionSignature.html>TransactionSignature</a> transactionSignature) </code>
+                                            </th>
+                                            <td class="colLast">Utility to simplify the act of verifying a <a href=TransactionSignature.html>TransactionSignature</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i22" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#isValid(net.corda.core.crypto.SecureHash,net.corda.core.crypto.TransactionSignature)>isValid</a>(<a href=SecureHash.html>SecureHash</a> txId, <a href=TransactionSignature.html>TransactionSignature</a> transactionSignature) </code>
+                                            </th>
+                                            <td class="colLast">Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i23" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#isValid(java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>isValid</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i24" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#isValid(net.corda.core.crypto.SignatureScheme,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>isValid</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData) </code>
+                                            </th>
+                                            <td class="colLast">Method to verify a digital signature.</td>
+                                        </tr>
+                                        
+                                        <tr id="i25" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#generateKeyPair(java.lang.String)>generateKeyPair</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName) </code>
+                                            </th>
+                                            <td class="colLast">Utility to simplify the act of generating keys.</td>
+                                        </tr>
+                                        
+                                        <tr id="i26" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#generateKeyPair(net.corda.core.crypto.SignatureScheme)>generateKeyPair</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme) </code>
+                                            </th>
+                                            <td class="colLast">Generate a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> for the selected <a href=SignatureScheme.html>SignatureScheme</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i27" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#deriveKeyPair(net.corda.core.crypto.SignatureScheme,java.security.PrivateKey,kotlin.ByteArray)>deriveKeyPair</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> seed) </code>
+                                            </th>
+                                            <td class="colLast">Deterministically generate/derive a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> using an existing private key and a seed as inputs.</td>
+                                        </tr>
+                                        
+                                        <tr id="i28" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#deriveKeyPair(java.security.PrivateKey,kotlin.ByteArray)>deriveKeyPair</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> seed) </code>
+                                            </th>
+                                            <td class="colLast">Deterministically generate/derive a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> using an existing private key and a seed as inputs.</td>
+                                        </tr>
+                                        
+                                        <tr id="i29" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme,java.math.BigInteger)>deriveKeyPairFromEntropy</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy) </code>
+                                            </th>
+                                            <td class="colLast">Returns a key pair derived from the given <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy.</td>
+                                        </tr>
+                                        
+                                        <tr id="i30" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#deriveKeyPairFromEntropy(java.math.BigInteger)>deriveKeyPairFromEntropy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy) </code>
+                                            </th>
+                                            <td class="colLast">Returns a <a href=Crypto.html#DEFAULT_SIGNATURE_SCHEME>DEFAULT_SIGNATURE_SCHEME</a> key pair derived from the given <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy.</td>
+                                        </tr>
+                                        
+                                        <tr id="i31" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#publicKeyOnCurve(net.corda.core.crypto.SignatureScheme,java.security.PublicKey)>publicKeyOnCurve</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey) </code>
+                                            </th>
+                                            <td class="colLast">Check if a point's coordinates are on the expected curve to avoid certain types of ECC attacks.</td>
+                                        </tr>
+                                        
+                                        <tr id="i32" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#isSupportedSignatureScheme(net.corda.core.crypto.SignatureScheme)>isSupportedSignatureScheme</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme) </code>
+                                            </th>
+                                            <td class="colLast">Check if the requested <a href=SignatureScheme.html>SignatureScheme</a> is supported by the system.</td>
+                                        </tr>
+                                        
+                                        <tr id="i33" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#validatePublicKey(java.security.PublicKey)>validatePublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key) </code>
+                                            </th>
+                                            <td class="colLast">Check if a public key satisfies algorithm specs.</td>
+                                        </tr>
+                                        
+                                        <tr id="i34" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#toSupportedPublicKey(.<Error class: unknown class>)>toSupportedPublicKey</a>(&lt;Error class: unknown class&gt; key) </code>
+                                            </th>
+                                            <td class="colLast">Convert a public key to a supported implementation.</td>
+                                        </tr>
+                                        
+                                        <tr id="i35" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#toSupportedPublicKey(java.security.PublicKey)>toSupportedPublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key) </code>
+                                            </th>
+                                            <td class="colLast">Convert a public key to a supported implementation.</td>
+                                        </tr>
+                                        
+                                        <tr id="i36" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#toSupportedPrivateKey(java.security.PrivateKey)>toSupportedPrivateKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> key) </code>
+                                            </th>
+                                            <td class="colLast">Convert a private key to a supported implementation.</td>
+                                        </tr>
+                                        
+                                        <tr id="i37" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#registerProviders()>registerProviders</a>() </code>
+                                            </th>
+                                            <td class="colLast">Method to force registering all <a href=Crypto.html>Crypto</a>-related cryptography <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html>Provider</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i38" class="altColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#getRSA_SHA256()>getRSA_SHA256</a>() </code>
+                                            </th>
+                                            <td class="colLast">RSA PKCS#1 signature scheme using SHA256 for message hashing.</td>
+                                        </tr>
+                                        
+                                        <tr id="i39" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#getECDSA_SECP256K1_SHA256()>getECDSA_SECP256K1_SHA256</a>() </code>
+                                            </th>
+                                            <td class="colLast">ECDSA signature scheme using the secp256k1 Koblitz curve and SHA256 for message hashing.</td>
+                                        </tr>
+                                        
+                                        <tr id="i40" class="altColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#getECDSA_SECP256R1_SHA256()>getECDSA_SECP256R1_SHA256</a>() </code>
+                                            </th>
+                                            <td class="colLast">ECDSA signature scheme using the secp256r1 (NIST P-256) curve and SHA256 for message hashing.</td>
+                                        </tr>
+                                        
+                                        <tr id="i41" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#getEDDSA_ED25519_SHA512()>getEDDSA_ED25519_SHA512</a>() </code>
+                                            </th>
+                                            <td class="colLast">EdDSA signature scheme using the ed25519 twisted Edwards curve and SHA512 for message hashing.</td>
+                                        </tr>
+                                        
+                                        <tr id="i42" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#getSHA512_256()>getSHA512_256</a>() </code>
+                                            </th>
+                                            <td class="colLast">DLSequence (ASN1Sequence) for SHA512 truncated to 256 bits, used in SPHINCS-256 signature scheme.</td>
+                                        </tr>
+                                        
+                                        <tr id="i43" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#getCOMPOSITE_KEY()>getCOMPOSITE_KEY</a>() </code>
+                                            </th>
+                                            <td class="colLast">Corda <a href=CompositeKey.html>CompositeKey</a> signature type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i44" class="altColor">
+                                            <td class="colFirst"><code>final <a href=SignatureScheme.html>SignatureScheme</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Crypto.html#getDEFAULT_SIGNATURE_SCHEME()>getDEFAULT_SIGNATURE_SCHEME</a>() </code>
+                                            </th>
+                                            <td class="colLast">Our default signature scheme if no algorithm is specified (e.g.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="supportedSignatureSchemes()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>supportedSignatureSchemes</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=SignatureScheme.html>SignatureScheme</a>&gt; <a href=Crypto.html#supportedSignatureSchemes()>supportedSignatureSchemes</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="findProvider(java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>findProvider</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html>Provider</a> <a href=Crypto.html#findProvider(java.lang.String)>findProvider</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> name)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="findSignatureScheme(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>findSignatureScheme</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#findSignatureScheme(.<Error class: unknown class>)>findSignatureScheme</a>(&lt;Error class: unknown class&gt; algorithm)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="findSignatureScheme(java.lang.Integer)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>findSignatureScheme</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#findSignatureScheme(java.lang.Integer)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> schemeNumberID)</pre>
+                                        <div class="block"><p>Find <a href=SignatureScheme.html>SignatureScheme</a> by platform specific schemeNumberID.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="findSignatureScheme(java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>findSignatureScheme</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#findSignatureScheme(java.lang.String)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName)</pre>
+                                        <div class="block"><p>Factory pattern to retrieve the corresponding <a href=SignatureScheme.html>SignatureScheme</a> based on <a href=SignatureScheme.html#schemeCodeName>SignatureScheme.schemeCodeName</a>. This function is usually called by key generators and verify signature functions. In case the input is not a key in the supportedSignatureSchemes map, null will be returned.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>schemeCodeName</code> - a <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html>String</a> that should match a supported signature scheme code name (e.g.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="findSignatureScheme(java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>findSignatureScheme</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#findSignatureScheme(java.security.PublicKey)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key)</pre>
+                                        <div class="block"><p>Retrieve the corresponding <a href=SignatureScheme.html>SignatureScheme</a> based on the type of the input <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Key.html>Key</a>. This function is usually called when requiring to verify signatures and the signing schemes must be defined. For the supported signature schemes see <a href=Crypto.html>Crypto</a>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - either private or public.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="findSignatureScheme(java.security.PrivateKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>findSignatureScheme</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#findSignatureScheme(java.security.PrivateKey)>findSignatureScheme</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> key)</pre>
+                                        <div class="block"><p>Retrieve the corresponding <a href=SignatureScheme.html>SignatureScheme</a> based on the type of the input <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Key.html>Key</a>. This function is usually called when requiring to verify signatures and the signing schemes must be defined. For the supported signature schemes see <a href=Crypto.html>Crypto</a>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - either private or public.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="decodePrivateKey(kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>decodePrivateKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> <a href=Crypto.html#decodePrivateKey(kotlin.ByteArray)>decodePrivateKey</a>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey)</pre>
+                                        <div class="block"><p>Decode a PKCS8 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object. Use this method if the key type is a-priori unknown.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>encodedKey</code> - a PKCS8 encoded private key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="decodePrivateKey(java.lang.String,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>decodePrivateKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> <a href=Crypto.html#decodePrivateKey(java.lang.String,kotlin.ByteArray)>decodePrivateKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey)</pre>
+                                        <div class="block"><p>Decode a PKCS8 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name. This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>schemeCodeName</code> - a <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html>String</a> that should match a key in supportedSignatureSchemes map (e.g.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>encodedKey</code> - a PKCS8 encoded private key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="decodePrivateKey(net.corda.core.crypto.SignatureScheme,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>decodePrivateKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> <a href=Crypto.html#decodePrivateKey(net.corda.core.crypto.SignatureScheme,kotlin.ByteArray)>decodePrivateKey</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey)</pre>
+                                        <div class="block"><p>Decode a PKCS8 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name. This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a signature scheme (e.g.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>encodedKey</code> - a PKCS8 encoded private key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="decodePublicKey(kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>decodePublicKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> <a href=Crypto.html#decodePublicKey(kotlin.ByteArray)>decodePublicKey</a>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey)</pre>
+                                        <div class="block"><p>Decode an X509 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> object. Use this method if the key type is a-priori unknown.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>encodedKey</code> - an X509 encoded public key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="decodePublicKey(java.lang.String,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>decodePublicKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> <a href=Crypto.html#decodePublicKey(java.lang.String,kotlin.ByteArray)>decodePublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey)</pre>
+                                        <div class="block"><p>Decode an X509 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name. This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>schemeCodeName</code> - a <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html>String</a> that should match a key in supportedSignatureSchemes map (e.g.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>encodedKey</code> - an X509 encoded public key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="decodePublicKey(net.corda.core.crypto.SignatureScheme,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>decodePublicKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> <a href=Crypto.html#decodePublicKey(net.corda.core.crypto.SignatureScheme,kotlin.ByteArray)>decodePublicKey</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> encodedKey)</pre>
+                                        <div class="block"><p>Decode an X509 encoded key to its <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> object based on the input scheme code name. This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a signature scheme (e.g.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>encodedKey</code> - an X509 encoded public key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="encodePublicKey(java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>encodePublicKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> <a href=Crypto.html#encodePublicKey(java.security.PublicKey)>encodePublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doSign(java.security.PrivateKey,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doSign</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> <a href=Crypto.html#doSign(java.security.PrivateKey,kotlin.ByteArray)>doSign</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Generic way to sign <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> data with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a>. Strategy on on identifying the actual signing scheme is based on the <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> type, but if the schemeCodeName is known, then better use doSign(signatureScheme: String, privateKey: PrivateKey, clearData: ByteArray).</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>privateKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the data/message to be signed in <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> form (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doSign(java.lang.String,java.security.PrivateKey,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doSign</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> <a href=Crypto.html#doSign(java.lang.String,java.security.PrivateKey,kotlin.ByteArray)>doSign</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Generic way to sign <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> data with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> and a known schemeCodeName <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html>String</a>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>schemeCodeName</code> - a signature scheme's code name (e.g.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>privateKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the data/message to be signed in <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> form (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doSign(net.corda.core.crypto.SignatureScheme,java.security.PrivateKey,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doSign</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> <a href=Crypto.html#doSign(net.corda.core.crypto.SignatureScheme,java.security.PrivateKey,kotlin.ByteArray)>doSign</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Generic way to sign <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> data with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> and a known <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html>Signature</a>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a <a href=SignatureScheme.html>SignatureScheme</a> object, retrieved from supported signature schemes, see <a href=Crypto.html>Crypto</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>privateKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the data/message to be signed in <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> form (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doSign(java.security.KeyPair,net.corda.core.crypto.SignableData)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doSign</h4>
+                                        <pre class="methodSignature"> final <a href=TransactionSignature.html>TransactionSignature</a> <a href=Crypto.html#doSign(java.security.KeyPair,net.corda.core.crypto.SignableData)>doSign</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> keyPair, <a href=SignableData.html>SignableData</a> signableData)</pre>
+                                        <div class="block"><p>Generic way to sign <a href=SignableData.html>SignableData</a> objects with a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a>. <a href=SignableData.html>SignableData</a> is a wrapper over the transaction's id (Merkle root) in order to attach extra information, such as a timestamp or partial and blind signature indicators.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>keyPair</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>signableData</code> - a <a href=SignableData.html>SignableData</a> object that adds extra information to a transaction.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doVerify(java.lang.String,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doVerify</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#doVerify(java.lang.String,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Utility to simplify the act of verifying a digital signature. It returns true if it succeeds, but it always throws an exception if verification fails.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>schemeCodeName</code> - a signature scheme's code name (e.g.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>signatureData</code> - the signatureData on a message.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the clear data/message that was signed (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doVerify(java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doVerify</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#doVerify(java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type. It returns true if it succeeds, but it always throws an exception if verification fails. Strategy on identifying the actual signing scheme is based on the <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> type, but if the schemeCodeName is known, then better use doVerify(schemeCodeName: String, publicKey: PublicKey, signatureData: ByteArray, clearData: ByteArray).</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>publicKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>signatureData</code> - the signatureData on a message.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the clear data/message that was signed (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doVerify(net.corda.core.crypto.SignatureScheme,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doVerify</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#doVerify(net.corda.core.crypto.SignatureScheme,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Method to verify a digital signature. It returns true if it succeeds, but it always throws an exception if verification fails.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a <a href=SignatureScheme.html>SignatureScheme</a> object, retrieved from supported signature schemes, see <a href=Crypto.html>Crypto</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>signatureData</code> - the signatureData on a message.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the clear data/message that was signed (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="doVerify(net.corda.core.crypto.SecureHash,net.corda.core.crypto.TransactionSignature)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>doVerify</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#doVerify(net.corda.core.crypto.SecureHash,net.corda.core.crypto.TransactionSignature)>doVerify</a>(<a href=SecureHash.html>SecureHash</a> txId, <a href=TransactionSignature.html>TransactionSignature</a> transactionSignature)</pre>
+                                        <div class="block"><p>Utility to simplify the act of verifying a <a href=TransactionSignature.html>TransactionSignature</a>. It returns true if it succeeds, but it always throws an exception if verification fails.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>txId</code> - transaction's id.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>transactionSignature</code> - the signature on the transaction.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="isValid(net.corda.core.crypto.SecureHash,net.corda.core.crypto.TransactionSignature)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>isValid</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#isValid(net.corda.core.crypto.SecureHash,net.corda.core.crypto.TransactionSignature)>isValid</a>(<a href=SecureHash.html>SecureHash</a> txId, <a href=TransactionSignature.html>TransactionSignature</a> transactionSignature)</pre>
+                                        <div class="block"><p>Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type. It returns true if it succeeds and false if not. In comparison to <a href=Crypto.html#doVerify(java.lang.String,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a> if the key and signature do not match it returns false rather than throwing an exception. Normally you should use the function which throws, as it avoids the risk of failing to test the result.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>txId</code> - transaction's id.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>transactionSignature</code> - the signature on the transaction.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="isValid(java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>isValid</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#isValid(java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>isValid</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type. It returns true if it succeeds and false if not. In comparison to <a href=Crypto.html#doVerify(java.lang.String,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a> if the key and signature do not match it returns false rather than throwing an exception. Normally you should use the function which throws, as it avoids the risk of failing to test the result. Use this method if the signature scheme is not a-priori known.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>publicKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>signatureData</code> - the signatureData on a message.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the clear data/message that was signed (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="isValid(net.corda.core.crypto.SignatureScheme,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>isValid</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#isValid(net.corda.core.crypto.SignatureScheme,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>isValid</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> signatureData, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> clearData)</pre>
+                                        <div class="block"><p>Method to verify a digital signature. In comparison to <a href=Crypto.html#doVerify(java.lang.String,java.security.PublicKey,kotlin.ByteArray,kotlin.ByteArray)>doVerify</a> if the key and signature do not match it returns false rather than throwing an exception. Use this method if the signature scheme type is a-priori unknown.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a <a href=SignatureScheme.html>SignatureScheme</a> object, retrieved from supported signature schemes, see <a href=Crypto.html>Crypto</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - the signer's <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>signatureData</code> - the signatureData on a message.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clearData</code> - the clear data/message that was signed (usually the Merkle root).</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="generateKeyPair(java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>generateKeyPair</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> <a href=Crypto.html#generateKeyPair(java.lang.String)>generateKeyPair</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> schemeCodeName)</pre>
+                                        <div class="block"><p>Utility to simplify the act of generating keys. Normally, we don't expect other errors here, assuming that key generation parameters for every supported signature scheme have been unit-tested.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>schemeCodeName</code> - a signature scheme's code name (e.g.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="generateKeyPair(net.corda.core.crypto.SignatureScheme)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>generateKeyPair</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> <a href=Crypto.html#generateKeyPair(net.corda.core.crypto.SignatureScheme)>generateKeyPair</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme)</pre>
+                                        <div class="block"><p>Generate a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> for the selected <a href=SignatureScheme.html>SignatureScheme</a>. Note that RSA is the sole algorithm initialized specifically by its supported keySize.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a supported <a href=SignatureScheme.html>SignatureScheme</a>, see <a href=Crypto.html>Crypto</a>, default to <a href=Crypto.html#DEFAULT_SIGNATURE_SCHEME>DEFAULT_SIGNATURE_SCHEME</a> if not provided.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="deriveKeyPair(net.corda.core.crypto.SignatureScheme,java.security.PrivateKey,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>deriveKeyPair</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> <a href=Crypto.html#deriveKeyPair(net.corda.core.crypto.SignatureScheme,java.security.PrivateKey,kotlin.ByteArray)>deriveKeyPair</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> seed)</pre>
+                                        <div class="block"><p>Deterministically generate/derive a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> using an existing private key and a seed as inputs. This operation is currently supported for ECDSA secp256r1 (NIST P-256), ECDSA secp256k1 and EdDSA ed25519.</p><p>Similarly to BIP32, the implemented algorithm uses an HMAC function based on SHA512 and it is actually an implementation of the <a href=https://tools.ietf.org/html/rfc5869.html>HKDF rfc - Step 1: Extract function</a>, which is practically a variation of the private-parent-key -&gt; private-child-key hardened key generation of BIP32.</p><p>Unlike BIP32, where both private and public keys are extended to prevent deterministically generated child keys from depending solely on the key itself, current method uses normal elliptic curve keys without a chain-code and the generated key relies solely on the security of the private key.</p><p>Although without a chain-code we lose the aforementioned property of not depending solely on the key, it should be mentioned that the cryptographic strength of the HMAC depends upon the size of the secret key (see <a href=https://en.wikipedia.org/wiki/Hash-based_message_authentication_code#Security.html>HMAC Security</a>). Thus, as long as the master key is kept secret and has enough entropy (~256 bits for EC-schemes), the system is considered secure.</p><p>It is also a fact that if HMAC is used as PRF and/or MAC but not as checksum function, the function is still secure even if the underlying hash function is not collision resistant (e.g. if we used MD5). In practice, for our DKG purposes (thus PRF), a collision would not necessarily reveal the master HMAC key, because multiple inputs can produce the same hash output.</p><p>Also according to the HMAC-based Extract-and-Expand Key Derivation Function (HKDF) rfc5869:</p>&lt;p&gt;&lt;ul&gt;
+&lt;li&gt;a chain-code (aka the salt) is recommended, but not required.
+&lt;li&gt;the salt can be public, but a hidden one provides stronger security guarantee.
+&lt;li&gt;even a simple counter can work as a salt, but ideally it should be random.
+&lt;li&gt;salt values should not be chosen by an attacker.
+&lt;/ul&gt;&lt;/p&gt;<p>Regarding the last requirement, according to Krawczyk's HKDF scheme: <i>While there is no need to keep the salt secret, it is assumed that salt values are independent of the input keying material</i> (see <a href=http://eprint.iacr.org/2010/264.pdf.html>Cryptographic Extraction and Key Derivation - The HKDF Scheme</a>).</p><p>There are also protocols that require an authenticated nonce (e.g. when a DH derived key is used as a seed) and thus we need to make sure that nonces come from legitimate parties rather than selected by an attacker. Similarly, in DLT systems, proper handling is required if users should agree on a common value as a seed, e.g. a transaction's nonce or hash.</p><p>Moreover if a unique key per transaction is prerequisite, an attacker should never force a party to reuse a previously used key, due to privacy and forward secrecy reasons.</p><p>All in all, this algorithm can be used with a counter as seed, however it is suggested that the output does not solely depend on the key, i.e. a secret salt per user or a random nonce per transaction could serve this role. In case where a non-random seed policy is selected, such as the BIP32 counter logic, one needs to carefully keep state so that the same salt is used only once.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - the <a href=SignatureScheme.html>SignatureScheme</a> of the private key input.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>privateKey</code> - the <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> that will be used as key to the HMAC-ed DKG function.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>seed</code> - an extra seed that will be used as value to the underlying HMAC.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="deriveKeyPair(java.security.PrivateKey,kotlin.ByteArray)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>deriveKeyPair</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> <a href=Crypto.html#deriveKeyPair(java.security.PrivateKey,kotlin.ByteArray)>deriveKeyPair</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> privateKey, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html>ByteArray</a> seed)</pre>
+                                        <div class="block"><p>Deterministically generate/derive a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> using an existing private key and a seed as inputs. Use this method if the <a href=SignatureScheme.html>SignatureScheme</a> of the private key input is not known.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>privateKey</code> - the <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> that will be used as key to the HMAC-ed DKG function.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>seed</code> - an extra seed that will be used as value to the underlying HMAC.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme,java.math.BigInteger)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>deriveKeyPairFromEntropy</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> <a href=Crypto.html#deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme,java.math.BigInteger)>deriveKeyPairFromEntropy</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy)</pre>
+                                        <div class="block"><p>Returns a key pair derived from the given <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy. This is useful for unit tests and other cases where you want hard-coded private keys. Currently, the following schemes are supported: <a href=Crypto.html#EDDSA_ED25519_SHA512>EDDSA_ED25519_SHA512</a>, <a href=Crypto.html#ECDSA_SECP256R1_SHA256>ECDSA_SECP256R1_SHA256</a> and <a href=Crypto.html#ECDSA_SECP256K1_SHA256>ECDSA_SECP256K1_SHA256</a>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a supported <a href=SignatureScheme.html>SignatureScheme</a>, see <a href=Crypto.html>Crypto</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>entropy</code> - a <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> value.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="deriveKeyPairFromEntropy(java.math.BigInteger)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>deriveKeyPairFromEntropy</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> <a href=Crypto.html#deriveKeyPairFromEntropy(java.math.BigInteger)>deriveKeyPairFromEntropy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy)</pre>
+                                        <div class="block"><p>Returns a <a href=Crypto.html#DEFAULT_SIGNATURE_SCHEME>DEFAULT_SIGNATURE_SCHEME</a> key pair derived from the given <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropy.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>entropy</code> - a <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> value.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="publicKeyOnCurve(net.corda.core.crypto.SignatureScheme,java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>publicKeyOnCurve</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#publicKeyOnCurve(net.corda.core.crypto.SignatureScheme,java.security.PublicKey)>publicKeyOnCurve</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey)</pre>
+                                        <div class="block"><p>Check if a point's coordinates are on the expected curve to avoid certain types of ECC attacks. Point-at-infinity is not permitted as well. See <a href=https://safecurves.cr.yp.to/twist.html>Small subgroup and invalid-curve attacks</a> for a more descriptive explanation on such attacks. We use this function on <a href=Crypto.html#validatePublicKey(java.security.PublicKey)>validatePublicKey</a>, which is currently used for signature verification only. Thus, as these attacks are mostly not relevant to signature verification, we should note that we are doing it out of an abundance of caution and specifically to proactively protect developers against using these points as part of a DH key agreement or for use cases as yet unimagined. This method currently applies to BouncyCastle's ECDSA (both R1 and K1 curves) and JCA EdDSA (ed25519 curve).</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signatureScheme</code> - a <a href=SignatureScheme.html>SignatureScheme</a> object, retrieved from supported signature schemes, see <a href=Crypto.html>Crypto</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - a <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>, usually used to validate a signer's public key in on the Curve.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="isSupportedSignatureScheme(net.corda.core.crypto.SignatureScheme)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>isSupportedSignatureScheme</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#isSupportedSignatureScheme(net.corda.core.crypto.SignatureScheme)>isSupportedSignatureScheme</a>(<a href=SignatureScheme.html>SignatureScheme</a> signatureScheme)</pre>
+                                        <div class="block"><p>Check if the requested <a href=SignatureScheme.html>SignatureScheme</a> is supported by the system.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="validatePublicKey(java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>validatePublicKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Crypto.html#validatePublicKey(java.security.PublicKey)>validatePublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key)</pre>
+                                        <div class="block"><p>Check if a public key satisfies algorithm specs. For instance, an ECC key should lie on the curve and not being point-at-infinity.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toSupportedPublicKey(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toSupportedPublicKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> <a href=Crypto.html#toSupportedPublicKey(.<Error class: unknown class>)>toSupportedPublicKey</a>(&lt;Error class: unknown class&gt; key)</pre>
+                                        <div class="block"><p>Convert a public key to a supported implementation.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - a public key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toSupportedPublicKey(java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toSupportedPublicKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> <a href=Crypto.html#toSupportedPublicKey(java.security.PublicKey)>toSupportedPublicKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key)</pre>
+                                        <div class="block"><p>Convert a public key to a supported implementation. This can be used to convert a SUN's EC key to an BC key. This method is usually required to retrieve a key (via its corresponding cert) from JKS keystores that by default return SUN implementations.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - a public key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toSupportedPrivateKey(java.security.PrivateKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toSupportedPrivateKey</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> <a href=Crypto.html#toSupportedPrivateKey(java.security.PrivateKey)>toSupportedPrivateKey</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>PrivateKey</a> key)</pre>
+                                        <div class="block"><p>Convert a private key to a supported implementation. This can be used to convert a SUN's EC key to an BC key. This method is usually required to retrieve keys from JKS keystores that by default return SUN implementations.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - a private key.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="registerProviders()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>registerProviders</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=Crypto.html#registerProviders()>registerProviders</a>()</pre>
+                                        <div class="block"><p>Method to force registering all <a href=Crypto.html>Crypto</a>-related cryptography <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html>Provider</a>s. It is recommended that it is invoked first thing on <code>main</code> functions, so the <a href=https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html>Provider</a>s are in place before any cryptographic operation is requested outside <a href=Crypto.html>Crypto</a> (i.e., SecureRandom, KeyStore, cert-path validation, CRL &amp; CSR checks etc.).</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getRSA_SHA256()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getRSA_SHA256</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#getRSA_SHA256()>getRSA_SHA256</a>()</pre>
+                                        <div class="block"><p>RSA PKCS#1 signature scheme using SHA256 for message hashing. The actual algorithm id is 1.2.840.113549.1.1.1 Note: Recommended key size &gt;= 3072 bits.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getECDSA_SECP256K1_SHA256()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getECDSA_SECP256K1_SHA256</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#getECDSA_SECP256K1_SHA256()>getECDSA_SECP256K1_SHA256</a>()</pre>
+                                        <div class="block"><p>ECDSA signature scheme using the secp256k1 Koblitz curve and SHA256 for message hashing.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getECDSA_SECP256R1_SHA256()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getECDSA_SECP256R1_SHA256</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#getECDSA_SECP256R1_SHA256()>getECDSA_SECP256R1_SHA256</a>()</pre>
+                                        <div class="block"><p>ECDSA signature scheme using the secp256r1 (NIST P-256) curve and SHA256 for message hashing.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getEDDSA_ED25519_SHA512()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getEDDSA_ED25519_SHA512</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#getEDDSA_ED25519_SHA512()>getEDDSA_ED25519_SHA512</a>()</pre>
+                                        <div class="block"><p>EdDSA signature scheme using the ed25519 twisted Edwards curve and SHA512 for message hashing. The actual algorithm is PureEdDSA Ed25519 as defined in https://tools.ietf.org/html/rfc8032 Not to be confused with the EdDSA variants, Ed25519ctx and Ed25519ph.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSHA512_256()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSHA512_256</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=Crypto.html#getSHA512_256()>getSHA512_256</a>()</pre>
+                                        <div class="block"><p>DLSequence (ASN1Sequence) for SHA512 truncated to 256 bits, used in SPHINCS-256 signature scheme.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCOMPOSITE_KEY()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCOMPOSITE_KEY</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#getCOMPOSITE_KEY()>getCOMPOSITE_KEY</a>()</pre>
+                                        <div class="block"><p>Corda <a href=CompositeKey.html>CompositeKey</a> signature type.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDEFAULT_SIGNATURE_SCHEME()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDEFAULT_SIGNATURE_SCHEME</h4>
+                                        <pre class="methodSignature"> final <a href=SignatureScheme.html>SignatureScheme</a> <a href=Crypto.html#getDEFAULT_SIGNATURE_SCHEME()>getDEFAULT_SIGNATURE_SCHEME</a>()</pre>
+                                        <div class="block"><p>Our default signature scheme if no algorithm is specified (e.g. for key generation).</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

@@ -80,8 +80,8 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
     Determines if a client should attempt to reconnect if the connection is dropped.
 
     * **ssl**:
-    See [SSL settings]({{< relref "config-ssl.md" >}}).
 
+    See [SSL settings]({{< relref "config-ssl.md" >}}).
 
 * **plugin**:
 

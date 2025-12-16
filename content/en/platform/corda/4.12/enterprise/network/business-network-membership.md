@@ -591,7 +591,6 @@ To delete a membership attribute change request:
 ## Generating access control reports
 
 As a business network operator (BNO), you can ask for the access control report by calling `BNOAccessControlReportFlow`. You will receive the following information in the form of an `AccessControlReport`.
-
 The attributes of the report file are:
 
 * `members`: A detailed list of the members within the network. It contains the following information:

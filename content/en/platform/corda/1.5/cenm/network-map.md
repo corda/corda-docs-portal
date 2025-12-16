@@ -24,7 +24,6 @@ The Network Map Service acts as a directory for all participants on the network.
 essential information of each participant such as connection address and available services. See
 [Network map overview]({{< relref "network-map-overview.md" >}}) for an in-depth explanation.
 
-
 ## Running the Network Map service
 
 The Network Map Service currently has to be initialised in two stages. First, the network parameters for the global

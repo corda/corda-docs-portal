@@ -121,7 +121,6 @@ the HSM via some manual authentication mechanism.
 
 See [Certificate hierarchy guide]({{< relref "pki-guide.md" >}}) for a detailed guide to PKI.
 
-
 ## The Node
 
 Run by entities who wish to join the network, a node submits its Legal Identity to the Identity Manager for approval.
