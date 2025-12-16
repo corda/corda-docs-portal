@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>FlowSession</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="docs::net.corda.core.flows/FlowSession///PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.core.flows</a><span class="delimiter">/</span><span class="current">FlowSession</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Flow</span><wbr></wbr><span><span>Session</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../net.corda.core/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">FlowSession</a></div><p class="paragraph">A <a href="index.html">FlowSession</a> is a handle on a communication sequence between two paired flows, possibly running on separate nodes. It is used to send and receive messages between the flows as well as to query information about the counter-flow.</p><p class="paragraph">There are two ways of obtaining such a session:</p><ol><li><p class="paragraph">Calling <a href="../-flow-logic/initiate-flow.html">FlowLogic.initiateFlow</a>. This will create a <a href="index.html">FlowSession</a> object on which the first send/receive operation will attempt to kick off a corresponding <a href="../-initiated-by/index.html">InitiatedBy</a> flow on the counterparty's node.</p></li><li><p class="paragraph">As constructor parameter to <a href="../-initiated-by/index.html">InitiatedBy</a> flows. This session is the one corresponding to the initiating flow and may be used for replies.</p></li></ol><p class="paragraph">To port flows using the old Party-based API:</p><p class="paragraph">Look for <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-deprecated/index.html">Deprecated</a> usages of send/receive/sendAndReceive/getFlowInfo.</p><p class="paragraph">If it's an InitiatingFlow:</p><p class="paragraph">Look for the send/receive that kicks off the counter flow. Insert a</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val session = initiateFlow(party)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">and use this session afterwards for send/receives. For example:     send(party, something) will become     session.send(something)</p><p class="paragraph">If it's an InitiatedBy flow:</p><p class="paragraph">Change the constructor to take an otherSideSession: FlowSession instead of a counterparty: Party Then look for usages of the deprecated functions and change them to use the FlowSession For example:     send(counterparty, something) will become     otherSideSession.send(something)</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1374432153%2FConstructors%2F-367327816" anchor-label="FlowSession" id="1374432153%2FConstructors%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-flow-session.html"><span>Flow</span><wbr></wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1374432153%2FConstructors%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="796811471%2FProperties%2F-367327816" anchor-label="counterparty" id="796811471%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="counterparty.html"><span><span>counterparty</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="796811471%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="counterparty.html">counterparty</a><span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a></div><div class="brief "><p class="paragraph">If the destination on the other side of this session is a <a href="../../net.corda.core.identity/-party/index.html">Party</a> then returns that, otherwise throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html">IllegalStateException</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="702529459%2FProperties%2F-367327816" anchor-label="destination" id="702529459%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="destination.html"><span><span>destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="702529459%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="destination.html">destination</a><span class="token operator">: </span><a href="../-destination/index.html">Destination</a></div><div class="brief "><p class="paragraph">The <a href="../-destination/index.html">Destination</a> on the other side of this session. In the case of a session created by <a href="../-flow-logic/initiate-flow.html">FlowLogic.initiateFlow</a> this is the same destination as the one passed to that function.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1934214153%2FFunctions%2F-367327816" anchor-label="close" id="1934214153%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="close.html"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1934214153%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Closes this session and performs cleanup of any resources tied to this session.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-392039631%2FFunctions%2F-367327816" anchor-label="getCounterpartyFlowInfo" id="-392039631%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-counterparty-flow-info.html"><span>get</span><wbr></wbr><span>Counterparty</span><wbr></wbr><span>Flow</span><wbr></wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-392039631%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-counterparty-flow-info.html"><span class="token function">getCounterpartyFlowInfo</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-flow-info/index.html">FlowInfo</a></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-counterparty-flow-info.html"><span class="token function">getCounterpartyFlowInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">maySkipCheckpoint<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-flow-info/index.html">FlowInfo</a></div><div class="brief "><p class="paragraph">Returns a <a href="../-flow-info/index.html">FlowInfo</a> object describing the flow <a href="counterparty.html">counterparty</a> is using. With <a href="../-flow-info/flow-version.html">FlowInfo.flowVersion</a> it provides the necessary information needed for the evolution of flows and enabling backwards compatibility.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-973863450%2FFunctions%2F-367327816" anchor-label="receive" id="-973863450%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="receive.html"><span><span>receive</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-973863450%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><a href="receive.html"><span class="token function">receive</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Suspends until <a href="counterparty.html">counterparty</a> sends us a message of type <a href="receive.html">R</a>.</p></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><a href="receive.html"><span class="token function">receive</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">receiveType<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><a href="receive.html"><span class="token function">receive</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">receiveType<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">maySkipCheckpoint<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="receive.html">R</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Suspends until <a href="counterparty.html">counterparty</a> sends us a message of type <a href="receive.html">receiveType</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1047149624%2FFunctions%2F-367327816" anchor-label="send" id="1047149624%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="send.html"><span><span>send</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1047149624%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="send.html"><span class="token function">send</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="send.html"><span class="token function">send</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span></span><span class="parameter ">maySkipCheckpoint<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Queues the given <a href="send.html">payload</a> for sending to the <a href="counterparty.html">counterparty</a> and continues without suspending.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1543096370%2FFunctions%2F-367327816" anchor-label="sendAndReceive" id="1543096370%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="send-and-receive.html"><span>send</span><wbr></wbr><span>And</span><wbr></wbr><span><span>Receive</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1543096370%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><a href="send-and-receive.html"><span class="token function">sendAndReceive</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Serializes and queues the given <a href="send-and-receive.html">payload</a> object for sending to the <a href="counterparty.html">counterparty</a>. Suspends until a response is received, which must be of the given <a href="send-and-receive.html">R</a> type.</p></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><a href="send-and-receive.html"><span class="token function">sendAndReceive</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">receiveType<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><a href="send-and-receive.html"><span class="token function">sendAndReceive</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">receiveType<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span></span><span class="parameter ">maySkipCheckpoint<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="send-and-receive.html">R</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Serializes and queues the given <a href="send-and-receive.html">payload</a> object for sending to the <a href="counterparty.html">counterparty</a>. Suspends until a response is received, which must be of the given <a href="send-and-receive.html">receiveType</a>. Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

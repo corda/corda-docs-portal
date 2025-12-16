@@ -1,0 +1,890 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>ProgressTracker 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.utilities</a></div>
+        <h2 title="Class ProgressTracker" class="title">Class ProgressTracker</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public final class <span class="typeNameLabel"><a href=ProgressTracker.html>ProgressTracker</a></span>
+
+                    </pre>
+                    <div class="block"><p>A progress tracker helps surface information about the progress of an operation to a user interface or API of some kind. It lets you define a set of <i>steps</i> that represent an operation. A step is represented by an object (typically a singleton).</p><p>Steps may logically be children of other steps, which models the case where a large top level operation involves sub-operations which may also have a notion of progress. If a step has children, then the tracker will report the steps children as the &quot;next step&quot; after the parent. In other words, a parent step is considered to involve actual reportable work and is a thing. If the parent step simply groups other steps, then you'll have to step over it manually.</p><p>Each step has a label. It is assumed by default that the label does not change. If you want a label to change, then you can emit a <a href=ProgressTracker.Change.Rendering.html>ProgressTracker.Change.Rendering</a> object on the <a href=../../finance/flows/TwoPartyTradeFlow.Buyer.RECORDING.html#changes>ProgressTracker.Step.changes</a> observable stream after it changes. That object will propagate through to the top level trackers <a href=ProgressTracker.html#changes>changes</a> stream, which renderers can subscribe to in order to learn about progress.</p><p>An operation can move both forwards and backwards through steps, thus, a <a href=ProgressTracker.html>ProgressTracker</a> can represent operations that include loops.</p><p>A progress tracker is <i>not</i> thread safe. You may move events from the thread making progress to another thread by using the Observable subscribeOn call.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="ProgressTracker.Change.html">ProgressTracker.Change</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="ProgressTracker.Step.html">ProgressTracker.Step</a></span></code>
+                                            </th>
+                                            <td class="colLast"><p>The superclass of all step objects.</p></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="ProgressTracker.UNSTARTED.html">ProgressTracker.UNSTARTED</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="ProgressTracker.STARTING.html">ProgressTracker.STARTING</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="ProgressTracker.DONE.html">ProgressTracker.DONE</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#steps>steps</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private  <a href=ProgressTracker.Step.html>ProgressTracker.Step</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#currentStep>currentStep</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#stepIndex>stepIndex</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#stepsTreeIndex>stepsTreeIndex</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=ProgressTracker.Step.html>ProgressTracker.Step</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#currentStepRecursive>currentStepRecursive</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=ProgressTracker.html>ProgressTracker</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#parent>parent</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=ProgressTracker.html>ProgressTracker</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#topLevelTracker>topLevelTracker</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=ProgressTracker.Step.html>ProgressTracker.Step</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#allSteps>allSteps</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#allStepsLabels>allStepsLabels</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;&lt;<a href=ProgressTracker.Change.html>ProgressTracker.Change</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#changes>changes</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#stepsTreeChanges>stepsTreeChanges</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#stepsTreeIndexChanges>stepsTreeIndexChanges</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#hasEnded>hasEnded</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#ProgressTracker(net.corda.core.utilities.ProgressTracker.Step)">ProgressTracker</a></span>(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> inputSteps)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getSteps()>getSteps</a>() </code>
+                                            </th>
+                                            <td class="colLast">The steps in this tracker, same as the steps passed to the constructor but with UNSTARTED and DONE inserted.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=ProgressTracker.Step.html>ProgressTracker.Step</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getCurrentStep()>getCurrentStep</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#setCurrentStep(net.corda.core.utilities.ProgressTracker.Step)>setCurrentStep</a>(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> currentStep) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getStepIndex()>getStepIndex</a>() </code>
+                                            </th>
+                                            <td class="colLast">The zero-based index of the current step in the <a href=ProgressTracker.html#steps>steps</a> array (i.e.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getStepsTreeIndex()>getStepsTreeIndex</a>() </code>
+                                            </th>
+                                            <td class="colLast">The zero-bases index of the current step in a <a href=ProgressTracker.html#allStepsLabels>allStepsLabels</a> list</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=ProgressTracker.Step.html>ProgressTracker.Step</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getCurrentStepRecursive()>getCurrentStepRecursive</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final <a href=ProgressTracker.html>ProgressTracker</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getParent()>getParent</a>() </code>
+                                            </th>
+                                            <td class="colLast">The parent of this tracker: set automatically by the parent when a tracker is added as a child</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=ProgressTracker.html>ProgressTracker</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getTopLevelTracker()>getTopLevelTracker</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=ProgressTracker.Step.html>ProgressTracker.Step</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getAllSteps()>getAllSteps</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getAllStepsLabels()>getAllStepsLabels</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;&lt;<a href=ProgressTracker.Change.html>ProgressTracker.Change</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getChanges()>getChanges</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getStepsTreeChanges()>getStepsTreeChanges</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getStepsTreeIndexChanges()>getStepsTreeIndexChanges</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getHasEnded()>getHasEnded</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code>final <a href=ProgressTracker.html>ProgressTracker</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#getChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step)>getChildProgressTracker</a>(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> step) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#setChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step,net.corda.core.utilities.ProgressTracker)>setChildProgressTracker</a>(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> step, <a href=ProgressTracker.html>ProgressTracker</a> childProgressTracker) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#endWithError(java.lang.Throwable)>endWithError</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> error) </code>
+                                            </th>
+                                            <td class="colLast">Ends the progress tracker with the given error, bypassing any remaining steps.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=ProgressTracker.Step.html>ProgressTracker.Step</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ProgressTracker.html#nextStep()>nextStep</a>() </code>
+                                            </th>
+                                            <td class="colLast">Iterates the progress tracker.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="ProgressTracker(net.corda.core.utilities.ProgressTracker.Step)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>ProgressTracker</h4>
+                                        <pre>ProgressTracker(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> inputSteps)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getSteps()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSteps</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=ProgressTracker.html#getSteps()>getSteps</a>()</pre>
+                                        <div class="block"><p>The steps in this tracker, same as the steps passed to the constructor but with UNSTARTED and DONE inserted.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCurrentStep()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCurrentStep</h4>
+                                        <pre class="methodSignature"> final <a href=ProgressTracker.Step.html>ProgressTracker.Step</a> <a href=ProgressTracker.html#getCurrentStep()>getCurrentStep</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setCurrentStep(net.corda.core.utilities.ProgressTracker.Step)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setCurrentStep</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ProgressTracker.html#setCurrentStep(net.corda.core.utilities.ProgressTracker.Step)>setCurrentStep</a>(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> currentStep)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getStepIndex()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getStepIndex</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=ProgressTracker.html#getStepIndex()>getStepIndex</a>()</pre>
+                                        <div class="block"><p>The zero-based index of the current step in the <a href=ProgressTracker.html#steps>steps</a> array (i.e. with UNSTARTED and DONE)</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getStepsTreeIndex()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getStepsTreeIndex</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=ProgressTracker.html#getStepsTreeIndex()>getStepsTreeIndex</a>()</pre>
+                                        <div class="block"><p>The zero-bases index of the current step in a <a href=ProgressTracker.html#allStepsLabels>allStepsLabels</a> list</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCurrentStepRecursive()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCurrentStepRecursive</h4>
+                                        <pre class="methodSignature"> final <a href=ProgressTracker.Step.html>ProgressTracker.Step</a> <a href=ProgressTracker.html#getCurrentStepRecursive()>getCurrentStepRecursive</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getParent()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getParent</h4>
+                                        <pre class="methodSignature"> final <a href=ProgressTracker.html>ProgressTracker</a> <a href=ProgressTracker.html#getParent()>getParent</a>()</pre>
+                                        <div class="block"><p>The parent of this tracker: set automatically by the parent when a tracker is added as a child</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTopLevelTracker()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTopLevelTracker</h4>
+                                        <pre class="methodSignature"> final <a href=ProgressTracker.html>ProgressTracker</a> <a href=ProgressTracker.html#getTopLevelTracker()>getTopLevelTracker</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getAllSteps()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getAllSteps</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=ProgressTracker.Step.html>ProgressTracker.Step</a>&gt;&gt; <a href=ProgressTracker.html#getAllSteps()>getAllSteps</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getAllStepsLabels()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getAllStepsLabels</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt; <a href=ProgressTracker.html#getAllStepsLabels()>getAllStepsLabels</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getChanges()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getChanges</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt;&lt;<a href=ProgressTracker.Change.html>ProgressTracker.Change</a>&gt; <a href=ProgressTracker.html#getChanges()>getChanges</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getStepsTreeChanges()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getStepsTreeChanges</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;&lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;&gt; <a href=ProgressTracker.html#getStepsTreeChanges()>getStepsTreeChanges</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getStepsTreeIndexChanges()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getStepsTreeIndexChanges</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt;&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt; <a href=ProgressTracker.html#getStepsTreeIndexChanges()>getStepsTreeIndexChanges</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getHasEnded()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getHasEnded</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=ProgressTracker.html#getHasEnded()>getHasEnded</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getChildProgressTracker</h4>
+                                        <pre class="methodSignature"> final <a href=ProgressTracker.html>ProgressTracker</a> <a href=ProgressTracker.html#getChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step)>getChildProgressTracker</a>(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> step)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step,net.corda.core.utilities.ProgressTracker)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setChildProgressTracker</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ProgressTracker.html#setChildProgressTracker(net.corda.core.utilities.ProgressTracker.Step,net.corda.core.utilities.ProgressTracker)>setChildProgressTracker</a>(<a href=ProgressTracker.Step.html>ProgressTracker.Step</a> step, <a href=ProgressTracker.html>ProgressTracker</a> childProgressTracker)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="endWithError(java.lang.Throwable)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>endWithError</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ProgressTracker.html#endWithError(java.lang.Throwable)>endWithError</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> error)</pre>
+                                        <div class="block"><p>Ends the progress tracker with the given error, bypassing any remaining steps. <a href=ProgressTracker.html#changes>changes</a> will emit the exception as an error.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="nextStep()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>nextStep</h4>
+                                        <pre class="methodSignature"> final <a href=ProgressTracker.Step.html>ProgressTracker.Step</a> <a href=ProgressTracker.html#nextStep()>nextStep</a>()</pre>
+                                        <div class="block"><p>Iterates the progress tracker. If the current step has a child, the child is iterated instead (recursively). Returns the latest step at the bottom of the step tree.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

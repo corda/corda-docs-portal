@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>tryLockFungibleStatesForSpending</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageIds="docs::net.corda.core.node.services/VaultService/tryLockFungibleStatesForSpending/#java.util.UUID#net.corda.core.node.services.vault.QueryCriteria#net.corda.core.contracts.Amount[*]#java.lang.Class[TypeParam(bounds=[net.corda.core.contracts.FungibleState[*]])]/PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.core.node.services</a><span class="delimiter">/</span><a href="index.html">VaultService</a><span class="delimiter">/</span><span class="current">tryLockFungibleStatesForSpending</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>try</span><wbr></wbr><span>Lock</span><wbr></wbr><span>Fungible</span><wbr></wbr><span>States</span><wbr></wbr><span>For</span><wbr></wbr><span><span>Spending</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="try-lock-fungible-states-for-spending.html">T</a><span class="token operator"> : </span><a href="../../net.corda.core.contracts/-fungible-state/index.html">FungibleState</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt; </span><a href="try-lock-fungible-states-for-spending.html"><span class="token function">tryLockFungibleStatesForSpending</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">lockId<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a><span class="token punctuation">, </span></span><span class="parameter ">eligibleStatesQuery<span class="token operator">: </span><a href="../../net.corda.core.node.services.vault/-query-criteria/index.html">QueryCriteria</a><span class="token punctuation">, </span></span><span class="parameter ">amount<span class="token operator">: </span><a href="../../net.corda.core.contracts/-amount/index.html">Amount</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">contractStateType<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="try-lock-fungible-states-for-spending.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="try-lock-fungible-states-for-spending.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><p class="paragraph">Helper function to determine spendable states and soft locking them. Currently performance will be worse than for the hand optimised version in <a href="../../net.corda.finance.workflows.asset.selection/-abstract-cash-selection/unconsumed-cash-states-for-spending.html">net.corda.finance.workflows.asset.selection.AbstractCashSelection.unconsumedCashStatesForSpending</a>. However, this is fully generic and can operate with custom <a href="../../net.corda.core.contracts/-fungible-state/index.html">FungibleState</a> and <a href="../../net.corda.core.contracts/-fungible-asset/index.html">FungibleAsset</a> states.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">Returns a locked subset of the <a href="try-lock-fungible-states-for-spending.html">eligibleStatesQuery</a> sufficient to satisfy the requested amount, or else an empty list and no change in the stored lock states when their are insufficient resources available.</p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>lock</span><wbr></wbr><span><span>Id</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The <a href="../../net.corda.core.flows/-flow-logic/run-id.html">FlowLogic.runId</a>'s <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a> of the current flow used to soft lock the states.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>eligible</span><wbr></wbr><span>States</span><wbr></wbr><span><span>Query</span></span></u></div></span></div><div><div class="title"><p class="paragraph">A custom query object that selects down to the appropriate subset of all states of the <a href="try-lock-fungible-states-for-spending.html">contractStateType</a>. e.g. by selecting on account, issuer, etc. The query is internally augmented with the <a href="../-vault/-state-status/-u-n-c-o-n-s-u-m-e-d/index.html">StateStatus.UNCONSUMED</a>, soft lock and contract type requirements.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>amount</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The required amount of the asset. It is assumed that compatible issuer states will be filtered out by the <a href="try-lock-fungible-states-for-spending.html">eligibleStatesQuery</a>. This method accepts both Amount<Issued<>><i> and Amount</i><>. Amount<Issued<>><i> is automatically unwrapped to Amount</i><>.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>contract</span><wbr></wbr><span>State</span><wbr></wbr><span><span>Type</span></span></u></div></span></div><div><div class="title"><p class="paragraph">class type of the result set.</p></div></div></div></div></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

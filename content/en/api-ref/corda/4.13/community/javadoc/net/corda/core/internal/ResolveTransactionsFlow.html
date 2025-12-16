@@ -1,0 +1,788 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>ResolveTransactionsFlow 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.internal</a></div>
+        <h2 title="Class ResolveTransactionsFlow" class="title">Class ResolveTransactionsFlow</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public final class <span class="typeNameLabel"><a href=ResolveTransactionsFlow.html>ResolveTransactionsFlow</a></span>
+extends <a href=../flows/FlowLogic.html>FlowLogic</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a>&gt;
+                    </pre>
+                    <div class="block"><p>Resolves transactions for the specified <a href=ResolveTransactionsFlow.html#txHashes>txHashes</a> along with their full history (dependency graph) from <a href=ResolveTransactionsFlow.html#otherSide>otherSide</a>. Each retrieved transaction is validated and inserted into the local transaction storage.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private  <a href=ResolveTransactionsFlowStats.html>ResolveTransactionsFlowStats</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#statistics>statistics</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../transactions/SignedTransaction.html>SignedTransaction</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#initialTx>initialTx</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#txHashes>txHashes</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../flows/FlowSession.html>FlowSession</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#otherSide>otherSide</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../node/StatesToRecord.html>StatesToRecord</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#statesToRecord>statesToRecord</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#deferredAck>deferredAck</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#recoveryMode>recoveryMode</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#logger>logger</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../flows/StateMachineRunId.html>StateMachineRunId</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#runId>runId</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../node/ServiceHub.html>ServiceHub</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#serviceHub>serviceHub</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#isKilled()>isKilled</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../identity/PartyAndCertificate.html>PartyAndCertificate</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#ourIdentityAndCert>ourIdentityAndCert</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../identity/Party.html>Party</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#ourIdentity>ourIdentity</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../utilities/ProgressTracker.html>ProgressTracker</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#progressTracker>progressTracker</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#ResolveTransactionsFlow(java.util.Set,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord)">ResolveTransactionsFlow</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; txHashes, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#ResolveTransactionsFlow(java.util.Set,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord,java.lang.Boolean)">ResolveTransactionsFlow</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; txHashes, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> deferredAck)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#ResolveTransactionsFlow(java.util.Set,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord,java.lang.Boolean,java.lang.Boolean)">ResolveTransactionsFlow</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; txHashes, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> deferredAck, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> recoveryMode)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#ResolveTransactionsFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord)">ResolveTransactionsFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord)</code></th>
+                                                <td class="colLast">Resolves and validates the dependencies of the specified <a href=../transactions/SignedTransaction.html>SignedTransaction</a>.</td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#ResolveTransactionsFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord,java.lang.Boolean)">ResolveTransactionsFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> deferredAck)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=ResolveTransactionsFlowStats.html>ResolveTransactionsFlowStats</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#getStatistics()>getStatistics</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#setStatistics(net.corda.core.internal.ResolveTransactionsFlowStats)>setStatistics</a>(<a href=ResolveTransactionsFlowStats.html>ResolveTransactionsFlowStats</a> statistics) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#getInitialTx()>getInitialTx</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#getTxHashes()>getTxHashes</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../flows/FlowSession.html>FlowSession</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#getOtherSide()>getOtherSide</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=../node/StatesToRecord.html>StatesToRecord</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#getStatesToRecord()>getStatesToRecord</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#getDeferredAck()>getDeferredAck</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#getRecoveryMode()>getRecoveryMode</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#call()>call</a>() </code>
+                                            </th>
+                                            <td class="colLast">This is where you fill out your business logic.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#fetchMissingAttachments(net.corda.core.transactions.SignedTransaction)>fetchMissingAttachments</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction) </code>
+                                            </th>
+                                            <td class="colLast">Fetches the set of attachments required to verify the given transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ResolveTransactionsFlow.html#fetchMissingNetworkParameters(net.corda.core.transactions.SignedTransaction)>fetchMissingNetworkParameters</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction) </code>
+                                            </th>
+                                            <td class="colLast">Fetches the network parameters under which the given transaction was created.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.net.corda.core.flows.FlowLogic">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;net.corda.core.flows.FlowLogic</h3>
+                                            <code>await, await, checkFlowIsNotKilled, checkFlowIsNotKilled, checkFlowPermission, close, flowStackSnapshot, getFlowInfo, getLogger, getOurIdentity, getOurIdentityAndCert, getProgressTracker, getRunId, getServiceHub, initiateFlow, initiateFlow, isKilled, persistFlowStackSnapshot, receive, receive, receiveAll, receiveAllMap, recordAuditEvent, send, sendAll, sendAllMap, sendAndReceive, sendAndReceive, subFlow, track, trackStepsTree, trackStepsTreeIndex, waitForLedgerCommit, waitForStateConsumption</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="ResolveTransactionsFlow(java.util.Set,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>ResolveTransactionsFlow</h4>
+                                        <pre>ResolveTransactionsFlow(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; txHashes, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="ResolveTransactionsFlow(java.util.Set,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord,java.lang.Boolean)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>ResolveTransactionsFlow</h4>
+                                        <pre>ResolveTransactionsFlow(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; txHashes, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> deferredAck)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="ResolveTransactionsFlow(java.util.Set,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord,java.lang.Boolean,java.lang.Boolean)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>ResolveTransactionsFlow</h4>
+                                        <pre>ResolveTransactionsFlow(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; txHashes, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> deferredAck, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> recoveryMode)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="ResolveTransactionsFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>ResolveTransactionsFlow</h4>
+                                        <pre>ResolveTransactionsFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord)</pre>
+                                        <div class="block">Resolves and validates the dependencies of the specified <a href=../transactions/SignedTransaction.html>SignedTransaction</a>.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="ResolveTransactionsFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.flows.FlowSession,net.corda.core.node.StatesToRecord,java.lang.Boolean)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>ResolveTransactionsFlow</h4>
+                                        <pre>ResolveTransactionsFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=../flows/FlowSession.html>FlowSession</a> otherSide, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> deferredAck)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getStatistics()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getStatistics</h4>
+                                        <pre class="methodSignature"> final <a href=ResolveTransactionsFlowStats.html>ResolveTransactionsFlowStats</a> <a href=ResolveTransactionsFlow.html#getStatistics()>getStatistics</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setStatistics(net.corda.core.internal.ResolveTransactionsFlowStats)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setStatistics</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ResolveTransactionsFlow.html#setStatistics(net.corda.core.internal.ResolveTransactionsFlowStats)>setStatistics</a>(<a href=ResolveTransactionsFlowStats.html>ResolveTransactionsFlowStats</a> statistics)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getInitialTx()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getInitialTx</h4>
+                                        <pre class="methodSignature"> final <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=ResolveTransactionsFlow.html#getInitialTx()>getInitialTx</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTxHashes()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTxHashes</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; <a href=ResolveTransactionsFlow.html#getTxHashes()>getTxHashes</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getOtherSide()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getOtherSide</h4>
+                                        <pre class="methodSignature"> final <a href=../flows/FlowSession.html>FlowSession</a> <a href=ResolveTransactionsFlow.html#getOtherSide()>getOtherSide</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getStatesToRecord()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getStatesToRecord</h4>
+                                        <pre class="methodSignature"> final <a href=../node/StatesToRecord.html>StatesToRecord</a> <a href=ResolveTransactionsFlow.html#getStatesToRecord()>getStatesToRecord</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDeferredAck()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDeferredAck</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=ResolveTransactionsFlow.html#getDeferredAck()>getDeferredAck</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getRecoveryMode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getRecoveryMode</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=ResolveTransactionsFlow.html#getRecoveryMode()>getRecoveryMode</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="call()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>call</h4>
+                                        <pre class="methodSignature"> <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ResolveTransactionsFlow.html#call()>call</a>()</pre>
+                                        <div class="block"><p>This is where you fill out your business logic.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="fetchMissingAttachments(net.corda.core.transactions.SignedTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>fetchMissingAttachments</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=ResolveTransactionsFlow.html#fetchMissingAttachments(net.corda.core.transactions.SignedTransaction)>fetchMissingAttachments</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction)</pre>
+                                        <div class="block"><p>Fetches the set of attachments required to verify the given transaction. If these are not already present, they will be fetched from a remote peer.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transaction</code> - The transaction to fetch attachments for</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="fetchMissingNetworkParameters(net.corda.core.transactions.SignedTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>fetchMissingNetworkParameters</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=ResolveTransactionsFlow.html#fetchMissingNetworkParameters(net.corda.core.transactions.SignedTransaction)>fetchMissingNetworkParameters</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction)</pre>
+                                        <div class="block"><p>Fetches the network parameters under which the given transaction was created. Note that if the transaction was created pre-V4, or if the counterparty does not understand that network parameters may need to be fetched, no parameters will be requested.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transaction</code> - The transaction to fetch the network parameters for, if the parameters are not already present</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

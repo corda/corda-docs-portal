@@ -1,0 +1,1456 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>MockServices 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.testing.node</a></div>
+        <h2 title="Class MockServices" class="title">Class MockServices</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public class <span class="typeNameLabel"><a href=MockServices.html>MockServices</a></span>
+
+                    </pre>
+                    <div class="block"><p>An implementation of ServiceHub that is designed for in-memory unit tests of contract validation logic. It has enough functionality to do tests of code that queries the vault, inserts to the vault, and constructs/checks transactions. However it isn't enough to test flows and other aspects of an app that require a network. For that you should investigate <a href=MockNetwork.html>MockNetwork</a>.</p><p>There are a variety of constructors that can be used to supply enough data to simulate a node. Each mock service hub must have at least an identity of its own. The other components have defaults that work in most situations.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="MockServices.Companion.html">MockServices.Companion</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#NO_OF_PRE_GEN_KEYS>NO_OF_PRE_GEN_KEYS</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#BUFFER_SIZE>BUFFER_SIZE</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html>Long</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#CHECK_INTERVAL_SECONDS>CHECK_INTERVAL_SECONDS</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html>Long</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#CI_BACKUP_PERIOD_SECONDS>CI_BACKUP_PERIOD_SECONDS</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html>ClassLoader</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#cordappClassloader>cordappClassloader</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#networkParameters>networkParameters</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../services/MockAttachmentStorage.html>MockAttachmentStorage</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#attachments>attachments</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#vaultService>vaultService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#contractUpgradeService>contractUpgradeService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#networkMapCache>networkMapCache</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#telemetryService>telemetryService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=TestClock.html>TestClock</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#clock>clock</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#myInfo>myInfo</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#cordappProvider>cordappProvider</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private  &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#networkParametersService>networkParametersService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#diagnosticsService>diagnosticsService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private  &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#rotatedKeys>rotatedKeys</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#validatedTransactions>validatedTransactions</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#identityService>identityService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#keyManagementService>keyManagementService</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=MockServices.Companion.html>MockServices.Companion</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#Companion>Companion</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentity, &lt;Error class: unknown class&gt; identityService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</code></th>
+                                                <td class="colLast">Create a mock ServiceHub that looks for app code in the given package names, uses the provided identity service (you can get one from makeTestIdentityService) and represents the given identity.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentity, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentity, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys, &lt;Error class: unknown class&gt; keyManagementService)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair,java.security.KeyPair)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> key, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</code></th>
+                                                <td class="colLast">Create a mock ServiceHub that looks for app code in the given package names, uses the provided identity service (you can get one from makeTestIdentityService) and represents the given identity.</td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService)</code></th>
+                                                <td class="colLast">Create a mock ServiceHub that can't load CorDapp code, which uses the provided identity service (you can get one from makeTestIdentityService) and which represents the given identity.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.lang.Iterable)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages)</code></th>
+                                                <td class="colLast">Create a mock ServiceHub that can't load CorDapp code, and which uses a default service identity.</td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair,java.security.KeyPair)">MockServices</a></span>(&lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> key, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</code></th>
+                                                <td class="colLast">Create a mock ServiceHub which uses the package of the caller to find CorDapp code.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(&lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService)</code></th>
+                                                <td class="colLast">Create a mock ServiceHub which uses the package of the caller to find CorDapp code.</td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> key)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(&lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; moreIdentities)</code></th>
+                                                <td class="colLast">A helper constructor that requires at least one test identity to be registered, and which takes the package of the caller as the package in which to find app code.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(&lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; networkParameters, &lt;Error class: unknown class&gt; moreIdentities)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; moreIdentities)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)">MockServices</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; networkParameters, &lt;Error class: unknown class&gt; moreIdentities)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockServices()">MockServices</a></span>()</code></th>
+                                                <td class="colLast">Create a mock ServiceHub which uses the package of the caller to find CorDapp code.</td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html>ClassLoader</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getCordappClassloader()>getCordappClassloader</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getNetworkParameters()>getNetworkParameters</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../services/MockAttachmentStorage.html>MockAttachmentStorage</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getAttachments()>getAttachments</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getVaultService()>getVaultService</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getContractUpgradeService()>getContractUpgradeService</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getNetworkMapCache()>getNetworkMapCache</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getTelemetryService()>getTelemetryService</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code><a href=TestClock.html>TestClock</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getClock()>getClock</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getMyInfo()>getMyInfo</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getCordappProvider()>getCordappProvider</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getNetworkParametersService()>getNetworkParametersService</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#setNetworkParametersService(.<Error class: unknown class>)>setNetworkParametersService</a>(&lt;Error class: unknown class&gt; networkParametersService) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getDiagnosticsService()>getDiagnosticsService</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getRotatedKeys()>getRotatedKeys</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#setRotatedKeys(.<Error class: unknown class>)>setRotatedKeys</a>(&lt;Error class: unknown class&gt; rotatedKeys) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getValidatedTransactions()>getValidatedTransactions</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getIdentityService()>getIdentityService</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getKeyManagementService()>getKeyManagementService</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#recordTransactions(.<Error class: unknown class>,java.lang.Iterable)>recordTransactions</a>(&lt;Error class: unknown class&gt; statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;&lt;Error class: unknown class&gt;&gt; txs) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#recordTransactions(.<Error class: unknown class>,java.lang.Boolean)>recordTransactions</a>(&lt;Error class: unknown class&gt; txn, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> disableSignatureVerification) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#recordTransactions(java.lang.Iterable,java.lang.Boolean)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;&lt;Error class: unknown class&gt;&gt; txs, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> disableSignatureVerification) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#cordaService(java.lang.Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#cordaService(java.lang.Class)>cordaService</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=MockServices.html#cordaService(java.lang.Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i22" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#cordaTelemetryComponent(java.lang.Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#cordaTelemetryComponent(java.lang.Class)>cordaTelemetryComponent</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=MockServices.html#cordaTelemetryComponent(java.lang.Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i23" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html>Connection</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#jdbcSession()>jdbcSession</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i24" class="altColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#withEntityManager(kotlin.jvm.functions.Function1)>withEntityManager</a>(Function1&lt;&lt;Error class: unknown class&gt;, <a href=MockServices.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a>&gt; block) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i25" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#withEntityManager(java.util.function.Consumer)>withEntityManager</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;&lt;Error class: unknown class&gt;&gt; block) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i26" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Void.html>Void</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#registerUnloadHandler(kotlin.jvm.functions.Function0)>registerUnloadHandler</a>(Function0&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a>&gt; runOnStop) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i27" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#addMockCordapp(.<Error class: unknown class>)>addMockCordapp</a>(&lt;Error class: unknown class&gt; contractClassName) </code>
+                                            </th>
+                                            <td class="colLast">Add the given package name to the list of packages which will be scanned for cordapp contract verification code</td>
+                                        </tr>
+                                        
+                                        <tr id="i28" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;&lt;&lt;Error class: unknown class&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#loadState(.<Error class: unknown class>)>loadState</a>(&lt;Error class: unknown class&gt; stateRef) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i29" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;&lt;Error class: unknown class&gt;&lt;&lt;Error class: unknown class&gt;&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#loadStates(java.util.Set)>loadStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;&lt;Error class: unknown class&gt;&gt; stateRefs) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i30" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#loadContractAttachment(.<Error class: unknown class>)>loadContractAttachment</a>(&lt;Error class: unknown class&gt; stateRef) </code>
+                                            </th>
+                                            <td class="colLast">Returns a dummy Attachment, in context of signature constrains non-downgrade rule this default to contract class version <code>1</code>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i31" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#getMetricsRegistry(java.lang.Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockServices.html#getMetricsRegistry(java.lang.Class)>getMetricsRegistry</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=MockServices.html#getMetricsRegistry(java.lang.Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentity, &lt;Error class: unknown class&gt; identityService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</pre>
+                                        <div class="block">Create a mock ServiceHub that looks for app code in the given package names, uses the provided identity service (you can get one from makeTestIdentityService) and represents the given identity.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentity, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentity, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys, &lt;Error class: unknown class&gt; keyManagementService)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair,java.security.KeyPair)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> key, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</pre>
+                                        <div class="block">Create a mock ServiceHub that looks for app code in the given package names, uses the provided identity service (you can get one from makeTestIdentityService) and represents the given identity.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.lang.Iterable,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService)</pre>
+                                        <div class="block">Create a mock ServiceHub that can't load CorDapp code, which uses the provided identity service (you can get one from makeTestIdentityService) and which represents the given identity.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.lang.Iterable)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages)</pre>
+                                        <div class="block">Create a mock ServiceHub that can't load CorDapp code, and which uses a default service identity.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair,java.security.KeyPair)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(&lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> key, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> moreKeys)</pre>
+                                        <div class="block">Create a mock ServiceHub which uses the package of the caller to find CorDapp code.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(&lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService)</pre>
+                                        <div class="block">Create a mock ServiceHub which uses the package of the caller to find CorDapp code.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,java.security.KeyPair)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; initialIdentityName, &lt;Error class: unknown class&gt; identityService, &lt;Error class: unknown class&gt; networkParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html>KeyPair</a> key)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(&lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; moreIdentities)</pre>
+                                        <div class="block">A helper constructor that requires at least one test identity to be registered, and which takes the package of the caller as the package in which to find app code.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(&lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; networkParameters, &lt;Error class: unknown class&gt; moreIdentities)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; moreIdentities)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices(java.util.List,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, &lt;Error class: unknown class&gt; firstIdentity, &lt;Error class: unknown class&gt; networkParameters, &lt;Error class: unknown class&gt; moreIdentities)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockServices()"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockServices</h4>
+                                        <pre>MockServices()</pre>
+                                        <div class="block">Create a mock ServiceHub which uses the package of the caller to find CorDapp code.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getCordappClassloader()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCordappClassloader</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html>ClassLoader</a> <a href=MockServices.html#getCordappClassloader()>getCordappClassloader</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNetworkParameters()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNetworkParameters</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getNetworkParameters()>getNetworkParameters</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getAttachments()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getAttachments</h4>
+                                        <pre class="methodSignature"> final <a href=../services/MockAttachmentStorage.html>MockAttachmentStorage</a> <a href=MockServices.html#getAttachments()>getAttachments</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getVaultService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getVaultService</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getVaultService()>getVaultService</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getContractUpgradeService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getContractUpgradeService</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getContractUpgradeService()>getContractUpgradeService</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNetworkMapCache()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNetworkMapCache</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getNetworkMapCache()>getNetworkMapCache</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTelemetryService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTelemetryService</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getTelemetryService()>getTelemetryService</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getClock()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getClock</h4>
+                                        <pre class="methodSignature"> <a href=TestClock.html>TestClock</a> <a href=MockServices.html#getClock()>getClock</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMyInfo()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMyInfo</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getMyInfo()>getMyInfo</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCordappProvider()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCordappProvider</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getCordappProvider()>getCordappProvider</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNetworkParametersService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNetworkParametersService</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getNetworkParametersService()>getNetworkParametersService</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setNetworkParametersService(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setNetworkParametersService</h4>
+                                        <pre class="methodSignature"> <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockServices.html#setNetworkParametersService(.<Error class: unknown class>)>setNetworkParametersService</a>(&lt;Error class: unknown class&gt; networkParametersService)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDiagnosticsService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDiagnosticsService</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getDiagnosticsService()>getDiagnosticsService</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getRotatedKeys()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getRotatedKeys</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=MockServices.html#getRotatedKeys()>getRotatedKeys</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setRotatedKeys(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setRotatedKeys</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockServices.html#setRotatedKeys(.<Error class: unknown class>)>setRotatedKeys</a>(&lt;Error class: unknown class&gt; rotatedKeys)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getValidatedTransactions()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getValidatedTransactions</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getValidatedTransactions()>getValidatedTransactions</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getIdentityService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getIdentityService</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getIdentityService()>getIdentityService</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getKeyManagementService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getKeyManagementService</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#getKeyManagementService()>getKeyManagementService</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(.&lt;Error class: unknown class&gt;,java.lang.Iterable)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#recordTransactions(.<Error class: unknown class>,java.lang.Iterable)>recordTransactions</a>(&lt;Error class: unknown class&gt; statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;&lt;Error class: unknown class&gt;&gt; txs)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(.&lt;Error class: unknown class&gt;,java.lang.Boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=MockServices.html#recordTransactions(.<Error class: unknown class>,java.lang.Boolean)>recordTransactions</a>(&lt;Error class: unknown class&gt; txn, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> disableSignatureVerification)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(java.lang.Iterable,java.lang.Boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockServices.html#recordTransactions(java.lang.Iterable,java.lang.Boolean)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;&lt;Error class: unknown class&gt;&gt; txs, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> disableSignatureVerification)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="cordaService(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>cordaService</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#cordaService(java.lang.Class)>T</a> <a href=MockServices.html#cordaService(java.lang.Class)>cordaService</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=MockServices.html#cordaService(java.lang.Class)>T</a>&gt; type)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="cordaTelemetryComponent(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>cordaTelemetryComponent</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#cordaTelemetryComponent(java.lang.Class)>T</a> <a href=MockServices.html#cordaTelemetryComponent(java.lang.Class)>cordaTelemetryComponent</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=MockServices.html#cordaTelemetryComponent(java.lang.Class)>T</a>&gt; type)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="jdbcSession()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>jdbcSession</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html>Connection</a> <a href=MockServices.html#jdbcSession()>jdbcSession</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withEntityManager(kotlin.jvm.functions.Function1)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withEntityManager</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a> <a href=MockServices.html#withEntityManager(kotlin.jvm.functions.Function1)>withEntityManager</a>(Function1&lt;&lt;Error class: unknown class&gt;, <a href=MockServices.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a>&gt; block)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withEntityManager(java.util.function.Consumer)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withEntityManager</h4>
+                                        <pre class="methodSignature"> <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockServices.html#withEntityManager(java.util.function.Consumer)>withEntityManager</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;&lt;Error class: unknown class&gt;&gt; block)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="registerUnloadHandler(kotlin.jvm.functions.Function0)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>registerUnloadHandler</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Void.html>Void</a> <a href=MockServices.html#registerUnloadHandler(kotlin.jvm.functions.Function0)>registerUnloadHandler</a>(Function0&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a>&gt; runOnStop)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addMockCordapp(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addMockCordapp</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockServices.html#addMockCordapp(.<Error class: unknown class>)>addMockCordapp</a>(&lt;Error class: unknown class&gt; contractClassName)</pre>
+                                        <div class="block"><p>Add the given package name to the list of packages which will be scanned for cordapp contract verification code</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="loadState(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>loadState</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt;&lt;&lt;Error class: unknown class&gt;&gt; <a href=MockServices.html#loadState(.<Error class: unknown class>)>loadState</a>(&lt;Error class: unknown class&gt; stateRef)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="loadStates(java.util.Set)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>loadStates</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;&lt;Error class: unknown class&gt;&lt;&lt;Error class: unknown class&gt;&gt;&gt; <a href=MockServices.html#loadStates(java.util.Set)>loadStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;&lt;Error class: unknown class&gt;&gt; stateRefs)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="loadContractAttachment(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>loadContractAttachment</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=MockServices.html#loadContractAttachment(.<Error class: unknown class>)>loadContractAttachment</a>(&lt;Error class: unknown class&gt; stateRef)</pre>
+                                        <div class="block"><p>Returns a dummy Attachment, in context of signature constrains non-downgrade rule this default to contract class version <code>1</code>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMetricsRegistry(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMetricsRegistry</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=MockServices.html#getMetricsRegistry(java.lang.Class)>T</a> <a href=MockServices.html#getMetricsRegistry(java.lang.Class)>getMetricsRegistry</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=MockServices.html#getMetricsRegistry(java.lang.Class)>T</a>&gt; type)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

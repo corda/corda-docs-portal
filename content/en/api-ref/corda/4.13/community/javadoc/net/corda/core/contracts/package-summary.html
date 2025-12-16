@@ -1,0 +1,464 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>Package net.corda.core.contracts </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li class="navBarCell1Rev">Package</li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+<main role="main">
+    <div class="header">
+        <h1 title="Package" class="title">Package net.corda.core.contracts </h1>
+    </div>
+        <div class="header">
+            <div class="subtitle">
+                <div class="block"></div>
+            </div>
+            <p>See: <a href="#overview_description">Description</a></p>
+        </div>
+    <div class="contentContainer">
+        
+            <ul class="blockList">
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TokenizableAssetInfo.html>TokenizableAssetInfo</a></th><td class="colLast">This interface is used by <a href=Amount.html>Amount</a> to determine the conversion ratio from indicative/displayed asset amounts in <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> to fungible tokens represented by Amount objects.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Attachment.html>Attachment</a></th><td class="colLast">An attachment is a ZIP (or an optionally signed JAR) that contains one or more files.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AttachmentConstraint.html>AttachmentConstraint</a></th><td class="colLast">Constrain which contract-code-containing attachment can be used with a <a href=Contract.html>Contract</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ContractState.html>ContractState</a></th><td class="colLast">A contract state (or just &quot;state&quot;) contains opaque data used by a contract program.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=FungibleAsset.html>FungibleAsset</a></th><td class="colLast">Interface for contract states representing assets which are fungible, countable and issued by a specific party.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=FungibleState.html>FungibleState</a></th><td class="colLast">Interface to represent things which are fungible, this means that there is an expectation that these things can be split and merged.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NamedByHash.html>NamedByHash</a></th><td class="colLast">Implemented by anything that can be named by a secure hash value (e.g.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=OwnableState.html>OwnableState</a></th><td class="colLast">A contract state that can have a single owner.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Scheduled.html>Scheduled</a></th><td class="colLast">Something which is scheduled to happen at a point in time.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=LinearState.html>LinearState</a></th><td class="colLast">A state that evolves by superseding itself, all of which share the common &quot;linearId&quot;.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=SchedulableState.html>SchedulableState</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=CommandData.html>CommandData</a></th><td class="colLast">Marker interface for classes that represent commands</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=MoveCommand.html>MoveCommand</a></th><td class="colLast">A common move command for contract states which can change owner.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Contract.html>Contract</a></th><td class="colLast">Implemented by a program that implements business logic on the shared ledger.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=UpgradedContract.html>UpgradedContract</a></th><td class="colLast">Interface which can upgrade state objects issued by a contract to a new state object issued by a different contract.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=UpgradedContractWithLegacyConstraint.html>UpgradedContractWithLegacyConstraint</a></th><td class="colLast">This interface allows specifying a custom legacy contract constraint for upgraded contracts.</td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Object Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Object</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Amount.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AmountTransfer.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AlwaysAcceptAttachmentConstraint.html>AlwaysAcceptAttachmentConstraint</a></th><td class="colLast">An <a href=AttachmentConstraint.html>AttachmentConstraint</a> where <a href=AlwaysAcceptAttachmentConstraint.html#isSatisfiedBy(net.corda.core.contracts.Attachment)>isSatisfiedBy</a> always returns true.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=HashAttachmentConstraint.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=WhitelistedByZoneAttachmentConstraint.html>WhitelistedByZoneAttachmentConstraint</a></th><td class="colLast">An <a href=AttachmentConstraint.html>AttachmentConstraint</a> that verifies that the hash of the attachment is in the network parameters whitelist.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AutomaticHashConstraint.html>AutomaticHashConstraint</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AutomaticPlaceholderConstraint.html>AutomaticPlaceholderConstraint</a></th><td class="colLast">This <a href=AttachmentConstraint.html>AttachmentConstraint</a> is a convenience class that acts as a placeholder and will be automatically resolved by the platform when set on an output state.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SignatureAttachmentConstraint.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ContractAttachment.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Requirements.html>Requirements</a></th><td class="colLast">Defines a simple domain specific language for the specification of financial contracts.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=CordaRotatedKeys.html>CordaRotatedKeys</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=StatePointer.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=PrivacySalt.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TimeWindow.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=UniqueIdentifier.Companion.html>Companion</a></th><td class="colLast"></td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Amount.html>Amount</a></th><td class="colLast">Amount represents a positive quantity of some token (currency, asset, etc.), measured in quantity of the smallest representable units.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=SourceAndAmount.html>SourceAndAmount</a></th><td class="colLast">Simple data class to associate the origin, owner, or holder of a particular Amount object.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AmountTransfer.html>AmountTransfer</a></th><td class="colLast">This class represents a possibly negative transfer of tokens from one vault state to another, possibly at a future date.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=HashAttachmentConstraint.html>HashAttachmentConstraint</a></th><td class="colLast">An <a href=AttachmentConstraint.html>AttachmentConstraint</a> that verifies by hash.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=SignatureAttachmentConstraint.html>SignatureAttachmentConstraint</a></th><td class="colLast">An <a href=AttachmentConstraint.html>AttachmentConstraint</a> that verifies that the attachment has signers that fulfil the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ContractAttachment.html>ContractAttachment</a></th><td class="colLast">An <a href=Attachment.html>Attachment</a> which represents a contract JAR.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=InsufficientBalanceException.html>InsufficientBalanceException</a></th><td class="colLast">Thrown if a request is made to spend an amount of a <a href=FungibleAsset.html>FungibleAsset</a> but there aren't enough tokens in the vault.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=RotatedKeys.html>RotatedKeys</a></th><td class="colLast">This class represents the rotated CorDapp signing keys known by this node.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StatePointer.html>StatePointer</a></th><td class="colLast">A <a href=StatePointer.html>StatePointer</a> contains a <a href=StatePointer.html#pointer>pointer</a> to a <a href=ContractState.html>ContractState</a>.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=StaticPointer.html>StaticPointer</a></th><td class="colLast">A <a href=StaticPointer.html>StaticPointer</a> contains a <a href=StaticPointer.html#pointer>pointer</a> to a specific <a href=StateRef.html>StateRef</a> and can be resolved by looking up the <a href=StateRef.html>StateRef</a> via <a href=../node/ServiceHub.html>ServiceHub</a>.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=LinearPointer.html>LinearPointer</a></th><td class="colLast"><a href=LinearPointer.html>LinearPointer</a> allows a <a href=ContractState.html>ContractState</a> to &quot;point&quot; to another <a href=LinearState.html>LinearState</a> creating a &quot;many-to-one&quot; relationship between all the states containing the pointer to a particular <a href=LinearState.html>LinearState</a> and the <a href=LinearState.html>LinearState</a> being pointed to.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=Issued.html>Issued</a></th><td class="colLast">The <a href=Issued.html>Issued</a> data class holds the details of an on ledger digital asset.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=CommandAndState.html>CommandAndState</a></th><td class="colLast">Return structure for <a href=OwnableState.html#withNewOwner(net.corda.core.identity.AbstractParty)>OwnableState.withNewOwner</a></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ScheduledStateRef.html>ScheduledStateRef</a></th><td class="colLast">Represents a contract state (unconsumed output) of type <a href=LinearState.html>LinearState</a> and a point in time that a lifecycle event is expected to take place for that contract state.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ScheduledActivity.html>ScheduledActivity</a></th><td class="colLast">This class represents the lifecycle activity that a contract state of type <a href=LinearState.html>LinearState</a> would like to perform at a given point in time.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=StateRef.html>StateRef</a></th><td class="colLast">A stateref is a pointer (reference) to a state, this is an equivalent of an &quot;outpoint&quot; in Bitcoin.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StateAndRef.html>StateAndRef</a></th><td class="colLast">A StateAndRef is simply a (state, ref) pair.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=ReferencedStateAndRef.html>ReferencedStateAndRef</a></th><td class="colLast">A wrapper for a <a href=StateAndRef.html>StateAndRef</a> indicating that it should be added to a transaction as a reference input state.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=PartyAndReference.html>PartyAndReference</a></th><td class="colLast">Reference to something being stored or issued by a party e.g.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TypeOnlyCommandData.html>TypeOnlyCommandData</a></th><td class="colLast">Commands that inherit from this are intended to have no data items: it's only their presence that matters.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=Command.html>Command</a></th><td class="colLast">Command data/content plus pubkey pair: the signature is stored at the end of the serialized bytes</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=CommandWithParties.html>CommandWithParties</a></th><td class="colLast">A <a href=Command.html>Command</a> where the signing parties have been looked up if they have a well known/recognised institutional key.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=PrivacySalt.html>PrivacySalt</a></th><td class="colLast">A privacy salt is required to compute nonces per transaction component in order to ensure that an adversary cannot use brute force techniques and reveal the content of a Merkle-leaf hashed value.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=StateAndContract.html>StateAndContract</a></th><td class="colLast">A convenience class for passing around a state and it's contract</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TimeWindow.html>TimeWindow</a></th><td class="colLast">An interval on the time-line; not a single instantaneous point.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionState.html>TransactionState</a></th><td class="colLast">A wrapper for <a href=ContractState.html>ContractState</a> containing additional platform-level state information and contract information.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionResolutionException.UnknownParametersException.html>UnknownParametersException</a></th><td class="colLast">Thrown if a transaction specifies a set of parameters that aren't stored locally yet verification is requested.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionResolutionException.html>TransactionResolutionException</a></th><td class="colLast">The node asked a remote peer for the transaction identified by <a href=TransactionResolutionException.UnknownParametersException.html#hash>hash</a> because it is a dependency of a transaction being resolved, but the remote peer would not provide it.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=AttachmentResolutionException.html>AttachmentResolutionException</a></th><td class="colLast">The node asked a remote peer for the attachment identified by <a href=AttachmentResolutionException.html#hash>hash</a> because it is a dependency of a transaction being resolved, but the remote peer would not provide it.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=BrokenAttachmentException.html>BrokenAttachmentException</a></th><td class="colLast">A non-specific exception for the attachment identified by <a href=BrokenAttachmentException.html#attachmentId>attachmentId</a>.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.ContractRejection.html>ContractRejection</a></th><td class="colLast">Indicates that one of the <a href=../../finance/contracts/asset/OnLedgerAsset.html#verify(net.corda.core.transactions.LedgerTransaction)>Contract.verify</a> methods selected by the contract constraints and attachments rejected the transaction by throwing an exception.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.ConstraintPropagationRejection.html>ConstraintPropagationRejection</a></th><td class="colLast">This exception happens when a transaction was not built correctly.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.ContractConstraintRejection.html>ContractConstraintRejection</a></th><td class="colLast">The transaction attachment that contains the <a href=TransactionVerificationException.ContractConstraintRejection.html#contractClass>contractClass</a> class didn't meet the constraints specified by the <a href=TransactionState.html#constraint>TransactionState.constraint</a> object.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.InvalidConstraintRejection.html>InvalidConstraintRejection</a></th><td class="colLast">A constraint attached to a state was invalid, e.g.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.MissingAttachmentRejection.html>MissingAttachmentRejection</a></th><td class="colLast">A state requested a contract class via its <a href=TransactionState.html#contract>TransactionState.contract</a> field that didn't appear in any attached JAR at all.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.ConflictingAttachmentsRejection.html>ConflictingAttachmentsRejection</a></th><td class="colLast">Indicates this transaction violates the &quot;no overlap&quot; rule: two attachments are trying to provide the same file path.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.DuplicateAttachmentsRejection.html>DuplicateAttachmentsRejection</a></th><td class="colLast">Indicates that the same attachment has been added multiple times to a transaction.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.ContractCreationError.html>ContractCreationError</a></th><td class="colLast">A <a href=Contract.html>Contract</a> class named by a state could not be constructed.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.NotaryChangeInWrongTransactionType.html>NotaryChangeInWrongTransactionType</a></th><td class="colLast">An output state has a notary that doesn't match the transaction's notary field.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.TransactionMissingEncumbranceException.html>TransactionMissingEncumbranceException</a></th><td class="colLast">If a state is encumbered (the <a href=TransactionState.html#encumbrance>TransactionState.encumbrance</a> field is set) then its encumbrance must be used as an input to any transaction that uses it.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.TransactionDuplicateEncumbranceException.html>TransactionDuplicateEncumbranceException</a></th><td class="colLast">If two or more states refer to another state (as their encumbrance), then the bi-directionality property cannot be satisfied.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.TransactionNonMatchingEncumbranceException.html>TransactionNonMatchingEncumbranceException</a></th><td class="colLast">An encumbered state should also be referenced as the encumbrance of another state in order to satisfy the bi-directionality property (a full cycle should be present).</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.TransactionNotaryMismatchEncumbranceException.html>TransactionNotaryMismatchEncumbranceException</a></th><td class="colLast">All encumbered states should be assigned to the same notary.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.TransactionContractConflictException.html>TransactionContractConflictException</a></th><td class="colLast">If a state is identified as belonging to a contract, either because the state class is defined as an inner class of the contract class or because the state class is annotated with <a href=BelongsToContract.html>BelongsToContract</a>, then it must not be bundled in a <a href=TransactionState.html>TransactionState</a> with a different contract.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.TransactionRequiredContractUnspecifiedException.html>TransactionRequiredContractUnspecifiedException</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.TransactionNetworkParameterOrderingException.html>TransactionNetworkParameterOrderingException</a></th><td class="colLast">If the network parameters associated with an input or reference state in a transaction are more recent than the network parameters of the new transaction itself.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.MissingNetworkParametersException.html>MissingNetworkParametersException</a></th><td class="colLast">Thrown when the network parameters with hash: missingNetworkParametersHash is not available at this node.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.BrokenTransactionException.html>BrokenTransactionException</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.OverlappingAttachmentsException.html>OverlappingAttachmentsException</a></th><td class="colLast">Thrown when multiple attachments provide the same file when building the AttachmentsClassloader for a transaction.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.PackageOwnershipException.html>PackageOwnershipException</a></th><td class="colLast">Thrown to indicate that a contract attachment is not signed by the network-wide package owner.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.InvalidAttachmentException.html>InvalidAttachmentException</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.UnsupportedClassVersionError.html>UnsupportedClassVersionError</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.UntrustedAttachmentsException.html>UntrustedAttachmentsException</a></th><td class="colLast">Thrown during classloading upon encountering an untrusted attachment (eg.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.UnsupportedHashTypeException.html>UnsupportedHashTypeException</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.AttachmentTooBigException.html>AttachmentTooBigException</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.html>TransactionVerificationException</a></th><td class="colLast">Indicates that some aspect of the transaction named by <a href=TransactionVerificationException.AttachmentTooBigException.html#txId>txId</a> violates the platform rules.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=UniqueIdentifier.html>UniqueIdentifier</a></th><td class="colLast">This class provides a truly unique identifier of a trade, state, or other business object, bound to any existing external ID.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=RotatedKeysKt.html>RotatedKeysKt</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=StructuresKt.html>StructuresKt</a></th><td class="colLast"></td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=AttachmentConstraintKt.html>AttachmentConstraintKt</a></th><td class="colLast"></td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ContractsDSLKt.html>ContractsDSLKt</a></th><td class="colLast"></td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Annotation Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Annotation</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=NoConstraintPropagation.html>NoConstraintPropagation</a></th><td class="colLast">This annotation should only be added to <a href=Contract.html>Contract</a> classes.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=BelongsToContract.html>BelongsToContract</a></th><td class="colLast">This annotation is required by any <a href=ContractState.html>ContractState</a> which needs to ensure that it is only ever processed as part of a <a href=TransactionState.html>TransactionState</a> referencing the specified <a href=Contract.html>Contract</a>.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=LegalProseReference.html>LegalProseReference</a></th><td class="colLast">The annotated <a href=Contract.html>Contract</a> implements the legal prose identified by the given URI.</td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+                <li class="blockList">
+                    
+                    
+                    
+                    
+                    
+    <div class="typeSummary">
+
+<table>
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=ComponentGroupEnum.html>ComponentGroupEnum</a></th><td class="colLast">An enum, for which each property corresponds to a transaction component group.</td></tr>
+
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.Direction.html>Direction</a></th><td class="colLast">Whether the inputs or outputs list contains an encumbrance issue, see <a href=TransactionVerificationException.TransactionMissingEncumbranceException.html>TransactionMissingEncumbranceException</a>.</td></tr>
+</tbody>
+</table>
+
+    </div>
+
+                </li>
+                
+            </ul>
+        
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li class="navBarCell1Rev">Package</li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

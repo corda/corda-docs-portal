@@ -1,0 +1,845 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>NetworkParameters 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.node</a></div>
+        <h2 title="Class NetworkParameters" class="title">Class NetworkParameters</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public final class <span class="typeNameLabel"><a href=NetworkParameters.html>NetworkParameters</a></span>
+
+                    </pre>
+                    <div class="block"><p>Network parameters are a set of values that every node participating in the zone needs to agree on and use to correctly interoperate with each other.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#minimumPlatformVersion>minimumPlatformVersion</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#notaries>notaries</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#maxMessageSize>maxMessageSize</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#maxTransactionSize>maxTransactionSize</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#modifiedTime>modifiedTime</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#epoch>epoch</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#whitelistedContractImplementations>whitelistedContractImplementations</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#eventHorizon>eventHorizon</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#packageOwnership>packageOwnership</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#recoveryMaximumBackupInterval>recoveryMaximumBackupInterval</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#confidentialIdentityMinimumBackupInterval>confidentialIdentityMinimumBackupInterval</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map)">NetworkParameters</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration)">NetworkParameters</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration,java.util.Map)">NetworkParameters</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; packageOwnership)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration,java.util.Map,java.time.Duration,java.time.Duration)">NetworkParameters</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; packageOwnership, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> recoveryMaximumBackupInterval, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> confidentialIdentityMinimumBackupInterval)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getMinimumPlatformVersion()>getMinimumPlatformVersion</a>() </code>
+                                            </th>
+                                            <td class="colLast">Minimum version of Corda platform that is required for nodes in the network.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getNotaries()>getNotaries</a>() </code>
+                                            </th>
+                                            <td class="colLast">List of well known and trusted notary identities with information on validation type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getMaxMessageSize()>getMaxMessageSize</a>() </code>
+                                            </th>
+                                            <td class="colLast">Maximum allowed size in bytes of an individual message sent over the wire.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getMaxTransactionSize()>getMaxTransactionSize</a>() </code>
+                                            </th>
+                                            <td class="colLast">Maximum permitted transaction size in bytes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getModifiedTime()>getModifiedTime</a>() </code>
+                                            </th>
+                                            <td class="colLast">(<a href=AutoAcceptable.html>AutoAcceptable</a>) Last modification time of network parameters set.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getEpoch()>getEpoch</a>() </code>
+                                            </th>
+                                            <td class="colLast">(<a href=AutoAcceptable.html>AutoAcceptable</a>) Version number of the network parameters.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getWhitelistedContractImplementations()>getWhitelistedContractImplementations</a>() </code>
+                                            </th>
+                                            <td class="colLast">(<a href=AutoAcceptable.html>AutoAcceptable</a>) List of whitelisted jars containing contract code for each contract class.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getEventHorizon()>getEventHorizon</a>() </code>
+                                            </th>
+                                            <td class="colLast">Time after which nodes will be removed from the network map if they have not been seen during this period.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getPackageOwnership()>getPackageOwnership</a>() </code>
+                                            </th>
+                                            <td class="colLast">(<a href=AutoAcceptable.html>AutoAcceptable</a>) List of the network-wide java packages that were successfully claimed by their owners.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getRecoveryMaximumBackupInterval()>getRecoveryMaximumBackupInterval</a>() </code>
+                                            </th>
+                                            <td class="colLast">A default value, that will be used by the Ledger Recovery flows to set how far back in time to consider for recovery.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#getConfidentialIdentityMinimumBackupInterval()>getConfidentialIdentityMinimumBackupInterval</a>() </code>
+                                            </th>
+                                            <td class="colLast">A default value for the  minimum age of a generated confidential identity key before it can be used.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=NetworkParameters.html>NetworkParameters</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration,java.util.Map)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; packageOwnership) </code>
+                                            </th>
+                                            <td class="colLast">This is to address backwards compatibility of the API, invariant to package ownership addresses bug CORDA-2769</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>final <a href=NetworkParameters.html>NetworkParameters</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon) </code>
+                                            </th>
+                                            <td class="colLast">This is to address backwards compatibility of the API, invariant to package ownership addresses bug CORDA-2769</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=NetworkParameters.html>NetworkParameters</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations) </code>
+                                            </th>
+                                            <td class="colLast">This is to address backwards compatibility of the API, invariant to package ownership addresses bug CORDA-2769</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#toString()>toString</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=NetworkParameters.html>NetworkParameters</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=NetworkParameters.html#toImmutable()>toImmutable</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>NetworkParameters</h4>
+                                        <pre>NetworkParameters(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>NetworkParameters</h4>
+                                        <pre>NetworkParameters(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration,java.util.Map)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>NetworkParameters</h4>
+                                        <pre>NetworkParameters(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; packageOwnership)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="NetworkParameters(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration,java.util.Map,java.time.Duration,java.time.Duration)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>NetworkParameters</h4>
+                                        <pre>NetworkParameters(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; packageOwnership, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> recoveryMaximumBackupInterval, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> confidentialIdentityMinimumBackupInterval)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getMinimumPlatformVersion()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMinimumPlatformVersion</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=NetworkParameters.html#getMinimumPlatformVersion()>getMinimumPlatformVersion</a>()</pre>
+                                        <div class="block"><p>Minimum version of Corda platform that is required for nodes in the network.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNotaries()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNotaries</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; <a href=NetworkParameters.html#getNotaries()>getNotaries</a>()</pre>
+                                        <div class="block"><p>List of well known and trusted notary identities with information on validation type.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMaxMessageSize()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMaxMessageSize</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=NetworkParameters.html#getMaxMessageSize()>getMaxMessageSize</a>()</pre>
+                                        <div class="block"><p>Maximum allowed size in bytes of an individual message sent over the wire.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMaxTransactionSize()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMaxTransactionSize</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=NetworkParameters.html#getMaxTransactionSize()>getMaxTransactionSize</a>()</pre>
+                                        <div class="block"><p>Maximum permitted transaction size in bytes.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getModifiedTime()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getModifiedTime</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=NetworkParameters.html#getModifiedTime()>getModifiedTime</a>()</pre>
+                                        <div class="block"><p>(<a href=AutoAcceptable.html>AutoAcceptable</a>) Last modification time of network parameters set.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getEpoch()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getEpoch</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=NetworkParameters.html#getEpoch()>getEpoch</a>()</pre>
+                                        <div class="block"><p>(<a href=AutoAcceptable.html>AutoAcceptable</a>) Version number of the network parameters. Starting from 1, this will always increment on each new set of parameters.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getWhitelistedContractImplementations()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getWhitelistedContractImplementations</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; <a href=NetworkParameters.html#getWhitelistedContractImplementations()>getWhitelistedContractImplementations</a>()</pre>
+                                        <div class="block"><p>(<a href=AutoAcceptable.html>AutoAcceptable</a>) List of whitelisted jars containing contract code for each contract class. This will be used by <a href=../contracts/WhitelistedByZoneAttachmentConstraint.html>net.corda.core.contracts.WhitelistedByZoneAttachmentConstraint</a>. <a href=https://docs.corda.net/api-contract-constraints.html>You can learn more about contract constraints here</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getEventHorizon()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getEventHorizon</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> <a href=NetworkParameters.html#getEventHorizon()>getEventHorizon</a>()</pre>
+                                        <div class="block"><p>Time after which nodes will be removed from the network map if they have not been seen during this period.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getPackageOwnership()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getPackageOwnership</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=NetworkParameters.html#getPackageOwnership()>getPackageOwnership</a>()</pre>
+                                        <div class="block"><p>(<a href=AutoAcceptable.html>AutoAcceptable</a>) List of the network-wide java packages that were successfully claimed by their owners. Any CorDapp JAR that offers contracts and states in any of these packages must be signed by the owner.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getRecoveryMaximumBackupInterval()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getRecoveryMaximumBackupInterval</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> <a href=NetworkParameters.html#getRecoveryMaximumBackupInterval()>getRecoveryMaximumBackupInterval</a>()</pre>
+                                        <div class="block"><p>A default value, that will be used by the Ledger Recovery flows to set how far back in time to consider for recovery. The expectation is that a node will restore to a database backup that is no older than this, by default, when attempting a recovery. This value can be overridden by specifying an override to the flow. It can also be overridden if the same parameter is specified, per-node in the node configuration. An override to the flow takes priority in terms of overrides. It is optional in both the network parameters and the node configuration however if no values are set then it needs to be specified in the flow.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getConfidentialIdentityMinimumBackupInterval()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getConfidentialIdentityMinimumBackupInterval</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> <a href=NetworkParameters.html#getConfidentialIdentityMinimumBackupInterval()>getConfidentialIdentityMinimumBackupInterval</a>()</pre>
+                                        <div class="block"><p>A default value for the  minimum age of a generated confidential identity key before it can be used. This can be overridden in the node configuration or if a more recent database backup is indicated via RPC / shell. It is optional in both the network parameters and the node configuration and if no value is set for either then it is assumed to be zero.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration,java.util.Map)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>copy</h4>
+                                        <pre class="methodSignature"> final <a href=NetworkParameters.html>NetworkParameters</a> <a href=NetworkParameters.html#copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration,java.util.Map)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; packageOwnership)</pre>
+                                        <div class="block"><p>This is to address backwards compatibility of the API, invariant to package ownership addresses bug CORDA-2769</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>copy</h4>
+                                        <pre class="methodSignature"> final <a href=NetworkParameters.html>NetworkParameters</a> <a href=NetworkParameters.html#copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map,java.time.Duration)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> eventHorizon)</pre>
+                                        <div class="block"><p>This is to address backwards compatibility of the API, invariant to package ownership addresses bug CORDA-2769</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>copy</h4>
+                                        <pre class="methodSignature"> final <a href=NetworkParameters.html>NetworkParameters</a> <a href=NetworkParameters.html#copy(java.lang.Integer,java.util.List,java.lang.Integer,java.lang.Integer,java.time.Instant,java.lang.Integer,java.util.Map)>copy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> minimumPlatformVersion, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=NotaryInfo.html>NotaryInfo</a>&gt; notaries, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxMessageSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> maxTransactionSize, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> modifiedTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> epoch, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;&gt; whitelistedContractImplementations)</pre>
+                                        <div class="block"><p>This is to address backwards compatibility of the API, invariant to package ownership addresses bug CORDA-2769</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toString()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toString</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=NetworkParameters.html#toString()>toString</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toImmutable()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toImmutable</h4>
+                                        <pre class="methodSignature"> final <a href=NetworkParameters.html>NetworkParameters</a> <a href=NetworkParameters.html#toImmutable()>toImmutable</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

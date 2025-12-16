@@ -1,0 +1,986 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>MockNetwork 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.testing.node</a></div>
+        <h2 title="Class MockNetwork" class="title">Class MockNetwork</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public class <span class="typeNameLabel"><a href=MockNetwork.html>MockNetwork</a></span>
+
+                    </pre>
+                    <div class="block"><p>A mock node brings up a suite of in-memory services in a fast manner suitable for unit testing. Components that do IO are either swapped out for mocks, or pointed to a Jimfs in memory filesystem or an in memory H2 database instance.</p><p>Java users can use the constructor that takes an (optional) <a href=MockNetworkParameters.html>MockNetworkParameters</a> builder, which may be more convenient than specifying all the defaults by hand. Please see <a href=MockNetworkParameters.html>MockNetworkParameters</a> for the documentation of each parameter.</p><p>Mock network nodes require manual pumping by default: they will not run asynchronous. This means that for message exchanges to take place (and associated handlers to run), you must call the <a href=MockNetwork.html#runNetwork(java.lang.Integer)>runNetwork</a> method. If you want messages to flow automatically, use automatic pumping with a thread per node but watch out for code running parallel to your unit tests: you will need to use futures correctly to ensure race-free results.</p><p>By default a single notary node is automatically started, which forms part of the network parameters for all the nodes. This node is available by calling <a href=MockNetwork.html#defaultNotaryNode>defaultNotaryNode</a>.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#nextNodeId>nextNodeId</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=StartedMockNode.html>StartedMockNode</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#defaultNotaryNode>defaultNotaryNode</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#defaultNotaryIdentity>defaultNotaryIdentity</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StartedMockNode.html>StartedMockNode</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#notaryNodes>notaryNodes</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#cordappPackages>cordappPackages</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=MockNetworkParameters.html>MockNetworkParameters</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#defaultParameters>defaultParameters</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#networkSendManuallyPumped>networkSendManuallyPumped</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#threadPerNode>threadPerNode</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=InMemoryMessagingNetwork.ServicePeerAllocationStrategy.html>InMemoryMessagingNetwork.ServicePeerAllocationStrategy</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#servicePeerAllocationStrategy>servicePeerAllocationStrategy</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=MockNetworkNotarySpec.html>MockNetworkNotarySpec</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#notarySpecs>notarySpecs</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#networkParameters>networkParameters</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockNetwork(java.util.List,net.corda.testing.node.MockNetworkParameters)">MockNetwork</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, <a href=MockNetworkParameters.html>MockNetworkParameters</a> parameters)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockNetwork(net.corda.testing.node.MockNetworkParameters)">MockNetwork</a></span>(<a href=MockNetworkParameters.html>MockNetworkParameters</a> parameters)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MockNetwork(java.util.List,net.corda.testing.node.MockNetworkParameters,java.lang.Boolean,java.lang.Boolean,net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy,java.util.List,.&lt;Error class: unknown class&gt;)">MockNetwork</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, <a href=MockNetworkParameters.html>MockNetworkParameters</a> defaultParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> networkSendManuallyPumped, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> threadPerNode, <a href=InMemoryMessagingNetwork.ServicePeerAllocationStrategy.html>InMemoryMessagingNetwork.ServicePeerAllocationStrategy</a> servicePeerAllocationStrategy, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=MockNetworkNotarySpec.html>MockNetworkNotarySpec</a>&gt; notarySpecs, &lt;Error class: unknown class&gt; networkParameters)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getNextNodeId()>getNextNodeId</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=StartedMockNode.html>StartedMockNode</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getDefaultNotaryNode()>getDefaultNotaryNode</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getDefaultNotaryIdentity()>getDefaultNotaryIdentity</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StartedMockNode.html>StartedMockNode</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getNotaryNodes()>getNotaryNodes</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getCordappPackages()>getCordappPackages</a>() </code>
+                                            </th>
+                                            <td class="colLast">A <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html>List</a> of cordapp packages to scan for any cordapp code, e.g.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=MockNetworkParameters.html>MockNetworkParameters</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getDefaultParameters()>getDefaultParameters</a>() </code>
+                                            </th>
+                                            <td class="colLast">The default parameters for the network.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getNetworkSendManuallyPumped()>getNetworkSendManuallyPumped</a>() </code>
+                                            </th>
+                                            <td class="colLast">If false then messages will not be routed from sender to receiver until you use the <a href=MockNetwork.html#runNetwork(java.lang.Integer)>MockNetwork.runNetwork</a> method.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getThreadPerNode()>getThreadPerNode</a>() </code>
+                                            </th>
+                                            <td class="colLast">If true then each node will be run in its own thread.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=InMemoryMessagingNetwork.ServicePeerAllocationStrategy.html>InMemoryMessagingNetwork.ServicePeerAllocationStrategy</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getServicePeerAllocationStrategy()>getServicePeerAllocationStrategy</a>() </code>
+                                            </th>
+                                            <td class="colLast">How messages are load balanced in the case where a single compound identity is used by multiple nodes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=MockNetworkNotarySpec.html>MockNetworkNotarySpec</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getNotarySpecs()>getNotarySpecs</a>() </code>
+                                            </th>
+                                            <td class="colLast">The notaries to use in the mock network.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#getNetworkParameters()>getNetworkParameters</a>() </code>
+                                            </th>
+                                            <td class="colLast">The network parameters to be used by all the nodes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=StartedMockNode.html>StartedMockNode</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#createPartyNode(.<Error class: unknown class>)>createPartyNode</a>(&lt;Error class: unknown class&gt; legalName) </code>
+                                            </th>
+                                            <td class="colLast">Create a started node with the given identity.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>final <a href=StartedMockNode.html>StartedMockNode</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#createNode(net.corda.testing.node.MockNodeParameters)>createNode</a>(<a href=MockNodeParameters.html>MockNodeParameters</a> parameters) </code>
+                                            </th>
+                                            <td class="colLast">Create a started node with the given parameters.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=StartedMockNode.html>StartedMockNode</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#createNode(.<Error class: unknown class>,java.lang.Integer,java.math.BigInteger,net.corda.testing.node.MockNodeConfigOverrides)>createNode</a>(&lt;Error class: unknown class&gt; legalName, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> forcedID, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropyRoot, <a href=MockNodeConfigOverrides.html>MockNodeConfigOverrides</a> configOverrides) </code>
+                                            </th>
+                                            <td class="colLast">Create a started node with the given parameters.</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code>final <a href=UnstartedMockNode.html>UnstartedMockNode</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#createUnstartedNode(net.corda.testing.node.MockNodeParameters)>createUnstartedNode</a>(<a href=MockNodeParameters.html>MockNodeParameters</a> parameters) </code>
+                                            </th>
+                                            <td class="colLast">Create an unstarted node with the given parameters.</td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=UnstartedMockNode.html>UnstartedMockNode</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#createUnstartedNode(.<Error class: unknown class>,java.lang.Integer,java.math.BigInteger,net.corda.testing.node.MockNodeConfigOverrides)>createUnstartedNode</a>(&lt;Error class: unknown class&gt; legalName, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> forcedID, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropyRoot, <a href=MockNodeConfigOverrides.html>MockNodeConfigOverrides</a> configOverrides) </code>
+                                            </th>
+                                            <td class="colLast">Create an unstarted node with the given parameters.</td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#startNodes()>startNodes</a>() </code>
+                                            </th>
+                                            <td class="colLast">Start all nodes that aren't already started.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#stopNodes()>stopNodes</a>() </code>
+                                            </th>
+                                            <td class="colLast">Stop all nodes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#waitQuiescent()>waitQuiescent</a>() </code>
+                                            </th>
+                                            <td class="colLast">Block until all scheduled activity, active flows and network activity has ceased.</td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#runNetwork(java.lang.Integer)>runNetwork</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> rounds) </code>
+                                            </th>
+                                            <td class="colLast">Asks every node in order to process any queued up inbound messages.</td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html>Path</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MockNetwork.html#baseDirectory(java.lang.Integer)>baseDirectory</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> nodeId) </code>
+                                            </th>
+                                            <td class="colLast">Get the base directory for the given node id.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="MockNetwork(java.util.List,net.corda.testing.node.MockNetworkParameters)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockNetwork</h4>
+                                        <pre>MockNetwork(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, <a href=MockNetworkParameters.html>MockNetworkParameters</a> parameters)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockNetwork(net.corda.testing.node.MockNetworkParameters)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockNetwork</h4>
+                                        <pre>MockNetwork(<a href=MockNetworkParameters.html>MockNetworkParameters</a> parameters)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="MockNetwork(java.util.List,net.corda.testing.node.MockNetworkParameters,java.lang.Boolean,java.lang.Boolean,net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy,java.util.List,.&lt;Error class: unknown class&gt;)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MockNetwork</h4>
+                                        <pre>MockNetwork(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; cordappPackages, <a href=MockNetworkParameters.html>MockNetworkParameters</a> defaultParameters, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> networkSendManuallyPumped, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> threadPerNode, <a href=InMemoryMessagingNetwork.ServicePeerAllocationStrategy.html>InMemoryMessagingNetwork.ServicePeerAllocationStrategy</a> servicePeerAllocationStrategy, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=MockNetworkNotarySpec.html>MockNetworkNotarySpec</a>&gt; notarySpecs, &lt;Error class: unknown class&gt; networkParameters)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getNextNodeId()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNextNodeId</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=MockNetwork.html#getNextNodeId()>getNextNodeId</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDefaultNotaryNode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDefaultNotaryNode</h4>
+                                        <pre class="methodSignature"> final <a href=StartedMockNode.html>StartedMockNode</a> <a href=MockNetwork.html#getDefaultNotaryNode()>getDefaultNotaryNode</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDefaultNotaryIdentity()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDefaultNotaryIdentity</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=MockNetwork.html#getDefaultNotaryIdentity()>getDefaultNotaryIdentity</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNotaryNodes()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNotaryNodes</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StartedMockNode.html>StartedMockNode</a>&gt; <a href=MockNetwork.html#getNotaryNodes()>getNotaryNodes</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCordappPackages()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCordappPackages</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; <a href=MockNetwork.html#getCordappPackages()>getCordappPackages</a>()</pre>
+                                        <div class="block"><p>A <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html>List</a> of cordapp packages to scan for any cordapp code, e.g. contract verification code, flows and services.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDefaultParameters()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDefaultParameters</h4>
+                                        <pre class="methodSignature"> final <a href=MockNetworkParameters.html>MockNetworkParameters</a> <a href=MockNetwork.html#getDefaultParameters()>getDefaultParameters</a>()</pre>
+                                        <div class="block"><p>The default parameters for the network. If any of the remaining constructor parameters are specified then their values are taken instead of the corresponding value in <a href=MockNetwork.html#defaultParameters>defaultParameters</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNetworkSendManuallyPumped()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNetworkSendManuallyPumped</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=MockNetwork.html#getNetworkSendManuallyPumped()>getNetworkSendManuallyPumped</a>()</pre>
+                                        <div class="block"><p>If false then messages will not be routed from sender to receiver until you use the <a href=MockNetwork.html#runNetwork(java.lang.Integer)>MockNetwork.runNetwork</a> method. This is useful for writing single-threaded unit test code that can examine the state of the mock network before and after a message is sent, without races and without the receiving node immediately sending a response. The default is false, so you must call runNetwork.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getThreadPerNode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getThreadPerNode</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=MockNetwork.html#getThreadPerNode()>getThreadPerNode</a>()</pre>
+                                        <div class="block"><p>If true then each node will be run in its own thread. This can result in race conditions in your code if not carefully written, but is more realistic and may help if you have flows in your app that do long blocking operations. The default is false.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getServicePeerAllocationStrategy()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getServicePeerAllocationStrategy</h4>
+                                        <pre class="methodSignature"> final <a href=InMemoryMessagingNetwork.ServicePeerAllocationStrategy.html>InMemoryMessagingNetwork.ServicePeerAllocationStrategy</a> <a href=MockNetwork.html#getServicePeerAllocationStrategy()>getServicePeerAllocationStrategy</a>()</pre>
+                                        <div class="block"><p>How messages are load balanced in the case where a single compound identity is used by multiple nodes. You rarely if ever need to change that, it's primarily of interest to people testing notary code.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNotarySpecs()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNotarySpecs</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=MockNetworkNotarySpec.html>MockNetworkNotarySpec</a>&gt; <a href=MockNetwork.html#getNotarySpecs()>getNotarySpecs</a>()</pre>
+                                        <div class="block"><p>The notaries to use in the mock network. By default you get one mock notary and that is usually sufficient.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNetworkParameters()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNetworkParameters</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=MockNetwork.html#getNetworkParameters()>getNetworkParameters</a>()</pre>
+                                        <div class="block"><p>The network parameters to be used by all the nodes. NetworkParameters.notaries must be empty as notaries are defined by <a href=MockNetwork.html#notarySpecs>notarySpecs</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createPartyNode(.&lt;Error class: unknown class&gt;)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createPartyNode</h4>
+                                        <pre class="methodSignature"> final <a href=StartedMockNode.html>StartedMockNode</a> <a href=MockNetwork.html#createPartyNode(.<Error class: unknown class>)>createPartyNode</a>(&lt;Error class: unknown class&gt; legalName)</pre>
+                                        <div class="block"><p>Create a started node with the given identity.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createNode(net.corda.testing.node.MockNodeParameters)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createNode</h4>
+                                        <pre class="methodSignature"> final <a href=StartedMockNode.html>StartedMockNode</a> <a href=MockNetwork.html#createNode(net.corda.testing.node.MockNodeParameters)>createNode</a>(<a href=MockNodeParameters.html>MockNodeParameters</a> parameters)</pre>
+                                        <div class="block"><p>Create a started node with the given parameters.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createNode(.&lt;Error class: unknown class&gt;,java.lang.Integer,java.math.BigInteger,net.corda.testing.node.MockNodeConfigOverrides)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createNode</h4>
+                                        <pre class="methodSignature"> final <a href=StartedMockNode.html>StartedMockNode</a> <a href=MockNetwork.html#createNode(.<Error class: unknown class>,java.lang.Integer,java.math.BigInteger,net.corda.testing.node.MockNodeConfigOverrides)>createNode</a>(&lt;Error class: unknown class&gt; legalName, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> forcedID, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropyRoot, <a href=MockNodeConfigOverrides.html>MockNodeConfigOverrides</a> configOverrides)</pre>
+                                        <div class="block"><p>Create a started node with the given parameters.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>legalName</code> - The node's legal name.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>forcedID</code> - A unique identifier for the node.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>entropyRoot</code> - The initial entropy value to use when generating keys.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>configOverrides</code> - Add/override the default configuration/behaviour of the node</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createUnstartedNode(net.corda.testing.node.MockNodeParameters)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createUnstartedNode</h4>
+                                        <pre class="methodSignature"> final <a href=UnstartedMockNode.html>UnstartedMockNode</a> <a href=MockNetwork.html#createUnstartedNode(net.corda.testing.node.MockNodeParameters)>createUnstartedNode</a>(<a href=MockNodeParameters.html>MockNodeParameters</a> parameters)</pre>
+                                        <div class="block"><p>Create an unstarted node with the given parameters.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createUnstartedNode(.&lt;Error class: unknown class&gt;,java.lang.Integer,java.math.BigInteger,net.corda.testing.node.MockNodeConfigOverrides)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createUnstartedNode</h4>
+                                        <pre class="methodSignature"> final <a href=UnstartedMockNode.html>UnstartedMockNode</a> <a href=MockNetwork.html#createUnstartedNode(.<Error class: unknown class>,java.lang.Integer,java.math.BigInteger,net.corda.testing.node.MockNodeConfigOverrides)>createUnstartedNode</a>(&lt;Error class: unknown class&gt; legalName, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> forcedID, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html>BigInteger</a> entropyRoot, <a href=MockNodeConfigOverrides.html>MockNodeConfigOverrides</a> configOverrides)</pre>
+                                        <div class="block"><p>Create an unstarted node with the given parameters.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>legalName</code> - The node's legal name.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>forcedID</code> - A unique identifier for the node.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>entropyRoot</code> - The initial entropy value to use when generating keys.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>configOverrides</code> - Add/override behaviour of the NodeConfiguration mock object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="startNodes()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>startNodes</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockNetwork.html#startNodes()>startNodes</a>()</pre>
+                                        <div class="block"><p>Start all nodes that aren't already started. This should usually be invoked in a setup method. WARNING: Restarting nodes is not supported and doing so may cause an exception.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="stopNodes()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>stopNodes</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockNetwork.html#stopNodes()>stopNodes</a>()</pre>
+                                        <div class="block"><p>Stop all nodes. This should usually be invoked in a teardown method. WARNING: Restarting nodes is not supported and doing so may cause an exception.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="waitQuiescent()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>waitQuiescent</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockNetwork.html#waitQuiescent()>waitQuiescent</a>()</pre>
+                                        <div class="block"><p>Block until all scheduled activity, active flows and network activity has ceased.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="runNetwork(java.lang.Integer)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>runNetwork</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=MockNetwork.html#runNetwork(java.lang.Integer)>runNetwork</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> rounds)</pre>
+                                        <div class="block"><p>Asks every node in order to process any queued up inbound messages. This may in turn result in nodes sending more messages to each other, thus, a typical usage is to call runNetwork with the <a href=MockNetwork.html#runNetwork(java.lang.Integer)>rounds</a> parameter set to -1 (the default) which simply runs as many rounds as necessary to result in network stability (no nodes sent any messages in the last round).</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="baseDirectory(java.lang.Integer)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>baseDirectory</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html>Path</a> <a href=MockNetwork.html#baseDirectory(java.lang.Integer)>baseDirectory</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> nodeId)</pre>
+                                        <div class="block"><p>Get the base directory for the given node id.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

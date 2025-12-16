@@ -1,0 +1,723 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>FinalityFlow 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.flows</a></div>
+        <h2 title="Class FinalityFlow" class="title">Class FinalityFlow</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+@<a href=InitiatingFlow.html>InitiatingFlow</a>() 
+public final class <span class="typeNameLabel"><a href=FinalityFlow.html>FinalityFlow</a></span>
+extends <a href=FlowLogic.html>FlowLogic</a>&lt;<a href=../transactions/SignedTransaction.html>SignedTransaction</a>&gt;
+                    </pre>
+                    <div class="block"><p>Verifies the given transaction, then sends it to the named notary. If the notary agrees that the transaction is acceptable then it is from that point onwards committed to the ledger, and will be written through to the vault. Additionally, it will be distributed to the parties reflected in the participants list of the states.</p><p>By default, the initiating flow will commit states that are relevant to the initiating party as indicated by <a href=../node/StatesToRecord.html#ONLY_RELEVANT>StatesToRecord.ONLY_RELEVANT</a>. Relevance is determined by the union of all participants to states which have been included in the transaction. This default behaviour may be modified by passing in an alternate value for <a href=../node/StatesToRecord.html>StatesToRecord</a>.</p><p>The transaction is expected to have already been resolved: if its dependencies are not available in local storage, verification will fail. It must have signatures from all necessary parties other than the notary.</p><p>A list of <a href=FlowSession.html>FlowSession</a>s is required for each non-local participant of the transaction. These participants will receive the final notarised transaction by calling <a href=ReceiveFinalityFlow.html>ReceiveFinalityFlow</a> in their counterpart flows. Sessions with non-participants can also be included, but they must specify <a href=../node/StatesToRecord.html#ALL_VISIBLE>StatesToRecord.ALL_VISIBLE</a> for statesToRecord if they wish to record the contract states into their vaults.</p><p>As of 4.11 a list of observer <a href=FlowSession.html>FlowSession</a> can be specified to indicate sessions with transaction non-participants (e.g. observers). This enables ledger recovery to default these sessions associated StatesToRecord value to <a href=../node/StatesToRecord.html#ALL_VISIBLE>StatesToRecord.ALL_VISIBLE</a>.</p><p>The flow returns the same transaction but with the additional signatures from the notary.</p><p>NOTE: This is an inlined flow but for backwards compatibility is annotated with <a href=InitiatingFlow.html>InitiatingFlow</a>.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="FinalityFlow.ExtraConstructorArgs.html">FinalityFlow.ExtraConstructorArgs</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="FinalityFlow.Companion.html">FinalityFlow.Companion</a></span></code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../transactions/SignedTransaction.html>SignedTransaction</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=FinalityFlow.html#transaction>transaction</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../utilities/ProgressTracker.html>ProgressTracker</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=FinalityFlow.html#progressTracker>progressTracker</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#logger>logger</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=StateMachineRunId.html>StateMachineRunId</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#runId>runId</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../node/ServiceHub.html>ServiceHub</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#serviceHub>serviceHub</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#isKilled()>isKilled</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../identity/PartyAndCertificate.html>PartyAndCertificate</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#ourIdentityAndCert>ourIdentityAndCert</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../identity/Party.html>Party</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../finance/internal/CashConfigDataFlow.html#ourIdentity>ourIdentity</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=FinalityFlow.Companion.html>FinalityFlow.Companion</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=FinalityFlow.html#Companion>Companion</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Set,net.corda.core.utilities.ProgressTracker)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../identity/Party.html>Party</a>&gt; extraRecipients, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Set)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../identity/Party.html>Party</a>&gt; extraRecipients)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.utilities.ProgressTracker)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.flows.FlowSession,net.corda.core.flows.FlowSession)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=FlowSession.html>FlowSession</a> firstSession, <a href=FlowSession.html>FlowSession</a> restSessions)</code></th>
+                                                <td class="colLast">Notarise the given transaction and broadcast it to the given <a href=FlowSession.html>FlowSession</a>s.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,net.corda.core.utilities.ProgressTracker)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</code></th>
+                                                <td class="colLast">Notarise the given transaction and broadcast it to all the participants.</td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,net.corda.core.node.StatesToRecord,net.corda.core.utilities.ProgressTracker)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</code></th>
+                                                <td class="colLast">Notarise the given transaction and broadcast it to all the participants.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,java.util.Collection,net.corda.core.utilities.ProgressTracker)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=../identity/Party.html>Party</a>&gt; oldParticipants, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</code></th>
+                                                <td class="colLast">Notarise the given transaction and broadcast it to all the participants.</td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,java.util.Collection)">FinalityFlow</a></span>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; observerSessions)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=FinalityFlow.html#getTransaction()>getTransaction</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code><a href=../utilities/ProgressTracker.html>ProgressTracker</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=FinalityFlow.html#getProgressTracker()>getProgressTracker</a>() </code>
+                                            </th>
+                                            <td class="colLast">Override this to provide a <a href=../utilities/ProgressTracker.html>ProgressTracker</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=FinalityFlow.ExtraConstructorArgs.html>FinalityFlow.ExtraConstructorArgs</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=FinalityFlow.html#getExtraConstructorArgs()>getExtraConstructorArgs</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code><a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=FinalityFlow.html#call()>call</a>() </code>
+                                            </th>
+                                            <td class="colLast">This is where you fill out your business logic.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.net.corda.core.flows.FlowLogic">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;net.corda.core.flows.FlowLogic</h3>
+                                            <code>await, await, checkFlowIsNotKilled, checkFlowIsNotKilled, checkFlowPermission, close, flowStackSnapshot, getFlowInfo, getLogger, getOurIdentity, getOurIdentityAndCert, getRunId, getServiceHub, initiateFlow, initiateFlow, isKilled, persistFlowStackSnapshot, receive, receive, receiveAll, receiveAllMap, recordAuditEvent, send, sendAll, sendAllMap, sendAndReceive, sendAndReceive, subFlow, track, trackStepsTree, trackStepsTreeIndex, waitForLedgerCommit, waitForStateConsumption</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Set,net.corda.core.utilities.ProgressTracker)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../identity/Party.html>Party</a>&gt; extraRecipients, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Set)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=../identity/Party.html>Party</a>&gt; extraRecipients)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.utilities.ProgressTracker)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,net.corda.core.flows.FlowSession,net.corda.core.flows.FlowSession)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=FlowSession.html>FlowSession</a> firstSession, <a href=FlowSession.html>FlowSession</a> restSessions)</pre>
+                                        <div class="block">Notarise the given transaction and broadcast it to the given <a href=FlowSession.html>FlowSession</a>s.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transaction</code> - What to commit.</dd>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,net.corda.core.utilities.ProgressTracker)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</pre>
+                                        <div class="block">Notarise the given transaction and broadcast it to all the participants.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transaction</code> - What to commit.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sessions</code> - A collection of <a href=FlowSession.html>FlowSession</a>s for each non-local participant of the transaction.</dd>
+                                            
+                                            
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,net.corda.core.node.StatesToRecord,net.corda.core.utilities.ProgressTracker)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=../node/StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</pre>
+                                        <div class="block">Notarise the given transaction and broadcast it to all the participants.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transaction</code> - What to commit.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sessions</code> - A collection of <a href=FlowSession.html>FlowSession</a>s for each non-local participant of the transaction.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>statesToRecord</code> - Which states to commit to the vault.</dd>
+                                            
+                                            
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,java.util.Collection,net.corda.core.utilities.ProgressTracker)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=../identity/Party.html>Party</a>&gt; oldParticipants, <a href=../utilities/ProgressTracker.html>ProgressTracker</a> progressTracker)</pre>
+                                        <div class="block">Notarise the given transaction and broadcast it to all the participants.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transaction</code> - What to commit.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sessions</code> - A collection of <a href=FlowSession.html>FlowSession</a>s for each non-local participant.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>oldParticipants</code> - An optional collection of parties for participants who are still using the old API.</dd>
+                                            
+                                            
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="FinalityFlow(net.corda.core.transactions.SignedTransaction,java.util.Collection,java.util.Collection)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>FinalityFlow</h4>
+                                        <pre>FinalityFlow(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> transaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; sessions, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html>Collection</a>&lt;<a href=FlowSession.html>FlowSession</a>&gt; observerSessions)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getTransaction()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=FinalityFlow.html#getTransaction()>getTransaction</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getProgressTracker()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getProgressTracker</h4>
+                                        <pre class="methodSignature"> <a href=../utilities/ProgressTracker.html>ProgressTracker</a> <a href=FinalityFlow.html#getProgressTracker()>getProgressTracker</a>()</pre>
+                                        <div class="block"><p>Override this to provide a <a href=../utilities/ProgressTracker.html>ProgressTracker</a>. If one is provided and stepped, the framework will do something helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another, then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track progress.</p><p>Note that this has to return a tracker before the flow is invoked. You can't change your mind half way through.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getExtraConstructorArgs()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getExtraConstructorArgs</h4>
+                                        <pre class="methodSignature">@<a href=../CordaInternal.html>CordaInternal</a>() final <a href=FinalityFlow.ExtraConstructorArgs.html>FinalityFlow.ExtraConstructorArgs</a> <a href=FinalityFlow.html#getExtraConstructorArgs()>getExtraConstructorArgs</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="call()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>call</h4>
+                                        <pre class="methodSignature"> <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=FinalityFlow.html#call()>call</a>()</pre>
+                                        <div class="block"><p>This is where you fill out your business logic.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

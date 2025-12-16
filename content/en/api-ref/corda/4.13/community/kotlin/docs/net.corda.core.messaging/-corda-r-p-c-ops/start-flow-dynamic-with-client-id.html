@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>startFlowDynamicWithClientId</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageIds="docs::net.corda.core.messaging/CordaRPCOps/startFlowDynamicWithClientId/#kotlin.String#java.lang.Class[net.corda.core.flows.FlowLogic[TypeParam(bounds=[kotlin.Any?])]]#kotlin.Array[kotlin.Any?]/PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.core.messaging</a><span class="delimiter">/</span><a href="index.html">CordaRPCOps</a><span class="delimiter">/</span><span class="current">startFlowDynamicWithClientId</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>start</span><wbr></wbr><span>Flow</span><wbr></wbr><span>Dynamic</span><wbr></wbr><span>With</span><wbr></wbr><span>Client</span><wbr></wbr><span><span>Id</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../-r-p-c-returns-observables/index.html"><span class="token annotation builtin">RPCReturnsObservables</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="start-flow-dynamic-with-client-id.html">T</a><span class="token operator">&gt; </span><a href="start-flow-dynamic-with-client-id.html"><span class="token function">startFlowDynamicWithClientId</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">logicType<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="../../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="start-flow-dynamic-with-client-id.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-flow-handle-with-client-id/index.html">FlowHandleWithClientId</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="start-flow-dynamic-with-client-id.html">T</a><span class="token operator">&gt;</span></div><p class="paragraph">Start the given flow with the given arguments and a <a href="start-flow-dynamic-with-client-id.html">clientId</a>.</p><p class="paragraph">The flow's result/ exception will be available for the client to re-connect and retrieve even after the flow's lifetime, by re-calling <a href="start-flow-dynamic-with-client-id.html">startFlowDynamicWithClientId</a> with the same <a href="start-flow-dynamic-with-client-id.html">clientId</a>. The <a href="start-flow-dynamic-with-client-id.html">logicType</a> and <a href="start-flow-dynamic-with-client-id.html">args</a> will be ignored if the <a href="start-flow-dynamic-with-client-id.html">clientId</a> matches an existing flow. If you don't have the original values, consider using <a href="reattach-flow-with-client-id.html">reattachFlowWithClientId</a>.</p><p class="paragraph">Upon calling <a href="remove-client-id.html">removeClientId</a>, the node's resources holding the result/ exception will be freed and the result/ exception will no longer be available.</p><p class="paragraph"><a href="start-flow-dynamic-with-client-id.html">logicType</a> must be annotated with <a href="../../net.corda.core.flows/-startable-by-r-p-c/index.html">net.corda.core.flows.StartableByRPC</a>.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>client</span><wbr></wbr><span><span>Id</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The client id to relate the flow to (or is already related to if the flow already exists)</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>logic</span><wbr></wbr><span><span>Type</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The <a href="../../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> to start</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>args</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The arguments to pass to the flow</p></div></div></div></div></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
