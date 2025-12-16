@@ -21,17 +21,19 @@ To configure a node to run system flows, including the automatic ledger recovery
 
 A second parameter, `systemFlowsStuckSkipThreshold`, may also be configured (its default is 1m). This integer parameter specifies the duration that a system flow can be stuck on a suspension point during the system flow phase before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows phase, then again in startup system flows phase.
 
-If you specify runSystemFlowsAtStartup then EnterpriseLedgerRecoveryFlow will run at startup with default parameters, which means recovery will be attempted from all the nodes in the network map. It is possible to override this with your own system flow that invokes EnterpriseLedgerRecovery flow where you can then specify your own parameters. This is done via the supercedes property. The System flow annotation has the property `supersedes`. This is used with the fully qualified name of another system flow to run that in its place at startup.  For example, the following example shows how an existing system flow A could be superseded by flow B:
+If you specify `runSystemFlowsAtStartup`, then EnterpriseLedgerRecoveryFlow will run at startup with default parameters, which means recovery will be attempted from all the nodes in the network map. It is possible to override this with your own system flow that invokes the EnterpriseLedgerRecovery flow where you can then specify your own parameters. This is done via the system flow `supersedes` property. This is used with the fully qualified name of another system flow to run that in its place at startup.  
+
+For example, the following example shows how the existing System Flow EnterpriseLedgerRecoveryFlow could be superseded by MyCustomEnterpriseLedgerRecoveryFlow:
 
 ```
-@SystemFlow(supersedes = "com.r3.mypackage.FlowA")
-@StartableByRPC
+@SystemFlow(supersedes="net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow")
+@StartableByRpc
 @InitiatingFlow
-class FlowB : FlowLogic<Unit>() {
-  @Suspendable
-  override fun call() {
-   //my code
-  }
+class MyCustomEnterpriseLedgerRecoveryFlow : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+    // does something else and/or call EnterpriseLedgerRecovery with specific parameters
+    }
 }
 ```
 
