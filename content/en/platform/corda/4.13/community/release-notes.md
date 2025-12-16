@@ -52,10 +52,10 @@ The following table lists the dependency version changes between 4.12 and 4.13 O
 
 **TO BE UPDATED**
 
-| Dependency                                     | Name                   | Version 4.11 Open Source  | Version 4.12 Open Source |
+| Dependency                                     | Name                   | Version 4.11 Open Source  | Version 4.13 Open Source |
 |------------------------------------------------|------------------------|---------------------------|------------------------- |
 | com.google.guava:guava                         | Guava                  | 28.0-jre                  | 33.1.0-jre               |
-| co.paralleluniverse:quasar-core	               | Quasar	                | 0.7.16_r3	                | 0.9.0_r3                 |
+| co.paralleluniverse:quasar-core	               | Quasar	                | 0.7.16_r3	                | 0.9.2_r3                 |
 | org.bouncycastle	                             | Bouncy Castle	        | jdk18on:1.75	            | lts8on:2.73.6            |
 | pro com.guardsquare:proguard-gradle	           | ProGuard	              | 6.1.1	                    | 7.3.1                    |
 | org.yaml:snakeyaml	                           | SnakeYAML	            | 1.33	                    | 2.2                      |

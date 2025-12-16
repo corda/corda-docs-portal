@@ -36,10 +36,8 @@ Most of the Corda 4 public, non-experimental APIs are stable. See the [full list
 4. [Replace the corda.jar file with the new version]({{< relref "#step-4-replace-cordajar-with-the-new-version" >}}).
 5. [Update the configuration]({{< relref "#step-5-update-the-configuration" >}}).
 6. [Validate existing transactions]({{< relref "#step-6-validate-existing-transactions" >}}).
-7. [Update the CorDapps]({{< relref "#step-7-update-the-cordapps" >}}).
-8. [Create legacy folders]({{< relref "#step-8-create-legacy-folders" >}}).
-9. [Start the node]({{< relref "#step-9-start-the-node" >}}).
-10. [Undrain the node]({{< relref "#step-10-undrain-the-node" >}}).
+7. [Start the node]({{< relref "#step-9-start-the-node" >}}).
+8. [Undrain the node]({{< relref "#step-10-undrain-the-node" >}}).
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -318,15 +316,7 @@ Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSch
 
 Run the Transaction Validator Utility (TVU) to ensure that existing transactions are compatible with 4.13, see [Validate transactions]({{< relref "upgrade-guide.md#validate-transactions" >}}) for more information.
 
-## Step 7: Update the CorDapps
-
-When upgrading from Corda 4.11 to Corda 4.12 there are specific changes that need to be made to the CorDapps contract version and minimum platform version (MPV), see [Upgrade 4.11 CorDapps]({{< relref "upgrade-guide.md#upgrade-411-cordapps">}}) for more information.
-
-## Step 8: Create legacy folders
-
-When upgrading to 4.12 and the network contains a mix of 4.12 and pre-4.12 nodes, you must create a `legacy-contracts` folder and, if required, a `legacy-jars` folder. See [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}) for details.
-
-## Step 9: Start the node
+## Step 7: Start the node
 
 If you manually updated the database in [Step 3](#step-3-update-the-database), start the node in the normal way.
 
@@ -340,7 +330,7 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
-## Step 10: Undrain the node
+## Step 8: Undrain the node
 
 Run this command in the shell:
 

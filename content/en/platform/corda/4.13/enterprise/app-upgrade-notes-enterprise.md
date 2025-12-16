@@ -38,11 +38,11 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.13, you need to:
     ```shell
     corda_release_distribution = 'com.r3.corda'
     corda_core_release_distribution = 'net.corda'
-    corda_release_version = '4.12'
-    corda_core_release_version = '4.12'
+    corda_release_version = '4.13'
+    corda_core_release_version = '4.13'
     corda_gradle_plugins_version = '5.1.1'
     kotlin_version = '1.9.20'
-    quasar_version = '0.9.0_r3'
+    quasar_version = '0.9.2_r3'
     ```
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
 dependencies on `corda-core` and/or `corda-serialization` must use the `corda_core_release_distribution` and
@@ -96,7 +96,7 @@ been removed. For example:
     ```
 
 {{< note >}}
-Corda Enterprise Edition 4.12 binaries are not publicly available. To make the dependencies available for development, either
+Corda Enterprise Edition 4.13 binaries are not publicly available. To make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to your local Maven repository.
 
 You can request a copy of the Corda Enterprise Developer Pack (contains a Maven repository mirror
@@ -122,7 +122,7 @@ cordapp "$os_corda_release_distribution:corda-finance-contracts:$os_corda_releas
 
 Where:
 * ext.os_corda_release_distribution = 'net.corda'.
-* ext.os_corda_release_version = '4.12'.
+* ext.os_corda_release_version = '4.13'.
 
 
 {{< /warning >}}

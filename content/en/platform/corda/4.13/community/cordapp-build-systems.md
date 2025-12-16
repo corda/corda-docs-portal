@@ -78,10 +78,10 @@ Current versions:
 ```groovy
 ext.corda_release_distribution = 'com.r3.corda'
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.12'
-ext.corda_core_release_version = '4.12'
+ext.corda_release_version = '4.13'
+ext.corda_core_release_version = '4.13'
 ext.corda_gradle_plugins_version = '5.1.1'
-ext.quasar_version = '0.9.0_r3'
+ext.quasar_version = '0.9.2_r3'
 ext.quasar_classifier=''
 ext.kotlin_version = '1.9.20'
 ```
