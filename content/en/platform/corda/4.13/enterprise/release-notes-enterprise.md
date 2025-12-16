@@ -60,7 +60,23 @@ set of scheduler and worker threads, rather than creating dedicated pools per cl
 
 The transaction hierarchy, [FinalityFlow]({{< relref "cordapps/api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
 
-## Fixed issues
+### Changes in Log4j plugin discovery
+
+From 4.13, the following JARs contain Log4j2Plugins.dat files, which are required for registering newer Log4j2 plugins:
+
+- corda-common-logging-4.13.jar
+- corda-node-api-4.13.jar
+
+If these JARs are used with other sources using Log4j Core, the correct handling of the potentially
+conflicting files is required to guarantee correct behavior. 
+
+For more information, see:
+
+https://logging.apache.org/log4j/2.x/faq.html#single-jar
+
+For example, if you use Gradle Shadow plugin, you need to use the relevant transformer:
+
+https://gradleup.com/shadow/configuration/merging/#merging-log4j2-plugin-cache-files-log4j2pluginsdat
 
 ## Known issues
 
