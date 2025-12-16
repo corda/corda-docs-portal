@@ -21,9 +21,9 @@ To configure a node to run system flows, including the automatic ledger recovery
 
 A second parameter, `systemFlowsStuckSkipThreshold`, may also be configured (its default is 1m). This integer parameter specifies the duration that a system flow can be stuck on a suspension point during the system flow phase before it is skipped. Such a flow will skip up to two times: once in checkpoint system flows phase, then again in startup system flows phase.
 
-If you specify `runSystemFlowsAtStartup`, then EnterpriseLedgerRecoveryFlow will run at startup with default parameters, which means recovery will be attempted from all the nodes in the network map. It is possible to override this with your own system flow that invokes the EnterpriseLedgerRecovery flow where you can then specify your own parameters. This is done via the system flow `supersedes` property. This is used with the fully qualified name of another system flow to run that in its place at startup.  
+If you specify `runSystemFlowsAtStartup`, then EnterpriseLedgerRecoveryFlow will run at startup with default parameters, which means recovery will be attempted from all the nodes in the network map. It is possible to override this with your own system flow that invokes the EnterpriseLedgerRecovery flow where you can then specify your own parameters. This is done via the system flow `supersedes` property. This is used with the fully qualified name of the flow we want to replace at startup: then, the flow with the annotation will instead run in its place.  
 
-For example, the following example shows how the existing System Flow EnterpriseLedgerRecoveryFlow could be superseded by MyCustomEnterpriseLedgerRecoveryFlow:
+For example, the following example shows how the existing system flow EnterpriseLedgerRecoveryFlow could be superseded by MyCustomEnterpriseLedgerRecoveryFlow:
 
 ```
 @SystemFlow(supersedes="net.corda.node.internal.aliasing.flows.EnterpriseLedgerRecoveryFlow")
