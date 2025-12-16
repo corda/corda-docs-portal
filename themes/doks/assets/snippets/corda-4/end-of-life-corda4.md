@@ -31,6 +31,6 @@ table th:nth-of-type(5) {
 | **Corda Enterprise Edition 4.11** | 11/2023             | 11/2025                | 11/2026             | 11/2026            |
 | **Corda Community Edition 4.11**  | 11/2023             | 11/2025                | 11/2026             | 11/2026            |
 | **Corda Enterprise Edition 4.12** | 06/2024             | 06/2026                | 06/2027             | 06/2027            |
-| **Corda Enterprise Edition 4.13\*\*** | 12/2025**         | 12/2027**                | 12/2028**             | 12/2028**            |
+| **Corda Enterprise Edition 4.13** | 12/2025             | 12/2027                | 12/2028             | 12/2028            |
 
-** Not released yet. Future releases as indicative only.
+<!-- ** Not released yet. Future releases as indicative only. -->
