@@ -57,7 +57,7 @@ If you are using them you should re-namespace them to a package namespace you co
 
 ## Upgrading CordDapps to platform version 150
 
-*X*X*
+No manual upgrade steps are required.
 
 ## Upgrading CorDapps to platform version 140
 
