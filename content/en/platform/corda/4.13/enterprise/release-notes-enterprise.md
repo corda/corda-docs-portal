@@ -21,9 +21,7 @@ The Corda Enterprise Edition 4.13 release introduces new functionality and third
 
 ## Upgrade recommendation 
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.12 to 4.13 upgrade guide]({{< relref "upgrade-guide.md" >}}).
-
-The steps from this guide only work for direct upgrades from Corda 4.12 to 4.13. If you have any nodes on versions 4.11 and below, you must upgrade them to 4.12 first. To do that, consult the relevant release upgrade documentation.
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
 ## Platform version change
 
