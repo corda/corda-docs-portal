@@ -13,7 +13,7 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda Open Source Edition 4.12
+title: Upgrading your node to Corda Open Source Edition 4.13
 ---
 
 
@@ -23,14 +23,12 @@ applications. It consists of the following steps:
 1. [Drain the node](#step-1-drain-the-node)
 2. [Make a backup of your node directories and/or database](#step-2-make-a-backup-of-your-node-directories-andor-database)
 3. [Download Corda Open Source Edition](#step-3-download-corda-open-source-edition)
-4. [Upgrade the node to Corda 4.11 or later](#step-4-upgrade-the-node-to-corda-411-or-later)
+4. [Upgrade the node to Corda 4.13](#step-4-upgrade-the-node-to-corda-413)
 5. [Replace the corda.jar file with the new version](#step-5-replace-cordajar-with-the-new-version)
 6. [Update the configuration](#step-6-update-the-configuration)
-7. [Update the CorDapps](#step-7-update-the-cordapps).
-8. [Create legacy folders](#step-8-create-legacy-folders)
-9. [Start the node with the run-migration-scripts subcommand](#step-9-start-the-node-with-run-migration-scripts-subcommand)
-10. [Start the node in the normal way](#step-10-start-the-node-in-the-normal-way)
-11. [Undrain the node](#step-11-undrain-the-node)
+7. [Start the node with the run-migration-scripts subcommand](#step-8-start-the-node-with-run-migration-scripts-subcommand)
+8. [Start the node in the normal way](#step-9-start-the-node-in-the-normal-way)
+9. [Undrain the node](#step-10-undrain-the-node)
 
 The protocol is designed to tolerate node outages, so during the upgrade process peers on the network will wait for your node to come back.
 
@@ -65,20 +63,14 @@ We provide some [backup recommendations]({{< relref "node-administration.md#back
 
 Download the required version of Corda Open Source Edition; for more information, see [Release packs and checksums]({{< relref "release-checksum-os.md" >}}).
 
-## Step 4: Upgrade the node to Corda 4.11 or later
+## Step 4: Upgrade the node to Corda 4.13
 
-Ensure your node is running Corda 4.11 or later.
+Ensure your node is running Corda 4.13.
 
 ## Step 5: Replace `corda.jar` with the new version
 
-Download the latest version of Corda from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-node/4.13/corda-node-4.12.jar).
-Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes.md" >}}), in particular to discover what version of Java this
-node requires.
-
-{{< important >}}
-Corda 4.12 requires Java 17.0.9 or any higher Java 17 patch level. Java 18+ is not currently supported.
-
-{{< /important >}}
+Download the [latest version of Corda]({{< relref "release-checksum-os.md" >}}).
+Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes.md" >}}), in particular to discover what version of Java this node requires.
 
 ## Step 6: Update the configuration
 
@@ -86,15 +78,7 @@ This step is only required when updating from versions less than or equal to 4.5
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
-## Step 7: Update the CorDapps
-
-When upgrading from Corda 4.11 to Corda 4.12 there are specific changes that need to be made to the CorDapps contract version and minimum platform version (MPV), see [Upgrade 4.11 CorDapps]({{< relref "../enterprise/upgrade-guide.md#upgrade-411-cordapps">}}) for more information.
-
-## Step 8: Create legacy folders
-
-When upgrading to 4.12 and the network contains a mix of 4.12 and pre-4.12 nodes, you must create a `legacy-contracts` folder and, if required, a `legacy-jars` folder. See [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md">}}) for details.
-
-## Step 9: Start the node with `run-migration-scripts` subcommand
+## Step 7: Start the node with `run-migration-scripts` subcommand
 
 Start the node with the `run-migration-scripts` sub-command with `--core-schemas` and `--app-schemas`.
 
@@ -109,11 +93,11 @@ time. If the migration process is interrupted it can be continued simply by star
 This step may incur a delay whilst any needed database migrations are applied
 {{</ important >}}
 
-## Step 10: Start the node in the normal way
+## Step 8: Start the node in the normal way
 
 Start the node in the normal way.
 
-## Step 11: Undrain the node
+## Step 9: Undrain the node
 
 Finally, undrain the node to re-enable processing of new inbound flows.
 

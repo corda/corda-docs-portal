@@ -17,6 +17,7 @@ weight: 200
 
 For information on upgrading CENM, see the upgrade instructions for the relevant version:
 
+- [Upgrading to v1.7]({{< relref "../../../../1.7/cenm/upgrade-notes.md" >}})
 - [Upgrading to v1.6]({{< relref "../../../../1.6/cenm/upgrade-notes.md" >}})
 - [Upgrading to v1.5]({{< relref "../../../../1.5/cenm/upgrade-notes.md" >}})
 - [Upgrading to v1.4]({{< relref "../../../../1.4/cenm/upgrade-notes.md" >}})
