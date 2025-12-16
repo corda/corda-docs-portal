@@ -277,9 +277,9 @@ The base Corda package includes several SDKs and libraries. These SDKs and libra
 | ledger-graph              | 1.3                           |
 | r3-tools                  | 4.12                          |
 
-#### Support for signature constraints only
+#### Support for signature constraints and AlwaysAcceptAttachmentConstraint only
 
-Only CorDapps using signature constraints are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12.
+Only CorDapps using signature constraints and AlwaysAcceptAttachmentConstraint are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12. If you have 4.11 CorDapps using AlwaysAcceptAttachmentConstraint then these CorDapps can continue to use AlwaysAcceptAttachmentConstraint in 4.12.
 
 #### Corda 4.11 and 4.12 CorDapps must be signed by the same set of keys
 
