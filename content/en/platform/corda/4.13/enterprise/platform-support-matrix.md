@@ -49,9 +49,9 @@ Production use of Corda Enterprise Edition 4.13 is only supported on Linux OS; s
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|6.x, 7.x, 8.x, 9.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 9.x, 10.x|
 |Suse Linux Enterprise Server|x86-64|11.x, 12.x|
-|Ubuntu Linux|x86-64|20.04, 22.04|
+|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
 |Oracle Linux|x86-64|6.x, 7.x|
 
 {{< /table >}}
