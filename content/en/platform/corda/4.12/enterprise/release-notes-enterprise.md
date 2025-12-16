@@ -80,7 +80,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-- The Corda Network Builder tool now correctly deploys a Corda network both via CLI in Docker and Azure environments.
+- The Corda [Network Builder]({{< relref "network-builder.md" >}}) now correctly deploys a Corda network via CLI in both Docker and Azure environments.
 - Netty has been upgraded to 4.1.127.Final due to a vulnerability.
 
 ### Third-party components upgrade
@@ -113,8 +113,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 ### Fixed issues
 
 - On extremely rare occasions, a message may get stuck in Artemis. This issue has been reported to the Artemis team. As a workaround, Corda now automatically detects when this happens and resends the message. <!-- ENT-12803 -->
-
-- Previously, the wrong legacy attachment was being selected when searching for a missing class. Now, the legacy attachment JARs for any missing class must also be present in the `legacy-contracts` folder.
+- Previously, the wrong legacy [attachment]({{< relref "get-started/tutorials/supplementary-tutorials/tutorial-attachments.md" >}}) was being selected when searching for a missing class. Now, the legacy attachment JARs for any missing class must also be present in the `legacy-contracts` folder.
  
   In more detail: previously, the attachment storage table was searched for an attachment containing the missing class. The only check performed was to make sure this attachment was not also in the `cordapps` folder. If it was not in the `cordapps` folder, it was assumed it was a legacy attachment. But this ignores the fact that there could be multiple JDK17 attachments in the database (the same CorDapp but different versions), with only the latest one in the `cordapps` folder.
   
@@ -122,7 +121,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
   
 - `newrelic-api.jar` is no longer bundled within `corda.jar`. New Relic functionality is unchanged: if the New Relic library is present on the classpath and properly configured, metrics will still be reported as before. <!-- ENT-14070 -->
 
--  Previously, the flow `recoverAllFinalityFlows` did not treat inactive flows as active. This behavior has been corrected. <!-- ENT-13814 --> 
+-  Previously, the flow *[recoverAllFinalityFlows]({{< relref "finality-flow-recovery.md" >}})* did not treat inactive flows as active. This behavior has been corrected. <!-- ENT-13814 --> 
 
 ### Third-party components upgrade
 
@@ -160,9 +159,9 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* In Corda 4.11 and earlier, when the node verified contracts, they were all verified within the Corda node process. This meant that any custom command line attributes defined on the node process via the capsule would be visible to contract verification; for example, system properties. In Corda 4.12, the 4.12 contracts are still verified in the Corda node process, but legacy (that is, 4.11 and earlier) contracts are now verified in the new external verifier process. This external verifier is a separate process, so it does not receive the custom command line attributes set on the Corda node process. To rectify this, a new configuration field has been defined to allow custom command line attributes to be passed to the external verifier process. This new configuration field is `custom.externalVerifierJvmArgs`.
+- In Corda 4.11 and earlier, when a node verified [contracts]({{< relref "cordapps/api-contracts.md" >}}), they were all verified within the Corda node process. This meant that any custom command line attributes defined on the node process via the capsule would be visible to contract verification; for example, system properties. In Corda 4.12, the 4.12 contracts are still verified in the Corda node process, but legacy (that is, 4.11 and earlier) contracts are now verified in the new external verifier process. This external verifier is a separate process, so it does not receive the custom command line attributes set on the Corda node process. To rectify this, a new configuration field has been defined to allow custom command line attributes to be passed to the external verifier process. This new configuration field is `custom.externalVerifierJvmArgs`.
 
-  For more information, see the `custom` configuration field in the [Configuration fields]({{< relref "node/setup/corda-configuration-fields.md#custom" >}}) section.
+  For more information, see the `custom` configuration field in [Configuration fields]({{< relref "node/setup/corda-configuration-fields.md#custom" >}}).
 
 ## Corda Enterprise Edition 4.12.4 release notes
 
@@ -243,30 +242,20 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
 
-### Transaction Validator Utility Updates
+### Transaction Validator Utility updates
 
 The following section describes the updated requirements for running the Transaction Validator Utility (TVU) and Corda 4.12 nodes. It clarifies and enhances the previous documentation. The current patch release documentation has been updated to reflect the following:
 
-* Legacy contracts directory: The legacy contracts directory is no longer required when running the TVU or when running 4.12 nodes, provided all nodes on the network are version 4.12 nodes.
-
-* 4.12 environment requirement: You must run the TVU in a 4.12 environment (excluding the database). Specifically, the `cordapps` directory must contain only 4.12-compatible CorDapps. See point 1 below.
-
-* Purpose of legacy contracts directory: The legacy contracts directory is now only needed for enabling 4.12 nodes to build transactions that include legacy contracts. This is only applicable in a mixed network of 4.12 nodes and pre-4.12 nodes.
-
-* Legacy JARs directory: You may need to include a `legacy-jars` directory when running both the TVU and the node. See point 4 below for further details.
-
-#### Transaction Validator Utility
+- **Legacy contracts directory:** The legacy contracts directory is no longer required when running the TVU or when running 4.12 nodes, provided all nodes on the network are version 4.12 nodes.
+- **4.12 environment requirement:** You must run the TVU in a 4.12 environment (excluding the database). Specifically, the `cordapps` directory must contain only 4.12-compatible CorDapps. See point 1 below.
+- **Purpose of legacy contracts directory:** The legacy contracts directory is now only needed for enabling 4.12 nodes to build transactions that include legacy contracts. This is only applicable in a mixed network of 4.12 nodes and pre-4.12 nodes.
+- **Legacy JARs directory:** You may need to include a `legacy-jars` directory when running both the TVU and the node. See point 4 below for further details.
 
 The purpose of the TVU is to mimic what a 4.12 node would do when verifying a legacy transaction, and report any errors found.
 
 1. You must run the TVU in a 4.12 node directory, using the 4.11 database to be validated (or a database upgraded to 4.11). Ensure that the CorDapps directory contains 4.12 CorDapps, and include any pre-4.12 dependencies in the `legacy-jars` directory if required by existing contract attachments on the ledger (see point 4 below). Note that the `legacy-contracts` directory is not necessary.
-
-#### Corda 4.12 nodes
-
 2. If your network includes a mix of 4.12 nodes and pre-4.12 nodes, each 4.12 node must have a `legacy-contracts` directory containing pre-4.12 contract CorDapps. This allows 4.12 nodes to build transactions that include pre-4.12 contracts, enabling interoperability with pre-4.12 nodes. In this scenario, you may also need a `legacy-jars` directory - see point 4 below.
-
 3. If your network consists solely of upgraded 4.12 nodes, there is no need for the `legacy-contracts` directory. The 4.12 nodes will create transactions without legacy contracts, which is fine as there are no pre-4.12 nodes in the network. In this scenario, since the ledger already contains pre-4.12 transactions, you may still need a `legacy-jars` directory - see point 4 below.
-
 4. Pre-4.12 transactions are verified in an external verifier process when encountered. This process does not, by default, include all third-party libraries that shipped with Corda 4.11 and earlier, nor does it have the `drivers` directory on the classpath. If your contracts in the ledger attachments depend on such third-party libraries or any contents from the `drivers` directory in Corda 4.11 or earlier, you can place the necessary JAR files in a directory called `legacy-jars` within the node directory. Any JARs in this directory will be added to the classpath of the external verifier. The TVU will assist you in identifying and verifying the resolution of such issues.
 
 ### Fixed issues
@@ -387,9 +376,9 @@ The Collaborative Recovery solution, along with the associated CorDapps (LedgerS
 
 Corda 4.12 introduces the Transaction Validator Utility (TVU), a tool that validates transactions committed to the database to avoid post-migration errors when upgrading to Corda 4.12. For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
 
-#### Support for signature constraints only
+#### Support for signature constraints and AlwaysAcceptAttachmentConstraint only
 
-Only CorDapps using signature constraints are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12.
+Only CorDapps using signature constraints and AlwaysAcceptAttachmentConstraint are supported in Corda 4.12; hash constraints are not supported. Using signature constraints has been recommended in previous releases of Corda as it eases the CorDapp upgrade process. If you have any 4.11 CorDapps using hash constraints, you must migrate them to signature constraints on 4.11 before upgrading to 4.12. If you have 4.11 CorDapps using AlwaysAcceptAttachmentConstraint then these CorDapps can continue to use AlwaysAcceptAttachmentConstraint in 4.12.
 
 #### Corda 4.11 and 4.12 CorDapps must be signed by the same set of keys
 

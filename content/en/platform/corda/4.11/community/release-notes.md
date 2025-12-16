@@ -20,6 +20,31 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.6 release notes
+
+Corda Community Edition 4.11.6 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
+
+### Fixed issues
+
+-  The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments. <!-- ENT-12147 -->
+
+### Third party components upgrade
+
+The following table lists the dependency version changes in the 4.11.6 Community Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
+
+| Dependency                                            | New Version        |
+|-------------------------------------------------------|--------------------|
+| com.github.docker-java:docker-java                    | 3.5.1              |
+| com.github.docker-java:docker-java-transport-httpclient5 | 3.5.1           |
+| io.netty:tcnative*                                    | 2.0.74.Final       |
+| com.fasterxml.jackson.core:jackson-annotations        | 2.17.3             |
+| io.netty:*                                            | 4.1.128.Final      |
+| commons-beanutils:commons-beanutils                   | 1.11.0             |
+| org.apache.commons:commons-lang3                      | 3.19.0             |
+| com.azure.resourcemanager:azure-resourcemanager       | 2.52.0             |
+| com.azure:azure-identity                              | 1.18.1             |
+ <!-- ENT-14529 -->
+ 
 ## Corda Community Edition 4.11.5 release notes
 
 Corda Community Edition 4.11.5 is a patch release of Corda Community Edition focused on resolving issues.

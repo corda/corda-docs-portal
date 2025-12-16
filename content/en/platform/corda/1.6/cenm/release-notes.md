@@ -14,6 +14,46 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
+## Corda Enterprise Network Manager 1.6.3
+
+### New features and enhancements
+
+- CENM 1.6 now supports JDK Azul 8u472 and Oracle JDK 8u471.  <!-- ENT-14086 --> 
+- CENM 1.6 now supports the following PostgreSQL versions: 12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x.  <!-- ENT 14086 --> 
+- CENM now uses the live patching service [TuxCare](https://tuxcare.com/). TuxCare is a third-party repository that provides security fixes for software packages that are either no longer supported for JDK 8, or are no longer freely-available to the public. <!-- ENT-14123 -->  
+
+### Fixed issues
+
+- The [PKI Tool]({{< relref "pki-tool.md" >}}) can now generate certificates and keys using the RSA_SHA256 algorithm.  <!-- ENT-14227 also in 1.7 -->
+- Fixed an issue where setting `certificates.key.type` to `AZURE_MSAL_KEY_VAULT_HSM` in the [PKI tool configuration file]({{< relref "config-pki-tool-parameters.md" >}}) was generating an error. <!-- ENT-13898 -->  
+- Fixed an issue where an incorrect error message *"No NETWORK_MAP type signing process set up"* appeared when fetching unsigned network parameters data via the [CENM CLI tool]({{< relref "cenm-cli-tool.md" >}}). <!-- ENT-13944 --> 
+- JDK 8 updated in CENM docker images. <!-- ENT-14162 -->
+
+### Third-party components upgrade
+
+The following table lists the dependency version updates for CENM 1.6.3:
+
+| Dependency (Maven Coordinate)                                 | Name                     | Upgraded Version                    |
+|---------------------------------------------------------------|--------------------------|-------------------------------------|
+| com.azul.zulu:zulu-jdk                                        | JDK Azul                 | 8u472                               |
+| com.oracle.database.jdbc:ojdbc8                               | Oracle JDK               | 8u471                               |
+| org.postgresql:postgresql                                     | PostgreSQL               | 12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x |
+| org.apache.commons:commons-lang3                              | Apache Commons Lang      | 3.18.0                              |
+| org.pf4j:pf4j                                                 | PF4J Plugin Framework    | 3.13.0                              |
+| com.r3.internal:appeng-gateway                                | AppEng Gateway           | 1.2.10                              |
+| io.netty:netty-*                                              | Netty                    | 4.1.126.Final                       |
+| org.eclipse.jetty:jetty-server                                | Jetty Server             | 9.4.58.v20250814                    |
+| org.springframework:spring-core                               | Spring Framework         | 5.3.39-tuxcare.7                    |
+| org.springframework.security:spring-security-core             | Spring Security Framework| 5.8.16.tuxcare.3                    |
+| org.springframework.security.oauth.boot:spring-security-jwt   | Spring Security JWT      | 1.1.1.RELEASE.tuxcare.2             |
+| commons-beanutils:commons-beanutils                           | Apache Commons BeanUtils | 1.11.0                              |
+| io.projectreactor:reactor-netty                               | Reactor Netty            | 1.2.8                               |
+| org.apache.tomcat:tomcat                                      | Apache Tomcat            | 9.0.108                             |
+| io.netty:netty-tcnative                                       | Netty TC Native          | 2.0.48.Final                        |
+| org.springframework.boot:spring-boot                          | Spring Boot              | 2.4.6.tuxcare.2                     |
+
+For more information about CENM dependencies, see [CENM support matrix]({{< relref "cenm-support-matrix.md" >}}).
+
 ## Corda Enterprise Network Manager 1.6.2
 
 ### Fixed issues
