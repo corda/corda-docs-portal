@@ -80,13 +80,13 @@ The following database types are supported both in production and for developmen
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 13.2.1|
 |Oracle|x86-64|19c|Oracle JDBC 6|
 |Oracle|x86-64|19c|Oracle JDBC 8|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |Oracle|x86-64|11gR2|Oracle JDBC 6 |
-|Oracle|x86-64|23ai (23.4)|Oracle JDBC 11 |
-|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x| PostgreSQL JDBC Driver 42.7.3 |
+|Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
+|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.8 |
 
 {{< /table >}}
 
@@ -116,16 +116,16 @@ The following database types are supported both in production and for developmen
 The Docker images used for the Kubernetes deployment are listed below for reference:
 
 {{< table >}}
-| Service           | Image name                                                  |
-|-------------------|-------------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.6-zulu-openjdk8u392`  |
-| Network Map       | `corda/enterprise-networkmap:1.6-zulu-openjdk8u392`       |
-| Signing           | `corda/enterprise-signer:1.6-zulu-openjdk8u392`           |
-| Zone              | `corda/enterprise-zone:1.6-zulu-openjdk8u392`             |
-| Auth              | `corda/enterprise-auth:1.6-zulu-openjdk8u392`             |
-| Gateway           | `corda/enterprise-gateway:1.6-zulu-openjdk8u392`          |
-| PKI Tool          | `corda/enterprise-pkitool:1.6-zulu-openjdk8u392`          |
-| Notary            | `corda/enterprise-notary:4.11.1-zulu-openjdk8u392`           |
+| Service           | Image name                                                          |
+|-------------------|---------------------------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:4.13-zulu-openjdk-alpine17.0.17`  |
+| Network Map       | `corda/enterprise-networkmap:4.13-zulu-openjdk-alpine17.0.17`       |
+| Signing           | `corda/enterprise-signer:4.13-zulu-openjdk-alpine17.0.17`           |
+| Zone              | `corda/enterprise-zone:4.13-zulu-openjdk-alpine17.0.17`             |
+| Auth              | `corda/enterprise-auth:4.13-zulu-openjdk-alpine17.0.17`             |
+| Gateway           | `corda/enterprise-gateway:4.13-zulu-openjdk-alpine17.0.17`          |
+| PKI Tool          | `corda/enterprise-pkitool:4.13-zulu-openjdk-alpine17.0.17`          |
+| Notary            | `corda/enterprise-notary:4.13-zulu-openjdk-alpine17.0.17`           |
 {{< /table >}}
 
 
