@@ -19,7 +19,7 @@ title: Running a sample CorDapp
 
 # Running a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java]((https://github.com/corda/cordapp-template-java/tree/release/4.12) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java]((https://github.com/corda/cordapp-template-java/tree/release/4.13) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.13) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "key-concepts-node.md" >}}).
 
@@ -54,13 +54,13 @@ CorDapps can be written in any language targeting the JVM. However, source files
 {{< tabs name="tabs-1" >}}
 {{% tab name="Java" %}}
 ```java
-git clone https://github.com/corda/samples-java/tree/release/4.12
+git clone https://github.com/corda/samples-java/tree/release/4.13
 ```
 {{% /tab %}}
 
 {{% tab name="Kotlin" %}}
 ```kotlin
-git clone https://github.com/corda/samples-kotlin/tree/release/4.12
+git clone https://github.com/corda/samples-kotlin/tree/release/4.13
 ```
 {{% /tab %}}
 
@@ -147,7 +147,7 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 / /___  /_/ / /  / /_/ / /_/ /          of it to charity. Now I have $2,999,999.75.
 \____/     /_/   \__,_/\__,_/
 
---- Corda Open Source Edition 4.12 (fa98aa7) -------------------------------------------------------------
+--- Corda Open Source Edition 4.13  -------------------------------------------------------------
 
 
 Logs can be found in                    : /Users/cordauser/src/samples-kotlin/Basic/cordapp-example/build/nodes/PartyA/logs
@@ -161,8 +161,6 @@ Node for "PartyA" started up and registered in 8.07 sec
 
 Welcome to the Corda interactive shell.
 You can see the available commands by typing 'help'.
-
-Tue Jan 24 16:30:32 GMT 2023>>> Running P2PMessaging loop
 ```
 
 
