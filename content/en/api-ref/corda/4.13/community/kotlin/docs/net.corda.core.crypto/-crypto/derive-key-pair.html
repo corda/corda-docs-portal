@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>deriveKeyPair</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageIds="docs::net.corda.core.crypto/Crypto/deriveKeyPair/#net.corda.core.crypto.SignatureScheme#java.security.PrivateKey#kotlin.ByteArray/PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.core.crypto</a><span class="delimiter">/</span><a href="index.html">Crypto</a><span class="delimiter">/</span><span class="current">deriveKeyPair</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>derive</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Pair</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="derive-key-pair.html"><span class="token function">deriveKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureScheme<span class="token operator">: </span><a href="../-signature-scheme/index.html">SignatureScheme</a><span class="token punctuation">, </span></span><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">seed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><p class="paragraph">Deterministically generate/derive a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> using an existing private key and a seed as inputs. This operation is currently supported for ECDSA secp256r1 (NIST P-256), ECDSA secp256k1 and EdDSA ed25519.</p><p class="paragraph">Similarly to BIP32, the implemented algorithm uses an HMAC function based on SHA512 and it is actually an implementation of the <a href="https://tools.ietf.org/html/rfc5869">HKDF rfc - Step 1: Extract function</a>, which is practically a variation of the private-parent-key -> private-child-key hardened key generation of BIP32.</p><p class="paragraph">Unlike BIP32, where both private and public keys are extended to prevent deterministically generated child keys from depending solely on the key itself, current method uses normal elliptic curve keys without a chain-code and the generated key relies solely on the security of the private key.</p><p class="paragraph">Although without a chain-code we lose the aforementioned property of not depending solely on the key, it should be mentioned that the cryptographic strength of the HMAC depends upon the size of the secret key (see <a href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code#Security">HMAC Security</a>). Thus, as long as the master key is kept secret and has enough entropy (~256 bits for EC-schemes), the system is considered secure.</p><p class="paragraph">It is also a fact that if HMAC is used as PRF and/or MAC but not as checksum function, the function is still secure even if the underlying hash function is not collision resistant (e.g. if we used MD5). In practice, for our DKG purposes (thus PRF), a collision would not necessarily reveal the master HMAC key, because multiple inputs can produce the same hash output.</p><p class="paragraph">Also according to the HMAC-based Extract-and-Expand Key Derivation Function (HKDF) rfc5869:</p><p><ul>
+<li>a chain-code (aka the salt) is recommended, but not required.
+<li>the salt can be public, but a hidden one provides stronger security guarantee.
+<li>even a simple counter can work as a salt, but ideally it should be random.
+<li>salt values should not be chosen by an attacker.
+</ul></p><p class="paragraph">Regarding the last requirement, according to Krawczyk's HKDF scheme: <i>While there is no need to keep the salt secret, it is assumed that salt values are independent of the input keying material</i> (see <a href="http://eprint.iacr.org/2010/264.pdf">Cryptographic Extraction and Key Derivation - The HKDF Scheme</a>).</p><p class="paragraph">There are also protocols that require an authenticated nonce (e.g. when a DH derived key is used as a seed) and thus we need to make sure that nonces come from legitimate parties rather than selected by an attacker. Similarly, in DLT systems, proper handling is required if users should agree on a common value as a seed, e.g. a transaction's nonce or hash.</p><p class="paragraph">Moreover if a unique key per transaction is prerequisite, an attacker should never force a party to reuse a previously used key, due to privacy and forward secrecy reasons.</p><p class="paragraph">All in all, this algorithm can be used with a counter as seed, however it is suggested that the output does not solely depend on the key, i.e. a secret salt per user or a random nonce per transaction could serve this role. In case where a non-random seed policy is selected, such as the BIP32 counter logic, one needs to carefully keep state so that the same salt is used only once.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">a new deterministically generated <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a>.</p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>signature</span><wbr></wbr><span><span>Scheme</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the <a href="../-signature-scheme/index.html">SignatureScheme</a> of the private key input.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>private</span><wbr></wbr><span><span>Key</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> that will be used as key to the HMAC-ed DKG function.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>seed</span></span></u></div></span></div><div><div class="title"><p class="paragraph">an extra seed that will be used as value to the underlying HMAC.</p></div></div></div></div></div><h4 class="">Throws</h4><div class="table"><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html"><span>Illegal</span><wbr></wbr><span>Argument</span><wbr></wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if the requested signature scheme is not supported.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html"><span>Unsupported</span><wbr></wbr><span>Operation</span><wbr></wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if deterministic key generation is not supported for this particular scheme.</p></div></div></div></div></div><hr><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="derive-key-pair.html"><span class="token function">deriveKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">seed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></div><p class="paragraph">Deterministically generate/derive a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> using an existing private key and a seed as inputs. Use this method if the <a href="../-signature-scheme/index.html">SignatureScheme</a> of the private key input is not known.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">a new deterministically generated <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a>.</p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>private</span><wbr></wbr><span><span>Key</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> that will be used as key to the HMAC-ed DKG function.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>seed</span></span></u></div></span></div><div><div class="title"><p class="paragraph">an extra seed that will be used as value to the underlying HMAC.</p></div></div></div></div></div><h4 class="">Throws</h4><div class="table"><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html"><span>Illegal</span><wbr></wbr><span>Argument</span><wbr></wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if the requested signature scheme is not supported.</p></div></div></div></div><div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html"><span>Unsupported</span><wbr></wbr><span>Operation</span><wbr></wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if deterministic key generation is not supported for this particular scheme.</p></div></div></div></div></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

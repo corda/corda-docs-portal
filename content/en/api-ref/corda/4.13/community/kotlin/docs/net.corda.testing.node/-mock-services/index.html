@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>MockServices</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="docs::net.corda.testing.node/MockServices///PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.testing.node</a><span class="delimiter">/</span><span class="current">MockServices</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Mock</span><wbr></wbr><span><span>Services</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">MockServices</a> : <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a></div><p class="paragraph">An implementation of <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> that is designed for in-memory unit tests of contract validation logic. It has enough functionality to do tests of code that queries the vault, inserts to the vault, and constructs/checks transactions. However it isn't enough to test flows and other aspects of an app that require a network. For that you should investigate <a href="../-mock-network/index.html">MockNetwork</a>.</p><p class="paragraph">There are a variety of constructors that can be used to supply enough data to simulate a node. Each mock service hub must have at least an identity of its own. The other components have defaults that work in most situations.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1478964392%2FConstructors%2F-367327816" anchor-label="MockServices" id="-1478964392%2FConstructors%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mock-services.html"><span>Mock</span><wbr></wbr><span><span>Services</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1478964392%2FConstructors%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">initialIdentity<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token operator"> = </span>makeTestIdentityService()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreKeys<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Create a mock <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> that looks for app code in the given package names, uses the provided identity service (you can get one from <a href="../make-test-identity-service.html">makeTestIdentityService</a>) and represents the given identity.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">initialIdentity<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token punctuation">, </span></span><span class="parameter ">networkParameters<span class="token operator">: </span><a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreKeys<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">initialIdentity<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token punctuation">, </span></span><span class="parameter ">networkParameters<span class="token operator">: </span><a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreKeys<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a><span class="token punctuation">, </span></span><span class="parameter ">keyManagementService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-key-management-service/index.html">KeyManagementService</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">initialIdentityName<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token operator"> = </span>makeTestIdentityService()<span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreKeys<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Create a mock <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> that looks for app code in the given package names, uses the provided identity service (you can get one from <a href="../make-test-identity-service.html">makeTestIdentityService</a>) and represents the given identity.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">initialIdentityName<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token operator"> = </span>makeTestIdentityService()</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Create a mock <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> that can't load CorDapp code, which uses the provided identity service (you can get one from <a href="../make-test-identity-service.html">makeTestIdentityService</a>) and which represents the given identity.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Create a mock <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> that can't load CorDapp code, and which uses a default service identity.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initialIdentityName<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token operator"> = </span>makeTestIdentityService()<span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreKeys<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Create a mock <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> which uses the package of the caller to find CorDapp code. It uses the provided identity service (you can get one from <a href="../make-test-identity-service.html">makeTestIdentityService</a>) and which represents the given identity.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initialIdentityName<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token operator"> = </span>makeTestIdentityService()</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Create a mock <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> which uses the package of the caller to find CorDapp code. It uses the provided identity service (you can get one from <a href="../make-test-identity-service.html">makeTestIdentityService</a>) and which represents the given identity. It has no keys.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">initialIdentityName<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token punctuation">, </span></span><span class="parameter ">networkParameters<span class="token operator">: </span><a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">initialIdentityName<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a><span class="token punctuation">, </span></span><span class="parameter ">identityService<span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a><span class="token punctuation">, </span></span><span class="parameter ">networkParameters<span class="token operator">: </span><a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">firstIdentity<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreIdentities<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A helper constructor that requires at least one test identity to be registered, and which takes the package of the caller as the package in which to find app code. This is the most convenient constructor and the one that is normally worth using. The first identity is the identity of this service hub, the rest are identities that it is aware of.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">firstIdentity<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">networkParameters<span class="token operator">: </span><a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreIdentities<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">firstIdentity<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreIdentities<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cordappPackages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">firstIdentity<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">networkParameters<span class="token operator">: </span><a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>moreIdentities<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Create a mock <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> which uses the package of the caller to find CorDapp code. It uses a default service identity.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1658716888%2FClasslikes%2F-367327816" anchor-label="Companion" id="1658716888%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1658716888%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-336279839%2FProperties%2F-367327816" anchor-label="attachments" id="-336279839%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="attachments.html"><span><span>attachments</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-336279839%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">override </span><span class="token keyword">val </span><a href="attachments.html">attachments</a><span class="token operator">: </span><a href="../../net.corda.testing.services/-mock-attachment-storage/index.html">MockAttachmentStorage</a></div><div class="brief "><p class="paragraph">Provides access to storage of arbitrary JAR files (which may contain only data, no code).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="849701699%2FProperties%2F-367327816" anchor-label="clock" id="849701699%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clock.html"><span><span>clock</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="849701699%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="clock.html">clock</a><span class="token operator">: </span><a href="../-test-clock/index.html">TestClock</a></div><div class="brief "><p class="paragraph">A <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html">Clock</a> representing the node's current time. This should be used in preference to directly accessing the clock so the current time can be controlled during unit testing.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1203499550%2FProperties%2F-367327816" anchor-label="contractUpgradeService" id="1203499550%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="contract-upgrade-service.html"><span>contract</span><wbr></wbr><span>Upgrade</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1203499550%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="contract-upgrade-service.html">contractUpgradeService</a><span class="token operator">: </span><a href="../../net.corda.core.node.services/-contract-upgrade-service/index.html">ContractUpgradeService</a></div><div class="brief "><p class="paragraph">The <a href="../../net.corda.core.node.services/-contract-upgrade-service/index.html">ContractUpgradeService</a> is responsible for securely upgrading contract state objects according to a specified and mutually agreed (amongst participants) contract version.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="51401633%2FProperties%2F-367327816" anchor-label="cordappClassloader" id="51401633%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cordapp-classloader.html"><span>cordapp</span><wbr></wbr><span><span>Classloader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="51401633%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="cordapp-classloader.html">cordappClassloader</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html">ClassLoader</a></div><div class="brief "><p class="paragraph">Returns the classloader containing all jar deployed in the 'cordapps' folder.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1634884547%2FProperties%2F-367327816" anchor-label="cordappProvider" id="-1634884547%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cordapp-provider.html"><span>cordapp</span><wbr></wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1634884547%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="cordapp-provider.html">cordappProvider</a><span class="token operator">: </span><a href="../../net.corda.core.cordapp/-cordapp-provider/index.html">CordappProvider</a></div><div class="brief "><p class="paragraph">Provides access to anything relating to cordapps including contract attachment resolution and app context</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-171831008%2FProperties%2F-367327816" anchor-label="diagnosticsService" id="-171831008%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="diagnostics-service.html"><span>diagnostics</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-171831008%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="diagnostics-service.html">diagnosticsService</a><span class="token operator">: </span><a href="../../net.corda.core.node.services.diagnostics/-diagnostics-service/index.html">DiagnosticsService</a></div><div class="brief "><p class="paragraph">The <a href="../../net.corda.core.node.services.diagnostics/-diagnostics-service/index.html">DiagnosticsService</a> provides diagnostic level information about the node, including the current version of the node, and the CorDapps currently installed on the node. Note that this information should be used to provide diagnostics only, and no functional decisions should be made based on this.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2861694%2FProperties%2F-367327816" anchor-label="digestService" id="2861694%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.internal/digest-service.html"><span>digest</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2861694%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="../../net.corda.core.node/-services-for-resolution/index.html">ServicesForResolution</a><span class="token punctuation">.</span><a href="../../net.corda.core.internal/digest-service.html">digestService</a><span class="token operator">: </span><a href="../../net.corda.core.crypto/-digest-service/index.html">DigestService</a></div><div class="brief "><p class="paragraph">The configured instance of DigestService which is passed by default to instances of classes like TransactionBuilder and as a parameter to MerkleTree.getMerkleTree(...) method. Default: SHA2_256.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1220985254%2FProperties%2F-367327816" anchor-label="identityService" id="-1220985254%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="identity-service.html"><span>identity</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1220985254%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="identity-service.html">identityService</a><span class="token operator">: </span><a href="../../net.corda.core.node.services/-identity-service/index.html">IdentityService</a></div><div class="brief "><p class="paragraph">An identity service maintains a directory of parties by their associated distinguished name/public keys and thus supports lookup of a party given its key, or name. The service also manages the certificates linking confidential identities back to the well known identity (i.e. the identity in the network map) of a party.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1324477558%2FProperties%2F-367327816" anchor-label="keyManagementService" id="1324477558%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="key-management-service.html"><span>key</span><wbr></wbr><span>Management</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1324477558%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="key-management-service.html">keyManagementService</a><span class="token operator">: </span><a href="../../net.corda.core.node.services/-key-management-service/index.html">KeyManagementService</a></div><div class="brief "><p class="paragraph">The key management service is responsible for storing and using private keys to sign things. An implementation of this may, for example, call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1784967983%2FProperties%2F-367327816" anchor-label="myInfo" id="1784967983%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="my-info.html"><span>my</span><wbr></wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1784967983%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="my-info.html">myInfo</a><span class="token operator">: </span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a></div><div class="brief "><p class="paragraph">The <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a> object corresponding to our own entry in the network map.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2026894653%2FProperties%2F-367327816" anchor-label="networkMapCache" id="2026894653%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="network-map-cache.html"><span>network</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>Cache</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2026894653%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="network-map-cache.html">networkMapCache</a><span class="token operator">: </span><a href="../../net.corda.core.node.services/-network-map-cache/index.html">NetworkMapCache</a></div><div class="brief "><p class="paragraph">A network map contains lists of nodes on the network along with information about their identity keys, services they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised with a specified network map service, which it fetches data from and then subscribes to updates of.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="144573913%2FProperties%2F-367327816" anchor-label="networkParameters" id="144573913%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="network-parameters.html"><span>network</span><wbr></wbr><span><span>Parameters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="144573913%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="network-parameters.html">networkParameters</a><span class="token operator">: </span><a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a></div><div class="brief "><p class="paragraph">Returns the network parameters the node is operating under.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1440305876%2FProperties%2F-367327816" anchor-label="networkParametersService" id="-1440305876%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="network-parameters-service.html"><span>network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1440305876%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">var </span><a href="network-parameters-service.html">networkParametersService</a><span class="token operator">: </span><a href="../../net.corda.core.node.services/-network-parameters-service/index.html">NetworkParametersService</a></div><div class="brief "><p class="paragraph">Provides access to historical network parameters that are used in transaction resolution.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-579698892%2FProperties%2F-367327816" anchor-label="rotatedKeys" id="-579698892%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="rotated-keys.html"><span>rotated</span><wbr></wbr><span><span>Keys</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-579698892%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="rotated-keys.html">rotatedKeys</a><span class="token operator">: </span><a href="../../net.corda.core.contracts/-rotated-keys/index.html">RotatedKeys</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="897802797%2FProperties%2F-367327816" anchor-label="telemetryService" id="897802797%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="telemetry-service.html"><span>telemetry</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="897802797%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="telemetry-service.html">telemetryService</a><span class="token operator">: </span><a href="../../net.corda.core.internal.telemetry/-telemetry-service-impl/index.html">TelemetryServiceImpl</a></div><div class="brief "><p class="paragraph">Provides operations to support telemetry and telemetry data between nodes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="806572418%2FProperties%2F-367327816" anchor-label="telemetryServiceInternal" id="806572418%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.internal.telemetry/telemetry-service-internal.html"><span>telemetry</span><wbr></wbr><span>Service</span><wbr></wbr><span><span>Internal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="806572418%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a><span class="token punctuation">.</span><a href="../../net.corda.core.internal.telemetry/telemetry-service-internal.html">telemetryServiceInternal</a><span class="token operator">: </span><a href="../../net.corda.core.internal.telemetry/-telemetry-service-impl/index.html">TelemetryServiceImpl</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="508598894%2FProperties%2F-367327816" anchor-label="validatedTransactions" id="508598894%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="validated-transactions.html"><span>validated</span><wbr></wbr><span><span>Transactions</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="508598894%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="validated-transactions.html">validatedTransactions</a><span class="token operator">: </span><a href="../../net.corda.core.node.services/-transaction-storage/index.html">TransactionStorage</a></div><div class="brief "><p class="paragraph">A map of hash->tx where tx has been signature/contract validated and the states are known to be correct. The signatures aren't technically needed after that point, but we keep them around so that we can relay the transaction data to other nodes that need it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-961183066%2FProperties%2F-367327816" anchor-label="vaultService" id="-961183066%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="vault-service.html"><span>vault</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-961183066%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="vault-service.html">vaultService</a><span class="token operator">: </span><a href="../../net.corda.core.node.services/-vault-service/index.html">VaultService</a></div><div class="brief "><p class="paragraph">The vault service lets you observe, soft lock and add notes to states that involve you or are relevant to your node in some way. Additionally you may query and track states that correspond to various criteria.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1737911475%2FFunctions%2F-367327816" anchor-label="addMockCordapp" id="1737911475%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-mock-cordapp.html"><span>add</span><wbr></wbr><span>Mock</span><wbr></wbr><span><span>Cordapp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1737911475%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-mock-cordapp.html"><span class="token function">addMockCordapp</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">contractClassName<span class="token operator">: </span><a href="../../net.corda.core.contracts/index.html#-1918663071%2FClasslikes%2F-367327816">ContractClassName</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Add the given package name to the list of packages which will be scanned for cordapp contract verification code</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1253140643%2FFunctions%2F-367327816" anchor-label="addSignature" id="-1253140643%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.node/-service-hub/add-signature.html"><span>add</span><wbr></wbr><span><span>Signature</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1253140643%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/add-signature.html"><span class="token function">addSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signedTransaction<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></div><div class="brief "><p class="paragraph">Helper method to append an additional signature for an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> using the default identity signing key of the node.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/add-signature.html"><span class="token function">addSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signedTransaction<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></div><div class="brief "><p class="paragraph">Helper method to append an additional signature to an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-846059873%2FFunctions%2F-367327816" anchor-label="cordaService" id="-846059873%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="corda-service.html"><span>corda</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-846059873%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="corda-service.html">T</a><span class="token operator"> : </span><a href="../../net.corda.core.serialization/-serialize-as-token/index.html">SerializeAsToken</a><span class="token operator">&gt; </span><a href="corda-service.html"><span class="token function">cordaService</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="corda-service.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="corda-service.html">T</a></div><div class="brief "><p class="paragraph">Return the singleton instance of the given Corda service type. This is a class that is annotated with <a href="../../net.corda.core.node.services/-corda-service/index.html">CordaService</a> and will have automatically been registered by the node.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2087566077%2FFunctions%2F-367327816" anchor-label="cordaTelemetryComponent" id="2087566077%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="corda-telemetry-component.html"><span>corda</span><wbr></wbr><span>Telemetry</span><wbr></wbr><span><span>Component</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2087566077%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="corda-telemetry-component.html">T</a><span class="token operator"> : </span><a href="../../net.corda.core.internal.telemetry/-telemetry-component/index.html">TelemetryComponent</a><span class="token operator">&gt; </span><a href="corda-telemetry-component.html"><span class="token function">cordaTelemetryComponent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="corda-telemetry-component.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="corda-telemetry-component.html">T</a></div><div class="brief "><p class="paragraph">Return the singleton instance of the given Corda telemetry component type. This is a class that implements TelemetryComponent and will have automatically been registered by the node.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1018300720%2FFunctions%2F-367327816" anchor-label="createSignature" id="1018300720%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.node/-service-hub/create-signature.html"><span>create</span><wbr></wbr><span><span>Signature</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1018300720%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/create-signature.html"><span class="token function">createSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">filteredTransaction<span class="token operator">: </span><a href="../../net.corda.core.transactions/-filtered-transaction/index.html">FilteredTransaction</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html">TransactionSignature</a></div><div class="brief "><p class="paragraph">Helper method to create a signature for a FilteredTransaction using the default identity signing key of the node. The legal identity key is used to sign. Additional <a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/create-signature.html"><span class="token function">createSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signedTransaction<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html">TransactionSignature</a></div><div class="brief "><p class="paragraph">Helper method to create a signature for an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> using the default identity signing key of the node. The legal identity key is used to sign. Additional <a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/create-signature.html"><span class="token function">createSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">filteredTransaction<span class="token operator">: </span><a href="../../net.corda.core.transactions/-filtered-transaction/index.html">FilteredTransaction</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html">TransactionSignature</a></div><div class="brief "><p class="paragraph">Helper method to create a signature for a FilteredTransaction. Additional <a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/create-signature.html"><span class="token function">createSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signedTransaction<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html">TransactionSignature</a></div><div class="brief "><p class="paragraph">Helper method to create an additional signature for an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>. Additional <a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="653521957%2FFunctions%2F-367327816" anchor-label="ensureMinimumPlatformVersion" id="653521957%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.internal/ensure-minimum-platform-version.html"><span>ensure</span><wbr></wbr><span>Minimum</span><wbr></wbr><span>Platform</span><wbr></wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="653521957%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-services-for-resolution/index.html">ServicesForResolution</a><span class="token punctuation">.</span><a href="../../net.corda.core.internal/ensure-minimum-platform-version.html"><span class="token function">ensureMinimumPlatformVersion</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">requiredMinPlatformVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">feature<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="998704174%2FFunctions%2F-367327816" anchor-label="getAppContext" id="998704174%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.node/-service-hub/get-app-context.html"><span>get</span><wbr></wbr><span>App</span><wbr></wbr><span><span>Context</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="998704174%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/get-app-context.html"><span class="token function">getAppContext</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.cordapp/-cordapp-context/index.html">CordappContext</a></div><div class="brief "><p class="paragraph">See <a href="../../net.corda.core.cordapp/-cordapp-provider/get-app-context.html">CordappProvider.getAppContext</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-550874994%2FFunctions%2F-367327816" anchor-label="getCashBalance" id="-550874994%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.finance.workflows/get-cash-balance.html"><span>get</span><wbr></wbr><span>Cash</span><wbr></wbr><span><span>Balance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-550874994%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a><span class="token punctuation">.</span><a href="../../net.corda.finance.workflows/get-cash-balance.html"><span class="token function">getCashBalance</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">currency<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.contracts/-amount/index.html">Amount</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-543219526%2FFunctions%2F-367327816" anchor-label="getCashBalances" id="-543219526%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.finance.workflows/get-cash-balances.html"><span>get</span><wbr></wbr><span>Cash</span><wbr></wbr><span><span>Balances</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-543219526%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a><span class="token punctuation">.</span><a href="../../net.corda.finance.workflows/get-cash-balances.html"><span class="token function">getCashBalances</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../net.corda.core.contracts/-amount/index.html">Amount</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1968137105%2FFunctions%2F-367327816" anchor-label="getMetricsRegistry" id="-1968137105%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-metrics-registry.html"><span>get</span><wbr></wbr><span>Metrics</span><wbr></wbr><span><span>Registry</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1968137105%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-metrics-registry.html">T</a><span class="token operator">&gt; </span><a href="get-metrics-registry.html"><span class="token function">getMetricsRegistry</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-metrics-registry.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="get-metrics-registry.html">T</a></div><div class="brief "><p class="paragraph">Provides metric registration and access to the metrics registry.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-855767778%2FFunctions%2F-367327816" anchor-label="getRequiredTransaction" id="-855767778%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.internal/get-required-transaction.html"><span>get</span><wbr></wbr><span>Required</span><wbr></wbr><span><span>Transaction</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-855767778%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a><span class="token punctuation">.</span><a href="../../net.corda.core.internal/get-required-transaction.html"><span class="token function">getRequiredTransaction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">txhash<span class="token operator">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html">SecureHash</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-321353258%2FFunctions%2F-367327816" anchor-label="jdbcSession" id="-321353258%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="jdbc-session.html"><span>jdbc</span><wbr></wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-321353258%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="jdbc-session.html"><span class="token function">jdbcSession</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html">Connection</a></div><div class="brief "><p class="paragraph">Exposes a JDBC connection (session) object using the currently configured database. Applications can use this to execute arbitrary SQL queries (native, direct, prepared, callable) against its Node database tables (including custom contract tables defined by extending <a href="../../net.corda.core.schemas/-queryable-state/index.html">net.corda.core.schemas.QueryableState</a>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2103527970%2FFunctions%2F-367327816" anchor-label="ledger" id="-2103527970%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../ledger.html"><span><span>ledger</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2103527970%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a><span class="token punctuation">.</span><a href="../ledger.html"><span class="token function">ledger</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">notary<span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a><span class="token operator"> = </span>TestIdentity.fresh(&quot;ledger notary&quot;).party<span class="token punctuation">, </span></span><span class="parameter ">script<span class="token operator">: </span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html">LedgerDSL</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html">TestTransactionDSLInterpreter</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html">TestLedgerDSLInterpreter</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html">LedgerDSL</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html">TestTransactionDSLInterpreter</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html">TestLedgerDSLInterpreter</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Creates and tests a ledger built by the passed in dsl.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1256032338%2FFunctions%2F-367327816" anchor-label="loadContractAttachment" id="1256032338%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="load-contract-attachment.html"><span>load</span><wbr></wbr><span>Contract</span><wbr></wbr><span><span>Attachment</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1256032338%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="load-contract-attachment.html"><span class="token function">loadContractAttachment</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stateRef<span class="token operator">: </span><a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.contracts/-attachment/index.html">Attachment</a></div><div class="brief "><p class="paragraph">Returns a dummy Attachment, in context of signature constrains non-downgrade rule this default to contract class version <code class="lang-kotlin">1</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1361248794%2FFunctions%2F-367327816" anchor-label="loadState" id="1361248794%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="load-state.html"><span>load</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1361248794%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="load-state.html"><span class="token function">loadState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stateRef<span class="token operator">: </span><a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.contracts/-transaction-state/index.html">TransactionState</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.contracts/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Given a <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a> loads the referenced transaction and looks up the specified output <a href="../../net.corda.core.contracts/-contract-state/index.html">ContractState</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="307737735%2FFunctions%2F-367327816" anchor-label="loadStates" id="307737735%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="load-states.html"><span>load</span><wbr></wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="307737735%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="load-states.html"><span class="token function">loadStates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stateRefs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.contracts/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Given a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a> of <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a>'s loads the referenced transaction and looks up the specified output <a href="../../net.corda.core.contracts/-contract-state/index.html">ContractState</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1552848295%2FFunctions%2F-367327816" anchor-label="recordTransactions" id="-1552848295%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.node/-service-hub/record-transactions.html"><span>record</span><wbr></wbr><span><span>Transactions</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1552848295%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/record-transactions.html"><span class="token function">recordTransactions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">txs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/record-transactions.html"><span class="token function">recordTransactions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">first<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>remaining<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stores the given <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing. This is expected to be run within a database transaction.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/record-transactions.html"><span class="token function">recordTransactions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">notifyVault<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">txs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/record-transactions.html"><span class="token function">recordTransactions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">notifyVault<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">first<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>remaining<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stores the given <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href="../../net.corda.core.node/-service-hub/record-transactions.html">notifyVault</a> is true. This is expected to be run within a database transaction.</p></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../net.corda.core.internal/-visible-for-testing/index.html"><span class="token annotation builtin">VisibleForTesting</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="record-transactions.html"><span class="token function">recordTransactions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">txs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">disableSignatureVerification<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../net.corda.core.internal/-visible-for-testing/index.html"><span class="token annotation builtin">VisibleForTesting</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="record-transactions.html"><span class="token function">recordTransactions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">txn<span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token punctuation">, </span></span><span class="parameter ">disableSignatureVerification<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><br><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="record-transactions.html"><span class="token function">recordTransactions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">statesToRecord<span class="token operator">: </span><a href="../../net.corda.core.node/-states-to-record/index.html">StatesToRecord</a><span class="token punctuation">, </span></span><span class="parameter ">txs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stores the given <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href="record-transactions.html">statesToRecord</a> is not <a href="../../net.corda.core.node/-states-to-record/-n-o-n-e/index.html">StatesToRecord.NONE</a>. This is expected to be run within a database transaction.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-861715139%2FFunctions%2F-367327816" anchor-label="registerUnloadHandler" id="-861715139%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-unload-handler.html"><span>register</span><wbr></wbr><span>Unload</span><wbr></wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-861715139%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="register-unload-handler.html"><span class="token function">registerUnloadHandler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">runOnStop<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-nothing/index.html">Nothing</a></div><div class="brief "><p class="paragraph">Allows the registration of a callback that may inform services when the app is shutting down.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1130275264%2FFunctions%2F-367327816" anchor-label="requireSupportedHashType" id="-1130275264%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.internal/require-supported-hash-type.html"><span>require</span><wbr></wbr><span>Supported</span><wbr></wbr><span>Hash</span><wbr></wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1130275264%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-services-for-resolution/index.html">ServicesForResolution</a><span class="token punctuation">.</span><a href="../../net.corda.core.internal/require-supported-hash-type.html"><span class="token function">requireSupportedHashType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">hash<span class="token operator">: </span><a href="../../net.corda.core.contracts/-named-by-hash/index.html">NamedByHash</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="235678678%2FFunctions%2F-367327816" anchor-label="signInitialTransaction" id="235678678%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.node/-service-hub/sign-initial-transaction.html"><span>sign</span><wbr></wbr><span>Initial</span><wbr></wbr><span><span>Transaction</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="235678678%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/sign-initial-transaction.html"><span class="token function">signInitialTransaction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">builder<span class="token operator">: </span><a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></div><div class="brief "><p class="paragraph">Helper method to construct an initial partially signed transaction from a TransactionBuilder using the default identity key contained in the node. The legal identity key is used to sign.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/sign-initial-transaction.html"><span class="token function">signInitialTransaction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">builder<span class="token operator">: </span><a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></div><div class="brief "><p class="paragraph">Helper method to construct an initial partially signed transaction from a <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a> using keys stored inside the node. Signature metadata is added automatically.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/sign-initial-transaction.html"><span class="token function">signInitialTransaction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">builder<span class="token operator">: </span><a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a><span class="token punctuation">, </span></span><span class="parameter ">signingPubKeys<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a></div><div class="brief "><p class="paragraph">Helper method to construct an initial partially signed transaction from a <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a> using a set of keys all held in this node.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1707914026%2FFunctions%2F-367327816" anchor-label="specialise" id="1707914026%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.node/-services-for-resolution/specialise.html"><span><span>specialise</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1707914026%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-services-for-resolution/specialise.html"><span class="token function">specialise</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ltx<span class="token operator">: </span><a href="../../net.corda.core.transactions/-ledger-transaction/index.html">LedgerTransaction</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.transactions/-ledger-transaction/index.html">LedgerTransaction</a></div><div class="brief "><p class="paragraph">Provides a callback for the Node to customise the <a href="../../net.corda.core.transactions/-ledger-transaction/index.html">LedgerTransaction</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="73655168%2FFunctions%2F-367327816" anchor-label="toStateAndRef" id="73655168%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.node/-service-hub/to-state-and-ref.html"><span>to</span><wbr></wbr><span>State</span><wbr></wbr><span>And</span><wbr></wbr><span><span>Ref</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="73655168%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.node/-service-hub/to-state-and-ref.html">T</a><span class="token operator"> : </span><a href="../../net.corda.core.contracts/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="../../net.corda.core.node/-service-hub/to-state-and-ref.html"><span class="token function">toStateAndRef</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stateRef<span class="token operator">: </span><a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.node/-service-hub/to-state-and-ref.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Converts the given <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a> into a <a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1978868050%2FFunctions%2F-367327816" anchor-label="toVerifyingServiceHub" id="1978868050%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.core.internal.verification/to-verifying-service-hub.html"><span>to</span><wbr></wbr><span>Verifying</span><wbr></wbr><span>Service</span><wbr></wbr><span><span>Hub</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1978868050%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-services-for-resolution/index.html">ServicesForResolution</a><span class="token punctuation">.</span><a href="../../net.corda.core.internal.verification/to-verifying-service-hub.html"><span class="token function">toVerifyingServiceHub</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.internal.verification/-verifying-service-hub/index.html">VerifyingServiceHub</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1888263807%2FFunctions%2F-367327816" anchor-label="transaction" id="1888263807%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../transaction.html"><span><span>transaction</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1888263807%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a><span class="token punctuation">.</span><a href="../transaction.html"><span class="token function">transaction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">notary<span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a><span class="token operator"> = </span>TestIdentity.fresh(&quot;transaction notary&quot;).party<span class="token punctuation">, </span></span><span class="parameter ">script<span class="token operator">: </span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-transaction-d-s-l/index.html">TransactionDSL</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-transaction-d-s-l-interpreter/index.html">TransactionDSLInterpreter</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-enforce-verify-or-fail/index.html">EnforceVerifyOrFail</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html">LedgerDSL</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html">TestTransactionDSLInterpreter</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html">TestLedgerDSLInterpreter</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Creates a ledger with a single transaction, built by the passed in dsl.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1065435468%2FFunctions%2F-367327816" anchor-label="withEntityManager" id="1065435468%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="with-entity-manager.html"><span>with</span><wbr></wbr><span>Entity</span><wbr></wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1065435468%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="with-entity-manager.html"><span class="token function">withEntityManager</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">block<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="with-entity-manager.html">T</a><span class="token operator">&gt; </span><a href="with-entity-manager.html"><span class="token function">withEntityManager</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">block<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="with-entity-manager.html">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="with-entity-manager.html">T</a></div><div class="brief "><p class="paragraph">Exposes the Java Persistence API (JPA) to flows via a restricted EntityManager. This method can be used to persist and query entities which inherit from MappedSchema. This is particularly useful if off-ledger data needs to be kept in conjunction with on-ledger state data.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

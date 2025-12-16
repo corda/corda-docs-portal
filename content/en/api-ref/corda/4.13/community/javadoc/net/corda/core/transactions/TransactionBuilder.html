@@ -1,0 +1,1159 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>TransactionBuilder 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.transactions</a></div>
+        <h2 title="Class TransactionBuilder" class="title">Class TransactionBuilder</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public class <span class="typeNameLabel"><a href=TransactionBuilder.html>TransactionBuilder</a></span>
+
+                    </pre>
+                    <div class="block"><p>A TransactionBuilder is a transaction class that's mutable (unlike the others which are all immutable). It is intended to be passed around contracts that may edit it by adding new states/commands. Then once the states and commands are right, this class can be used as a holding bucket to gather signatures from multiple parties.</p><p>The builder can be customised for specific transaction types, e.g. where additional processing is needed before adding a state/command.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private  <a href=../identity/Party.html>Party</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#notary>notary</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private  <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#lockId>lockId</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#TransactionBuilder(net.corda.core.identity.Party,java.util.UUID,java.util.List,java.util.List,java.util.List,java.util.List,net.corda.core.contracts.TimeWindow,net.corda.core.contracts.PrivacySalt)">TransactionBuilder</a></span>(<a href=../identity/Party.html>Party</a> notary, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; inputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; attachments, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;&gt; outputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt; commands, <a href=../contracts/TimeWindow.html>TimeWindow</a> window, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#TransactionBuilder(net.corda.core.identity.Party)">TransactionBuilder</a></span>(<a href=../identity/Party.html>Party</a> notary)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#TransactionBuilder(net.corda.core.identity.Party,java.util.UUID,java.util.List,java.util.List,java.util.List,java.util.List,net.corda.core.contracts.TimeWindow,net.corda.core.contracts.PrivacySalt,java.util.List,net.corda.core.node.ServiceHub)">TransactionBuilder</a></span>(<a href=../identity/Party.html>Party</a> notary, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; inputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; attachments, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;&gt; outputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt; commands, <a href=../contracts/TimeWindow.html>TimeWindow</a> window, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; references, <a href=../node/ServiceHub.html>ServiceHub</a> serviceHub)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>final <a href=../identity/Party.html>Party</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#getNotary()>getNotary</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#setNotary(net.corda.core.identity.Party)>setNotary</a>(<a href=../identity/Party.html>Party</a> notary) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#getLockId()>getLockId</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#setLockId(java.util.UUID)>setLockId</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final <a href=TransactionBuilder.html>TransactionBuilder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#copy()>copy</a>() </code>
+                                            </th>
+                                            <td class="colLast">Creates a copy of the builder.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#withItems(java.lang.Object)>withItems</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> items) </code>
+                                            </th>
+                                            <td class="colLast">A more convenient way to add items to this transaction that calls the add* methods for you based on type</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final <a href=WireTransaction.html>WireTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#toWireTransaction(net.corda.core.node.ServicesForResolution)>toWireTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services) </code>
+                                            </th>
+                                            <td class="colLast">Generates a <a href=WireTransaction.html>WireTransaction</a> from this builder, resolves any <a href=../contracts/AutomaticPlaceholderConstraint.html>AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=WireTransaction.html>WireTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#toWireTransaction(net.corda.core.node.ServicesForResolution,java.lang.Integer)>toWireTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> schemeId) </code>
+                                            </th>
+                                            <td class="colLast">Generates a <a href=WireTransaction.html>WireTransaction</a> from this builder, resolves any <a href=../contracts/AutomaticPlaceholderConstraint.html>AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=WireTransaction.html>WireTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#toWireTransaction(net.corda.core.node.ServicesForResolution,java.lang.Integer,java.util.Map)>toWireTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> schemeId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; properties) </code>
+                                            </th>
+                                            <td class="colLast">Generates a <a href=WireTransaction.html>WireTransaction</a> from this builder, resolves any <a href=../contracts/AutomaticPlaceholderConstraint.html>AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=LedgerTransaction.html>LedgerTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#toLedgerTransaction(net.corda.core.node.ServiceHub)>toLedgerTransaction</a>(<a href=../node/ServiceHub.html>ServiceHub</a> services) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#verify(net.corda.core.node.ServiceHub)>verify</a>(<a href=../node/ServiceHub.html>ServiceHub</a> services) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addReferenceState(net.corda.core.contracts.ReferencedStateAndRef)>addReferenceState</a>(<a href=../contracts/ReferencedStateAndRef.html>ReferencedStateAndRef</a>&lt;?&gt; referencedStateAndRef) </code>
+                                            </th>
+                                            <td class="colLast">Adds a reference input <a href=../contracts/StateRef.html>StateRef</a> to the transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addInputState(net.corda.core.contracts.StateAndRef)>addInputState</a>(<a href=../contracts/StateAndRef.html>StateAndRef</a>&lt;?&gt; stateAndRef) </code>
+                                            </th>
+                                            <td class="colLast">Adds an input <a href=../contracts/StateRef.html>StateRef</a> to the transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addAttachment(net.corda.core.node.services.AttachmentId)>addAttachment</a>(<a href=../crypto/SecureHash.html>SecureHash</a> attachmentId) </code>
+                                            </th>
+                                            <td class="colLast">Adds an attachment with the specified hash to the TransactionBuilder.</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.TransactionState)>addOutputState</a>(<a href=../contracts/TransactionState.html>TransactionState</a>&lt;?&gt; state) </code>
+                                            </th>
+                                            <td class="colLast">Adds an output state to the transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=TransactionBuilder.html>TransactionBuilder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.ContractClassName,net.corda.core.identity.Party,java.lang.Integer,net.corda.core.contracts.AttachmentConstraint)>addOutputState</a>(<a href=../contracts/ContractState.html>ContractState</a> state, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> contract, <a href=../identity/Party.html>Party</a> notary, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> encumbrance, <a href=../contracts/AttachmentConstraint.html>AttachmentConstraint</a> constraint) </code>
+                                            </th>
+                                            <td class="colLast">Adds an output state, with associated contract code (and constraints), and notary, to the transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code>final <a href=TransactionBuilder.html>TransactionBuilder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.ContractClassName,net.corda.core.contracts.AttachmentConstraint)>addOutputState</a>(<a href=../contracts/ContractState.html>ContractState</a> state, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> contract, <a href=../contracts/AttachmentConstraint.html>AttachmentConstraint</a> constraint) </code>
+                                            </th>
+                                            <td class="colLast">Adds an output state.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=TransactionBuilder.html>TransactionBuilder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.AttachmentConstraint)>addOutputState</a>(<a href=../contracts/ContractState.html>ContractState</a> state, <a href=../contracts/AttachmentConstraint.html>AttachmentConstraint</a> constraint) </code>
+                                            </th>
+                                            <td class="colLast">Adds an output state with the specified constraint.</td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addCommand(net.corda.core.contracts.Command)>addCommand</a>(<a href=../contracts/Command.html>Command</a>&lt;?&gt; arg) </code>
+                                            </th>
+                                            <td class="colLast">Adds a <a href=../contracts/Command.html>Command</a> to the transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addCommand(net.corda.core.contracts.CommandData,java.security.PublicKey)>addCommand</a>(<a href=../contracts/CommandData.html>CommandData</a> data, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> keys) </code>
+                                            </th>
+                                            <td class="colLast">Adds a <a href=../contracts/Command.html>Command</a> to the transaction, specified by the encapsulated <a href=../contracts/CommandData.html>CommandData</a> object and required list of signing <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#addCommand(net.corda.core.contracts.CommandData,java.util.List)>addCommand</a>(<a href=../contracts/CommandData.html>CommandData</a> data, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; keys) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#setTimeWindow(net.corda.core.contracts.TimeWindow)>setTimeWindow</a>(<a href=../contracts/TimeWindow.html>TimeWindow</a> timeWindow) </code>
+                                            </th>
+                                            <td class="colLast">Sets the <a href=../contracts/TimeWindow.html>TimeWindow</a> for this transaction, replacing the existing <a href=../contracts/TimeWindow.html>TimeWindow</a> if there is one.</td>
+                                        </tr>
+                                        
+                                        <tr id="i22" class="altColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#setTimeWindow(java.time.Instant,java.time.Duration)>setTimeWindow</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> time, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> timeTolerance) </code>
+                                            </th>
+                                            <td class="colLast">The <a href=../contracts/TimeWindow.html>TimeWindow</a> for the transaction can also be defined as <a href=TransactionBuilder.html#setTimeWindow(java.time.Instant,java.time.Duration)>time</a> +/- <a href=TransactionBuilder.html#setTimeWindow(java.time.Instant,java.time.Duration)>timeTolerance</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i23" class="rowColor">
+                                            <td class="colFirst"><code>final &lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#setPrivacySalt(net.corda.core.contracts.PrivacySalt)>setPrivacySalt</a>(<a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i24" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#inputStates()>inputStates</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns an immutable list of input <a href=../contracts/StateRef.html>StateRef</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i25" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#referenceStates()>referenceStates</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns an immutable list of reference input <a href=../contracts/StateRef.html>StateRef</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i26" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#attachments()>attachments</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns an immutable list of attachment hashes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i27" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;?&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#outputStates()>outputStates</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns an immutable list of output <a href=../contracts/TransactionState.html>TransactionState</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i28" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#commands()>commands</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns an immutable list of <a href=../contracts/Command.html>Command</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i29" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionBuilder.html#toSignedTransaction(net.corda.core.node.services.KeyManagementService,java.security.PublicKey,net.corda.core.crypto.SignatureMetadata,net.corda.core.node.ServicesForResolution)>toSignedTransaction</a>(<a href=../node/services/KeyManagementService.html>KeyManagementService</a> keyManagementService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=../crypto/SignatureMetadata.html>SignatureMetadata</a> signatureMetadata, <a href=../node/ServicesForResolution.html>ServicesForResolution</a> services) </code>
+                                            </th>
+                                            <td class="colLast">Sign the built transaction and return it.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="TransactionBuilder(net.corda.core.identity.Party,java.util.UUID,java.util.List,java.util.List,java.util.List,java.util.List,net.corda.core.contracts.TimeWindow,net.corda.core.contracts.PrivacySalt)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>TransactionBuilder</h4>
+                                        <pre>TransactionBuilder(<a href=../identity/Party.html>Party</a> notary, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; inputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; attachments, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;&gt; outputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt; commands, <a href=../contracts/TimeWindow.html>TimeWindow</a> window, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="TransactionBuilder(net.corda.core.identity.Party)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>TransactionBuilder</h4>
+                                        <pre>TransactionBuilder(<a href=../identity/Party.html>Party</a> notary)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="TransactionBuilder(net.corda.core.identity.Party,java.util.UUID,java.util.List,java.util.List,java.util.List,java.util.List,net.corda.core.contracts.TimeWindow,net.corda.core.contracts.PrivacySalt,java.util.List,net.corda.core.node.ServiceHub)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>TransactionBuilder</h4>
+                                        <pre>TransactionBuilder(<a href=../identity/Party.html>Party</a> notary, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; inputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; attachments, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;<a href=../contracts/ContractState.html>ContractState</a>&gt;&gt; outputs, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt; commands, <a href=../contracts/TimeWindow.html>TimeWindow</a> window, <a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; references, <a href=../node/ServiceHub.html>ServiceHub</a> serviceHub)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>notary</code> - Notary used for the transaction.</dd>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getNotary()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNotary</h4>
+                                        <pre class="methodSignature"> final <a href=../identity/Party.html>Party</a> <a href=TransactionBuilder.html#getNotary()>getNotary</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setNotary(net.corda.core.identity.Party)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setNotary</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=TransactionBuilder.html#setNotary(net.corda.core.identity.Party)>setNotary</a>(<a href=../identity/Party.html>Party</a> notary)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>notary</code> - Notary used for the transaction.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getLockId()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getLockId</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> <a href=TransactionBuilder.html#getLockId()>getLockId</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setLockId(java.util.UUID)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setLockId</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=TransactionBuilder.html#setLockId(java.util.UUID)>setLockId</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html>UUID</a> lockId)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="copy()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>copy</h4>
+                                        <pre class="methodSignature"> final <a href=TransactionBuilder.html>TransactionBuilder</a> <a href=TransactionBuilder.html#copy()>copy</a>()</pre>
+                                        <div class="block"><p>Creates a copy of the builder.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withItems(java.lang.Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withItems</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#withItems(java.lang.Object)>withItems</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> items)</pre>
+                                        <div class="block"><p>A more convenient way to add items to this transaction that calls the add* methods for you based on type</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toWireTransaction(net.corda.core.node.ServicesForResolution)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toWireTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=WireTransaction.html>WireTransaction</a> <a href=TransactionBuilder.html#toWireTransaction(net.corda.core.node.ServicesForResolution)>toWireTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services)</pre>
+                                        <div class="block"><p>Generates a <a href=WireTransaction.html>WireTransaction</a> from this builder, resolves any <a href=../contracts/AutomaticPlaceholderConstraint.html>AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toWireTransaction(net.corda.core.node.ServicesForResolution,java.lang.Integer)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toWireTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=WireTransaction.html>WireTransaction</a> <a href=TransactionBuilder.html#toWireTransaction(net.corda.core.node.ServicesForResolution,java.lang.Integer)>toWireTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> schemeId)</pre>
+                                        <div class="block"><p>Generates a <a href=WireTransaction.html>WireTransaction</a> from this builder, resolves any <a href=../contracts/AutomaticPlaceholderConstraint.html>AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            
+                                            
+                                            <dd><code>schemeId</code> - is used to specify the <a href=../serialization/CustomSerializationScheme.html>CustomSerializationScheme</a> used to serialize each component of the componentGroups of the <a href=WireTransaction.html>WireTransaction</a>.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toWireTransaction(net.corda.core.node.ServicesForResolution,java.lang.Integer,java.util.Map)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toWireTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=WireTransaction.html>WireTransaction</a> <a href=TransactionBuilder.html#toWireTransaction(net.corda.core.node.ServicesForResolution,java.lang.Integer,java.util.Map)>toWireTransaction</a>(<a href=../node/ServicesForResolution.html>ServicesForResolution</a> services, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> schemeId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.html>Map</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; properties)</pre>
+                                        <div class="block"><p>Generates a <a href=WireTransaction.html>WireTransaction</a> from this builder, resolves any <a href=../contracts/AutomaticPlaceholderConstraint.html>AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            
+                                            
+                                            <dd><code>schemeId</code> - is used to specify the <a href=../serialization/CustomSerializationScheme.html>CustomSerializationScheme</a> used to serialize each component of the componentGroups of the <a href=WireTransaction.html>WireTransaction</a>.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>properties</code> - a list of properties to add to the <a href=../serialization/SerializationSchemeContext.html>SerializationSchemeContext</a> these properties can be accessed in <a href=../serialization/CustomSerializationScheme.html#serialize(T,net.corda.core.serialization.SerializationSchemeContext)>CustomSerializationScheme.serialize</a> when serializing the componentGroups of the wire transaction but might not be available when deserializing.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toLedgerTransaction(net.corda.core.node.ServiceHub)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toLedgerTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=LedgerTransaction.html>LedgerTransaction</a> <a href=TransactionBuilder.html#toLedgerTransaction(net.corda.core.node.ServiceHub)>toLedgerTransaction</a>(<a href=../node/ServiceHub.html>ServiceHub</a> services)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="verify(net.corda.core.node.ServiceHub)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>verify</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=TransactionBuilder.html#verify(net.corda.core.node.ServiceHub)>verify</a>(<a href=../node/ServiceHub.html>ServiceHub</a> services)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addReferenceState(net.corda.core.contracts.ReferencedStateAndRef)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addReferenceState</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#addReferenceState(net.corda.core.contracts.ReferencedStateAndRef)>addReferenceState</a>(<a href=../contracts/ReferencedStateAndRef.html>ReferencedStateAndRef</a>&lt;?&gt; referencedStateAndRef)</pre>
+                                        <div class="block"><p>Adds a reference input <a href=../contracts/StateRef.html>StateRef</a> to the transaction.</p><p>Note: Reference states are only supported on Corda networks running a minimum platform version of 4. <a href=TransactionBuilder.html#toWireTransaction(net.corda.core.node.ServicesForResolution)>toWireTransaction</a> will throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a> if called in such an environment.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addInputState(net.corda.core.contracts.StateAndRef)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addInputState</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#addInputState(net.corda.core.contracts.StateAndRef)>addInputState</a>(<a href=../contracts/StateAndRef.html>StateAndRef</a>&lt;?&gt; stateAndRef)</pre>
+                                        <div class="block"><p>Adds an input <a href=../contracts/StateRef.html>StateRef</a> to the transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addAttachment(net.corda.core.node.services.AttachmentId)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addAttachment</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#addAttachment(net.corda.core.node.services.AttachmentId)>addAttachment</a>(<a href=../crypto/SecureHash.html>SecureHash</a> attachmentId)</pre>
+                                        <div class="block"><p>Adds an attachment with the specified hash to the TransactionBuilder.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addOutputState(net.corda.core.contracts.TransactionState)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addOutputState</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.TransactionState)>addOutputState</a>(<a href=../contracts/TransactionState.html>TransactionState</a>&lt;?&gt; state)</pre>
+                                        <div class="block"><p>Adds an output state to the transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.ContractClassName,net.corda.core.identity.Party,java.lang.Integer,net.corda.core.contracts.AttachmentConstraint)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addOutputState</h4>
+                                        <pre class="methodSignature"> final <a href=TransactionBuilder.html>TransactionBuilder</a> <a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.ContractClassName,net.corda.core.identity.Party,java.lang.Integer,net.corda.core.contracts.AttachmentConstraint)>addOutputState</a>(<a href=../contracts/ContractState.html>ContractState</a> state, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> contract, <a href=../identity/Party.html>Party</a> notary, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> encumbrance, <a href=../contracts/AttachmentConstraint.html>AttachmentConstraint</a> constraint)</pre>
+                                        <div class="block"><p>Adds an output state, with associated contract code (and constraints), and notary, to the transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.ContractClassName,net.corda.core.contracts.AttachmentConstraint)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addOutputState</h4>
+                                        <pre class="methodSignature"> final <a href=TransactionBuilder.html>TransactionBuilder</a> <a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.ContractClassName,net.corda.core.contracts.AttachmentConstraint)>addOutputState</a>(<a href=../contracts/ContractState.html>ContractState</a> state, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> contract, <a href=../contracts/AttachmentConstraint.html>AttachmentConstraint</a> constraint)</pre>
+                                        <div class="block"><p>Adds an output state. A default notary must be specified during builder construction to use this method</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.AttachmentConstraint)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addOutputState</h4>
+                                        <pre class="methodSignature"> final <a href=TransactionBuilder.html>TransactionBuilder</a> <a href=TransactionBuilder.html#addOutputState(net.corda.core.contracts.ContractState,net.corda.core.contracts.AttachmentConstraint)>addOutputState</a>(<a href=../contracts/ContractState.html>ContractState</a> state, <a href=../contracts/AttachmentConstraint.html>AttachmentConstraint</a> constraint)</pre>
+                                        <div class="block"><p>Adds an output state with the specified constraint.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addCommand(net.corda.core.contracts.Command)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addCommand</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#addCommand(net.corda.core.contracts.Command)>addCommand</a>(<a href=../contracts/Command.html>Command</a>&lt;?&gt; arg)</pre>
+                                        <div class="block"><p>Adds a <a href=../contracts/Command.html>Command</a> to the transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addCommand(net.corda.core.contracts.CommandData,java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addCommand</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#addCommand(net.corda.core.contracts.CommandData,java.security.PublicKey)>addCommand</a>(<a href=../contracts/CommandData.html>CommandData</a> data, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> keys)</pre>
+                                        <div class="block"><p>Adds a <a href=../contracts/Command.html>Command</a> to the transaction, specified by the encapsulated <a href=../contracts/CommandData.html>CommandData</a> object and required list of signing <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>s.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addCommand(net.corda.core.contracts.CommandData,java.util.List)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addCommand</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#addCommand(net.corda.core.contracts.CommandData,java.util.List)>addCommand</a>(<a href=../contracts/CommandData.html>CommandData</a> data, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; keys)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setTimeWindow(net.corda.core.contracts.TimeWindow)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setTimeWindow</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#setTimeWindow(net.corda.core.contracts.TimeWindow)>setTimeWindow</a>(<a href=../contracts/TimeWindow.html>TimeWindow</a> timeWindow)</pre>
+                                        <div class="block"><p>Sets the <a href=../contracts/TimeWindow.html>TimeWindow</a> for this transaction, replacing the existing <a href=../contracts/TimeWindow.html>TimeWindow</a> if there is one. To be valid, the transaction must then be signed by the notary service within this window of time. In this way, the notary acts as the Timestamp Authority.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setTimeWindow(java.time.Instant,java.time.Duration)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setTimeWindow</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#setTimeWindow(java.time.Instant,java.time.Duration)>setTimeWindow</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> time, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html>Duration</a> timeTolerance)</pre>
+                                        <div class="block"><p>The <a href=../contracts/TimeWindow.html>TimeWindow</a> for the transaction can also be defined as <a href=TransactionBuilder.html#setTimeWindow(java.time.Instant,java.time.Duration)>time</a> +/- <a href=TransactionBuilder.html#setTimeWindow(java.time.Instant,java.time.Duration)>timeTolerance</a>. The tolerance should be chosen such that your code can finish building the transaction and sending it to the Timestamp Authority within that window of time, taking into account factors such as network latency. Transactions being built by a group of collaborating parties may therefore require a higher time tolerance than a transaction being built by a single node.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setPrivacySalt(net.corda.core.contracts.PrivacySalt)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setPrivacySalt</h4>
+                                        <pre class="methodSignature"> final &lt;Error class: unknown class&gt; <a href=TransactionBuilder.html#setPrivacySalt(net.corda.core.contracts.PrivacySalt)>setPrivacySalt</a>(<a href=../contracts/PrivacySalt.html>PrivacySalt</a> privacySalt)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="inputStates()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>inputStates</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; <a href=TransactionBuilder.html#inputStates()>inputStates</a>()</pre>
+                                        <div class="block"><p>Returns an immutable list of input <a href=../contracts/StateRef.html>StateRef</a>s.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="referenceStates()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>referenceStates</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/StateRef.html>StateRef</a>&gt; <a href=TransactionBuilder.html#referenceStates()>referenceStates</a>()</pre>
+                                        <div class="block"><p>Returns an immutable list of reference input <a href=../contracts/StateRef.html>StateRef</a>s.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="attachments()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>attachments</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../crypto/SecureHash.html>SecureHash</a>&gt; <a href=TransactionBuilder.html#attachments()>attachments</a>()</pre>
+                                        <div class="block"><p>Returns an immutable list of attachment hashes.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="outputStates()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>outputStates</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/TransactionState.html>TransactionState</a>&lt;?&gt;&gt; <a href=TransactionBuilder.html#outputStates()>outputStates</a>()</pre>
+                                        <div class="block"><p>Returns an immutable list of output <a href=../contracts/TransactionState.html>TransactionState</a>s.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="commands()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>commands</h4>
+                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../contracts/Command.html>Command</a>&lt;?&gt;&gt; <a href=TransactionBuilder.html#commands()>commands</a>()</pre>
+                                        <div class="block"><p>Returns an immutable list of <a href=../contracts/Command.html>Command</a>s.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toSignedTransaction(net.corda.core.node.services.KeyManagementService,java.security.PublicKey,net.corda.core.crypto.SignatureMetadata,net.corda.core.node.ServicesForResolution)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toSignedTransaction</h4>
+                                        <pre class="methodSignature"> final <a href=SignedTransaction.html>SignedTransaction</a> <a href=TransactionBuilder.html#toSignedTransaction(net.corda.core.node.services.KeyManagementService,java.security.PublicKey,net.corda.core.crypto.SignatureMetadata,net.corda.core.node.ServicesForResolution)>toSignedTransaction</a>(<a href=../node/services/KeyManagementService.html>KeyManagementService</a> keyManagementService, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey, <a href=../crypto/SignatureMetadata.html>SignatureMetadata</a> signatureMetadata, <a href=../node/ServicesForResolution.html>ServicesForResolution</a> services)</pre>
+                                        <div class="block"><p>Sign the built transaction and return it. This is an internal function for use by the service hub, please use ServiceHub.signInitialTransaction instead.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

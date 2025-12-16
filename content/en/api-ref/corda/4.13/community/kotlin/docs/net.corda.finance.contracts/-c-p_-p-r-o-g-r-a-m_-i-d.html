@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CP_PROGRAM_ID</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageIds="docs::net.corda.finance.contracts//CP_PROGRAM_ID/#/PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../index.html">docs</a><span class="delimiter">/</span><a href="index.html">net.corda.finance.contracts</a><span class="delimiter">/</span><span class="current">CP_PROGRAM_ID</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>CP_PROGRAM_ID</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-c-p_-p-r-o-g-r-a-m_-i-d.html">CP_PROGRAM_ID</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div><p class="paragraph">This is an ultra-trivial implementation of commercial paper, which is essentially a simpler version of a corporate bond. It can be seen as a company-specific currency. A company issues CP with a particular face value, say $100, but sells it for less, say $90. The paper can be redeemed for cash at a given date in the future. Thus this example would have a 10% interest rate with a single repayment. Commercial paper is often rolled over (the maturity date is adjusted as if the paper was redeemed and immediately repurchased, but without having to front the cash).</p><p class="paragraph">This contract is not intended to realistically model CP. It is here only to act as a next step up above cash in the prototyping phase. It is thus very incomplete.</p><p class="paragraph">Open issues:</p><ul><li><p class="paragraph">In this model, you cannot merge or split CP. Can you do this normally? We could model CP as a specialised form     of cash, or reuse some of the cash code? Waiting on response from Ayoub and Rajar about whether CP can always     be split/merged or only in secondary markets. Even if current systems can't do this, would it be a desirable     feature to have anyway?</p></li><li><p class="paragraph">The funding steps of CP is totally ignored in this model.</p></li><li><p class="paragraph">No attention is paid to the existing roles of custodians, funding banks, etc.</p></li><li><p class="paragraph">There are regional variations on the CP concept, for instance, American CP requires a special &quot;CUSIP number&quot;     which may need to be tracked. That, in turn, requires validation logic (there is a bean validator that knows how     to do this in the Apache BVal project).</p></li></ul></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,725 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>State 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.finance.contracts.asset</a></div>
+        <h2 title="Class Cash.State" class="title">Class Cash.State</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                            <code>net.corda.core.contracts.ContractState</code>
+                            
+                            ,
+                            
+                            
+                            <code>net.corda.core.contracts.FungibleAsset</code>
+                            
+                            ,
+                            
+                            
+                            <code>net.corda.core.contracts.FungibleState</code>
+                            
+                            ,
+                            
+                            
+                            <code>net.corda.core.contracts.OwnableState</code>
+                            
+                            ,
+                            
+                            
+                            <code>net.corda.core.schemas.QueryableState</code>
+                            
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public final class <span class="typeNameLabel"><a href=Cash.State.html>Cash.State</a></span>
+ implements <a href=../../../core/contracts/FungibleAsset.html>FungibleAsset</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;, <a href=../../../core/schemas/QueryableState.html>QueryableState</a>
+                    </pre>
+                    <div class="block"><p>A state representing a cash claim against some party.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#exitKeys>exitKeys</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final &lt;Error class: unknown class&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#participants>participants</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=../../../core/contracts/Issued.html>Issued</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#amount>amount</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>private final <a href=../../../core/identity/AbstractParty.html>AbstractParty</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#owner>owner</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#Cash.State(net.corda.core.contracts.PartyAndReference,net.corda.core.contracts.Amount,net.corda.core.identity.AbstractParty)">Cash.State</a></span>(<a href=../../../core/contracts/PartyAndReference.html>PartyAndReference</a> deposit, <a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt; amount, <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> owner)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#Cash.State(net.corda.core.contracts.Amount,net.corda.core.identity.AbstractParty)">Cash.State</a></span>(<a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=../../../core/contracts/Issued.html>Issued</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;&gt; amount, <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> owner)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#getExitKeys()>getExitKeys</a>() </code>
+                                            </th>
+                                            <td class="colLast">There must be an ExitCommand signed by these keys to destroy the amount.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>&lt;Error class: unknown class&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#getParticipants()>getParticipants</a>() </code>
+                                            </th>
+                                            <td class="colLast">A <i>participant</i> is any party that should be notified when the state is created or consumed.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code><a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=../../../core/contracts/Issued.html>Issued</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#getAmount()>getAmount</a>() </code>
+                                            </th>
+                                            <td class="colLast">Amount represents a positive quantity of some issued product which can be cash, tokens, assets, or generally anything else that's quantifiable with integer quantities.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code><a href=../../../core/identity/AbstractParty.html>AbstractParty</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#getOwner()>getOwner</a>() </code>
+                                            </th>
+                                            <td class="colLast">There must be a MoveCommand signed by this key to claim the amount.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code><a href=../../../core/contracts/FungibleAsset.html>FungibleAsset</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#withNewOwnerAndAmount(net.corda.core.contracts.Amount,net.corda.core.identity.AbstractParty)>withNewOwnerAndAmount</a>(<a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=../../../core/contracts/Issued.html>Issued</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;&gt; newAmount, <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> newOwner) </code>
+                                            </th>
+                                            <td class="colLast">Copies the underlying data structure, replacing the amount and owner fields with the new values and leaving the rest (exitKeys) alone.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#toString()>toString</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code><a href=../../../core/contracts/CommandAndState.html>CommandAndState</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#withNewOwner(net.corda.core.identity.AbstractParty)>withNewOwner</a>(<a href=../../../core/identity/AbstractParty.html>AbstractParty</a> newOwner) </code>
+                                            </th>
+                                            <td class="colLast">Copies the underlying data structure, replacing the owner field with this new value and leaving the rest alone.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=Cash.State.html>Cash.State</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#ownedBy(net.corda.core.identity.AbstractParty)>ownedBy</a>(<a href=../../../core/identity/AbstractParty.html>AbstractParty</a> owner) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>final <a href=Cash.State.html>Cash.State</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#issuedBy(net.corda.core.identity.AbstractParty)>issuedBy</a>(<a href=../../../core/identity/AbstractParty.html>AbstractParty</a> party) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>final <a href=Cash.State.html>Cash.State</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#issuedBy(net.corda.core.contracts.PartyAndReference)>issuedBy</a>(<a href=../../../core/contracts/PartyAndReference.html>PartyAndReference</a> deposit) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>final <a href=Cash.State.html>Cash.State</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#withDeposit(net.corda.core.contracts.PartyAndReference)>withDeposit</a>(<a href=../../../core/contracts/PartyAndReference.html>PartyAndReference</a> deposit) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code><a href=../../../core/schemas/PersistentState.html>PersistentState</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#generateMappedObject(net.corda.core.schemas.MappedSchema)>generateMappedObject</a>(<a href=../../../core/schemas/MappedSchema.html>MappedSchema</a> schema) </code>
+                                            </th>
+                                            <td class="colLast">Object Relational Mapping support.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../../../core/schemas/MappedSchema.html>MappedSchema</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=Cash.State.html#supportedSchemas()>supportedSchemas</a>() </code>
+                                            </th>
+                                            <td class="colLast">Object Relational Mapping support.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="Cash.State(net.corda.core.contracts.PartyAndReference,net.corda.core.contracts.Amount,net.corda.core.identity.AbstractParty)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>Cash.State</h4>
+                                        <pre>Cash.State(<a href=../../../core/contracts/PartyAndReference.html>PartyAndReference</a> deposit, <a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt; amount, <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> owner)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="Cash.State(net.corda.core.contracts.Amount,net.corda.core.identity.AbstractParty)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>Cash.State</h4>
+                                        <pre>Cash.State(<a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=../../../core/contracts/Issued.html>Issued</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;&gt; amount, <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> owner)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getExitKeys()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getExitKeys</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=Cash.State.html#getExitKeys()>getExitKeys</a>()</pre>
+                                        <div class="block"><p>There must be an ExitCommand signed by these keys to destroy the amount. While all states require their owner to sign, some (i.e. cash) also require the issuer.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getParticipants()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getParticipants</h4>
+                                        <pre class="methodSignature"> &lt;Error class: unknown class&gt; <a href=Cash.State.html#getParticipants()>getParticipants</a>()</pre>
+                                        <div class="block"><p>A <i>participant</i> is any party that should be notified when the state is created or consumed.</p><p>The list of participants is required for certain types of transactions. For example, when changing the notary for this state, every participant has to be involved and approve the transaction so that they receive the updated state, and don't end up in a situation where they can no longer use a state they possess, since someone consumed that state during the notary change process.</p><p>The participants list should normally be derived from the contents of the state.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getAmount()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getAmount</h4>
+                                        <pre class="methodSignature"> <a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=../../../core/contracts/Issued.html>Issued</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;&gt; <a href=Cash.State.html#getAmount()>getAmount</a>()</pre>
+                                        <div class="block"><p>Amount represents a positive quantity of some issued product which can be cash, tokens, assets, or generally anything else that's quantifiable with integer quantities. See <a href=../../../core/contracts/Issued.html>Issued</a> and <a href=../../../core/contracts/Amount.html>Amount</a> for more details.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getOwner()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getOwner</h4>
+                                        <pre class="methodSignature"> <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> <a href=Cash.State.html#getOwner()>getOwner</a>()</pre>
+                                        <div class="block"><p>There must be a MoveCommand signed by this key to claim the amount.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withNewOwnerAndAmount(net.corda.core.contracts.Amount,net.corda.core.identity.AbstractParty)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withNewOwnerAndAmount</h4>
+                                        <pre class="methodSignature"> <a href=../../../core/contracts/FungibleAsset.html>FungibleAsset</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt; <a href=Cash.State.html#withNewOwnerAndAmount(net.corda.core.contracts.Amount,net.corda.core.identity.AbstractParty)>withNewOwnerAndAmount</a>(<a href=../../../core/contracts/Amount.html>Amount</a>&lt;<a href=../../../core/contracts/Issued.html>Issued</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html>Currency</a>&gt;&gt; newAmount, <a href=../../../core/identity/AbstractParty.html>AbstractParty</a> newOwner)</pre>
+                                        <div class="block"><p>Copies the underlying data structure, replacing the amount and owner fields with the new values and leaving the rest (exitKeys) alone.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toString()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toString</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=Cash.State.html#toString()>toString</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withNewOwner(net.corda.core.identity.AbstractParty)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withNewOwner</h4>
+                                        <pre class="methodSignature"> <a href=../../../core/contracts/CommandAndState.html>CommandAndState</a> <a href=Cash.State.html#withNewOwner(net.corda.core.identity.AbstractParty)>withNewOwner</a>(<a href=../../../core/identity/AbstractParty.html>AbstractParty</a> newOwner)</pre>
+                                        <div class="block"><p>Copies the underlying data structure, replacing the owner field with this new value and leaving the rest alone.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="ownedBy(net.corda.core.identity.AbstractParty)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>ownedBy</h4>
+                                        <pre class="methodSignature"> final <a href=Cash.State.html>Cash.State</a> <a href=Cash.State.html#ownedBy(net.corda.core.identity.AbstractParty)>ownedBy</a>(<a href=../../../core/identity/AbstractParty.html>AbstractParty</a> owner)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="issuedBy(net.corda.core.identity.AbstractParty)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>issuedBy</h4>
+                                        <pre class="methodSignature"> final <a href=Cash.State.html>Cash.State</a> <a href=Cash.State.html#issuedBy(net.corda.core.identity.AbstractParty)>issuedBy</a>(<a href=../../../core/identity/AbstractParty.html>AbstractParty</a> party)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="issuedBy(net.corda.core.contracts.PartyAndReference)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>issuedBy</h4>
+                                        <pre class="methodSignature"> final <a href=Cash.State.html>Cash.State</a> <a href=Cash.State.html#issuedBy(net.corda.core.contracts.PartyAndReference)>issuedBy</a>(<a href=../../../core/contracts/PartyAndReference.html>PartyAndReference</a> deposit)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withDeposit(net.corda.core.contracts.PartyAndReference)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withDeposit</h4>
+                                        <pre class="methodSignature"> final <a href=Cash.State.html>Cash.State</a> <a href=Cash.State.html#withDeposit(net.corda.core.contracts.PartyAndReference)>withDeposit</a>(<a href=../../../core/contracts/PartyAndReference.html>PartyAndReference</a> deposit)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="generateMappedObject(net.corda.core.schemas.MappedSchema)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>generateMappedObject</h4>
+                                        <pre class="methodSignature"> <a href=../../../core/schemas/PersistentState.html>PersistentState</a> <a href=Cash.State.html#generateMappedObject(net.corda.core.schemas.MappedSchema)>generateMappedObject</a>(<a href=../../../core/schemas/MappedSchema.html>MappedSchema</a> schema)</pre>
+                                        <div class="block"><p>Object Relational Mapping support.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="supportedSchemas()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>supportedSchemas</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../../../core/schemas/MappedSchema.html>MappedSchema</a>&gt; <a href=Cash.State.html#supportedSchemas()>supportedSchemas</a>()</pre>
+                                        <div class="block"><p>Object Relational Mapping support.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

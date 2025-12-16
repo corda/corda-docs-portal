@@ -1,0 +1,1237 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>ServiceHub 4.13 API </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.corda.core.node</a></div>
+        <h2 title="Interface ServiceHub" class="title">Interface ServiceHub</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                            <code>net.corda.core.node.ServicesForResolution</code>
+                            
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public interface <span class="typeNameLabel"><a href=ServiceHub.html>ServiceHub</a></span>
+ implements <a href=ServicesForResolution.html>ServicesForResolution</a>
+                    </pre>
+                    <div class="block"><p>A service hub is the starting point for most operations you can do inside the node. You are provided with one when a class annotated with <a href=services/CordaService.html>CordaService</a> is constructed, and you have access to one inside flows. Most RPCs simply forward to the services found here after some access checking.</p><p>The APIs are organised roughly by category, with a few very important top level APIs available on the ServiceHub itself. Inside a flow, it's safe to keep a reference to services found here on the stack: checkpointing will do the right thing (it won't try to serialise the internals of the service).</p><p>In unit test environments, some of those services may be missing or mocked out.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../serialization/SerializeAsToken.html>SerializeAsToken</a>&gt; <a href=ServiceHub.html#cordaService(java.lang.Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#cordaService(java.lang.Class)>cordaService</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=ServiceHub.html#cordaService(java.lang.Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Return the singleton instance of the given Corda service type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../internal/telemetry/TelemetryComponent.html>TelemetryComponent</a>&gt; <a href=ServiceHub.html#cordaTelemetryComponent(java.lang.Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#cordaTelemetryComponent(java.lang.Class)>cordaTelemetryComponent</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=ServiceHub.html#cordaTelemetryComponent(java.lang.Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Return the singleton instance of the given Corda telemetry component type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,java.lang.Iterable)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> notifyVault, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../transactions/SignedTransaction.html>SignedTransaction</a>&gt; txs) </code>
+                                            </th>
+                                            <td class="colLast">Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,java.lang.Iterable)>notifyVault</a> is true.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> notifyVault, <a href=../transactions/SignedTransaction.html>SignedTransaction</a> first, <a href=../transactions/SignedTransaction.html>SignedTransaction</a> remaining) </code>
+                                            </th>
+                                            <td class="colLast">Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)>notifyVault</a> is true.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#recordTransactions(net.corda.core.node.StatesToRecord,java.lang.Iterable)>recordTransactions</a>(<a href=StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../transactions/SignedTransaction.html>SignedTransaction</a>&gt; txs) </code>
+                                            </th>
+                                            <td class="colLast">Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href=ServiceHub.html#recordTransactions(net.corda.core.node.StatesToRecord,java.lang.Iterable)>statesToRecord</a> is not <a href=StatesToRecord.html#NONE>StatesToRecord.NONE</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#recordTransactions(net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)>recordTransactions</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> first, <a href=../transactions/SignedTransaction.html>SignedTransaction</a> remaining) </code>
+                                            </th>
+                                            <td class="colLast">Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code><a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Iterable)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../transactions/SignedTransaction.html>SignedTransaction</a>&gt; txs) </code>
+                                            </th>
+                                            <td class="colLast">Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>&lt;T extends <a href=../contracts/ContractState.html>ContractState</a>&gt; <a href=../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=../../testing/node/MockServices.html#toStateAndRef(net.corda.core.contracts.StateRef)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#toStateAndRef(net.corda.core.contracts.StateRef)>toStateAndRef</a>(<a href=../contracts/StateRef.html>StateRef</a> stateRef) </code>
+                                            </th>
+                                            <td class="colLast">Converts the given <a href=../contracts/StateRef.html>StateRef</a> into a <a href=../contracts/StateAndRef.html>StateAndRef</a> object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code><a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#signInitialTransaction(net.corda.core.transactions.TransactionBuilder,java.security.PublicKey)>signInitialTransaction</a>(<a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> builder, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to construct an initial partially signed transaction from a <a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> using keys stored inside the node.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code><a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#signInitialTransaction(net.corda.core.transactions.TransactionBuilder)>signInitialTransaction</a>(<a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> builder) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to construct an initial partially signed transaction from a TransactionBuilder using the default identity key contained in the node.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code><a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#signInitialTransaction(net.corda.core.transactions.TransactionBuilder,java.lang.Iterable)>signInitialTransaction</a>(<a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> builder, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; signingPubKeys) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to construct an initial partially signed transaction from a <a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> using a set of keys all held in this node.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code><a href=../crypto/TransactionSignature.html>TransactionSignature</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.SignedTransaction,java.security.PublicKey)>createSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to create an additional signature for an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code><a href=../crypto/TransactionSignature.html>TransactionSignature</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.SignedTransaction)>createSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to create a signature for an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a> using the default identity signing key of the node.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code><a href=../crypto/TransactionSignature.html>TransactionSignature</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.FilteredTransaction,java.security.PublicKey)>createSignature</a>(<a href=../transactions/FilteredTransaction.html>FilteredTransaction</a> filteredTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to create a signature for a FilteredTransaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code><a href=../crypto/TransactionSignature.html>TransactionSignature</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.FilteredTransaction)>createSignature</a>(<a href=../transactions/FilteredTransaction.html>FilteredTransaction</a> filteredTransaction) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to create a signature for a FilteredTransaction using the default identity signing key of the node.</td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code><a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#addSignature(net.corda.core.transactions.SignedTransaction,java.security.PublicKey)>addSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to append an additional signature to an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code><a href=../transactions/SignedTransaction.html>SignedTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#addSignature(net.corda.core.transactions.SignedTransaction)>addSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction) </code>
+                                            </th>
+                                            <td class="colLast">Helper method to append an additional signature for an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a> using the default identity signing key of the node.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html>Connection</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#jdbcSession()>jdbcSession</a>() </code>
+                                            </th>
+                                            <td class="colLast">Exposes a JDBC connection (session) object using the currently configured database.</td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=ServiceHub.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#withEntityManager(kotlin.jvm.functions.Function1)>withEntityManager</a>(Function1&lt;&lt;Error class: unknown class&gt;, <a href=ServiceHub.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a>&gt; block) </code>
+                                            </th>
+                                            <td class="colLast">Exposes the Java Persistence API (JPA) to flows via a restricted EntityManager.</td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#withEntityManager(java.util.function.Consumer)>withEntityManager</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;&lt;Error class: unknown class&gt;&gt; block) </code>
+                                            </th>
+                                            <td class="colLast">Exposes the Java Persistence API (JPA) to flows via a restricted EntityManager.</td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#registerUnloadHandler(kotlin.jvm.functions.Function0)>registerUnloadHandler</a>(Function0&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a>&gt; runOnStop) </code>
+                                            </th>
+                                            <td class="colLast">Allows the registration of a callback that may inform services when the app is shutting down.</td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code><a href=../cordapp/CordappContext.html>CordappContext</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=../../testing/node/MockServices.html#getAppContext()>getAppContext</a>() </code>
+                                            </th>
+                                            <td class="colLast">See <a href=../cordapp/CordappProvider.html#getAppContext()>CordappProvider.getAppContext</a></td>
+                                        </tr>
+                                        
+                                        <tr id="i22" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=ServiceHub.html#getMetricsRegistry(java.lang.Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getMetricsRegistry(java.lang.Class)>getMetricsRegistry</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=ServiceHub.html#getMetricsRegistry(java.lang.Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Provides metric registration and access to the metrics registry.</td>
+                                        </tr>
+                                        
+                                        <tr id="i23" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=services/VaultService.html>VaultService</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getVaultService()>getVaultService</a>() </code>
+                                            </th>
+                                            <td class="colLast">The vault service lets you observe, soft lock and add notes to states that involve you or are relevant to your node in some way.</td>
+                                        </tr>
+                                        
+                                        <tr id="i24" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=services/KeyManagementService.html>KeyManagementService</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getKeyManagementService()>getKeyManagementService</a>() </code>
+                                            </th>
+                                            <td class="colLast">The key management service is responsible for storing and using private keys to sign things.</td>
+                                        </tr>
+                                        
+                                        <tr id="i25" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=services/ContractUpgradeService.html>ContractUpgradeService</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getContractUpgradeService()>getContractUpgradeService</a>() </code>
+                                            </th>
+                                            <td class="colLast">The <a href=services/ContractUpgradeService.html>ContractUpgradeService</a> is responsible for securely upgrading contract state objects according to a specified and mutually agreed (amongst participants) contract version.</td>
+                                        </tr>
+                                        
+                                        <tr id="i26" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=services/TransactionStorage.html>TransactionStorage</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getValidatedTransactions()>getValidatedTransactions</a>() </code>
+                                            </th>
+                                            <td class="colLast">A map of hash-&gt;tx where tx has been signature/contract validated and the states are known to be correct.</td>
+                                        </tr>
+                                        
+                                        <tr id="i27" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=services/NetworkMapCache.html>NetworkMapCache</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getNetworkMapCache()>getNetworkMapCache</a>() </code>
+                                            </th>
+                                            <td class="colLast">A network map contains lists of nodes on the network along with information about their identity keys, services they provide and host names or IP addresses where they can be connected to.</td>
+                                        </tr>
+                                        
+                                        <tr id="i28" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=services/diagnostics/DiagnosticsService.html>DiagnosticsService</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getDiagnosticsService()>getDiagnosticsService</a>() </code>
+                                            </th>
+                                            <td class="colLast">The <a href=services/diagnostics/DiagnosticsService.html>DiagnosticsService</a> provides diagnostic level information about the node, including the current version of the node, and the CorDapps currently installed on the node.</td>
+                                        </tr>
+                                        
+                                        <tr id="i29" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=services/TelemetryService.html>TelemetryService</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getTelemetryService()>getTelemetryService</a>() </code>
+                                            </th>
+                                            <td class="colLast">Provides operations to support telemetry and telemetry data between nodes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i30" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html>Clock</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getClock()>getClock</a>() </code>
+                                            </th>
+                                            <td class="colLast">A <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html>Clock</a> representing the node's current time.</td>
+                                        </tr>
+                                        
+                                        <tr id="i31" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=NodeInfo.html>NodeInfo</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ServiceHub.html#getMyInfo()>getMyInfo</a>() </code>
+                                            </th>
+                                            <td class="colLast">The <a href=NodeInfo.html>NodeInfo</a> object corresponding to our own entry in the network map.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.net.corda.core.node.ServicesForResolution">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;net.corda.core.node.ServicesForResolution</h3>
+                                            <code>getAttachments, getCordappProvider, getIdentityService, getNetworkParameters, getNetworkParametersService, loadContractAttachment, loadState, loadStates, specialise</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="cordaService(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>cordaService</h4>
+                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../serialization/SerializeAsToken.html>SerializeAsToken</a>&gt; <a href=ServiceHub.html#cordaService(java.lang.Class)>T</a> <a href=ServiceHub.html#cordaService(java.lang.Class)>cordaService</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=ServiceHub.html#cordaService(java.lang.Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Return the singleton instance of the given Corda service type. This is a class that is annotated with <a href=services/CordaService.html>CordaService</a> and will have automatically been registered by the node.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="cordaTelemetryComponent(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>cordaTelemetryComponent</h4>
+                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../internal/telemetry/TelemetryComponent.html>TelemetryComponent</a>&gt; <a href=ServiceHub.html#cordaTelemetryComponent(java.lang.Class)>T</a> <a href=ServiceHub.html#cordaTelemetryComponent(java.lang.Class)>cordaTelemetryComponent</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=ServiceHub.html#cordaTelemetryComponent(java.lang.Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Return the singleton instance of the given Corda telemetry component type. This is a class that implements TelemetryComponent and will have automatically been registered by the node.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(java.lang.Boolean,java.lang.Iterable)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,java.lang.Iterable)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> notifyVault, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../transactions/SignedTransaction.html>SignedTransaction</a>&gt; txs)</pre>
+                                        <div class="block"><p>Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,java.lang.Iterable)>notifyVault</a> is true. This is expected to be run within a database transaction.</p><p>As of platform version <a href=../internal/PlatformVersionSwitches.html#TWO_PHASE_FINALITY>TWO_PHASE_FINALITY</a> also performs signature verification and will throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a> with details of the cause of error upon failure. Of course, you should not be recording transactions to the ledger that are not fully signed. It is possible, but not recommended, to revert to non-signature verification behaviour by setting the system property &quot;net.corda.recordtransaction.signature.verification.disabled&quot; to true upon node start-up.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>notifyVault</code> - indicate if the vault should be notified for the update.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>txs</code> - The transactions to record.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(java.lang.Boolean,net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> notifyVault, <a href=../transactions/SignedTransaction.html>SignedTransaction</a> first, <a href=../transactions/SignedTransaction.html>SignedTransaction</a> remaining)</pre>
+                                        <div class="block"><p>Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Boolean,net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)>notifyVault</a> is true. This is expected to be run within a database transaction.</p><p>As of platform version <a href=../internal/PlatformVersionSwitches.html#TWO_PHASE_FINALITY>TWO_PHASE_FINALITY</a> also performs signature verification and will throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a> with details of the cause of error upon failure. Of course, you should not be recording transactions to the ledger that are not fully signed. It is possible, but not recommended, to revert to non-signature verification behaviour by setting the system property &quot;net.corda.recordtransaction.signature.verification.disabled&quot; to true upon node start-up.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(net.corda.core.node.StatesToRecord,java.lang.Iterable)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ServiceHub.html#recordTransactions(net.corda.core.node.StatesToRecord,java.lang.Iterable)>recordTransactions</a>(<a href=StatesToRecord.html>StatesToRecord</a> statesToRecord, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../transactions/SignedTransaction.html>SignedTransaction</a>&gt; txs)</pre>
+                                        <div class="block"><p>Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if <a href=ServiceHub.html#recordTransactions(net.corda.core.node.StatesToRecord,java.lang.Iterable)>statesToRecord</a> is not <a href=StatesToRecord.html#NONE>StatesToRecord.NONE</a>. This is expected to be run within a database transaction.</p><p>As of platform version <a href=../internal/PlatformVersionSwitches.html#TWO_PHASE_FINALITY>TWO_PHASE_FINALITY</a> also performs signature verification and will throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a> with details of the cause of error upon failure. Of course, you should not be recording transactions to the ledger that are not fully signed. It is possible, but not recommended, to revert to non-signature verification behaviour by setting the system property &quot;net.corda.recordtransaction.signature.verification.disabled&quot; to true upon node start-up.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>statesToRecord</code> - how the vault should treat the output states of the transaction.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>txs</code> - The transactions to record.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../testing/node/MockServices.html#recordTransactions(net.corda.core.transactions.SignedTransaction,net.corda.core.transactions.SignedTransaction)>recordTransactions</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> first, <a href=../transactions/SignedTransaction.html>SignedTransaction</a> remaining)</pre>
+                                        <div class="block"><p>Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing. This is expected to be run within a database transaction.</p><p>As of platform version <a href=../internal/PlatformVersionSwitches.html#TWO_PHASE_FINALITY>TWO_PHASE_FINALITY</a> also performs signature verification and will throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a> with details of the cause of error upon failure. Of course, you should not be recording transactions to the ledger that are not fully signed. It is possible, but not recommended, to revert to non-signature verification behaviour by setting the system property &quot;net.corda.recordtransaction.signature.verification.disabled&quot; to true upon node start-up.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="recordTransactions(java.lang.Iterable)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>recordTransactions</h4>
+                                        <pre class="methodSignature"> <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=../../testing/node/MockServices.html#recordTransactions(java.lang.Iterable)>recordTransactions</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=../transactions/SignedTransaction.html>SignedTransaction</a>&gt; txs)</pre>
+                                        <div class="block"><p>Stores the given <a href=../transactions/SignedTransaction.html>SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing. This is expected to be run within a database transaction.</p><p>As of platform version <a href=../internal/PlatformVersionSwitches.html#TWO_PHASE_FINALITY>TWO_PHASE_FINALITY</a> also performs signature verification and will throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a> with details of the cause of error upon failure. Of course, you should not be recording transactions to the ledger that are not fully signed. It is possible, but not recommended, to revert to non-signature verification behaviour by setting the system property &quot;net.corda.recordtransaction.signature.verification.disabled&quot; to true upon node start-up.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toStateAndRef(net.corda.core.contracts.StateRef)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toStateAndRef</h4>
+                                        <pre class="methodSignature"> &lt;T extends <a href=../contracts/ContractState.html>ContractState</a>&gt; <a href=../contracts/StateAndRef.html>StateAndRef</a>&lt;<a href=../../testing/node/MockServices.html#toStateAndRef(net.corda.core.contracts.StateRef)>T</a>&gt; <a href=../../testing/node/MockServices.html#toStateAndRef(net.corda.core.contracts.StateRef)>toStateAndRef</a>(<a href=../contracts/StateRef.html>StateRef</a> stateRef)</pre>
+                                        <div class="block"><p>Converts the given <a href=../contracts/StateRef.html>StateRef</a> into a <a href=../contracts/StateAndRef.html>StateAndRef</a> object.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="signInitialTransaction(net.corda.core.transactions.TransactionBuilder,java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>signInitialTransaction</h4>
+                                        <pre class="methodSignature"> <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=../../testing/node/MockServices.html#signInitialTransaction(net.corda.core.transactions.TransactionBuilder,java.security.PublicKey)>signInitialTransaction</a>(<a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> builder, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey)</pre>
+                                        <div class="block"><p>Helper method to construct an initial partially signed transaction from a <a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> using keys stored inside the node. Signature metadata is added automatically.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>builder</code> - The <a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> to seal with the node's signature.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - The <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> matched to the internal <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>java.security.PrivateKey</a> to use in signing this transaction.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="signInitialTransaction(net.corda.core.transactions.TransactionBuilder)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>signInitialTransaction</h4>
+                                        <pre class="methodSignature"> <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=../../testing/node/MockServices.html#signInitialTransaction(net.corda.core.transactions.TransactionBuilder)>signInitialTransaction</a>(<a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> builder)</pre>
+                                        <div class="block"><p>Helper method to construct an initial partially signed transaction from a TransactionBuilder using the default identity key contained in the node. The legal identity key is used to sign.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>builder</code> - The TransactionBuilder to seal with the node's signature.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="signInitialTransaction(net.corda.core.transactions.TransactionBuilder,java.lang.Iterable)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>signInitialTransaction</h4>
+                                        <pre class="methodSignature"> <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=../../testing/node/MockServices.html#signInitialTransaction(net.corda.core.transactions.TransactionBuilder,java.lang.Iterable)>signInitialTransaction</a>(<a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> builder, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; signingPubKeys)</pre>
+                                        <div class="block"><p>Helper method to construct an initial partially signed transaction from a <a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> using a set of keys all held in this node.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>builder</code> - The <a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> to seal with the node's signature.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>signingPubKeys</code> - A list of <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>s used to lookup the matching <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>java.security.PrivateKey</a> and sign.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createSignature(net.corda.core.transactions.SignedTransaction,java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createSignature</h4>
+                                        <pre class="methodSignature"> <a href=../crypto/TransactionSignature.html>TransactionSignature</a> <a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.SignedTransaction,java.security.PublicKey)>createSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey)</pre>
+                                        <div class="block"><p>Helper method to create an additional signature for an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a>. Additional <a href=../crypto/SignatureMetadata.html>SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signedTransaction</code> - The <a href=../transactions/SignedTransaction.html>SignedTransaction</a> to which the signature will apply.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - The <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> matching to a signing <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>java.security.PrivateKey</a> hosted in the node.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createSignature(net.corda.core.transactions.SignedTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createSignature</h4>
+                                        <pre class="methodSignature"> <a href=../crypto/TransactionSignature.html>TransactionSignature</a> <a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.SignedTransaction)>createSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction)</pre>
+                                        <div class="block"><p>Helper method to create a signature for an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a> using the default identity signing key of the node. The legal identity key is used to sign. Additional <a href=../crypto/SignatureMetadata.html>SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signedTransaction</code> - The SignedTransaction to which the signature will apply.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createSignature(net.corda.core.transactions.FilteredTransaction,java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createSignature</h4>
+                                        <pre class="methodSignature"> <a href=../crypto/TransactionSignature.html>TransactionSignature</a> <a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.FilteredTransaction,java.security.PublicKey)>createSignature</a>(<a href=../transactions/FilteredTransaction.html>FilteredTransaction</a> filteredTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey)</pre>
+                                        <div class="block"><p>Helper method to create a signature for a FilteredTransaction. Additional <a href=../crypto/SignatureMetadata.html>SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>filteredTransaction</code> - the <a href=../transactions/FilteredTransaction.html>FilteredTransaction</a> to which the signature will apply.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - The <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> matching to a signing <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>java.security.PrivateKey</a> hosted in the node.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createSignature(net.corda.core.transactions.FilteredTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createSignature</h4>
+                                        <pre class="methodSignature"> <a href=../crypto/TransactionSignature.html>TransactionSignature</a> <a href=../../testing/node/MockServices.html#createSignature(net.corda.core.transactions.FilteredTransaction)>createSignature</a>(<a href=../transactions/FilteredTransaction.html>FilteredTransaction</a> filteredTransaction)</pre>
+                                        <div class="block"><p>Helper method to create a signature for a FilteredTransaction using the default identity signing key of the node. The legal identity key is used to sign. Additional <a href=../crypto/SignatureMetadata.html>SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>filteredTransaction</code> - the FilteredTransaction to which the signature will apply.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addSignature(net.corda.core.transactions.SignedTransaction,java.security.PublicKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addSignature</h4>
+                                        <pre class="methodSignature"> <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=../../testing/node/MockServices.html#addSignature(net.corda.core.transactions.SignedTransaction,java.security.PublicKey)>addSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> publicKey)</pre>
+                                        <div class="block"><p>Helper method to append an additional signature to an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signedTransaction</code> - The <a href=../transactions/SignedTransaction.html>SignedTransaction</a> to which the signature will be added.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>publicKey</code> - The <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> matching to a signing <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html>java.security.PrivateKey</a> hosted in the node.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="addSignature(net.corda.core.transactions.SignedTransaction)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>addSignature</h4>
+                                        <pre class="methodSignature"> <a href=../transactions/SignedTransaction.html>SignedTransaction</a> <a href=../../testing/node/MockServices.html#addSignature(net.corda.core.transactions.SignedTransaction)>addSignature</a>(<a href=../transactions/SignedTransaction.html>SignedTransaction</a> signedTransaction)</pre>
+                                        <div class="block"><p>Helper method to append an additional signature for an existing (partially) <a href=../transactions/SignedTransaction.html>SignedTransaction</a> using the default identity signing key of the node.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>signedTransaction</code> - The <a href=../transactions/SignedTransaction.html>SignedTransaction</a> to which the signature will be added.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="jdbcSession()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>jdbcSession</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html>Connection</a> <a href=ServiceHub.html#jdbcSession()>jdbcSession</a>()</pre>
+                                        <div class="block"><p>Exposes a JDBC connection (session) object using the currently configured database. Applications can use this to execute arbitrary SQL queries (native, direct, prepared, callable) against its Node database tables (including custom contract tables defined by extending <a href=../schemas/QueryableState.html>net.corda.core.schemas.QueryableState</a>).</p><p>When used within a flow, this session automatically forms part of the enclosing flow transaction boundary, and thus queryable data will include everything committed as of the last checkpoint.</p><p>We want to make sure users have a restricted access to administrative functions, this function will return a <a href=https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html>Connection</a> instance with the following methods blocked:</p><ul><li><p>abort(executor: Executor?)</p></li><li><p>clearWarnings()</p></li><li><p>close()</p></li><li><p>commit()</p></li><li><p>setSavepoint()</p></li><li><p>setSavepoint(name : String?)</p></li><li><p>releaseSavepoint(savepoint: Savepoint?)</p></li><li><p>rollback()</p></li><li><p>rollback(savepoint: Savepoint?)</p></li><li><p>setCatalog(catalog : String?)</p></li><li><p>setTransactionIsolation(level: Int)</p></li><li><p>setTypeMap(map: MutableMap&lt;String, Class&lt;*&gt;&gt;?)</p></li><li><p>setHoldability(holdability: Int)</p></li><li><p>setSchema(schema: String?)</p></li><li><p>setNetworkTimeout(executor: Executor?, milliseconds: Int)</p></li><li><p>setAutoCommit(autoCommit: Boolean)</p></li><li><p>setReadOnly(readOnly: Boolean)</p></li></ul></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withEntityManager(kotlin.jvm.functions.Function1)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withEntityManager</h4>
+                                        <pre class="methodSignature"> abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=ServiceHub.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a> <a href=ServiceHub.html#withEntityManager(kotlin.jvm.functions.Function1)>withEntityManager</a>(Function1&lt;&lt;Error class: unknown class&gt;, <a href=ServiceHub.html#withEntityManager(kotlin.jvm.functions.Function1)>T</a>&gt; block)</pre>
+                                        <div class="block"><p>Exposes the Java Persistence API (JPA) to flows via a restricted EntityManager. This method can be used to persist and query entities which inherit from MappedSchema. This is particularly useful if off-ledger data needs to be kept in conjunction with on-ledger state data.</p><p>NOTE: Suspendable flow operations such as send, receive, subFlow and sleep, cannot be called within the lambda.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>block</code> - a lambda function with access to an EntityManager.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="withEntityManager(java.util.function.Consumer)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>withEntityManager</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ServiceHub.html#withEntityManager(java.util.function.Consumer)>withEntityManager</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;&lt;Error class: unknown class&gt;&gt; block)</pre>
+                                        <div class="block"><p>Exposes the Java Persistence API (JPA) to flows via a restricted EntityManager. This method can be used to persist and query entities which inherit from MappedSchema. This is particularly useful if off-ledger data needs to be kept in conjunction with on-ledger state data.</p><p>NOTE: Suspendable flow operations such as send, receive, subFlow and sleep, cannot be called within the lambda.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>block</code> - a lambda function with access to an EntityManager.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="registerUnloadHandler(kotlin.jvm.functions.Function0)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>registerUnloadHandler</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a> <a href=ServiceHub.html#registerUnloadHandler(kotlin.jvm.functions.Function0)>registerUnloadHandler</a>(Function0&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html>Unit</a>&gt; runOnStop)</pre>
+                                        <div class="block"><p>Allows the registration of a callback that may inform services when the app is shutting down.</p><p>The intent is to allow the cleaning up of resources - e.g. releasing ports.</p><p>You should not rely on this to clean up executing flows - that's what quasar is for.</p><p>Please note that the shutdown handler is not guaranteed to be called. In production the node process may crash, be killed by the operating system and other forms of fatal termination may occur that result in this code never running. So you should use this functionality only for unit/integration testing or for code that can optimise this shutdown e.g. by cleaning up things that would otherwise trigger a slow recovery process next time the node starts.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getAppContext()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getAppContext</h4>
+                                        <pre class="methodSignature"> <a href=../cordapp/CordappContext.html>CordappContext</a> <a href=../../testing/node/MockServices.html#getAppContext()>getAppContext</a>()</pre>
+                                        <div class="block"><p>See <a href=../cordapp/CordappProvider.html#getAppContext()>CordappProvider.getAppContext</a></p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMetricsRegistry(java.lang.Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMetricsRegistry</h4>
+                                        <pre class="methodSignature"> abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=ServiceHub.html#getMetricsRegistry(java.lang.Class)>T</a> <a href=ServiceHub.html#getMetricsRegistry(java.lang.Class)>getMetricsRegistry</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=ServiceHub.html#getMetricsRegistry(java.lang.Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Provides metric registration and access to the metrics registry.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getVaultService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getVaultService</h4>
+                                        <pre class="methodSignature"> abstract <a href=services/VaultService.html>VaultService</a> <a href=ServiceHub.html#getVaultService()>getVaultService</a>()</pre>
+                                        <div class="block"><p>The vault service lets you observe, soft lock and add notes to states that involve you or are relevant to your node in some way. Additionally you may query and track states that correspond to various criteria.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getKeyManagementService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getKeyManagementService</h4>
+                                        <pre class="methodSignature"> abstract <a href=services/KeyManagementService.html>KeyManagementService</a> <a href=ServiceHub.html#getKeyManagementService()>getKeyManagementService</a>()</pre>
+                                        <div class="block"><p>The key management service is responsible for storing and using private keys to sign things. An implementation of this may, for example, call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p><p>You don't normally need to use this directly. If you have a <a href=../transactions/TransactionBuilder.html>TransactionBuilder</a> and wish to sign it to get a <a href=../transactions/SignedTransaction.html>SignedTransaction</a>, look at signInitialTransaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getContractUpgradeService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getContractUpgradeService</h4>
+                                        <pre class="methodSignature"> abstract <a href=services/ContractUpgradeService.html>ContractUpgradeService</a> <a href=ServiceHub.html#getContractUpgradeService()>getContractUpgradeService</a>()</pre>
+                                        <div class="block"><p>The <a href=services/ContractUpgradeService.html>ContractUpgradeService</a> is responsible for securely upgrading contract state objects according to a specified and mutually agreed (amongst participants) contract version.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getValidatedTransactions()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getValidatedTransactions</h4>
+                                        <pre class="methodSignature"> abstract <a href=services/TransactionStorage.html>TransactionStorage</a> <a href=ServiceHub.html#getValidatedTransactions()>getValidatedTransactions</a>()</pre>
+                                        <div class="block"><p>A map of hash-&gt;tx where tx has been signature/contract validated and the states are known to be correct. The signatures aren't technically needed after that point, but we keep them around so that we can relay the transaction data to other nodes that need it.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNetworkMapCache()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNetworkMapCache</h4>
+                                        <pre class="methodSignature"> abstract <a href=services/NetworkMapCache.html>NetworkMapCache</a> <a href=ServiceHub.html#getNetworkMapCache()>getNetworkMapCache</a>()</pre>
+                                        <div class="block"><p>A network map contains lists of nodes on the network along with information about their identity keys, services they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised with a specified network map service, which it fetches data from and then subscribes to updates of.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDiagnosticsService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDiagnosticsService</h4>
+                                        <pre class="methodSignature"> abstract <a href=services/diagnostics/DiagnosticsService.html>DiagnosticsService</a> <a href=ServiceHub.html#getDiagnosticsService()>getDiagnosticsService</a>()</pre>
+                                        <div class="block"><p>The <a href=services/diagnostics/DiagnosticsService.html>DiagnosticsService</a> provides diagnostic level information about the node, including the current version of the node, and the CorDapps currently installed on the node. Note that this information should be used to provide diagnostics only, and no functional decisions should be made based on this.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTelemetryService()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTelemetryService</h4>
+                                        <pre class="methodSignature"> abstract <a href=services/TelemetryService.html>TelemetryService</a> <a href=ServiceHub.html#getTelemetryService()>getTelemetryService</a>()</pre>
+                                        <div class="block"><p>Provides operations to support telemetry and telemetry data between nodes.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getClock()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getClock</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html>Clock</a> <a href=ServiceHub.html#getClock()>getClock</a>()</pre>
+                                        <div class="block"><p>A <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html>Clock</a> representing the node's current time. This should be used in preference to directly accessing the clock so the current time can be controlled during unit testing.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMyInfo()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMyInfo</h4>
+                                        <pre class="methodSignature"> abstract <a href=NodeInfo.html>NodeInfo</a> <a href=ServiceHub.html#getMyInfo()>getMyInfo</a>()</pre>
+                                        <div class="block"><p>The <a href=NodeInfo.html>NodeInfo</a> object corresponding to our own entry in the network map.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>

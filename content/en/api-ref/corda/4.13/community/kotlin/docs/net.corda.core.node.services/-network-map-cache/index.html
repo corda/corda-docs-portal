@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>NetworkMapCache</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>docs</span>
+            </a>
+    </div>
+    <div>
+4.13    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="docs::net.corda.core.node.services/NetworkMapCache///PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.core.node.services</a><span class="delimiter">/</span><span class="current">NetworkMapCache</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>Cache</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">NetworkMapCache</a> : <a href="../-network-map-cache-base/index.html">NetworkMapCacheBase</a></div><p class="paragraph">A network map contains lists of nodes on the network along with information about their identity keys, services they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised with a specified network map service, which it fetches data from and then subscribes to updates of.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1412250633%2FClasslikes%2F-367327816" anchor-label="MapChange" id="-1412250633%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-map-change/index.html"><span>Map</span><wbr></wbr><span><span>Change</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1412250633%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-map-change/index.html">MapChange</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1575832171%2FProperties%2F-367327816" anchor-label="allNodes" id="1575832171%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/all-nodes.html"><span>all</span><wbr></wbr><span><span>Nodes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1575832171%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="../-network-map-cache-base/all-nodes.html">allNodes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Return all <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a>s the node currently is aware of (including ourselves).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1597576821%2FProperties%2F-367327816" anchor-label="changed" id="-1597576821%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/changed.html"><span><span>changed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1597576821%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="../-network-map-cache-base/changed.html">changed</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-map-change/index.html">NetworkMapCache.MapChange</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Tracks changes to the network map cache.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-227041378%2FProperties%2F-367327816" anchor-label="nodeReady" id="-227041378%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/node-ready.html"><span>node</span><wbr></wbr><span><span>Ready</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-227041378%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="../-network-map-cache-base/node-ready.html">nodeReady</a><span class="token operator">: </span><a href="../../net.corda.core.concurrent/-corda-future/index.html">CordaFuture</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Void.html">Void</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Future to track completion of the NetworkMapService registration.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="341245610%2FProperties%2F-367327816" anchor-label="notaryIdentities" id="341245610%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/notary-identities.html"><span>notary</span><wbr></wbr><span><span>Identities</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="341245610%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="../-network-map-cache-base/notary-identities.html">notaryIdentities</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.identity/-party/index.html">Party</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">A list of notary services available on the network.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="2005073172%2FFunctions%2F-367327816" anchor-label="clearNetworkMapCache" id="2005073172%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/clear-network-map-cache.html"><span>clear</span><wbr></wbr><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>Cache</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2005073172%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/clear-network-map-cache.html"><span class="token function">clearNetworkMapCache</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Clear all network map data from local node cache.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-359522637%2FFunctions%2F-367327816" anchor-label="getNodeByAddress" id="-359522637%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-node-by-address.html"><span>get</span><wbr></wbr><span>Node</span><wbr></wbr><span>By</span><wbr></wbr><span><span>Address</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-359522637%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-node-by-address.html"><span class="token function">getNodeByAddress</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">address<span class="token operator">: </span><a href="../../net.corda.core.utilities/-network-host-and-port/index.html">NetworkHostAndPort</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Look up the node info for a host and port.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1829083527%2FFunctions%2F-367327816" anchor-label="getNodeByLegalIdentity" id="-1829083527%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-node-by-legal-identity.html"><span>get</span><wbr></wbr><span>Node</span><wbr></wbr><span>By</span><wbr></wbr><span>Legal</span><wbr></wbr><span><span>Identity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1829083527%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-node-by-legal-identity.html"><span class="token function">getNodeByLegalIdentity</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">party<span class="token operator">: </span><a href="../../net.corda.core.identity/-abstract-party/index.html">AbstractParty</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Look up the node info for a specific party. Will attempt to de-anonymise the party if applicable; if the party is anonymised and the well known party cannot be resolved, it is impossible ot identify the node and therefore this returns null. Notice that when there are more than one node for a given party (in case of distributed services) first service node found will be returned. See also: <span data-unresolved-link="net.corda.core.node.services/NetworkMapCache/getNodesByLegalIdentityKey/#java.security.PublicKey/PointingToDeclaration/">NetworkMapCache.getNodesByLegalIdentityKey</span>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1164000750%2FFunctions%2F-367327816" anchor-label="getNodeByLegalName" id="1164000750%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-node-by-legal-name.html"><span>get</span><wbr></wbr><span>Node</span><wbr></wbr><span>By</span><wbr></wbr><span>Legal</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1164000750%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-node-by-legal-name.html"><span class="token function">getNodeByLegalName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Return a <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a> which has the given legal name for one of its identities, or null if no such node is found.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="481397197%2FFunctions%2F-367327816" anchor-label="getNodesByLegalIdentityKey" id="481397197%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-nodes-by-legal-identity-key.html"><span>get</span><wbr></wbr><span>Nodes</span><wbr></wbr><span>By</span><wbr></wbr><span>Legal</span><wbr></wbr><span>Identity</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="481397197%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-nodes-by-legal-identity-key.html"><span class="token function">getNodesByLegalIdentityKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">identityKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Look up the node information entries for a specific identity key. Note that normally there will be only one node for a key, but for clusters of nodes or distributed services there can be multiple nodes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1611481863%2FFunctions%2F-367327816" anchor-label="getNodesByLegalName" id="1611481863%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-nodes-by-legal-name.html"><span>get</span><wbr></wbr><span>Nodes</span><wbr></wbr><span>By</span><wbr></wbr><span>Legal</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1611481863%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-nodes-by-legal-name.html"><span class="token function">getNodesByLegalName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Return a list of <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a>s which have the given legal name for one of their identities, or an empty list if no such nodes are found.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1151710688%2FFunctions%2F-367327816" anchor-label="getNotary" id="-1151710688%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-notary.html"><span>get</span><wbr></wbr><span><span>Notary</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1151710688%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-notary.html"><span class="token function">getNotary</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Look up a well known identity of notary by legal name.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="111089148%2FFunctions%2F-367327816" anchor-label="getPartyInfo" id="111089148%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-party-info.html"><span>get</span><wbr></wbr><span>Party</span><wbr></wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="111089148%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-party-info.html"><span class="token function">getPartyInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">party<span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-party-info/index.html">PartyInfo</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns information about the party, which may be a specific node or a service</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1031882382%2FFunctions%2F-367327816" anchor-label="getPeerByLegalName" id="1031882382%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-peer-by-legal-name.html"><span>get</span><wbr></wbr><span>Peer</span><wbr></wbr><span>By</span><wbr></wbr><span>Legal</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1031882382%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-peer-by-legal-name.html"><span class="token function">getPeerByLegalName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Look up the well known identity of a legal name. This should be used in preference to well known identity lookup in the identity service where possible, as the network map is the authoritative source of well known identities.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1489258083%2FFunctions%2F-367327816" anchor-label="getPeerCertificateByLegalName" id="1489258083%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/get-peer-certificate-by-legal-name.html"><span>get</span><wbr></wbr><span>Peer</span><wbr></wbr><span>Certificate</span><wbr></wbr><span>By</span><wbr></wbr><span>Legal</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1489258083%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/get-peer-certificate-by-legal-name.html"><span class="token function">getPeerCertificateByLegalName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="../../net.corda.core.identity/-corda-x500-name/index.html">CordaX500Name</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html">PartyAndCertificate</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Look up a well known identity (including certificate path) of a legal name. This should be used in preference to well known identity lookup in the identity service where possible, as the network map is the authoritative source of well known identities.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="148211389%2FFunctions%2F-367327816" anchor-label="isNotary" id="148211389%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/is-notary.html"><span>is</span><wbr></wbr><span><span>Notary</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="148211389%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/is-notary.html"><span class="token function">isNotary</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">party<span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true if and only if the given <a href="../../net.corda.core.identity/-party/index.html">Party</a> is a notary, which is defined by the network parameters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1759370672%2FFunctions%2F-367327816" anchor-label="isValidatingNotary" id="1759370672%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/is-validating-notary.html"><span>is</span><wbr></wbr><span>Validating</span><wbr></wbr><span><span>Notary</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1759370672%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/is-validating-notary.html"><span class="token function">isValidatingNotary</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">party<span class="token operator">: </span><a href="../../net.corda.core.identity/-party/index.html">Party</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true if and only if the given <a href="../../net.corda.core.identity/-party/index.html">Party</a> is validating notary. For every party that is a validating notary, <a href="../-network-map-cache-base/is-notary.html">isNotary</a> is also true.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1179665580%2FFunctions%2F-367327816" anchor-label="track" id="-1179665580%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-network-map-cache-base/track.html"><span><span>track</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1179665580%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-network-map-cache-base/track.html"><span class="token function">track</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.core.messaging/-data-feed/index.html">DataFeed</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="-map-change/index.html">NetworkMapCache.MapChange</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Atomically get the current party nodes and a stream of updates. Note that the Observable buffers updates until the first subscriber is registered so as to avoid racing with early updates.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
