@@ -20,33 +20,37 @@ tags:
 
 # Corda Open Source Edition 4.13 release notes
 
-The Corda Open Source Edition 4.13 release ...
+The Corda Open Source Edition 4.13 release introduces new functionality and third-party component upgrades.
 
+## Upgrade recommendation
 
-### Upgrade recommendation
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
-
-The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 and below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
-
-### Platform version change
+## Platform version change
 
 Corda 4.13 uses platform version 150.
 
 For more information about platform versions, see [Versioning]({{< relref "versioning.md" >}}).
 
-### New features, enhancements and restrictions
+## New features, enhancements and restrictions
 
-- The transaction hierarchy, [FinalityFlow]({{< relref "api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
-- The RPC clients (CordaRPCClient, RPCClient, and MultiRPCClient) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.  
+### Notary change flow
+
+The transaction hierarchy, [FinalityFlow]({{< relref "api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
+
+### RPC thread pool
+
+The RPC clients (CordaRPCClient, RPCClient, and MultiRPCClient) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.  
  
-### Fixed issues
+## Fixed issues
  
-### Known issues
+## Known issues
 
-### Third party component upgrades
+## Third-party component upgrades
 
-The following table lists the dependency version changes between 4.11 and 4.12 Open Source Editions:
+The following table lists the dependency version changes between 4.12 and 4.13 Open Source Editions:
+
+**TO BE UPDATED**
 
 | Dependency                                     | Name                   | Version 4.11 Open Source  | Version 4.13 Open Source |
 |------------------------------------------------|------------------------|---------------------------|------------------------- |
