@@ -1,19 +1,26 @@
 {{/*
   Usage:
-  {{< cenmlatestrelref "my-page.md" "Link text" "1.2.3" >}}
+  {{< cenmlatestrelref "cenm/angel-service.md" "Link text" "1.2.3" >}}
 
   Arguments:
-    0 = target page path (e.g. "my-page.md"), relative to the CEMM version folder. For example, for "content\en\platform\corda\{latest_version}\cenm\angel-service.md, specify "cenm\angel-service.md"
-    1 = link text (currently this is NOT optional; in future, will default to title of target page)
-    2 = version (optional: defaults to latest version from the cenmversions parameter list)
-
+    0 = target page path (e.g. "cenm/angel-service" or "cenm/angel-service.md"), relative to the CENM version folder
+    1 = link text
+    2 = version (optional; defaults to latest from site.Params.cenmversions)
 */}}
 
-
-{{- $target := .Get 0 -}}
-{{- $text := .Get 1  -}}
+{{- $rawTarget := .Get 0 -}}
+{{- $text := .Get 1 -}}
 {{- $version := .Get 2 | default (replace (index .Site.Params.cenmversions 0) "CENM " "") -}}
-{{- $combined := printf "/content/en/platform/corda/%s/%s" $version $target -}}
-{{- $rel := $combined | relref . -}}
 
-<a href="{{ $rel }}">{{ $text }}</a>
+{{/* Normalize path: replace backslashes, strip .md if present */}}
+{{- $target := replace $rawTarget "\\" "/" -}}
+{{- $target = strings.TrimSuffix ".md" $target -}}
+
+{{/* Final relative path from content root */}}
+{{- $relPath := printf "en/platform/corda/%s/%s" $version $target -}}
+
+{{- with $rel := $relPath | relref . -}}
+  <a href="{{ $rel }}">{{ $text }}</a>
+{{- else -}}
+  <span style="color:red;">Link not found: {{ $relPath }}</span>
+{{- end }}
