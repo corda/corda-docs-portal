@@ -87,7 +87,7 @@ For example, if you use Gradle Shadow plugin, you need to use the relevant trans
 
 https://gradleup.com/shadow/configuration/merging/#merging-log4j2-plugin-cache-files-log4j2pluginsdat
 
-### CENM Compatibility
+### CENM compatibility
 
 Except for exceptions stated in CENM release notes, this version of Corda is compatible with all currently released versions of CENM.
 
