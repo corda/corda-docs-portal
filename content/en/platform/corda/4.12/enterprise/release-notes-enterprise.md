@@ -35,6 +35,10 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation
 
+### CENM Compatibility
+
+Except for exceptions stated in CENM release notes, this version of Corda is compatible with all currently released versions of CENM.
+
 ### Fixed issues
 
 - Fixed an issue where the Transaction Builder was ignoring a missing class name with dots in the NoClassDefFoundError. Class names in this class can now be handled using either dots or slashes. <!-- ENT-14431 -->
