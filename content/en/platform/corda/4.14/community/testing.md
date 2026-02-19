@@ -5,9 +5,9 @@ aliases:
 - /testing.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-testing
-    parent: corda-community-4-13-contributing-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-testing
+    parent: corda-community-4.14-contributing-index
     weight: 1040
 tags:
 - testing
@@ -52,7 +52,7 @@ These tests are mostly written with JUnit and can be run via `gradle`:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   
+
 
 Before creating a pull request please make sure these pass.
 

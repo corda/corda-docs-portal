@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-operating-db
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-operating-db
 tags:
 - tool
 - database

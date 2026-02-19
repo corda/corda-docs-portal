@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-tutorial-custom-notary
-    parent: corda-community-4-13-supplementary-tutorials-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-tutorial-custom-notary
+    parent: corda-community-4.14-supplementary-tutorials-index
     weight: 210
 tags:
 - tutorial
@@ -48,7 +48,7 @@ class MyCustomValidatingNotaryService(
 
 ```
 
-[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.13/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
+[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.14/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
 
 ## Writing a flow for the custom notary service
 
@@ -91,7 +91,7 @@ class MyValidatingNotaryFlow(otherSide: FlowSession, service: MyCustomValidating
 
 ```
 
-[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.13/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
+[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.14/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
 
 ## Updating the node configuration
 
@@ -121,6 +121,6 @@ To create a flow test that uses your custom notary service, you can set the clas
 
 ```
 
-[CustomNotaryTest.kt](https://github.com/corda/corda/blob/release/os/4.13/testing/node-driver/src/test/kotlin/net/corda/testing/node/CustomNotaryTest.kt)
+[CustomNotaryTest.kt](https://github.com/corda/corda/blob/release/os/4.14/testing/node-driver/src/test/kotlin/net/corda/testing/node/CustomNotaryTest.kt)
 
 After this, your custom notary will be the default notary on the mock network, and can be used in the same way as described in [Write integration tests]({{< relref "../build-basic-cordapp/basic-cordapp-unit-testing.md" >}}).

@@ -5,9 +5,9 @@ aliases:
 - /upgrading-cordapps.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-upgrading-cordapps
-    parent: corda-community-4-13-versioning-and-upgrades
+  corda-community-4.14:
+    identifier: corda-community-4.14-upgrading-cordapps
+    parent: corda-community-4.14-versioning-and-upgrades
     weight: 1030
 tags:
 - upgrading

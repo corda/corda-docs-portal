@@ -1,7 +1,7 @@
 ---
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes
 tags:
 - authentication
 - auth
@@ -45,15 +45,15 @@ The Docker image contains an empty plugins folder: `/opt/authsvc/plugins`. When 
 
 Environment variables:
 
-* **INITIAL_ADMIN_USERNAME:** 
+* **INITIAL_ADMIN_USERNAME:**
   Initial user name, defaults to `admin`
-* **INITIAL_ADMIN_PASSWORD:** 
+* **INITIAL_ADMIN_PASSWORD:**
   Initial user password, defaults to `password`
-* **CONFIG_FILE_LOCATION:** 
-  Location of the configuration file, defaults to `/usr/auth/auth.conf`. 
+* **CONFIG_FILE_LOCATION:**
+  Location of the configuration file, defaults to `/usr/auth/auth.conf`.
   To use the default setting, the config file should be mounted under `/usr/auth`
-* **ADDITIONAL_ARGUMENTS:** 
-  Additional command line args passed to the service; 
+* **ADDITIONAL_ARGUMENTS:**
+  Additional command line args passed to the service;
   defaults to "--verbose"
 
 
@@ -72,7 +72,7 @@ Before you can configure the Auth Service, you need to prepare SSL certificates,
 2. Generate a JWT signing key (RSA keypair) in a `.jks` file with the following command-line command:
 `keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass`.
 3. Ensure you have the CENM baseline JAR file `accounts-baseline-cenm-<VERSION>.jar` that contains the set
-of available permissions and predefined roles. 
+of available permissions and predefined roles.
 4. Copy this file to a directory called `plugins`, located inside the working directory.
 
 ## Configuring the Auth Service

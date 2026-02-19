@@ -5,9 +5,9 @@ aliases:
 - /api-flows.html
 date: '2021-08-12'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-api-flows
-    parent: corda-community-4-13-corda-api
+  corda-community-4.14:
+    identifier: corda-community-4.14-api-flows
+    parent: corda-community-4.14-corda-api
     weight: 220
 tags:
 - api
@@ -127,7 +127,7 @@ The transaction is now part of the ledger.
 ## The `FlowLogic` class
 
 You can implement flows as one or more communicating `FlowLogic` subclasses. The `FlowLogic`
-subclass’s constructor can take any number of arguments of any type. The generic `FlowLogic` (for example, 
+subclass’s constructor can take any number of arguments of any type. The generic `FlowLogic` (for example,
 `FlowLogic<SignedTransaction>`) indicates the flow’s return type.
 
 {{< tabs name="tabs-1" >}}

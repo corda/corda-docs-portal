@@ -1,9 +1,9 @@
 ---
 date: '2023-01-09'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-open-telemetry
-    parent: corda-community-4-13-corda-nodes-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-open-telemetry
+    parent: corda-community-4.14-corda-nodes-index
     weight: 1250
 title: OpenTelemetry
 ---
@@ -35,7 +35,7 @@ There are two ways to make the OpenTelemetry SDK available to the Corda node:
 
 To use the OpenTelemetry driver:
 
-* Copy `corda-opentelemetry-driver-%VERSION%.jar` to the drivers directory of the Corda node. 
+* Copy `corda-opentelemetry-driver-%VERSION%.jar` to the drivers directory of the Corda node.
 
 This driver can be downloaded from Maven and is included in the release pack
 

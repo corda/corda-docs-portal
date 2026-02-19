@@ -1,8 +1,8 @@
 ---
 date: '2020-12-11T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-networks
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-networks
 tags:
 - corda
 - networks
@@ -75,7 +75,7 @@ To download and install the Business Network Membership Management extension:
       - [BNE workflows](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-workflows/1.1.2/business-networks-workflows-1.1.2.jar)
       - [Sample CorDapp contracts](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-demo-contracts/1.1.2/business-networks-demo-contracts-1.1.2.jar)
       - [Sample CorDapp workflows](https://download.corda.net/maven/corda-releases/net/corda/bn/business-networks-demo-workflows/1.1.2/business-networks-demo-workflows-1.1.2.jar)
-   
+
 
 2. Add the `business-networks-contracts` dependency to your **contracts** (and states) CorDapp module:
 
@@ -86,7 +86,7 @@ To download and install the Business Network Membership Management extension:
        //...
    }
    ```
-   
+
 3. Add the `business-networks-workflows` dependency to your **workflows** CorDapp module:
 
    ```
@@ -175,11 +175,11 @@ To create a new business network group:
 When modifying a group, you must ensure that any member who is removed from the group is still part of at least one business network group; otherwise, they will no longer be discoverable.
 {{< /note >}}
 
-Use `ModifyGroupFlow` to update the name of a group and/or its list of members. 
+Use `ModifyGroupFlow` to update the name of a group and/or its list of members.
 
 To modify a group:
 
-1. Run `ModifyGroupFlow` with the following arguments: 
+1. Run `ModifyGroupFlow` with the following arguments:
 
    - `groupId`: ID of group to be modified.
    - `name`: New name of the modified group. At least one of the *name* or *participants* arguments must be provided.
@@ -225,7 +225,7 @@ You can onboard new members to your business network using any one of the follow
 
 Onboarding new members with a prior request is a two-part process:
 
-- **[Part 1:](#part-1-prospective-member-sends-membership-request)** The prospective member first sends a request to join the business network. 
+- **[Part 1:](#part-1-prospective-member-sends-membership-request)** The prospective member first sends a request to join the business network.
 - **[Part 2:](#part-2-authorised-network-member-activates-new-membership)** The request is then approved by the relevant parties and the member is added.
 
 #### Part 1: Prospective member sends membership request
@@ -440,7 +440,7 @@ To update a member's roles and permissions in the business network:
 
    subFlow(ModifyRolesFlow(membershipId, roles, notary))
    ```
-   
+
 2. All network members with sufficient permissions approve the proposed change.
 
 Note there are two additional flows that can be used to quickly assign roles to a membership: `AssignBNORoleFlow` and `AssignMemberRoleFlow`. They both share the same arguments:
@@ -458,9 +458,9 @@ To suspend a member of the network:
 
    - `membershipId`: ID of the membership to be suspended.
    - `notary`: Identity of the notary to be used for transactions notarisation. If not specified, the first one from the whitelist will be used.
-   
+
    For example:
-   
+
    ```kotlin
    val notary = serviceHub.networkMapCache.notaryIdentities.first())
    val memberToBeSuspended = ... // get the linear ID of the membership state associated with the Party which is being suspended from the network
@@ -475,9 +475,9 @@ To revoke membership completely:
 
    - `membershipId`: ID of the membership to be revoked.
    - `notary`: Identity of the notary to be used for transactions notarisation. If not specified, the first one from the whitelist will be used.
-   
+
    For example:
-   
+
    ```kotlin
    val notary = serviceHub.networkMapCache.notaryIdentities.first())
    val memberToBeRevoked = ... // get the linear ID of the membership state associated with the Party which is being removed from the network
@@ -529,7 +529,7 @@ To create a request to change membership attributes:
    // Request creation
    subFlow(RequestMembershipAttributeChangeFlow(authorisedParty, networkId, updatedIdentity, updatedRoles, notary))
    ```
-   
+
 ### Approving membership attribute change requests
 
 To approve a request to change membership attributes:
@@ -572,7 +572,7 @@ To decline a request to change membership attributes:
 You can delete membership attribute change requests to remove them from the database.
 
 To delete a membership attribute change request:
- 
+
 -  Run `DeleteMembershipAttributeChangeRequestFlow` with the following attributes:
 
    - `requestId`: The ID of the request which needs to be consumed.
@@ -646,7 +646,7 @@ subflow(UpdateCordaIdentityFlow(updatedMember, notary))
 
 ## Business network management demo
 
-This [demo](https://github.com/corda/bn-extension) showcases the integration of business networks inside a CorDapp designed for issuing and settling loans between banks. It 
+This [demo](https://github.com/corda/bn-extension) showcases the integration of business networks inside a CorDapp designed for issuing and settling loans between banks. It
 creates four nodes: a notary and three nodes representing banks. Each bank node must be an active member of the same business network, have a Swift Business Identifier Code (BIC) as their business identity, and loan issuance initiators must be granted permission to do so.
 
 ### Flow types
@@ -692,26 +692,26 @@ Next steps are same for every OS (Windows/Mac/Linux).
 1. Create a business network from *Bank A* node:
 
    `flow start CreateBusinessNetworkFlow`
-   
+
 2. Obtain network ID and initial group ID from *Bank A*:
 
-   `run vaultQuery contractStateType: net.corda.core.contracts.ContractState` 
-   
+   `run vaultQuery contractStateType: net.corda.core.contracts.ContractState`
+
    `MembershipState` and `GroupState` are issued containing the relevant information.
 3. Request membership from *Bank B* and *Bank C* nodes:
 
    `flow start RequestMembershipFlow authorisedParty: Bank A, networkId: <OBTAINED_NETWORK_ID>, businessIdentity: null, notary: null`
-   
+
 4. Obtain requested membership IDs for *Bank B* and *Bank C*; on *Bank A* node, run:
 
    `run vaultQuery contractStateType: net.corda.core.contracts.ContractState`
-   
+
    Then look into `linearId` of the newly-issued `MembershipState`s.
 
 5. Activate *Bank B* and *Bank C* membership requests from *Bank A* node; for each requested membership, run:
 
    `flow start ActivateMembershipFlow membershipId: <LINEAR_ID>, notary: null`
-   
+
 6. Add newly activated *Bank B* and *Bank C* members into initial group; on *Bank A* node, run:
 
    `flow start ModifyGroupFlow groupId: <OBTAINED_GROUP_ID>, name: null, participants: [<BANK_A_ID>, <BANK_B_ID>, <BANK_C_ID>], notary: null`
@@ -719,9 +719,9 @@ Next steps are same for every OS (Windows/Mac/Linux).
 7. Assign BIC to each of the three bank nodes; from *Bank A* node run:
 
    `flow start AssignBICFlow membershipId: <LINEAR_ID>, bic: <STRING>, notary: null`
-   
+
    Examples of a valid BIC are "BANKGB00", "CHASUS33XXX".
-   
+
 8. Assign the Loan Issuer role to *Bank A*; from *Bank A* node, run:
 
    `flow start AssignLoanIssuerRoleFlow networkId: <OBTAINED_NETWORK_ID>, notary: null`

@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-operating-db
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-operating-db
 tags:
 - node
 - database
@@ -62,7 +62,7 @@ The scripts and node configuration snippets contain placeholder values:
 - *my_login* for login
 - *my_user*/*my_admin_user* for users
 - *my_password* for password
-- *my_schema* for the schema name 
+- *my_schema* for the schema name
 
 These values are for illustrative purposes only: replace them with actual values configured for your environment(s).
 
@@ -132,7 +132,7 @@ For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with 
    CREATE USER my_user FOR LOGIN my_login;
    ```
 
-   By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols. 
+   By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols.
    For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
 
    You can create schemas for several Corda nodes within the same database (*my_database*),

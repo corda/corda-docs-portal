@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-vault.html
 date: '2023-02-01'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-key-concepts-vault
-    parent: corda-enterprise-key-concepts-4-13
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-key-concepts-vault
+    parent: corda-enterprise-key-concepts-4.14
     weight: 1090
 tags:
 - concepts
@@ -59,7 +59,7 @@ You can see:
 * Transaction recording flows use a vault update API internally.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
-## The Archive 
+## The Archive
 
 To prevent a node database from becoming too large, you can use the Archive service to remove all but the minimum required data relating to consumed transactions. If you plan your CorDapp design accordingly, you can ensure that your spent states are moved to the archive regularly. By using the archive, your vault does not get weighed down by the full backchain data, but retains the essential information to maintain ledger integrity.
 
@@ -114,7 +114,7 @@ query soft locks associated with states as required by their CorDapp application
 
 ```
 
-[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 
 ### Querying the vault with `SoftLockingCondition`
@@ -135,7 +135,7 @@ By default, vault queries always include locked states in its result sets. Custo
 
 ```
 
-[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
+[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 
 ### Explicit usage

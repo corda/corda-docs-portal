@@ -1,9 +1,9 @@
 ---
 date: '2020-06-16T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-operations-guide-deployment-firewall
-    parent: corda-enterprise-4-13-operations-guide-deployment
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-operations-guide-deployment-firewall
+    parent: corda-enterprise-4.14-operations-guide-deployment
     name: "Deploying the Corda Firewall"
 tags:
 - operations
@@ -93,7 +93,7 @@ The particular mode is selected via the required `firewallMode` configuration pr
 
 - **SenderReceiver:** Selects a single process firewall solution to isolate the node and Artemis broker from direct Internet contact.
 It is still assumed that the firewall process is behind a firewall, but both the message sending and receiving paths will pass via the `bridge`.
-In this mode the `outboundConfig` and `inboundConfig` configuration sections of `firewall.conf` must be provided, while 
+In this mode the `outboundConfig` and `inboundConfig` configuration sections of `firewall.conf` must be provided, while
 the `bridgeInnerConfig` and `floatOuterConfig` sections should not be present.
 - **BridgeInner:** Runs this instance of the `corda-firewall.jar` as the trusted portion of the peer-to-peer firewall float.
 Specifically, this process runs the complete outbound message processing. For the inbound path it operates only the filtering and durable storing portions of the message processing.
@@ -147,7 +147,7 @@ as well as no proxy at all. For more information please see [proxyConfig]({{< re
 
 ### Keystores generation
 
-A special tool was created to simplify generation of the keystores. For more information, see [HA Utilities]({{< relref "../../ha-utilities.md" >}}). 
+A special tool was created to simplify generation of the keystores. For more information, see [HA Utilities]({{< relref "../../ha-utilities.md" >}}).
 This section explains how to generate a number of internally used keystores. Commands below can be executed on any machine as long as it will
 be easy enough to copy results to the other machines including DMZ hosts.
 

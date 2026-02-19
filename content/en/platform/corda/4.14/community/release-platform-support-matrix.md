@@ -2,9 +2,9 @@
 title: Platform support matrix
 date: '2021-07-02'
 menu:
-  corda-community-4-13:
+  corda-community-4.14:
     identifier: community-platform-support-matrix
-    parent: about-corda-landing-4-13-community
+    parent: about-corda-landing-4.14-community
     weight: 450
 ---
 
@@ -17,7 +17,7 @@ Production use of Corda Open Source 4.12 is only supported on Linux OS, see deta
 
 ## Network management
 
-The Open Source Edition of Corda does not come with network management support included. 
+The Open Source Edition of Corda does not come with network management support included.
 
 If you require network management, you can consider using the [Network Map service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
 

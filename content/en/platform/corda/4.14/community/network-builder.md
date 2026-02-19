@@ -5,9 +5,9 @@ aliases:
 - /network-builder.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-network-builder
-    parent: corda-community-4-13-tools-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-network-builder
+    parent: corda-community-4.14-tools-index
     weight: 1010
 tags:
 - network
@@ -24,7 +24,7 @@ containers to abstract the complexity of managing a distributed network away fro
 {{< figure alt="network builder v4" width=80% zoom="/en/images/network-builder-v4.png" >}}
 The network you build will either be made up of local `Docker` nodes *or* of nodes spread across Azure
 containers.
-For each node, a separate Docker image is built based on [corda/community:4.13-zulu-openjdk](https://hub.docker.com/layers/corda/open-source/4.13-zulu-openjdk/images/sha256-2f069280eb776569679b02efacab6032235aeeb2de41779e790317d22e6d5104).
+For each node, a separate Docker image is built based on [corda/community:4.14-zulu-openjdk](https://hub.docker.com/layers/corda/open-source/4.14-zulu-openjdk/images/sha256-2f069280eb776569679b02efacab6032235aeeb2de41779e790317d22e6d5104).
 Unlike the official image, a *node.conf* file and CorDapps are embedded into the image
 (they are not externally provided to the running container via volumes/mount points).
 More backends may be added in future. The tool is open source, so contributions to add more
@@ -50,11 +50,11 @@ the following layout:
  -- cordapps/
 ```
 
-An easy way to build a valid set of nodes is by running `deployNodes`. In this document, we will be using the output of running `deployNodes` for the [Java samples repository](https://github.com/corda/samples-java/tree/release/4.13).
+An easy way to build a valid set of nodes is by running `deployNodes`. In this document, we will be using the output of running `deployNodes` for the [Java samples repository](https://github.com/corda/samples-java/tree/release/4.14).
 
 Run the following commands:
 
-1 `git clone https://github.com/corda/samples-java/tree/release/4.13`
+1 `git clone https://github.com/corda/samples-java/tree/release/4.14`
 2 `cd samples-java/Basic/cordapp-example`
 3 `./gradlew clean workflows-java:deployNodes`
 
@@ -124,7 +124,7 @@ Useful commands include 'help' to see what is available, and 'bye' to shut down 
 >>>
 ```
 
-You can also run a flow from `cordapp-example`: 
+You can also run a flow from `cordapp-example`:
 
 - `flow start net.corda.samples.example.flows.ExampleFlow$Initiator iouValue: 20, otherParty: "PartyB"`
 

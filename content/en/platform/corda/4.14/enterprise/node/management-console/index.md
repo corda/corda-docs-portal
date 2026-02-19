@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes
 tags:
 - node
 - administration
@@ -192,7 +192,7 @@ If you do not have permission to perform this action and you click the tab, a me
 ### Further information
 
 * The CorDapp fields are retrieved as a `CordappInfo` object from the Corda API.
-    * View the [API documentation](../../../../../../../en/api-ref/corda/4.13/community/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
+    * View the [API documentation](../../../../../../../en/api-ref/corda/4.14/community/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
 
 ## Viewing available drivers
 
@@ -275,7 +275,7 @@ If you do not have permission to perform these actions:
 
 ### Further information
 * The Status fields are retrieved as a `NodeDiagnosticInfo` object from the Corda API.
-    * View the [API documentation](../../../../../../../en/api-ref/corda/4.13/community/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
+    * View the [API documentation](../../../../../../../en/api-ref/corda/4.14/community/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
 * The calls to gracefully stop or kill a node, or to toggle drainage mode:
     * Make a REST call to the Node Management REST service.
     * The REST service connects to the node via a `CordaRPCService` connection to execute the command.

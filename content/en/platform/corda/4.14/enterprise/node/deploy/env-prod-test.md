@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-deploying
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-deploying
 tags:
 - env
 - prod
@@ -102,7 +102,7 @@ You can find examples of configuration files [available here]({{< relref "../cor
 2. In the root of your node directory, create a folder called `/certificates`.
 3. The network operator will provide you with a `network-root-truststore.jks` which will be used for authentication during initial registration.
 4. Upload the `network-root-truststore.jks` file to this directory.
-5. In the root of your node directory, create a folder called `cordapps`.  
+5. In the root of your node directory, create a folder called `cordapps`.
 6. Upload your CorDapps to this folder.
 
 Once your node has been started, it will contain the following files and directories:

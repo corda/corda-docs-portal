@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-networks
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-networks
 tags:
 - setting
 - dynamic
@@ -28,7 +28,7 @@ this may sound appealing, think twice before going down this route:
 If testing a CorDapp, then creating a production-ready zone is not necessary. You can use the Network Bootstrapper
 tool to create all the certificates, keys, and distribute the needed map files to run many nodes. The Network Bootstrapper can
 create a network locally on your desktop/laptop, but it also can automate cloud providers via their APIs and
-using Docker. 
+using Docker.
 
 This way, you can bring up a simulation of a real Corda network with different nodes on different
 machines in the cloud for your own testing. Testing this way has several advantages, most obviously that you avoid
@@ -183,7 +183,7 @@ signedParams.open().copyTo(Paths.get("/some/path"))
 
 {{< /tabs >}}
 
-Each individual parameter is documented in [the JavaDocs/KDocs for the NetworkParameters class](../../../../../../en/api-ref/corda/4.13/community/kotlin/corda/net.corda.core.node/-network-parameters/index.html). The network map
+Each individual parameter is documented in [the JavaDocs/KDocs for the NetworkParameters class](../../../../../../en/api-ref/corda/4.14/community/kotlin/corda/net.corda.core.node/-network-parameters/index.html). The network map
 certificate is usually chained off the root certificate, and can be created according to the instructions above. Each
 time the zone parameters are changed, the epoch should be incremented. Epochs are essentially version numbers for the
 parameters, and they therefore cannot go backwards. Once saved, the new parameters can be served by the network map server.

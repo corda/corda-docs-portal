@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-monitoring-logging
-    parent: corda-enterprise-4-13-corda-nodes-operating
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-monitoring-logging
+    parent: corda-enterprise-4.14-corda-nodes-operating
 tags:
 - monitoring
 - logging
@@ -80,7 +80,7 @@ Synchronous logging provides poorer node performance, but may be useful for deve
 1. Safely shut down the node.
 2. Open the `node.conf` configuration file.
 3. In the `jvmArgs` section, add:
-   
+
    `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector`.
 4. Save the `node.conf` file and restart the node.
 

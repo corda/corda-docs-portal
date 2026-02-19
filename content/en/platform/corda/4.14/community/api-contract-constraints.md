@@ -5,9 +5,9 @@ aliases:
 - /api-contract-constraints.html
 date: '2021-08-11'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-api-contract-constraints
-    parent: corda-community-4-13-corda-api
+  corda-community-4.14:
+    identifier: corda-community-4.14-api-contract-constraints
+    parent: corda-community-4.14-corda-api
     weight: 200
 tags:
 - api
@@ -59,7 +59,7 @@ You can use the following types of contract constraints:
 
 - **Signature constraints:** This constraint lets participants use any version of the CorDapp signed by the `CompositeKey`. This allows CorDapp issuers to express the complex social and business relationships that arise around code ownership. You could release a new version of a CorDapp and apply it to an existing state as long as it has been signed by the same key(s) as the original version.
 - **Always accept constraint:** Allows any version of the CorDapp. This is insecure and only intended for testing. Before signature constraints were released with Corda 4.0, constraints were managed with hash and compatibility zone whitelist constraints. These constraints are still available, but make it difficult to upgrade your CorDapp.
-- **Compatibility zone whitelisted (or CZ whitelisted) constraint:** The compatibility zone operator lists the hashes of the versions that can be used with a contract class name. 
+- **Compatibility zone whitelisted (or CZ whitelisted) constraint:** The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
 {{< note >}}
 Hash constraints were removed in Corda 4.12 for security reasons.

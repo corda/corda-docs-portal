@@ -5,9 +5,9 @@ aliases:
 - /writing-a-cordapp.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-writing-a-cordapp
-    parent: corda-community-4-13-building-a-cordapp-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-writing-a-cordapp
+    parent: corda-community-4.14-building-a-cordapp-index
     weight: 1050
 tags:
 - cordapp
@@ -47,8 +47,8 @@ transactions.
 
 You should base your project on one of the following templates:
 
-* [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.13) (for CorDapps written in Java)
-* [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.13) (for CorDapps written in Kotlin)
+* [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.14) (for CorDapps written in Java)
+* [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.14) (for CorDapps written in Kotlin)
 
 Please use the branch of the template that corresponds to the major version of Corda you are using. For example,
 someone building a CorDapp on Corda 4.8 should use the `release-V4` branch of the template.

@@ -1,9 +1,9 @@
 ---
 date: '2023-09-25'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-networks
-    identifier: corda-enterprise-4-13-corda-networks-parameters
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-networks
+    identifier: corda-enterprise-4.14-corda-networks-parameters
 tags:
 - network
 - map
@@ -14,7 +14,7 @@ weight: 35
 
 Network parameters are a set of values that every node participating in the zone needs to agree on and use to
 correctly interoperate with each other. They can be thought of as an encapsulation of all aspects of a Corda deployment
-on which reasonable people may disagree. 
+on which reasonable people may disagree.
 
 While other blockchain/DLT systems typically require a source code fork to
 alter various constants (such as the total number of coins in a cryptocurrency or the port numbers to use), in Corda we
@@ -26,7 +26,7 @@ at the same time.
 If the node is using the HTTP network map service, then on first startup it will:
 
 * Download the signed network parameters
-* Cache them to a `network-parameters` file 
+* Cache them to a `network-parameters` file
 * Apply them to the node
 
 

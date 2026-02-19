@@ -5,9 +5,9 @@ aliases:
 - /contributing.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-contributing
-    parent: corda-community-4-13-contributing-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-contributing
+    parent: corda-community-4.14-contributing-index
     weight: 1020
 tags:
 - contributing
@@ -133,7 +133,7 @@ the [Community Maintainers]({{< relref "contributing-philosophy.md#community-mai
     * Leave comments requesting changes via the GitHub PR interface.
 
 3. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
-4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.13/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
+4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.14/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
 
 ## Large contributions
 

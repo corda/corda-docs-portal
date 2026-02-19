@@ -5,9 +5,9 @@ aliases:
 - /financial-model.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-financial-model
-    parent: corda-community-4-13-component-library-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-financial-model
+    parent: corda-community-4.14-component-library-index
     weight: 1020
 tags:
 - financial
@@ -26,7 +26,7 @@ These provide a common language for states and contracts.
 
 ## Amount
 
-The [Amount](../../../../api-ref/corda/4.13/community/kotlin/corda/net.corda.core.contracts/-amount/index.html) class is used to represent an amount of
+The [Amount](../../../../api-ref/corda/4.14/community/kotlin/corda/net.corda.core.contracts/-amount/index.html) class is used to represent an amount of
 some fungible asset. It is a generic class which wraps around a type used to define the underlying product, called
 the *token*. For instance it can be the standard JDK type `Currency`, or an `Issued` instance, or this can be
 a more complex type such as an obligation contract issuance definition (which in turn contains a token definition

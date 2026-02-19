@@ -1,8 +1,8 @@
 ---
 date: '2025-10-20'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-configuring
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-configuring
 tags:
 - corda
 - configuration
@@ -28,9 +28,9 @@ It is possible to re-configure a node as read-only, with no ability to mutate da
 
 ## Making nodes real-only for scalable reporting solutions
 
-Using a read-only node can be a way to provide a scalable reporting solution. 
+Using a read-only node can be a way to provide a scalable reporting solution.
 
-One node handles transactions, while one node is dedicated to handling database queries for reporting purposes. The database for the reporting node is replicated to a read-only database replica, and the reporting node that queries the read-only database replica is set to be read-only. 
+One node handles transactions, while one node is dedicated to handling database queries for reporting purposes. The database for the reporting node is replicated to a read-only database replica, and the reporting node that queries the read-only database replica is set to be read-only.
 
 The purpose of this is so the database queries, which may take a long time, do not block the database transactions traffic; this might happen if only one node was used for transactions and for reporting. This scenario keeps reporting workloads fully segregated from transactional workloads, and is an easy route to getting additional scalability.
 
@@ -38,9 +38,9 @@ The purpose of this is so the database queries, which may take a long time, do n
 
 Read-only nodes have the following restrictions versus normal nodes:
 
-- A read-only node is not visible on the peer-to-peer network. 
+- A read-only node is not visible on the peer-to-peer network.
 - It does not open its related port.
-- It does not register on the network. 
+- It does not register on the network.
 - It does not advertise itself.
 - it does not get updates from the network.
 - All of its knowledge about the network and its participants comes from its configuration and database, as well as the network map cache.
@@ -97,10 +97,10 @@ Read-only nodes have the following functionalities disabled:
 To make a node read-only, perform the following steps:
 
 1. [Prepare the node database](#prepare-the-node-database)
-2. Either: 
+2. Either:
    - [Configure readOnlyMode to true]({{< relref "#configure-readonlymode-to-true" >}}), *or*
    - [Run the node in read-only mode from the CLI]({{< relref "#running-the-node-in-read-only-mode-from-cli" >}} )
-   
+
 ### Prepare the node database
 
 To make a node read-only, first its database must be preinitialised. This preinitialization can happen when:
@@ -132,7 +132,7 @@ enterpriseConfiguration {
     readOnlyMode=true
 }
 ```
-   
+
 ### Running the node in read-only mode from CLI
 
 Instead of changing the node configuration, you can start a node in read-only mode by using the `--readonly-mode` flag.

@@ -5,9 +5,9 @@ aliases:
 - /shell.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-shell
-    parent: corda-community-4-13-corda-nodes-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-shell
+    parent: corda-community-4.14-corda-nodes-index
     weight: 1110
 tags:
 - shell
@@ -232,8 +232,8 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](../../../../api-ref/corda/4.13/community/kotlin/docs/net.corda.core.messaging/-corda-r-p-c-ops/). 
- 
+[here](../../../../api-ref/corda/4.14/community/kotlin/docs/net.corda.core.messaging/-corda-r-p-c-ops/).
+
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
 #### Example command

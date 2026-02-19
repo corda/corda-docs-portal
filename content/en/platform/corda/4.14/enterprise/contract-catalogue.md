@@ -1,10 +1,10 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-contract-catalogue
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-contract-catalogue
     name: "Contract catalogue"
-    parent: corda-enterprise-4-13-component-library-index
+    parent: corda-enterprise-4.14-component-library-index
 tags:
 - contract
 - catalogue

@@ -1,17 +1,17 @@
 ---
 date: '2023-01-13'
 menu:
-  corda-community-4-13:
-    parent: tutorials-corda-4-13-community
+  corda-community-4.14:
+    parent: tutorials-corda-4.14-community
     name: Building your first basic CorDapp
     weight: 60
-    identifier: corda-community-4-13-tutorial-basic-cordapp-intro
+    identifier: corda-community-4.14-tutorial-basic-cordapp-intro
 title: Building your first basic CorDapp
 ---
 
 Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces [best practices for building CorDapps]({{< relref "../../../writing-a-cordapp.md" >}}).
 
-The solution for this CorDapp is available in [Java](https://github.com/corda/samples-java/tree/release/4.13/Basic/tutorial-applestamp) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Basic/tutorial-applestamp). This tutorial walks you through the Java version of the Apple Stamp CorDapp.
+The solution for this CorDapp is available in [Java](https://github.com/corda/samples-java/tree/release/4.14/Basic/tutorial-applestamp) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.14/Basic/tutorial-applestamp). This tutorial walks you through the Java version of the Apple Stamp CorDapp.
 
 ## Before you start
 

@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-event-scheduling
-    parent: corda-community-4-13-supplementary-tutorials-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-event-scheduling
+    parent: corda-community-4.14-supplementary-tutorials-index
     weight: 140
 tags:
 - event
@@ -75,7 +75,7 @@ encounter but which aren’t related to yourself will not have any activities sc
 
 ## Example
 
-Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/release/4.13/Features/schedulablestate-heartbeat)). The first task is to implement the
+Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.14/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/release/4.14/Features/schedulablestate-heartbeat)). The first task is to implement the
 `nextScheduledActivity` method on the `State`.
 
 {{< tabs name="tabs-1" >}}

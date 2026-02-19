@@ -1,9 +1,9 @@
 ---
 date: '2023-01-09'
 menu:
-  corda-enterprise-4-13:
-    identifier: "corda-enterprise-4-13-cordapp-upgrade"
-    parent: corda-enterprise-4-13-upgrading-menu
+  corda-enterprise-4.14:
+    identifier: "corda-enterprise-4.14-cordapp-upgrade"
+    parent: corda-enterprise-4.14-upgrading-menu
 tags:
 - app
 - upgrade
@@ -30,6 +30,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 {{< table >}}
 | Corda release | Platform version |
 |:--------------|:----------------|
+| 4.14          | 160             |
 | 4.13          | 150             |
 | 4.12          | 140             |
 | 4.11          | 13              |

@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-cordapps-flows
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-cordapps-flows
 tags:
 - flow
 - testing
@@ -60,7 +60,7 @@ class ResolveTransactionsFlowTest {
 
 ```
 
-[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.13/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.14/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
 
 We create a mock network in our `@Before` setup method and create a couple of nodes. We also record the identity
 of the notary in our test network, which will come in handy later. We also tidy up when we’re done.
@@ -83,7 +83,7 @@ Next, we write a test case:
 
 ```
 
-[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.13/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.14/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
 
 We’ll take a look at the `makeTransactions` function in a moment. For now, it’s enough to know that it returns two
 `SignedTransaction` objects, the second of which spends the first. Both transactions are known by MegaCorpNode but

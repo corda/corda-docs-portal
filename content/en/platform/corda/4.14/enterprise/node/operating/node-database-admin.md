@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-operating-db
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-operating-db
 tags:
 - node
 - database
@@ -105,14 +105,14 @@ is used (the Corda database management tool may not add a schema namespace prefi
    GRANT CREATE TABLE TO my_admin_user;
    GRANT CREATE VIEW TO my_admin_user;
    CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
-   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;                      
+   GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_user;
    ```
 
 
 
 ### SQL Server
 
-Two database users need to be created: 
+Two database users need to be created:
 - the first with administrative permissions to create schema objects
 - the second with restrictive permissions for a Corda node
 
@@ -724,7 +724,7 @@ database = {
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to the user.
 
-The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615). 
+The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
 Extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (the archive comes with two JARs) to the `drivers` directory.
 
 ### SQL Server

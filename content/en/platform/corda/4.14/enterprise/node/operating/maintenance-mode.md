@@ -1,10 +1,10 @@
 ---
 date: '2020-05-05T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-node-maintenance-mode
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-node-maintenance-mode
     name: "Node maintenance mode"
-    parent: corda-enterprise-4-13-corda-nodes-operating
+    parent: corda-enterprise-4.14-corda-nodes-operating
     weight: 7
 tags:
 - maintenance
@@ -50,7 +50,7 @@ enterpriseConfiguration {
 
 ### Configuring custom maintenance flows
 
-You can configure a single custom flow related to recovery to be run as part of node maintenance mode.  To do this, configure the `maintenanceCustomFlow` parameter, which must contain a single `flowName` parameter. 
+You can configure a single custom flow related to recovery to be run as part of node maintenance mode.  To do this, configure the `maintenanceCustomFlow` parameter, which must contain a single `flowName` parameter.
 
 Note that you cannot specify any parameters for the custom flow. However, the flow will work if it has a parameter or parameters that each have a default value.
 
@@ -71,7 +71,7 @@ enterpriseConfiguration {
 }
 ```
 
-Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the custom flow specified in `maintenanceCustomFlow` will not run. 
+Note that `maintenanceMode` must also be configured; if `maintenanceMode` is omitted from the configuration or empty, then the custom flow specified in `maintenanceCustomFlow` will not run.
 
 ### Node maintenance mode configuration parameters
 

@@ -1,7 +1,7 @@
 ---
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-operating
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-operating
 tags:
 - shell
 - node
@@ -50,7 +50,7 @@ To view the full code sample, see [NodeFlowStatusRpcOps.kt](../../resources/exte
 The Multi RPC Client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version.
 {{< /warning >}}
 
-For details of how to build a Multi RPC Client, see [Building a Multi RPC Client]({{< relref "clientrpc.md#building-the-multi-rpc-client" >}}). See also [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
+For details of how to build a Multi RPC Client, see [Building a Multi RPC Client]({{< relref "clientrpc.md#building-the-multi-rpc-client" >}}). See also [MultiRPCClient](../../../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
 
 ### Specifying the query criteria
 

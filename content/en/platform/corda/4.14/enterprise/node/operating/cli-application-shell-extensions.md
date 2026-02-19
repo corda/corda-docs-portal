@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-operating-interacting
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-operating-interacting
 tags:
 - cli
 - application
@@ -81,10 +81,10 @@ restart the shell or see [Installing shell extensions](#installing-shell-extensi
 
 |Description|Alias|JAR Name|
 |---------------------------------------------------------|------------------------------|----------------------------------------------------------|
-|[Corda node]({{< relref "../deploy/running-a-node.md#starting-a-corda-node-from-the-command-prompt" >}})|`corda --<option>`|`corda-4.13.jar`|
-|Network bootstrapper|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.13.jar`|
-|[Standalone shell]({{< relref "shell.md#the-standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4.13.jar`|
-|Blob inspector|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.13.jar`|
+|[Corda node]({{< relref "../deploy/running-a-node.md#starting-a-corda-node-from-the-command-prompt" >}})|`corda --<option>`|`corda-4.14.jar`|
+|Network bootstrapper|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.14.jar`|
+|[Standalone shell]({{< relref "shell.md#the-standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4.14.jar`|
+|Blob inspector|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.14.jar`|
 
 {{< /table >}}
 

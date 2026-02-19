@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-tutorial-attachments
-    parent: corda-enterprise-4-13-supplementary-tutorials-index
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-tutorial-attachments
+    parent: corda-enterprise-4.14-supplementary-tutorials-index
     weight: 170
 tags:
 - tutorial
@@ -165,7 +165,7 @@ The following system properties control the lookup logic:
 
 ## Example
 
-Here is a simple example of how to attach a file to a transaction and send it to the counterparty. The full code for this demo can be found in the [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Features/attachment-sendfile) and [Java](https://github.com/corda/samples-java/tree/release/4.13/Features/attachment-sendfile) sample repositories.
+Here is a simple example of how to attach a file to a transaction and send it to the counterparty. The full code for this demo can be found in the [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.14/Features/attachment-sendfile) and [Java](https://github.com/corda/samples-java/tree/release/4.14/Features/attachment-sendfile) sample repositories.
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="Kotlin" %}}

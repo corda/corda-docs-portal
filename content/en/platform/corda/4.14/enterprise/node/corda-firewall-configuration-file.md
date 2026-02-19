@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-corda-nodes-firewall-config
-    parent: corda-enterprise-4-13-corda-nodes-firewall
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-corda-nodes-firewall-config
+    parent: corda-enterprise-4.14-corda-nodes-firewall
 tags:
 - corda
 - firewall
@@ -269,7 +269,7 @@ Any CorDapps the node is meant to be working with should be installed into `cord
 
 #### Creating node configuration files
 
-Since there will be two distinct nodes serving two different legal entities they are meant to have two difference X.500 names, see the 
+Since there will be two distinct nodes serving two different legal entities they are meant to have two difference X.500 names, see the
 `myLegalName` field in the config files below.
 
 Also these two separate node may have different passwords to protected their keystore (`keyStorePassword`) and their trust store (`trustStorePassword`).

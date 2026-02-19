@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-cordapps
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-cordapps
 tags:
 - event
 - scheduling
@@ -109,7 +109,7 @@ for the interest rate before indicating an error.
 
 ## Example 2
 
-Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/release/4.13/Features/schedulablestate-heartbeat)). The first task is to implement the
+Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.14/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/release/4.14/Features/schedulablestate-heartbeat)). The first task is to implement the
 `nextScheduledActivity` method on the `State`.
 
 {{< tabs name="tabs-1" >}}

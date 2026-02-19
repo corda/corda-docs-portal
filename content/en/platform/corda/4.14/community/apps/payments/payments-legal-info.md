@@ -2,11 +2,11 @@
 title: "Corda Payments Legal Info"
 date: '2023-02-14'
 menu:
-  corda-community-4-13:
-    parent: payments-4-13-community
+  corda-community-4.14:
+    parent: payments-4.14-community
     weight: 600
     name: "Legal information"
-section_menu: corda-community-4-13
+section_menu: corda-community-4.14
 ---
 
 **Do not translate or localise.**

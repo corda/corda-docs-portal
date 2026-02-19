@@ -5,9 +5,9 @@ aliases:
 - /building-the-docs.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-building-the-docs
-    parent: corda-community-4-13-contributing-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-building-the-docs
+    parent: corda-community-4.14-contributing-index
     weight: 1060
 tags:
 - building
@@ -52,7 +52,7 @@ repository, make your changes, and submit a pull request targeting the `main` br
 The documentation for all released versions of Corda Open Source Edition, Corda Enterprise, Corda Enterprise Network Manager (CENM),
 and Corda 5 are organized in sub-directories, following the version and then the product flavor. For example:
 
-`../corda-docs-portal/content/en/platform/corda/4.13/community/`
+`../corda-docs-portal/content/en/platform/corda/4.14/community/`
 
 ## Editing web pages directly in Visual Studio Code
 

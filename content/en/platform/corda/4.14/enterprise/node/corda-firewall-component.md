@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-corda-nodes-firewall
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-corda-nodes-firewall
     name: "Corda Enterprise Firewall"
-    parent: corda-enterprise-4-13-corda-nodes
+    parent: corda-enterprise-4.14-corda-nodes
 tags:
 - corda
 - firewall
@@ -737,7 +737,7 @@ Historically, those private keys were stored in keystore files on local disk. De
 To address this requirement, Corda Firewall has a facility to enable TLS signing using HSM. The key principle here is that private key is generated on HSM and never leaves HSM to avoid being compromised.
 When it comes to use of private key for signing - this operation is performed on HSM device itself.
 
-This mode of operation is very similar to what is happening on the Corda node for identity private key, see [Using an HSM with Corda Enterprise]({{< relref "operating/cryptoservice-configuration.md" >}}). 
+This mode of operation is very similar to what is happening on the Corda node for identity private key, see [Using an HSM with Corda Enterprise]({{< relref "operating/cryptoservice-configuration.md" >}}).
 
 HA Utilities tool been extended such that during initial generation of TLS keys they are created on HSM.
 

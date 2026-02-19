@@ -5,9 +5,9 @@ aliases:
 - /setting-up-a-dynamic-compatibility-zone.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-setting-up-a-dynamic-compatibility-zone
-    parent: corda-community-4-13-corda-networks-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-setting-up-a-dynamic-compatibility-zone
+    parent: corda-community-4.14-corda-networks-index
     weight: 1090
 tags:
 - setting

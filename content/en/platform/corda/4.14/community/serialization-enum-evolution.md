@@ -5,9 +5,9 @@ aliases:
 - /serialization-enum-evolution.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-serialization-enum-evolution
-    parent: corda-community-4-13-serialization-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-serialization-enum-evolution
+    parent: corda-community-4.14-serialization-index
     weight: 1040
 tags:
 - serialization

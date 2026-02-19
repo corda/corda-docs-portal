@@ -5,9 +5,9 @@ aliases:
 - /component-library-index.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-component-library-index
-    parent: corda-community-4-13-development
+  corda-community-4.14:
+    identifier: corda-community-4.14-component-library-index
+    parent: corda-community-4.14-development
     weight: 130
 tags:
 - component

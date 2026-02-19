@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
-section_menu: corda-enterprise-4-13
+section_menu: corda-enterprise-4.14
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-metering-collection
-    parent: corda-enterprise-4-13-monitoring-logging
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-metering-collection
+    parent: corda-enterprise-4.14-monitoring-logging
 tags:
 - metering
 - collector

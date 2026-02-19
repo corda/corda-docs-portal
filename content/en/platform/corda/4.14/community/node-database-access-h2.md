@@ -5,9 +5,9 @@ aliases:
 - /node-database-access-h2.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-node-database-access-h2
-    parent: corda-community-4-13-corda-nodes-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-node-database-access-h2
+    parent: corda-community-4.14-corda-nodes-index
     weight: 1080
 tags:
 - node
@@ -103,7 +103,7 @@ Any database browsing tool that supports JDBC can be used.
 
 1. Download the **last stable** [H2 platform-independent zip](http://www.h2database.com/html/download.html), unzip the
 file, and navigate in a terminal window to the unzipped folder.
-2. Change directories to the bin folder: 
+2. Change directories to the bin folder:
 
    {{< tabs name="h2consolecd" >}}
    {{% tab name="Unix" %}}
@@ -117,7 +117,7 @@ file, and navigate in a terminal window to the unzipped folder.
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   
+
 3. Run the following command to open the h2 web console in a web browser tab:
 
    {{< tabs name="h2consolecom" >}}

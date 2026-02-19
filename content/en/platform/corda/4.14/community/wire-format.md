@@ -5,9 +5,9 @@ aliases:
 - /wire-format.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-wire-format
-    parent: corda-community-4-13-serialization-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-wire-format
+    parent: corda-community-4.14-serialization-index
     weight: 1070
 tags:
 - wire

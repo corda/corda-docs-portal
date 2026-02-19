@@ -1,10 +1,10 @@
 ---
 date: '2020-09-29T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-corda-nodes-secrets
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-corda-nodes-secrets
     name: "Corda secrets"
-    parent: corda-enterprise-4-13-corda-nodes
+    parent: corda-enterprise-4.14-corda-nodes
 
 title: Corda secrets
 weight: 110

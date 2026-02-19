@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-tutorial-observer-nodes
-    parent: corda-enterprise-4-13-supplementary-tutorials-index
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-tutorial-observer-nodes
+    parent: corda-enterprise-4.14-supplementary-tutorials-index
     weight: 190
 tags:
 - tutorial
@@ -27,7 +27,7 @@ of digitally signed, de-duplicated reports useful for later processing.
 
 ## Adding support for observer nodes
 
-Adding support for observer nodes to your application is easy. The Trade reporting demo ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Features/observableStates-tradereporting), [Java](https://github.com/corda/samples-java/tree/release/4.13/Features/observablestates-tradereporting)) shows how to do so.
+Adding support for observer nodes to your application is easy. The Trade reporting demo ([Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.14/Features/observableStates-tradereporting), [Java](https://github.com/corda/samples-java/tree/release/4.14/Features/observablestates-tradereporting)) shows how to do so.
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="Kotlin" %}}

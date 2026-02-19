@@ -5,9 +5,9 @@ aliases:
 - /permissioning.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-permissioning
-    parent: corda-community-4-13-corda-networks-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-permissioning
+    parent: corda-community-4.14-corda-networks-index
     weight: 1020
 tags:
 - permissioning

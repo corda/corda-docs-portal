@@ -1,20 +1,20 @@
 ---
 date: '2023-02-13'
 menu:
-  corda-enterprise-4-13:
-    parent: about-corda-landing-4-13-enterprise
+  corda-enterprise-4.14:
+    parent: about-corda-landing-4.14-enterprise
     name: Platform support
 tags:
 - platform
 - support
 - matrix
-title: Corda Enterprise 4.13 platform support
+title: Corda Enterprise 4.14 platform support
 weight: 250
 ---
 
 # Platform support
 
-This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.13, both for production and for development. For the 'end of life schedule' for Corda versions and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
+This topic lists the JDKs, operating systems and database types that support Corda Enterprise Edition 4.14, both for production and for development. For the 'end of life schedule' for Corda versions and the associated documentation, refer to the [End of Life Schedule]({{< relref "../../eol-schedule.md" >}}).
 
 ## JDK support
 
@@ -22,9 +22,9 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.13 has been tested and verified to work with **Oracle JDK 17.0.17** and **Azul Zulu Enterprise 17.0.17**.
+Corda Enterprise Edition 4.14 has been tested and verified to work with **Oracle JDK 17.0.17** and **Azul Zulu Enterprise 17.0.17**.
 
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.13.
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.14.
 
 ### JDK support in development
 
@@ -43,7 +43,7 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 ### Operating systems support in production
 
-Production use of Corda Enterprise Edition 4.13 is only supported on Linux OS; see details below.
+Production use of Corda Enterprise Edition 4.14 is only supported on Linux OS; see details below.
 
 {{< table >}}
 
@@ -118,14 +118,14 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 {{< table >}}
 | Service           | Image name                                                          |
 |-------------------|---------------------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:4.13-zulu-openjdk-alpine17.0.17`  |
-| Network Map       | `corda/enterprise-networkmap:4.13-zulu-openjdk-alpine17.0.17`       |
-| Signing           | `corda/enterprise-signer:4.13-zulu-openjdk-alpine17.0.17`           |
-| Zone              | `corda/enterprise-zone:4.13-zulu-openjdk-alpine17.0.17`             |
-| Auth              | `corda/enterprise-auth:4.13-zulu-openjdk-alpine17.0.17`             |
-| Gateway           | `corda/enterprise-gateway:4.13-zulu-openjdk-alpine17.0.17`          |
-| PKI Tool          | `corda/enterprise-pkitool:4.13-zulu-openjdk-alpine17.0.17`          |
-| Notary            | `corda/enterprise-notary:4.13-zulu-openjdk-alpine17.0.17`           |
+| Identity Manager  | `corda/enterprise-identitymanager:4.14-zulu-openjdk-alpine17.0.17`  |
+| Network Map       | `corda/enterprise-networkmap:4.14-zulu-openjdk-alpine17.0.17`       |
+| Signing           | `corda/enterprise-signer:4.14-zulu-openjdk-alpine17.0.17`           |
+| Zone              | `corda/enterprise-zone:4.14-zulu-openjdk-alpine17.0.17`             |
+| Auth              | `corda/enterprise-auth:4.14-zulu-openjdk-alpine17.0.17`             |
+| Gateway           | `corda/enterprise-gateway:4.14-zulu-openjdk-alpine17.0.17`          |
+| PKI Tool          | `corda/enterprise-pkitool:4.14-zulu-openjdk-alpine17.0.17`          |
+| Notary            | `corda/enterprise-notary:4.14-zulu-openjdk-alpine17.0.17`           |
 {{< /table >}}
 
 
