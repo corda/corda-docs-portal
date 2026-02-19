@@ -1,10 +1,10 @@
 ---
 date: '2020-10-30T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-token-sdk
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-token-sdk
     name: "Tokens SDK"
-    parent: corda-enterprise-4.14-cordapps
+    parent: corda-enterprise-4-14-cordapps
 tags:
 - tokens sdk
 - fungible

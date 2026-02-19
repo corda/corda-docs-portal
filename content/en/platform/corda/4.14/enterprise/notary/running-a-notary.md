@@ -5,8 +5,8 @@ aliases:
 - /running-a-notary.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-enterprise-4.14-running-a-notary
+  corda-community-4-14:
+    identifier: corda-enterprise-4-14-running-a-notary
     parent:
     weight:
 tags:

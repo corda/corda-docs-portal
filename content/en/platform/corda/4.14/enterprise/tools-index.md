@@ -5,9 +5,9 @@ aliases:
 - /tools-index.html
 date: '2020-01-30'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-tools-index
-    parent: corda-enterprise-4.14-cordapps
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-tools-index
+    parent: corda-enterprise-4-14-cordapps
     weight: 110
 tags:
 - tools

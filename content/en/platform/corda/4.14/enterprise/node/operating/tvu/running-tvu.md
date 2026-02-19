@@ -2,9 +2,9 @@
 description: "The steps that TVU goes through when verifying pre-4.12 database of transactions."
 date: '2024-11-04'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-running-tvu
-    parent: corda-enterprise-4.14-tvu
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-running-tvu
+    parent: corda-enterprise-4-14-tvu
 tags:
 - tvu
 - transaction validator utility

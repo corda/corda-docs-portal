@@ -5,9 +5,9 @@ aliases:
 - /cordapp-upgradeability.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-cordapp-upgradeability
-    parent: corda-community-4.14-versioning-and-upgrades
+  corda-community-4-14:
+    identifier: corda-community-4-14-cordapp-upgradeability
+    parent: corda-community-4-14-versioning-and-upgrades
     weight: 1050
 tags:
 - cordapp

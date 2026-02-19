@@ -1,8 +1,8 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-cordapps
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-cordapps
 tags:
 - secure
 - coding

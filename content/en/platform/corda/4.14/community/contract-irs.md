@@ -5,9 +5,9 @@ aliases:
 - /contract-irs.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-contract-irs
-    parent: corda-community-4.14-component-library-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-contract-irs
+    parent: corda-community-4-14-component-library-index
     weight: 1030
 tags:
 - contract

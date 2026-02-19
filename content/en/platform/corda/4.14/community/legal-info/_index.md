@@ -2,12 +2,12 @@
 title: Third-party software notices and licence information - Corda 4.14 Open Source
 date: '2024-11-25'
 project: Corda
-section_menu: corda-community-4.14
+section_menu: corda-community-4-14
 version: 'Community & Open Source 4.14'
 menu:
-  corda-community-4.14:
-    parent: corda-community-4.14-release-notes
-    identifier: corda-community-4.14-legal-info
+  corda-community-4-14:
+    parent: corda-community-4-14-release-notes
+    identifier: corda-community-4-14-legal-info
     weight: 600
     name: "Third-party software licence information"
 tags:

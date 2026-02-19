@@ -1,8 +1,8 @@
 ---
 date: '2021-08-12'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-upgrading-menu
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-upgrading-menu
 tags:
 - version
 - compatibility

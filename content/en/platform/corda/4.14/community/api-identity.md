@@ -5,9 +5,9 @@ aliases:
 - /api-identity.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-api-identity
-    parent: corda-community-4.14-corda-api
+  corda-community-4-14:
+    identifier: corda-community-4-14-api-identity
+    parent: corda-community-4-14-corda-api
     weight: 230
 tags:
 - api

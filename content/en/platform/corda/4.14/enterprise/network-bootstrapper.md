@@ -1,7 +1,7 @@
 ---
 date: '2021-08-25'
-corda-enterprise-4.14:
-parent: corda-enterprise-4.14-cordapps-debugging
+corda-enterprise-4-14:
+parent: corda-enterprise-4-14-cordapps-debugging
 tags:
 - network
 - bootstrapper

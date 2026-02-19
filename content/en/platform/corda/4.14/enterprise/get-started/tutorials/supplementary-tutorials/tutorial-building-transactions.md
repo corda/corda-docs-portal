@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-tutorial-building-transactions
-    parent: corda-enterprise-4.14-supplementary-tutorials-index
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-tutorial-building-transactions
+    parent: corda-enterprise-4-14-supplementary-tutorials-index
     weight: 160
 tags:
 - tutorial

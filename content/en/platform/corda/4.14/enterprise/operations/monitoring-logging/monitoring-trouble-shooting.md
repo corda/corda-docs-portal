@@ -1,8 +1,8 @@
 ---
 date: '2020-06-18T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-ops-monitoring-logging
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-ops-monitoring-logging
 tags:
 - operations
 - deployment

@@ -5,9 +5,9 @@ aliases:
 - /building-the-docs.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-building-the-docs
-    parent: corda-community-4.14-contributing-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-building-the-docs
+    parent: corda-community-4-14-contributing-index
     weight: 1060
 tags:
 - building

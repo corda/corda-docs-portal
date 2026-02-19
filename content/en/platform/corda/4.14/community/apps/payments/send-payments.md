@@ -2,11 +2,11 @@
 title: "Deploy a local payments network"
 date: '2023-02-14'
 menu:
-  corda-community-4.14:
-    parent: payments-4.14-community
+  corda-community-4-14:
+    parent: payments-4-14-community
     weight: 200
     name: "Payments network"
-section_menu: corda-community-4.14
+section_menu: corda-community-4-14
 ---
 
 You can use the Corda Payments Technical Preview to locally replicate payments in a live environment. the fastest way to do this is to use the Corda Payments sample CorDapps.

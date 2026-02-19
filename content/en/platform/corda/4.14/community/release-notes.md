@@ -5,9 +5,9 @@ aliases:
 - /HEAD/release-notes.html
 - /release-notes.ht3
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-release-notes
-    parent: about-corda-landing-4.14-community
+  corda-community-4-14:
+    identifier: corda-community-4-14-release-notes
+    parent: about-corda-landing-4-14-community
     weight: 10
     name: "Release notes"
 tags:

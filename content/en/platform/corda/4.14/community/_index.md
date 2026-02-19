@@ -2,15 +2,15 @@
 cascade:
   version: 'Open Source 4.14'
   project: Corda
-  section_menu: corda-community-4.14
+  section_menu: corda-community-4-14
 description: "Documentation for the 4.14 Open Source Edition release of Corda"
 title: "Corda Open Source 4.14"
 date: '2023-02-19'
 menu:
   versions:
     weight: -1100
-  corda-community-4.14:
-    identifier: about-corda-landing-4.14-community
+  corda-community-4-14:
+    identifier: about-corda-landing-4-14-community
     weight: -5
     name: Corda Open Source 4.14
 ---

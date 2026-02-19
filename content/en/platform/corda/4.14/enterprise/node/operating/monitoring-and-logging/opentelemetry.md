@@ -1,8 +1,8 @@
 ---
 date: '2023-01-09'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-monitoring-logging
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-monitoring-logging
 title: OpenTelemetry
 weight: 350
 ---

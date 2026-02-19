@@ -1,9 +1,9 @@
 ---
 date: '2020-06-16T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-operations-guide-deployment-firewall
-    parent: corda-enterprise-4.14-operations-guide-deployment
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-operations-guide-deployment-firewall
+    parent: corda-enterprise-4-14-operations-guide-deployment
     name: "Deploying the Corda Firewall"
 tags:
 - operations

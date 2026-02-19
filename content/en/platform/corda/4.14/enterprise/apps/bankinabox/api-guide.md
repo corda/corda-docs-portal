@@ -2,14 +2,14 @@
 title: "Bank in a Box API guide"
 date: '2023-02-14'
 menu:
-  corda-enterprise-4.14:
-    parent: bankinabox-4.14
-    identifier: bank-in-a-box-api-guide-4.14
+  corda-enterprise-4-14:
+    parent: bankinabox-4-14
+    identifier: bank-in-a-box-api-guide-4-14
 tags:
 - Bank in a Box
 - API
 weight: 400
-section_menu: corda-enterprise-4.14
+section_menu: corda-enterprise-4-14
 ---
 
 # Bank in a Box API guide
