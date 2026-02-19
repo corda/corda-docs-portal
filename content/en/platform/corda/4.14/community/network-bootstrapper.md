@@ -5,9 +5,9 @@ aliases:
 - /network-bootstrapper.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-network-bootstrapper
-    parent: corda-community-4-13-tools-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-network-bootstrapper
+    parent: corda-community-4.14-tools-index
     weight: 1020
 tags:
 - network
@@ -35,7 +35,7 @@ The Network Bootstrapper automates the processes of creating and distributing th
 
 {{< note >}}
 Hash constraints were removed in Corda 4.12 for security reasons.
-{{</ note >}} 
+{{</ note >}}
 
 ## Test deployments
 
@@ -53,7 +53,7 @@ You can use the Network Bootstrapper to scan all the node configurations in a co
 
 To bootstrap a test network:
 
-1. Download the [Corda Network Bootstrapper ](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.13/corda-tools-network-bootstrapper-4.12.jar) for the version of Corda you want the nodes to run.
+1. Download the [Corda Network Bootstrapper ](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-bootstrapper/4.14/corda-tools-network-bootstrapper-4.12.jar) for the version of Corda you want the nodes to run.
 2. Create a directory containing a node config file (ending in “_node.conf”) for each node you want to create.
 3. Set “devMode” to `true`.
 4. Run the command `java -jar network-bootstrapper-4.12.jar --dir <nodes-root-dir>`.
@@ -396,7 +396,7 @@ To register a package, you need to provide the:
 
 ### Register a namespace with a sample CorDapp
 
-We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/release/4.13/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.13/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
+We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/release/4.14/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.14/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
 1. Check the sample CorDapp out, then follow the [instructions to build it]({{< relref "tutorial-cordapp.md" >}}).
    {{< note >}}You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).{{< /note >}}

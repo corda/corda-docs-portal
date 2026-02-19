@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-notaries
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-notaries
 tags:
 - hsm
 - support
@@ -97,7 +97,7 @@ file:
    ```
 
    After successful registration, a keystore file is created by the tool in `certificates/nodekeystore.jks`. This keystore contains the
-   service identity certificate that all notary workers of this notary cluster share. 
+   service identity certificate that all notary workers of this notary cluster share.
 
 4. Copy the keystore file before registering the individual identity
 of the notary, so that it can be distributed to all other notary workers:

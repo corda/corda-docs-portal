@@ -5,9 +5,9 @@ aliases:
 - /network-builder.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-network-builder
-    parent: corda-enterprise-4-13-tools-index
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-network-builder
+    parent: corda-enterprise-4.14-tools-index
     weight: 1010
 tags:
 - network
@@ -30,7 +30,7 @@ Unlike the official image, a *node.conf* file and CorDapps are embedded into the
 More backends may be added in future. The tool is open source, so contributions to add more
 destinations for the containers are welcome!
 
-Download the Corda Network Builder from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-builder/4.13/corda-tools-network-builder-4.12-all.jar).
+Download the Corda Network Builder from [Maven](https://download.corda.net/maven/corda-releases/net/corda/corda-tools-network-builder/4.14/corda-tools-network-builder-4.12-all.jar).
 
 ## Prerequisites
 

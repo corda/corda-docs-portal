@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-networks
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-networks
 tags:
 - pki
 - guide
@@ -22,7 +22,7 @@ certificate authority will manage the node on-boarding and permissioning process
 to provide an easy approach towards certificate hierarchy generation and deployment.
 The PKI Tool provides a simple way to define and create all the keys and certificates for your PKI.
 
-In Corda, we distinguish between two types of PKI entities: 
+In Corda, we distinguish between two types of PKI entities:
 
 - Certificate Authorities (CA
 - Signers (non-CA)

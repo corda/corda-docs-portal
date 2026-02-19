@@ -1,8 +1,8 @@
 ---
 date: '2021-07-01T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-cordapps-flows
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-cordapps-flows
 tags:
 - api
 - vault
@@ -81,7 +81,7 @@ fun <T : ContractState> _trackBy(criteria: QueryCriteria,
 
 ```
 
-[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 And via `CordaRPCOps` for use by RPC client applications:
 
@@ -94,7 +94,7 @@ fun <T : ContractState> vaultQueryBy(criteria: QueryCriteria,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 ```kotlin
 @RPCReturnsObservables
@@ -105,7 +105,7 @@ fun <T : ContractState> vaultTrackBy(criteria: QueryCriteria,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 Helper methods are also provided with default values for arguments:
 
@@ -120,7 +120,7 @@ fun <T : ContractState> vaultQueryByWithSorting(contractStateType: Class<out T>,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 ```kotlin
 fun <T : ContractState> vaultTrack(contractStateType: Class<out T>): DataFeed<Vault.Page<T>, Vault.Update<T>>
@@ -133,7 +133,7 @@ fun <T : ContractState> vaultTrackByWithSorting(contractStateType: Class<out T>,
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 The API provides both static (snapshot) and dynamic (snapshot with streaming updates) methods for a defined set of
 filter criteria:
@@ -246,7 +246,7 @@ val results = builder {
 
 ```
 
-[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
+[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 {{< note >}}
 Custom contract states that implement the `Queryable` interface may now extend the common schema types `FungiblePersistentState` or, `LinearPersistentState`.  Previously, all custom contracts extended the root `PersistentState` class and defined repeated mappings of `FungibleAsset` and `LinearState` attributes. See `SampleCashSchemaV2` and `DummyLinearStateSchemaV2` as examples.
@@ -289,7 +289,7 @@ Vault.Page<ContractState> results = vaultService.queryBy(Cash.State.class, crite
 
 ```
 
-[VaultQueryJavaTests.java](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
+[VaultQueryJavaTests.java](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
 
 
 {{< note >}}
@@ -415,7 +415,7 @@ val metadata = result.statesMetadata
 
 ```
 
-[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
+[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 #### Query for unconsumed states for some state references:
 
@@ -426,7 +426,7 @@ val results = vaultService.queryBy<DummyLinearContract.State>(criteria, Sort(set
 
 ```
 
-[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
+[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 #### Query for unconsumed states for several contract state types:
 
@@ -436,7 +436,7 @@ val results = vaultService.queryBy<ContractState>(criteria)
 
 ```
 
-[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
+[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 #### Query for unconsumed states for specified contract state constraint types and sorted in ascending alphabetical order:
 
@@ -448,7 +448,7 @@ val constraintResults = vaultService.queryBy<LinearState>(constraintTypeCriteria
 
 ```
 
-[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
+[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 
 #### Query for unconsumed states for specified contract state constraints (type and data):
@@ -460,7 +460,7 @@ val constraintResults = vaultService.queryBy<LinearState>(constraintCriteria)
 
 ```
 
-[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
+[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 #### Query for unconsumed states for a given notary:
 
@@ -470,7 +470,7 @@ val results = vaultService.queryBy<ContractState>(criteria)
 
 ```
 
-[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.13/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
+[VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.14/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 #### Query for unconsumed states for a given set of participants (matches any state that contains at least one of the specified participants):
 

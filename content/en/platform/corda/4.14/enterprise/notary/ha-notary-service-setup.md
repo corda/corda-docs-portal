@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-notary-config
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-notary-config
 tags:
 - ha
 - notary
@@ -64,8 +64,8 @@ must share the same `notary.serviceLegalName`. For more information, see [Node c
 ## Registering a HA notary
 
 Before a HA notary cluster can be run:
-- Each worker needs a valid certificate to join the network 
-- The HA notary service must be included in the network parameters. 
+- Each worker needs a valid certificate to join the network
+- The HA notary service must be included in the network parameters.
 
 The steps below assume the network includes an Identity Manager and
 Network Map, and that the above prerequisites have been met.
@@ -79,7 +79,7 @@ To do this:
 - Run the [HA Utilities tool]({{< relref "../ha-utilities.md" >}}) using the notary workers `node.conf` file.
 
   The HA Utilities tool will generate the notary service key pair, and submit a corresponding certificate submission
-request (CSR) to the Identity Manager, then poll until it receives a successful response. 
+request (CSR) to the Identity Manager, then poll until it receives a successful response.
 
   Once successful, a local `.jks`
 file is created containing the key pair and certificate chain if using a local key store, or just the certificate
@@ -96,10 +96,10 @@ notary service key and certificate.
 
 1. Copy the `.jks` file created when registering the notary service identity.
 2. Create a copy in the `certificates/nodekeystore.jks`
-directory for each notary worker. 
+directory for each notary worker.
 3. If using a shared HA HSM, each notary worker must have a unique key alias to ensure
 that there are no identity clashes between notary workers.
-4. Register each notary worker using the Corda `initial-registration` command. 
+4. Register each notary worker using the Corda `initial-registration` command.
 
    After registration, the notary worker
 identity and node CA entries will be added to the `certificates/nodekeystore.jks` store alongside the notary service

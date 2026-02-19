@@ -5,9 +5,9 @@ aliases:
 - /app-upgrade-notes.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-app-upgrade-notes
-    parent: corda-community-4-13-upgrading
+  corda-community-4.14:
+    identifier: corda-community-4.14-app-upgrade-notes
+    parent: corda-community-4.14-upgrading
     weight: 20
 tags:
 - app

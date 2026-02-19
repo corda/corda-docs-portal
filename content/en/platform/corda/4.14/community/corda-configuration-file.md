@@ -5,9 +5,9 @@ aliases:
 - /corda-configuration-file.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-corda-configuration-file
-    parent: corda-community-4-13-corda-nodes-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-corda-configuration-file
+    parent: corda-community-4.14-corda-nodes-index
     weight: 1030
 tags:
 - corda
@@ -164,7 +164,7 @@ See [Configuration file fields]({{< relref "corda-configuration-fields.md" >}}).
 ## Reference.conf
 
 A set of default configuration options are loaded from the built-in resource file `/node/src/main/resources/reference.conf`.
-This file can be found in the `:node` gradle module of the [Corda repository](https://github.com/corda/corda); see [reference.conf](https://github.com/corda/corda/blob/release/os/4.13/node/src/main/resources/corda-reference.conf). 
+This file can be found in the `:node` gradle module of the [Corda repository](https://github.com/corda/corda); see [reference.conf](https://github.com/corda/corda/blob/release/os/4.14/node/src/main/resources/corda-reference.conf).
 Any options you do not specify in your own `node.conf` file will use these defaults.
 
 Here are the contents of the `reference.conf` file:

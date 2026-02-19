@@ -1,14 +1,14 @@
 ---
 date: '2021-08-11'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-upgrading-menu
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-upgrading-menu
 tags:
 - node
 - operations
 - upgrade
 - cordapps
-aliases: /docs/4.13/enterprise/node/operating/node-operations-upgrade-cordapps.html
+aliases: /docs/4.14/enterprise/node/operating/node-operations-upgrade-cordapps.html
 title: Upgrading deployed CorDapps
 weight: 50
 ---

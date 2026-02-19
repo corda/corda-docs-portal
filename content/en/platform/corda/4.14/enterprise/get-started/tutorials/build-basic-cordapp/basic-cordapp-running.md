@@ -1,9 +1,9 @@
 ---
 date: '2023-01-13'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-tutorial-basic-cordapp-running
-    parent: corda-enterprise-4-13-tutorial-basic-cordapp-intro
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-tutorial-basic-cordapp-running
+    parent: corda-enterprise-4.14-tutorial-basic-cordapp-intro
     weight: 110
 tags:
 - tutorial
@@ -25,7 +25,7 @@ Deploy and run your CorDapp on the test nodes:
 
 ## Before you start
 
-Before you run your CorDapp, check your work against the [Apple Stamp CorDapp Java solution](https://github.com/corda/samples-java/tree/release/4.13/Basic/tutorial-applestamp).
+Before you run your CorDapp, check your work against the [Apple Stamp CorDapp Java solution](https://github.com/corda/samples-java/tree/release/4.14/Basic/tutorial-applestamp).
 
 ## Deploy the CorDapp locally
 

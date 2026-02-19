@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-corda-nodes-notary-config
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-corda-nodes-notary-config
     name: "Configuring a notary"
-    parent: corda-enterprise-4-13-notaries
+    parent: corda-enterprise-4.14-notaries
 tags:
 - installing
 - jpa
@@ -196,7 +196,7 @@ This root user is the only user with administrative permissions, and so is the o
 Enterprise supports the creation of administrative users besides root. The CockroachDB root user can only authenticate with
 certificates and is unable to authenticate via passwords.
 
-1. Open a terminal window on one of the machines on which CockroachDB is installed. 
+1. Open a terminal window on one of the machines on which CockroachDB is installed.
 2. Connect to the SQL interface of the database with the following command. (Note the command is an example and assumes that Cockroach has been installed to `/opt/roach`. Make sure to specify  the correct path for your certificates.)
 
    ```bash
@@ -307,7 +307,7 @@ in detail.
 Some information specific to the configuration of the JPA notary to interact with Oracle RAC is covered below.
 
 
-### Setting up the Oracle RAC database 
+### Setting up the Oracle RAC database
 
 R3 recommends that a pluggable database be created to house the notary data. This can be done by opening a
 terminal window on the Oracle machine and running the following command in order to start SQL*Plus, the Oracle

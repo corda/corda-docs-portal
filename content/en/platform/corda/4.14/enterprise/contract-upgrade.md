@@ -1,8 +1,8 @@
 ---
 date: '2021-07-16'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-cordapps-contracts
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-cordapps-contracts
 tags:
 - contract
 - upgrade
@@ -61,7 +61,7 @@ class Authorise(
 
 ```
 
-[ContractUpgradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
+[ContractUpgradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
 
 ```kotlin
 @StartableByRPC
@@ -71,7 +71,7 @@ class Deauthorise(val stateRef: StateRef) : FlowLogic<Void?>() {
 
 ```
 
-[ContractUpgradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
+[ContractUpgradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
 
 
 ## Proposing an upgrade

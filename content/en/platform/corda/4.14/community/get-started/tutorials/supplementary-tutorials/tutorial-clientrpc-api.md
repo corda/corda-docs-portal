@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-tutorial-clientrpc-api
-    parent: corda-community-4-13-supplementary-tutorials-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-tutorial-clientrpc-api
+    parent: corda-community-4.14-supplementary-tutorials-index
     weight: 220
 tags:
 - tutorial
@@ -427,7 +427,7 @@ thread {
     fun isWaitingForShutdown(): Boolean
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 ## Creating the transaction graph
 

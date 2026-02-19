@@ -1,8 +1,8 @@
 ---
 date: '2020-05-10T12:00:00Z'
 menu:
-  corda-community-4-13:
-    parent: corda-community-4-13-token-sdk
+  corda-community-4.14:
+    parent: corda-community-4.14-token-sdk
 weight: 998
 tags:
 - Tokens SDK

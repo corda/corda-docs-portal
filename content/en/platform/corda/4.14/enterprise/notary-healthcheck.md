@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-notary-operate
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-notary-operate
 tags:
 - notary
 - healthcheck
@@ -21,7 +21,7 @@ This topic describes how to use the notary health check CorDapp to check if nota
 To install the notary health check CorDapp:
 
 1. Copy the `notaryhealthcheck-cordapp` and the `notaryhealthcheck-contract` JARs to the `cordapps` directory
-of a node that will run the checks. 
+of a node that will run the checks.
 2. Additionally, install the `notaryhealthcheck-contract` JAR on all validating notaries that are to be checked.
 
 
@@ -98,7 +98,7 @@ A string representation of the X500 name of the notary service the target is par
 The output can be monitoring in two ways:
 
 * [Via a logfile](#logfile)
-* [Via JMX/Jolokia](#jmxjolokia) 
+* [Via JMX/Jolokia](#jmxjolokia)
 
 ### Logfile
 

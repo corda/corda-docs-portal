@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-node-serialization
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-node-serialization
     name: "Serialization in Corda"
-    parent: corda-enterprise-4-13-corda-nodes-operating
+    parent: corda-enterprise-4.14-corda-nodes-operating
 tags:
 - serialization
 title: Serialization

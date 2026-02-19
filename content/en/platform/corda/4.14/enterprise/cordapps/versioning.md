@@ -1,8 +1,8 @@
 ---
 date: '2020-08-10'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-cordapps-versioning
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-cordapps-versioning
 tags:
 - versioning
 title: Versioning
@@ -56,6 +56,7 @@ The table below highlights key features and the corresponding version numbers.
 {{< table >}}
 | Feature                         | Corda platform version | Minimum network platform version | Introduced in OS version  | Introduced in Enterprise version |
 |---------------------------------|------------------------|----------------------------------|---------------------------|----------------------------------|
+| API update                      | 160                    | 4                                | 4.14                      | 4.14                             |
 | API update                      | 150                    | 4                                | 4.13                      | 4.13                             |
 | API update                      | 140                    | 4                                | 4.12                      | 4.12                             |
 | API update                      | 13                     | 4                                | 4.11                      | 4.11                             |

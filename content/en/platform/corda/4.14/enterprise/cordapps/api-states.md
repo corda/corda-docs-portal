@@ -1,10 +1,10 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-cordapps-states
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-cordapps-states
     name: "Writing CorDapp states"
-    parent: corda-enterprise-4-13-cordapps
+    parent: corda-enterprise-4.14-cordapps
 tags:
 - api
 - states
@@ -16,7 +16,7 @@ weight: 60
 
 Before you read this topic, read the [states]({{< relref "../key-concepts-states.md" >}}) concept topic.
 
-In Corda, a *contract state* (or just *state*) stores data that the CorDapp needs to move from one transaction to another. 
+In Corda, a *contract state* (or just *state*) stores data that the CorDapp needs to move from one transaction to another.
 
 States are:
 - **Immutable:** They can never be updated; any change to a state generates a new successor state. This is called *consuming* the state.

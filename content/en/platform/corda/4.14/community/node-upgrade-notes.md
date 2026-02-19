@@ -5,15 +5,15 @@ aliases:
 - /node-upgrade-notes.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-node-upgrade-notes
-    parent: corda-community-4-13-upgrading
+  corda-community-4.14:
+    identifier: corda-community-4.14-node-upgrade-notes
+    parent: corda-community-4.14-upgrading
     weight: 30
 tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda Open Source Edition 4.13
+title: Upgrading your node to Corda Open Source Edition 4.14
 ---
 
 
@@ -23,7 +23,7 @@ applications. It consists of the following steps:
 1. [Drain the node](#step-1-drain-the-node)
 2. [Make a backup of your node directories and/or database](#step-2-make-a-backup-of-your-node-directories-andor-database)
 3. [Download Corda Open Source Edition](#step-3-download-corda-open-source-edition)
-4. [Upgrade the node to Corda 4.13](#step-4-upgrade-the-node-to-corda-413)
+4. [Upgrade the node to Corda 4.14](#step-4-upgrade-the-node-to-corda-413)
 5. [Replace the corda.jar file with the new version](#step-5-replace-cordajar-with-the-new-version)
 6. [Update the configuration](#step-6-update-the-configuration)
 7. [Start the node with the run-migration-scripts subcommand](#step-8-start-the-node-with-run-migration-scripts-subcommand)
@@ -63,9 +63,7 @@ We provide some [backup recommendations]({{< relref "node-administration.md#back
 
 Download the required version of Corda Open Source Edition; for more information, see [Release packs and checksums]({{< relref "release-checksum-os.md" >}}).
 
-## Step 4: Upgrade the node to Corda 4.13
-
-Ensure your node is running Corda 4.13.
+## Step 4: Upgrade the node to Corda 4.14.
 
 ## Step 5: Replace `corda.jar` with the new version
 

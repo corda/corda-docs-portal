@@ -1,15 +1,15 @@
 ---
 cascade:
-  version: 'Enterprise 4.13'
+  version: 'Enterprise 4.14'
   project: Corda
-  section_menu: corda-enterprise-4-13
+  section_menu: corda-enterprise-4.14
 description: "Learn what the Transaction Validator Utility is and its different uses."
 title: "Transaction Validator Utility"
 date: '2023-12-15'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-tvu
-    parent: corda-enterprise-4-13-corda-nodes-operating
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-tvu
+    parent: corda-enterprise-4.14-corda-nodes-operating
 weight: 130
 tags:
 - tvu
@@ -19,7 +19,7 @@ tags:
 # Transaction Validator Utility
 
 {{< note >}}
-In version 4.12, the Transaction Validator Utility was required when performing [an upgrade from 4.11 to 4.12]({{< relref "../../../../../4.12/enterprise/upgrade-guide.md" >}}). However, for an upgrade from 4.12 to 4.13, the tool is not required. Its purpose in 4.13 is to offer the following features.
+In version 4.12, the Transaction Validator Utility was required when performing [an upgrade from 4.11 to 4.12]({{< relref "../../../../../4.12/enterprise/upgrade-guide.md" >}}). However, for an upgrade from 4.13 to 4.14, the tool is not required. Its purpose in 4.14 is to offer the following features.
 {{< /note >}}
 
 TVU's useful features include:

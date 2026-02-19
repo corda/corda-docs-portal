@@ -2,11 +2,11 @@
 title: "Corda Payments SDK"
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-13:
-    parent: payments-4-13
+  corda-enterprise-4.14:
+    parent: payments-4.14
     weight: 300
     name: "Payments SDK"
-section_menu: corda-enterprise-4-13
+section_menu: corda-enterprise-4.14
 ---
 
 With the Corda Payments SDK you can build and deploy payment-enabled CorDapps on your network. Use this documentation to add all the required Payments SDK dependencies to an existing CorDapp. Once the dependencies have been added to your CorDapp, it can be configured to initiate payments, via the network's Payments Agent.

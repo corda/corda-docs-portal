@@ -5,9 +5,9 @@ aliases:
 - /getting-set-up.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-getting-set-up
-    parent: corda-community-4-13-building-a-cordapp-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-getting-set-up
+    parent: corda-community-4.14-building-a-cordapp-index
     weight: 1020
 tags:
 - getting
@@ -28,7 +28,7 @@ There are four pieces of required software for CorDapp development:
 
 ## Installing the Java 17 JDK
 
-Install the Java 17 JDK. Corda requires at least version 17.0.9, but does not currently support Java 18 or higher for this version of Corda. 
+Install the Java 17 JDK. Corda requires at least version 17.0.9, but does not currently support Java 18 or higher for this version of Corda.
 
 Corda has been tested against the following Java builds:
 

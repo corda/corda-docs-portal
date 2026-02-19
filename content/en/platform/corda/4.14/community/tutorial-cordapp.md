@@ -5,9 +5,9 @@ aliases:
 - /tutorial-cordapp.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-tutorial-cordapp
-    parent: corda-community-4-13-building-a-cordapp-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-tutorial-cordapp
+    parent: corda-community-4.14-building-a-cordapp-index
     weight: 1030
 tags:
 - tutorial
@@ -19,7 +19,7 @@ title: Running a sample CorDapp
 
 # Running a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java]((https://github.com/corda/cordapp-template-java/tree/release/4.13) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.13) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java]((https://github.com/corda/cordapp-template-java/tree/release/4.14) or [Kotlin](https://github.com/corda/cordapp-template-kotlin/tree/release/4.14) template, [building your own]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "key-concepts-node.md" >}}).
 
@@ -54,13 +54,13 @@ CorDapps can be written in any language targeting the JVM. However, source files
 {{< tabs name="tabs-1" >}}
 {{% tab name="Java" %}}
 ```java
-git clone https://github.com/corda/samples-java/tree/release/4.13
+git clone https://github.com/corda/samples-java/tree/release/4.14
 ```
 {{% /tab %}}
 
 {{% tab name="Kotlin" %}}
 ```kotlin
-git clone https://github.com/corda/samples-kotlin/tree/release/4.13
+git clone https://github.com/corda/samples-kotlin/tree/release/4.14
 ```
 {{% /tab %}}
 
@@ -147,7 +147,7 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 / /___  /_/ / /  / /_/ / /_/ /          of it to charity. Now I have $2,999,999.75.
 \____/     /_/   \__,_/\__,_/
 
---- Corda Open Source Edition 4.13  -------------------------------------------------------------
+--- Corda Open Source Edition 4.14  -------------------------------------------------------------
 
 
 Logs can be found in                    : /Users/cordauser/src/samples-kotlin/Basic/cordapp-example/build/nodes/PartyA/logs

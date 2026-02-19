@@ -1,10 +1,10 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-cordapps-debugging
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-cordapps-debugging
     name: "Debugging and testing CorDapps"
-    parent: corda-enterprise-4-13-cordapps
+    parent: corda-enterprise-4.14-cordapps
 tags:
 - debugging
 - cordapp

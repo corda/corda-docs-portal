@@ -5,9 +5,9 @@ aliases:
 - /node-commandline.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-node-commandline
-    parent: corda-community-4-13-corda-nodes-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-node-commandline
+    parent: corda-community-4.14-corda-nodes-index
     weight: 1040
 tags:
 - node
@@ -18,7 +18,7 @@ title: Node command-line options
 
 # Node command-line options
 
-## Command-line options 
+## Command-line options
 
 The node can optionally be started with the following command-line options:
 
@@ -73,7 +73,7 @@ Node `initial-registration` now includes the creation of `identity-private-key` 
 {{< /note >}}
 
 
-### `run-migration-scripts` 
+### `run-migration-scripts`
 
 From version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
 applied deliberately using this sub-command. It runs the database migration script for the requested schema set defined in the following parameters. Once it creates or modifies the schema(s), the sub-command will exit.

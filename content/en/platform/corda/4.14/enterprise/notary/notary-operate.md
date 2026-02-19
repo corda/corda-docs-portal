@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-corda-nodes-notary-operate
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-corda-nodes-notary-operate
     name: "Operating a notary"
-    parent: corda-enterprise-4-13-notaries
+    parent: corda-enterprise-4.14-notaries
 tags:
 - notary
 - operate

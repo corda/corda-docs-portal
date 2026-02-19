@@ -5,9 +5,9 @@ aliases:
 - /api-contracts.html
 date: '2021-08-11'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-api-contracts
-    parent: corda-community-4-13-corda-api
+  corda-community-4.14:
+    identifier: corda-community-4.14-api-contracts
+    parent: corda-community-4.14-corda-api
     weight: 190
 tags:
 - api
@@ -30,14 +30,14 @@ This article explains:
 
 ## Glossary
 
-- **Contract:** 
+- **Contract:**
    A file that defines the rules for verifying transaction inputs and outputs.
-- **Verify function:** 
+- **Verify function:**
    A function containing all the requirements a Corda node needs to verify a transaction.
-- **LedgerTransaction object:** 
+- **LedgerTransaction object:**
    An object that contains information describing the transaction being evaluated.
 
-## Introduction to contracts 
+## Introduction to contracts
 
 In the context of a CorDapp, contracts define rules for verifying transaction inputs and outputs. A CorDapp
 can have more than one contract, and each contract defines the rules for one or more states. The goal of a contract is to ensure

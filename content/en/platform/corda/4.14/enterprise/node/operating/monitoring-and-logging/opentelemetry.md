@@ -1,8 +1,8 @@
 ---
 date: '2023-01-09'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-monitoring-logging
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-monitoring-logging
 title: OpenTelemetry
 weight: 350
 ---
@@ -34,7 +34,7 @@ There are two ways to make the OpenTelemetry SDK available to the Corda node:
 
 To use the OpenTelemetry driver:
 
-* Copy `corda-opentelemetry-driver-%VERSION%.jar` to the drivers directory of the Corda node. 
+* Copy `corda-opentelemetry-driver-%VERSION%.jar` to the drivers directory of the Corda node.
 
 This driver can be downloaded from Maven and is included in the release pack.
 

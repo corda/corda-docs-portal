@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-tradeoffs.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-key-concepts-tradeoffs
-    parent: corda-key-concepts-4-13-community
+  corda-community-4.14:
+    identifier: corda-community-4.14-key-concepts-tradeoffs
+    parent: corda-key-concepts-4.14-community
     weight: 1140
 tags:
 - concepts

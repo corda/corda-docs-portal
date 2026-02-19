@@ -5,9 +5,9 @@ aliases:
 - /cordapp-build-systems.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-cordapp-build-systems
-    parent: corda-community-4-13-building-a-cordapp-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-cordapp-build-systems
+    parent: corda-community-4.14-building-a-cordapp-index
     weight: 1060
 tags:
 - cordapp
@@ -78,8 +78,8 @@ Current versions:
 ```groovy
 ext.corda_release_distribution = 'com.r3.corda'
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.13'
-ext.corda_core_release_version = '4.13'
+ext.corda_release_version = '4.14'
+ext.corda_core_release_version = '4.14'
 ext.corda_gradle_plugins_version = '5.1.1'
 ext.quasar_version = '0.9.2_r3'
 ext.quasar_classifier=''

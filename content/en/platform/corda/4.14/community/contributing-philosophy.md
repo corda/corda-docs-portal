@@ -5,9 +5,9 @@ aliases:
 - /contributing-philosophy.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-contributing-philosophy
-    parent: corda-community-4-13-contributing-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-contributing-philosophy
+    parent: corda-community-4.14-contributing-index
     weight: 1010
 tags:
 - contributing
@@ -61,7 +61,7 @@ You can contact our community maintainers in the `#contributing` channel on the 
 ## Existing contributors
 
 Over two hundred individuals have contributed to the development of Corda. You can find a full list of contributors in the
-[CONTRIBUTORS.md list](https://github.com/corda/corda/blob/release/os/4.13/CONTRIBUTORS.md).
+[CONTRIBUTORS.md list](https://github.com/corda/corda/blob/release/os/4.14/CONTRIBUTORS.md).
 
 
 ## Transparency and conflict policy

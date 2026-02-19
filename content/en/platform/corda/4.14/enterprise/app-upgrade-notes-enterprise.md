@@ -1,23 +1,23 @@
 ---
 date: '2021-08-11'
 menu:
-  corda-enterprise-4-13:
-    identifier: "corda-enterprise-4-13-enterprise-cordapp-upgrade"
-    parent: corda-enterprise-4-13-upgrading-menu
+  corda-enterprise-4.14:
+    identifier: "corda-enterprise-4.14-enterprise-cordapp-upgrade"
+    parent: corda-enterprise-4.14-upgrading-menu
 tags:
 - app
 - upgrade
 - notes
 - enterprise
-title: Upgrading a CorDapp to Corda Enterprise Edition 4.13
+title: Upgrading a CorDapp to Corda Enterprise Edition 4.14
 weight: 20
 ---
 
-# Upgrading a CorDapp to Corda Enterprise Edition 4.13
+# Upgrading a CorDapp to Corda Enterprise Edition 4.14
 
 ## Upgrading from Corda Open Source Edition
 
-Before upgrading to Corda Enterprise Edition 4.13, upgrade your CorDapp to Corda Open Source Edition 4.13. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.14, upgrade your CorDapp to Corda Open Source Edition 4.14. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
 
 You do not need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda Open Source Edition 4.x.
@@ -30,18 +30,18 @@ See [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility
 {{< /note >}}
 
 
-### Re-compiling for Corda Enterprise Edition 4.13
+### Re-compiling for Corda Enterprise Edition 4.14
 
-To re-compile your CorDapp for Corda Enterprise Edition 4.13, you need to:
+To re-compile your CorDapp for Corda Enterprise Edition 4.14, you need to:
 
 1. Update your Gradle build file as follows.
     ```shell
     corda_release_distribution = 'com.r3.corda'
     corda_core_release_distribution = 'net.corda'
-    corda_release_version = '4.13'
-    corda_core_release_version = '4.13'
+    corda_release_version = '4.14'
+    corda_core_release_version = '4.14'
     corda_gradle_plugins_version = '5.1.1'
-    kotlin_version = '1.9.20'
+    kotlin_version = '1.9.20'4
     quasar_version = '0.9.2_r3'
     ```
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
@@ -96,7 +96,7 @@ been removed. For example:
     ```
 
 {{< note >}}
-Corda Enterprise Edition 4.13 binaries are not publicly available. To make the dependencies available for development, either
+Corda Enterprise Edition 4.14 binaries are not publicly available. To make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to your local Maven repository.
 
 You can request a copy of the Corda Enterprise Developer Pack (contains a Maven repository mirror

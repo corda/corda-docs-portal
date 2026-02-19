@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-corda-nodes-configuring
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-corda-nodes-configuring
     name: "Configuring a node"
-    parent: corda-enterprise-4-13-corda-nodes
+    parent: corda-enterprise-4.14-corda-nodes
 tags:
 - node
 - naming
@@ -52,7 +52,7 @@ The name must also obey the following constraints:
 
 
 
-* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case. See the list of [defined country codes](https://github.com/corda/corda/blob/release/os/4.13/tools/worldmap/src/main/resources/net/corda/worldmap/cities.txt).
+* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case. See the list of [defined country codes](https://github.com/corda/corda/blob/release/os/4.14/tools/worldmap/src/main/resources/net/corda/worldmap/cities.txt).
 * The `organisation` field of the name obeys the following constraints:
 
     * Has at least two letters

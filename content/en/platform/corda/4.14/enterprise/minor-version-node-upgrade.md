@@ -1,21 +1,21 @@
 ---
 date: '2021-12-21'
 menu:
-  corda-enterprise-4-13:
-    identifier: "corda-enterprise-4-13-node-minor-version-upgrade"
-    parent: corda-enterprise-4-13-upgrading-menu
+  corda-enterprise-4.14:
+    identifier: "corda-enterprise-4.14-node-minor-version-upgrade"
+    parent: corda-enterprise-4.14-upgrading-menu
 tags:
 - upgrading
 - node
 - upgrade
 - notes
-title: Upgrading a node to a minor version of Corda Enterprise Edition 4.13
+title: Upgrading a node to a minor version of Corda Enterprise Edition 4.14
 weight: 11
 ---
 
-# Upgrading a node to a minor version of Corda Enterprise Edition 4.13
+# Upgrading a node to a minor version of Corda Enterprise Edition 4.14
 
-Follow these steps to upgrade a node from Corda Enterprise Edition 4.13 to Corda Enterprise Edition 4.13.x.
+Follow these steps to upgrade a node from Corda Enterprise Edition 4.13 to Corda Enterprise Edition 4.14.x.
 
 Most of the Corda 4 public, non-experimental APIs are stable. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you do not need to update your CorDapps. To upgrade:
 

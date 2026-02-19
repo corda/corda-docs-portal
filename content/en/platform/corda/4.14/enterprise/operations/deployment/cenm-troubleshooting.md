@@ -1,9 +1,9 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-operations-guide-deployment-cenm-troubleshooting
-    parent: corda-enterprise-4-13-operations-guide-deployment-cenm
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-operations-guide-deployment-cenm-troubleshooting
+    parent: corda-enterprise-4.14-operations-guide-deployment-cenm
     weight: 190
 tags:
 - troubleshooting

@@ -1,8 +1,8 @@
 ---
 date: '2021-07-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-node-serialization
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-node-serialization
 tags:
 - json
 title: JSON
@@ -29,8 +29,8 @@ connection to the node (see [Interacting with the node]({{< relref "node/operati
 
 For the full API details, see the:
 
-* [Kotlin API docs](../../../../../en/api-ref/corda/4.13/community/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/jackson/JacksonSupport.html)
+* [Kotlin API docs](../../../../../en/api-ref/corda/4.14/community/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
+* [JavaDoc](../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/jackson/JacksonSupport.html)
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="Kotlin" %}}

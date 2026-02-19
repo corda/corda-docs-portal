@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-upgrading-menu
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-upgrading-menu
 tags:
 - node
 - operations
@@ -10,7 +10,7 @@ tags:
 - os
 - ent
 title: Upgrading a Corda OS node to Corda Enterprise
-aliases: /docs/4.13/enterprise/node/operating/node-operations-upgrading-os-to-ent.html
+aliases: /docs/4.14/enterprise/node/operating/node-operations-upgrading-os-to-ent.html
 weight: 40
 ---
 
@@ -46,7 +46,7 @@ Adding a Liquibase migration script to a CorDapp should be done by a CorDapp dev
 2. Generate CorDapp changesets against an empty database.Any custom tables required by CorDapps will have been created manually or by Hibernate upon node startup.
    Because of this, the database doesn’t contain an entry in the *DATABASECHANGELOG* table (usually created by the Liquibase runner).
    This step aims to add the required log as if these tables were created by Liquibase.First, you need to run Corda database management tool to obtain DDL statements created by Liquibase.
-   You should run the tool against an empty database, not the database you are reusing. 
+   You should run the tool against an empty database, not the database you are reusing.
 
    To run the tool, run the following command:
 

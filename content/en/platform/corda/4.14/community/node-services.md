@@ -5,9 +5,9 @@ aliases:
 - /node-services.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-node-services
-    parent: corda-community-4-13-node-internals-index
+  corda-community-4.14:
+    identifier: corda-community-4.14-node-services
+    parent: corda-community-4.14-node-internals-index
     weight: 1010
 tags:
 - node
@@ -136,7 +136,7 @@ interface and is responsible for tracking the identities and advertised
 services of authorised nodes provided by the remote
 `NetworkMapService`. A typical use is to search for nodes hosting
 specific advertised services, such as a notary service or an Oracle
-service. 
+service.
 
 This service also allows mapping of friendly names, or
 `Party` identities to the full `NodeInfo` which is used in the
@@ -212,13 +212,13 @@ externally visible operation, such as sending a message, waiting for a
 message, or initiating a `subFlow`. The fiber is then suspended
 and its stack frames serialized to the database, thus ensuring that if
 the node is stopped, or crashes at this point the flow will restart
-with exactly the same action again. 
+with exactly the same action again.
 
 To further ensure consistency, every
 event which resumes a flow opens a database transaction, which is
 committed during this suspension process ensuring that the database
 modifications (for example, state commits) stay in sync with the mutating changes
-of the flow. 
+of the flow.
 
 Having recorded the fiber state, the
 `StateMachineManager` then carries out the network actions as required

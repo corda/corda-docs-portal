@@ -2,9 +2,9 @@
 title: "Corda Open Source Edition key concepts"
 date: '2021-07-02'
 menu:
-  corda-community-4-13:
-    parent: about-corda-landing-4-13-community
-    identifier: corda-key-concepts-4-13-community
+  corda-community-4.14:
+    parent: about-corda-landing-4.14-community
+    identifier: corda-key-concepts-4.14-community
     weight: 100
     name: "Key concepts"
 tags:

@@ -1,10 +1,10 @@
 ---
 aliases:
-- /releases/4.13/node-metrics.html
+- /releases/4.14/node-metrics.html
 date: '2020-04-16T19:30:25Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-monitoring-logging
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-monitoring-logging
 tags:
 - node
 - metrics
@@ -63,7 +63,7 @@ Using time window reservoirs increases heap memory usage proportionally to the a
 A Corda node maintains a number of caches. For each of the metrics below, the name of the cache must be supplied in the `component` field to
 show metrics for that cache.
 
-There are two types of cache: 
+There are two types of cache:
 - **Size-based:** Measured by the number of entries in the cache
 - **Weight-based:**. Measured by the number of bytes of memory occupied by the entries
 
@@ -112,16 +112,16 @@ Note that metrics related to the default thread pool do not have a *.default* su
 |net.corda:type=Flows,name=InFlight|The number of in-flight flows.|
 |net.corda:type=Flows,name=QueueSize.{threadpool}|The current size of the queue for flows waiting to be executed for the specified thread pool|
 |net.corda:type=Flows,name=QueueSizeOnInsert.{threadpool}|A histogram showing the queue size at the point new flows are added for the specified thread pool|
-|net.corda:type=Flows,name=QueueSizeTotal | The sum of all thread pool queues. | 
+|net.corda:type=Flows,name=QueueSizeTotal | The sum of all thread pool queues. |
 |net.corda:type=Flows,name=Started|The total number of flows started.|
 |net.corda:type=Flows,name=StartedPerMinute|The rate at which flows are started.|
 |net.corda:type=Flows,name=StartupQueueTime.{threadpool} |This timer measures the time a flow spends queued before it is executed for the specified thread pool. |
 |net.corda:type=Flows,name=Success|The total number of successful flows.|
 |net.corda:type=Flows,name=<action_name>|A histogram indicating the time taken to execute a particular action. See the following section for more details.|
-|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname} | The flow duration for the default thread pool of the specified flow, if successful. | 
-|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}|  The flow duration for the default thread pool of the specified flow, if failed. | 
-|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname}.{threadpoolname} |  The flow duration for the specified thread pool of the specified flow, if successful. | 
-|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}.{threadpoolname} | The flow duration for the specified thread pool of the specified flow, if failed. |  
+|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname} | The flow duration for the default thread pool of the specified flow, if successful. |
+|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}|  The flow duration for the default thread pool of the specified flow, if failed. |
+|net.corda:type=Flows,name=FlowDuration.Success.{flowclassname}.{threadpoolname} |  The flow duration for the specified thread pool of the specified flow, if successful. |
+|net.corda:type=Flows,name=FlowDuration.Failure.{flowclassname}.{threadpoolname} | The flow duration for the specified thread pool of the specified flow, if failed. |
 | net.corda:type=Flows,name=HeartbeatLatencyInMilliseconds | Indicates the time, in milliseconds, required to start a flow. |
 | net.corda:type=Flows,name=TimeSinceLastPickedUpInSeconds | Indicates the elapsed time since the last flow was picked up from the queue, assuming other flows are still waiting to be processed. A high value suggests that flows are being starved. |
 | net.corda:type=Flows,name=TimeInQueueOldestInSeconds | Indicates how long the oldest flow has been waiting in the flow executor queue. |

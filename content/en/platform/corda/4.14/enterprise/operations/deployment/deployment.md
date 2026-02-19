@@ -1,10 +1,10 @@
 ---
 date: '2020-06-16T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-operations-guide-deployment
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-operations-guide-deployment
     name: "Corda deployment"
-    parent: corda-enterprise-4-13-operations-guide
+    parent: corda-enterprise-4.14-operations-guide
 tags:
 - operations
 - deployment

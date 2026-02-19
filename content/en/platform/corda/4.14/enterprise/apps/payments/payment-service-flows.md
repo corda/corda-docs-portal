@@ -2,11 +2,11 @@
 title: "Payment service flows"
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-13:
-    parent: payments-4-13
+  corda-enterprise-4.14:
+    parent: payments-4.14
     weight: 400
     name: "Payments service"
-section_menu: corda-enterprise-4-13
+section_menu: corda-enterprise-4.14
 ---
 
 Use Payment Service flows to initiate payments and account management requests from a node on a Corda network. These requests can then be picked up by the [Payments Agent]({{< relref "payments-agent.md" >}}) on your network.

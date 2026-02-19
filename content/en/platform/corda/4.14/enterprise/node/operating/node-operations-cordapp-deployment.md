@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-nodes-operating
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-nodes-operating
 tags:
 - node
 - operations
@@ -67,7 +67,7 @@ this would have already been detected in your test environment.
 
 The Corda database management tool needs access to a running database.
 The tool is configured in a similar manner to a Corda node.
-A base directory needs to be provided with the following content: 
+A base directory needs to be provided with the following content:
 
 - A `node.conf` file with database connection settings
 - A `drivers` directory in which to place the JDBC driver

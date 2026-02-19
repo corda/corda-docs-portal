@@ -5,9 +5,9 @@ aliases:
 - /api-service-classes.html
 date: '2023-01-09'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-api-service-classes
-    parent: corda-community-4-13-corda-api
+  corda-community-4.14:
+    identifier: corda-community-4.14-api-service-classes
+    parent: corda-community-4.14-corda-api
     weight: 260
 tags:
 - api

@@ -8,8 +8,8 @@ aliases:
 - /docs/corda-os/tutorial-cordapp.html
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-cordapps
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-cordapps
 tags:
 - tutorial
 - cordapp
@@ -114,7 +114,7 @@ The project containing the sample CorDapp opens.
       * A folder for each generated node
       * A `runnodes` shell script for running all the nodes simultaneously on macOS
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
-   
+
    See [Appendix B]({{< relref "#appendix-b-node-structure" >}}) for the node structure.
 
 {{< note >}}

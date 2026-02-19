@@ -5,9 +5,9 @@ aliases:
 - /api-rpc.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-api-rpc
-    parent: corda-community-4-13-corda-api
+  corda-community-4.14:
+    identifier: corda-community-4.14-api-rpc
+    parent: corda-community-4.14-corda-api
     weight: 250
 tags:
 - api

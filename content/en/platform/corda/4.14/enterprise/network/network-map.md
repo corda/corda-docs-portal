@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    parent: corda-enterprise-4-13-corda-networks
+  corda-enterprise-4.14:
+    parent: corda-enterprise-4.14-corda-networks
 tags:
 - network
 - map
@@ -83,7 +83,7 @@ additional endpoints for users. These additional endpoints are described in {{< 
 
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
 enable the server to be placed behind caching content delivery networks like Cloudflare, Akamai, Amazon Cloudfront and so on.
-By using industrial HTTP cache networks the map server can be shielded from DoS attacks more effectively. 
+By using industrial HTTP cache networks the map server can be shielded from DoS attacks more effectively.
 
 Additionally, for the case of distributing small files that rarely change, HTTP is a well understood and optimised protocol. Corda’s
 own protocol is designed for complex multi-way conversations between authenticated identities using signed binary

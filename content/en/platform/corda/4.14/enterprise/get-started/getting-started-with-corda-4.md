@@ -3,8 +3,8 @@ title: Getting started
 date: '2023-01-27'
 
 menu:
-  corda-enterprise-4-13:
-    identifier: get-started-landing-4-13
+  corda-enterprise-4.14:
+    identifier: get-started-landing-4.14
     name: "Getting started"
 tags:
 - started
@@ -21,7 +21,7 @@ The best way to get started with Corda is to:
      If you are new to Corda and would like to experience Corda Enterprise, you can [register for a trial now](https://www.corda.net/get-corda/).
    * **Corda Open Source Edition** - the open source version of Corda, which you can build on now. To use Corda Open Source Edition, you can access the latest version in one of three ways:
      * Clone the [Github repository](https://github.com/corda/corda), then follow the tutorials to set up your nodes and developer environment.
-     * Download the latest Corda Open Source Edition `.tar` [file](https://download.corda.net/corda-open-source/4.13/corda-open-source-4.12.tar) that contains the required Corda `.jars`.
+     * Download the latest Corda Open Source Edition `.tar` [file](https://download.corda.net/corda-open-source/4.14/corda-open-source-4.12.tar) that contains the required Corda `.jars`.
      * Use the Docker image and accompanying guide from the [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
 2. Familiarize yourself with the [Corda key concepts]({{< relref "../../enterprise/about-corda/corda-key-concepts.md" >}}).

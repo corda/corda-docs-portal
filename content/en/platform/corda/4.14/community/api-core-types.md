@@ -5,9 +5,9 @@ aliases:
 - /api-core-types.html
 date: '2021-08-11'
 menu:
-  corda-community-4-13:
-    identifier: corda-community-4-13-api-core-types
-    parent: corda-community-4-13-corda-api
+  corda-community-4.14:
+    identifier: corda-community-4.14-api-core-types
+    parent: corda-community-4.14-corda-api
     weight: 210
 tags:
 - api
@@ -40,14 +40,14 @@ Use the `SecureHash` class to uniquely identify objects, such as transactions an
 Implement the `NamedByHash` interface for any object that needs to be identified by its hash:
 
 ```kotlin
-/* Implemented by anything that can be named by a secure hash value 
+/* Implemented by anything that can be named by a secure hash value
 (for example, transactions or attachments). */
 interface NamedByHash {
     val id: SecureHash
 }
 ```
 
-[Structures.kt](https://github.com/corda/corda/blob/release/os/4.13/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
+[Structures.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
 
 `SecureHash` is a sealed class that only defines a single subclass, `SecureHash.SHA256`. You can use utility methods
 to create and parse `SecureHash.SHA256` objects.

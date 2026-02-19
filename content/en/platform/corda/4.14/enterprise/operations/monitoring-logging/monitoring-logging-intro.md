@@ -1,10 +1,10 @@
 ---
 date: '2020-06-18T12:00:00Z'
 menu:
-  corda-enterprise-4-13:
-    identifier: corda-enterprise-4-13-ops-monitoring-logging
+  corda-enterprise-4.14:
+    identifier: corda-enterprise-4.14-ops-monitoring-logging
     name: "Monitoring and logging"
-    parent: corda-enterprise-4-13-operations-guide
+    parent: corda-enterprise-4.14-operations-guide
 tags:
 - operations
 - deployment
