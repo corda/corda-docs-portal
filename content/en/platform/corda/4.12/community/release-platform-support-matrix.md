@@ -79,6 +79,6 @@ The following operating systems can be used with Corda for development purposes.
 
 | Vendor     | CPU architecture | Versions                     | JDBC driver                   |
 |------------|------------------|------------------------------|-------------------------------|
-| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.3 |
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.8 |
 
 {{< /table >}}
