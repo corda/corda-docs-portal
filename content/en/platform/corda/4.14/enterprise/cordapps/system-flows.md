@@ -1,10 +1,10 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-cordapps-flows-system
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-cordapps-flows-system
     name: System flows
-    parent: corda-enterprise-4.14-cordapps-flows
+    parent: corda-enterprise-4-14-cordapps-flows
 tags:
 - api
 - flows

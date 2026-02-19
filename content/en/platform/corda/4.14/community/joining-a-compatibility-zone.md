@@ -5,9 +5,9 @@ aliases:
 - /joining-a-compatibility-zone.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-joining-a-compatibility-zone
-    parent: corda-community-4.14-corda-networks-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-joining-a-compatibility-zone
+    parent: corda-community-4-14-corda-networks-index
     weight: 1050
 tags:
 - joining

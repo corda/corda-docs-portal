@@ -1,9 +1,9 @@
 ---
 date: '2023-09-25'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-corda-networks-parameters
-    identifier: corda-enterprise-4.14-corda-networks-parameters-available
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-corda-networks-parameters
+    identifier: corda-enterprise-4-14-corda-networks-parameters-available
 tags:
 - network
 - map

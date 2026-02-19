@@ -1,15 +1,15 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-community-4.14:
-    parent: bank-in-a-box-user-interface-4.14-community
-    identifier: bank-in-a-box-customer-ui-4.14-community
+  corda-community-4-14:
+    parent: bank-in-a-box-user-interface-4-14-community
+    identifier: bank-in-a-box-customer-ui-4-14-community
 tags:
 - Bank in a Box
 - UI
 title: Customer and guest UI
 weight: 320
-section_menu: corda-community-4.14
+section_menu: corda-community-4-14
 ---
 
 # Customer and guest user interface

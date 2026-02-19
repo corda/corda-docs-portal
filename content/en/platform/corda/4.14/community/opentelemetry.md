@@ -1,9 +1,9 @@
 ---
 date: '2023-01-09'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-open-telemetry
-    parent: corda-community-4.14-corda-nodes-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-open-telemetry
+    parent: corda-community-4-14-corda-nodes-index
     weight: 1250
 title: OpenTelemetry
 ---

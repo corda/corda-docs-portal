@@ -1,9 +1,9 @@
 ---
 date: '2023-01-09'
 menu:
-  corda-enterprise-4.14:
-    identifier: "corda-enterprise-4.14-cordapp-upgrade"
-    parent: corda-enterprise-4.14-upgrading-menu
+  corda-enterprise-4-14:
+    identifier: "corda-enterprise-4-14-cordapp-upgrade"
+    parent: corda-enterprise-4-14-upgrading-menu
 tags:
 - app
 - upgrade

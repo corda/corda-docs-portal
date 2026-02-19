@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-reissuing-states
-    parent: corda-enterprise-4.14-cordapps
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-reissuing-states
+    parent: corda-enterprise-4-14-cordapps
     weight: 65
 tags:
 - state

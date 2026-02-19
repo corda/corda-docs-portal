@@ -5,9 +5,9 @@ aliases:
 - /cli-application-shell-extensions.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-cli-application-shell-extensions
-    parent: corda-community-4.14-operations
+  corda-community-4-14:
+    identifier: corda-community-4-14-cli-application-shell-extensions
+    parent: corda-community-4-14-operations
     weight: 390
 tags:
 - cli
@@ -85,9 +85,9 @@ restart the shell or see [Installing shell extensions](#installing-shell-extensi
 
 |Description|Alias|JAR Name|
 |---------------------------------------------------------|------------------------------|----------------------------------------------------------|
-|[Corda node]({{< relref "running-a-node.md#starting-a-corda-node-from-the-command-prompt" >}})|`corda --<option>`|`corda-4.14.jar`|
-|[Network bootstrapper]({{% ref "network-bootstrapper.md" %}})|`c<option>`|`corda-tools-network-bootstrapper-4.14.jar`|
-|[Standalone shell]({{< relref "shell.md#the-standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4.14.jar`|
-|[Blob inspector]({{% ref "blob-inspector.md" %}})|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.14.jar`|
+|[Corda node]({{< relref "running-a-node.md#starting-a-corda-node-from-the-command-prompt" >}})|`corda --<option>`|`corda-4-14.jar`|
+|[Network bootstrapper]({{% ref "network-bootstrapper.md" %}})|`c<option>`|`corda-tools-network-bootstrapper-4-14.jar`|
+|[Standalone shell]({{< relref "shell.md#the-standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4-14.jar`|
+|[Blob inspector]({{% ref "blob-inspector.md" %}})|`blob-inspector --<option>`|`corda-tools-blob-inspector-4-14.jar`|
 
 {{< /table >}}

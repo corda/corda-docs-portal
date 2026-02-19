@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-corda-nodes-deploying
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-corda-nodes-deploying
     name: "Deploying a node"
-    parent: corda-enterprise-4.14-corda-nodes
+    parent: corda-enterprise-4-14-corda-nodes
 tags:
 - env
 - dev

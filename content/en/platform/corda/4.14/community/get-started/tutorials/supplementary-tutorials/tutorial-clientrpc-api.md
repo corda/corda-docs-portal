@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-tutorial-clientrpc-api
-    parent: corda-community-4.14-supplementary-tutorials-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-tutorial-clientrpc-api
+    parent: corda-community-4-14-supplementary-tutorials-index
     weight: 220
 tags:
 - tutorial

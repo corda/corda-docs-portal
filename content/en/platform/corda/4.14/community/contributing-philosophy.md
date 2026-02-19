@@ -5,9 +5,9 @@ aliases:
 - /contributing-philosophy.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-contributing-philosophy
-    parent: corda-community-4.14-contributing-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-contributing-philosophy
+    parent: corda-community-4-14-contributing-index
     weight: 1010
 tags:
 - contributing

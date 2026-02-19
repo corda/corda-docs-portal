@@ -1,15 +1,15 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
- corda-community-4.14:
-    parent: bank-in-a-box-user-interface-4.14-community
-    identifier: bank-in-a-box-how-to-4.14-community
+ corda-community-4-14:
+    parent: bank-in-a-box-user-interface-4-14-community
+    identifier: bank-in-a-box-how-to-4-14-community
 tags:
 - Bank in a Box
 - UI
 title: How-to guide
 weight: 330
-section_menu: corda-community-4.14
+section_menu: corda-community-4-14
 ---
 
 # How-to guide

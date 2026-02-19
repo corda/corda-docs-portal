@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-performance-testing
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-performance-testing
     name: "Corda Enterprise performance testing"
 tags:
 - introduction

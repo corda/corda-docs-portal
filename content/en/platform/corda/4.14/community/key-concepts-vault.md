@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-vault.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-key-concepts-vault
-    parent: corda-key-concepts-4.14-community
+  corda-community-4-14:
+    identifier: corda-community-4-14-key-concepts-vault
+    parent: corda-key-concepts-4-14-community
     weight: 1090
 tags:
 - concepts

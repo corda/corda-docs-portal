@@ -1,12 +1,12 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: apps-4.14-community
+  corda-community-4-14:
+    identifier: apps-4-14-community
     name: "Featured apps"
 title: Featured apps
 weight: 550
-section_menu: corda-community-4.14
+section_menu: corda-community-4-14
 ---
 
 # Featured apps

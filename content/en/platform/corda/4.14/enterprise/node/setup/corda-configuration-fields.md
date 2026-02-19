@@ -1,8 +1,8 @@
 ---
 date: '2021-11-24T18:55:00Z'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-corda-nodes-configuring
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-corda-nodes-configuring
 tags:
 - corda
 - configuration

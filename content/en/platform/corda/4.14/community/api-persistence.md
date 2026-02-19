@@ -5,9 +5,9 @@ aliases:
 - /api-persistence.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-api-persistence
-    parent: corda-community-4.14-corda-api
+  corda-community-4-14:
+    identifier: corda-community-4-14-api-persistence
+    parent: corda-community-4-14-corda-api
     weight: 240
 tags:
 - api

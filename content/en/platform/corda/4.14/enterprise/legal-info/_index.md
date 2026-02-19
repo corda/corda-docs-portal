@@ -1,13 +1,13 @@
 ---
 title: Third-party software notices and licence information - Corda 4.14
 date: '2024-11-25'
-section_menu: corda-enterprise-4.14
+section_menu: corda-enterprise-4-14
 project: Corda
 version: 'Enterprise 4.14'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-release-notes
-    identifier: corda-enterprise-4.14-legal-info
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-release-notes
+    identifier: corda-enterprise-4-14-legal-info
     weight: 300
     name: "Third-party software licence information"
 tags:

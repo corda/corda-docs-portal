@@ -5,9 +5,9 @@ aliases:
 - /flow-cookbook.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-flow-cookbook
-    parent: corda-community-4.14-building-a-cordapp-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-flow-cookbook
+    parent: corda-community-4-14-building-a-cordapp-index
     weight: 1100
 tags:
 - flow

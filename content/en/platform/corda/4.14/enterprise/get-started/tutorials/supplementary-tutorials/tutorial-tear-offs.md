@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-tutorial-tear-offs
-    parent: corda-enterprise-4.14-supplementary-tutorials-index
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-tutorial-tear-offs
+    parent: corda-enterprise-4-14-supplementary-tutorials-index
     weight: 180
 tags:
 - tutorial

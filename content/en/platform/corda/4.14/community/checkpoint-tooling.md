@@ -5,9 +5,9 @@ aliases:
 - /checkpoint-tooling.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-checkpoint-tooling
-    parent: corda-community-4.14-tools-index
+  corda-community-4-14:
+    identifier: corda-community-4-14-checkpoint-tooling
+    parent: corda-community-4-14-tools-index
     weight: 1050
 tags:
 - checkpoint

@@ -1,9 +1,9 @@
 ---
 date: '2023-01-13'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-tutorial-basic-cordapp-flows
-    parent: corda-enterprise-4.14-tutorial-basic-cordapp-intro
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-tutorial-basic-cordapp-flows
+    parent: corda-enterprise-4-14-tutorial-basic-cordapp-intro
     weight: 90
 tags:
 - tutorial
