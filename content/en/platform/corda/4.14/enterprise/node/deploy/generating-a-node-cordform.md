@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-corda-nodes-deploying-node-generating-cordform
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-corda-nodes-deploying-node-generating-cordform
     parent: generating-a-node
 tags:
 - generating

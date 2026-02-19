@@ -2,15 +2,15 @@
 cascade:
   version: 'Enterprise 4.14'
   project: Corda
-  section_menu: corda-enterprise-4.14
+  section_menu: corda-enterprise-4-14
 description: "Documentation for the 4.14 Enterprise Edition release of Corda"
 title: "Corda Enterprise 4.14"
 date: '2020-02-19'
 menu:
   versions:
     weight: -1100
-  corda-enterprise-4.14:
-    identifier: about-corda-landing-4.14-enterprise
+  corda-enterprise-4-14:
+    identifier: about-corda-landing-4-14-enterprise
     weight: -30
 ---
 

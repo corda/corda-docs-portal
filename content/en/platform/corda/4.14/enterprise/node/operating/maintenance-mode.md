@@ -1,10 +1,10 @@
 ---
 date: '2020-05-05T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-node-maintenance-mode
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-node-maintenance-mode
     name: "Node maintenance mode"
-    parent: corda-enterprise-4.14-corda-nodes-operating
+    parent: corda-enterprise-4-14-corda-nodes-operating
     weight: 7
 tags:
 - maintenance

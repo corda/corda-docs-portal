@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-time-windows.html
 date: '2023-01-30'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-key-concepts-time-windows
-    parent: corda-enterprise-key-concepts-4.14
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-key-concepts-time-windows
+    parent: corda-enterprise-key-concepts-4-14
     weight: 1100
 tags:
 - concepts

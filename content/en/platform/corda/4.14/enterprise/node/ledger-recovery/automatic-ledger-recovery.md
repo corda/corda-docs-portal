@@ -1,10 +1,10 @@
 ---
 date: '2023-11-20'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-corda-ledger-recovery-automatic
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-corda-ledger-recovery-automatic
     name: "Automatic ledger recovery"
-    parent: corda-enterprise-4.14-corda-ledger-recovery
+    parent: corda-enterprise-4-14-corda-ledger-recovery
 tags:
 - ledger recovery
 

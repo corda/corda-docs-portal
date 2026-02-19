@@ -1,9 +1,9 @@
 ---
 date: '2020-12-15T12:00:00Z'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-version-compatibility
-    parent: corda-community-4.14-upgrading
+  corda-community-4-14:
+    identifier: corda-community-4-14-version-compatibility
+    parent: corda-community-4-14-upgrading
     weight: 40
 tags:
 - node

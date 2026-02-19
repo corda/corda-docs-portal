@@ -1,10 +1,10 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4.14:
-    identifier: corda-enterprise-4.14-cordapps-states
+  corda-enterprise-4-14:
+    identifier: corda-enterprise-4-14-cordapps-states
     name: "Writing CorDapp states"
-    parent: corda-enterprise-4.14-cordapps
+    parent: corda-enterprise-4-14-cordapps
 tags:
 - api
 - states

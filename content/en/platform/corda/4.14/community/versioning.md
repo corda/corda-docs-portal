@@ -5,7 +5,7 @@ aliases:
 - /versioning.html
 date: '2022-11-23T16:36:00Z'
 menu:
-  corda-community-4.14:
+  corda-community-4-14:
     identifier: corda-community-4-14-versioning
     parent: corda-community-4-14-versioning-and-upgrades
     weight: 1020

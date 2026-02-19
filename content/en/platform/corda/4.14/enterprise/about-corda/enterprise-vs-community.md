@@ -2,8 +2,8 @@
 title: "Corda Enterprise vs Corda Open Source"
 date: '2021-07-02'
 menu:
-  corda-enterprise-4.14:
-    parent: about-corda-landing-4.14-enterprise
+  corda-enterprise-4-14:
+    parent: about-corda-landing-4-14-enterprise
     weight: 200
     name: "Enterprise vs Open Source"
 tags:

@@ -1,9 +1,9 @@
 ---
 date: '2020-06-16T12:00:00Z'
 menu:
-  corda-enterprise-4.14:
-    parent: corda-enterprise-4.14-operations-guide-deployment
-    identifier: corda-enterprise-4.14-operations-guide-deployment-configuration
+  corda-enterprise-4-14:
+    parent: corda-enterprise-4-14-operations-guide-deployment
+    identifier: corda-enterprise-4-14-operations-guide-deployment-configuration
     name: "Node configuration"
 tags:
 - operations

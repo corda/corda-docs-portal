@@ -5,9 +5,9 @@ aliases:
 - /api-flows.html
 date: '2021-08-12'
 menu:
-  corda-community-4.14:
-    identifier: corda-community-4.14-api-flows
-    parent: corda-community-4.14-corda-api
+  corda-community-4-14:
+    identifier: corda-community-4-14-api-flows
+    parent: corda-community-4-14-corda-api
     weight: 220
 tags:
 - api

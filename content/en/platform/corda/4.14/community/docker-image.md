@@ -5,7 +5,7 @@ aliases:
 - /docker-image.html
 date: '2023-01-10'
 menu:
-  corda-community-4.14:
+  corda-community-4-14:
     identifier: corda-community-4-14-docker-image
     parent: corda-community-4-14-operations
     weight: 350
