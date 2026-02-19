@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4.14:
-    identifier: corda-community-4.14-generating-a-node
+    identifier: corda-community-4-14-generating-a-node
     parent: corda-community-4.14-corda-nodes-index
     weight: 1130
 tags:

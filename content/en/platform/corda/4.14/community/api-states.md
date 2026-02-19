@@ -6,8 +6,8 @@ aliases:
 date: '2021-08-12'
 menu:
   corda-community-4.14:
-    identifier: corda-community-4.14-api-states
-    parent: corda-community-4.14-corda-api
+    identifier: corda-community-4-14-api-states
+    parent: corda-community-4-14-corda-api
     weight: 280
 tags:
 - api

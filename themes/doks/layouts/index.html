@@ -16,27 +16,27 @@
         {{ end -}}
 
         {{ if .Site.Params.options.pagefind -}}
-          
+
         <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
         <script src="/pagefind/pagefind-ui.js"></script>
-        
+
         <!-- Container for the Search Input -->
         <div id="search-input-container"></div>
-        
+
         <!-- Container for the Search Results -->
         <div id="search-results-container"></div>
-        
-       
+
+
         <script>
           window.addEventListener('DOMContentLoaded', () => {
               const pfUI = new PagefindUI({
-                  element: "#search-input-container", 
+                  element: "#search-input-container",
                   showSubResults: true,
                   pageSize: 5,
                   showImages: false,
                   showEmptyFilters: false
               });
-      
+
               // Monitor the document for additions of the Pagefind drawer
               const observer = new MutationObserver((mutations) => {
                   mutations.forEach((mutation) => {
@@ -45,7 +45,7 @@
                               // Separate the input and results if necessary
                               const searchInput = node.querySelector('.pagefind-ui__search-input');
                               const searchResults = node.querySelector('.pagefind-ui__drawer');
-      
+
                               if (searchInput && searchResults) {
                                   document.getElementById('search-input-container').appendChild(searchInput);
                                   document.getElementById('search-results-container').appendChild(searchResults);
@@ -55,15 +55,15 @@
                       });
                   });
               });
-      
+
               observer.observe(document.body, {
                   childList: true,
                   subtree: true
               });
           });
       </script>
-      
-      
+
+
 
         {{ end -}}
 
@@ -97,7 +97,7 @@
               <p>Learn Corda key concepts.</p>
             </div>
             <div class="card-footer">
-              <a href="/en/platform/corda/4.13/community/about-corda/corda-key-concepts.html" class="btn rounded stretched-link">Corda key concepts</a>
+              <a href="/en/platform/corda/4.14/community/about-corda/corda-key-concepts.html" class="btn rounded stretched-link">Corda key concepts</a>
             </div>
           </div>
         </div>
@@ -107,8 +107,8 @@
               <h3 class="card-title">Corda</h3>
               <p>Everything you need to know about Corda:</p>
               <ul>
-                <li style="text-align: left;"><a href="en/platform/corda/4.13/enterprise.html">Corda Enterprise 4.13</a></li>
-                <li style="text-align: left;"><a href="en/platform/corda/4.13/community.html">Corda Open Source 4.13</a></li>
+                <li style="text-align: left;"><a href="en/platform/corda/4.14/enterprise.html">Corda Enterprise 4.13</a></li>
+                <li style="text-align: left;"><a href="en/platform/corda/4.14/community.html">Corda Open Source 4.13</a></li>
                 <li style="text-align: left;"><a href="en/platform/corda/1.7/cenm.html">CENM 1.7</a></li>
                 <li style="text-align: left;"><a href="en/platform/corda/5.2.html">C5.2</a></li>
               </ul>
@@ -174,7 +174,7 @@
         <div class="card no-border h-100">
           <div class="card-body">
             <h3 class="card-title">Tools and add-ons</h3>
-            <p>Learn how to supercharge your Corda operations and CorDapp design and development.</p>       
+            <p>Learn how to supercharge your Corda operations and CorDapp design and development.</p>
           </div>
           <div class="card-footer">
             <a href="en/tools.html" class="btn rounded stretched-link">Corda tools and add-ons</a>

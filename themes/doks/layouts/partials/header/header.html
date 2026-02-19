@@ -9,7 +9,7 @@
       </div>
             <div class="banner-message__item" data-banner-message>
         <b><a style="color:#FFFFFF; text-decoration: underline;"
-              href="{{ .Site.BaseURL | absURL }}en/platform/corda/4.13/community.html">Corda 4.13 now available</a></b>
+              href="{{ .Site.BaseURL | absURL }}en/platform/corda/4.14/community.html">Corda 4.14 now available</a></b>
       </div>
     <!-- Uncomment, edit and duplicate as necessary, try to keep the word count under 15 to be mobile-device friendly -->
     <!-- <div class="banner-message__item" data-banner-message>
@@ -109,14 +109,14 @@
             <img
               src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
           </button>-->
-          
+
           {{ end -}}
-          
+
           {{ if .Site.Params.options.pagefind -}}
-          
+
           <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
           <script src="/pagefind/pagefind-ui.js"></script>
-         
+
           <div class="container mt-1 search-container">
                     <div class="input-group">
                         <span class="input-group-text" id="search-trigger-input">
@@ -127,13 +127,13 @@
                         <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-trigger-input" id="search-trigger">
                     </div>
            </div>
-         
+
 
         <!-- Modal Container -->
         <div id="searchModal" class="modal">
           <!-- Modal Content -->
           <div class="modal-content">
-          
+
             <h2 class="searchHeader"><span class="close-button">&times;</span></h2>
             <div id="search"></div>
           </div>
@@ -141,18 +141,18 @@
           <script>
             let pagefind = null;
               window.addEventListener('DOMContentLoaded', (event) => {
-                  new PagefindUI({ 
-                  element: "#search",   
+                  new PagefindUI({
+                  element: "#search",
                   showSubResults: true,
                   pageSize: 5,
                   showImages: false,
                   showEmptyFilters: false});
               });
-             
+
               var modal = document.getElementById("searchModal");
               var modalTrigger = document.getElementById("search-trigger");
               var closeBtn = document.getElementsByClassName("close-button")[0];
-              
+
               modalTrigger.addEventListener('focus', function() {
                 modal.style.display = "block";
                 var searchInput = document.getElementsByClassName('pagefind-ui__search-input')[0];

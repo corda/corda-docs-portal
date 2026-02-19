@@ -6,8 +6,8 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4.14:
-    identifier: corda-community-4.14-key-concepts-oracles
-    parent: corda-key-concepts-4.14-community
+    identifier: corda-community-4-14-key-concepts-oracles
+    parent: corda-key-concepts-4-14-community
     weight: 1110
 tags:
 - concepts

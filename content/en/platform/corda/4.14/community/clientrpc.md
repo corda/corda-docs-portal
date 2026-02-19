@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4.14:
-    identifier: corda-community-4.14-clientrpc
+    identifier: corda-community-4-14-clientrpc
     parent: corda-community-4.14-corda-nodes-index
     weight: 1120
 tags:

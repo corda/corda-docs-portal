@@ -2,8 +2,8 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4.14:
-    identifier: corda-community-4.14-flow-start-with-client-id
-    parent: corda-community-4.14-building-a-cordapp-index
+    identifier: corda-community-4-14-flow-start-with-client-id
+    parent: corda-community-4-14-building-a-cordapp-index
     weight: 1095
 tags:
 - flow

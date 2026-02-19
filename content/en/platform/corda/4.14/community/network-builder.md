@@ -6,8 +6,8 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4.14:
-    identifier: corda-community-4.14-network-builder
-    parent: corda-community-4.14-tools-index
+    identifier: corda-community-4-14-network-builder
+    parent: corda-community-4-14-tools-index
     weight: 1010
 tags:
 - network
