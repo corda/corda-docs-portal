@@ -80,7 +80,7 @@ The following database types are supported both in production and for developmen
 
 | Vendor     | CPU architecture | Versions                     | JDBC driver                   |
 |------------|------------------|------------------------------|-------------------------------|
-| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 6.4     |
+| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 13.2.1  |
 | Oracle     | x86-64           | 19c                          | Oracle JDBC 8                 |
 | Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                 |
 | Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 11                |
