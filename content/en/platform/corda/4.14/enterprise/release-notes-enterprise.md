@@ -73,8 +73,8 @@ The transaction hierarchy, [FinalityFlow]({{< relref "cordapps/api-flows.md#fina
 
 From 4.14, the following JARs contain Log4j2Plugins.dat files, which are required for registering newer Log4j2 plugins:
 
-- corda-common-logging-4-14.jar
-- corda-node-api-4-14.jar
+- corda-common-logging-4.14.jar
+- corda-node-api-4.14.jar
 
 If these JARs are used with other sources using Log4j Core, the correct handling of the potentially
 conflicting files is required to guarantee correct behavior.

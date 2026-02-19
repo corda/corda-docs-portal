@@ -24,7 +24,7 @@ Before you install the downloaded release packs, verify the integrity of each fi
 
 Downloads for release-pack-4-14
 
-* corda-4-14.jar (106 Mb / 112097767 bytes)
+* corda-4.14.jar (106 Mb / 112097767 bytes)
   * `e81287cf6cf5f6969aac2379c68ae294bb58c4b2` (sha1)
   * `c9cdd5b4710756b25bfe1ba3f400c060afd429eccd82de6e2e849ead61b60a2e` (sha256)
   * `26901d9b3b3a4031780c2a6c27e16734` (md5)
@@ -44,7 +44,7 @@ Downloads for release-pack-4-14
   * `855cd4144c629805802f4c67763043a82b574fbcafc61f55f5676e9c2db598bf` (sha256)
   * `0b4017a441a1340457534a52b64105f5` (md5)
 
-* corda-common-configuration-parsing-4-14.jar (272 Kb / 278877 bytes)
+* corda-common-configuration-parsing-4.14.jar (272 Kb / 278877 bytes)
   * `51f7bb8ee8bf1046c99cfc723f9e70ac89a5383a` (sha1)
   * `cc23fc9ad6cfe8e89e3391baffd03d15defcbe54441ef779a5e17aeeff3f2b5f` (sha256)
   * `ec1afaf8ce2533e4a46514b9eedbd2a5` (md5)
@@ -64,7 +64,7 @@ Downloads for release-pack-4-14
   * `9be80e49ce4a193b363c01282f44c8785ee6711c5b7bc26f5d1054479a7ae47b` (sha256)
   * `39ceca3c64252337ae67b13588144e78` (md5)
 
-* corda-common-logging-4-14.jar (50 Kb / 51478 bytes)
+* corda-common-logging-4.14.jar (50 Kb / 51478 bytes)
   * `471dec6a86e844bf9b45100215bb6dba4936bd31` (sha1)
   * `ef638ae3b74f2cbbe8a929cf63b45255635ffed3409d7464d0ef285fc815e0b7` (sha256)
   * `b9740d1dfae8b7c37de4b2da5157456d` (md5)
@@ -84,7 +84,7 @@ Downloads for release-pack-4-14
   * `14109cc92d43f44be3eea4e5f050dbfb945d9eaa4d48e62e17e0d68ebaf63694` (sha256)
   * `efffeffb849737cbd0104acf81811460` (md5)
 
-* corda-common-validation-4-14.jar (12 Kb / 12905 bytes)
+* corda-common-validation-4.14.jar (12 Kb / 12905 bytes)
   * `c1c4373e7b34b2646db43cf1a3d246ed7b03cc1a` (sha1)
   * `0d29442c5f31a6931d0753d156a4193c244ddd5bb72067cabcb849b474ec09ee` (sha256)
   * `68ae992ad809b027bfcab84bbff364f3` (md5)
@@ -104,7 +104,7 @@ Downloads for release-pack-4-14
   * `e0920886a7b25318ddad408377c18d02e6fe3cc839a655928165ebe4a4a526da` (sha256)
   * `6d6c3f6028b01717b267e23c5e11e87d` (md5)
 
-* corda-confidential-identities-4-14.jar (32 Kb / 33278 bytes)
+* corda-confidential-identities-4.14.jar (32 Kb / 33278 bytes)
   * `61f11cbbac8c731df37d00e19428315f1057fda1` (sha1)
   * `0cf2b4d00b5a523eea948f95910f091e667a1062433e98c93f9fb40134c29fb5` (sha256)
   * `bf031b3b99f88da9fbb8c030dfab1a6d` (md5)
@@ -124,7 +124,7 @@ Downloads for release-pack-4-14
   * `c2df367c7e7400a0289cc4bf20b590f03869fa8d2bd3e2ade03d167f926b843f` (sha256)
   * `cf0f6c9f95d0ef95b9703a5d6571782f` (md5)
 
-* corda-core-4-14.jar (1 Mb / 1998026 bytes)
+* corda-core-4.14.jar (1 Mb / 1998026 bytes)
   * `52569ed04158e209067ce14456d5d6ebea6e0fea` (sha1)
   * `6fa40ffc8bb507c776ccd357018feccb5781da6d52c7c750a10a0649e753b77a` (sha256)
   * `74c826be854b3dac14821d07e9e55b10` (md5)
@@ -144,7 +144,7 @@ Downloads for release-pack-4-14
   * `e81b997c1b2e434ae9af7d4bffedcea034fc563f3d824ae81c5011db2923c339` (sha256)
   * `ce45ba120d34c4d03c92478370dd9dac` (md5)
 
-* corda-core-test-utils-4-14.jar (263 Kb / 269469 bytes)
+* corda-core-test-utils-4.14.jar (263 Kb / 269469 bytes)
   * `2f84e2d56a79885e43f2413b5c9a0b92618e5c15` (sha1)
   * `b4880f0d8cc9153ef0750a976b4b040552420b1ef33fd9895ce415c9d8cf4ac2` (sha256)
   * `184e912fa570435727922e6ba4ebe833` (md5)
@@ -164,7 +164,7 @@ Downloads for release-pack-4-14
   * `5263260c661c877f639287af82008372c08a47f3395b857a56eba6ec83b48a6e` (sha256)
   * `1978504c04efab96b3e5182c729f4782` (md5)
 
-* corda-finance-contracts-4-14.jar (184 Kb / 189147 bytes)
+* corda-finance-contracts-4.14.jar (184 Kb / 189147 bytes)
   * `f2524356ef7d2a446c38780d1071173420bd5c9d` (sha1)
   * `f95d9576ac6eec28166079768c40fd4a994fcdcb397f7eaed25200c1924b734d` (sha256)
   * `970f17a9ab35488fc042a3edd062c518` (md5)
@@ -184,7 +184,7 @@ Downloads for release-pack-4-14
   * `0d25724091bff1fe87be9bae326cac9c3db03d65034000601a6bcbc1d589bc05` (sha256)
   * `05db3a419be9257d0f6a3c8e0f00c22f` (md5)
 
-* corda-finance-workflows-4-14.jar (191 Kb / 196523 bytes)
+* corda-finance-workflows-4.14.jar (191 Kb / 196523 bytes)
   * `a8a4ba9f6c3b1ba41ee0f46dd72e5661a05faf48` (sha1)
   * `3290b28a8304168d57e09e034a5bdddc49fedec9eec3ea3a407615f4580f19a0` (sha256)
   * `1cc36bd10c5646cf77ca35e81eeb0a7d` (md5)
@@ -204,7 +204,7 @@ Downloads for release-pack-4-14
   * `4128c26e2510ca7cc57df698014614c0d9a37c631eb4bef16c45d674c2a67cbd` (sha256)
   * `5798f76d80b7c5415bdf68fad62b14b3` (md5)
 
-* corda-jackson-4-14.jar (167 Kb / 171719 bytes)
+* corda-jackson-4.14.jar (167 Kb / 171719 bytes)
   * `29a0668335d4a833c671823984767f8a99463c5b` (sha1)
   * `e9134bb42a5a5f2481940f8d748247269a66f4f157db548f2ae2fdcb1359a04a` (sha256)
   * `e2e3265af725e232c92e58a9a1e38898` (md5)
@@ -224,7 +224,7 @@ Downloads for release-pack-4-14
   * `b824b2140c5c45fa152cc768b84392e410d9af5505fd212d137cdcd0c0f2546a` (sha256)
   * `12f7d7d533f0d1c9bffe69cd5782b9c9` (md5)
 
-* corda-jfx-4-14.jar (218 Kb / 223969 bytes)
+* corda-jfx-4.14.jar (218 Kb / 223969 bytes)
   * `1c64c3d9340d7b2c2c02c48c84cdbbcdd75cc08c` (sha1)
   * `4c30568fe6a07ce772ce25acdbbadfa967422e5ed1616740b6857513160ce427` (sha256)
   * `3f8ea5c6d58cc35ff9ea8eced12383b0` (md5)
@@ -244,7 +244,7 @@ Downloads for release-pack-4-14
   * `879327dfb9a75a7e87372da067edf68106741b52c3ab14f6519279373264821f` (sha256)
   * `b19d1ffed167e2dedb285ca452fdf09f` (md5)
 
-* corda-mock-4-14.jar (78 Kb / 80255 bytes)
+* corda-mock-4.14.jar (78 Kb / 80255 bytes)
   * `19c2fcef8e038154fae462a4fecbab2d703f9b0c` (sha1)
   * `9334665212d4910308bbc4698721c88c33784c6d50c7476082cada54b821bee3` (sha256)
   * `09aa870fcc1c83ce5cf6a49b67f498e7` (md5)
@@ -264,7 +264,7 @@ Downloads for release-pack-4-14
   * `35fa86489ad77a779641c5384b84bfeebf48caa1bd8da062bec3317515bcff75` (sha256)
   * `7a970c84dcad16de6db9f2da8d8b8127` (md5)
 
-* corda-node-4-14.jar (38 Mb / 39955739 bytes)
+* corda-node-4.14.jar (38 Mb / 39955739 bytes)
   * `2850556708ed49f04e73b4139ef13b7ff88859aa` (sha1)
   * `69e62294f2b6525499f4760777180614384bb916bb423d10e9824b8ecd8c69a7` (sha256)
   * `39f4dadf061d3f0a5bb8fc7c1397a6d2` (md5)
@@ -284,7 +284,7 @@ Downloads for release-pack-4-14
   * `d267963327209f0c1e4261608b7724e3ac0a19ab1ef90fd01635118ab6a25785` (sha256)
   * `55993848cdb420c2afbef189ecce0dbb` (md5)
 
-* corda-node-api-4-14.jar (1 Mb / 1230341 bytes)
+* corda-node-api-4.14.jar (1 Mb / 1230341 bytes)
   * `7af130110c1d1aef70cb5a52adc803254cf51981` (sha1)
   * `018b1fd10e414c4a0406bf9b1a7dac283e05c2e601c40c9462e62e3cbec47b89` (sha256)
   * `bd87fc7cfeafcc2a2dc5ecf7d39284c0` (md5)
@@ -304,7 +304,7 @@ Downloads for release-pack-4-14
   * `33ffd77f88317c0d9280894872acf68998d208dae20fa0c5d20c0b417a7af62b` (sha256)
   * `c76a70cad2e3c2761beacf1caefe857c` (md5)
 
-* corda-node-driver-4-14.jar (691 Kb / 707906 bytes)
+* corda-node-driver-4.14.jar (691 Kb / 707906 bytes)
   * `b54c351784adb5e1f4272add3f1772b88919a67d` (sha1)
   * `f10e550bdff504cdfb3ba51fad719685fd8096c73160e236d6a76ea77e659533` (sha256)
   * `bbf5d0e2a8149efd50727cd35751e5e8` (md5)
@@ -324,7 +324,7 @@ Downloads for release-pack-4-14
   * `ebf2e6cf82e4687a2807eaa9f69785f86045469568072f3724340751512f05ba` (sha256)
   * `c7a175b1de96c90491f83efda7a18529` (md5)
 
-* corda-opentelemetry-4-14.jar (3 Kb / 3313 bytes)
+* corda-opentelemetry-4.14.jar (3 Kb / 3313 bytes)
   * `4e48503b41ae7c73765f16177a5a5fb694279a92` (sha1)
   * `f4d31ba5a91b34e2483f2d405923e9bf7b74ae37edf045f6d773db904968f500` (sha256)
   * `4bfadf53b7e31e93870fa4c73aa084a5` (md5)
@@ -344,7 +344,7 @@ Downloads for release-pack-4-14
   * `ba989cb32419b2887adac83ea5f03cbe61a9291b238e4f6e72b3747faa2b5f4c` (sha256)
   * `50fd02977f79a19754c1fbc011b0b187` (md5)
 
-* corda-opentelemetry-driver-4-14.jar (3 Mb / 3852455 bytes)
+* corda-opentelemetry-driver-4.14.jar (3 Mb / 3852455 bytes)
   * `ffe8468b14363d0b11cd66c8f96af2673b68d48d` (sha1)
   * `a4929a2b5ba8e8d2bd5bc32039788340fe60fb5e49d26eb18f71796df6298871` (sha256)
   * `69b345306894e71b12099b5263e61d72` (md5)
@@ -424,7 +424,7 @@ Downloads for release-pack-4-14
   * `38862841792273778fc1644a1c05d066a1991fff0fc7729b6d2c006897817254` (sha256)
   * `4d7ae59690bf4363d83719d1751dc45c` (md5)
 
-* corda-rpc-4-14.jar (152 Kb / 155826 bytes)
+* corda-rpc-4.14.jar (152 Kb / 155826 bytes)
   * `e3d7d6ef590632ccca8e5b804d448dd539468edd` (sha1)
   * `f28449d06cec47892684f4268fb5ad186b23c55415515ef458f004c1744c4465` (sha256)
   * `2316cda3d5ff99a92f12384eb13394f1` (md5)
@@ -444,7 +444,7 @@ Downloads for release-pack-4-14
   * `412e63d752277b064a03acf716f4d318894cb9e18c8ffe1fc3a35b2d7524b8c1` (sha256)
   * `eb90ea008124cf37bb4407cf62ab1870` (md5)
 
-* corda-serialization-4-14.jar (1 Mb / 1141116 bytes)
+* corda-serialization-4.14.jar (1 Mb / 1141116 bytes)
   * `56f875458111dbaea8313e9df1511666b3aeb806` (sha1)
   * `43866a9fe7c50222e0f20920365c8fdb277ab38d76b4d28158589cf1a6d672c5` (sha256)
   * `8d6e06bd795bf369236a55e10ebb0d5d` (md5)
@@ -464,7 +464,7 @@ Downloads for release-pack-4-14
   * `70a657cd2268e8e06e182479a6df02d29612f680a5e9cfb79bc2e8fa1b4a0bcf` (sha256)
   * `a9adb5f11403548f394a84e05a8ca484` (md5)
 
-* corda-shell-4-14.jar (72 Mb / 75640880 bytes)
+* corda-shell-4.14.jar (72 Mb / 75640880 bytes)
   * `4965502086d6c03dd83022976fd36b73c81ceb43` (sha1)
   * `2ca1d76829dac70623719449a7cefe54c2980a03058d911e35b8c087ba369ac1` (sha256)
   * `0c4c7382118419efe8f48f4e611539cd` (md5)
@@ -479,7 +479,7 @@ Downloads for release-pack-4-14
   * `62c7d98d61b2b98b3abf8844ded998a708ee6e93892b5a635e30ad31144780d4` (sha256)
   * `b4c181a255f7737cdfdfa803993802b2` (md5)
 
-* corda-standalone-shell-4-14.jar (72 Mb / 75662671 bytes)
+* corda-standalone-shell-4.14.jar (72 Mb / 75662671 bytes)
   * `42e65e4d3e74bda57b499f58222cee656345a141` (sha1)
   * `ceba7ca9dbc9700edc8db01b6ff6f8ac34f979727ed431443fed3161f596560a` (sha256)
   * `b2175fa77f4a132a761f5d13cccce33b` (md5)
@@ -494,7 +494,7 @@ Downloads for release-pack-4-14
   * `e7828c64610f1d46702c1f3b0d90ce005da5d47e057f981fd326076b843e889f` (sha256)
   * `945209ec49a5d7f66aec02cce2bc4a99` (md5)
 
-* corda-test-common-4-14.jar (11 Kb / 11645 bytes)
+* corda-test-common-4.14.jar (11 Kb / 11645 bytes)
   * `0e09705720d307eec280bf932c05f46ea29d94f4` (sha1)
   * `43521929fac46f50db3d9ce1dfd57a7841b65971d041cde571b674e42aac008b` (sha256)
   * `1f89f690b00a64affdd84c0c56e7e9ce` (md5)
@@ -514,7 +514,7 @@ Downloads for release-pack-4-14
   * `315dfbc325fb72d8a2c879066e65dcfc5d7256ae2239548b9d0f64686b45508d` (sha256)
   * `3a372612f85f273fa9c9238291aaaab8` (md5)
 
-* corda-test-db-4-14.jar (438 bytes / 438 bytes)
+* corda-test-db-4.14.jar (438 bytes / 438 bytes)
   * `2036ac26dff2d7371e9593986e7bdea74a0c4ab5` (sha1)
   * `0938e2e3ac61d534df78a430db00530924768aaeaab2e8ba31ceaeea956da409` (sha256)
   * `ee858add9a511668ecf086d8155131ef` (md5)
@@ -554,7 +554,7 @@ Downloads for release-pack-4-14
   * `f403ebf30c551d93407649dafbafd95dcb1a0a37c8c79c5b5018903384749a0e` (sha256)
   * `04c2e35e427fd5883dc3bfd00b8e639f` (md5)
 
-* corda-testserver-impl-4-14.jar (91 Kb / 93203 bytes)
+* corda-testserver-impl-4.14.jar (91 Kb / 93203 bytes)
   * `b9d7b2e81fff5b6504fe5d3d7e56fdb5dad25d8d` (sha1)
   * `bd25ccd4e6e77749517caa09388ce87f3fd5f13c78915b8f60e3a2db51cd0d51` (sha256)
   * `4bee2de2117bde9f2d6999a1b974684f` (md5)
@@ -574,7 +574,7 @@ Downloads for release-pack-4-14
   * `b04bae6c9eff4aeb35435e5373ef191b9f48bfb5faa9b0808e454f8832fe348e` (sha256)
   * `0d7e2131cba479af573e2999b9cc76a5` (md5)
 
-* corda-test-utils-4-14.jar (196 Kb / 201539 bytes)
+* corda-test-utils-4.14.jar (196 Kb / 201539 bytes)
   * `a3d727e52c87061cc1c85c54fbeb914a43af79e3` (sha1)
   * `7fc926375b3f83a77659ae23b761b8144eefbc788b84595c3b6f3779902b41ef` (sha256)
   * `2293da209682c532cecdb9b156c68704` (md5)
@@ -594,7 +594,7 @@ Downloads for release-pack-4-14
   * `d569efa23cf160c932ffe30ec2dc46003c68f7047e685b93e8378b309543be78` (sha256)
   * `df7683fd906704148702c278d28b40c2` (md5)
 
-* corda-tools-blob-inspector-4-14.jar (47 Mb / 49375870 bytes)
+* corda-tools-blob-inspector-4.14.jar (47 Mb / 49375870 bytes)
   * `30dc1e7c98cbaa27da472458f466694c029263e3` (sha1)
   * `5ae112e9fbbc79f8d9087f9bd3d98a4e2d0af8e0ed86296406afc7ca00ec6f9b` (sha256)
   * `644706f290e0fe6555c4d041901f9f18` (md5)
@@ -614,7 +614,7 @@ Downloads for release-pack-4-14
   * `b2ebeff57435e53850c81ba0c5f1442b7ed54792e8458c994df9bf4f7c854ec4` (sha256)
   * `531104d526ca1b255e1ee0f05ee955ce` (md5)
 
-* corda-tools-checkpoint-agent-4-14.jar (2 Mb / 2567364 bytes)
+* corda-tools-checkpoint-agent-4.14.jar (2 Mb / 2567364 bytes)
   * `f06cd599766e41e072df5fb57fe2601ef01e64de` (sha1)
   * `19e112c8fcbd5ba561b380dc195e5bee59ee74f7e8b53a87ce017eed97e25d99` (sha256)
   * `944800bec25a4fc85f5cd9c812b8d5be` (md5)
@@ -634,7 +634,7 @@ Downloads for release-pack-4-14
   * `7d7f037e9caba1965e5542c2007c442a532480bc0f4d128de601ac49a7b35cc3` (sha256)
   * `8b9d7e057c2287e82890da36e55af702` (md5)
 
-* corda-tools-cliutils-4-14.jar (45 Kb / 46327 bytes)
+* corda-tools-cliutils-4.14.jar (45 Kb / 46327 bytes)
   * `4d0cf8401c339c4b5ec4ed8068e29bf2122916d3` (sha1)
   * `37697a35b511a2d234fe65328d16dc5b57c660e626fe670f9a2aea6c5dc5f7f3` (sha256)
   * `4b686137593ec61f08376f993911d327` (md5)
@@ -674,7 +674,7 @@ Downloads for release-pack-4-14
   * `04a19fc726c1292c3c912eb487a8e1fe527ee44dc35a4c6f33c0dbd7f229e475` (sha256)
   * `9d7f28c65e20c5eadcebcdd747b0359c` (md5)
 
-* corda-tools-network-bootstrapper-4-14.jar (167 Mb / 176053802 bytes)
+* corda-tools-network-bootstrapper-4.14.jar (167 Mb / 176053802 bytes)
   * `5aa4cb9c71a5b408e892d184327a651d1b828f0b` (sha1)
   * `5f2471d38eb15659ef26eeecb8991d73714012e70584c8156c92b8cc5dbff085` (sha256)
   * `41f02a488592eef88f646a0b2f98931b` (md5)
