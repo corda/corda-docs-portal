@@ -22,7 +22,7 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.12 has been tested and verified to work with **Oracle JDK 17.0.13** and **Azul Zulu Enterprise 17.0.13**.
+Corda Enterprise Edition 4.12 has been tested and verified to work with **Oracle JDK 17.0.17** and **Azul Zulu Enterprise 17.0.17**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.12.
 
@@ -32,10 +32,10 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 {{< table >}}
 
-|Supported JDKs|Latest supported version|
-|-----------------------------------|-----------|
-|[Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)|17.0.13|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.13|
+| Supported JDKs                                                       | Latest supported version |
+|----------------------------------------------------------------------|--------------------------|
+| [Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)      | 17.0.17                  |
+| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/) | 17.0.17                  |
 
 {{< /table >}}
 
@@ -47,12 +47,12 @@ Production use of Corda Enterprise Edition 4.12 is only supported on Linux OS; s
 
 {{< table >}}
 
-|Platform|CPU architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|6.x, 7.x, 8.x, 9.x|
-|Suse Linux Enterprise Server|x86-64|11.x, 12.x|
-|Ubuntu Linux|x86-64|20.04, 22.04|
-|Oracle Linux|x86-64|6.x, 7.x|
+| Platform                     | CPU architecture | Versions      |
+|------------------------------|------------------|---------------|
+| Red Hat Enterprise Linux     | x86-64           | 7.x, 8.x, 9.x |
+| Suse Linux Enterprise Server | x86-64           | 11.x, 12.x    |
+| Ubuntu Linux                 | x86-64           | 20.04, 22.04  |
+| Oracle Linux                 | x86-64           | 6.x, 7.x      |
 
 {{< /table >}}
 
@@ -78,15 +78,15 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-|Vendor|CPU architecture|Versions|JDBC driver|
-|-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|19c|Oracle JDBC 6|
-|Oracle|x86-64|19c|Oracle JDBC 8|
-|Oracle|x86-64|12cR2|Oracle JDBC 8|
-|Oracle|x86-64|11gR2|Oracle JDBC 6 |
-|Oracle|x86-64|23ai (23.4)|Oracle JDBC 11 |
-|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x| PostgreSQL JDBC Driver 42.7.3 |
+| Vendor     | CPU architecture | Versions                     | JDBC driver                   |
+|------------|------------------|------------------------------|-------------------------------|
+| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 6.4     |
+| Oracle     | x86-64           | 19c                          | Oracle JDBC 8                 |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                 |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 11                |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 8                 |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 11                |
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.8 |
 
 {{< /table >}}
 
@@ -118,14 +118,14 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 {{< table >}}
 | Service           | Image name                                                  |
 |-------------------|-------------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.6-zulu-openjdk8u392`  |
-| Network Map       | `corda/enterprise-networkmap:1.6-zulu-openjdk8u392`       |
-| Signing           | `corda/enterprise-signer:1.6-zulu-openjdk8u392`           |
-| Zone              | `corda/enterprise-zone:1.6-zulu-openjdk8u392`             |
-| Auth              | `corda/enterprise-auth:1.6-zulu-openjdk8u392`             |
-| Gateway           | `corda/enterprise-gateway:1.6-zulu-openjdk8u392`          |
-| PKI Tool          | `corda/enterprise-pkitool:1.6-zulu-openjdk8u392`          |
-| Notary            | `corda/enterprise-notary:4.11.1-zulu-openjdk8u392`           |
+| Identity Manager  | `corda/enterprise-identitymanager:1.7.2-zulu-openjdk-alpine17.0.17`  |
+| Network Map       | `corda/enterprise-networkmap:1.7.2-zulu-openjdk-alpine17.0.17`       |
+| Signing           | `corda/enterprise-signer:1.7.2-zulu-openjdk-alpine17.0.17`           |
+| Zone              | `corda/enterprise-zone:1.7.2-zulu-openjdk-alpine17.0.17`             |
+| Auth              | `corda/enterprise-auth:1.7.2-zulu-openjdk-alpine17.0.17`             |
+| Gateway           | `corda/enterprise-gateway:1.7.2-zulu-openjdk-alpine17.0.17`          |
+| PKI Tool          | `corda/enterprise-pkitool:1.7.2-zulu-openjdk-alpine17.0.17`          |
+| Notary            | `corda/enterprise-notary:4.12.8-zulu-openjdk-alpine17.0.17`           |
 {{< /table >}}
 
 
