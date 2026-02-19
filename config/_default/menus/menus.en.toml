@@ -569,7 +569,7 @@ identifier = "corda-enterprise-4-14-corda-networks"
 name = "Corda networks"
 weight = 40
 
-[[corda-enterprise-4-13]]
+[[corda-enterprise-4-14]]
 identifier = "corda-enterprise-4-14-corda-nodes-operating"
 name = "Operating a node"
 parent = "corda-enterprise-4-14-corda-nodes"
