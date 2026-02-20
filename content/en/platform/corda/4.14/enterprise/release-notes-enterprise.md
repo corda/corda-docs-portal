@@ -25,7 +25,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ## Platform version change
 
-Corda 4.14 uses platform version 150.
+Corda 4.14 uses platform version 160.
 
 For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
