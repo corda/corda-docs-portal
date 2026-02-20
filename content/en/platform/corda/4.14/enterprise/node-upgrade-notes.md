@@ -22,7 +22,9 @@ If you are upgrading from Corda Enterprise 3.x, you must first:
 1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
 2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise Edition 4.5.
 3. Upgrade from Corda 4.5 to Corda Enterprise Edition 4.11.
-4. Upgrade from Corda 4.11 to Corda Enterprise Edition 4.14.
+4. Upgrade from Corda 4.11 to Corda Enterprise Edition 4.12. (Note this is a major release, moving from JDK8/Kotlin 1.2 to JDK17/Kotlin 1.9)
+5. Upgrade from Corda 4.12 to Corda Enterprise Edition 4.13.
+6. Upgrade from Corda 4.13 to Corda Enterprise Edition 4.14.
 
 {{< warning >}}
 Before upgrading to Corda Enterprise Edition 4.14, read the guidance on [upgrading your notary service]({{< relref "notary/upgrading-the-ha-notary-service.md" >}}).
