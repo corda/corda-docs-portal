@@ -174,7 +174,7 @@ Ledger Recovery was introduced as part of the Corda 4.11 release. It complements
 
 For more information, see [Ledger Recovery]({{< relref "node/collaborative-recovery/ledger-recovery/overview.md" >}}).
 
-#### Two Phase Finality
+### Two Phase Finality
 
 Two Phase Finality protocol (`FinalityFlow` and `ReceiveFinalityFlow` sub-flows) has been added to improve resiliency and
 recoverability of CorDapps using finality. Existing CorDapps do not require any changes to take advantage of this
@@ -182,26 +182,26 @@ new improved protocol.
 
 For more information, see [Two Phase Finality]({{< relref "two-phase-finality.md" >}}).
 
-#### Finality Recovery Tooling
+### Finality Recovery Tooling
 
 RPC extension operations (additions to the FlowRPCOps interface) that allow for Finality Flow recovery by both the initiator and the receiver(s) have been added.
 Also, Node Shell commands now allow operations teams to perform Finality Flow recovery.
 
 For more information, see [Finality Flow Recovery]({{< relref "finality-flow-recovery.md" >}})
 
-#### Ledger Recovery flow
+### Ledger Recovery flow
 
 A new ledger recovery flow (`LedgerRecoveryFlow`) enables a node to identify and recover transactions from
 peer recovery nodes to which it was a party (either initiator or receiver) and which are missing from its own ledger.
 
 For more information, see [Ledger Recovery flow parameters]({{< relref "node/collaborative-recovery/ledger-recovery/ledger-recovery-flow.md" >}}).
 
-#### Confidential Identity key-pair generator
+### Confidential Identity key-pair generator
 
 A new service has been added that pregenerates Confidential Identity keys to be used when using CIs in transactions.
 These pre-generated CIs are subsequently used for backup recovery purposes.
 
-#### Additional Network Parameters
+### Additional Network Parameters
 
 The following network parameters, and associated node configuration parameters, have been added:
 
@@ -212,7 +212,7 @@ These network parameters require CENM 1.6 or later.
 
 For more information, see [Available Network Parameters]({{< relref "network/available-network-parameters.md" >}}).
 
-#### Distribution record cleanup
+### Distribution record cleanup
 
 A new maintenance job `DistributionRecordCleanupTask` has been added. This removes ledger recovery distribution records that are older than the `recoveryMaximumBackupInterval` network parameter, and which are no longer needed.
 
@@ -304,6 +304,10 @@ Beta feature of the DJVM has been removed. As a result of the DJVM removal, the 
 
 The `recordTransactions()` function now performs stricter signature verification when using public `ServiceHub` API.
 For more information, see [DBTransactionStorage]({{< relref "node-services.md#dbtransactionstorage" >}}).
+
+### CENM compatibility
+
+Except for exceptions stated in CENM release notes, this version of Corda is compatible with all currently released versions of CENM.
 
 ## Fixed issues
 

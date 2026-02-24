@@ -33,28 +33,37 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ### Segregated thread pools
 
-[Segregated thread pools can now be defined and have flows assigned to them]({{< relref "cordapps/thread-pools.md" >}}).
+Segregated thread pools can now be defined and have flows assigned to them.
 Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
 Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between
 starting flows if one pool is performing badly and has a big queue.
 
+For more information, see [Segregated thread pools]({{< relref "cordapps/thread-pools.md" >}}).
+
 ### Automatic ledger recovery
-Ledger recovery flow can now be launched automatically at node startup. For more information see [Automatic Ledger Recovery]({{< relref "node/ledger-recovery/automatic-ledger-recovery.md" >}}). To facilitate this, a new phase has been added to the node where only system flows run. The only supported runnable system flow is
-Ledger Recovery. For more information, see [System Flows]({{< relref "cordapps/system-flows.md" >}}).
+Ledger recovery flow can now be launched automatically at node startup. For more information see [Automatic ledger recovery]({{< relref "node/ledger-recovery/automatic-ledger-recovery.md" >}}). To facilitate this, a new phase has been added to the node where only system flows run. The only supported runnable system flow is
+Ledger Recovery. 
+
+For more information, see [System flows]({{< relref "cordapps/system-flows.md" >}}).
 
 ### Read-only nodes
 
-Nodes can now be configured to be [read-only]({{< relref "node/setup/read-only-nodes.md" >}}). Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
+Nodes can now be configured to be read-only. Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
+
+For more information, see [Read-only nodes]({{< relref "node/setup/read-only-nodes.md" >}}).
 
 ### Additional monitoring metrics
 
-Additional metrics have been implemented. For the latest list, see [Node Metrics]({{< relref "node/operating/monitoring-and-logging/node-metrics.md" >}}).
+Additional metrics have been implemented. 
+
+For the latest list, see [Node metrics]({{< relref "node/operating/monitoring-and-logging/node-metrics.md" >}}).
  
 ### RPC thread pool
 
-The RPC clients (CordaRPCClient, RPCClient, and MultiRPCClient) can now be configured to use Artemis global thread pools
-by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded
+The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded
 set of scheduler and worker threads, rather than creating dedicated pools per client.
+
+(For Kotlin Docs, see [CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/kotlin/docs/net.corda.client.rpc/-corda-r-p-c-client/index.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/kotlin/docs/net.corda.client.rpc.internal/-r-p-c-client/index.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/kotlin/docs/net.corda.client.rpc.ext/-multi-r-p-c-client/index.html).
 
 ### Notary change flow
 
@@ -77,6 +86,10 @@ https://logging.apache.org/log4j/2.x/faq.html#single-jar
 For example, if you use Gradle Shadow plugin, you need to use the relevant transformer:
 
 https://gradleup.com/shadow/configuration/merging/#merging-log4j2-plugin-cache-files-log4j2pluginsdat
+
+### CENM compatibility
+
+Except for exceptions stated in CENM release notes, this version of Corda is compatible with all currently released versions of CENM.
 
 ## Known issues
 
