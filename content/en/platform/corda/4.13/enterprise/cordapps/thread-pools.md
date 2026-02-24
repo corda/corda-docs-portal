@@ -8,7 +8,7 @@ tags:
 - api
 - service
 - classes
-title: Segregated Thread Pools
+title: Segregated thread pools
 weight: 10
 ---
 
@@ -24,7 +24,7 @@ Corda Enterprise targets the flow thread pools directly when it starts a flow. T
 
 Thread pools are defined in the [node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) by adding an `additionalFlowThreadPools` array within the `tuning` object. The `additionalFlowThreadPools` array can contain one or more objects, each specifying the details of an additional thread pool. Each object contains a `threadpool` and `size` property, respectively defining the name of the thread pool and its size in number of threads.
 
-### Example 1: Two Defined Thread Pools
+### Example 1: Two defined thread pools
 
 The following sample configuration defines two thread pools based on the example above, `reporting` and `transactions`, each with three available threads:
 
@@ -65,7 +65,7 @@ class MyTransactionFlow(private val party: Party) :
 }
 ```
 
-### Example 2: One Defined Thread Pool and Default Thread Pool
+### Example 2: One defined thread pool and default thread pool
 
 An alternative configuration, rather than defining two thread pools, could instead define one thread pool (in this case, `reporting`) but also use the default thread pool, defining its size using `flowThreadPoolSize`. As in previous versions of Corda, the size of the default thread pool (name: "default") is still specified by the *[flowThreadPoolSize]({{< relref "../node/setup/corda-configuration-fields.md#enterpriseconfiguration" >}})* parameter.
 
