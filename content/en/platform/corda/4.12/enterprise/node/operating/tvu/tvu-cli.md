@@ -90,3 +90,20 @@ If this parameter is not provided, then the utility starts processing transactio
 {{< /note >}}
 
 You can create a new time instant by providing a UTC timestamp in format: `2007-12-03T10:15:30.00Z`. The string must represent a valid instant in UTC and is parsed using `DateTimeFormatter.ISO_INSTANT`.
+
+### `-s`, `--threadpool-size`
+
+The size of the internal thread pool used to process transactions.
+
+If this parameter is not provided it defaults to the number of processors available to the Java virtual machine.
+
+### TVU CLI System Properties
+
+### `log-path`
+
+By default the TVU will log to a log file in the current directory. You can specify a different location for the log file by setting the `log-path` system property to a directory of your choice. For example:
+
+```java -Dlog-path=/var/logs/ -jar transaction-validator.jar```
+
+
+
