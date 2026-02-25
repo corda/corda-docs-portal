@@ -437,6 +437,31 @@ quasarExcludePackages=["org.xml**", "org.yaml**"]
 * `sshPort`
   * Port to be used for SSH connection, default `22`.
 
+## rateLimit
+
+RPC authentication rate limiting can be configured in node.conf under the options.rateLimit block, as shown in the
+followihg example:
+
+```text
+options = {
+    rateLimit = {
+      backoffBaseSeconds = 2        # initial suspension duration in seconds
+      backoffMaxSeconds = 60        # maximum suspension duration in seconds
+      attemptExpireMinutes = 15     # how long failure history is retained
+    }
+}
+```
+* `backoffBaseSeconds`
+  * Controls the base amount of time a client is blocked after exceeding the allowed number of free authentication failures.
+    The allowed number of free authentications failures is 3 per username and 10 per IP address.
+* `backoffMaxSeconds`
+  * Caps the maximum backoff duration if failures continue.
+* `attemptExpireMinutes`
+  * Determines how long past failures are remembered before they decay, so that long-inactive addresses do not remain permanently blocked.
+
+The presence of the rateLimit block enables rate limiting. All three parameters must be present. If this block is not
+present in node.conf then no rate limiting will be applied to RPC authentication attempts.
+
 ## `rpcAddress`
 
 {{< important >}}
