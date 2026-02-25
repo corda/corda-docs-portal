@@ -959,7 +959,7 @@ quasarExcludePackages=["org.xml**", "org.yaml**"]
 ```
 ## rateLimit
 
-RPC authentication rate limiting can be configured in node.conf under the options.rateLimit block, as shown in the
+RPC authentication rate limiting can be configured in node.conf under the ```options.rateLimit block```, as shown in the
 following example:
 
 ```text
