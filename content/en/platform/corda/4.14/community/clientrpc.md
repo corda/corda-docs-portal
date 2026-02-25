@@ -562,7 +562,7 @@ the same IP address will trigger a temporary suspension period during which furt
 are rejected. This helps mitigate credential-stuffing and denial-of-service scenarios while allowing
 legitimate clients to retry after a backoff period.
 
-See [rateLimit]({{< relref "corda-configuration-fields.md#rateLimit" >}}) for details on how to configure this feature.
+See [rateLimit]({{< relref "corda-configuration-fields.md#ratelimit" >}}) for details on how to configure this feature.
 
 ## Observables
 
