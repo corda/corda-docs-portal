@@ -20,6 +20,24 @@ tags:
 
 # Corda Open Source Edition 4.13 release notes
 
+## Corda Open Source Edition 4.13.1 release notes
+
+Corda Open Source Edition 4.13.1 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+## Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+### Fixed issues
+
+* TODO
+
+### Third party components upgrade
+
+- TODO
+
+## Corda Open Source Edition 4.13 release notes
+
 The Corda Open Source Edition 4.13 release introduces new functionality and third-party component upgrades.
 
 ## Upgrade recommendation
@@ -40,10 +58,10 @@ The transaction hierarchy, [FinalityFlow]({{< relref "api-flows.md#finalityflow"
 
 ### RPC thread pool
 
-The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.  
+The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.
 
 (For Kotlin Docs, see [CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/community/kotlin/docs/net.corda.client.rpc/-corda-r-p-c-client/index.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/community/kotlin/docs/net.corda.client.rpc.internal/-r-p-c-client/index.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/community/kotlin/docs/net.corda.client.rpc.ext/-multi-r-p-c-client/index.html).
- 
+
 ## Third-party component upgrades
 
 The following table lists the dependency version changes for 4.13 Open Source Editions:
