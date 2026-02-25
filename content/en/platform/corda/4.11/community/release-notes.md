@@ -20,6 +20,18 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.7 release notes
+
+Corda Community Edition 4.11.7 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
+
+### Fixed issues
+
+-  TODO
+
+### Third party components upgrade
+
+- TODO
+
 ## Corda Community Edition 4.11.6 release notes
 
 Corda Community Edition 4.11.6 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
@@ -44,7 +56,7 @@ The following table lists the dependency version changes in the 4.11.6 Community
 | com.azure.resourcemanager:azure-resourcemanager       | 2.52.0             |
 | com.azure:azure-identity                              | 1.18.1             |
  <!-- ENT-14529 -->
- 
+
 ## Corda Community Edition 4.11.5 release notes
 
 Corda Community Edition 4.11.5 is a patch release of Corda Community Edition focused on resolving issues.
