@@ -275,7 +275,7 @@ in order from: the `sendTransaction` rate limit, `defaultRpcRateLimit`, or a fal
 
 The program whitelist is a security control that restricts which Solana programs can be invoked through notary
 instructions. Any `SolanaInstruction` referencing a program ID not in the whitelist is rejected before the Solana
-transaction is simulated or submitted.
+transaction is submitted.
 
 Configure the whitelist to include only the programs that your network participants have agreed to use. Accepting
 instructions for unknown programs could allow malicious actors to execute arbitrary Solana operations as a side
@@ -330,6 +330,21 @@ The notary program address is the same on both mainnet and devnet: `notary95bwkG
   states. This limit is not currently enforced in the platform.
 * **Solana finality**: Notarisation is confirmed when the Solana transaction reaches `CONFIRMED` commitment level.
   Network disruptions affecting the Solana cluster will delay or prevent notarisation.
+
+## Sample CorDapps
+
+The following sample CorDapps demonstrate how to use the Solana notary in practice. Both use the
+[Corda Token SDK](https://github.com/corda/token-sdk) to represent Corda assets as fungible tokens.
+
+* **[Delivery-versus-payment](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/delivery-vs-payment)**:
+  A seller transfers Corda stock tokens to a buyer, while the buyer's Solana stablecoin payment is transferred to the
+  seller — atomically, in a single notarisation.
+
+* **[Bridge token](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/bridge-token)**:
+  Demonstrates bridging Corda Token SDK fungible tokens to a Solana SPL token representation and back. A Bridge
+  Authority node orchestrates the process: the Corda tokens are transferred to the Bridge Authority (which holds
+  them in a pool), and the Solana notary atomically mints the equivalent SPL tokens on Solana. Redemption works in
+  reverse — the holder burns the Solana tokens, and the Bridge Authority releases the corresponding Corda tokens.
 
 ## Further reading
 
