@@ -30,7 +30,10 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* TODO
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+  to enable it see [rateLimit]({{< relref "corda-configuration-fields.md#ratelimit" >}}).
+* Quasar has been reverted back to version 0.9.0_r3. This being due to instrumentation issues being reported since version 4.12.6 when quasar was updated.
+* Extra logging has been added if a node is unable to serialise an exception.
 
 ### Third party components upgrade
 

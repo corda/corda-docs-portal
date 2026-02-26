@@ -26,7 +26,9 @@ Corda Community Edition 4.11.7 is a patch release of Corda Community Edition foc
 
 ### Fixed issues
 
--  TODO
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+  to enable it see [rateLimit]({{< relref "corda-configuration-fields.md#ratelimit" >}}).
+* Extra logging has been added if a node is unable to serialise an exception.
 
 ### Third party components upgrade
 

@@ -652,6 +652,16 @@ options = {
 This enables a non-persistent cache to be created in the node’s memory with a maximum number of entries set to `maxEntries` and
 where entries are expired and refreshed after `expireAfterSecs` seconds.
 
+## RPC Authentication Rate Limiting
+
+To protect the RPC listener from brute-force login attempts and abusive authentication activity, Corda supports
+configurable rate limiting of RPC login attempts. When enabled, repeated failed authentication attempts from
+the same IP address will trigger a temporary suspension period during which further failed attempts
+are rejected. This helps mitigate credential-stuffing and denial-of-service scenarios while allowing
+legitimate clients to retry after a backoff period.
+
+See [rateLimit]({{< relref "corda-configuration-fields.md#ratelimit" >}}) for details on how to configure this feature.
+
 ## Working with observables
 
 The RPC system handles observables in a special way. When a method returns an observable, whether directly or

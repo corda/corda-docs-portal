@@ -27,7 +27,14 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-- TODO
+* Fixed an issue where the Transaction Validator Utility failed when the logs directory was a symbolic link.
+* The Transacton Validator Utility now has an option to vary the number of threads it uses when processing transactions. See the --help option of the
+  tool or [Transaction Validator Utility]({{< relref "node/operating/tvu/tvu-cli.md" >}}) for more details.
+* The Transaction Validator Utility can now vary the location of its log file via a system property. See [Transaction Validator Utility]({{< relref "node/operating/tvu/tvu-cli.md" >}}) for more details.
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+  to enable it see [rateLimit]({{< relref "node/setup/corda-configuration-fields.md#ratelimit" >}}).
+* Quasar has been reverted back to version 0.9.0_r3. This being due to instrumentation issues being reported since version 4.12.6 when quasar was updated.
+* Extra logging has been added if a node is unable to serialise an exception.
 
 ### Third-party components upgrade
 

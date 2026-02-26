@@ -31,11 +31,15 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-- TODO
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+to enable it see [rateLimit]({{< relref "node/setup/corda-configuration-fields.md#ratelimit" >}}).
+* Extra logging has been added if a node is unable to serialise an exception.
 
 ### Third-party components upgrade
 
-- TODO
+The following table lists the dependency upgrades for 4.11.7 Enterprise Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
+
+TBD
 
 ## Corda Enterprise Edition 4.11.6 release notes
 
