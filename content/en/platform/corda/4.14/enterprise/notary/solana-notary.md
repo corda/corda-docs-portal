@@ -531,14 +531,6 @@ public void setupSolana(SolanaTestValidator validator) {
 {{% /tab %}}
 {{< /tabs >}}
 
-## Limitations
-
-* **Maximum of 128 output states**: The Solana notary program supports a maximum `StateRef` index of 127 (indices 0–127).
-  Output states at index 128 or greater cannot be consumed. Do not notarise Corda transactions with more than 128 output
-  states. This limit is not currently enforced in the platform.
-* **Solana finality**: Notarisation is confirmed when the Solana transaction reaches `CONFIRMED` commitment level.
-  Network disruptions affecting the Solana cluster will delay or prevent notarisation.
-
 ## Sample CorDapps
 
 The following sample CorDapps demonstrate how to use the Solana notary in practice. Both use the
@@ -548,11 +540,22 @@ The following sample CorDapps demonstrate how to use the Solana notary in practi
   A seller transfers Corda stock tokens to a buyer, while the buyer's Solana stablecoin payment is transferred to the
   seller — atomically, in a single notarisation.
 
-* **[Bridge token](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/bridge-token)**:
-  Demonstrates bridging Corda Token SDK fungible tokens to a Solana SPL token representation and back. A Bridge
-  Authority node orchestrates the process: the Corda tokens are transferred to the Bridge Authority (which holds
-  them in a pool), and the Solana notary atomically mints the equivalent SPL tokens on Solana. Redemption works in
-  reverse — the holder burns the Solana tokens, and the Bridge Authority releases the corresponding Corda tokens.
+* **[Bridge Authority](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/bridge-token)**:
+  Demonstrates how Solana bridging can be added to an existing Corda network (in this case the
+  [stock pay dividend sample](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Tokens/stockpaydividend)
+  without modification. Only two new participants are needed: a Bridge Authority node, which orchestrates bridging
+  and redemption on behalf of token holders, and a Solana notary. The Bridge Authority receives fungible tokens from
+  holders, locks them in a pool, and the Solana notary atomically mints the equivalent SPL tokens on Solana.
+  Redemption works in reverse — the Solana token holder transfers tokens to a designated redemption account, and the
+  Bridge Authority atomically burns them and releases the corresponding Corda tokens.
+
+## Limitations
+
+* **Maximum of 128 output states**: The Solana notary program supports a maximum `StateRef` index of 127 (indices 0–127).
+  Output states at index 128 or greater cannot be consumed. Do not notarise Corda transactions with more than 128 output
+  states. This limit is not currently enforced in the platform.
+* **Solana finality**: Notarisation is confirmed when the Solana transaction reaches `CONFIRMED` commitment level.
+  Network disruptions affecting the Solana cluster will delay or prevent notarisation.
 
 ## Further reading
 
