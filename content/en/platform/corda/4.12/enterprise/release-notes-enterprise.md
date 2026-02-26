@@ -48,7 +48,21 @@ to enable it see [rateLimit]({{< relref "node/setup/corda-configuration-fields.m
 
 ### Third-party components upgrade
 
-TODO
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.9. Dependencies with unchanged versions are omitted.
+
+|Dependency|Name|Version|
+|-----|-----|-----|
+|org.glassfish.jersey.*|Jersey|2.21.0|
+|org.assertj:assertj-core|AssertJ|3.27.7|
+|io.netty:netty-*|Netty|4.1.130.Final|
+|commons-io:commons-io|Commons IO|2.21.0|
+|org.controlsfx:controlsfx|Controls FX|11.2.3|
+|co.paralleluniverse:quasar-*|Quasar|0.9.0_r3|
+|io.netty:netty-tcnative-*|TCNative|2.0.74.Final|
+|org.apache.activemq:artemis-*|Artemis|2.44.0|
+|org.apache.shiro:shiro-core|Shiro|2.1.0|
+|com.azure:azure-identity|Azure Identity|1.18.1|
+|org.apache.commons:commons-lang3|Commons Lang3|3.19.0|
 
 ## Corda Enterprise Edition 4.12.8 release notes
 
