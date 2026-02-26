@@ -17,11 +17,13 @@ weight: 10
 
 # Notary service overview
 
-Corda Enterprise comes with two notary types:
+Corda Enterprise comes with the following notary types:
 
 * **Single-node**: A simple notary service that persists notarisation requests in the node’s database. It is easy to configure
 and can be used for testing, or networks that do not have strict availability requirements.
 * **Highly available**: A clustered notary service operated by a single party, able to tolerate crash faults.
+* **Solana**: A notary that records notarisation results on the [Solana](https://solana.com/) blockchain, enabling
+atomic cross-chain operations between Corda and Solana.
 
 Corda Enterprise provides two highly available (HA) notary implementations:
 
@@ -68,12 +70,20 @@ will be highly-available. This is because the notary service can continue proces
 replicas and/or notary workers fail. For example, a three-node notary cluster can tolerate one crash fault.
 
 {{< note >}}
-In production, R3 recommends running five or more replicas in the notary state database cluster. However, there is more flexibility regarding the number of notary workers. Since for notary workers, we are only concerned with availability and not durability, there is a tradeoff between the number of notary workers and availability performance.
+In production, R3 recommends running five or more replicas in the notary state database cluster. However, there is more flexibility regarding the number of notary workers. Si[node-4-13-issue.log](../../../../../../../../../../Downloads/node-4-13-issue.log)nce for notary workers, we are only concerned with availability and not durability, there is a tradeoff between the number of notary workers and availability performance.
 {{< /note >}}
 
 If desired, you can choose to run each database server and its Corda notary worker on the same machine:
 
 {{< figure alt="ha notary colocated" width=80% zoom="../resources/ha-notary-colocated.png" >}}
+
+## Solana notary
+
+The Solana notary records notarisation results on the Solana blockchain and can atomically execute other Solana
+instructions as part of the notarisation. This enables use cases such as delivery-versus-payment, where a Corda state
+transfer and a Solana token transfer occur as a single, indivisible operation.
+
+For full details on how the Solana notary works and how to configure it, see [Solana notary]({{< relref "solana-notary.md" >}}).
 
 ## Notary configuration
 
