@@ -57,7 +57,6 @@ This table shows the updates in dependency versions for Corda Enterprise Edition
 |io.netty:netty-*|Netty|4.1.130.Final|
 |commons-io:commons-io|Commons IO|2.21.0|
 |org.controlsfx:controlsfx|Controls FX|11.2.3|
-|co.paralleluniverse:quasar-*|Quasar|0.9.0_r3|
 |io.netty:netty-tcnative-*|TCNative|2.0.74.Final|
 |org.apache.activemq:artemis-*|Artemis|2.44.0|
 |org.apache.shiro:shiro-core|Shiro|2.1.0|
