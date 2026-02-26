@@ -26,7 +26,7 @@ This enables a new category of CorDapp use cases that require coordinated finali
 * **Delivery versus payment (DvP)**: Transfer a Corda asset to a buyer at the same time as the buyer's Solana
 stablecoin payment is transferred to the seller. The swap is atomic — there is no window in which delivery can occur
 without payment, or vice versa.
-* **Bridging**: Lock assets on the Corda network and atomically mint the coressponding amount on Solana as an SPL token.
+* **Bridging**: Lock assets on the Corda network and atomically mint the corresponding amount on Solana as an SPL token.
 * **Conditional token operations**: Mint, burn, or transfer a Solana token only when a specific Corda transaction is notarised.
 * **Cross-chain escrow release**: Release Solana tokens held in escrow upon settlement of a Corda obligation.
 
@@ -41,12 +41,12 @@ When a Corda transaction is sent for notarisation, the Solana notary:
 
 1. **Builds** a _Solana_ transaction containing the notary program's `commit` instruction for the input states to be
 spent, and any user-provided Solana instructions.
-2. **Validates** the Corda transaction time window.
-3. **Submits** the Solana transaction on-chain. All the instructions are executed atomically, including the spending
-of the input states. If a conflict is detected on Corda, or any of the other instructions fail, then the entire Solana
-transactions and nothing is committed to the blockchain.
-4. **Waits** for confirmation the Solana transaction was processed and part of the blockchain. The notary will wait
-until the transaction is reached **confirmed** commitment, which takes roughtly 1 second.
+2. **Submits** the Solana transaction on-chain. All instructions are executed atomically. If a double-spend is
+detected, or any of the user-provided instructions fail, the entire Solana transaction is rolled back and nothing is
+committed to the blockchain.
+3. **Validates** the Corda transaction time window.
+4. **Waits** for confirmation the Solana transaction was processed and is part of the blockchain. The notary will wait
+until the transaction reaches **confirmed** commitment, which takes roughly 1 second.
 5. **Signs** the Corda notarisation and returns it to the requesting node.
 
 ### The Solana notary program
@@ -79,8 +79,9 @@ attacks.
 * Input states are tracked using a **u128 bitset** (one bit per output index). When a state is spent, its bit is cleared.
 
 {{< warning >}}
-Using a 128-bit bitset means Corda transactions cannot have more than 128 output states. This is currently not enforced
-and so CorDapps must make sure they are not creating this many output states.
+Using a 128-bit bitset means Corda transactions cannot have more than 128 output states (indices 0–127). Output states
+at index 128 or greater cannot be consumed. This is currently not enforced and so CorDapps must ensure they do not
+create more than 128 output states in a transaction.
 {{< /warning >}}
 
 ## Programming model
@@ -269,9 +270,9 @@ The notary program address is the same on both mainnet and devnet: `notary95bwkG
 
 ## Limitations
 
-* **Maximum of 128 output states**: The Solana notary program supports a maximum `StateRef` index of 127. Make
-  sure to not notarise any Corda transaction with more than 128 output states. Those output states which are at index
-  128 or greater are unconsumable.
+* **Maximum of 128 output states**: The Solana notary program supports a maximum `StateRef` index of 127 (indices 0–127).
+  Output states at index 128 or greater cannot be consumed. Do not notarise Corda transactions with more than 128 output
+  states. This limit is not currently enforced in the platform.
 * **Solana finality**: Notarisation is confirmed when the Solana transaction reaches `CONFIRMED` commitment level.
   Network disruptions affecting the Solana cluster will delay or prevent notarisation.
 
