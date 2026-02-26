@@ -190,31 +190,86 @@ notary {
 
 ### Configuration reference
 
-{{< table >}}
-| Field | Required | Type | Description |
-|---|---|---|---|
-| `rpcUrl` | Yes | URI | HTTP RPC URL of the Solana cluster. For example, `https://api.mainnet-beta.solana.com`. |
-| `websocketUrl` | Yes | URI | WebSocket URL of the Solana cluster. For example, `wss://api.mainnet-beta.solana.com`. |
-| `notaryKeypairFile` | Yes | Path | Path to the Solana keypair file for the notary account. This account must be
-pre-authorized by R3 and must hold sufficient SOL to cover transaction fees and account rent. |
-| `custodiedKeysDir` | No | Path | Path to a directory containing Solana keypair files for accounts whose signatures
-the notary will provide on behalf of participants. Changes to the directory are picked up automatically. Must not
-contain the notary keypair itself. |
-| `programWhitelist` | No | List of base58 strings | The Solana program IDs permitted to appear in notary
-instructions. If omitted, defaults to the SPL Token and Token-2022 programs. Provide an empty list to disallow all
-programs (notary instructions will be rejected). |
-| `trustedCordaSigners` | No | List of X.500 names | Corda party names whose signatures are accepted as
-authorization for transactions containing Solana instructions. When this list is non-empty, the notary verifies that
-any transaction carrying a `SolanaInstruction` is signed by at least one of the listed parties. If the list is empty,
-no such check is performed. |
-| `defaultRpcRateLimit` | No | Integer | Default rate limit in requests per second applied to each RPC method. Used
-when no method-specific limit is configured. If omitted, the thread pool size is used to derive a default. |
-| `rpcSpecificRateLimits` | No | Map of String to Integer | Per-method rate limits (requests per second) that
-override `defaultRpcRateLimit`. Keys are RPC method names, such as `sendTransaction`. The `sendTransaction` method
-is the bottleneck in the notarisation flow; its rate limit determines the maximum notarisation throughput. |
-| `threadPoolSize` | No | Integer | Number of threads used to process notarisation requests and make Solana RPC
-calls. If omitted, defaults to the `sendTransaction` rate limit, then `defaultRpcRateLimit`, then 10. |
-{{< /table >}}
+#### `rpcUrl`
+
+*Required*
+
+HTTP RPC URL of the Solana cluster.
+
+*Example:* `https://api.mainnet-beta.solana.com`
+
+#### `websocketUrl`
+
+*Required*
+
+WebSocket URL of the Solana cluster.
+
+*Example:* `wss://api.mainnet-beta.solana.com`
+
+#### `notaryKeypairFile`
+
+*Required*
+
+Path to the Solana keypair file for the notary account. This account must be pre-authorized by R3 and must hold
+sufficient SOL to cover transaction fees and account rent.
+
+#### `custodiedKeysDir`
+
+*Optional*
+
+Path to a directory containing Solana keypair files for accounts whose signatures the notary will provide on behalf
+of participants. Changes to the directory are picked up automatically. Must not contain the notary keypair itself.
+
+*Default:* not set
+
+#### `programWhitelist`
+
+*Optional*
+
+List of Solana program IDs (base58-encoded) permitted to appear in notary instructions. If omitted, defaults to the
+SPL Token and Token-2022 programs. Provide an empty list to disallow all programs (any notary instructions will be
+rejected).
+
+*Default:* SPL Token (`TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA`) and Token-2022
+(`TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb`)
+
+#### `trustedCordaSigners`
+
+*Optional*
+
+List of Corda X.500 party names whose signatures are accepted as authorization for transactions containing Solana
+instructions. When this list is non-empty, the notary verifies that any transaction carrying a `SolanaInstruction`
+is signed by at least one of the listed parties. If the list is empty, no such check is performed.
+
+*Default:* empty (no restriction)
+
+#### `defaultRpcRateLimit`
+
+*Optional*
+
+Default rate limit in requests per second applied to each RPC method. Used when no method-specific limit is
+configured in `rpcSpecificRateLimits`.
+
+*Default:* derived from `threadPoolSize`
+
+#### `rpcSpecificRateLimits`
+
+*Optional*
+
+Per-method rate limits (requests per second) that override `defaultRpcRateLimit`. Keys are Solana RPC method names.
+The `sendTransaction` method is the bottleneck in the notarisation flow; its rate limit determines the maximum
+notarisation throughput.
+
+*Default:* not set
+
+#### `threadPoolSize`
+
+*Optional*
+
+Number of threads used to process notarisation requests and make Solana RPC calls. If omitted, the value is derived
+in order from: the `sendTransaction` rate limit, `defaultRpcRateLimit`, or a fallback of 10.
+
+*Default:* derived from `sendTransaction` rate limit, then `defaultRpcRateLimit`, then 10
 
 ### Program whitelist
 
