@@ -91,18 +91,36 @@ create more than 128 output states in a transaction.
 CorDapp developers attach `SolanaInstruction`s to a Corda transaction using `TransactionBuilder.addNotaryInstruction()`.
 This marks the instruction for execution by the Solana notary at the point of notarisation.
 
+{{< tabs name="tabs-3" >}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 txBuilder.addNotaryInstruction(
-      SplToken.transferChecked(
-          sourceTokenAccount,
-          tokenMint,
-          destinationTokenAccount,
-          signerAccount,
-          amount,
-          decimals
-      )
+    SplToken.transferChecked(
+        sourceTokenAccount,
+        tokenMint,
+        destinationTokenAccount,
+        signerAccount,
+        amount,
+        decimals
+    )
 )
 ```
+{{% /tab %}}
+{{% tab name="Java" %}}
+```java
+txBuilder.addNotaryInstruction(
+    SplToken.transferChecked(
+        sourceTokenAccount,
+        tokenMint,
+        destinationTokenAccount,
+        signerAccount,
+        amount,
+        decimals
+    )
+);
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 {{< note >}}
 `SolanaInstruction` is an implementation of `NotaryInstruction`. The Solana notary however will not accept a transaction
@@ -124,6 +142,8 @@ Corda contracts can inspect the Solana instructions attached to a transaction us
 `LedgerTransaction.notaryInstructionsOfType<SolanaInstruction>()`. This allows contract code to verify the instruction
 is correct for the Corda transaction that it's part of.
 
+{{< tabs name="tabs-4" >}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 override fun verify(tx: LedgerTransaction) {
     val solanaInstruction = tx.notaryInstructionsOfType<SolanaInstruction>().single()
@@ -140,6 +160,27 @@ override fun verify(tx: LedgerTransaction) {
     }
 }
 ```
+{{% /tab %}}
+{{% tab name="Java" %}}
+```java
+@Override
+public void verify(LedgerTransaction tx) {
+    SolanaInstruction solanaInstruction = tx.notaryInstructionsOfType(SolanaInstruction.class).get(0);
+    SolanaInstruction expectedInstruction = SplToken.transferChecked(
+        sourceTokenAccount,
+        tokenMint,
+        destinationTokenAccount,
+        signerAccount,
+        amount,
+        decimals
+    );
+    if (!solanaInstruction.equals(expectedInstruction)) {
+        throw new IllegalArgumentException("Solana instruction does not match the agreed transfer");
+    }
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 {{< note >}}
 Use of `SolanaInstruction`s in Corda transactions is entirely optional. The Solana notary can still be used to notarise
@@ -329,6 +370,13 @@ The Solana notary testing library provides JUnit 5 support for writing integrati
 validator with the Corda notary program pre-deployed and configured. This removes the need to manage Solana
 infrastructure manually in tests.
 
+Add the following dependencies:
+
+```groovy
+testImplementation "net.corda.solana.notary:solana-notary-testing:$corda_solana_notary_version"
+testImplementation "com.r3.corda.lib.solana:corda-solana-testing:$corda_solana_toolkit_version"
+```
+
 {{< note >}}
 The [Solana CLI](https://solana.com/docs/intro/installation) must be installed locally to use the testing library,
 as it is used to start the local test validator.
@@ -336,49 +384,30 @@ as it is used to start the local test validator.
 
 ### SolanaNotaryExtension
 
-`SolanaNotaryExtension` is a JUnit 5 extension that, for each test class:
+`SolanaNotaryExtension` is a JUnit 5 extension that automatically starts a local Solana test validator with the
+Corda notary program deployed and initialized, and shuts it down after all tests in the class have run. Apply it
+with `@ExtendWith(SolanaNotaryExtension::class)` and declare the resources you need as test method parameters.
 
-* Starts a local Solana test validator with the Corda notary program deployed and initialized.
-* Exposes the validator, its RPC client, and a `NotaryEnvironment` as injectable test parameters.
-* Generates and authorizes notary keypairs on demand via the `@Notary` annotation.
-* Shuts down the validator after all tests in the class have run.
-
-Apply it with `@ExtendWith(SolanaNotaryExtension::class)` and declare the resources you need as test method
-parameters:
-
-```kotlin
-@ExtendWith(SolanaNotaryExtension::class)
-class MyNotaryTest {
-
-    @Test
-    fun `notarise a transaction`(
-        validator: SolanaTestValidator,
-        @Notary notarySigner: FileSigner
-    ) {
-        // validator.rpcUrl() and validator.websocketUrl() point to the local test validator.
-        // notarySigner is a Solana keypair that has been authorized on the notary program.
-        // Use these to configure a Corda notary node in a Driver DSL test.
-    }
-}
-```
-
-The injectable parameter types are:
+The following parameter types can be injected into test methods and lifecycle methods:
 
 * `SolanaTestValidator` — the running local validator instance, providing `rpcUrl()`, `websocketUrl()`,
   and helpers for token and account management.
 * `SolanaClient` — an RPC client already connected to the validator.
-* `NotaryEnvironment` — gives programmatic access to notary program administration (creating networks,
-  authorizing notary keys).
-* `PublicKey`, `Signer`, or `FileSigner` annotated with `@Notary` — a generated keypair that has been
-  funded with SOL and authorized on the notary program. The `@Notary` annotation accepts optional `value`
-  (key index) and `network` parameters to obtain distinct notary keys or place them on different networks.
+* `NotaryEnvironment` — programmatic access to notary program administration, such as creating networks and
+  authorizing notary keys.
+* `PublicKey`, `Signer`, or `FileSigner` annotated with `@Notary` — a generated keypair that has been funded
+  with SOL and authorized on the notary program. The `@Notary` annotation accepts optional `value` (key index)
+  and `network` parameters to obtain distinct notary keys or place them on different networks.
 
 ### Using SolanaNotaryExtension in a Corda Driver DSL test
 
-The most common use of `SolanaNotaryExtension` is in combination with the Corda Driver DSL to spin up a full
-local Corda network with a Solana notary. The injected `FileSigner` provides the keypair file path required by
-the notary's `notaryKeypairFile` configuration, and the validator's URLs provide `rpcUrl` and `websocketUrl`:
+The most common pattern is to use `SolanaNotaryExtension` together with the Corda Driver DSL. The injected
+`@Notary FileSigner` provides the keypair file that the notary node requires for `notaryKeypairFile`, and the
+`SolanaTestValidator` provides the RPC and WebSocket URLs. These are assembled into a `NotarySpec` configuration
+in a `@BeforeEach` method, and then passed to `DriverParameters` when the test runs:
 
+{{< tabs name="tabs-1" >}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @ExtendWith(SolanaNotaryExtension::class)
 class DvPTest {
@@ -405,40 +434,74 @@ class DvPTest {
 
     @Test
     fun `atomic DvP test`() {
-        driver(
-            DriverParameters(
-                notarySpecs = listOf(
-                    NotarySpec(solanaNotaryName, notaryConfig, startInProcess = false)
-                )
-            )
-        ) {
+        driver(DriverParameters(notarySpecs = listOf(NotarySpec(solanaNotaryName, notaryConfig)))) {
             val seller = startNode(NodeParameters(providedName = sellerName)).getOrThrow()
-            val buyer = startNode(NodeParameters(providedName = buyerName)).getOrThrow()
+            val buyer  = startNode(NodeParameters(providedName = buyerName)).getOrThrow()
 
             seller.rpc.startFlow(::SharesDvP, buyer.nodeInfo.legalIdentities[0])
                 .returnValue.getOrThrow()
-
-            // assert Corda and Solana state...
         }
     }
 }
 ```
+{{% /tab %}}
+{{% tab name="Java" %}}
+```java
+@ExtendWith(SolanaNotaryExtension.class)
+public class DvPTest {
+
+    @TempDir
+    private Path custodiedKeysDir;
+
+    private Map<String, Object> notaryConfig;
+
+    @BeforeEach
+    public void setup(SolanaTestValidator validator, @Notary FileSigner notarySigner) {
+        notaryConfig = Map.of(
+            "notary", Map.of(
+                "validating", false,
+                "solana", Map.of(
+                    "rpcUrl", validator.rpcUrl().toString(),
+                    "websocketUrl", validator.websocketUrl().toString(),
+                    "notaryKeypairFile", notarySigner.file.toString(),
+                    "custodiedKeysDir", custodiedKeysDir.toString()
+                )
+            )
+        );
+    }
+
+    @Test
+    public void atomicDvPTest() {
+        driver(new DriverParameters().withNotarySpecs(List.of(new NotarySpec(solanaNotaryName, notaryConfig))),
+            dsl -> {
+                NodeHandle seller = dsl.startNode(new NodeParameters().withProvidedName(sellerName)).get();
+                NodeHandle buyer  = dsl.startNode(new NodeParameters().withProvidedName(buyerName)).get();
+
+                seller.getRpc().startFlow(SharesDvP::new, buyer.getNodeInfo().getLegalIdentities().get(0))
+                    .getReturnValue().get();
+                return null;
+            }
+        );
+    }
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ### Setting up Solana accounts in tests
 
-The `SolanaTestValidator` provides helpers for common test setup tasks such as airdropping SOL, creating
-token mints and associated token accounts, and minting tokens:
+`SolanaTestValidator` exposes account and token management helpers that cover the most common test setup tasks.
+Use `validator.accounts()` to airdrop SOL to cover transaction fees, and `validator.tokens()` to create token
+mints, associated token accounts, and mint tokens to them:
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 @BeforeEach
 fun setupSolana(validator: SolanaTestValidator) {
-    // Generate a wallet keypair and place it in the custodied keys directory
     val buyerWallet = FileSigner.random(custodiedKeysDir)
-
-    // Airdrop SOL to cover transaction fees
     validator.accounts().airdropSol(buyerWallet.publicKey(), 10)
 
-    // Create a stablecoin mint and fund the buyer's associated token account
     val stablecoinMint = validator.tokens().createToken(mintAuthority, decimals = 6)
     val buyerTokenAccount = validator.tokens().createAssociatedTokenAccount(
         mintAuthority,
@@ -448,6 +511,25 @@ fun setupSolana(validator: SolanaTestValidator) {
     validator.tokens().mintTo(buyerTokenAccount, stablecoinMint, mintAuthority, amount = 1_000_000)
 }
 ```
+{{% /tab %}}
+{{% tab name="Java" %}}
+```java
+@BeforeEach
+public void setupSolana(SolanaTestValidator validator) {
+    FileSigner buyerWallet = FileSigner.random(custodiedKeysDir);
+    validator.accounts().airdropSol(buyerWallet.publicKey(), 10);
+
+    PublicKey stablecoinMint = validator.tokens().createToken(mintAuthority, 6);
+    PublicKey buyerTokenAccount = validator.tokens().createAssociatedTokenAccount(
+        mintAuthority,
+        stablecoinMint,
+        buyerWallet.publicKey()
+    );
+    validator.tokens().mintTo(buyerTokenAccount, stablecoinMint, mintAuthority, 1_000_000);
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Limitations
 
