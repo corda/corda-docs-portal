@@ -51,7 +51,7 @@ until the transaction reaches **confirmed** commitment, which takes roughly 1 se
 
 ### The Solana notary program
 
-The notary program (`notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY`) runs on Solana and is administered by R3 Ltd.
+The notary program (`notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY`) runs on Solana and is administered by R3.
 It maintains the following on-chain accounts, all implemented as Program Derived Addresses (PDAs):
 
 * **`CordaTxAccount`**: Created for each notarised Corda transaction. Stores a 128-bit bitset in which each bit
@@ -65,7 +65,7 @@ program administrator.
 assign network IDs.
 
 {{< note >}}
-The Solana notary program is administered exclusively by R3 Ltd. Contact R3 to have your notary key authorized for
+The Solana notary program is administered exclusively by R3. Contact R3 to have your notary key authorized for
 both mainnet and devnet.
 {{< /note >}}
 
@@ -209,7 +209,7 @@ Before configuring the Solana notary, ensure the following are in place:
 
 1. **Notary keypair**: A Solana [keypair file](https://docs.anza.xyz/cli/wallets/file-system) for the notary. This
 account must have sufficient SOL to pay for Solana transaction fees and account rent for each notarised Corda transaction.
-2. **Notary authorization**: Your notary's Solana public key must be authorized by R3 Ltd in the Solana notary program.
+2. **Notary authorization**: Your notary's Solana public key must be authorized by R3 in the Solana notary program.
 3. **Solana RPC access**: The notary node requires HTTP and WebSocket access to a [Solana RPC endpoint](https://solana.com/rpc).
 4. **Program whitelist agreement**: Agree with your network participants which Solana programs may be invoked via
 notary instructions. By default, the SPL Token and Token-2022 programs are whitelisted.
@@ -370,11 +370,13 @@ The Solana notary testing library provides JUnit 5 support for writing integrati
 validator with the Corda notary program pre-deployed and configured. This removes the need to manage Solana
 infrastructure manually in tests.
 
-Add the following dependencies:
+Add the following dependencies. See the
+[Solana notary](https://github.com/corda/solana-notary) and
+[Corda Solana libs](https://github.com/corda/corda-solana-toolkit) repositories for the latest published versions.
 
 ```groovy
-testImplementation "net.corda.solana.notary:solana-notary-testing:$corda_solana_notary_version"
-testImplementation "com.r3.corda.lib.solana:corda-solana-testing:$corda_solana_toolkit_version"
+testImplementation "net.corda.solana.notary:solana-notary-testing:$solanaNotaryVersion"
+testImplementation "com.r3.corda.lib.solana:corda-solana-testing:$cordaSolanaLibsVersion"
 ```
 
 {{< note >}}

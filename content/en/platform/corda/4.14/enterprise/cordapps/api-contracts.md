@@ -157,6 +157,9 @@ their generic type.
 a predicate.
 * `findInput`/`findInRef`/`findOutput`/`findOutRef`/`findCommand`: Extracts the single component that matches
 a predicate, or throws an exception if there are multiple matches.
+* `notaryInstructionsOfType`/`filterNotaryInstructions`/`findNotaryInstruction`/`getNotaryInstruction`: Extracts
+notary instructions by type, predicate, or index. See [Solana notary]({{< relref "../notary/solana-notary.md" >}})
+for usage examples.
 
 
 ## Writing verification logic
