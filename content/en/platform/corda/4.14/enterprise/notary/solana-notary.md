@@ -3,7 +3,7 @@ date: '2026-02-25T00:00:00Z'
 menu:
   corda-enterprise-4-14:
     identifier: corda-enterprise-4-14-solana-notary
-    parent: corda-enterprise-4-14-notaries
+    parent: corda-enterprise-4-14-corda-nodes-notaries
     name: "Solana notary"
 tags:
 - solana
