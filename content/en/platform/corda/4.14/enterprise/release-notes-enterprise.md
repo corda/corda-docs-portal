@@ -31,72 +31,40 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features, enhancements and restrictions
 
-### Segregated thread pools
+### Notary instructions
 
-Segregated thread pools can now be defined and have flows assigned to them.
-Thread pools enable operators to prioritize particular flows and to segregate them from other flows.
-Corda Enterprise targets the flow thread pools directly when it starts a flow. Therefore, there is no conflict between
-starting flows if one pool is performing badly and has a big queue.
+Corda 4.14 introduces `NotaryInstruction`, an extensible mechanism for attaching additional directives to a
+transaction that a specialised notary can act on during notarisation. Notary instructions are stored in a new
+transaction component group (`NOTARY_INSTRUCTIONS_GROUP`), are covered by the transaction's Merkle tree, and are
+available to contracts for verification.
 
-For more information, see [Segregated thread pools]({{< relref "cordapps/thread-pools.md" >}}).
+New `TransactionBuilder` and `LedgerTransaction` APIs support notary instructions:
 
-### Automatic ledger recovery
-Ledger recovery flow can now be launched automatically at node startup. For more information see [Automatic ledger recovery]({{< relref "node/ledger-recovery/automatic-ledger-recovery.md" >}}). To facilitate this, a new phase has been added to the node where only system flows run. The only supported runnable system flow is
-Ledger Recovery.
+* `TransactionBuilder.addNotaryInstruction(instruction)` — attaches a notary instruction to the transaction being
+  built.
+* `LedgerTransaction.notaryInstructionsOfType<T>()` — retrieves all notary instructions of a given type, allowing
+  contracts to verify them.
 
-For more information, see [System flows]({{< relref "cordapps/system-flows.md" >}}).
+For backwards compatibility, standard notaries reject any transaction that contains notary instructions. Only
+specialised notaries — such as the Solana notary — accept and process them.
 
-### Read-only nodes
+### Solana notary
 
-Nodes can now be configured to be read-only. Making a node read-only is a feature that is used for many reasons, including for regulatory reasons and to provide scalable reporting solutions.
+Corda Enterprise 4.14 introduces the Solana notary, a new notary type that records notarisation results on the
+[Solana](https://solana.com/) blockchain. The Solana notary enables CorDapps to perform atomic cross-chain operations — a Corda
+transaction is only notarised if a corresponding Solana program instruction (such as an SPL token transfer) also
+succeeds, and vice versa. This makes it possible to build use cases such as atomic delivery-versus-payment where a
+Corda asset is exchanged for a Solana-based stablecoin in a single, indivisible operation.
 
-For more information, see [Read-only nodes]({{< relref "node/setup/read-only-nodes.md" >}}).
-
-### Additional monitoring metrics
-
-Additional metrics have been implemented.
-
-For the latest list, see [Node metrics]({{< relref "node/operating/monitoring-and-logging/node-metrics.md" >}}).
-
-### RPC thread pool
-
-The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.14/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.14/enterprise/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.14/enterprise/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded
-set of scheduler and worker threads, rather than creating dedicated pools per client.
-
-(For Kotlin Docs, see [CordaRPCClient](../../../../../../../en/api-ref/corda/4.14/enterprise/kotlin/docs/net.corda.client.rpc/-corda-r-p-c-client/index.html), [RPCClient](../../../../../../../en/api-ref/corda/4.14/enterprise/kotlin/docs/net.corda.client.rpc.internal/-r-p-c-client/index.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.14/enterprise/kotlin/docs/net.corda.client.rpc.ext/-multi-r-p-c-client/index.html).
-
-### Notary change flow
-
-The transaction hierarchy, [FinalityFlow]({{< relref "cordapps/api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
-
-### Changes in Log4j plugin discovery
-
-From 4.14, the following JARs contain Log4j2Plugins.dat files, which are required for registering newer Log4j2 plugins:
-
-- corda-common-logging-4.14.jar
-- corda-node-api-4.14.jar
-
-If these JARs are used with other sources using Log4j Core, the correct handling of the potentially
-conflicting files is required to guarantee correct behavior.
-
-For more information, see:
-
-https://logging.apache.org/log4j/2.x/faq.html#single-jar
-
-For example, if you use Gradle Shadow plugin, you need to use the relevant transformer:
-
-https://gradleup.com/shadow/configuration/merging/#merging-log4j2-plugin-cache-files-log4j2pluginsdat
-
-### CENM compatibility
-
-Except for exceptions stated in CENM release notes, this version of Corda is compatible with all currently released versions of CENM.
+For more information, see [Solana notary]({{< relref "notary/solana-notary.md" >}}).
 
 ## Known issues
 
-### Automatic ledger recovery and finalization
+### Solana notary
 
-Automatic ledger recovery is run with `alsoFinalize` set to false. This means when recovering transactions if any are in the IN_FLIGHT status
-they are not automatically recovered to Verified status. To have your in-flight transactions recovered, you need to manually run the flow ledger finality recovery.
+The Solana notary program only supports a maximum `StateRef` index of 127. However, this is currently not
+checked and enforced in the platform when output states are created. CorDapps must ensure they do not create more
+than 128 output states in a transaction.
 
 ## Third-party component upgrades
 

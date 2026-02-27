@@ -160,6 +160,8 @@ The `LedgerTransaction` object also exposes a large number of utility methods to
   a predicate.
 * `findInput`/`findInRef`/`findOutput`/`findOutRef`/`findCommand`: Extracts the single component that matches
   a predicate, or throws an exception if there are multiple matches.
+* `notaryInstructionsOfType`/`filterNotaryInstructions`/`findNotaryInstruction`/`getNotaryInstruction`: Extracts
+  notary instructions by type, predicate, or index.
 
 
 ## Writing verification logic
