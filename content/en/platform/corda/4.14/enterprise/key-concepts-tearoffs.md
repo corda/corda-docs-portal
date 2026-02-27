@@ -36,8 +36,9 @@ You can achieve this using **Merkle trees**. These let the node proposing the tr
 ### Merkle trees on Corda
 
 Merkle trees split transactions into "leaves". Each leaf contains
-either an input, an output, a command, or an attachment. The final nested tree structure also contains the
-other fields of the transaction, such as the time window, the notary, and the required signers. The only component type that requires two trees instead of one is the command, which is split into
+either an input, an output, a command, an attachment, or a notary instruction. The final nested tree structure also
+contains the other fields of the transaction, such as the time window, the notary, and the required signers. The
+only component type that requires two trees instead of one is the command, which is split into
 command data and required signers for visibility purposes.
 {{< figure alt="merkleTreeFull" width=80% zoom="/en/images/merkleTreeFull.png" >}}
 

@@ -31,6 +31,23 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features, enhancements and restrictions
 
+### Notary instructions
+
+Corda 4.14 introduces `NotaryInstruction`, an extensible mechanism for attaching additional directives to a
+transaction that a specialised notary can act on during notarisation. Notary instructions are stored in a new
+transaction component group (`NOTARY_INSTRUCTIONS_GROUP`), are covered by the transaction's Merkle tree, and are
+available to contracts for verification.
+
+New `TransactionBuilder` and `LedgerTransaction` APIs support notary instructions:
+
+* `TransactionBuilder.addNotaryInstruction(instruction)` — attaches a notary instruction to the transaction being
+  built.
+* `LedgerTransaction.notaryInstructionsOfType<T>()` — retrieves all notary instructions of a given type, allowing
+  contracts to verify them.
+
+For backwards compatibility, standard notaries reject any transaction that contains notary instructions. Only
+specialised notaries — such as the Solana notary — accept and process them.
+
 ### Solana notary
 
 Corda Enterprise 4.14 introduces the Solana notary, a new notary type that records notarisation results on the

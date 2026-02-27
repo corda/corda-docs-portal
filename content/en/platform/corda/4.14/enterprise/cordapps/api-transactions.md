@@ -455,6 +455,7 @@ We can add components to the builder using the `TransactionBuilder.withItems` me
                 is CommandData -> throw IllegalArgumentException("You passed an instance of CommandData, but that lacks the pubkey. You need to wrap it in a Command object first.")
                 is TimeWindow -> setTimeWindow(t)
                 is PrivacySalt -> setPrivacySalt(t)
+                is NotaryInstruction -> addNotaryInstruction(t)
                 else -> throw IllegalArgumentException("Wrong argument type: ${t.javaClass}")
             }
         }
@@ -482,7 +483,8 @@ output to a specific contract
 
 * `Command` objects are added as commands
 * `SecureHash` objects are added as attachments
-* A `TimeWindow` object replaces the transaction’s existing `TimeWindow`, if any
+* A `TimeWindow` object replaces the transaction's existing `TimeWindow`, if any
+* `NotaryInstruction` objects are added as notary instructions
 
 Passing in objects of any other type will cause an `IllegalArgumentException` to be thrown.
 
@@ -701,6 +703,27 @@ txBuilder.setTimeWindow(getServiceHub().getClock().instant(), Duration.ofSeconds
 
 {{< /tabs >}}
 
+Notary instructions can be added to provide additional directives to a specialised notary. For example, the
+[Solana notary]({{< relref "../notary/solana-notary.md" >}}) uses notary instructions to execute Solana program
+instructions atomically as part of notarisation:
+
+{{< tabs name="tabs-23b" >}}
+{{% tab name="Kotlin" %}}
+```kotlin
+txBuilder.addNotaryInstruction(solanaInstruction)
+```
+{{% /tab %}}
+{{% tab name="Java" %}}
+```java
+txBuilder.addNotaryInstruction(solanaInstruction);
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+{{< note >}}
+Standard notaries reject transactions that contain notary instructions. Only specialised notary implementations
+accept them.
+{{< /note >}}
 
 ### Signing the builder
 
