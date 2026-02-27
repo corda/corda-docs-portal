@@ -25,7 +25,7 @@ references to actual states - allowing the transaction to be fully inspected.
 
 ## Transaction components
 
-A transaction consists of six types of components:
+A transaction consists of the following types of components:
 
 
 * 1+ states:
@@ -38,6 +38,7 @@ A transaction consists of six types of components:
 * 0+ attachments
 * 0 or 1 time windows
     * A transaction with a time window must also have a notary
+* 0+ notary instructions
 
 
 

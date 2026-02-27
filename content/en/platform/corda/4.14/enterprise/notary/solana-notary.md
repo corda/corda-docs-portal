@@ -542,7 +542,7 @@ The following sample CorDapps demonstrate how to use the Solana notary in practi
 
 * **[Bridge Authority](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/bridge-token)**:
   Demonstrates how Solana bridging can be added to an existing Corda network (in this case the
-  [stock pay dividend sample](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Tokens/stockpaydividend)
+  [stock pay dividend sample](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Tokens/stockpaydividend))
   without modification. Only two new participants are needed: a Bridge Authority node, which orchestrates bridging
   and redemption on behalf of token holders, and a Solana notary. The Bridge Authority receives fungible tokens from
   holders, locks them in a pool, and the Solana notary atomically mints the equivalent SPL tokens on Solana.
