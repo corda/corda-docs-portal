@@ -444,7 +444,7 @@ The following sample CorDapps demonstrate how to use the Solana notary in practi
 ## Limitations
 
 * **Maximum of 128 output states**: The Solana notary program supports a maximum `StateRef` index of 127 (indices 0–127).
-  Output states at index 128 or greater cannot be consumed. Do not notarise Corda transactions with more than 128 output
+  Output states at index 128 or greater cannot be consumed. **Do not** notarise Corda transactions with more than 128 output
   states. This limit is not currently enforced in the platform.
 * **Solana finality**: Notarisation is confirmed when the Solana transaction reaches `CONFIRMED` commitment level.
   Network disruptions affecting the Solana cluster will delay or prevent notarisation.

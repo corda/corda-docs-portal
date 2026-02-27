@@ -47,9 +47,8 @@ New `TransactionBuilder` and `LedgerTransaction` APIs support notary instruction
 * `LedgerTransaction.notaryInstructionsOfType<T>()` — retrieves all notary instructions of a given type, allowing
   contracts to verify them.
 
-For backwards compatibility, standard notaries reject any transaction that contains notary instructions. Only
-specialised notaries — such as the [Solana notary]({{< relref "../enterprise/notary/solana-notary.md" >}})
-(Enterprise only) — accept and process them.
+Standard notaries reject any transaction that contains notary instructions. Only specialised notaries — such as the
+[Solana notary]({{< relref "../enterprise/notary/solana-notary.md" >}}) (Enterprise only) — accept and process them.
 
 ### Notary change flow
 

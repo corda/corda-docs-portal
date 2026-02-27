@@ -62,9 +62,9 @@ For more information, see [Solana notary]({{< relref "notary/solana-notary.md" >
 
 ### Solana notary
 
-The Solana notary supports a maximum `StateRef` index of 127 (indices 0–127). Output states at index 128 or greater
-cannot be consumed. This limit is not currently enforced in the platform, so CorDapps must ensure they do not
-create more than 128 output states in a transaction.
+The Solana notary program only supports a maximum `StateRef` index of 127. However, this is currently not
+checked and enforced in the platform when output states are created. CorDapps must ensure they do not create more
+than 128 output states in a transaction.
 
 ## Third-party component upgrades
 
