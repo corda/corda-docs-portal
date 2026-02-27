@@ -506,7 +506,7 @@ The following sample CorDapps demonstrate how to use the Solana notary in practi
   A seller transfers Corda stock tokens to a buyer, while the buyer's Solana stablecoin payment is transferred to the
   seller — atomically, in a single notarisation.
 
-* **[Bridge Authority](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/bridge-token)**:
+* **[Bridge Authority](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/bridge-authority)**:
   Demonstrates how Solana bridging can be added to an existing Corda network (in this case the
   [stock pay dividend sample](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Tokens/stockpaydividend))
   without modification. Only two new participants are needed: a Bridge Authority node, which orchestrates bridging
