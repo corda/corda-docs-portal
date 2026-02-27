@@ -234,7 +234,7 @@ notary {
 ## Solana account costs
 
 Each notarised Corda transaction creates one or more `CordaTxAccount` PDAs on Solana. These accounts require
-[deposit or "rent"](https://docs.solana.com/developing/programming-model/accounts#rent) to be paid in SOL by the notary
+[deposit or \"rent\"](https://docs.solana.com/developing/programming-model/accounts#rent) to be paid in SOL by the notary
 account. Ensure the notary account is adequately funded for your expected transaction volume.
 
 The number of accounts created per notarisation depends on how many distinct input transaction IDs appear in the
