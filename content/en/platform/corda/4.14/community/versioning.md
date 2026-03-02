@@ -70,6 +70,7 @@ can be disabled.
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.14 | 160 |
 | 4.13 | 150 |
 | 4.12 | 140 |
 | 4.11 | 13 |
@@ -103,7 +104,7 @@ In the `build.gradle` file for your contract module, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 150
+    targetPlatformVersion 160
     minimumPlatformVersion 5
     contract {
         name "MegaApp Contracts"
@@ -121,7 +122,7 @@ And in the `build.gradle` file for your workflows jar, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 150
+    targetPlatformVersion 160
     minimumPlatformVersion 5
     workflow {
         name "MegaApp"
