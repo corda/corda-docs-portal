@@ -61,6 +61,8 @@ mechanism by which double-spends are detected on-chain.
 network ID. The notary must sign every commit instruction, and the program verifies authorization before accepting it.
 * **`Network`**: One account per registered Corda network. Each Corda network has a unique numeric ID assigned by the
 program administrator.
+Several notary keys (`NotaryAuthorization`) can be authorized on the same network,
+however a given notary key may only be registered in a single network.
 * **`Administration`**: A singleton account holding the program administrator's public key and the counter used to
 assign network IDs.
 
@@ -77,12 +79,7 @@ Corda transaction IDs and input state references are encoded and stored in `Cord
 hash ensures that raw Corda transaction IDs are never exposed on-chain, mitigating the risk of denial-of-state
 attacks.
 * Input states are tracked using a **u128 bitset** (one bit per output index). When a state is spent, its bit is cleared.
-
-{{< warning >}}
-Using a 128-bit bitset means Corda transactions cannot have more than 128 output states (indices 0–127). Output states
-at index 128 or greater cannot be consumed. This is currently not enforced and so CorDapps must ensure they do not
-create more than 128 output states in a transaction.
-{{< /warning >}}
+  Corda transactions up to 128 output states are supported, see [Limitations](#limitations).
 
 ## Programming model
 
@@ -90,6 +87,22 @@ create more than 128 output states in a transaction.
 
 CorDapp developers attach `SolanaInstruction`s to a Corda transaction using `TransactionBuilder.addNotaryInstruction()`.
 This marks the instruction for execution by the Solana notary at the point of notarisation.
+The `SolanaInstruction` type mirrors the structure of a standard Solana instruction:
+
+* **`programId`**: The base58-encoded public key of the Solana program to invoke. Must be in the notary's configured program whitelist,
+see [Configuration](#Configuration).
+* **`accounts`**: The list of accounts the instruction reads or writes, each with `isSigner` and `isWritable` flags.
+* **`data`**: The serialized instruction data passed to the program.
+
+Multiple `SolanaInstruction`s can be added to a single Corda transaction. They are executed in order within the same
+Solana transaction as the notary commit.
+
+`SolanaInstruction` is an implementation of `NotaryInstruction`. The Solana notary accepts a transaction
+only if it's a type of `SolanaInstruction`, while `NotaryInstruction` is an interface that other notary implementations may use for their own purposes.
+
+`[corda-solana-cordapp-utils](TBD)` library provides utilities for constructing `SolanaInstruction`s for
+most common commands of Solana SPL Token and Token 2022 programs.
+For example, to construct an SPL Token `TransferChecked` instruction:
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="Kotlin" %}}
@@ -122,25 +135,14 @@ txBuilder.addNotaryInstruction(
 {{% /tab %}}
 {{< /tabs >}}
 
-{{< note >}}
-`SolanaInstruction` is an implementation of `NotaryInstruction`. The Solana notary however will not accept a transaction
-if it has `NotaryInstruction`s which are not `SolanaInstruction`.
-{{< /note >}}
-
-The `SolanaInstruction` type mirrors the structure of a standard Solana instruction:
-
-* **`programId`**: The base58-encoded public key of the Solana program to invoke. Must be in the notary's configured program whitelist.
-* **`accounts`**: The list of accounts the instruction reads or writes, each with `isSigner` and `isWritable` flags.
-* **`data`**: The serialized instruction data passed to the program.
-
-Multiple `SolanaInstruction`s can be added to a single Corda transaction. They are executed in order within the same
-Solana transaction as the notary commit.
-
 ### Verifying the Solana instruction in a contract
 
 Corda contracts can inspect the Solana instructions attached to a transaction using
 `LedgerTransaction.notaryInstructionsOfType<SolanaInstruction>()`. This allows contract code to verify the instruction
 is correct for the Corda transaction that it's part of.
+
+Below is an example of contract verification code that checks the transaction has a single `TransferChecked`
+instruction matching the expected parameters.
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="Kotlin" %}}
@@ -203,7 +205,7 @@ The notary will reject any transaction which has the notary key as a signer acco
 The notary key can only be used by the notary for signing the `commit` instruction.
 {{< /warning >}}
 
-## Prerequisites
+## Configuration
 
 Before configuring the Solana notary, ensure the following are in place:
 
@@ -213,8 +215,6 @@ account must have sufficient SOL to pay for Solana transaction fees and account 
 3. **Solana RPC access**: The notary node requires HTTP and WebSocket access to a [Solana RPC endpoint](https://solana.com/rpc).
 4. **Program whitelist agreement**: Agree with your network participants which Solana programs may be invoked via
 notary instructions. By default, the SPL Token and Token-2022 programs are whitelisted.
-
-## Configuration
 
 The Solana notary is configured with the `notary.solana` block. See
 [Node configuration fields]({{< relref "../node/setup/corda-configuration-fields.md#solana" >}}) for the full
@@ -231,7 +231,7 @@ notary {
 }
 ```
 
-## Solana account costs
+## Notarisation costs
 
 Each notarised Corda transaction creates one or more `CordaTxAccount` PDAs on Solana. These accounts require
 [deposit or rent](https://docs.solana.com/developing/programming-model/accounts#rent) to be paid in SOL by the notary
@@ -325,13 +325,9 @@ class DvPTest {
     }
 
     @Test
-    fun `atomic DvP test`() {
+    fun test() {
         driver(DriverParameters(notarySpecs = listOf(NotarySpec(solanaNotaryName, notaryConfig)))) {
-            val seller = startNode(NodeParameters(providedName = sellerName)).getOrThrow()
-            val buyer  = startNode(NodeParameters(providedName = buyerName)).getOrThrow()
-
-            seller.rpc.startFlow(::SharesDvP, buyer.nodeInfo.legalIdentities[0])
-                .returnValue.getOrThrow()
+            // test
         }
     }
 }
@@ -363,14 +359,10 @@ public class DvPTest {
     }
 
     @Test
-    public void atomicDvPTest() {
+    public void test() {
         driver(new DriverParameters().withNotarySpecs(List.of(new NotarySpec(solanaNotaryName, notaryConfig))),
             dsl -> {
-                NodeHandle seller = dsl.startNode(new NodeParameters().withProvidedName(sellerName)).get();
-                NodeHandle buyer  = dsl.startNode(new NodeParameters().withProvidedName(buyerName)).get();
-
-                seller.getRpc().startFlow(SharesDvP::new, buyer.getNodeInfo().getLegalIdentities().get(0))
-                    .getReturnValue().get();
+                // test
                 return null;
             }
         );
@@ -391,16 +383,16 @@ mints, associated token accounts, and mint tokens to them:
 ```kotlin
 @BeforeEach
 fun setupSolana(validator: SolanaTestValidator) {
-    val buyerWallet = FileSigner.random(custodiedKeysDir)
-    validator.accounts().airdropSol(buyerWallet.publicKey(), 10)
+    val wallet = FileSigner.random(custodiedKeysDir)
+    validator.accounts().airdropSol(wallet.publicKey(), 10)
 
     val stablecoinMint = validator.tokens().createToken(mintAuthority, decimals = 6)
-    val buyerTokenAccount = validator.tokens().createAssociatedTokenAccount(
+    val tokenAccount = validator.tokens().createAssociatedTokenAccount(
         mintAuthority,
         stablecoinMint,
-        buyerWallet.publicKey()
+        wallet.publicKey()
     )
-    validator.tokens().mintTo(buyerTokenAccount, stablecoinMint, mintAuthority, amount = 1_000_000)
+    validator.tokens().mintTo(tokenAccount, stablecoinMint, mintAuthority, amount = 1_000_000)
 }
 ```
 {{% /tab %}}
@@ -408,16 +400,16 @@ fun setupSolana(validator: SolanaTestValidator) {
 ```java
 @BeforeEach
 public void setupSolana(SolanaTestValidator validator) {
-    FileSigner buyerWallet = FileSigner.random(custodiedKeysDir);
-    validator.accounts().airdropSol(buyerWallet.publicKey(), 10);
+    FileSigner wallet = FileSigner.random(custodiedKeysDir);
+    validator.accounts().airdropSol(wallet.publicKey(), 10);
 
     PublicKey stablecoinMint = validator.tokens().createToken(mintAuthority, 6);
-    PublicKey buyerTokenAccount = validator.tokens().createAssociatedTokenAccount(
+    PublicKey tokenAccount = validator.tokens().createAssociatedTokenAccount(
         mintAuthority,
         stablecoinMint,
-        buyerWallet.publicKey()
+        wallet.publicKey()
     );
-    validator.tokens().mintTo(buyerTokenAccount, stablecoinMint, mintAuthority, 1_000_000);
+    validator.tokens().mintTo(tokenAccount, stablecoinMint, mintAuthority, 1_000_000);
 }
 ```
 {{% /tab %}}
@@ -440,6 +432,11 @@ The following sample CorDapps demonstrate how to use the Solana notary in practi
   holders, locks them in a pool, and the Solana notary atomically mints the equivalent SPL tokens on Solana.
   Redemption works in reverse — the Solana token holder transfers tokens to a designated redemption account, and the
   Bridge Authority atomically burns them and releases the corresponding Corda tokens.
+  Bridge Authority runs ``Bridge Authority`` [cordapp](TBD).
+
+* **[Bank Of Corda](TBD)** (Corda Enterprise samples): Demonstrates how to enhance an existing CorDapp with bridging
+  capabilities. Unlike the previous Bridge Authority example, each node connects directly to a Solana notary and has
+  modified workflows and contracts to attach minting and burning instructions to Solana transactions.
 
 ## Limitations
 
