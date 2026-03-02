@@ -140,7 +140,8 @@ txBuilder.addNotaryInstruction(
 Corda contracts can inspect the Solana instructions attached to a transaction using
 `LedgerTransaction.notaryInstructionsOfType<SolanaInstruction>()`. This allows contract code to verify the instruction
 is correct for the Corda transaction that it's part of.
-Below an example for a contract verification code that checks the transaction has a single `TransferChecked`
+
+Below is an example of contract verification code that checks the transaction has a single `TransferChecked`
 instruction matching the expected parameters.
 
 {{< tabs name="tabs-4" >}}
