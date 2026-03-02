@@ -31,6 +31,16 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ## New features, enhancements and restrictions
 
+### Solana notary
+
+Corda Enterprise 4.14 introduces the Solana notary, a new notary type that records notarisation results on the
+[Solana](https://solana.com/) blockchain. The Solana notary enables CorDapps to perform atomic cross-chain operations — a Corda
+transaction is only notarised if a corresponding Solana program instruction (such as an SPL token transfer) also
+succeeds, and vice versa. This makes it possible to build use cases such as atomic delivery-versus-payment where a
+Corda asset is exchanged for a Solana-based stablecoin in a single, indivisible operation.
+
+For more information, see [Solana notary]({{< relref "notary/solana-notary.md" >}}).
+
 ### Notary instructions
 
 Corda 4.14 introduces `NotaryInstruction`, an extensible mechanism for attaching additional directives to a
@@ -47,16 +57,6 @@ New `TransactionBuilder` and `LedgerTransaction` APIs support notary instruction
 
 For backwards compatibility, standard notaries reject any transaction that contains notary instructions. Only
 specialised notaries — such as the Solana notary — accept and process them.
-
-### Solana notary
-
-Corda Enterprise 4.14 introduces the Solana notary, a new notary type that records notarisation results on the
-[Solana](https://solana.com/) blockchain. The Solana notary enables CorDapps to perform atomic cross-chain operations — a Corda
-transaction is only notarised if a corresponding Solana program instruction (such as an SPL token transfer) also
-succeeds, and vice versa. This makes it possible to build use cases such as atomic delivery-versus-payment where a
-Corda asset is exchanged for a Solana-based stablecoin in a single, indivisible operation.
-
-For more information, see [Solana notary]({{< relref "notary/solana-notary.md" >}}).
 
 ## Known issues
 

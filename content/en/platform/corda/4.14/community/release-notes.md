@@ -50,16 +50,6 @@ New `TransactionBuilder` and `LedgerTransaction` APIs support notary instruction
 Standard notaries reject any transaction that contains notary instructions. Only specialised notaries — such as the
 [Solana notary]({{< relref "../enterprise/notary/solana-notary.md" >}}) (Enterprise only) — accept and process them.
 
-### Notary change flow
-
-The transaction hierarchy, [FinalityFlow]({{< relref "api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
-
-### RPC thread pool
-
-The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.
-
-(For Kotlin Docs, see [CordaRPCClient](../../../../../../../en/api-ref/corda/4.14/community/kotlin/docs/net.corda.client.rpc/-corda-r-p-c-client/index.html), [RPCClient](../../../../../../../en/api-ref/corda/4.14/community/kotlin/docs/net.corda.client.rpc.internal/-r-p-c-client/index.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.14/community/kotlin/docs/net.corda.client.rpc.ext/-multi-r-p-c-client/index.html).
-
 ## Third-party component upgrades
 
 The following table lists the dependency version changes for 4.14 Open Source Editions:
