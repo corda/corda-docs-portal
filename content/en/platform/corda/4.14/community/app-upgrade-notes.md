@@ -37,6 +37,7 @@ If you are using them you should re-namespace them to a package namespace you co
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.14| 160 |
 | 4.13| 150 |
 | 4.12| 140 |
 | 4.11 | 13 |
@@ -54,6 +55,9 @@ If you are using them you should re-namespace them to a package namespace you co
 | 3.3 | 3 |
 {{< /table >}}
 
+## Upgrading CordDapps to platform version 160
+
+No manual upgrade steps are required.
 
 ## Upgrading CordDapps to platform version 150
 
