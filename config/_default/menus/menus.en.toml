@@ -559,6 +559,63 @@ identifier = "corda-community-4-13-contributing-index"
 name = "Participate"
 weight = 500
 
+[[corda-enterprise-4-14]]
+identifier = "corda-enterprise-4-14-notaries"
+name = "Corda notaries"
+weight = 35
+
+[[corda-enterprise-4-14]]
+identifier = "corda-enterprise-4-14-corda-networks"
+name = "Corda networks"
+weight = 40
+
+[[corda-enterprise-4-14]]
+identifier = "corda-enterprise-4-14-corda-nodes-operating"
+name = "Operating a node"
+parent = "corda-enterprise-4-14-corda-nodes"
+weight = 60
+
+[[corda-enterprise-4-14]]
+identifier = "corda-enterprise-4-14-notaries"
+name = "Corda notaries"
+weight = 35
+
+[[corda-enterprise-4-14]]
+identifier = "corda-enterprise-4-14-corda-networks"
+name = "Corda networks"
+weight = 40
+
+[[corda-enterprise-4-14]]
+identifier = "corda-enterprise-4-14-corda-nodes-operating"
+name = "Operating a node"
+parent = "corda-enterprise-4-14-corda-nodes"
+weight = 60
+
+[[corda-community-4-14]]
+identifier = "corda-community-4-14-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+
+[[corda-community-4-14]]
+identifier = "corda-community-4-14-corda-api"
+name = "Corda API"
+weight = 17
+
+[[corda-community-4-14]]
+identifier = "corda-community-4-14-development"
+name = "Development"
+weight = 20
+
+[[corda-community-4-14]]
+identifier = "corda-community-4-14-operations"
+name = "Operations"
+weight = 30
+
+[[corda-community-4-14]]
+identifier = "corda-community-4-14-contributing-index"
+name = "Participate"
+weight = 500
+
 [[corda5]]
 identifier = "corda5-rest-ref"
 parent = "corda5-rest-api-reference"

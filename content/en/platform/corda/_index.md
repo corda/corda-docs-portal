@@ -1,7 +1,7 @@
 ---
 date: '2021-04-24T00:00:00Z'
 description: "Documentation for all releases of Corda"
-title: Corda 
+title: Corda
 project: Corda
 version: 'Corda'
 section_menu: corda-index
@@ -30,14 +30,16 @@ The Corda platform documentation covers the following current versions of the Co
 {{< table >}}
 
 | Product                                     | Link to specific versions                                                                                    |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| **Corda 4 Enterprise**                      | [Corda Enterprise 4.13]({{< relref "/en/platform/corda/4.13/enterprise/_index.md" >}})                       |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Corda 4 Enterprise**                      | [Corda Enterprise 4.14]({{< relref "/en/platform/corda/4.14/enterprise/_index.md" >}})                       |
+|                                             | [Corda Enterprise 4.13]({{< relref "/en/platform/corda/4.13/enterprise/_index.md" >}})                       |
 |                                             | [Corda Enterprise 4.12]({{< relref "/en/platform/corda/4.12/enterprise/_index.md" >}})                       |
 |                                             | [Corda Enterprise 4.11]({{< relref "/en/platform/corda/4.11/enterprise/_index.md" >}})                       |
 |                                             | [Corda Enterprise 4.10]({{< relref "/en/platform/corda/4.10/enterprise/_index.md" >}})                       |
 |                                             | [Corda Enterprise 4.9]({{< relref "/en/platform/corda/4.9/enterprise/_index.md" >}})                         |
 |                                             | [Corda Enterprise 4.8]({{< relref "/en/platform/corda/4.8/enterprise/_index.md" >}})                         |
-| **Corda 4 Open Source**                     | [Corda Open Source 4.13]({{< relref "/en/platform/corda/4.13/community/_index.md" >}})                       |
+| **Corda 4 Open Source**                     | [Corda Open Source 4.14]({{< relref "/en/platform/corda/4.14/community/_index.md" >}})                       |
+|                                             | [Corda Open Source 4.13]({{< relref "/en/platform/corda/4.13/community/_index.md" >}})                       |
 |                                             | [Corda Open Source 4.12]({{< relref "/en/platform/corda/4.12/community/_index.md" >}})                       |
 | **Corda 4 Community Edition & Open Source** | [Corda Community Edition and Open Source 4.12]({{< relref "/en/platform/corda/4.12/community/_index.md" >}}) |
 |                                             | [Corda Community Edition and Open Source 4.11]({{< relref "/en/platform/corda/4.11/community/_index.md" >}}) |
@@ -48,7 +50,7 @@ The Corda platform documentation covers the following current versions of the Co
 |                                             | [CENM 1.4]({{< relref "/en/platform/corda/1.4/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.3]({{< relref "/en/platform/corda/1.3/cenm/_index.md" >}})                                           |
 |                                             | [CENM 1.2]({{< relref "/en/platform/corda/1.2/cenm/_index.md" >}})                                           |
-| **C5**                                      | [C5.2]({{< relref "/en/platform/corda/5.2/_index.md" >}})                                               |
+| **C5**                                      | [C5.2]({{< relref "/en/platform/corda/5.2/_index.md" >}})                                                    |
 {{< /table >}}
 
 {{< note >}}
