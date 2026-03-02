@@ -61,8 +61,8 @@ mechanism by which double-spends are detected on-chain.
 network ID. The notary must sign every commit instruction, and the program verifies authorization before accepting it.
 * **`Network`**: One account per registered Corda network. Each Corda network has a unique numeric ID assigned by the
 program administrator.
-Several notary keys (`NotaryAuthorization`) can be authorized on the same network',
-however a given notary key may only be registers in a single network.
+Several notary keys (`NotaryAuthorization`) can be authorized on the same network,
+however a given notary key may only be registered in a single network.
 * **`Administration`**: A singleton account holding the program administrator's public key and the counter used to
 assign network IDs.
 
