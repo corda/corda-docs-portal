@@ -33,15 +33,22 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 ## New features, enhancements and restrictions
 
-### Notary change flow
+### Notary instructions
 
-The transaction hierarchy, [FinalityFlow]({{< relref "api-flows.md#finalityflow" >}}), and NotaryChangeFlow have been generalized so that they can be used with NotaryChange transactions as well as with WireTransaction.
+Corda 4.14 introduces `NotaryInstruction`, an extensible mechanism for attaching additional directives to a
+transaction that a specialised notary can act on during notarisation. Notary instructions are stored in a new
+transaction component group (`NOTARY_INSTRUCTIONS_GROUP`), are covered by the transaction's Merkle tree, and are
+available to contracts for verification.
 
-### RPC thread pool
+New `TransactionBuilder` and `LedgerTransaction` APIs support notary instructions:
 
-The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.14/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.
+* `TransactionBuilder.addNotaryInstruction(instruction)` — attaches a notary instruction to the transaction being
+  built.
+* `LedgerTransaction.notaryInstructionsOfType<T>()` — retrieves all notary instructions of a given type, allowing
+  contracts to verify them.
 
-(For Kotlin Docs, see [CordaRPCClient](../../../../../../../en/api-ref/corda/4.14/community/kotlin/docs/net.corda.client.rpc/-corda-r-p-c-client/index.html), [RPCClient](../../../../../../../en/api-ref/corda/4.14/community/kotlin/docs/net.corda.client.rpc.internal/-r-p-c-client/index.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.14/community/kotlin/docs/net.corda.client.rpc.ext/-multi-r-p-c-client/index.html).
+Standard notaries reject any transaction that contains notary instructions. Only specialised notaries — such as the
+[Solana notary]({{< relref "../enterprise/notary/solana-notary.md" >}}) (Enterprise only) — accept and process them.
 
 ## Third-party component upgrades
 
