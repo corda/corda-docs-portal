@@ -35,4 +35,4 @@ table th:nth-of-type(5) {
 | **Corda Enterprise Edition 4.14**     | 03/2026         | 03/2028            | 03/2029         | 03/2029        |
 | **Corda Enterprise Edition 4.15\*\*** | 12/2026**       | 12/2028**          | 12/2029**       | 12/2029**      |
 
-<!-- ** Not released yet. Future releases as indicative only. -->
+** Not released yet. Future releases as indicative only.
