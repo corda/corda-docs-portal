@@ -26,9 +26,9 @@ The release packs and checksum files for Corda Enterprise 4.14 can be downloaded
 
 The following release packs are available, along with their re4spective checksum files:
 
-* devtest-4-14.tar.gz: required for building, developing, and testing CorDapps.
-* runtime-4-14.tar.gz: required to run Corda.
+* devtest-4.14.tar.gz: required for building, developing, and testing CorDapps.
+* runtime-4.14.tar.gz: required to run Corda.
 
 The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
-* optional-sdk-4-14.tar.gz
-* optional-tools-4-14.tar.gz
+* optional-sdk-4.14.tar.gz
+* optional-tools-4.14.tar.gz
