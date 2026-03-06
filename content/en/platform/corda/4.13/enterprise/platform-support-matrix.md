@@ -125,7 +125,7 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 | Auth              | `corda/enterprise-auth:1.7.2-zulu-openjdk-alpine17.0.17`             |
 | Gateway           | `corda/enterprise-gateway:1.7.2-zulu-openjdk-alpine17.0.17`          |
 | PKI Tool          | `corda/enterprise-pkitool:1.7.2-zulu-openjdk-alpine17.0.17`          |
-| Notary            | `corda/enterprise-notary:4.13-zulu-openjdk-alpine17.0.17`           |
+| Notary            | `corda/enterprise-notary:4.13.1-zulu-openjdk-alpine17.0.17`           |
 {{< /table >}}
 
 
