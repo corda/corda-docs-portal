@@ -20,6 +20,42 @@ tags:
 
 # Corda Open Source Edition 4.13 release notes
 
+## Corda Open Source Edition 4.13.1 release notes
+
+Corda Open Source Edition 4.13.1 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+## Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+### Fixed issues
+
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+  to enable it see [rateLimit]({{< relref "corda-configuration-fields.md#ratelimit" >}}).
+* Quasar has been reverted back to version 0.9.0_r3. This being due to instrumentation issues being reported since version 4.12.6 when quasar was updated.
+* Extra logging has been added if a node is unable to serialise an exception.
+
+### Third party components upgrade
+
+This table shows the updates in dependency versions for Corda Open Source 4.13.1. Dependencies with unchanged versions are omitted.
+
+|Dependency|Name|Version|
+|-----|-----|-----|
+|org.glassfish.jersey.*|Jersey|2.21.0|
+|org.assertj:assertj-core|AssertJ|3.27.7|
+|io.netty:netty-*|Netty|4.1.130.Final|
+|commons-io:commons-io|Commons IO|2.21.0|
+|org.controlsfx:controlsfx|Controls FX|11.2.3|
+|io.netty:netty-tcnative-*|TCNative|2.0.74.Final|
+|org.apache.activemq:artemis-*|Artemis|2.44.0|
+|org.apache.logging.log4j:*|Log4J|2.25.3|
+|junit:junit|JUnit|4.13.2|
+|org.apache.shiro:shiro-core|Shiro|2.1.0|
+|com.azure:azure-identity|Azure Identity|1.18.1|
+|org.apache.commons:commons-lang3|Commons Lang3|3.19.0|
+
+## Corda Open Source Edition 4.13 release notes
+
 The Corda Open Source Edition 4.13 release introduces new functionality and third-party component upgrades.
 
 ## Upgrade recommendation
@@ -40,10 +76,10 @@ The transaction hierarchy, [FinalityFlow]({{< relref "api-flows.md#finalityflow"
 
 ### RPC thread pool
 
-The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.  
+The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded set of scheduler and worker threads, rather than creating dedicated pools per client.
 
 (For Kotlin Docs, see [CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/community/kotlin/docs/net.corda.client.rpc/-corda-r-p-c-client/index.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/community/kotlin/docs/net.corda.client.rpc.internal/-r-p-c-client/index.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/community/kotlin/docs/net.corda.client.rpc.ext/-multi-r-p-c-client/index.html).
- 
+
 ## Third-party component upgrades
 
 The following table lists the dependency version changes for 4.13 Open Source Editions:

@@ -17,9 +17,47 @@ weight: 10
 
 # Corda Enterprise Edition 4.13 release notes
 
+## Corda Enterprise Edition 4.13.1 release notes
+
+Corda Enterprise Edition 4.13.1 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+* Fixed an issue where the Transaction Validator Utility failed when the logs directory was a symbolic link.
+* The Transacton Validator Utility now has an option to vary the number of threads it uses when processing transactions. See the --help option of the
+  tool or [Transaction Validator Utility]({{< relref "node/operating/tvu/tvu-cli.md" >}}) for more details.
+* The Transaction Validator Utility can now vary the location of its log file via a system property. See [Transaction Validator Utility]({{< relref "node/operating/tvu/tvu-cli.md" >}}) for more details.
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+  to enable it see [rateLimit]({{< relref "node/setup/corda-configuration-fields.md#ratelimit" >}}).
+* Quasar has been reverted back to version 0.9.0_r3. This being due to instrumentation issues being reported since version 4.12.6 when quasar was updated.
+* Extra logging has been added if a node is unable to serialise an exception.
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.13.1. Dependencies with unchanged versions are omitted.
+
+|Dependency|Name|Version|
+|-----|-----|-----|
+|org.glassfish.jersey.*|Jersey|2.21.0|
+|org.assertj:assertj-core|AssertJ|3.27.7|
+|io.netty:netty-*|Netty|4.1.130.Final|
+|commons-io:commons-io|Commons IO|2.21.0|
+|org.controlsfx:controlsfx|Controls FX|11.2.3|
+|io.netty:netty-tcnative-*|TCNative|2.0.74.Final|
+|org.apache.activemq:artemis-*|Artemis|2.44.0|
+|org.apache.shiro:shiro-core|Shiro|2.1.0|
+|com.azure:azure-identity|Azure Identity|1.18.1|
+|org.apache.commons:commons-lang3|Commons Lang3|3.19.0|
+
+## Corda Enterprise Edition 4.13 release notes
+
 The Corda Enterprise Edition 4.13 release introduces new functionality and third-party component upgrades.
 
-## Upgrade recommendation 
+## Upgrade recommendation
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
 
@@ -42,7 +80,7 @@ For more information, see [Segregated thread pools]({{< relref "cordapps/thread-
 
 ### Automatic ledger recovery
 Ledger recovery flow can now be launched automatically at node startup. For more information see [Automatic ledger recovery]({{< relref "node/ledger-recovery/automatic-ledger-recovery.md" >}}). To facilitate this, a new phase has been added to the node where only system flows run. The only supported runnable system flow is
-Ledger Recovery. 
+Ledger Recovery.
 
 For more information, see [System flows]({{< relref "cordapps/system-flows.md" >}}).
 
@@ -54,10 +92,10 @@ For more information, see [Read-only nodes]({{< relref "node/setup/read-only-nod
 
 ### Additional monitoring metrics
 
-Additional metrics have been implemented. 
+Additional metrics have been implemented.
 
 For the latest list, see [Node metrics]({{< relref "node/operating/monitoring-and-logging/node-metrics.md" >}}).
- 
+
 ### RPC thread pool
 
 The RPC clients ([CordaRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html), [RPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/internal/RPCClient.html), and [MultiRPCClient](../../../../../../../en/api-ref/corda/4.13/enterprise/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html)) can now be configured to use Artemis global thread pools by setting their `useGlobalThreadPools` Boolean parameter to true. This allows multiple connections to share a bounded
@@ -77,7 +115,7 @@ From 4.13, the following JARs contain Log4j2Plugins.dat files, which are require
 - corda-node-api-4.13.jar
 
 If these JARs are used with other sources using Log4j Core, the correct handling of the potentially
-conflicting files is required to guarantee correct behavior. 
+conflicting files is required to guarantee correct behavior.
 
 For more information, see:
 
@@ -102,9 +140,9 @@ they are not automatically recovered to Verified status. To have your in-flight 
 
 The following table lists the dependency version changes for 4.13 Enterprise Editions:
 
-| Dependency                               | Name         | New Version             | 
+| Dependency                               | Name         | New Version             |
 | ---------------------------------------- | ------------ | ----------------------- |
-| org.apache.activemq:*                    | Artemis      | 2.44.0                  | 
+| org.apache.activemq:*                    | Artemis      | 2.44.0                  |
 | org.apache.commons:commons-lang3         | Commons Lang | 3.19.0                  |
 | org.glassfish.jersey.*                   | Jersey       | 3.1.11                  |
 | org.apache.logging.log4j:*               | Log4J        | 2.25.1                  |

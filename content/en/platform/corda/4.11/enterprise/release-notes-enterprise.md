@@ -21,9 +21,9 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
-## Corda Enterprise Edition 4.11.6 release notes
+## Corda Enterprise Edition 4.11.7 release notes
 
-Corda Enterprise Edition 4.11.6 is a patch release of Corda Enterprise Edition focused on resolving issues and updating third-party dependencies. 
+Corda Enterprise Edition 4.11.7 is a patch release of Corda Enterprise Edition focused on resolving issues and updating third-party dependencies.
 
 ### Upgrade recommendation
 
@@ -31,7 +31,38 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-- The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments. <!-- ENT-12147 --> 
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+to enable it see [rateLimit]({{< relref "node/setup/corda-configuration-fields.md#ratelimit" >}}).
+* Extra logging has been added if a node is unable to serialise an exception.
+
+### Third-party components upgrade
+
+The following table lists the dependency upgrades for 4.11.7 Enterprise Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
+
+|Dependency|Name|New Version|
+|-----|-----|-----|
+|com.github.docker-java:*|Docker Java|3.7.0|
+|org.bouncycastle:bcprov-jdk18on|Bouncy Castle|1.79|
+|org.eclipse.jetty:*|Jetty|9.4.57.v20241219|
+|org.glassfish.jersey.*|Jersey|2.47|
+|org.assertj:assertj-core|AssertJ|3.27.7|
+|io.netty:netty-*|Netty|4.1.130.Final|
+|net.i2p.crypto:eddsa|Crypto EddSA|(removed)|
+|com.bloxbean.cardano:net-i2p-crypto-eddsa|Bloxbean EddSA|0.3.1|
+|commons-io:commons-io|Commons IO|2.21.0|
+|org.controlsfx:controlsfx|Controls FX|11.2.3|
+
+## Corda Enterprise Edition 4.11.6 release notes
+
+Corda Enterprise Edition 4.11.6 is a patch release of Corda Enterprise Edition focused on resolving issues and updating third-party dependencies.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+- The Corda Network Builder Tool now correctly deploys a Corda network both via CLI in Docker and Azure environments. <!-- ENT-12147 -->
 - The flow `recoverAllFinalityFlows` previously treated inactive flows as active. This behavior has been corrected. <!-- ENT-13814 ENT Only -->
 
 ### Third-party components upgrade
