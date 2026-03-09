@@ -58,11 +58,11 @@
 {{ end -}}
 
 {{ if .IsPage -}}
-  {{ range .Site.Authors -}}
+  {{ range .Site.Params.Author -}}
     {{ with .Social.facebook -}}
       <meta property="article:author" content="https://www.facebook.com/{{ . }}">
     {{ end -}}
-    {{ with .Site.Social.facebook -}}
+    {{ with .Site.Params.Social.facebook -}}
       <meta property="article:publisher" content="https://www.facebook.com/{{ . }}">
     {{ end -}}
     <meta property="article:section" content="{{ .Section }}">
@@ -74,6 +74,6 @@
   {{ end -}}
 {{ end -}}
 
-{{ with .Site.Social.facebook_admin -}}
+{{ with .Site.Params.Social.facebook_admin -}}
   <meta property="fb:admins" content="{{ . }}">
 {{ end -}}

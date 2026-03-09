@@ -1,6 +1,11 @@
-{{/* Displays the definition for the specified term, as defined for Corda 5 in glossaryitems.json, as a tooltip.*/}}
-{{/* Example usage: {{< tooltip >}}CorDapp{{< /tooltip >}} */}}
-{{/* NOTE the "term" passed to this shortcode is case-insensitive and simple plural versions should match. For example, passing "members" should match "Member" in the JSON file. */}}
+{{/* 
+Displays the definition for the specified term from glossaryitems.json as a tooltip.
+
+Example usage:
+{{< tooltip >}}CorDapp{{< /tooltip >}}
+
+NOTE: The term is matched case-insensitively, and simple plurals are matched too.
+*/}}
 
 <style>
     .definition {
@@ -29,46 +34,55 @@
         visibility: visible;
         opacity: 1;
     }
-
     .term .definition::after {
-    content: " ";
-    position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-    }    
-
+        content: " ";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
 </style>
 
-{{ $searchterm := .Inner }}
+{{ $searchterm := trim .Inner " \t\n\r" }}
 {{ $searchtermlower := lower $searchterm }}
 {{ $searchtermkebab := replace $searchtermlower " " "-" }}
 
-{{- /* If no version set for file, point to glossary of latest C5 version. For example, "about the docs" and tools */}}    
+{{/* Use latest Corda 5 version if page doesn't specify one */}}
 {{ $versionfolder := replace (index .Site.Params.corda5versions 0) "Corda " "corda/" }}
-{{ $version := string (.Page.Params.version) }}
-{{ with $version }}
-        {{ $versionfolder = replace (lower ($version)) " " "/" }}
+{{ with .Page.Params.version }}
+    {{ $versionfolder = replace (lower .) " " "/" }}
 {{ end }}
 
-{{ $file := printf "%s" "/glossaryitems.json" | printf "%s%s" $versionfolder | printf "%s%s" "content/en/platform/" }}
+{{/* Adjust file path to use Hugo's assets pipeline */}}
+{{ $filepath := printf "en/platform/%s/glossaryitems.json" $versionfolder }}
 
-{{ $termlink := printf "%s" "/reference/glossary.html#"  | printf "%s%s" $versionfolder | printf "%s%s" "en/platform/" | printf "%s%s" .Site.BaseURL | safeURL }}
+{{ $termlink := printf "%sen/platform/%s/reference/glossary.html#" .Site.BaseURL $versionfolder | safeURL }}
 
-{{ $glossarylist := getJSON $file }}
-{{ range $term, $value := $glossarylist }}
-    {{ $term := lower $term }}
-    {{ if eq $term $searchtermlower }} 
-        {{ $termlink := printf "%s" $searchtermkebab | printf "%s%s" $termlink }}
-        <a class="term" href ='{{ $termlink }}' >&nbsp{{ $searchterm }}
-        <span class="definition" >{{ $value.definition }}</span>
-    {{ else if eq $term (strings.TrimSuffix "s" $searchtermlower) }}
-        {{ $termlink := printf "%s" (strings.TrimSuffix "s" $searchtermkebab) | printf "%s%s" $termlink | printf "%s" }}
-        <a class="term" href ='{{ $termlink }}' >&nbsp{{ $searchterm }}
-        <span class="definition">{{ $value.definition }}</span>
+{{ with resources.Get $filepath }}
+    {{ $glossarylist := . | transform.Unmarshal }}
+
+    {{ range $term, $value := $glossarylist }}
+        {{ $termlower := lower $term }}
+
+        {{ if eq $termlower $searchtermlower }}
+            {{ $termlink = printf "%s%s" $termlink $searchtermkebab }}
+            <a class="term" href='{{ $termlink }}'>&nbsp;{{ $searchterm }}
+                <span class="definition">{{ $value.definition }}</span>
+            </a>
+
+        {{ else if eq $termlower (strings.TrimSuffix "s" $searchtermlower) }}
+            {{ $termroot := strings.TrimSuffix "s" $searchtermkebab }}
+            {{ $termlink = printf "%s%s" $termlink $termroot }}
+            <a class="term" href='{{ $termlink }}'>&nbsp;{{ $searchterm }}
+                <span class="definition">{{ $value.definition }}</span>
+            </a>
+        {{ end }}
     {{ end }}
+{{ else }}
+    <span class="term">{{ $searchterm }}
+        <span class="definition">Glossary data not found for this version.</span>
+    </span>
 {{ end }}
-</a>
