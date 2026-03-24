@@ -58,8 +58,6 @@ New `TransactionBuilder` and `LedgerTransaction` APIs support notary instruction
 For backwards compatibility, standard notaries reject any transaction that contains notary instructions. Only
 specialised notaries — such as the Solana notary — accept and process them.
 
-## Known issues
-
 ### Solana notary
 
 The Solana notary program only supports a maximum `StateRef` index of 127. However, this is currently not
