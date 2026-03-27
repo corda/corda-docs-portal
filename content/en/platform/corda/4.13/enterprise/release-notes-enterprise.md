@@ -17,6 +17,36 @@ weight: 10
 
 # Corda Enterprise Edition 4.13 release notes
 
+## Corda Enterprise Edition 4.13.2 release notes
+
+Corda Enterprise Edition 4.13.2 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+* Improved error reporting in RPCClientProxyHandler, for example when the user does not have sufficient permissions to perform an operation.
+* The following table shows the vulnerabilities addressed in this patch release.
+
+|Vulnerability| Component |
+|-------------|-----------|
+|CVE-2026-27446| Artemis   |
+|CVE-2026-1605| Jetty     |
+|CVE-2025-11143| Jetty     |
+| CVE-2026-24400 | AssertJ   |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.10. Dependencies with unchanged versions are omitted.
+
+| Dependency                          | Name           | Version       |
+|-------------------------------------|----------------|---------------|
+| com.fasterxml.jackson..*            | Jackson        | 2.18.6        |
+| org.apache.activemq:artemis-*       | Artemis        | 2.52.0        |
+| org.eclipse.jetty.ee10:jetty-ee10-* | Jetty          | 2.25.3        |
+
 ## Corda Enterprise Edition 4.13.1 release notes
 
 Corda Enterprise Edition 4.13.1 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.

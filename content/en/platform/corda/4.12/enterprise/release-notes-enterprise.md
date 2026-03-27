@@ -17,6 +17,46 @@ weight: 10
 
 # Corda Enterprise Edition 4.12 release notes
 
+## Corda Enterprise Edition 4.12.10 release notes
+
+Corda Enterprise Edition 4.12.10 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+When upgrading a node to Corda 4.12, it is extremely important that you run the Transaction Validator Utility on your node database to verify that the transactions in the old node are compatible with 4.12 nodes.
+
+To ensure compatibility of the transactions, you must also run the Transaction Validator Utility on any older nodes that are not being upgraded and will likely interact with any upgraded nodes.
+
+For more information, see [Transaction Validator Utility]({{< relref "node/operating/tvu/_index.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Corda Enterprise Edition 4.11 to 4.12 upgrade guide]({{< relref "upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation
+
+### Fixed issues
+
+* Improved error reporting in RPCClientProxyHandler, for example when the user does not have sufficient permissions to perform an operation.
+* The following table shows the vulnerabilities addressed in this patch release.
+
+|Vulnerability| Component |
+|-------------|-----------|
+|CVE-2026-27446| Artemis   |
+|CVE-2026-1605| Jetty     |
+|CVE-2025-11143| Jetty     |
+| CVE-2026-24400 | AssertJ   |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.10. Dependencies with unchanged versions are omitted.
+
+| Dependency                          | Name           | Version       |
+|-------------------------------------|----------------|---------------|
+| com.fasterxml.jackson..*            | Jackson        | 2.18.6        |
+| org.apache.activemq:artemis-*       | Artemis        | 2.52.0        |
+| org.eclipse.jetty.ee10:jetty-ee10-* | Jetty          | 2.25.3        |
+
 ## Corda Enterprise Edition 4.12.9 release notes
 
 Corda Enterprise Edition 4.12.9 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
