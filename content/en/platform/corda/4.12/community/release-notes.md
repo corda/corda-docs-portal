@@ -20,6 +20,38 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.10 release notes
+
+Corda Open Source Edition 4.12.10 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* Improved error reporting in RPCClientProxyHandler, for example when the user does not have sufficient permissions to perform an operation.
+* The following vulnerabilities in dependencies have been addressed:
+
+| Vulnerability   | Component |
+|-----------------|----------|
+| CVE-2026-27446  | Artemis  |
+| CVE-2026-1605   | Jetty    |
+| CVE-2025-11143  | Jetty    |
+| CWE-770| Jackson |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Open Source 4.12.10. Dependencies with unchanged versions are omitted.
+
+| Dependency                          | Name           | Version       |
+|-------------------------------------|----------------|---------------|
+| com.fasterxml.jackson..*            | Jackson        | 2.18.6        |
+| org.apache.activemq:artemis-*       | Artemis        | 2.52.0        |
+| org.eclipse.jetty.ee10:jetty-ee10-* | Jetty          | 2.25.3        |
+
 ## Corda Open Source Edition 4.12.9 release notes
 
 Corda Open Source Edition 4.12.9 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
