@@ -17,7 +17,7 @@ Production use of Corda Community Edition 4.11 is only supported on Linux OS, se
 
 ## Network management
 
-The Community Edition of Corda does not come with network management support included. 
+The Community Edition of Corda does not come with network management support included.
 
 If you require network management, you can consider using the [Network Map Service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
 
@@ -27,7 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda: Community Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u421** and **Azul Zulu Enterprise 8u422**, for Azure deployment downloadable from
+Corda: Community Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u471** and **Azul Zulu Enterprise 8u472**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
@@ -82,9 +82,9 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 {{< table >}}
 
-| Vendor     | CPU architecture | Versions                                  | JDBC Driver                    |
-|------------|------------------|-------------------------------------------|--------------------------------|
-| PostgreSQL | x86-64           | 12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x  | PostgreSQL JDBC Driver 42.7.8  |
+| Vendor     | CPU architecture | Versions                     | JDBC Driver                   |
+|------------|------------------|------------------------------|-------------------------------|
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.8 |
 
 
 {{< /table >}}

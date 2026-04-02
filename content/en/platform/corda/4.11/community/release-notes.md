@@ -20,6 +20,33 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.7 release notes
+
+Corda Community Edition 4.11.7 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
+
+### Fixed issues
+
+* The RPC listener of a Corda node can now be protected from brute-force login attempts and abusive authentication activity. For details of this and how
+  to enable it see [rateLimit]({{< relref "corda-configuration-fields.md#ratelimit" >}}).
+* Extra logging has been added if a node is unable to serialise an exception.
+
+### Third party components upgrade
+
+The following table lists the dependency version changes in the 4.11.7 Community Edition. Dependencies with unchanged versions are omitted.
+
+|Dependency|Name|Version|
+|-----|-----|-----|
+|com.github.docker-java:*|Docker Java|3.5.3|
+|org.bouncycastle:bcprov-jdk18on|Bouncy Castle|1.79|
+|org.eclipse.jetty:*|Jetty|9.4.57.v20241219|
+|org.glassfish.jersey.*|Jersey|2.47|
+|org.assertj:assertj-core|AssertJ|3.27.7|
+|io.netty:netty-*|Netty|4.1.130.Final|
+|net.i2p.crypto:eddsa|Crypto EddSA|(removed)|
+|com.bloxbean.cardano:net-i2p-crypto-eddsa|Bloxbean EddSA|0.3.1|
+|commons-io:commons-io|Commons IO|2.21.0|
+|org.controlsfx:controlsfx|Controls FX|11.2.3|
+
 ## Corda Community Edition 4.11.6 release notes
 
 Corda Community Edition 4.11.6 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
@@ -44,7 +71,7 @@ The following table lists the dependency version changes in the 4.11.6 Community
 | com.azure.resourcemanager:azure-resourcemanager       | 2.52.0             |
 | com.azure:azure-identity                              | 1.18.1             |
  <!-- ENT-14529 -->
- 
+
 ## Corda Community Edition 4.11.5 release notes
 
 Corda Community Edition 4.11.5 is a patch release of Corda Community Edition focused on resolving issues.
