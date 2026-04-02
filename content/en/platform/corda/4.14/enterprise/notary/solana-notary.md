@@ -35,22 +35,49 @@ attempt on Corda, or an error in the Solana instruction — the entire operation
 
 ## How it works
 
+### Overview
+
 When a Corda transaction is sent for notarisation, the Solana notary:
 
 1. **Builds** a _Solana_ transaction containing the notary program's `commit` instruction for the input states to be
    spent, and any user-provided Solana instructions. All Corda transaction IDs are hashed so that they are never
    exposed on the public blockchain.
 2. **Submits** the Solana transaction on-chain. All instructions are executed atomically. If a double-spend is
-   detected, or any of the user-provided instructions fail, the entire Solana transaction is rolled back and nothing
-   is committed to the blockchain.
+detected, or any of the user-provided instructions fail, the entire Solana transaction is rolled back and nothing is
+committed to the blockchain.
 3. **Validates** the Corda transaction time window.
-4. **Waits** for confirmation the Solana transaction was processed and is part of the blockchain. The notary will
-   wait until the transaction reaches **confirmed** commitment, which takes roughly 1 second.
+4. **Waits** for confirmation the Solana transaction was processed and is part of the blockchain. The notary will wait
+until the transaction reaches **confirmed** commitment, which takes roughly 1 second.
 5. **Signs** the Corda notarisation and returns it to the requesting node.
 
-The notary program exists at the address
-[`notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY`](https://solscan.io/account/notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY).
-Each Corda transaction is given a 128-bit bitset for tracking the spent status of each of its output states.
+### The Solana notary program
+
+The notary program (`notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY`) runs on Solana and is administered by R3.
+It maintains the following on-chain accounts, all implemented as Program Derived Addresses (PDAs):
+
+* **`CordaTxAccount`**: Created for each notarised Corda transaction. Stores a 128-bit bitset in which each bit
+represents a transaction output index; a cleared bit indicates that the corresponding state has been spent. This is the
+mechanism by which double-spends are detected on-chain.
+* **`NotaryAuthorization`**: One account per authorized notary key, linking the notary's Solana public key to a
+network ID. The notary must sign every commit instruction, and the program verifies authorization before accepting it.
+* **`Network`**: One account per registered Corda network. Each Corda network has a unique numeric ID assigned by the
+program administrator.
+* **`Administration`**: A singleton account holding the program administrator's public key and the counter used to
+assign network IDs.
+
+{{< note >}}
+The Solana notary program is administered exclusively by R3. Please raise a support ticket to have your notary key
+authorized.
+{{< /note >}}
+
+### State tracking
+
+Corda transaction IDs and input state references are encoded and stored in `CordaTxAccount` PDAs as follows:
+
+* Each Corda transaction maps to a PDA derived from a **hash of the transaction ID** and the network ID. The
+hash ensures that raw Corda transaction IDs are never exposed on-chain, mitigating the risk of denial-of-state
+attacks.
+* Input states are tracked using a **u128 bitset** (one bit per output index). When a state is spent, its bit is cleared.
 
 {{< warning >}}
 Using a 128-bit bitset means Corda transactions cannot have more than 128 output states (indices 0–127). Output states
@@ -58,36 +85,12 @@ at index 128 or greater cannot be consumed. This is currently not enforced and s
 create more than 128 output states in a transaction.
 {{< /warning >}}
 
-Detailed information on how the program works can be found
-[here](https://github.com/corda/solana-notary/blob/main/program/README.md).
-
-{{< note >}}
-The Solana notary program is administered exclusively by R3. Please raise a support ticket to have your notary key
-authorized.
-{{< /note >}}
-
 ## Programming model
 
 ### Adding a Solana instruction to a Corda transaction
 
 CorDapp developers attach `SolanaInstruction`s to a Corda transaction using `TransactionBuilder.addNotaryInstruction()`.
 This marks the instruction for execution by the Solana notary at the point of notarisation.
-The `SolanaInstruction` type mirrors the structure of a standard Solana instruction:
-
-* **`programId`**: The base58-encoded public key of the Solana program to invoke. Must be in the notary's configured program whitelist,
-see [Configuration](#Configuration).
-* **`accounts`**: The list of accounts the instruction reads or writes, each with `isSigner` and `isWritable` flags.
-* **`data`**: The serialized instruction data passed to the program.
-
-Multiple `SolanaInstruction`s can be added to a single Corda transaction. They are executed in order within the same
-Solana transaction as the notary commit.
-
-`SolanaInstruction` is an implementation of `NotaryInstruction`. The Solana notary accepts a transaction
-only if it's a type of `SolanaInstruction`, while `NotaryInstruction` is an interface that other notary implementations may use for their own purposes.
-
-`[corda-solana-cordapp-utils](TBD)` library provides utilities for constructing `SolanaInstruction`s for
-most common commands of Solana SPL Token and Token 2022 programs.
-For example, to construct an SPL Token `TransferChecked` instruction:
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="Kotlin" %}}
@@ -119,6 +122,20 @@ txBuilder.addNotaryInstruction(
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+{{< note >}}
+`SolanaInstruction` is an implementation of `NotaryInstruction`. The Solana notary however will not accept a transaction
+if it has `NotaryInstruction`s which are not `SolanaInstruction`.
+{{< /note >}}
+
+The `SolanaInstruction` type mirrors the structure of a standard Solana instruction:
+
+* **`programId`**: The base58-encoded public key of the Solana program to invoke. Must be in the notary's configured program whitelist.
+* **`accounts`**: The list of accounts the instruction reads or writes, each with `isSigner` and `isWritable` flags.
+* **`data`**: The serialized instruction data passed to the program.
+
+Multiple `SolanaInstruction`s can be added to a single Corda transaction. They are executed in order within the same
+Solana transaction as the notary commit.
 
 ### Verifying the Solana instruction in a contract
 
@@ -417,11 +434,6 @@ The following sample CorDapps demonstrate how to use the Solana notary in practi
   holders, locks them in a pool, and the Solana notary atomically mints the equivalent SPL tokens on Solana.
   Redemption works in reverse — the Solana token holder transfers tokens to a designated redemption account, and the
   Bridge Authority atomically burns them and releases the corresponding Corda tokens.
-  Bridge Authority runs ``Bridge Authority`` [cordapp](TBD).
-
-* **[Bank Of Corda](TBD)** (Corda Enterprise samples): Demonstrates how to enhance an existing CorDapp with bridging
-  capabilities. Unlike the previous Bridge Authority example, each node connects directly to a Solana notary and has
-  modified workflows and contracts to attach minting and burning instructions to Solana transactions.
 
 ## Limitations
 
