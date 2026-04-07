@@ -50,8 +50,6 @@ When a Corda transaction is sent for notarisation, the Solana notary:
    wait until the transaction reaches **confirmed** commitment, which takes roughly 1 second.
 5. **Signs** the Corda notarisation and returns it to the requesting node.
 
-The notary program exists at the address
-[`notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY`](https://solscan.io/account/notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY).
 Each Corda transaction is given a 128-bit bitset for tracking the spent status of each of its output states.
 
 {{< warning >}}
@@ -60,8 +58,8 @@ at index 128 or greater cannot be consumed. This is currently not enforced and s
 create more than 128 output states in a transaction.
 {{< /warning >}}
 
-Detailed information on how the program works can be found
-[here](https://github.com/corda/solana-notary/blob/main/program/README.md).
+The notary program exists at the address `notary95bwkGXj74HV2CXeCn4CgBzRVv5nmEVfqonVY`. Detailed information on how
+it works can be found [here](https://github.com/corda/solana-notary/blob/main/program/README.md).
 
 {{< note >}}
 The Solana notary program is administered exclusively by R3. Please raise a support ticket to have your notary key
