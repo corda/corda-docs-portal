@@ -19,6 +19,30 @@ tags:
 
 # Corda Open Source Edition 4.14 release notes
 
+## Corda Open Source Edition 4.14.2 release notes
+
+Corda Open Source Edition 4.14.2 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+## Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+### Fixed issues
+
+* The following vulnerabilities in dependencies have been addressed:
+
+| Vulnerability  | Component |
+|----------------|-----------|
+| CVE-2026-33870 | Netty     |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Open Source 4.14.2. Dependencies with unchanged versions are omitted.
+
+| Dependency                          | Name    | Version |
+|-------------------------------------|---------|--------|
+| io.netty:netty-*                    | Netty   | 4.1.132.Final       |
+
 ## Corda Open Source Edition 4.14.1 release notes
 
 Corda Open Source Edition 4.14.1 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.

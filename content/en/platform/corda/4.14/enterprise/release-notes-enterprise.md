@@ -17,6 +17,31 @@ weight: 10
 
 # Corda Enterprise Edition 4.14 release notes
 
+## Corda Enterprise Edition 4.14.2 release notes
+
+Corda Enterprise Edition 4.14.2 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+* Revert the fix to handle stuck messages in Artemis. Previously on extremely rare occasions messages could become stuck in Artemis. This has now been resolved in Artemis.
+* The following table shows the vulnerabilities addressed in this patch release.
+
+| Vulnerability  | Component |
+|----------------|-----------|
+| CVE-2026-33870 | Netty     |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.14.2. Dependencies with unchanged versions are omitted.
+
+| Dependency                          | Name    | Version |
+|-------------------------------------|---------|--------|
+| io.netty:netty-*                    | Netty   | 4.1.132.Final       |
+
 ## Corda Enterprise Edition 4.14.1 release notes
 
 Corda Enterprise Edition 4.14.1 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
