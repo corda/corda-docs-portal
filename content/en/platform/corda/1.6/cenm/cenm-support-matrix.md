@@ -87,11 +87,12 @@ for your deployment needs.
 ## Node databases
 
 {{< table >}}
-| Vendor      | CPU Architecture | Versions                                        | JDBC Driver                                 |
-|-------------|------------------|-------------------------------------------------|---------------------------------------------|
-| Microsoft   | x86-64           | Azure SQL, SQL Server 2022                      | Microsoft JDBC Driver 13.4.0                |
-| Oracle      | x86-64           | 19c                                           | Oracle JDBC 8                               |
-| Oracle      | x86-64           | 23ai (23.4)                                           | Oracle JDBC 8                               |
-| Oracle      | x86-64           | 26ai                                           | Oracle JDBC 8                               |
-| PostgreSQL  | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x        | PostgreSQL JDBC Driver 42.7.11    |
+
+| Vendor     | CPU Architecture | Versions                     | JDBC Driver                    |
+|------------|------------------|------------------------------|--------------------------------|
+| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 13.4.0   |
+| Oracle     | x86-64           | 19c                          | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 8                  |
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.11 |
 {{< /table >}}
