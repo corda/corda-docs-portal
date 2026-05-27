@@ -39,15 +39,13 @@ Both the Signing Service and the PKI Tool support a variety of HSMs.
 
 CENM currently supports the following databases:
 
-| Vendor      | CPU Architecture | Versions                                  | JDBC Driver                                      |
-|-------------|------------------|-------------------------------------------|--------------------------------------------------|
-| Microsoft   | x86-64           | Azure SQL, SQL Server 2022                | Microsoft JDBC Driver 13.2.1                     |
-| Oracle      | x86-64           | 19c                                       | Oracle JDBC 6                                    |
-| Oracle      | x86-64           | 19c                                       | Oracle JDBC 8                                    |
-| Oracle      | x86-64           | 12cR2                                     | Oracle JDBC 8                                    |
-| Oracle      | x86-64           | 11gR2                                     | Oracle JDBC 6                                    |
-| Oracle      | x86-64           | 23ai (23.4)                               | Oracle JDBC 8                                    |
-| PostgreSQL  | x86-64           | 12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x  | PostgreSQL JDBC Driver 42.7.8                    |
+| Vendor     | CPU Architecture | Versions                     | JDBC Driver                    |
+|------------|------------------|------------------------------|--------------------------------|
+| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 13.4.0   |
+| Oracle     | x86-64           | 19c                          | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 8                  |
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.11 |
 
 
 ## JDK support
@@ -91,8 +89,9 @@ for your deployment needs.
 {{< table >}}
 | Vendor      | CPU Architecture | Versions                                        | JDBC Driver                                 |
 |-------------|------------------|-------------------------------------------------|---------------------------------------------|
-| Microsoft   | x86-64           | Azure SQL, SQL Server 2022                      | Microsoft JDBC Driver 13.2.1                |
-| Oracle      | x86-64           | 11gR2                                           | Oracle JDBC 6                               |
-| Oracle      | x86-64           | 12cR2                                           | Oracle JDBC 8                               |
-| PostgreSQL  | x86-64           | 12.x, 13.x, 14.x, 15.x, 16.x, 17.x, 18.x        | PostgreSQL JDBC Driver 42.7.8    |
+| Microsoft   | x86-64           | Azure SQL, SQL Server 2022                      | Microsoft JDBC Driver 13.4.0                |
+| Oracle      | x86-64           | 19c                                           | Oracle JDBC 8                               |
+| Oracle      | x86-64           | 23ai (23.4)                                           | Oracle JDBC 8                               |
+| Oracle      | x86-64           | 26ai                                           | Oracle JDBC 8                               |
+| PostgreSQL  | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x        | PostgreSQL JDBC Driver 42.7.11    |
 {{< /table >}}

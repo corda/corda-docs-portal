@@ -47,12 +47,12 @@ Production use of Corda Enterprise Edition 4.12 is only supported on Linux OS; s
 
 {{< table >}}
 
-| Platform                     | CPU architecture | Versions       |
-|------------------------------|------------------|----------------|
-| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x |
-| Suse Linux Enterprise Server | x86-64           | 11.x, 12.x     |
-| Ubuntu Linux                 | x86-64           | 20.04, 22.04   |
-| Oracle Linux                 | x86-64           | 6.x, 7.x       |
+| Platform                     | CPU architecture | Versions            |
+|------------------------------|------------------|---------------------|
+| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x      |
+| Suse Linux Enterprise Server | x86-64           | 11.x, 12.x          |
+| Ubuntu Linux                 | x86-64           | 20.04, 22.04, 24.04 |
+| Oracle Linux                 | x86-64           | 6.x, 7.x            |
 
 {{< /table >}}
 
@@ -78,15 +78,15 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-| Vendor     | CPU architecture | Versions                     | JDBC driver                   |
-|------------|------------------|------------------------------|-------------------------------|
-| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 13.2.1  |
-| Oracle     | x86-64           | 19c                          | Oracle JDBC 8                 |
-| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                 |
-| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 11                |
-| Oracle     | x86-64           | 26ai                         | Oracle JDBC 8                 |
-| Oracle     | x86-64           | 26ai                         | Oracle JDBC 11                |
-| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.8 |
+| Vendor     | CPU architecture | Versions                     | JDBC driver                    |
+|------------|------------------|------------------------------|--------------------------------|
+| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 13.4.0   |
+| Oracle     | x86-64           | 19c                          | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 11                 |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 11                 |
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.11 |
 
 {{< /table >}}
 
@@ -104,10 +104,10 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-|Vendor|CPU architecture|Versions|JDBC driver|
-|-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|23.1.x, 23.2.x, 24.1.x, 24.3.x|PostgreSQL JDBCDriver 42.5.0|
-|Oracle RAC|x86-64|19c|Oracle JDBC 8|
+| Vendor      | CPU architecture | Versions                       | JDBC driver                   |
+|-------------|------------------|--------------------------------|-------------------------------|
+| CockroachDB | x86-64           | 23.1.x, 23.2.x, 24.1.x, 24.3.x | PostgreSQL JDBCDriver 42.7.11 |
+| Oracle RAC  | x86-64           | 19c                            | Oracle JDBC 8                 |
 
 {{< /table >}}
 

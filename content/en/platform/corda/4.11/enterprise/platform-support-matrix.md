@@ -89,13 +89,13 @@ The following database types are supported both in production and for developmen
 {{< table >}}
 | Vendor      | CPU architecture | Versions                                    | JDBC Driver                     |
 |------------|-------------------|---------------------------------------------|---------------------------------|
-| Microsoft  | x86-64            | Azure SQL, SQL Server 2022                  | Microsoft JDBC Driver 13.2.1    |
+| Microsoft  | x86-64            | Azure SQL, SQL Server 2022                  | Microsoft JDBC Driver 13.4.0    |
 | Oracle     | x86-64            | 19c                                         | Oracle JDBC 8                   |
 | Oracle     | x86-64            | 23ai (23.4)                                 | Oracle JDBC 8                   |
 | Oracle     | x86-64            | 23ai (23.4)                                 | Oracle JDBC 11                  |
 | Oracle     | x86-64            | 26ai                                        | Oracle JDBC 8                   |
 | Oracle     | x86-64            | 26ai                                        | Oracle JDBC 11                  |
-| PostgreSQL | x86-64            | 14.x, 15.x, 16.x, 17.x, 18.x ]              | PostgreSQL JDBC Driver 42.7.8   |
+| PostgreSQL | x86-64            | 14.x, 15.x, 16.x, 17.x, 18.x                | PostgreSQL JDBC Driver 42.7.11   |
 
 
 {{< /table >}}
@@ -115,10 +115,10 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-| Vendor      | CPU architecture | Versions        | JDBC Driver                  |
-|-------------|------------------|-----------------|------------------------------|
-| CockroachDB | x86-64           | 23.1.x, 24.1.x  | PostgreSQL JDBC Driver 42.5.0 |
-| Oracle RAC  | x86-64           | 19c             | Oracle JDBC 8                |
+| Vendor      | CPU architecture | Versions       | JDBC Driver                               |
+|-------------|------------------|----------------|-------------------------------------------|
+| CockroachDB | x86-64           | 23.1.x, 24.1.x | PostgreSQL JDBC Driver JDBC Driver 13.4.0 |
+| Oracle RAC  | x86-64           | 19c            | Oracle JDBC 8                             |
 
 {{< /table >}}
 
