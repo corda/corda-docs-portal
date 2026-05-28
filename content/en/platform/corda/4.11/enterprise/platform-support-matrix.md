@@ -115,10 +115,10 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-| Vendor      | CPU architecture | Versions       | JDBC Driver                    |
-|-------------|------------------|----------------|--------------------------------|
-| CockroachDB | x86-64           | 23.1.x, 24.1.x | PostgreSQL JDBC Driver 42.7.11 |
-| Oracle RAC  | x86-64           | 19c            | Oracle JDBC 8                  |
+| Vendor      | CPU architecture | Versions                       | JDBC Driver                    |
+|-------------|------------------|--------------------------------|--------------------------------|
+| CockroachDB | x86-64           | 23.2.x, 24.3.x, 25.4.x, 26.2.x | PostgreSQL JDBC Driver 42.7.11 |
+| Oracle RAC  | x86-64           | 19c                            | Oracle JDBC 8                  |
 
 {{< /table >}}
 

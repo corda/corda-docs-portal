@@ -27,13 +27,13 @@ Both the Signing Service and the PKI Tool support a variety of HSMs.
 
 {{< table >}}
 
-|Device|Firmware Version|Driver Version|High Availability (HA)|
-|--------------------------------|----------------------------------|------------------|------|
-|Utimaco SecurityServer Se Gen2|4.21.1|4.21.1|No|
-|Gemalto Luna|7.3.3|10.4.0|Yes (Tested and officially supported)|
-|Securosys PrimusX|2.7.4|1.8.2|No|
-|Azure Key Vault|N/A|1.1.1|No|
-|AWS CloudHSM|N/A|3.2.1|No|
+| Device                         | Firmware Version | Driver Version | High Availability (HA)                |
+|--------------------------------|------------------|----------------|---------------------------------------|
+| Utimaco SecurityServer Se Gen2 | 4.21.1           | 4.21.1         | No                                    |
+| Gemalto Luna                   | 7.3.3            | 10.4.0         | Yes (Tested and officially supported) |
+| Securosys PrimusX              | 2.7.4            | 1.8.2          | No                                    |
+| Azure Key Vault                | N/A              | 1.1.1          | No                                    |
+| AWS CloudHSM                   | N/A              | 3.2.1          | No                                    |
 
 {{< /table >}}
 
@@ -68,12 +68,12 @@ for your deployment needs.
 
 {{< table >}}
 
-|Platform|CPU Architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 9.x|
-|Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
-|Oracle Linux|x86-64|7.x, 6.x|
+| Platform                     | CPU Architecture | Versions            |
+|------------------------------|------------------|---------------------|
+| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x            |
+| Suse Linux Enterprise Server | x86-64           | 12.x, 11.x          |
+| Ubuntu Linux                 | x86-64           | 20.04, 22.04, 24.04 |
+| Oracle Linux                 | x86-64           | 7.x, 6.x            |
 
 {{< /table >}}
 
@@ -83,11 +83,11 @@ for your deployment needs.
 
 {{< table >}}
 
-|Platform|CPU Architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Microsoft Windows|x86-64|10, 8.x|
-|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
-|Apple macOS|x86-64|10.9 and above|
+| Platform                 | CPU Architecture | Versions            |
+|--------------------------|------------------|---------------------|
+| Microsoft Windows        | x86-64           | 10, 8.x             |
+| Microsoft Windows Server | x86-64           | 2016, 2012 R2, 2012 |
+| Apple macOS              | x86-64           | 10.9 and above      |
 
 {{< /table >}}
 

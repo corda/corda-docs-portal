@@ -26,13 +26,14 @@ For information about supported operating systems for Corda Enterprise, see {{< 
 Both the Signing Service and the PKI Tool support a variety of HSMs.
 
 {{< table >}}
-| Device                         | Firmware Version | Driver Version | High Availability (HA)                      |
-|--------------------------------|------------------|----------------|---------------------------------------------|
-| Utimaco SecurityServer Se Gen2 | 4.21.1           | 4.21.1         | No                                          |
-| Gemalto Luna                   | 7.3.3            | 10.4.0         | Yes — tested and officially supported        |
-| Securosys PrimusX              | 2.7.4            | 1.8.2          | No                                          |
-| Azure Key Vault                | N/A              | 1.1.1          | No                                          |
-| AWS CloudHSM                   | N/A              | 3.2.1          | No                                          |
+
+| Device                         | Firmware Version | Driver Version | High Availability (HA)                |
+|--------------------------------|------------------|----------------|---------------------------------------|
+| Utimaco SecurityServer Se Gen2 | 4.21.1           | 4.21.1         | No                                    |
+| Gemalto Luna                   | 7.3.3            | 10.4.0         | Yes — tested and officially supported |
+| Securosys PrimusX              | 2.7.4            | 1.8.2          | No                                    |
+| Azure Key Vault                | N/A              | 1.1.1          | No                                    |
+| AWS CloudHSM                   | N/A              | 3.2.1          | No                                    |
 {{< /table >}}
 
 ## CENM databases
@@ -64,12 +65,12 @@ for your deployment needs.
 
 {{< table >}}
 
-| Platform                      | CPU Architecture | Supported Versions         |
-|-------------------------------|------------------|-----------------------------|
-| Red Hat Enterprise Linux      | x86-64           | 8.x, 9.x, 10.x    |
-| SUSE Linux Enterprise Server  | x86-64           | 11.x, 12.x                  |
-| Ubuntu Linux                  | x86-64           | 20.04, 22.04, 24.04         |
-| Oracle Linux                  | x86-64           | 6.x, 7.x                    |
+| Platform                     | CPU Architecture | Supported Versions  |
+|------------------------------|------------------|---------------------|
+| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x      |
+| SUSE Linux Enterprise Server | x86-64           | 11.x, 12.x          |
+| Ubuntu Linux                 | x86-64           | 20.04, 22.04, 24.04 |
+| Oracle Linux                 | x86-64           | 6.x, 7.x            |
 
 {{< /table >}}
 
