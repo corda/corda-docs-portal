@@ -1,5 +1,5 @@
 ---
-date: '2022-09-15'
+date: '2026-06-03T12:00:00Z'
 menu:
   tools:
     parent: release-notes-archiving
