@@ -17,31 +17,28 @@ weight: 730
 
 # Archive Service APIs
 
-The following APIs are exposed by the Archive Service:
+{{< note >}}
+Archive Service 2.0 introduces an iterative archiving model that replaces the previous LedgerGraph-based filtering approach. Runtime filters (`filterList`, `filterConfig`) have been removed from all flows. Transaction eligibility is now controlled via the `archivableContractClassStatePrefixes` CorDapp configuration parameter.
+{{< /note >}}
 
-```kotlin
-    /**
-     * Return the number of archived transactions including their
-     * backchain from the archive log tables for a given well known party.
-     *
-     * @param party Party whose transaction count to return
-     * @param withBackchain Include all transactions in the backchain
-     */
-    fun getArchivedTransactionCount(party: Party, withBackchain: Boolean = false): Int {
-        return BackchainIterator(archivableJobManager, party, withBackchain).getCount()
-    }
+## Transaction Filtering
 
-    /**
-     * Returns an iterator to retrieve the list of transactions including their
-     * backchain from the archive log tables for a given well known party.
-     *
-     * @param party Party whose transactions to return
-     * @param withBackchain Include all transactions in the backchain
-     */
-    fun getArchivedTransactions(party: Party, withBackchain: Boolean = false): Iterable<String> {
-        return BackchainIterator(archivableJobManager, party, withBackchain)
-    }
-```
+The Archive Service supports filtering which transactions are eligible for archiving based on their
+contract class names. This is configured via the `archivableContractClassStatePrefixes` CorDapp
+configuration entry.
+
+When this list is set, a transaction is only considered archivable if **all** of its states' (inputs,
+outputs, and references) contract class names start with at least one of the configured prefixes.
+The matching is case-insensitive.
+
+Non-archivable transactions are still tracked in the iterative archiving tables (so the dependency
+graph remains correct), but they act as barriers that prevent walkback propagation — they will never
+be marked for deletion.
+
+If the list is empty or not configured, all transactions are archivable (default behavior).
+
+To apply a configuration change to already-processed transactions, use `ResetArchivingFlow` to
+rebuild the iterative archiving tables.
 
 ## Flows
 
@@ -49,67 +46,142 @@ The following flows are exposed by the Archive Service:
 
 ```kotlin
 /**
- * Invoke the list jobs flow to return details on the current archive job.
+ * Invoke the list jobs flow to return details on the archive jobs.
+ *
+ * @property jobCount If set, return details on the current and previous jobs
  */
 @InitiatingFlow
 @StartableByRPC
-class ListJobsFlow: FlowLogic<List<ArchivingJob>>()
+class ListJobsFlow(
+    private val jobCount: Int? = null
+) : FlowLogic<List<ArchivingJob>>()
+
+/**
+ * Flow to process all pending transactions and then collect all archivable items.
+ * This flow runs AddTransactionsFlow until completion, then CollectArchivableFlow until pendingWalkBack reaches 0.
+ *
+ * @param timeLimit Maximum time to run both operations. Default is 8 hours.
+ * @param notNewerThan Only collect transactions older than this timestamp. Default is now minus the grace period.
+ * @param batchSize Batch size for AddTransactionsFlow. Default is 1,000.
+ * @param skipSafetyIntervalCheck Whether to skip the safety interval check when collecting archivable items. Default is false.
+ */
+@InitiatingFlow
+@StartableByRPC
+class ProcessAllPendingFlow(
+    private val timeLimit: Duration = Duration.ofHours(8),
+    private val notNewerThan: Instant? = null,
+    private val batchSize: Int = 1_000,
+    private val skipSafetyIntervalCheck: Boolean = false
+) : FlowLogic<Unit>()
+
+/**
+ * Flow to get statistics about the iterative archiving process.
+ */
+@InitiatingFlow
+@StartableByRPC
+class StatisticsFlow : FlowLogic<StatisticsResult>()
+
+/**
+ * Result data for the iterative archiving statistics.
+ */
+@CordaSerializable
+data class StatisticsResult(
+    val unprocessedTransactionCount: Long,
+    val pendingWalkbackCount: Long,
+    val pendingDeleteCount: Long,
+    val minAgeSeconds: Long,
+    val transactionBeforeMinAgeCount: Long,
+    val transactionAfterMinAgeCount: Long,
+    val archivableTransactionSize: Long,
+    val archivableAttachmentSize: Long
+)
+
+/**
+ * Flow to get the current status and operation history of the maintenance of the archive database.
+ * Corda keeps this history in memory, so only the history since the last restart of the node will be returned.
+ *
+ * @property maxHistoryItems Maximum number of history items to return (default 10)
+ */
+@InitiatingFlow
+@StartableByRPC
+class StatusFlow(
+    private val maxHistoryItems: Int = 10
+) : FlowLogic<StatusResult>()
+
+/**
+ * Result data for the archive service status.
+ */
+@CordaSerializable
+data class StatusResult(
+    val currentOperation: ArchiveOperation,
+    val recentHistory: List<OperationHistoryEntry>
+)
+
+/**
+ * Represents a completed operation in the archive service history.
+ */
+@CordaSerializable
+data class OperationHistoryEntry(
+    val operationType: ArchiveOperation,
+    val startTime: Instant,
+    val finishTime: Instant,
+    val processedItemCount: Int
+)
 
 /**
  * Invoke the list items flow to return details on the archivable items.
+ * First it refreshes the archiving data structures by processing all pending transactions.
  *
- * If [filterList] is null then use the default list of filters, if the list is empty
- * then apply no filters. The [filterConfig] should be a map that can be parsed into a TypeSafe
- * config object containing the necessary filter configuration details.
- *
- * An additional configuration for the selected filters can also be provided in the cordapp's conf file.
- *
- * @property filterList list of filter names
- * @property filterConfig configuration parameters for the filters
- * @property listArchivableItems return transaction and attachment IDs
+ * @property listArchivableItems if true return list of item IDs
+ * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
+ * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
+ * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
+ * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
  */
 @InitiatingFlow
 @StartableByRPC
 class ListItemsFlow(
-    private val filterList: List<String>?,
-    private val filterConfig: Map<String, Any>,
-    private val listArchivableItems: Boolean
+    private val listArchivableItems: Boolean,
+    private val bypassProcessAllPending: Boolean = false,
+    private val timeLimit: Duration = Duration.ofHours(8),
+    private val notNewerThan: Instant? = null,
+    private val batchSize: Int = 1_000,
+    private val skipSafetyIntervalCheck: Boolean = false
 ) : FlowLogic<ListItemsResults>()
 
 /**
-  * Invoke the mark items flow to mark list items as archivable.
-  *
-  * If [filterList] is null then use the default list of filters, if the list is empty
-  * then apply no filters. The [filterConfig] should be a map that can be parsed into a TypeSafe
-  * config object containing the necessary filter configuration details.
-  *
-  * An additional configuration for the selected filters can also be provided in the cordapp's conf file.
-  *
-  * @property snapshot name of the archive snapshot recorded in the archive log tables
-  * @property filterList list of filter names
-  * @property filterConfig configuration parameters for the filters
+ * Mark items as archivable using the iterative archive service's model.
+ * First it refreshes the archiving data structures by processing all pending transactions,
+ * then it marks all archivable items with the provided snapshot name.
+ *
+ * @property snapshot name of the archive snapshot recorded in the archive log tables
+ * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
+ * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
+ * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
+ * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
   */
  @InitiatingFlow
  @StartableByRPC
  class MarkItemsFlow(
-     private val snapshot: String?,
-     private val filterList: List<String>?,
-     private val filterConfig: Map<String, Any>
+    private val snapshot: String?,
+    private val bypassProcessAllPending: Boolean = false,
+    private val timeLimit: Duration = Duration.ofHours(8),
+    private val notNewerThan: Instant? = null,
+    private val batchSize: Int = 1_000,
+    private val skipSafetyIntervalCheck: Boolean = false
  ) : FlowLogic<MarkItemsResults>()
 
 /**
  * Copy the marked items from the vault schema to the archive schema.
  *
- * @property additionalTransactionTables List of any addition transaction tables to copy
- * @property additionalAttachmentTables List of any additional attachment tables to copy
  * @property additionalQueryableTables List of any queryable tables to copy
  * @property record If true then record SQL rather than execute it
  */
 @InitiatingFlow
 @StartableByRPC
 class CreateSnapshotFlow(
-    private val additionalTransactionTables: List<Pair<String, String>>,
-    private val additionalAttachmentTables: List<Pair<String, String>>,
     private val additionalQueryableTables: List<Pair<String, String>>,
     private val record: Boolean
 ) : FlowLogic<CreateSnapshotResults>()
@@ -180,4 +252,14 @@ class DeleteSnapshotFlow(
 class RestoreSnapshotFlow(
     private val record: Boolean
 ) : FlowLogic<RestoreSnapshotResults>()
+
+/**
+ * Resets all iterative archiving data structures by deleting all records from the iterative
+ * archiving tables and clearing the last processed marker from both the database and memory.
+ *
+ * The flow waits until the iterative archive service has fully stopped before clearing data.
+ */
+@InitiatingFlow
+@StartableByRPC
+class ResetArchivingFlow : FlowLogic<String>()
 ```

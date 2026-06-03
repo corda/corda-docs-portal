@@ -19,6 +19,9 @@ weight: 725
 The Archive Service Library provides programmatic access to the Archive Service. The library provides the following Archive Service APIs:
 
 * `ListJobs`.
+* `ProcessAllPending`.
+* `Statistics`.
+* `Status`.
 * `ListItems`.
 * `MarkItems`.
 * `CreateSnapshot`.
@@ -27,6 +30,11 @@ The Archive Service Library provides programmatic access to the Archive Service.
 * `DeleteMarked`.
 * `DeleteSnapshot`.
 * `RestoreSnapshot`.
+* `ResetArchiving`.
+
+{{< note >}}
+Archive Service 2.0 no longer uses runtime filters. The `filterList` and `filterConfig` parameters have been removed from `ListItems` and `MarkItems`. Transaction eligibility is now controlled via the `archivableContractClassStatePrefixes` CorDapp configuration parameter.
+{{< /note >}}
 
 ## Remote Procedure Call (RPC) connection
 
@@ -52,10 +60,12 @@ Returns the list of active Archive Service jobs.
  * Invoke the list jobs command to retrieve details on the current archive job.
  *
  * @property rpcClient RPC connection to Archive Service node
+ * @property jobCount Report on completed jobs if set
  * @property progressTree Callback used to report progress
  */
 class ListJobs(
     private val rpcClient: RPCClientService,
+    private val jobCount: Int? = null,
     private val progressTree: ProgressTree? = null
 ) {
     /**
@@ -67,6 +77,90 @@ class ListJobs(
 }
 ```
 
+### Process all pending
+
+Processes all pending transactions and collects all archivable items in the iterative archive service.
+
+```kotlin
+/**
+ * Invoke the process all pending command to process all pending transactions
+ * and collect all archivable items in the iterative archive service.
+ *
+ * This command can only be called when the node is online.
+ *
+ * @property rpcClient RPC connection to Archive Service node
+ * @property progressTree Callback used to report progress
+ * @property timeLimit Maximum time to run both operations
+ * @property notNewerThan Only collect transactions older than this timestamp
+ * @property batchSize Number of transactions to process in a batch
+ * @property skipSafetyIntervalCheck Whether to skip the safety interval check when collecting archivable items
+ */
+class ProcessAllPending(
+    private val rpcClient: RPCClientService,
+    private val progressTree: ProgressTree? = null,
+    private val timeLimit: Duration = Duration.ofHours(8),
+    private val notNewerThan: Instant? = null,
+    private val batchSize: Int = 1000,
+    private val skipSafetyIntervalCheck: Boolean = false
+) {
+    /**
+     * Execute the process all pending command by invoking the ProcessAllPendingFlow
+     *
+     */
+    fun execute(): Unit
+}
+```
+
+### Statistics
+
+Retrieves statistics about the iterative archiving process.
+
+```kotlin
+/**
+ * Retrieve statistics about the iterative archiving process.
+ *
+ * @property rpcClient RPC connection to Archive Service node
+ * @property progressTree Callback used to report progress
+ */
+class Statistics(
+    private val rpcClient: RPCClientService,
+    private val progressTree: ProgressTree? = null
+) {
+    /**
+     * Retrieve statistics about the iterative archiving process.
+     *
+     * @return Iterative archive statistics results
+     */
+    fun execute(): StatisticsResult
+}
+```
+
+### Status
+
+Retrieves the current status and operation history of the iterative archive database. Corda keeps this history in memory, so only the history since the last restart of the node will be returned.
+
+```kotlin
+/**
+ * Retrieve the current status and operation history of the iterative archive database.
+ *
+ * @property rpcClient RPC connection to Archive Service node
+ * @property progressTree Callback used to report progress
+ * @property maxHistoryItems Maximum number of history items to return (default 10)
+ */
+class Status(
+    private val rpcClient: RPCClientService,
+    private val progressTree: ProgressTree? = null,
+    private val maxHistoryItems: Int = 10
+) {
+    /**
+     * Retrieve the current status and operation history of the iterative archive database.
+     *
+     * @return Iterative archive status results
+     */
+    fun execute(): StatusResult
+}
+```
+
 ### List items
 
 Returns the list of archivable items.
@@ -74,23 +168,28 @@ Returns the list of archivable items.
 ```kotlin
 /**
  * Invoke the list items command to retrieve details on the archivable items.
- * The [filterConfig] should be a map that can be parsed into a TypeSafe
- * config object containing the necessary filter configuration details.
+ * First it refreshes the archiving data structures by processing all pending transactions.
  *
  * This command can only be called when the node is online,
  *
  * @property rpcClient RPC connection to Archive Service node
  * @property progressTree Callback used to report progress
- * @property filterList list of DAG filters to apply
- * @property filterConfig filter configuration data
  * @property listItems if true return list of item IDs
+ * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
+ * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
+ * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
+ * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
  */
 class ListItems(
     private val rpcClient: RPCClientService,
     private val progressTree: ProgressTree? = null,
-    private val filterList: List<String>? = null,
-    private val filterConfig: Map<String, Any> = emptyMap(),
-    private val listItems: Boolean = false
+    private val listItems: Boolean = false,
+    private val bypassProcessAllPending: Boolean = false,
+    private val timeLimit: Duration = Duration.ofHours(8),
+    private val notNewerThan: Instant? = null,
+    private val batchSize: Int = 1_000,
+    private val skipSafetyIntervalCheck: Boolean = false
 ) {
     /**
      * Execute the list items command by invoking the ListItemsFlow
@@ -108,23 +207,29 @@ Marks all archivable items with the snapshot name.
 ```kotlin
 /**
  * Invoke the mark items command to mark all archivable items with the snapshot name.
- * The [filterConfig] should be a map that can be parsed into a TypeSafe
- * config object containing the necessary filter configuration details.
+ * First it refreshes the archiving data structures by processing all pending transactions,
+ * then it marks all archivable items with the provided snapshot name.
  *
  * This command can only be called when the node is online,
  *
  * @property rpcClient RPC connection to Archive Service node
  * @property progressTree Callback used to report progress
  * @property snapshot the job name
- * @property filterList list of DAG filters to apply
- * @property filterConfig filter configuration data
+ * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
+ * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
+ * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
+ * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
  */
 class MarkItems(
     private val rpcClient: RPCClientService,
     private val progressTree: ProgressTree? = null,
     private val snapshot: String? = null,
-    private val filterList: List<String>? = null,
-    private val filterConfig: Map<String, Any> = emptyMap()
+    private val bypassProcessAllPending: Boolean = false,
+    private val timeLimit: Duration = Duration.ofHours(8),
+    private val notNewerThan: Instant? = null,
+    private val batchSize: Int = 1_000,
+    private val skipSafetyIntervalCheck: Boolean = false
 ) {
      /**
       * Execute the mark items command by invoking the MarkItemsFlow
@@ -145,15 +250,11 @@ Copies marked items from the Corda vault to the archive schema.
  *
  * @property rpcClient RPC connection to Archive Service node
  * @property progressTree Callback used to report progress
- * @property additionalTransactionTables List of any addition transaction tables to copy
- * @property additionalAttachmentTables List of any additional attachment tables to copy
  * @property queryableTables List of any queryable tables to copy
  */
 class CreateSnapshot(
     private val rpcClient: RPCClientService,
     private val progressTree: ProgressTree? = null,
-    private val additionalTransactionTables: List<Pair<String, String>> = emptyList(),
-    private val additionalAttachmentTables: List<Pair<String, String>> = emptyList(),
     private val queryableTables: List<Pair<String, String>> = emptyList()
 ) {
     /**
@@ -303,84 +404,30 @@ class RestoreSnapshot(
 }
 ```
 
-## Filter interface
+### Reset archiving
 
-Custom filters can be implemented by extending the `AbstractDAGFilter`, `AbstractTransactionFilter`, or `AbstractContractStateFilter` classes.
+Resets all iterative archiving data structures by deleting all records from the iterative archiving tables and clearing the last processed marker.
 
 ```kotlin
 /**
- * Filter interface for checking which DAGs from [ledgerGraphService] can be archived.
+ * Resets all iterative archiving data structures by invoking the ResetArchivingFlow.
  *
- * All DAG filters must implement a public constructor that
- * accepts [serviceHub] and [configuration] as parameters.
- *
- * @property serviceHub Access to Corda services and vault
- * @property configuration Configuration parameters
+ * @property rpcClient RPC connection to Archive Service node
+ * @property progressTree Callback used to report progress
  */
-abstract class AbstractDAGFilter(
-    val serviceHub: ServiceHub,
-    val configuration: ServiceConfiguration
+class ResetArchiving(
+    private val rpcClient: RPCClientService,
+    private val progressTree: ProgressTree? = null
 ) {
-
     /**
-     * Invoked before the filter function is first used
+     * Execute the reset archiving command by invoking the ResetArchivingFlow.
+     * Stops the iterative archive service, waits for it to fully stop,
+     * deletes all iterative archiving table data and resets the last processed marker.
+     *
+     * @return Result message from the flow
      */
-    open fun initialiseFilter() { }
-
-    /**
-     * Return true if the transaction sub-graph [graph] can be included for archiving
-     */
-    abstract fun filter(graph: DAG<SecureHash>): Boolean
+    fun execute(): String
 }
-
-/**
- * Abstract filter to verify whether each transaction within a transaction sub-graph
- * is suitable for archiving.
- *
- * Each implementation of this class should use values in [configuration] to control
- * the transaction filtering.
- */
-abstract class AbstractTransactionFilter(
-    serviceHub: ServiceHub,
-    configuration: ServiceConfiguration
-) : AbstractDAGFilter(serviceHub, configuration) {
-
-    /**
-     * Return true if the transaction [vertex] is suitable for archiving
-     */
-    abstract fun matches(vertex: TransactionVertex): Boolean
-}
-
-/**
- * Abstract class that provides a framework for filtering transactions based on their contract states.
- *
- * Implementors of this class must provide the contract states type and a filter to indicate which
- * states should be preserved.
- *
- * @property serviceHub Access to Corda services and vault
- * @property configuration Configuration parameters
- */
-abstract class AbstractContractStateFilter(
-    serviceHub: ServiceHub,
-    configuration: ServiceConfiguration
-) : AbstractTransactionFilter(serviceHub, configuration) {
-
-    /** Type of states to filter */
-    abstract val contractStateType: Class<out ContractState>
-
-    /**
-     * Return true if the transaction containing [state] is suitable for archiving
-     */
-    abstract fun <T : ContractState> matches(state: StateAndRef<T>): Boolean
-}
-
-```
-
-The package containing the custom filter must be declared in the Archive Service
-CorDapp configuration file using the key `filter.scanPackages` when the node is started.
-
-```hocon
-filter.scanPackages: "com.org.cordapp.filters"
 ```
 
 ## Exporter interface

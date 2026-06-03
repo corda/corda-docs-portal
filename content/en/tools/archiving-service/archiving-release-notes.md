@@ -29,4 +29,23 @@ If you deviate from the above compatibility guidelines, the Archive Service will
 
 Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.20. This version works with Corda 4.12.
 
+#### Key changes in 2.0
+
+* **LedgerGraph dependency removed**: The Archive Service no longer requires LedgerGraph. It now builds its own internal transaction dependency graph using the vault database directly.
+* **Iterative archiving model**: A new iterative approach processes transactions incrementally, tracking dependencies and walking back through chains to identify archivable items. This replaces the previous in-memory LedgerGraph-based approach.
+* **Runtime filters removed**: The `filterList` and `filterConfig` parameters have been removed from all flows and library APIs. Transaction eligibility is now controlled via the `archivableContractClassStatePrefixes` configuration parameter.
+* **New configuration parameter `archivableContractClassStatePrefixes`**: An optional list of contract class name prefixes that controls which transactions are eligible for archiving. When set, only transactions where all states' contract classes match at least one prefix are considered archivable.
+* **New CLI commands**:
+  * `process-all-pending` — refreshes the archiving database by processing pending transactions and collecting archivable items.
+  * `statistics` — displays iterative archiving statistics (unprocessed count, pending walkback, pending delete, sizes).
+  * `status` — displays current archiving database maintenance operation status and history.
+  * `reset-archiving` — resets all iterative archiving data structures (irreversible).
+* **New flows**:
+  * `ProcessAllPendingFlow` — processes pending transactions and collects archivable items with configurable time limit, batch size, and age filtering.
+  * `StatisticsFlow` — returns iterative archiving statistics.
+  * `StatusFlow` — returns current operation status and history.
+  * `ResetArchivingFlow` — resets all iterative archiving tables and markers.
+* **Updated flow signatures**: `ListItemsFlow` and `MarkItemsFlow` now accept iterative processing parameters (`bypassProcessAllPending`, `timeLimit`, `notNewerThan`, `batchSize`, `skipSafetyIntervalCheck`) instead of filter parameters. `CreateSnapshotFlow` no longer accepts `additionalTransactionTables` or `additionalAttachmentTables` (these are now auto-detected).
+* **Updated library APIs**: New library classes `ProcessAllPending`, `Statistics`, `Status`, and `ResetArchiving`. Updated `ListItems` and `MarkItems` to match the new flow signatures.
+
 The 1.x series release notes can be found in the [Archive Service 1.x release notes]({{< relref "../archiving-service-1.x/archiving-release-notes.md" >}}) page.

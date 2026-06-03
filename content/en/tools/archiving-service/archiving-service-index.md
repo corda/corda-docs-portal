@@ -24,7 +24,7 @@ be part of an ongoing or new transaction flow. This can reduce pressure on your 
 You can use Archive service commands to mark archivable items in your vault, archive them, and restore transactions from the archive when necessary.
 
 {{< note >}}
-Due to its in-memory design, the Archive Service is most effective and efficient for smaller ledgers & frequent archiving events. For scenarios that don't fit these constraints, you should consider building your required archiving logic within the application itself. This introduction includes advice on [making your CorDapps archive-friendly](#making-archive-friendly-cordapps).
+Archive Service 2.0 introduces a new **iterative archiving model** that replaces the previous LedgerGraph-based approach. The Archive Service now builds its own internal graph of transactions and attachments using the vault database directly. LedgerGraph is no longer required.
 {{< /note >}}
 
 The Archive Service consists of the following:
@@ -35,36 +35,23 @@ The Archive Service consists of the following:
 
 It also makes use of the [Application Entity Manager]({{< relref "app-entity-manager.md" >}}), which allows CorDapps to access off-ledger databases using JPA APIs.
 
-The Archive Service archives [Ledger Recovery](../../platform/corda/{{< latest-c4-version >}}/enterprise/node/ledger-recovery/ledger-recovery.md) distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
-
-{{< note >}}
-
-The Archiving Service relies on the [Ledger Graph]({{< relref "../ledgergraph/ledgergraph-index.md" >}}) functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function.
-
-Unless you follow the guide for [making Archive-friendly CorDapps](#making-archive-friendly-cordapps), this can cause:
-
-* Increased time to run Archiving tasks.
-* Increased JVM heap memory usage while Archiving tasks are being performed.
-
-There is also a risk of Ledger Graph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
-
-In order to improve speed and memory usage when using the Archiving Service, JVM heap memory of the node can be increased to handle larger ledgers. In addition, the `transactionReaderPoolSize` config parameter can be adjusted upwards to use more CPU threads to increase speed, and increase the number of CPUs or cores a node has access to.
-
-{{< /note >}}
+The Archive Service archives distribution records associated with the archived transactions. (The tables `node_sender_distribution_records` and `node_receiver_distribution_records` are included in the archiving process.)
 
 ## What can be archived
 
-The Archive Service has commands you can use to identify which transactions can be archived in your vault. A fully consumed transaction or attachment will be marked as archivable when:
+The Archive Service uses an iterative model to track transaction dependencies and identify which transactions can be safely archived. A transaction or attachment will be marked as archivable when:
 
-* There are no unconsumed transactions in the same LedgerGraph component. A LedgerGraph component is a connected group of transactions, represented as a Direct Acrylic Graph (DAG) in the [LedgerGraph service]({{< relref "../ledgergraph/ledgergraph-index.md" >}}).
-* The transaction is not also referenced by another LedgerGraph component that contains unconsumed transactions.
+* The transaction is fully consumed (has no unconsumed outputs).
+* All transactions in its dependency chain are also fully consumed — meaning no transaction in the chain has unconsumed outputs that could be referenced by future transactions.
 * The attachment itself is not a contract attachment.
 
-Archivable and non-archivable LedgerGraph components:
+The iterative archiving process works by:
 
+1. Adding new (unprocessed) transactions to its internal dependency tracking structures.
+2. Walking back through the dependency chains to identify groups of fully-consumed transactions.
+3. Marking those transactions as available for archiving once the entire chain is confirmed to be fully consumed.
 
-* ![Archivable and non-archivable LG components](archivable-dags.png)
-
+You can optionally restrict which transactions are eligible for archiving based on their contract class names using the `archivableContractClassStatePrefixes` configuration parameter. See [Configuration](#configuration) for details.
 
 ## When you can archive
 
@@ -74,18 +61,14 @@ Once the Archive Service has marked a transaction or attachment as archivable, y
 
 The Collaborative Recovery solution, along with the associated CorDapps (LedgerSync and LedgerRecover), is deprecated, and has been removed in Corda 4.12. You are now advised to use the new recovery tools introduced in version 4.11, as described in the [Corda Enterprise Edition 4.11 release notes]({{< relref "../../platform/corda/4.11/enterprise/release-notes-enterprise.md#corda-enterprise-edition-411-release-notes-1" >}}).
 
-### Archiving and onDemand LedgerGraph
-
-If you are using the Archive Service with [LedgerGraph V1.2.1]({{< relref "../ledgergraph/ledgergraph-index.md" >}}), you can save heap memory usage by configuring the option `onDemand` to `true` in your LedgerGraph configuration settings. This means LedgerGraph is only triggered when required by the Archive Service. For example, when you make a `create-snapshot` request.
-
 ## Making archive-friendly CorDapps
 
-The more transactions within a Ledger Graph component, the longer it may take for a related transaction to become archivable. If you wish to create CorDapps that produce regularly archivable transactions, there are some steps you can take in your design process to help this.
+The more transactions within a dependency chain, the longer it may take for a related transaction to become archivable. If you wish to create CorDapps that produce regularly archivable transactions, there are some steps you can take in your design process to help this.
 
-Some characteristics of a good ‘archive-friendly’ CorDapp are:
+Some characteristics of a good 'archive-friendly' CorDapp are:
 
 * Short transaction chains that will get consumed in their entirety.
-* Consumes and redeems ‘irrelevant states’ – for example if you store evolvable data it should be consumed even if it is no longer directly queried or used in a transaction.
+* Consumes and redeems 'irrelevant states' – for example if you store evolvable data it should be consumed even if it is no longer directly queried or used in a transaction.
 * Avoids consuming outputs of one transaction via multiple transactions. This could mean ensuring fungible assets are distributed as narrowly as possible – rather than from multiple cash supplies.
 
 ## Archive Service CorDapp
@@ -99,24 +82,21 @@ As part of the configuration process, you can choose to create a backup schema. 
 The Archive Service requires:
 
 * Node minimum platform version 6.
-* Corda Enterprise minimum version 4.4.
-* [LedgerGraph V1.2]({{< relref "../ledgergraph/ledgergraph-index.md" >}}).
-* Collaborative Recovery V 1.2 (if you use Collaborative Recovery).
+* Corda Enterprise minimum version 4.12.
+* JDK 17.
 
 {{< warning >}}
-Archive Service V1.0.1 does not support **Accounts** or **Confidential Identities** functionality in Corda.
+Archive Service 2.0 does not support **Accounts** or **Confidential Identities** functionality in Corda.
 {{< /warning >}}
 
 ## Installation
 
-The Archive Service CorDapp JAR file should be copied to the node's `cordapps` directory. The Ledger Service CorDapp JAR file
-must also be copied to the same directory.
+The Archive Service CorDapp JAR file should be copied to the node's `cordapps` directory.
 
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/
 drwxr-xr-x 2 corda corda   4096 Aug 26 06:43 config
--rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-1.0.1.jar
--rw-r--r-- 1 corda corda 161260 Jul 30 05:04 ledger-graph-1.2.1.jar
+-rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-2.0.jar
 ```
 
 ## Configuration
@@ -128,7 +108,7 @@ with the `jar` suffix changed to `conf`.
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/config
 total 12
--rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-1.0.1.conf
+-rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-2.0.conf
 ```
 
 The Archive Service configuration file provides the database connection details used by the service to
@@ -138,11 +118,13 @@ The following are keys for configuring the Archive Service:
 
 * `generator` - SQL generator, defaults to vault's database type.
 * `driver` - JDBC driver, defaults to vault's database driver.
+* `source.user` - Vault database user, defaults to vault database user.
 * `source.schema` - Vault schema name, defaults to vault database schema.
 * `target.schema` - Backup schema name, optional, indicates that a backup schema should be created.
 * `target.url` - Backup schema archive URL, required if a backup schema is used.
 * `target.user` - Backup schema archive database user, required if a backup schema is used.
 * `target.password` - Backup schema archive database password, required if a backup schema is used.
+* `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior).
 
 Passwords can be obfuscated using Corda's Config Obfuscator tool.
 
@@ -158,7 +140,14 @@ target: {
     password: "<{HNtZpbrOGM6GhYA6foh5PCCBanUtaebCjauKL8ur9EE=:PolqmEJ7JOM+Sqj3ZNAE+Ew9bqG1wVE=}>"
     schema: "archive"
 }
+
+# Optional: Only archive transactions involving these contract types
+archivableContractClassStatePrefixes: ["com.example.contracts", "net.corda.finance"]
 ```
+
+{{< note >}}
+To apply a configuration change of `archivableContractClassStatePrefixes` to already-processed transactions, use `reset-archiving` to rebuild the iterative archiving tables and then re-scan the transactions.
+{{< /note >}}
 
 ## Using the backup schema
 
@@ -218,7 +207,7 @@ grant select, insert on corda.NODE_TRANSACTIONS to archive;
 ```
 
 {{< note >}}
-This applies to Oracle databases only; other database types don’t require table-by-table permissions updates.
+This applies to Oracle databases only; other database types don't require table-by-table permissions updates.
 {{< /note >}}
 
 The following tables should be archived:
@@ -262,7 +251,7 @@ You need to restart the node in the following circumstances:
 The command-line tool is a 'fat-jar' that can be executed directly using the `java -jar` option.
 
 ```text
-$ java -jar corda-tools-archive-service-1.0.1.jar --help
+$ java -jar corda-tools-archive-service-2.0.jar --help
 archive-service [--config-obfuscation-passphrase[=<cliPassphrase>]]
                 [--config-obfuscation-seed[=<cliSeed>]]
 				[--rpc-password[=<rpcPassword>]]
@@ -296,14 +285,18 @@ Options:
 
 Commands:
 
-  list-jobs                 display status of archiving jobs
-  list-items                list transactions/attachments for archiving
-  create-snapshot           marks transactions/attachments for archiving
-  delete-vault              delete archived items from the vault
-  export-snapshot           export snapshot to offline storage
-  delete-snapshot           delete the snapshot from backup schema
-  import-snapshot           import an archive to the vault
-  restore-snapshot          restore items from backup schema to the vault
+  list-jobs                          display status of archiving jobs
+  process-all-pending                refreshes the archiving database with processing the pending transactions and collecting archivable items
+  statistics                         display iterative archiving statistics
+  status                             display current archiving database maintenance operation status and history
+  list-items                         list transactions/attachments for archiving
+  create-snapshot                    marks transactions/attachments for archiving
+  delete-vault                       delete archived items from the vault
+  export-snapshot                    export snapshot to offline storage
+  delete-snapshot                    delete the snapshot from backup schema
+  import-snapshot                    import an archive to the vault
+  restore-snapshot                   restore items from backup schema to the vault
+  reset-archiving                    resets all iterative archiving data structures
 
 ```
 
@@ -311,63 +304,11 @@ Commands:
 A detailed explanation on each sub-command can be found in the [Archive Service CLI documentation]({{< relref "archiving-cli.md" >}}).
 {{< /note >}}
 
-## Filters
-
-Filters can be used to limit which transactions and attachments are available for archiving.
-They are applied on the command line of the `list-items` or `create-snapshot` commands
-or alternatively recorded in the CorDapp configuration file.
-
-Each filter has its own configuration requirements, which it takes either from the HOCON file given on the
-command line or from the CorDapp configuration file.
-
-Custom filters can be implemented by using the Archive Service Library.
-For more details see the [Archive Service Library documentation]({{< relref "archive-library.md" >}}).
-
-### Filter configuration
-
-The following is a sample HOCON configuration file that can be used to configure the standard TransactionId filter.
-
-{{< note >}}
-Transactions are filtered *out* of the results set. So, transactions that are filtered using this configuration are excluded from the archiving process.
-{{< /note >}}
-
-```text
-filter: {
-    // A list of filters to be applied
-    filters: [
-        "TransactionIdFilter"
-    ]
-
-    // Configuration for the TransactionIdFilter filter
-    transactionIdFilter: {
-        transactions: [
-            "1234567812345678123456781234567812345678123456781234567812345678"
-        ]
-    }
-}
-```
-
-The following HOCON example can be used to configure the standard Party filter:
-
-```
-filter: {
-    // A list of filters to be applied
-    filters: [
-        "PartyFilter"
-    ]
-
-    // Configuration for the PartyFilter filter
-    partyFilter.parties: [
-     “O=PartyA,L=London,C=GB”
-    ]
-   }
-```
-
 ## Exporters
 
 Exporters are used to copy the archive snapshot from the vault to a permanent archive.
 The exporters to be applied can be given on the command line to the `export-snapshot` command
-or recorded in the CorDapp configuration file.
+or alternatively recorded in the CorDapp configuration file.
 
 ```
 exporter: {
@@ -388,7 +329,7 @@ For more details see the [Archive Service Library documentation]({{< relref "arc
 
 ## Queryable state tables
 
-Queryable state tables can be exported to CSV format by listing the tables by listing the tables in
+Queryable state tables can be exported to CSV format by listing the tables in
 the configuration file under the property `queryableTables`.
 
 ```text
@@ -422,5 +363,5 @@ additionalAttachmentTables: [
 Data from these tables will be recorded as part of the snapshot process and later deleted from the vault,
 but will not be exported to permanent archive.
 
-Tables should be excluded from the archive process can be registered using the
+Tables that should be excluded from the archive process can be registered using the
 properties `excludeTransactionTables` and `excludeAttachmentTables`.

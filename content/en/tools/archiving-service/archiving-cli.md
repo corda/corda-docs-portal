@@ -20,10 +20,14 @@ The Archive Service can be used to archive transactions and attachments from the
 
 You can use the Archive Service CLI to interact with the Archive Service.
 
+{{< note >}}
+Archive Service 2.0 no longer uses runtime filters. Transaction eligibility is now controlled via `archivableContractClassStatePrefixes` in the CorDapp configuration file. See the [Archive Service configuration]({{< relref "archiving-service-index.md#configuration" >}}) for details.
+{{< /note >}}
+
 CLI help screen:
 
 ```text
-$ java -jar corda-tools-archive-service-1.0.1.jar --help
+$ java -jar corda-tools-archive-service-2.0.jar --help
 archive-service [--config-obfuscation-passphrase[=<cliPassphrase>]]
                 [--config-obfuscation-seed[=<cliSeed>]]
 				[--rpc-password[=<rpcPassword>]]
@@ -57,14 +61,18 @@ Options:
 
 Commands:
 
-  list-jobs                 display status of archiving jobs
-  list-items                list transactions/attachments for archiving
-  create-snapshot           marks transactions/attachments for archiving
-  delete-vault              delete archived items from the vault
-  export-snapshot           export snapshot to offline storage
-  delete-snapshot           delete the snapshot from backup schema
-  import-snapshot           import an archive to the vault
-  restore-snapshot          restore items from backup schema to the vault
+  list-jobs                          display status of archiving jobs
+  process-all-pending                refreshes the archiving database with processing the pending transactions and collecting archivable items
+  statistics                         display iterative archiving statistics
+  status                             display current archiving database maintenance operation status and history
+  list-items                         list transactions/attachments for archiving
+  create-snapshot                    marks transactions/attachments for archiving
+  delete-vault                       delete archived items from the vault
+  export-snapshot                    export snapshot to offline storage
+  delete-snapshot                    delete the snapshot from backup schema
+  import-snapshot                    import an archive to the vault
+  restore-snapshot                   restore items from backup schema to the vault
+  reset-archiving                    resets all iterative archiving data structures
 
 ```
 
@@ -105,7 +113,7 @@ If the Archive Service is executed from the same directory as the node then the 
 
 {{< note >}}
 If the configuration file uses obfuscated passwords and the service is executed from different machine
-then the obfuscation passphase and seed will need to be given on the command line.
+then the obfuscation passphrase and seed will need to be given on the command line.
 {{< /note >}}
 
 Use the command line options `--rpc-url`, `--rpc-user`, and `--rpc-password` to specify the RPC connection string, user name and password if the RPC credentials are encrypted or recorded in a database.
@@ -114,20 +122,21 @@ Use the command line options `--rpc-url`, `--rpc-user`, and `--rpc-password` to 
 
 The archive process consists of a sequence of steps which are executed as commands from the command line.
 
-The archive process starts with the `list-items` command and completes with the `delete-vault` command or the `delete-snapshot` command if the optional backup schema is used.
+The archive process starts with the `process-all-pending` command and completes with the `delete-vault` command or the `delete-snapshot` command if the optional backup schema is used.
 
 If the process has to be aborted, you can use the `restore-snapshot` command.
 
 The workflow is as follows:
 
-1. `list-items`: used to view which transactions and attachments will be archived.
-2. `create-snapshot`: marks the transactions and attachments that will be archived.
-3. `export-snapshot`: exports the archivable items to a long-term archive.
-4. `delete-vault`: deletes the archived items from the vault.
+1. `process-all-pending`: refreshes the archiving database by processing pending transactions and collecting archivable items.
+2. `list-items`: used to view which transactions and attachments will be archived. (Implicitly calls `process-all-pending` to refresh the archive database.)
+3. `create-snapshot`: marks the transactions and attachments that will be archived. (Implicitly calls `process-all-pending` to refresh the archive database.)
+4. `export-snapshot`: exports the archivable items to a long-term archive.
+5. `delete-vault`: deletes the archived items from the vault.
 
 If using a backup schema:
 
-5. `delete-snapshot`: cleans up the backup schema if a backup schema has been configured.
+6. `delete-snapshot`: cleans up the backup schema if a backup schema has been configured.
 
 To revert any steps up to `delete-vault` or `delete-snapshot`, use:
 
@@ -140,36 +149,116 @@ Commands which access or update the transaction and attachment tables on the Cor
 
 ```text
 Usage:
-archive-service list-jobs
+archive-service list-jobs [--count=<number>]
 Description:
 display status of archiving jobs
+Options:
+      --count=<number>   Number of jobs to list
 ```
 
-Displays the status of the current archive job.
+Displays the status of the current archive job, or past jobs if the `--count` parameter is given.
 ```text
 Job name:              <job-name>
+Status:                ACTIVE|COMPLETED
 Vault archived time:   <date and time>
 Snapshot export time:  <date and time>
 Vault purge time:      <date and time>
 Snapshot purge time:   <date and time>
 ```
-There can only be one active archive job in progress. If there are multiple jobs then
+There can only be one active archive job in progress. If there are multiple active jobs then
 use the `restore-snapshot` command to rollback or abort the incomplete jobs.
+
+## Process All Pending command
+
+```text
+Usage:
+archive-service process-all-pending [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
+Description:
+process all pending transactions and collect archivable items
+Options:
+      --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
+      --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
+      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
+      --skip-safety-interval-check=<bool>   Skip safety interval check when collecting archivable items
+```
+
+Processes all pending transactions and then collects all archivable items. The called flow runs until all pending transactions have been added to the internal dependency structures, then collects archivable items until all walkback processing is complete.
+
+```text
+=== Process All Pending Completed ===
+Time Limit: 8
+Not Newer Than: 2026-04-14T10:17:38Z
+Batch Size: 1000
+Skip Safety Interval Check: false
+```
+
+This command does not update any archive log tables.
+
+## Statistics command
+
+```text
+Usage:
+archive-service statistics
+Description:
+display iterative archiving statistics
+```
+
+Displays general statistics about the iterative archiving internal structures. It can be used to track the progress of the `process-all-pending` command and generally the amount of pending work.
+
+```text
+Iterative Archiving Statistics
+
+Unprocessed transactions: N
+Pending walkback: N
+Pending delete: N
+Transactions older than min age (60 seconds): N
+Transactions newer than min age (60 seconds): N
+Archivable transaction size: N bytes
+Archivable attachment size: N bytes
+```
+
+This command does not update any archive log tables.
+
+## Status command
+
+```text
+Usage:
+archive-service status [--max-history=<number>]
+Description:
+display archiving database maintenance operation status and history
+Options:
+    --max-history=10                    Maximum number of history items to display (default: 10)
+```
+
+Displays the current status and operation history of the maintenance operations of the archive database. Corda keeps this history in memory, so only the history since the last restart of the node will be displayed.
+
+```text
+=== Iterative Archiving Status ===
+Current Operation:  PROCESS_NEW_TRANSACTIONS
+=== Recent Operation History ===
+...
+```
+
+This command does not update any archive log tables.
 
 ## List Items command
 
 ```text
 Usage:
-archive-service list-items [--write=<path>] [--filter-config=<path>] [--filters=<list>]
+archive-service list-items [--write=<path>] [--bypass-process-all-pending=<bool>] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
 Description:
 list transactions/attachments for archiving
 Options:
-      --write=<path>          Save output to file
-      --filters=<list>        Comma separated list of filters
-      --filter-config=<path>  Path to filter configuration file
+      --write=<path>                        Save output to file
+      --bypass-process-all-pending=<bool>   Skip refreshing the archiving data structures before listing items. Default is false
+      --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
+      --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
+      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
+      --skip-safety-interval-check=<bool>   Skip safety interval check when collecting archivable items
 ```
-Displays the number of transactions and attachments that will be marked for archiving
-using the given filters and filter configuration file.
+
+Starts by refreshing the archive database (unless `--bypass-process-all-pending` is set to true).
+Displays the number of transactions and attachments that will be marked for archiving.
 
 ```text
 Number of archivable transactions: 27
@@ -179,29 +268,28 @@ Number of archivable attachments: 0
 Optionally record to a file the IDs of transactions and attachments which will
 be marked for archiving if the `--write` option is given.
 
-This command writes a message similar to the following to the log file:
-
-```
-[INFO] <date-and-time> [main] cliutils.CliWrapperBase. - Application Args: list-items --consumed-only=false --ignore-related=true --filter-config=./vault-states-filter.conf
-```
+This command does not update any archive log tables.
 
 ## Create Snapshot command
 
 ```text
 Usage:
-archive-service create-snapshot [--filter-config=<path>] [--filters=<list>] [--record=<path>] [<snapshot>]
+archive-service create-snapshot [--record=<path>] [<snapshot>] [--bypass-process-all-pending=<bool>] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
 Description:
 marks transactions/attachments for archiving
-Options:
-      --filters=<list>          Comma separated list of filters
-      --filter-config=<path>    Path to filter configuration file
 Parameters:
       [<snapshot>]   archive job name (default today's date)
+Options:
+      --bypass-process-all-pending=<bool>   Skip refreshing the archiving data structures before listing items. Default is false
+      --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
+      --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
+      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
+      --skip-safety-interval-check=<bool>   Skip safety interval check when collecting archivable items
 ```
 
-Marks all archivable transactions and attachments that match the filters as part
-of this archive snapshot. If a backup schema has been configured then the items are
-copied from the vault schema to the backup schema.
+Starts by refreshing the archive database (unless `--bypass-process-all-pending` is set to true).
+Marks all archivable transactions and attachments as part of this archive snapshot.
+If a backup schema has been configured then the items are copied from the vault schema to the backup schema.
 
 Displays the number of items and the database tables copied as part of the snapshot.
 
@@ -215,8 +303,6 @@ Attachment Tables
   <table name>: <row count>
   <table name>: <row count>
 ```
-
-
 
 ## Export command
 
@@ -253,11 +339,6 @@ ZippedFileExporter:
   Completed export of <n> transactions to transaction-<date>.zip
   Completed export of <n> attachments to attachment-<date>.zip
 ```
-This command writes a message similar to the following to the log file:
-
-```
-[INFO] <date-and-time> [main] cliutils.CliWrapperBase. - Application Args: export-snapshot --exporters FormattedTransactionExporter
-```
 
 ## Import command
 
@@ -265,7 +346,7 @@ This command writes a message similar to the following to the log file:
 Usage:
 archive-service import-snapshot [--importer-config=<path>] [--importer=<name>]
 Description:
-export snapshot to long-term storage
+import snapshot from long-term storage
 Options:
       --importer=<name>         Importer to use
       --importer-config=<path>  Path to importer configuration file
@@ -292,12 +373,6 @@ database updates are executed.
 If the Corda database user has not been granted rights to delete items from the vault schema then the
 `--record` option must be used.
 
-This command writes a message similar to the following to the log file:
-
-```
-[INFO] <date-and-time> [main] cliutils.CliWrapperBase. - Application Args: delete-vaults
-```
-
 ## Delete Snapshot command
 
 ```text
@@ -319,7 +394,7 @@ This command can only be used if a backup schema has been configured.
 Use the restore snapshot command to:
 
 * Restore archived transactions from the archive schema to the node schema, to undo an archive job.
-* Cancel out early from running an Archive job,  before completing it. In which case it restores the vault to its original state and clears the archiving job.
+* Cancel out early from running an Archive job, before completing it. In which case it restores the vault to its original state and clears the archiving job.
 
 ```text
 Usage:
@@ -328,8 +403,6 @@ Description:
 restore marked items to the vault
 Options:
       --record=<path>   Record SQL to file
-Abort all incomplete archive jobs and restore the Corda vault.
-If the --record option is given then the SQL is written to the file and no database updates are executed.
 ```
 
 Abort all incomplete archive jobs and restore the Corda vault.
@@ -337,49 +410,34 @@ Abort all incomplete archive jobs and restore the Corda vault.
 If the `--record` option is given then the SQL is written to the file and no
 database updates are executed.
 
-## Filters
-
-Filters can be applied to limit which transactions and attachments are available for archiving. The filters to be
-applied can be given on the command line of the `list-items` or `create-snapshot` commands, or recorded in the
-CorDapp configuration file.
-
-Each filter has its own configuration requirements, which it takes either from the HOCON file given on
-the command line or from the CorDapp configuration file.
-
-Custom filters can be implemented by using the Archive Service Library. For more details see
-the [Archive Service Library documentation]({{< relref "../../tools/archiving-service/archive-library.md" >}}).
-
-### Filter configuration
-
-The following is a sample HOCON configuration file that can be used to configure the standard
-`TransactionIdFilter` filter.
+## Reset Archiving command
 
 ```text
-filter: {
-    // A list of filters to be applied
-    filters: [
-        "TransactionIdFilter"
-    ]
-
-    // Configuration for the TransactionId filter
-    transactionIdFilter: {
-        transactions: [
-            "1234567812345678123456781234567812345678123456781234567812345678"
-        ]
-    }
-}
+Usage:
+archive-service reset-archiving
+Description:
+resets all iterative archiving data structures
 ```
+
+Stops the iterative archive service and waits for it to fully stop, then deletes all records from the iterative archiving tables and resets the last processed marker.
+
+```text
+Resetting iterative archiving data structures...
+Iterative archiving data reset successfully. All iterative archiving tables have been cleared and the last processed marker has been reset.
+```
+
+{{< warning >}}
+This command irreversibly deletes all iterative archiving progress data. Use with caution.
+{{< /warning >}}
 
 ## Tracking progress
 The `-t` or `--tracker` option can be used on the command to display progress as each command executes.
 
 ```text
-corda@CrimsonSolo:/opt/corda/node$ java -jar corda-tools-archive-service-1.0-SNAPSHOT.jar -t create-snapshot
+corda@CrimsonSolo:/opt/corda/node$ java -jar corda-tools-archive-service-2.0.jar -t create-snapshot
   ✔ Starting
   ✔ Reading configuration
   ✔ Check workflow progress
-  ✔ Loading filters
-  ✔ Executing filters
   ✔ Clear previous result
   ✔ Marking transactions
   ✔ Marking attachments
@@ -424,7 +482,7 @@ CONTRACT_NODE_STATES: 9 rows
 Exporters are used to copy the archive snapshot from the backup schema to a permanent archive. The exporters to be applied can be given on the command line to the `export-snapshot` command, or recorded in the CorDapp configuration file.
 
 ```text
-export: {
+exporter: {
     exporters: [
         "ZippedFileExporter",
         "QueryableStateFileExporter"
@@ -475,7 +533,7 @@ target: {
 
 ## Queryable state tables
 
-Queryable state tables can be exported to CSV format by listing the tables by listing the tables in
+Queryable state tables can be exported to CSV format by listing the tables in
 the configuration file under the property `queryableTables`.
 
 ```text
@@ -506,7 +564,7 @@ additionalAttachmentTables: [
 
 Data from these tables will be recorded as part of the snapshot process and later deleted from the vault, but will not be exported to the permanent archive.
 
-Tables should be excluded from the archive process can be registered using the properties `excludeTransactionTables` and `excludeAttachmentTables`.
+Tables that should be excluded from the archive process can be registered using the properties `excludeTransactionTables` and `excludeAttachmentTables`.
 
 ## Schema permissions
 
