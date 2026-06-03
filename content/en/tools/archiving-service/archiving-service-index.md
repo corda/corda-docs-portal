@@ -84,6 +84,7 @@ The Archive Service requires:
 * Node minimum platform version 6.
 * Corda Enterprise minimum version 4.12.
 * JDK 17.
+* Currently only supports PostgreSQL databases.
 
 {{< warning >}}
 Archive Service 2.0 does not support **Accounts** or **Confidential Identities** functionality in Corda.
@@ -148,6 +149,14 @@ archivableContractClassStatePrefixes: ["com.example.contracts", "net.corda.finan
 {{< note >}}
 To apply a configuration change of `archivableContractClassStatePrefixes` to already-processed transactions, use `reset-archiving` to rebuild the iterative archiving tables and then re-scan the transactions.
 {{< /note >}}
+
+## Threshold parameters
+
+The new algorithm uses two threshold parameters:
+
+* **MinAgeToAdd** — Add only transactions older than this threshold to the internal graphs. Anything newer is treated as potentially in-flight. This period is **60 seconds**.
+
+* **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This configuration setting is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true`, although this is not recommended for general purposes. Increasing this value reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking.
 
 ## Using the backup schema
 
