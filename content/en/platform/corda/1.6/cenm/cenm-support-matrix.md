@@ -69,7 +69,7 @@ for your deployment needs.
 |------------------------------|------------------|---------------------|
 | Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x      |
 | SUSE Linux Enterprise Server | x86-64           | 11.x, 12.x          |
-| Ubuntu Linux                 | x86-64           | 20.04, 22.04, 24.04 |
+| Ubuntu Linux                 | x86-64           | 22.04, 24.04, 26.04 |
 | Oracle Linux                 | x86-64           | 6.x, 7.x            |
 
 {{< /table >}}

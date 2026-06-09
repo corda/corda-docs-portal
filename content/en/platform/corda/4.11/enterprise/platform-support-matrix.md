@@ -60,7 +60,7 @@ Production use of Corda Enterprise Edition 4.11 is only supported on Linux OS; s
 |-------------------------------|------------------|----------------------|
 | Red Hat Enterprise Linux      | x86-64           | 8.x, 9.x, 10.x       |
 | Suse Linux Enterprise Server  | x86-64           | 12.x, 11.x           |
-| Ubuntu Linux                  | x86-64           | 20.04, 22.04, 24.04  |
+| Ubuntu Linux                  | x86-64           | 22.04, 24.04, 26.04  |
 | Oracle Linux                  | x86-64           | 7.x, 6.x             |
 
 {{< /table >}}

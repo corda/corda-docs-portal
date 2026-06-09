@@ -50,12 +50,12 @@ Production use of Corda Open Source 4.13 is only supported on Linux OS; see deta
 
 {{< table >}}
 
-|Platform|CPU architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 9.x, 10.x|
-|Suse Linux Enterprise Server|x86-64|11.x, 12.x|
-|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
-|Oracle Linux|x86-64|6.x, 7.x|
+| Platform                     | CPU architecture | Versions            |
+|------------------------------|------------------|---------------------|
+| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x      |
+| Suse Linux Enterprise Server | x86-64           | 11.x, 12.x          |
+| Ubuntu Linux                 | x86-64           | 22.04, 24.04, 26.04 |
+| Oracle Linux                 | x86-64           | 6.x, 7.x            |
 
 {{< /table >}}
 
