@@ -21,6 +21,27 @@ weight: 10
 If you are using the Archive Service with Corda Enterprise Edition 4.11, you must use the 1.1.x stream of the Archive Service release. For more details, see [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md" >}}).
 {{< /note >}}
 
+## Corda Enterprise Edition 4.11.8 release notes
+
+Corda Enterprise Edition 4.11.8 is a patch release of Corda Enterprise Edition focused on updating third-party dependencies.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../enterprise/_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Third-party components upgrade
+
+The following table lists the dependency upgrades for 4.11.8 Enterprise Edition. Dependencies with unchanged versions are omitted. <!-- ENT-13978 -->
+
+| Dependency                                | Name | New Version    |
+|-------------------------------------------|-----|----------------|
+| com.google.guava:guava                    |Guava| 32.0.0-jre     |
+| org.bouncycastle:bcprov-jdk18on           | Bouncy Castle | 1.84           |
+| org.eclipse.jetty:*                       | Jetty | 9.4.58.v20250814 |
+| io.netty:netty-*                          | Netty | 4.1.133.Final  |
+| org.apache.zookeeper:zookeeper               | ZooKeeper | 3.8.6          |
+| org.apache.activema:artemis-*               | Artemis | 2.19.2_r3      |
+
 ## Corda Enterprise Edition 4.11.7 release notes
 
 Corda Enterprise Edition 4.11.7 is a patch release of Corda Enterprise Edition focused on resolving issues and updating third-party dependencies.

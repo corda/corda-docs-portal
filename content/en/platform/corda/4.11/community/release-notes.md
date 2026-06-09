@@ -20,6 +20,22 @@ tags:
 
 # Corda Community Edition 4.11 release notes
 
+## Corda Community Edition 4.11.8 release notes
+
+Corda Community Edition 4.11.8 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
+
+### Third party components upgrade
+
+The following table lists the dependency version changes in the 4.11.8 Community Edition. Dependencies with unchanged versions are omitted.
+
+| Dependency                                | Name | New Version    |
+|-------------------------------------------|-----|----------------|
+| com.google.guava:guava                    |Guava| 32.0.0-jre     |
+| org.bouncycastle:bcprov-jdk18on           | Bouncy Castle | 1.84           |
+| org.eclipse.jetty:*                       | Jetty | 9.4.58.v20250814 |
+| io.netty:netty-*                          | Netty | 4.1.133.Final  |
+| org.apache.activema:artemis-*               | Artemis | 2.19.2_r3      |
+
 ## Corda Community Edition 4.11.7 release notes
 
 Corda Community Edition 4.11.7 is a patch release of Corda Community Edition focused on resolving issues and updating third-party dependencies.
