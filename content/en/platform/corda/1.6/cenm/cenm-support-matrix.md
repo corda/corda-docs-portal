@@ -51,7 +51,7 @@ CENM currently supports the following databases:
 
 ## JDK support
 
-Corda Enterprise Network Manager 1.6+ has been tested and verified to work with **Oracle JDK 8 JVM 8u471** and **Azul Zulu Enterprise 8u472**. For the Azure deployment downloadable, go to [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
+Corda Enterprise Network Manager 1.6+ has been tested and verified to work with **Oracle JDK 8 JVM 8u491** and **Azul Zulu Enterprise 8u492**. For the Azure deployment downloadable, go to [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported, but should be compatible with Corda Enterprise Network Manager 1.6.
 

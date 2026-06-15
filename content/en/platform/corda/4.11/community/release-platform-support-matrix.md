@@ -27,7 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda: Community Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u471** and **Azul Zulu Enterprise 8u472**, for Azure deployment downloadable from
+Corda: Community Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u491** and **Azul Zulu Enterprise 8u492**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
@@ -45,10 +45,10 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 {{< table >}}
 | Supported JDKs                                                                   | Latest supported version |
 |----------------------------------------------------------------------------------|-------------------------|
-| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)             | 8u471                    |
+| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)             | 8u491                    |
 | [Amazon Corretto 8](https://aws.amazon.com/corretto/)                            | 8.252.09.1              |
 | [Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)    | 8u322                   |
-| [Zulu's OpenJDK](https://www.azul.com/)                                          | 8u472                   |
+| [Zulu's OpenJDK](https://www.azul.com/)                                          | 8u492                   |
 {{< /table >}}
 
 ## Operating systems supported in production
