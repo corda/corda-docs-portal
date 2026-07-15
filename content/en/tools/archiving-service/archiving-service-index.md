@@ -81,7 +81,7 @@ As part of the configuration process, you can choose to create a backup schema. 
 
 The Archive Service requires:
 
-* Node minimum platform version 6.
+* Node minimum platform version 140.
 * Corda Enterprise minimum version 4.12.
 * JDK 17.
 * Currently only supports PostgreSQL databases.
@@ -157,6 +157,49 @@ The new algorithm uses two threshold parameters:
 * **MinAgeToAdd** — Add only transactions older than this threshold to the internal graphs. Anything newer is treated as potentially in-flight. This period is **60 seconds**.
 
 * **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This configuration setting is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true`, although this is not recommended for general purposes. Increasing this value reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking.
+
+## Performance tuning
+
+The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by two settings: the batch size and the parallelism of the node's JVM.
+
+### Batch size
+
+The iterative archiving operations process transactions in batches. Each batch is fetched from the database, processed, and its results are written back as one unit of work.
+
+The batch size can be set:
+
+* On the flows `ProcessAllPendingFlow`, `ListItemsFlow`, `MarkItemsFlow`, `AddTransactionsFlow`, and `CollectArchivableFlow` using the `batchSize` parameter.
+* On the CLI commands `process-all-pending`, `list-items`, and `create-snapshot` using the `--batch-size` option.
+
+The default batch size is **1,000**; the accepted range is **10** to **1,000,000**.
+
+When choosing a batch size, consider the following trade-offs:
+
+* Larger batches reduce the per-batch overhead (queries, database transaction commits, progress bookkeeping) and generally increase throughput, at the cost of higher memory usage on the node, as each batch is held in memory while it is processed.
+* A stop request (`StopFlow`) takes effect on a batch boundary — the batch currently being processed always runs to completion. Very large batch sizes therefore make stopping the archiving process less responsive.
+* The default of 1,000 is a good starting point for most deployments. If you change it, benchmark against a representative copy of your data before using the new value in production.
+
+In addition, the `importer.batch.size` configuration parameter (default: 1,000) controls the import of snapshots: snapshots containing up to this many transactions are deserialized using the parallel importer, while larger snapshots fall back to a sequential import to bound memory usage.
+
+### Parallelism
+
+Within each batch, the Archive Service processes transactions in parallel using Java parallel streams. This applies to adding new transactions to the internal dependency structures, walking back the dependency chains, and serializing and compressing transactions during export.
+
+Parallel streams run on the common `ForkJoinPool` of the node's JVM. By default, its parallelism is the number of available processors minus one. You can override this by setting the following system property on the Corda node's JVM (for example, in the `custom.jvmArgs` section of `node.conf`, or directly on the `java` command line used to start the node):
+
+```text
+-Djava.util.concurrent.ForkJoinPool.common.parallelism=8
+```
+
+Because the archiving work runs inside the node's JVM, it shares CPU with regular node operation. Lowering the parallelism leaves more headroom for other node activity while archiving is running; raising it (on machines with many cores) can speed up archiving during dedicated maintenance windows. Note that the common `ForkJoinPool` is shared by the whole JVM, so this setting also affects any other code in the node that uses parallel streams.
+
+### Performance tracking
+
+The Archive Service collects performance statistics (wall-clock time, JVM CPU time, transaction counts, and throughput) for each archiving step. You can retrieve and reset these statistics using the `PerformanceStatsFlow` and `ResetPerformanceStatsFlow` flows. See [Performance tracking flows]({{< relref "archiving-apis.md#performance-tracking-flows" >}}) for details.
+
+{{< note >}}
+The performance tracking flows are provided as a troubleshooting and tuning aid. They are subject to change and are not a final part of the Archive Service API.
+{{< /note >}}
 
 ## Using the backup schema
 

@@ -45,6 +45,7 @@ Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.20. Thi
   * `StatisticsFlow` — returns iterative archiving statistics.
   * `StatusFlow` — returns current operation status and history.
   * `ResetArchivingFlow` — resets all iterative archiving tables and markers.
+  * `PerformanceStatsFlow` and `ResetPerformanceStatsFlow` — retrieve and reset per-step performance statistics (wall-clock time, CPU time, throughput). These flows are subject to change and are not a final part of the Archive Service API.
 * **Updated flow signatures**: `ListItemsFlow` and `MarkItemsFlow` now accept iterative processing parameters (`bypassProcessAllPending`, `timeLimit`, `notNewerThan`, `batchSize`, `skipSafetyIntervalCheck`) instead of filter parameters. `CreateSnapshotFlow` no longer accepts `additionalTransactionTables` or `additionalAttachmentTables` (these are now auto-detected).
 * **Updated library APIs**: New library classes `ProcessAllPending`, `Statistics`, `Status`, and `ResetArchiving`. Updated `ListItems` and `MarkItems` to match the new flow signatures.
 
