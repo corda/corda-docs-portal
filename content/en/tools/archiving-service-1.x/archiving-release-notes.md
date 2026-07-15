@@ -24,6 +24,10 @@ The following table shows the compatibility of the Archive Service versions with
 | 1.2                          | 4.12.x                      | JDK 17           |
 
 {{< note >}}
+For Corda Enterprise 4.12 and newer, [Archive Service 2.x]({{< relref "../archiving-service/archiving-release-notes.md" >}}) is also available.
+{{< /note >}}
+
+{{< note >}}
 If you deviate from the above compatibility guidelines, for example, using the Archive Service 1.1.x with Corda Enterprise 4.10.x, the Archive Service will not work.
 {{< /note >}}
 

@@ -16,12 +16,16 @@ tags:
 title: Archive Service 1.x
 ---
 
-# Archive Service
+# Archive Service 1.x
 
 The Archive Service allows you to make an archive of transactions and attachments from the Corda vault which can no longer
 be part of an ongoing or new transaction flow. This can reduce pressure on your node's database, and declutter your vault.
 
 You can use Archive service commands to mark archivable items in your vault, archive them, and restore transactions from the archive when necessary.
+
+{{< note >}}
+This section documents the Archive Service 1.x series, which supports Corda Enterprise versions up to and including 4.12. For Corda Enterprise 4.12 and newer, see [Archive Service 2.x]({{< relref "../archiving-service/archiving-service-index.md" >}}).
+{{< /note >}}
 
 {{< note >}}
 Due to its in-memory design, the Archive Service is most effective and efficient for smaller ledgers & frequent archiving events. For scenarios that don't fit these constraints, you should consider building your required archiving logic within the application itself. This introduction includes advice on [making your CorDapps archive-friendly](#making-archive-friendly-cordapps).
