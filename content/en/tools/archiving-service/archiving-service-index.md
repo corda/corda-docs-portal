@@ -25,6 +25,8 @@ You can use Archive service commands to mark archivable items in your vault, arc
 
 {{< note >}}
 Archive Service 2.0 introduces a new **iterative archiving model** that replaces the previous LedgerGraph-based approach. The Archive Service now builds its own internal graph of transactions and attachments using the vault database directly. LedgerGraph is no longer required.
+
+Archive Service 2.x requires Corda Enterprise 4.12 or newer. For earlier Corda Enterprise versions, use [Archive Service 1.x]({{< relref "../archiving-service-1.x/archiving-service-index.md" >}}), which supports Corda Enterprise versions up to and including 4.12.
 {{< /note >}}
 
 The Archive Service consists of the following:
