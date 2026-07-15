@@ -41,17 +41,22 @@ The Archive Service archives distribution records associated with the archived t
 
 ## What can be archived
 
-The Archive Service uses an iterative model to track transaction dependencies and identify which transactions can be safely archived. A transaction or attachment will be marked as archivable when:
+The Archive Service uses an iterative model to track transaction dependencies and identify which transactions can be safely archived. A transaction will be marked as archivable when:
 
-* The transaction is fully consumed (has no unconsumed outputs).
-* All transactions in its dependency chain are also fully consumed — meaning no transaction in the chain has unconsumed outputs that could be referenced by future transactions.
-* The attachment itself is not a contract attachment.
+* It is fully consumed — all of its outputs have been consumed, and each consuming transaction is itself archivable.
+* None of its outputs is used as a reference state by a transaction that is not itself archivable.
+* All transactions in its dependency chain satisfy the same conditions — no transaction in the chain has unconsumed outputs or live references that could be needed by future transactions.
+
+An attachment will be marked as archivable when:
+
+* It is not a contract attachment.
+* Every transaction that uses it is itself archivable.
 
 The iterative archiving process works by:
 
-1. Adding new (unprocessed) transactions to its internal dependency tracking structures.
-2. Walking back through the dependency chains to identify groups of fully-consumed transactions.
-3. Marking those transactions as available for archiving once the entire chain is confirmed to be fully consumed.
+1. Adding new (unprocessed) transactions to its internal dependency tracking structures. For each transaction, the service records its input and reference-state dependencies, a counter of its not-yet-consumed outputs, a counter of transactions referencing its outputs, and the attachments it uses.
+2. Walking back through the dependency chains: transactions whose output and reference counters are both zero are condemned, and the corresponding counters of their source (parent) transactions are decremented. Any parent whose counters both reach zero is walked back in turn, so entire fully-consumed chains are condemned from the most recent transactions backwards.
+3. Marking those transactions as available for archiving once the entire chain is confirmed to be fully consumed and unreferenced.
 
 You can optionally restrict which transactions are eligible for archiving based on their contract class names using the `archivableContractClassStatePrefixes` configuration parameter. See [Configuration](#configuration) for details.
 
@@ -158,7 +163,32 @@ The new algorithm uses two threshold parameters:
 
 * **MinAgeToAdd** — Add only transactions older than this threshold to the internal graphs. Anything newer is treated as potentially in-flight. This period is **60 seconds**.
 
-* **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This configuration setting is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true`, although this is not recommended for general purposes. Increasing this value reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking.
+* **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This configuration setting is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true`, although this is not recommended for general purposes. Increasing this value reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking. See [Late-arriving reference transactions](#late-arriving-reference-transactions) for what happens when a reference does arrive late.
+
+## Late-arriving reference transactions
+
+Corda transactions can arrive at a node out of notarisation order — most commonly through back-chain resolution, where receiving a transaction from a counterparty triggers the download of its dependency chain, including reference states. As a result, a new transaction can arrive that uses an output of an older transaction as a reference state *after* the iterative model has already judged that older transaction fully consumed and unreferenced.
+
+The **MinAgeToCollect** threshold and the `notNewerThan` parameter make this scenario unlikely by keeping a safety interval between a transaction being recorded and it becoming collectable, but they cannot eliminate it entirely — a reference can, in principle, arrive arbitrarily late.
+
+When the Archive Service processes a late-arriving transaction that references an already-condemned transaction, it reverts the archivability of the referenced transaction: its reference counter is incremented, and its pending walkback/delete markers are cleared, so it is no longer considered archivable. The overall effect depends on how far the referenced transaction had progressed through the archiving pipeline:
+
+* **Collected, but not yet walked back**: the revert is fully consistent. No dependency counters had been modified yet, and the transaction simply returns to the tracked (non-archivable) state.
+* **Already walked back (pending delete)**: only the referenced transaction itself is reverted. Its walkback had already decremented the counters of its parent transactions, so its own back-chain (ancestors) may remain condemned and can still be archived and deleted. In that case, the dependency chain of the late-arriving transaction is no longer complete on this node.
+* **Already marked into an archive job** (`create-snapshot` has run): the revert does not remove the transaction from the snapshot that was already created — a subsequent `delete-vault` will still delete it. To pick up the revert, abort the job with `restore-snapshot` and re-run the archiving steps.
+* **Already deleted from the vault**: there is nothing left to revert locally. When the transaction is needed again, Corda's back-chain resolution re-downloads it (and its chain) from peers, and the re-recorded transactions re-enter the iterative model as new. The exported archive (`import-snapshot`) is the ultimate backstop for restoring deleted chains.
+
+Note that only the referenced transaction itself is reverted; any of its *descendants* that were already condemned remain condemned. This is correct behavior: resolving the late-arriving transaction requires the referenced transaction and its ancestors, not its other descendants.
+
+To reduce the exposure to this edge case:
+
+* Keep `notNewerThan` conservative and do not set `skipSafetyIntervalCheck` to `true` in production. Increase the grace period on networks that make heavy use of reference states or long-running flows.
+* Keep the time between `create-snapshot` and `delete-vault` short, so that late arrivals have little opportunity to invalidate an in-flight job.
+* Retain the exported archives, so that deleted chains can be restored with `import-snapshot` if they are ever needed again.
+
+{{< note >}}
+The handling of late-arriving references described here reflects the current behavior and may be improved in future releases.
+{{< /note >}}
 
 ## Performance tuning
 
