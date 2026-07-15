@@ -2,7 +2,7 @@
 date: '2022-09-15'
 menu:
   tools:
-    parent: release-notes-archiving
+    parent: release-notes-archiving-1x
 tags:
 - release
 - checksums
