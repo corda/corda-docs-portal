@@ -4,16 +4,16 @@ description: "Documentation for the Corda Archive Service; this is used to make 
 section_menu: tools
 menu:
   tools:
-    name: Archive Service
-    weight: 700
-    identifier: tools-archiving
+    name: Archive Service 1.x
+    weight: 701
+    identifier: tools-archiving-1x
 tags:
 - archive
 - backup schema
 - archive install
 - archive transactions
 
-title: Archive Service
+title: Archive Service 1.x
 ---
 
 # Archive Service

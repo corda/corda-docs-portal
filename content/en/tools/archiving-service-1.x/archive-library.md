@@ -2,7 +2,7 @@
 date: '2020-04-24T12:00:00Z'
 menu:
   tools:
-    parent: tools-archiving
+    parent: tools-archiving-1x
 tags:
 - archive
 - backup schema

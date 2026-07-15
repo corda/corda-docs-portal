@@ -2,8 +2,8 @@
 date: '2023-06-14'
 menu:
   tools:
-    identifier: release-notes-archiving
-    parent: tools-archiving
+    identifier: release-notes-archiving-1x
+    parent: tools-archiving-1x
     name: "Release notes"
 title: Archive Service release notes
 weight: 705

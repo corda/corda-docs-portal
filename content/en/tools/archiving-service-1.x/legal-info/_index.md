@@ -4,7 +4,7 @@ date: '2024-01-17'
 menu:
   tools:
     identifier: archive-service-legal-info
-    parent: release-notes-archiving
+    parent: release-notes-archiving-1x
     weight: 800
     name: "Third-party software licence information"
 tags:
