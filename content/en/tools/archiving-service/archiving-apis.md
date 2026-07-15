@@ -263,3 +263,52 @@ class RestoreSnapshotFlow(
 @StartableByRPC
 class ResetArchivingFlow : FlowLogic<String>()
 ```
+
+## Performance tracking flows
+
+The Archive Service tracks performance statistics for each archiving step (`ProcessNewTransactions`, `CollectArchivable`, `MarkItems`, `CreateSnapshot`, `ExportSnapshot`, `DeleteMarked`, and `DeleteSnapshot`). For each step, the following metrics are collected:
+
+* Wall-clock time spent in the step.
+* JVM process CPU time consumed while the step was running.
+* CPU utilization — the CPU time relative to the wall-clock time and the number of available processors. 100% means all processors were busy with the node's JVM for the whole duration of the step.
+* Number of transactions processed.
+* Throughput (transactions per second).
+
+The output also includes the instantaneous system CPU load, the number of processors available to the JVM, the total transaction count, and the total elapsed and CPU times. The statistics are returned in a human-readable format, followed by a CSV representation of the same data, and are also written to the node's log.
+
+The statistics are kept in memory, so they cover only the period since the last node restart (or the last reset).
+
+{{< note >}}
+The performance tracking flows are provided as a troubleshooting and tuning aid. They are subject to change and are not a final part of the Archive Service API.
+{{< /note >}}
+
+```kotlin
+/**
+ * A Corda flow that retrieves and formats performance statistics.
+ *
+ * This flow collects archiving step metrics such as wall-clock time, JVM process CPU time,
+ * transactions processed, and throughput (transactions per second) for each archiving step,
+ * formats them into a human-readable and CSV-compatible string, and logs the result.
+ */
+@InitiatingFlow
+@StartableByRPC
+class PerformanceStatsFlow : FlowLogic<String>()
+
+/**
+ * Resets all collected performance statistics.
+ *
+ * After execution, all per-step metrics (time spent, transactions processed) are cleared.
+ */
+@InitiatingFlow
+@StartableByRPC
+class ResetPerformanceStatsFlow : FlowLogic<String>()
+```
+
+For example, the flows can be started from the node shell:
+
+```text
+>>> flow start PerformanceStatsFlow
+>>> flow start ResetPerformanceStatsFlow
+```
+
+A typical workflow is to run `ResetPerformanceStatsFlow` before an archiving run (for example, before changing the batch size or the parallelism settings described in [Performance tuning]({{< relref "archiving-service-index.md#performance-tuning" >}})), and then run `PerformanceStatsFlow` afterwards to compare the throughput of the individual steps.
