@@ -186,9 +186,34 @@ To reduce the exposure to this edge case:
 * Keep the time between `create-snapshot` and `delete-vault` short, so that late arrivals have little opportunity to invalidate an in-flight job.
 * Retain the exported archives, so that deleted chains can be restored with `import-snapshot` if they are ever needed again.
 
+{{< warning >}}
+The safety interval is the primary protection against late-arriving references. Setting an adequately high `notNewerThan` threshold for the network's traffic patterns is the responsibility of the system's operators.
+{{< /warning >}}
+
 {{< note >}}
 The handling of late-arriving references described here reflects the current behavior and may be improved in future releases.
 {{< /note >}}
+
+## Restore, import, and the iterative tracking data
+
+The `restore-snapshot` and `import-snapshot` commands bring previously archived data back into the vault. They interact with the iterative tracking tables in different ways, and both can re-create the [late-arriving reference](#late-arriving-reference-transactions) edge cases. Neither command can run while the iterative archive service is processing transactions.
+
+### Restoring a snapshot
+
+`restore-snapshot` copies the rows of the aborted jobs back from the backup schema, including the iterative tracking rows of the restored transactions. The restored rows keep the state they had when the snapshot was created: the restored transactions are still classified as archivable, and the dependency counters remain consistent precisely because the restored transactions are not walked back a second time. As a consequence:
+
+* Restoring a snapshot undoes the deletion, not the classification — the restored data is picked up again by the next archiving run. If the restored data should be re-evaluated instead (for example, after changing `archivableContractClassStatePrefixes`), run `reset-archiving` after the restore.
+* If a late-arriving transaction referenced a restored transaction *while it was deleted from the vault*, the automatic revert described above could not run, because there was no tracking row to revert at that time. After the restore, such a transaction is still classified as archivable even though it is now referenced, and the next archiving run deletes it again. Run `reset-archiving` after a restore to rebuild the classification from the current vault content if late references are a possibility on your network.
+
+### Importing an archive
+
+`import-snapshot` records the archived transactions and attachments through the regular Corda APIs and does not touch the iterative tracking tables. The re-recorded transactions receive new timestamps, so the next archiving run re-scans them from scratch, and fully imported chains become archivable again in the same way as before their deletion.
+
+The re-scan is only guaranteed to be consistent for chains that are imported in their entirety. At the boundary of the imported set — an imported transaction that consumed an output of a transaction that was never deleted from the vault — the walkback of the re-scanned transaction decrements the consumption counters of the retained transaction a *second* time. This can make the retained transaction appear archivable before all of its outputs are consumed.
+
+{{< warning >}}
+Always run `reset-archiving` after `import-snapshot`. It rebuilds the iterative tracking data from the actual vault content and removes any counter drift introduced by the import.
+{{< /warning >}}
 
 ## Performance tuning
 
