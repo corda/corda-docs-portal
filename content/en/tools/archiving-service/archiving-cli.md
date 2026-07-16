@@ -338,6 +338,7 @@ When using the ZippedFileExporter:
 ZippedFileExporter:
   Completed export of <n> transactions to transaction-<date>.zip
   Completed export of <n> attachments to attachment-<date>.zip
+  Completed export of <n> manifest entries to manifest-<date>.csv
 ```
 
 ## Import command
@@ -507,6 +508,34 @@ By default, no exporters are applied.
 Each exporter has its own configuration requirements, which it takes either from the HOCON file given on the command line or from the CorDapp configuration file.
 
 Custom exporters can be implemented for individual archive solutions. For more details see the [Archive Service Library documentation]({{< relref "../../tools/archiving-service/archive-library.md" >}}).
+
+### Archive manifest
+
+The `ZippedFileExporter` writes a manifest file `manifest-<snapshot>.csv` next to the zip files, listing each exported transaction and attachment with its vault timestamp and size. The manifest allows the contents of an archive to be audited — for example, finding which archive holds a given transaction ID, or filtering by date range or party — without opening the zip files.
+
+The manifest contains the following columns:
+
+* `job_name`: Name of the archive snapshot.
+* `type`: `transaction` or `attachment`.
+* `id`: Transaction or attachment ID.
+* `timestamp`: Time the item was recorded in the vault, in ISO-8601 format.
+* `size_bytes`: Size of the exported item in bytes.
+* `filename`: Original filename, attachments only.
+* `participants`: Semicolon-separated participants of the transaction's output states, transactions only.
+
+The participants are the distinct participants of the transaction's output states, using the legal name for well-known parties and the hash of the owning key otherwise. The column is empty when the transaction has no output states or the states cannot be deserialized.
+
+Extracting the participants requires deserializing every exported transaction. If this overhead is unwanted, it can be disabled with the `exporter.extractParticipants` property (default `true`), in which case the participants column is left empty:
+
+```text
+exporter: {
+    exporters: [
+        "ZippedFileExporter"
+    ]
+    zippedFileExporter.directory: "./exports"
+    extractParticipants: false
+}
+```
 
 ## Archive schema
 

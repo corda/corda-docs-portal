@@ -475,7 +475,15 @@ interface AttachmentExporter {
     /**
      * Invoked for each attachment
      */
-    fun exportAttachment(attachmentId: String, attachment: ByteArray)
+    fun exportAttachment(attachmentId: String, attachment: ByteArray, filename: String? = null)
+
+    /**
+     * Invoked for each attachment together with the time the attachment was
+     * inserted into the vault. Exporters that do not need the timestamp only
+     * have to implement the three-argument variant.
+     */
+    fun exportAttachment(attachmentId: String, attachment: ByteArray, filename: String?, insertionDate: Instant?) =
+        exportAttachment(attachmentId, attachment, filename)
 }
 
 /**
@@ -496,6 +504,19 @@ interface TransactionExporter {
      * Invoked for each transaction
      */
     fun exportTransaction(transactionId: String, transaction: ByteArray)
+
+    /**
+     * Invoked for each transaction together with the time the transaction was
+     * recorded in the vault and the participants of its output states.
+     * Exporters that do not need the extra details only have to implement
+     * the two-argument variant.
+     */
+    fun exportTransaction(
+        transactionId: String,
+        transaction: ByteArray,
+        timestamp: Instant?,
+        participants: List<String>? = null
+    ) = exportTransaction(transactionId, transaction)
 }
 
 /**
