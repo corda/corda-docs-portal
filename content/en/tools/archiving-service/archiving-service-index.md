@@ -443,6 +443,12 @@ By default no exporters are applied.
 Each exporter has its own configuration requirements, which it takes either from the HOCON file given on the
 command line or from the CorDapp configuration file.
 
+The `ZippedFileExporter` also writes a manifest file `manifest-<snapshot>.csv` next to the zip files, listing
+each exported transaction and attachment with its vault timestamp, size, and participants. The manifest allows
+the contents of an archive to be audited — for example, finding which archive holds a given transaction ID —
+without opening the zip files. See the [Archive Service CLI documentation]({{< relref "archiving-cli.md#archive-manifest" >}})
+for details.
+
 Custom exporters can be implemented for individual archive solutions.
 For more details see the [Archive Service Library documentation]({{< relref "archive-library.md" >}}).
 
