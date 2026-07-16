@@ -355,6 +355,12 @@ Copy the archived items from a snapshot archive back to the vault.
 
 Displays the results of the import.
 
+The command cannot run while the iterative archive service is processing transactions.
+
+{{< warning >}}
+Run `reset-archiving` after an import. The imported transactions are re-scanned by the iterative archiving model, and without a reset the consumption counters of transactions at the boundary of the imported set can drift, causing them to be treated as archivable too early. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).
+{{< /warning >}}
+
 ## Delete Vault command
 
 ```text
@@ -409,6 +415,12 @@ Abort all incomplete archive jobs and restore the Corda vault.
 
 If the `--record` option is given then the SQL is written to the file and no
 database updates are executed.
+
+The command cannot run while the iterative archive service is processing transactions.
+
+{{< note >}}
+Restoring a snapshot undoes the deletion, not the classification: the restored transactions are still considered archivable and are picked up again by the next archiving run. To re-evaluate them instead, run `reset-archiving` after the restore. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).
+{{< /note >}}
 
 ## Reset Archiving command
 
