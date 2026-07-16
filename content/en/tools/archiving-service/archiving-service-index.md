@@ -209,7 +209,17 @@ The `restore-snapshot` and `import-snapshot` commands bring previously archived 
 
 `import-snapshot` records the archived transactions and attachments through the regular Corda APIs and does not touch the iterative tracking tables. The re-recorded transactions receive new timestamps, so the next archiving run re-scans them from scratch, and fully imported chains become archivable again in the same way as before their deletion.
 
-The re-scan is only guaranteed to be consistent for chains that are imported in their entirety. At the boundary of the imported set — an imported transaction that consumed an output of a transaction that was never deleted from the vault — the walkback of the re-scanned transaction decrements the consumption counters of the retained transaction a *second* time. This can make the retained transaction appear archivable before all of its outputs are consumed.
+**The re-scan is only guaranteed to be consistent for chains that are imported in their entirety.** When a whole chain is re-imported, every transaction in it is re-scanned, so both sides of the dependency bookkeeping are rebuilt together: each transaction's consumption counters are re-initialized when it is scanned, and then decremented again as its consumers are walked back. The two effects pair up exactly as they did before the deletion.
+
+An archived snapshot is, however, not necessarily a self-contained graph. An archived transaction may have consumed an output of a transaction that was **not** archived with it — a source transaction that stayed in the vault because:
+
+* some of its other outputs were still unconsumed,
+* it was pinned by a live reference state, or
+* it was excluded from archiving by the `archivableContractClassStatePrefixes` filter.
+
+For such a retained source transaction, only *one* side of the bookkeeping re-runs. Its own consumption counters are **not** re-initialized (it was never deleted, so it is not re-scanned), but the walkback of the re-imported consumer decrements them a *second* time for the same consumption.
+
+For example: transaction `A` has two outputs, one consumed by transaction `B` (which was archived and deleted) and one still unconsumed. `A`'s remaining-output counter went from 2 to 1 when `B` was originally walked back. After `B` is imported and re-scanned, `B`'s walkback runs again and the counter drops from 1 to 0 — the model now considers `A` fully consumed, even though one of its outputs is still live. The next archiving run would archive and delete `A` while it still has an unconsumed state.
 
 {{< warning >}}
 Always run `reset-archiving` after `import-snapshot`. It rebuilds the iterative tracking data from the actual vault content and removes any counter drift introduced by the import.
