@@ -356,11 +356,11 @@ Copy the archived items from a snapshot archive back to the vault.
 
 Displays the results of the import.
 
-The command cannot run while the iterative archive service is processing transactions.
+The command cannot run while the iterative archive service is processing transactions, and the iterative archive service will not start processing a new batch while the import is running.
 
-{{< warning >}}
-Run `reset-archiving` after an import. The imported transactions are re-scanned by the iterative archiving model, and without a reset the consumption counters of transactions at the boundary of the imported set can drift, causing them to be treated as archivable too early. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).
-{{< /warning >}}
+{{< note >}}
+After an import: the import repopulates the iterative tracking data for the imported transactions directly, in the terminal state they were in before they were archived. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).
+{{< /note >}}
 
 ## Delete Vault command
 
