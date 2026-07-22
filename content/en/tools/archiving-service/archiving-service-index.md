@@ -154,7 +154,7 @@ archivableContractClassStatePrefixes: ["com.example.contracts", "net.corda.finan
 ```
 
 {{< note >}}
-This filter is evaluated when a transaction is walked back, not when it is first discovered. A configuration change therefore takes effect immediately for any transaction still awaiting walkback — no reset or reprocessing of already-tracked transactions is required.
+This filter is evaluated when a transaction is walked back, not when it is first discovered. As with any Archive Service CorDapp configuration change, the node must be restarted before a change to this list is picked up at all — but once picked up, it takes effect immediately for any transaction still awaiting walkback, with no reset or reprocessing of already-tracked transactions required.
 {{< /note >}}
 
 ## Threshold parameters
