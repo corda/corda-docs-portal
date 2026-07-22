@@ -37,8 +37,9 @@ be marked for deletion.
 
 If the list is empty or not configured, all transactions are archivable (default behavior).
 
-To apply a configuration change to already-processed transactions, use `ResetArchivingFlow` to
-rebuild the iterative archiving tables.
+The filter is evaluated live at walkback time rather than at discovery time, so a configuration
+change takes effect immediately for any transaction still awaiting walkback — no reset or
+reprocessing of already-tracked transactions is required.
 
 ## Flows
 
@@ -252,16 +253,6 @@ class DeleteSnapshotFlow(
 class RestoreSnapshotFlow(
     private val record: Boolean
 ) : FlowLogic<RestoreSnapshotResults>()
-
-/**
- * Resets all iterative archiving data structures by deleting all records from the iterative
- * archiving tables and clearing the last processed marker from both the database and memory.
- *
- * The flow waits until the iterative archive service has fully stopped before clearing data.
- */
-@InitiatingFlow
-@StartableByRPC
-class ResetArchivingFlow : FlowLogic<String>()
 ```
 
 ## Performance tracking flows
