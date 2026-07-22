@@ -37,9 +37,10 @@ be marked for deletion.
 
 If the list is empty or not configured, all transactions are archivable (default behavior).
 
-The filter is evaluated live at walkback time rather than at discovery time, so a configuration
-change takes effect immediately for any transaction still awaiting walkback — no reset or
-reprocessing of already-tracked transactions is required.
+The filter is evaluated live at walkback time rather than at discovery time. Note that, like any
+Archive Service CorDapp configuration change, the node must be restarted before a change to this
+list is picked up at all — but once picked up, it takes effect immediately for any transaction
+still awaiting walkback, with no reset or reprocessing of already-tracked transactions required.
 
 ## Flows
 
