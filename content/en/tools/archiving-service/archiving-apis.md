@@ -60,11 +60,14 @@ class ListJobsFlow(
 
 /**
  * Flow to process all pending transactions and then collect all archivable items.
- * This flow runs AddTransactionsFlow until completion, then CollectArchivableFlow until pendingWalkBack reaches 0.
+ * This flow drives the same internal operations as the `AddTransactionsFlow` and `CollectArchivableFlow`
+ * building blocks (running the first until completion, then the second until pendingWalkBack reaches 0).
+ * Those two flows, along with `StopFlow`, are internal (`@CordaInternal`) and not intended to be started
+ * directly — `ProcessAllPendingFlow` is the supported entry point for this workflow.
  *
  * @param timeLimit Maximum time to run both operations. Default is 8 hours.
  * @param notNewerThan Only collect transactions older than this timestamp. Default is now minus the grace period.
- * @param batchSize Batch size for AddTransactionsFlow. Default is 1,000.
+ * @param batchSize Batch size for the internal transaction-processing step. Default is 1,000.
  * @param skipSafetyIntervalCheck Whether to skip the safety interval check when collecting archivable items. Default is false.
  */
 @InitiatingFlow
@@ -78,6 +81,9 @@ class ProcessAllPendingFlow(
 
 /**
  * Flow to get statistics about the iterative archiving process.
+ *
+ * This flow is subject to change — its signature and result fields may change in later versions —
+ * and should not be relied on as a stable, versioned API.
  */
 @InitiatingFlow
 @StartableByRPC
@@ -101,6 +107,9 @@ data class StatisticsResult(
 /**
  * Flow to get the current status and operation history of the maintenance of the archive database.
  * Corda keeps this history in memory, so only the history since the last restart of the node will be returned.
+ *
+ * This flow is subject to change — its signature and result fields may change in later versions —
+ * and should not be relied on as a stable, versioned API.
  *
  * @property maxHistoryItems Maximum number of history items to return (default 10)
  */
