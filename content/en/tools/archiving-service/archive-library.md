@@ -30,7 +30,6 @@ The Archive Service Library provides programmatic access to the Archive Service.
 * `DeleteMarked`.
 * `DeleteSnapshot`.
 * `RestoreSnapshot`.
-* `ResetArchiving`.
 
 {{< note >}}
 Archive Service 2.0 no longer uses runtime filters. The `filterList` and `filterConfig` parameters have been removed from `ListItems` and `MarkItems`. Transaction eligibility is now controlled via the `archivableContractClassStatePrefixes` CorDapp configuration parameter.
@@ -401,32 +400,6 @@ class RestoreSnapshot(
      * @return Restore snapshot results
      */
     fun execute(): RestoreSnapshotResults
-}
-```
-
-### Reset archiving
-
-Resets all iterative archiving data structures by deleting all records from the iterative archiving tables and clearing the last processed marker.
-
-```kotlin
-/**
- * Resets all iterative archiving data structures by invoking the ResetArchivingFlow.
- *
- * @property rpcClient RPC connection to Archive Service node
- * @property progressTree Callback used to report progress
- */
-class ResetArchiving(
-    private val rpcClient: RPCClientService,
-    private val progressTree: ProgressTree? = null
-) {
-    /**
-     * Execute the reset archiving command by invoking the ResetArchivingFlow.
-     * Stops the iterative archive service, waits for it to fully stop,
-     * deletes all iterative archiving table data and resets the last processed marker.
-     *
-     * @return Result message from the flow
-     */
-    fun execute(): String
 }
 ```
 

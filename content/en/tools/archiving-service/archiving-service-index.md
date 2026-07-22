@@ -154,7 +154,7 @@ archivableContractClassStatePrefixes: ["com.example.contracts", "net.corda.finan
 ```
 
 {{< note >}}
-To apply a configuration change of `archivableContractClassStatePrefixes` to already-processed transactions, use `reset-archiving` to rebuild the iterative archiving tables and then re-scan the transactions.
+This filter is evaluated when a transaction is walked back, not when it is first discovered. A configuration change therefore takes effect immediately for any transaction still awaiting walkback — no reset or reprocessing of already-tracked transactions is required.
 {{< /note >}}
 
 ## Threshold parameters
@@ -202,8 +202,8 @@ The `restore-snapshot` and `import-snapshot` commands bring previously archived 
 
 `restore-snapshot` copies the rows of the aborted jobs back from the backup schema, including the iterative tracking rows of the restored transactions. The restored rows keep the state they had when the snapshot was created: the restored transactions are still classified as archivable, and the dependency counters remain consistent precisely because the restored transactions are not walked back a second time. As a consequence:
 
-* Restoring a snapshot undoes the deletion, not the classification — the restored data is picked up again by the next archiving run. If the restored data should be re-evaluated instead (for example, after changing `archivableContractClassStatePrefixes`), run `reset-archiving` after the restore.
-* If a late-arriving transaction referenced a restored transaction *while it was deleted from the vault*, the automatic revert described above could not run, because there was no tracking row to revert at that time. After the restore, such a transaction is still classified as archivable even though it is now referenced, and the next archiving run deletes it again. Run `reset-archiving` after a restore to rebuild the classification from the current vault content if late references are a possibility on your network.
+* Because restored transactions are not walked back again, they are not re-evaluated against the current `archivableContractClassStatePrefixes` configuration either — despite the filter now being applied live at walkback time for newly-discovered transactions, a restored transaction keeps whatever classification it had before it was archived, and is simply picked up by the next `mark-items`/`create-snapshot` run using that pre-existing classification. There is currently no supported way to force re-evaluation of a restored transaction after a filter change.
+* If a late-arriving transaction referenced a restored transaction *while it was deleted from the vault*, the automatic revert described above could not run, because there was no tracking row to revert at that time. After the restore, such a transaction is picked up again by the next archiving run and may be deleted a second time even though it is now referenced. There is currently no supported way to rebuild the tracking state for this case; keep the safety interval conservative enough for your network's traffic patterns (see [Late-arriving reference transactions](#late-arriving-reference-transactions)) to avoid it.
 
 ### Importing an archive
 
@@ -409,7 +409,6 @@ Commands:
   delete-snapshot                    delete the snapshot from backup schema
   import-snapshot                    import an archive to the vault
   restore-snapshot                   restore items from backup schema to the vault
-  reset-archiving                    resets all iterative archiving data structures
 
 ```
 

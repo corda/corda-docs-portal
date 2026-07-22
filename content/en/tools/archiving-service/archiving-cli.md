@@ -72,7 +72,6 @@ Commands:
   delete-snapshot                    delete the snapshot from backup schema
   import-snapshot                    import an archive to the vault
   restore-snapshot                   restore items from backup schema to the vault
-  reset-archiving                    resets all iterative archiving data structures
 
 ```
 
@@ -420,28 +419,8 @@ database updates are executed.
 The command cannot run while the iterative archive service is processing transactions.
 
 {{< note >}}
-Restoring a snapshot undoes the deletion, not the classification: the restored transactions are still considered archivable and are picked up again by the next archiving run. To re-evaluate them instead, run `reset-archiving` after the restore. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).
+Restoring a snapshot undoes the deletion, not the classification: the restored transactions are not walked back again, so they keep whatever classification they had before being archived — including with respect to the `archivableContractClassStatePrefixes` filter — and are simply picked up by the next `mark-items`/`create-snapshot` run using that classification. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data) for details and a caveat about late-arriving references to a restored transaction.
 {{< /note >}}
-
-## Reset Archiving command
-
-```text
-Usage:
-archive-service reset-archiving
-Description:
-resets all iterative archiving data structures
-```
-
-Stops the iterative archive service and waits for it to fully stop, then deletes all records from the iterative archiving tables and resets the last processed marker.
-
-```text
-Resetting iterative archiving data structures...
-Iterative archiving data reset successfully. All iterative archiving tables have been cleared and the last processed marker has been reset.
-```
-
-{{< warning >}}
-This command irreversibly deletes all iterative archiving progress data. Use with caution.
-{{< /warning >}}
 
 ## Tracking progress
 The `-t` or `--tracker` option can be used on the command to display progress as each command executes.
