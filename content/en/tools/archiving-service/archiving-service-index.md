@@ -219,6 +219,8 @@ This matters because an archived snapshot is not necessarily a self-contained gr
 
 Because the reimported transaction is never walked back again, such a retained source transaction's counters are left untouched by the import — its consumption was already accounted for once, when the transaction was originally walked back, and importing does not repeat it. This avoids the retained source transaction being incorrectly treated as fully consumed and archived while it still holds a live state.
 
+Conversely, `import-snapshot` does not check or enforce that a transaction's own input and reference transactions are imported together with it. If a transaction is reimported while one or more of its input or reference transactions are not, the reimported transaction ends up in a half-visible, unverifiable, and inconsistent state — its backchain cannot be resolved or verified, since the dependency it points to is not present in the vault. It is the responsibility of operators to ensure that all of a transaction's related dependencies are imported back along with it.
+
 ## Performance tuning
 
 The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by two settings: the batch size and the parallelism of the node's JVM.
@@ -229,7 +231,7 @@ The iterative archiving operations process transactions in batches. Each batch i
 
 The batch size can be set:
 
-* On the flows `ProcessAllPendingFlow`, `ListItemsFlow`, `MarkItemsFlow`, `AddTransactionsFlow`, and `CollectArchivableFlow` using the `batchSize` parameter.
+* On the flows `ProcessAllPendingFlow`, `ListItemsFlow`, and `MarkItemsFlow` using the `batchSize` parameter. `ProcessAllPendingFlow` applies this internally to the same processing/collection steps as the internal `AddTransactionsFlow` and `CollectArchivableFlow` building blocks.
 * On the CLI commands `process-all-pending`, `list-items`, and `create-snapshot` using the `--batch-size` option.
 
 The default batch size is **1,000**; the accepted range is **10** to **1,000,000**.
@@ -237,7 +239,7 @@ The default batch size is **1,000**; the accepted range is **10** to **1,000,000
 When choosing a batch size, consider the following trade-offs:
 
 * Larger batches reduce the per-batch overhead (queries, database transaction commits, progress bookkeeping) and generally increase throughput, at the cost of higher memory usage on the node, as each batch is held in memory while it is processed.
-* A stop request (`StopFlow`) takes effect on a batch boundary — the batch currently being processed always runs to completion. Very large batch sizes therefore make stopping the archiving process less responsive.
+* A stop request — whether issued via the internal `StopFlow` building block or by `ProcessAllPendingFlow` reaching its time limit — takes effect on a batch boundary — the batch currently being processed always runs to completion. Very large batch sizes therefore make stopping the archiving process less responsive.
 * The default of 1,000 is a good starting point for most deployments. If you change it, benchmark against a representative copy of your data before using the new value in production.
 
 In addition, the `importer.batch.size` configuration parameter (default: 1,000) controls the import of snapshots: snapshots containing up to this many transactions are deserialized using the parallel importer, while larger snapshots fall back to a sequential import to bound memory usage.

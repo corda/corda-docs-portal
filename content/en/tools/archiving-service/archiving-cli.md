@@ -218,6 +218,10 @@ Archivable attachment size: N bytes
 
 This command does not update any archive log tables.
 
+{{< note >}}
+This command's underlying flow (`StatisticsFlow`) is subject to change — its output fields may change in later versions — and should not be relied on as a stable, versioned API.
+{{< /note >}}
+
 ## Status command
 
 ```text
@@ -239,6 +243,10 @@ Current Operation:  PROCESS_NEW_TRANSACTIONS
 ```
 
 This command does not update any archive log tables.
+
+{{< note >}}
+This command's underlying flow (`StatusFlow`) is subject to change — its output fields may change in later versions — and should not be relied on as a stable, versioned API.
+{{< /note >}}
 
 ## List Items command
 
@@ -360,6 +368,10 @@ The command cannot run while the iterative archive service is processing transac
 {{< note >}}
 After an import: the import repopulates the iterative tracking data for the imported transactions directly, in the terminal state they were in before they were archived. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).
 {{< /note >}}
+
+{{< warning >}}
+`import-snapshot` does not check or enforce that a transaction's own input and reference transactions are imported together with it. If a transaction is reimported while one or more of its dependencies are not, it ends up in a half-visible, unverifiable, and inconsistent state. It is the responsibility of operators to ensure that all related dependencies are imported back together.
+{{< /warning >}}
 
 ## Delete Vault command
 

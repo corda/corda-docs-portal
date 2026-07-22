@@ -114,6 +114,10 @@ class ProcessAllPending(
 
 Retrieves statistics about the iterative archiving process.
 
+{{< note >}}
+The underlying `StatisticsFlow` is subject to change — its output fields may change in later versions — and should not be relied on as a stable, versioned API.
+{{< /note >}}
+
 ```kotlin
 /**
  * Retrieve statistics about the iterative archiving process.
@@ -137,6 +141,10 @@ class Statistics(
 ### Status
 
 Retrieves the current status and operation history of the iterative archive database. Corda keeps this history in memory, so only the history since the last restart of the node will be returned.
+
+{{< note >}}
+The underlying `StatusFlow` is subject to change — its output fields may change in later versions — and should not be relied on as a stable, versioned API.
+{{< /note >}}
 
 ```kotlin
 /**
@@ -326,6 +334,9 @@ class ImportSnapshot(
     fun execute(): ImportSnapshotResults
 }
 ```
+
+> **Warning:** Import does not check or enforce that a transaction's own input and reference transactions are imported together with it. If a transaction is reimported while one or more of its dependencies are not, it ends up in a half-visible, unverifiable, and inconsistent state. It is the responsibility of operators to ensure that all related dependencies are imported back together. See [Restore, import, and the iterative tracking data]({{< relref "archiving-service-index.md#restore-import-and-the-iterative-tracking-data" >}}).
+
 ### Delete marked
 
 Deletes the marked items from the Corda vault.
