@@ -15,11 +15,11 @@ tags:
 weight: 10
 ---
 
-# Corda Enterprise Edition 4.15 release notes
+# Corda Enterprise Edition 4.14 release notes
 
-## Corda Enterprise Edition 4.15.2 release notes
+## Corda Enterprise Edition 4.14.2 release notes
 
-Corda Enterprise Edition 4.15.2 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+Corda Enterprise Edition 4.14.2 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
 
 ### Upgrade recommendation
 
@@ -36,15 +36,15 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Third-party components upgrade
 
-This table shows the updates in dependency versions for Corda Enterprise Edition 4.15.2. Dependencies with unchanged versions are omitted.
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.14.2. Dependencies with unchanged versions are omitted.
 
 | Dependency                          | Name    | Version |
 |-------------------------------------|---------|--------|
 | io.netty:netty-*                    | Netty   | 4.1.132.Final       |
 
-## Corda Enterprise Edition 4.15.1 release notes
+## Corda Enterprise Edition 4.14.1 release notes
 
-Corda Enterprise Edition 4.15.1 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+Corda Enterprise Edition 4.14.1 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
 
 ### Upgrade recommendation
 
@@ -72,9 +72,9 @@ This table shows the updates in dependency versions for Corda Enterprise Edition
 | org.apache.activemq:artemis-*       | Artemis        | 2.52.0        |
 | org.eclipse.jetty.ee10:jetty-ee10-* | Jetty          | 2.25.3        |
 
-## Corda Enterprise Edition 4.15 release notes
+## Corda Enterprise Edition 4.14 release notes
 
-The Corda Enterprise Edition 4.15 release introduces new functionality and third-party component upgrades.
+The Corda Enterprise Edition 4.14 release introduces new functionality and third-party component upgrades.
 
 ## Upgrade recommendation
 
@@ -82,7 +82,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ## Platform version change
 
-Corda 4.15 uses platform version 160.
+Corda 4.14 uses platform version 160.
 
 For more information about platform versions, see [Versioning]({{< relref "cordapps/versioning.md" >}}).
 
@@ -90,7 +90,7 @@ For more information about platform versions, see [Versioning]({{< relref "corda
 
 ### Solana notary
 
-Corda Enterprise 4.15 introduces the Solana notary, a new notary type that records notarisation results on the
+Corda Enterprise 4.14 introduces the Solana notary, a new notary type that records notarisation results on the
 [Solana](https://solana.com/) blockchain. The Solana notary enables CorDapps to perform atomic cross-chain operations — a Corda
 transaction is only notarised if a corresponding Solana program instruction (such as an SPL token transfer) also
 succeeds, and vice versa. This makes it possible to build use cases such as atomic delivery-versus-payment where a
@@ -100,7 +100,7 @@ For more information, see [Solana notary]({{< relref "notary/solana-notary.md" >
 
 ### Notary instructions
 
-Corda 4.15 introduces `NotaryInstruction`, an extensible mechanism for attaching additional directives to a
+Corda 4.14 introduces `NotaryInstruction`, an extensible mechanism for attaching additional directives to a
 transaction that a specialised notary can act on during notarisation. Notary instructions are stored in a new
 transaction component group (`NOTARY_INSTRUCTIONS_GROUP`), are covered by the transaction's Merkle tree, and are
 available to contracts for verification.
@@ -125,7 +125,7 @@ than 128 output states in a transaction.
 
 ## Third-party component upgrades
 
-The following table lists the dependency version changes for 4.15 Enterprise Editions:
+The following table lists the dependency version changes for 4.14 Enterprise Editions:
 
 | Dependency                               | Name         | New Version             |
 | ---------------------------------------- | ------------ | ----------------------- |
