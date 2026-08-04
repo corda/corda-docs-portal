@@ -48,5 +48,8 @@
     "rimraf": "^3.0",
     "semver-regex": "^3.1.4",
     "shx": "^0.3.3"
+  },
+  "allowScripts": {
+    "hugo-bin@0.108.0": true
   }
 }

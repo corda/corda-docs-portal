@@ -1,11 +1,11 @@
 ---
 description: "Learn how to stop TVU in a correct way."
 date: '2023-12-15'
-section_menu: corda-enterprise-4-14
+section_menu: corda-enterprise-4-15
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-stopping-tvu
-    parent: corda-enterprise-4-14-tvu
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-stopping-tvu
+    parent: corda-enterprise-4-15-tvu
 tags:
 - stopping tvu
 - tvu

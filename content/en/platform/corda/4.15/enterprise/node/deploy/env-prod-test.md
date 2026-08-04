@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    parent: corda-enterprise-4-14-corda-nodes-deploying
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-corda-nodes-deploying
 tags:
 - env
 - prod
@@ -475,7 +475,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 
 
 ```javascript
-1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
+1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.151 -
 
 ```
 

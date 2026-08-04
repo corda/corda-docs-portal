@@ -1,13 +1,13 @@
 ---
-title: Corda Open Source Edition 4.14 release notes
+title: Corda Open Source Edition 4.15 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.ht3
 menu:
-  corda-community-4-14:
-    identifier: corda-community-4-14-release-notes
-    parent: about-corda-landing-4-14-community
+  corda-community-4-15:
+    identifier: corda-community-4-15-release-notes
+    parent: about-corda-landing-4-15-community
     weight: 10
     name: "Release notes"
 tags:

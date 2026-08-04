@@ -5,9 +5,9 @@ aliases:
 - /docker-image.html
 date: '2023-01-10'
 menu:
-  corda-community-4-14:
-    identifier: corda-community-4-14-docker-image
-    parent: corda-community-4-14-operations
+  corda-community-4-15:
+    identifier: corda-community-4-15-docker-image
+    parent: corda-community-4-15-operations
     weight: 350
 tags:
 - docker
@@ -16,8 +16,8 @@ title: Official Corda Docker Image
 ---
 # Official Corda Docker image
 
-The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/open-source/4.14-zulu-openjdk/images/sha256-ba9f29f8b2b21dc0f20a137e9aaeb5ae083739395ca81965c2d9aa056caf4bc7)
-is `corda/community:4.14-zulu-openjdk`.
+The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/open-source/4.15-zulu-openjdk/images/sha256-ba9f29f8b2b21dc0f20a137e9aaeb5ae083739395ca81965c2d9aa056caf4bc7)
+is `corda/community:4.15-zulu-openjdk`.
 
 ## Prerequisites
 

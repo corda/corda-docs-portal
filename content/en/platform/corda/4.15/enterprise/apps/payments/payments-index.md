@@ -1,13 +1,13 @@
 ---
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-14:
-    parent: apps-4-14
+  corda-enterprise-4-15:
+    parent: apps-4-15
     weight: 100
     name: "Corda Payments Preview"
-    identifier: payments-4-14
+    identifier: payments-4-15
 title: Corda Payments Technical Preview
-section_menu: corda-enterprise-4-14
+section_menu: corda-enterprise-4-15
 ---
 
 Corda Payments Technical Preview is an early release of Corda Payments, a solution that allows you to initiate and manage payments from within a Corda network via an external Payment Service Provider (PSP).
