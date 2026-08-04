@@ -30,7 +30,8 @@ If you do use them, re-namespace them to a package namespace you control and sig
 {{< table >}}
 | Corda release | Platform version |
 |:--------------|:----------------|
-| 4.15          | 160             |
+| 4.15          | 170             |
+| 4.14          | 160             |
 | 4.13          | 150             |
 | 4.12          | 140             |
 | 4.11          | 13              |
