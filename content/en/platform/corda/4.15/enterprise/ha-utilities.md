@@ -37,7 +37,8 @@ Use the `--help` flag for a full list of command line options.
 * `configure-artemis`: Generates required configuration files for the external Artemis broker.
 * `install-shell-extensions`: Install alias and autocompletion for bash and zsh. See [Shell extensions for CLI applications]({{< relref "node/operating/cli-application-shell-extensions.md" >}}) for more info.
 * `notary-registration`: Corda registration tool for registering a single HA notary service identity, using provided worker node configuration.
-
+* `node-certificate-rotation`: Corda registration tool for rotating node certificates within the same key provider.
+* `node-cross-provider-key-rotation`: Corda tool for rotating node keys across different key providers.
 
 ## Node registration tool
 
@@ -380,8 +381,68 @@ This key store contains the service identity certificate (and key if not using a
 Due to HSM restrictions around storing certificate chains, the key store will still be generated when using a HSM however it will only
 contain the notary service certificate chain. See [HSM support for notaries]({{< relref "notary/hsm-support.md" >}}) for more information.
 
-## Node certificate rotation tool
+## Node certificate rotation tool (Node same-provider key rotation tool)
 
 This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in {{< cenmlatestrelref "cenm/_index.md" "CENM" >}}. You must not change the node's `myLegalName` during certificate rotation.
 
 For more information about this feature, contact your R3 account manager.
+
+<ADD TEXT EXPLAINING THE TOOL>
+
+### Command-line options
+
+<UPDATE THE COMMAND OPTIONS BELOW TO REFLECT THE ACTUAL OPTIONS FOR THIS TOOL>
+```shell
+ha-utilities node-certificate-rotation [-hrRvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] -t=FILE -p=PASSWORD [-k=FILE]...
+```
+
+<UPDATE THE COMMAND OPTIONS BELOW TO REFLECT THE ACTUAL OPTIONS FOR THIS TOOL>
+
+* `-v`, `--verbose`, `--log-to-console`: If set, prints logging to the console as well as to a file.
+* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO
+* `-b`, `--base-directory=FOLDER`: The working directory where all the files are kept.
+* `-f`, `--config-file=FILE...`: The path to the config file. Default: node.conf
+* `-t`, `--network-root-truststore=FILE`: Network root trust store obtained from network operator.
+* `-p`, `--network-root-truststore-password=PASSWORD`: Network root trust store password obtained from network operator.
+* `-k`, `--output-keystore=FILE`: If set, stores the generated notary service certificate (and key if not using a HSM) in the configured key store.
+* `-h`, `--help`: Show this help message and exit.
+* `-V`, `--version`: Print version information and exit.
+* `-r`, `--renew`: Send a CSR to a different endpoint for certificate renewal. For more information about this feature, contact your R3 account manager.
+
+### Output
+
+<ADD AN EXPLANATION WHAT IS EXPECTED TO HAPPEN WHEN THE TOOL IS RUN SUCCESSFULLY, AND WHAT FILES ARE GENERATED>
+
+## Node cross-provider key rotation tool
+The HA Utilities tool performs a cross-provider key rotation for a Corda node and Corda notary. It allows key providers to be changed without losing access to existing states.
+This tool generates a new node identity key with the new key provider and creates the key rotation proofs required for the node to continue consuming states signed with its previous key.
+Before running the tool, ensure that the node configuration points to the new key provider and that a copy of the previous configuration is available.
+Stop the node before performing the key rotation.
+Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. <Link to the documentation for node and another link for notary key rotation>
+
+The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the drivers subdirectory of the configured base directory. Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
+
+### Command-line options
+```shell
+ha-utilities node-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [--config-file=FILE] [--config-file-previous=FILE]...
+```
+
+
+* `-v`, `--verbose`, `--log-to-console`: If set, prints logging to the console as well as to a file.
+* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO
+* `-b`, `--base-directory=FOLDER`: The working directory where all the files are kept.
+* `-f`, `--config-file=FILE`: The path to the config file. Default: node.conf
+* `-n`, `--network-parameters=FILE`: The path to the network parameters file. Default: network-parameters
+* `-g`, `--config-file-previous=FILE`: The path to the previous used node config file. Default: node.conf.previous
+* `-t`, `--network-root-truststore=FILE`: Network root trust store obtained from network operator.
+* `-p`, `--network-root-truststore-password=PASSWORD`: Network root trust store password obtained from network operator.
+* `--config-obfuscation-passphrase[=<cliPassphrase>]`: The passphrase used in the key derivation function when generating an AES key
+* `--config-obfuscation-seed[=<cliSeed>]`: The seed used in the key derivation function to create a salt
+* `-h`, `--help`: Show this help message and exit.
+* `-V`, `--version`: Print version information and exit.
+
+### Output
+
+After a successful key rotation, the tool creates an `output/certificates` directory containing Java KeyStore (JKS) files and a `key-rotation-proofs.bin` file.
+The JKS files contain the new certificates for the rotated node identity. The `key-rotation-proofs.bin` file contains the key rotation proofs required for the node to consume existing states signed with the previous key.
+Copy all files from `output/certificates` to the node’s certificates directory before starting the node. When the node starts, it loads the key rotation proofs and deletes the key-rotation-proofs.bin file after processing it.
