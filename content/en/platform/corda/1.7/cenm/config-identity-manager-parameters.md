@@ -67,6 +67,9 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
   * **type**:
  Either `ISSUANCE` or `REVOCATION` - see below for details.
 
+  * **allowKeyRotation**:
+  *(Optional - defaults to `false`)* Enables cross-provider key rotation for this workflow. When set to `true`, the Identity Manager Service allows a node or notary to rotate its legal identity key. Enable this setting only while a key rotation is in progress, and set it back to `false` once the rotation is complete. For the full procedure, see the Corda Enterprise [Cross-provider key rotation]({{< relref "../../4.15/enterprise/node/cross-provider-key-rotation/cross-provider-key-rotation.md" >}}) documentation.
+
   * **enmListener**:
   Information about the way the service will communicate with the rest of the CENM deployment.
 
