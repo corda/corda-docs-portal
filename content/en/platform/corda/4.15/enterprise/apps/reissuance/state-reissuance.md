@@ -1,13 +1,13 @@
 ---
 date: '2023-02-14'
 menu:
-  corda-enterprise-4-14:
-    parent: apps-4-14
+  corda-enterprise-4-15:
+    parent: apps-4-15
     weight: 300
     name: State reissuance
-    identifier: apps-reissuance-4-14
+    identifier: apps-reissuance-4-15
 title: State reissuance
-section_menu: corda-enterprise-4-14
+section_menu: corda-enterprise-4-15
 ---
 
 The state reissuance CorDapps listed below provide a state reissuance mechanism that enables you to break transaction backchains by reissuing a state with a guaranteed state replacement.

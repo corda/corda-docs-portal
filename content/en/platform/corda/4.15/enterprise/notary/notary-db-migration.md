@@ -1,9 +1,9 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-notary-migration-overview
-    parent: corda-enterprise-4-14-corda-nodes-notary-operate
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-notary-migration-overview
+    parent: corda-enterprise-4-15-corda-nodes-notary-operate
 tags:
 - notary
 - db

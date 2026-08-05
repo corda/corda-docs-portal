@@ -245,13 +245,13 @@ The key thing is to look at this from the perspective of a bank implementing the
 
 For Float and Bridge to communicate a tunnel keystore must be created. To create a tunnel keystore, run the following command:
 
-`java -jar corda-tools-ha-utilities-4.1.jar generate-internal-tunnel-ssl-keystores -p tunnelStorePass -e tunnelPrivateKeyPassword -t tunnelTrustpass`
+`java -jar corda-tools-ha-utilities-4.10.jar generate-internal-tunnel-ssl-keystores -p tunnelStorePass -e tunnelPrivateKeyPassword -t tunnelTrustpass`
 
 
 ### Bridge installation
 
 
-* Upload the `corda-firewall-4.1.jar` to the /opt/cordabridge directory.
+* Upload the `corda-firewall-4.10.jar` to the /opt/cordabridge directory.
 * In the /opt/cordabridge directory, create a softlink called `certificates` linked to /opt/corda/certificates
 * In the /opt/cordabridge directory, make a directory called bridgecerts
 * In the /opt/cordabridge directory, copy /opt/corda/network-parameters back to  /opt/cordabridge
@@ -306,7 +306,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 
 * Create an /opt/cordafloat directory on your VM
-* Upload the `corda-firewall-4.1.jar` to the /opt/cordafloat directory.
+* Upload the `corda-firewall-4.10.jar` to the /opt/cordafloat directory.
 * In the /opt/cordafloat directory, make a directory called floatcerts.
 * In the /opt/cordafloat directory, create a file called float.conf.
 * The keys were created in the Node VM so sftp from the Node VM to the Float VM and copy the files NodeVM:/opt/corda/temp/float.jks and  /opt/corda/temp/trust.jks into the FloatVM:/opt/cordafloat/floatcerts directory.

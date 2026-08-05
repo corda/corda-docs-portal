@@ -1,11 +1,11 @@
 ---
-title: Corda Enterprise Edition 4.14 release notes
+title: Corda Enterprise Edition 4.15 release notes
 date: '2025-03-19'
 
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-release-notes
-    parent: about-corda-landing-4-14-enterprise
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-release-notes
+    parent: about-corda-landing-4-15-enterprise
     name: "Release notes"
 tags:
 - release

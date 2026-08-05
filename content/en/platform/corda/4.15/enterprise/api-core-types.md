@@ -1,8 +1,8 @@
 ---
 date: '2021-07-07T12:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    parent: corda-enterprise-4-14-cordapps
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-cordapps
 tags:
 - api
 - core
@@ -40,7 +40,7 @@ interface NamedByHash {
 }
 ```
 
-[Structures.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
+[Structures.kt](https://github.com/corda/corda/blob/release/os/4.15/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
 
 `SecureHash` is a sealed class that only defines a single subclass, `SecureHash.SHA256`. You can use utility methods
 to create and parse `SecureHash.SHA256` objects.

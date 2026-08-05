@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    parent: corda-enterprise-4-14-corda-nodes-operating
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-corda-nodes-operating
 tags:
 - health
 - survey
@@ -23,7 +23,7 @@ it and the firewall (if deployed externally) for information on configuration, s
 To run the health survey tool, use the following command:
 
 ```kotlin
-java -jar corda-tools-health-survey-4.12.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
+java -jar corda-tools-health-survey-4.15.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
 ```
 
 Usage:

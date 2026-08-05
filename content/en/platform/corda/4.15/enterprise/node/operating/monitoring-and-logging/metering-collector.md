@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
-section_menu: corda-enterprise-4-14
+section_menu: corda-enterprise-4-15
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-metering-collection
-    parent: corda-enterprise-4-14-monitoring-logging
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-metering-collection
+    parent: corda-enterprise-4-15-monitoring-logging
 tags:
 - metering
 - collector
@@ -74,7 +74,7 @@ It is very important that you create the configuration file correctly. To do so,
 
 ## Install the metering collection tool
 
-The metering collection tool is distributed as part of Corda Enterprise Edition 4.10 under the name `corda-tools-metering-collector-4.11.jar`. You must place this JAR file in the `cordapps` directory of the node.
+The metering collection tool is distributed as part of Corda Enterprise Edition 4.15 under the name `corda-tools-metering-collector-4.15.jar`. You must place this JAR file in the `cordapps` directory of the node.
 
 ## Use the metering collection flows
 

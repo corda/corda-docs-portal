@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-vault.html
 date: '2023-02-01'
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-key-concepts-vault
-    parent: corda-enterprise-key-concepts-4-14
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-key-concepts-vault
+    parent: corda-enterprise-key-concepts-4-15
     weight: 1090
 tags:
 - concepts
@@ -114,7 +114,7 @@ query soft locks associated with states as required by their CorDapp application
 
 ```
 
-[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.15/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 
 ### Querying the vault with `SoftLockingCondition`
@@ -135,7 +135,7 @@ By default, vault queries always include locked states in its result sets. Custo
 
 ```
 
-[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.14/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
+[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.15/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 
 ### Explicit usage

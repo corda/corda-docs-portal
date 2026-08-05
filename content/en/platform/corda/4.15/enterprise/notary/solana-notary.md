@@ -1,9 +1,9 @@
 ---
 date: '2026-02-25T00:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-solana-notary
-    parent: corda-enterprise-4-14-corda-nodes-notaries
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-solana-notary
+    parent: corda-enterprise-4-15-corda-nodes-notaries
     name: "Solana notary"
 tags:
 - solana
@@ -403,13 +403,13 @@ public void setupSolana(SolanaTestValidator validator) {
 The following sample CorDapps demonstrate how to use the Solana notary in practice. Both use the
 [Corda Token SDK](https://github.com/corda/token-sdk) to represent Corda assets as fungible tokens.
 
-* **[Delivery-versus-payment](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/delivery-vs-payment)**:
+* **[Delivery-versus-payment](https://github.com/corda/samples-kotlin/tree/release/ent/4.15/Solana/delivery-vs-payment)**:
   A seller transfers Corda stock tokens to a buyer, while the buyer's Solana stablecoin payment is transferred to the
   seller — atomically, in a single notarisation.
 
-* **[Bridge Authority](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Solana/bridge-authority)**:
+* **[Bridge Authority](https://github.com/corda/samples-kotlin/tree/release/ent/4.15/Solana/bridge-authority)**:
   Demonstrates how Solana bridging can be added to an existing Corda network (in this case the
-  [stock pay dividend sample](https://github.com/corda/samples-kotlin/tree/release/ent/4.14/Tokens/stockpaydividend))
+  [stock pay dividend sample](https://github.com/corda/samples-kotlin/tree/release/ent/4.15/Tokens/stockpaydividend))
   without modification. Only two new participants are needed: a Bridge Authority node, which orchestrates bridging
   and redemption on behalf of token holders, and a Solana notary. The Bridge Authority receives fungible tokens from
   holders, locks them in a pool, and the Solana notary atomically mints the equivalent SPL tokens on Solana.

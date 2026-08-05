@@ -8,8 +8,8 @@ aliases:
 - /docs/corda-os/tutorial-cordapp.html
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-14:
-    parent: corda-enterprise-4-14-cordapps
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-cordapps
 tags:
 - tutorial
 - cordapp
@@ -393,7 +393,7 @@ The `cordapp-example` folder is structured as follows:
 │           │               ├── MainController.java
 │           │               ├── NodeRPCConnection.java
 │           │               └── Server.java
-│           │  
+│           │
 │           └── resources
 │               ├── application.properties
 │               └── public
@@ -403,8 +403,8 @@ The `cordapp-example` folder is structured as follows:
 ├── config
 │   ├── dev
 │      └── log4j2.xml
-│  
-│  
+│
+│
 ├── contracts-java
 │   ├── build.gradle
 │   └── src
@@ -436,11 +436,11 @@ The `cordapp-example` folder is structured as follows:
 │   └── wrapper
 │       ├── gradle-wrapper.jar
 │       └── gradle-wrapper.properties
-│ 
+│
 ├── lib
 │   ├── README.txt
 │   └── quasar.jar
-│ 
+│
 ├── workflows-java
 │   ├── build.gradle
 │   └── src

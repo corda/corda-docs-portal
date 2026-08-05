@@ -2,9 +2,9 @@
 title: Platform support matrix
 date: '2021-07-02'
 menu:
-  corda-community-4-14:
+  corda-community-4-15:
     identifier: community-platform-support-matrix
-    parent: about-corda-landing-4-14-community
+    parent: about-corda-landing-4-15-community
     weight: 450
 ---
 
@@ -13,7 +13,7 @@ menu:
 
 Corda supports a subset of the platforms that are supported by [Java](https://www.oracle.com/java/technologies/javase/products-doc-jdk17certconfig.html).
 
-Production use of Corda Open Source 4.14 is only supported on Linux OS, see details below.
+Production use of Corda Open Source 4.15 is only supported on Linux OS, see details below.
 
 ## Network management
 
@@ -27,7 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda Open Source Edition 4.14 has been tested and verified to work with **Oracle JDK 17.0.17** and **Azul Zulu Enterprise 17.0.17**.
+Corda Open Source Edition 4.15 has been tested and verified to work with **Oracle JDK 17.0.17** and **Azul Zulu Enterprise 17.0.17**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
 
@@ -46,7 +46,7 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 ## Operating systems supported in production
 
-Production use of Corda Open Source 4.14 is only supported on Linux OS; see details below.
+Production use of Corda Open Source 4.15 is only supported on Linux OS; see details below.
 
 {{< table >}}
 

@@ -1,9 +1,9 @@
 ---
-title: "Corda Enterprise Edition 4.14 release packs and checksums"
+title: "Corda Enterprise Edition 4.15 release packs and checksums"
 date: '2023-03-29'
 menu:
-  corda-enterprise-4-14:
-    parent: corda-enterprise-4-14-release-notes
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-release-notes
     weight: 200
     name: "Release packs and checksums"
 tags:

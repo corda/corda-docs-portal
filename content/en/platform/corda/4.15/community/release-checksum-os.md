@@ -1,10 +1,10 @@
 ---
-title: Corda Open Source Edition 4.14 release packs and checksums
+title: Corda Open Source Edition 4.15 release packs and checksums
 date: '2021-07-02'
 menu:
-  corda-community-4-14:
-    identifier: corda-community-4-14-release-checksum-os
-    parent: corda-community-4-14-release-notes
+  corda-community-4-15:
+    identifier: corda-community-4-15-release-checksum-os
+    parent: corda-community-4-15-release-notes
     weight: 440
     name: "Release packs and checksums"
 ---

@@ -5,9 +5,9 @@ aliases:
 - /testing.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-enterprise
-    parent: corda-enterprise-4-14-cordapps
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-enterprise
+    parent: corda-enterprise-4-15-cordapps
     weight: 1040
 tags:
 - testing

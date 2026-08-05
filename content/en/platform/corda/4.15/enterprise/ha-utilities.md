@@ -1,8 +1,8 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    parent: corda-enterprise-4-14-corda-nodes-firewall
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-corda-nodes-firewall
 tags:
 - ha
 - utilities
@@ -15,12 +15,12 @@ weight: 30
 Setting up multiple nodes behind shared Corda Firewall require preparation of various keystores and config files, which can be time consuming and error prone.
 The HA Utilities aims to provide tools to streamline the node provision and deployment process.
 
-The tool is distributed as part of Corda Enterprise in the form of runnable `.jar.` file - `corda-tools-ha-utilities-4.12.jar`.
+The tool is distributed as part of Corda Enterprise in the form of runnable `.jar.` file - `corda-tools-ha-utilities-4.15.jar`.
 
 To run simply pass in the file or URL as the first parameter:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.12.jar <sub-command> <command line options>
+java -jar corda-tools-ha-utilities-4.15.jar <sub-command> <command line options>
 ```
 
 
@@ -100,7 +100,7 @@ Before running the tool you need to copy the configuration files from Corda node
 
 ```kotlin
 .
-├── corda-tools-ha-utilities-4.12.jar
+├── corda-tools-ha-utilities-4.15.jar
 ├── drivers
     ├── <HSM driver>
 ├── entity_A
@@ -117,7 +117,7 @@ Before running the tool you need to copy the configuration files from Corda node
 Given the configuration above, the tool can be run with the following command:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.12.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825
+java -jar corda-tools-ha-utilities-4.15.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825
 ```
 
 After successful execution this will produce output/ folder containing the following files:
@@ -181,7 +181,7 @@ Pre-requisites for TLS certificate renewal are:
 Given the configuration above, TLS certificates can be renewed with the following command:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.12.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825 --renew-tls-cert
+java -jar corda-tools-ha-utilities-4.15.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825 --renew-tls-cert
 ```
 
 This will update certificates in `sslkeystore.jks` and `bridge.jks` at the output location.

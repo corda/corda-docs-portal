@@ -1,20 +1,20 @@
 ---
 cascade:
-  version: 'Enterprise 4.14'
+  version: 'Enterprise 4.15'
   project: Corda
-  section_menu: corda-enterprise-4-14
-description: "Documentation for the 4.14 Enterprise Edition release of Corda"
-title: "Corda Enterprise 4.14"
-date: '2020-02-19'
+  section_menu: corda-enterprise-4-15
+description: "Documentation for the 4.15 Enterprise Edition release of Corda"
+title: "Corda Enterprise 4.15"
+date: '2026-08-04'
 menu:
   versions:
     weight: -1200
-  corda-enterprise-4-14:
-    identifier: about-corda-landing-4-14-enterprise
+  corda-enterprise-4-15:
+    identifier: about-corda-landing-4-15-enterprise
     weight: -30
 ---
 
-# Corda Enterprise 4.14
+# Corda Enterprise 4.15
 
 Corda is the world’s first private, permissioned distributed ledger technology (DLT) platform designed to work with today’s financial services industry. While regulated companies may start on public blockchains, they soon realize when they get to production, that they require capabilities native to Corda such as privacy, security, scalability, and ease-of-integration with existing systems. That’s why R3 is also exploring interoperability with assets that originate on a non-Corda network.
 

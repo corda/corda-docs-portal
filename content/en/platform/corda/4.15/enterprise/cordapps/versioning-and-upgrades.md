@@ -1,10 +1,10 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-14:
-    identifier: corda-enterprise-4-14-cordapps-versioning
+  corda-enterprise-4-15:
+    identifier: corda-enterprise-4-15-cordapps-versioning
     name: "Versioning and upgrading CorDapps"
-    parent: corda-enterprise-4-14-cordapps
+    parent: corda-enterprise-4-15-cordapps
 tags:
 - versioning
 - upgrades

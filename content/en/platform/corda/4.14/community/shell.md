@@ -96,7 +96,7 @@ You can access the standalone shell from [software.r3.com](https://software.r3.c
 Run the `corda-standalone-shell` jar using the followind command:
 
 ```shell
- java -jar corda-standalone-shell-4.12.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
+ java -jar corda-standalone-shell-4.14.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
     [--truststore-file=<trustStoreFile>]
     [--truststore-password=<trustStorePassword>]
     [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]

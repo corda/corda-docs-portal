@@ -1,14 +1,14 @@
 ---
 date: '2023-02-13'
 menu:
-  corda-enterprise-4-14:
-    parent: about-corda-landing-4-14-enterprise
+  corda-enterprise-4-15:
+    parent: about-corda-landing-4-15-enterprise
     name: Platform support
 tags:
 - platform
 - support
 - matrix
-title: Corda Enterprise 4.14 platform support
+title: Corda Enterprise 4.15 platform support
 weight: 250
 ---
 
