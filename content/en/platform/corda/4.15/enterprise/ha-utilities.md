@@ -418,7 +418,7 @@ The HA Utilities tool performs a cross-provider key rotation for a Corda node an
 This tool generates a new node identity key with the new key provider and creates the key rotation proofs required for the node to continue consuming states signed with its previous key.
 Before running the tool, ensure that the node configuration points to the new key provider and that a copy of the previous configuration is available.
 Stop the node before performing the key rotation.
-Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. <Link to the documentation for node and another link for notary key rotation>
+Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. See [Rotate a node key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotate-a-node-key" >}}) and [Rotate a notary key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotate-a-notary-key" >}}) for the full procedures.
 
 The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the drivers subdirectory of the configured base directory. Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
 
