@@ -512,11 +512,19 @@ The manifest contains the following columns:
 * `timestamp`: Time the item was recorded in the vault, in ISO-8601 format.
 * `size_bytes`: Size of the exported item in bytes.
 * `filename`: Original filename, attachments only.
-* `participants`: Semicolon-separated participants of the transaction's output states, transactions only.
+* `participants`: Semicolon-separated participants of the transaction's states, transactions only.
 
-The participants are the distinct participants of the transaction's output states, using the legal name for well-known parties and the hash of the owning key otherwise. The column is empty when the transaction has no output states or the states cannot be deserialized.
+The participants are the distinct participants of both the states created by the transaction and the states it consumes, using the legal name for well-known parties and the hash of the owning key otherwise. Participants of the created states are listed first.
 
-Extracting the participants requires deserializing every exported transaction. If this overhead is unwanted, it can be disabled with the `exporter.extractParticipants` property (default `true`), in which case the participants column is left empty:
+Reading the participants requires deserializing the contract states, which needs the CorDapp that defines them to be installed on the node. Transactions themselves are exported as binary blobs and do not need the CorDapp, so an export never fails because a CorDapp is missing: the participants which cannot be read are simply omitted, and the number affected is reported once the export has completed. Install the CorDapp and export again if the participants are required.
+
+The states consumed by a transaction are only references, so they are resolved by loading the transactions which created them. These are always available during a normal archive run: the walkback marks a transaction for deletion before its source transactions are even marked for walkback, so a source transaction is never archived ahead of the transaction consuming it, and the vault is only purged after the export has completed. Source transactions are therefore archived in the same snapshot as the transactions consuming them, or in a later one, never in an earlier one.
+
+{{< note >}}
+A consumed state therefore only fails to resolve in one of two cases: the transaction which created it is genuinely not held by the node, which happens on a vault where a snapshot has been imported without the later snapshots holding its source transactions; or the states of that transaction cannot be read because the CorDapp defining them is no longer installed. The participants of those states are then omitted from the list, and the number of states affected is reported at the end of the export.
+{{< /note >}}
+
+Extracting the participants requires deserializing every exported transaction and loading the transactions which created the consumed states. If this overhead is unwanted, it can be disabled with the `exporter.extractParticipants` property (default `true`), in which case the participants column is left empty:
 
 ```text
 exporter: {
