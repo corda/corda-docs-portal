@@ -227,7 +227,7 @@ Conversely, `import-snapshot` does not check or enforce that a transaction's own
 
 ## Performance tuning
 
-The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by two settings: the batch size and the parallelism of the node's JVM.
+The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by the batch size and the parallelism of the node's JVM, and on the export side by the manifest participants feature and the chunk size of the zipped archives.
 
 ### Batch size
 
@@ -259,6 +259,16 @@ Parallel streams run on the common `ForkJoinPool` of the node's JVM. By default,
 ```
 
 Because the archiving work runs inside the node's JVM, it shares CPU with regular node operation. Lowering the parallelism leaves more headroom for other node activity while archiving is running; raising it (on machines with many cores) can speed up archiving during dedicated maintenance windows. Note that the common `ForkJoinPool` is shared by the whole JVM, so this setting also affects any other code in the node that uses parallel streams.
+
+### Manifest participants
+
+Recording the participants of each exported transaction in the [archive manifest]({{< relref "archiving-cli.md#archive-manifest" >}}) adds cost to two steps. Marking the items looks up the participants of the consumed states in the vault: on a ledger whose transactions consume many states, marking 120,000 transactions consuming 6,000,000 states measured 28 seconds on the lookup. The export deserializes each exported transaction once, to read the participants of the states it creates; without the feature, transactions are copied to the archive as binary blobs and are never deserialized.
+
+Set `exporter.extractParticipants` to false in the CorDapp configuration file to turn the feature off if throughput matters more than the participants.
+
+### Zipped archive chunk size
+
+The `ZippedFileExporter` compresses items in chunks and writes each chunk to the archive as soon as it is complete. The items of a chunk are held in memory until it is written, so `exporter.zippedFileExporter.chunkSize` (default 10000) bounds the memory used by the exporter to roughly the chunk size multiplied by the average size of a transaction. Lower it if the node is short of heap when exporting, and raise it only if compression throughput turns out to be the limit. See [Zipped archive chunk size]({{< relref "archiving-cli.md#zipped-archive-chunk-size" >}}) for the configuration format.
 
 ### Performance tracking
 

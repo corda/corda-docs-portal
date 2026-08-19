@@ -500,6 +500,22 @@ Each exporter has its own configuration requirements, which it takes either from
 
 Custom exporters can be implemented for individual archive solutions. For more details see the [Archive Service Library documentation]({{< relref "../../tools/archiving-service/archive-library.md" >}}).
 
+### Zipped archive chunk size
+
+The `ZippedFileExporter` compresses items in chunks and writes each chunk to the archive as soon as it is complete. The items of a chunk are held in memory until it is written, so `exporter.zippedFileExporter.chunkSize` (default 10000) bounds the memory used by the exporter to roughly the chunk size multiplied by the average size of a transaction.
+
+```text
+exporter: {
+    exporters: [
+        "ZippedFileExporter"
+    ]
+    zippedFileExporter.directory: "./exports"
+    zippedFileExporter.chunkSize: 10000
+}
+```
+
+Lower the chunk size if the node is short of heap when exporting, and raise it only if compression throughput turns out to be the limit.
+
 ### Archive manifest
 
 The `ZippedFileExporter` writes a manifest file `manifest-<snapshot>.csv` next to the zip files, listing each exported transaction and attachment with its vault timestamp and size. The manifest allows the contents of an archive to be audited — for example, finding which archive holds a given transaction ID, or filtering by date range or party — without opening the zip files.
@@ -516,15 +532,25 @@ The manifest contains the following columns:
 
 The participants are the distinct participants of both the states created by the transaction and the states it consumes, using the legal name for well-known parties and the hash of the owning key otherwise. Participants of the created states are listed first.
 
-Reading the participants requires deserializing the contract states, which needs the CorDapp that defines them to be installed on the node. Transactions themselves are exported as binary blobs and do not need the CorDapp, so an export never fails because a CorDapp is missing: the participants which cannot be read are simply omitted, and the number affected is reported once the export has completed. Install the CorDapp and export again if the participants are required.
+Reading the participants of the states created by a transaction requires deserializing the contract states, which needs the CorDapp that defines them to be installed on the node. Transactions themselves are exported as binary blobs and do not need the CorDapp, so an export never fails because a CorDapp is missing: the participants which cannot be read are simply omitted, and the number affected is reported once the export has completed. Install the CorDapp and export again if the participants are required.
 
-The states consumed by a transaction are only references, so they are resolved by loading the transactions which created them. These are always available during a normal archive run: the walkback marks a transaction for deletion before its source transactions are even marked for walkback, so a source transaction is never archived ahead of the transaction consuming it, and the vault is only purged after the export has completed. Source transactions are therefore archived in the same snapshot as the transactions consuming them, or in a later one, never in an earlier one.
+The states consumed by a transaction are only references, so their participants have to be looked up. Both halves of that lookup are already recorded in the vault schema: the iterative archiving model records which states each transaction consumes, and the vault's `state_party` table records the participants of every state the node holds. Joining the two resolves the consumed states without loading or deserializing the transactions which created them, and without needing the CorDapps which define those states to still be installed.
+
+That join runs when the items are marked, not when they are exported: `mark-items` records the participants of each marked transaction's consumed states on its archive log entry, in one statement for the whole job, and the export simply reads the recorded value. On PostgreSQL it arrives with the transaction itself, as the export query already joins the archive log; the other databases read mapped entities, which cannot carry it, so they read it with a small query per batch. The participants of a transaction are joined into a single field by the database, because a transaction typically consumes many states shared by the same few parties, which makes the recorded value far smaller than the rows it is aggregated from.
+
+Both sides of that join hold when the items are marked. The vault still holds every consumed state: the walkback marks a transaction for deletion before its source transactions are even marked for walkback, so a source transaction is never archived ahead of the transaction consuming it, and the vault is only purged after the export has completed. And the iterative archiving model covers every transaction being marked, because that is what marks them archivable in the first place.
 
 {{< note >}}
-A consumed state therefore only fails to resolve in one of two cases: the transaction which created it is genuinely not held by the node, which happens on a vault where a snapshot has been imported without the later snapshots holding its source transactions; or the states of that transaction cannot be read because the CorDapp defining them is no longer installed. The participants of those states are then omitted from the list, and the number of states affected is reported at the end of the export.
+Where either side is missing, the participants of the consumed states are simply absent from the manifest and the export continues. That happens on a state the node knows only through the back chain and therefore never recorded, and on a job which was marked with `exporter.extractParticipants` disabled, or by a version of the Archive Service without this feature, and exported with it enabled: nothing was recorded when those items were marked, and marking a new job is what records it.
+
+Importing a snapshot needs no special handling: the import records the states of the imported transactions in the vault and repopulates the iterative archiving model for them, including the states they consume, so both sides of the lookup are in place. Re-exporting an existing job does not use the model at all, as it reads the participants recorded on the archive log when the job was marked, and the archive log is never purged.
 {{< /note >}}
 
-Extracting the participants requires deserializing every exported transaction and loading the transactions which created the consumed states. If this overhead is unwanted, it can be disabled with the `exporter.extractParticipants` property (default `true`), in which case the participants column is left empty:
+Because the consumed states are read from the vault rather than from the transaction, they are still reported for a transaction whose own states cannot be read: such a row carries the participants of the states it consumes, but not those of the states it creates.
+
+The recorded participants of one transaction are clipped to the width of the archive log's participants column (2000 characters, roughly 30 legal names). A clipped entry lists only some of the participants, and the number of transactions affected is reported as a warning when the items are marked.
+
+Recording the participants is enabled by default. Set `exporter.extractParticipants` to false to turn it off, in which case the participants column is left empty and nothing else changes. The property is read twice: from the CorDapp configuration file when the items are marked, where it controls whether the consumed-state participants are recorded, and again when the export runs, where it controls whether the manifest reports participants at all. Enabling it only at export time therefore still leaves the consumed-state participants absent, as nothing was recorded when the items were marked.
 
 ```text
 exporter: {
@@ -535,6 +561,8 @@ exporter: {
     extractParticipants: false
 }
 ```
+
+Recording the participants makes marking the items more expensive, as that is where the consumed states are looked up: on a ledger whose transactions consume many states, marking 120,000 transactions consuming 6,000,000 states measured 28 seconds on the lookup. The export pays for deserializing each exported transaction once, to read the participants of the states it creates; without the feature, transactions are copied to the archive as binary blobs and are never deserialized. Turn it off if throughput matters more than the participants.
 
 ## Archive schema
 
