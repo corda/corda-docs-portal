@@ -1,0 +1,290 @@
+{
+    "API": {
+        "definition": "APIs allow different software applications to communicate with each other and share data in a standardized and structured way.",
+        "more": "<ul><li>The CorDapp API enables developers using Corda to develop CorDapps by accessing data or functionality from a remote service or application, without needing to understand the underlying implementation details. For more information see the <a href=\"../developing-applications/api.html\"> CorDapp API documentation</a>.</li><li>The Corda REST API enables you to interact with your CorDapp; for example, to start a flow or retrieve the result of a flow. This API is exposed as a REST service. For more information see the <a href=\"../reference/rest-api.html\"> Corda REST API documentation</a>.</li>"
+    },
+    "Application network": {
+        "definition": "The set of all possible entities onboarded according to the rules of the network. Application networks enable people and businesses to interact with each other on Corda.",
+        "more": "New entities can join a network by installing a single file distributed by the network manager. Network participants are Corda identities represented by virtual nodes. They communicate or transact using the CorDapps contained in the network's installer. Participants can join multiple application networks using different virtual nodes, which can all run on a single node infrastructure. For more information see the <a href=\"../key-concepts/fundamentals/application-networks.html\">Key Concepts</a> page. "
+    },
+    "Notary": {
+        "definition": "Corda’s uniqueness consensus service. The notary’s primary role is to prevent double-spends by ensuring each transaction contains only unique unconsumed input states. ",
+        "more": "It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window. For more information, see <a href=\"../developing-applications/ledger/notaries.html\">Notaries</a>."
+    } ,
+    "Group policy": {
+        "definition": "A JSON file containing network information that is bundled with a CPB to create a CPI. ",
+        "more": "You can create this file using the <a href=\"./corda-cli/mgm.html\">Corda CLI</a> or, for members joining a group, <a href=\"../application-networks/creating/members/cpi.html#generate-the-group-policy-file\">export it from the MGM</a>."    
+    },
+    "CPK": {
+        "definition": "Corda Package. A signed ZIP/JAR library of Java code packaged to be portable with all of its dependencies and version information contained within it.",
+        "more": "CPKs are designed to be modular so that reusable libraries of code, or data models, can be shared between projects. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
+    },
+    "CPB": {
+        "definition": "Corda Package Bundle. A signed ZIP/JAR collection of CPKs that forms a complete application suite and contains all the code that a virtual node must operate, minus the specific network details. ",
+        "more": "This separation is present in Corda 5 so that software can be developed and tested against development networks and then fuller UAT networks before final publication of the production CPI with the surety that the code has not changed. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
+    },
+    "CPI": {
+        "definition": "Corda Package Installer. A signed ZIP/JAR combination of a CPB and a Group Policy File that defines not only the application code that a virtual node will run, but also the details of the MGM with which to register, and the details of network PKI requirements.",
+        "more": "A CPI must be installed into a Corda cluster before creating and registering a virtual node, as it defines the application software that will be run and the requirements for membership on that network. For more information, see <a href=\"../developing-applications/packaging.html\">Packaging</a>."
+    },
+    "Autoscaling": {
+        "definition": "A technique used to automatically adjust the amount of computing resources allocated to an application or service based on its workload.",
+        "more": "If a sudden increase in demand is experienced for an application or service, autoscaling increases provided resources to cope with demand. This intervention can be manual or automatic and is designed to reduce chances of service interruption, or performance issues."
+    },
+    "Bootstrapping": {
+        "definition": "To boot or to load a program using a much smaller initial program to load in the desired program.",
+        "more": "This is usually an operating system or setup files that can be implemented automatically or manually."
+    },
+    "CA": {
+        "definition": "Certificate Authority. The holders of a PKI trust root that can issue certificates to customers." ,
+        "more": "When you set up a membership group, you must decide which certificate authorities apply to various identities: TLS, ledger, and REST user identities."
+    },
+    "Cluster": {
+        "definition": "A complete set of worker processes. Clusters require a fully functioning virtual node infrastructure.",
+        "more": "The cluster hosts a dynamically-configured set of virtual nodes, which are equivalent to nodes used in Corda 4. For more information, see <a href=\"../key-concepts/cluster-admin.html\">Architecture for Cluster Administrators</a>."
+    },
+    "Corda Host": {
+        "definition": "A complete set of worker processes. Clusters require a fully functioning virtual node infrastructure.",
+        "more": "The cluster hosts a dynamically-configured set of virtual nodes, which are equivalent to nodes used in Corda 4."
+    },
+    "Consensus": {
+        "definition": "An agreement that a proposed transaction is valid is required before you can add it to the ledger. ",
+        "more": "In Corda, this is achieved by proving a transaction is both <i>valid</i> and <i>unique</i>:<ul><li>Validity consensus determines if a transaction is accepted by the smart contracts it references.</li><li>Uniqueness consensus prevents double-spends.</li></ul> For more information, see <a href=\"../developing-applications/ledger/consensus.html\">Consensus</a>."
+    },
+    "Corda CLI": {
+        "definition": "A command line tool that supports various Corda-related tasks, including Corda Package Installer (CPI) creation and Corda cluster management. ",
+        "more": ""
+    },
+    "CorDapp": {
+        "definition": "Corda Distributed Application. A Java (or any JVM targeting language) application built using the Corda build toolchain and CorDapp API to solve some problem that is best solved in a decentralized manner.",
+        "more": "CorDapps are assembled as one or more JAR files bundled into the CorDapp packaging format. That file is then uploaded to Corda where it is executed, Corda acting as the application host for the CorDapp. A CorDapp is distributed because parts of the application can be, or may need to be, executed on a Corda instance that is operated by another party that is a member of the same Corda Application Network. For more information see the <a href=\"../key-concepts/fundamentals/cordapps.html\">Key Concepts</a> page. "
+    },
+    "Persistence worker": {
+        "definition": "A worker that persists flow and ledger operations within the database sandbox.",
+        "more": " For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Uniqueness worker": {
+        "definition": "A worker that provides fixed-function checking for spent input and reference states and time-window validation.",
+        "more": "For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Token selection worker": {
+        "definition": "A worker that selects the set of states to use as input states in a UTXO transaction.",
+        "more": "For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Crypto worker": {
+        "definition": "A worker that manages the cryptographic materials of the Corda cluster and virtual nodes. It connects to any Hardware Security Modules (HSM) used to hold private keys, as well as database(s) used as a software HSM to hold wrapped and encrypted private keys.",
+        "more": "When a virtual node needs to sign data, the request is sent across Kafka to one of the Crypto workers which performs the signing. The Crypto workers also provide admin functions to generate certificate signing requests and import certificates from external PKI providers and Certificate Authorities. For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },    
+    "Database worker": {
+        "definition": "A worker that connects to, manages, and operates upon the database(s) used by the Corda cluster. This includes the cluster-level database schemas needed to store configuration data for the cluster, but also the separate databases/schemas used by each virtual node. ",
+        "more": "When a virtual node reads or writes ledger data, the work request is sent across Kafka to one of the Database workers for processing and the results are returned to the Flow Engine over Kafka. For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "DLT": {
+        "definition": "Distributed Ledger Technology. A type of database technology that enables a network of computers to maintain a shared and synchronized database.",
+        "more": "It is a decentralized and transparent ledger that records transactions in a tamper-evident and secure manner, making it well-suited for use cases that require high levels of security, trust, and transparency."
+    },
+    "ECDH": {
+        "definition": "Elliptic-curve Diffie–Hellman. A key sharing algorithm, most commonly used to send encrypted messages. ",
+        "more": "ECDH works by multiplying your private key by another's public key to get a shared secret, then using that shared secret to perform symmetric encryption."
+    },
+    "Entity": {
+        "definition": "An organization or individual that participates in one or more application networks that can provide attestation that they are whom they claim to be.",
+        "more": "An entity will have many identities. "
+    },
+    "Flow": {
+        "definition": "Communication between participants in an application network is peer-to-peer using flows. ",
+        "more": "Flows automate the process of agreeing ledger updates between two or more participants. "
+    },
+    "Flow worker": {
+        "definition": "A worker that runs the CorDapp application code and translates flow API calls into function requests to the relevant workers. The flow workers are designed to share work between themselves and to record checkpoints at each stage of the application's progress, so that in the event of worker failure, the operations can be retried.",
+        "more": "Similarly, when a CorDapp sends messages to a peer, the flow worker is responsible for the higher level retry, deduplication, and re-ordering of messages above and beyond the simple packet retries of the Link Manager messaging layer. In the case of unrecoverable errors, or loss of synchronization between virtual nodes, the flow worker signals the errors via the REST worker APIs and aborts any remote operations that have been started in peers.  For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Flow mapper worker": {
+        "definition": "A worker that maintains the mapping and context switching between flows and sessions.",
+        "more": " For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Verification worker": {
+        "definition": "In combination with the platform ledger code, this worker ensures that the ledger operations of a flow operate atomically across peers.",
+        "more": "For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Gateway worker": {
+        "definition": "A worker designed to communicate with external Corda clusters via HTTPS. They have restricted access only to specific topics on the Kafka bus and view only the minimum information needed for their role. ",
+        "more": "The gateway workers are the only component of the cluster with access to the wider network. The workers transfer Link Manager session messages taken from Kafka and use HTTPS POST to send them to the peer's gateway worker. After local validation is received, messages are placed onto Kafka for the Link Manager to process. The gateway workers play the important role of establishing and validating the TLS links established to peer Corda clusters and accessing external resources such as certificate revocation servers, or border proxies. Gateway workers have no direct access to any keys and can only request that the crypto workers sign the TLS handshake data via a specific Kafka topic. Crucially, the gateway worker has no ability to access the keys used in the Ledger, or by the Link Manager. For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Helm": {
+        "definition": "A package manager for Kubernetes, which is an open-source container orchestration platform. ",
+        "more": "Helm simplifies the deployment and management of complex applications on Kubernetes by providing a way to package, deploy, and manage Kubernetes resources."
+    },
+    "Holding identity": {
+        "definition": "A group’s addressable identity on a network, plus its X.500 name.",
+        "more": ""
+    },
+    "Identity": {
+        "definition": "The representation of an entity within a single application network. This will be represented by an X.500 name that must be determined as unique within the application network.",
+        "more": "Membership is granted based on evidence from the entity submitted at time of request, that they are whom they claim to be. The threshold for that claim is the responsibility of the Application Network Operator to set out in their Terms of Service. The Network Operator can choose any approach here, from accepting entities at their word, through to a full KYC process."
+    },
+    "JKS": {
+        "definition": "Java KeyStore. A repository of security certificates, either authorization certificates or public key certificates, plus corresponding private keys, used for instance in TLS encryption.",
+        "more": ""
+    },
+    "Kafka": {
+        "definition": "The means by which Corda workers communicate, acting as a central message bus between the worker processes. ",
+        "more": "Apache Kafka is an open-source distributed streaming platform that is used for building real-time data pipelines and streaming applications. Kafka is designed to handle high-volume, high-throughput, and low-latency data streams, making it a popular choice for processing data in real-time applications. "
+    },
+    "Kubernetes": {
+        "definition": "A powerful tool for managing containerized applications at scale, making it easier for teams to deploy and manage their applications with high reliability and efficiency.",
+        "more": ""
+    },
+    "Distributed ledger": {
+        "definition": "A database of facts that is replicated, shared, and synchronized across multiple participants on a network.",
+        "more": "For more information, see <a href=\"../developing-applications/ledger.html\">Ledger</a>."
+    },
+    "Ledger identity": {
+        "definition": "Signs transactions and states. By default, the session identity is the same as the ledger identity; however, you can set them to be different.",
+        "more": ""
+    },
+    "Ledger key": {
+        "definition": "A key which can be used to sign for transactions. This key may be held confidentially and signatures may be used as evidence of authority to sign transactions. Alternatively, it may be published in the virtual nodes's MemberInfo to act as a published fact to prove the identity of the virtual node on the ledger.",
+        "more": ""
+    },
+    "Member": {
+        "definition": "Corda identity that has been granted admission to a membership group. Synonym for a virtual node or group member.",
+        "more": "To learn how to add members to an application network, see <a href=\"../application-networks/creating/members.html\">Onboarding Members</a>."
+    },
+    "MemberInfo": {
+        "definition": "Information about peer group members as distributed securely by the MGM. Contains information about session and ledger identity, connectivity details, and software version details. ",
+        "more": "A membership group and a CPI publisher may also define custom attributes in the <code>MemberInfo</code>. The MGM and the group member sign over the <code>MemberInfo</code> to confirm the validity of the information from Kafka, which may be for a different identity and/or flow."
+    },
+    "Membership group": {
+        "definition": "A logical grouping of multiple Corda identities, which communicate and transact with each other using a specific set of CorDapps.",
+        "more": ""
+    },
+    "Membership worker": {
+        "definition": "A worker that manages the peer-to-peer routing information available to virtual nodes. The membership workers communicate periodically with the MGM to ensure they have up-to-date network information on peers. This MGM communication is secured via the Link Manager protocols.",
+        "more": "If the Corda cluster is hosting a Membership Group Manager(MGM), then the Membership worker is also responsible for hosting the administrative and broadcast functions of the MGM. For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "MGM": {
+        "definition": "Membership Group Manager. May also be referred to as the Network Manager. It is a virtual node and Corda identity that acts as a central registrar for group membership. ",
+        "more": "The CPI files point at the MGM server, so that when a virtual node is created, the node contains the PKI policies and addresses the MGM. The MGM server is responsible for accepting membership proposals. For users coming from Corda 4, MGM replaces CENM. For more information, see <a href=\"../application-networks/creating/mgm.html\">Onboarding the MGM</a>."
+    },
+    "PKI": {
+        "definition": "Public key infrastructure. A comprehensive system of hardware, software, policies, and procedures that enables the secure creation, distribution, management, and revocation of digital certificates and public-key cryptography.",
+        "more": ""
+    },
+    "P2P Link Manager": {
+        "definition": "Establishes end-to-end secure sessions for virtual nodes to communicate over.",
+        "more": "The Link Manager uses the data provided to it by the membership worker to translate virtual node names on CorDapp packets to physical HTTPS destination addresses and requests the gateway worker to transmit its secured packets to the peers. If packets cannot be delivered, the Link Manager also manages redelivery, possibly via alternate gateway workers."
+    },
+    "P2P Link Manager worker": {
+        "definition": "A worker that manages the secure transmission of packets to peers. The main functional component is the Link Manager, which establishes end-to-end secure sessions for virtual nodes to communicate over.",
+        "more": " For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "RBAC": {
+        "definition": "Role-based access control. Also known as role-based security. A permission system to restrict system access based on assigned permissions.",
+        "more": "For more information, see <a href=\"../deploying-operating/config-users.html\">Configuring Users</a>."
+    },
+    "REST user identity": {
+        "definition": "A login to the REST endpoint. Each login is associated with customizable permissions on the cluster and virtual nodes.",
+        "more": ""
+    },
+    "REST worker": {
+        "definition": "A worker that exposes the intranet HTTPS REST control ports of the Corda cluster. The REST workers support all of the dynamic administration APIs of the cluster, such as APIs to configure the cluster, set up user role based permissions, or create and register virtual nodes. ",
+        "more": "REST workers also provide the virtual node endpoint APIs for invoking the flows and the ledger applications, and for retrieving their status/results. All REST calls must be authenticated and authorized, typically using OAUTH2 for login/authentication and Role Based Access Controls checked against a user permissions database. For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "Revocation check": {
+        "definition": "In the context of X.509 certificates, revocation checks refer to the process of verifying if a digital certificate is still valid and has not been revoked by the issuing Certificate Authority (CA). ",
+        "more": "Revocation checks are typically performed using mechanisms such as Certificate Revocation Lists (CRLs) or the Online Certificate Status Protocol (OCSP), which provide up-to-date information on the revocation status of certificates."
+    },
+    "Sandbox": {
+        "definition": "An execution environment within a JVM process that provides isolation for a CorDapp. It shields it from outside threats but it also restricts what it can do so that running potentially dangerous code cannot harm others.",
+        "more": "While CorDapp writers trust their own code, they can not trust CorDapps written by others, so Corda, as an application hosting platform, treat CorDapps as untrusted code that could be malicious."
+    },
+    "Session identity": {
+        "definition": "Validates the end-to-end connectivity between virtual nodes.",
+        "more": ""
+    },
+    "Session initiation key": {
+        "definition": "The key for a virtual node, which is published in the `MemberInfo`, and used by Link Managers to authenticate and establish secure messaging sessions between network members.",
+        "more": ""
+    },
+    "Session trustroot": {
+        "definition": "The highest-level or root certificate in a certificate chain that is established during a secure communication session. This root certificate is issued by a trusted Certificate Authority (CA) and serves as the ultimate authority for validating the authenticity and trustworthiness of other certificates in the chain. ",
+        "more": "A transport layer security (TLS) communications session established between two endpoints needs to share a common trustroot; this is typically a root certificate authority with a secured private key. By validating the session trust root, an application or user can ensure the integrity and security of the entire certificate chain, leading to the establishment of a secure and encrypted connection between the communicating parties."
+    },
+    "Smart contract": {
+        "definition": "Digitizes agreements by turning the contract terms into code that executes automatically when the terms are met. ",
+        "more": "This means that:<ul><li>Parties do not have to trust each other to follow through on the agreement terms.</li><li>No external enforcement is required.</li><li>The contract is always interpreted the same way.</li></ul>"
+    },
+    "State": {
+        "definition": "An immutable object representing a fact known by one or more participants at a specific point in time. You can use states to represent any type of data, and any kind of fact. ",
+        "more": "Facts evolve on the ledger when participants create new states and mark outdated states as consumed. Each participant has a vault where it stores the states it shares with other nodes."
+    },
+    "TLS": {
+        "definition": "Transport Layer Security. A protocol that establishes an encrypted session between two computers on the Internet. ",
+        "more": ""
+    },
+    "TLS identity": {
+        "definition": "Certificates used to validate peer-to-peer (P2P) connectivity.",
+        "more": ""
+    },
+    "TLS key and certificate": {
+        "definition": "The PKI keys and certificates that are used in the gateway workers when establishing TLS links to other gateway workers. Typically, they are selected by Server Name Indication (SNI) to match the expected target of the communication.",
+        "more": ""
+    },
+    "Time windows": {
+        "definition": "Included in every transaction: the transaction can only be committed during that window. ",
+        "more": "Times in transactions are specified as time windows and not absolute times. For more information, see <a href=\"../developing-applications/ledger/time-windows.html\">Time Windows</a>."
+    },
+    "Token": {
+        "definition": "A type of programmable digital asset that can represent value and be traded. Tokens can be fungible or non-fungible. ",
+        "more": ""
+    },
+    "Transaction": {
+        "definition": "A transaction is a proposal to update the ledger. ",
+        "more": "It is only committed to the ledger if it:<ul><li>does not contain double-spends</li><li>is contractually valid</li><li>is signed by the required parties</li></ul>"
+    },
+    "Trust store": {
+        "definition": "In the context of X.500 certificates and digital security, this is a repository or database containing a collection of trusted digital certificates, often from Certificate Authorities (CAs). ",
+        "more": "These certificates are used to verify and establish the authenticity and trustworthiness of a remote party's digital certificate during secure communication. Trust stores play a crucial role in public key infrastructure (PKI) systems by allowing applications and users to validate the identity and legitimacy of servers, websites, and other digital entities, helping to ensure secure and encrypted data exchanges."
+    },
+    "UTXO": {
+        "definition": "Unspent Transaction Output. The unspent output of a cryptocurrency transaction, representing the amount of digital currency that has not been spent and is available for use in future transactions. ",
+        "more": "In a blockchain-based system, such as Corda, UTXOs are the fundamental building blocks of the ledger, ensuring accurate tracking of ownership and transaction history. When a user initiates a new transaction, UTXOs are combined as inputs and new UTXOs are generated as outputs, reflecting the updated balance and ownership of the involved parties."
+    },
+    "Validity": {
+        "definition": "Simply gathering the required signatures is not enough to commit a transaction to the ledger. As well as being unique, it must also be valid. This means that the proposed transaction must be signed by all the required parties and be contractually valid.",
+        "more": "If the transaction gathers all the required signatures without meeting these conditions, the transaction’s outputs are not valid and will not be accepted as inputs to subsequent transactions."
+    },
+    "Vault": {
+        "definition": "A database containing all data from the ledger relevant to a participant. The database tracks spent and unspent (consumed and unconsumed) states.",
+        "more": "From a business perspective, this means a record of all the transaction states that you can spend as a participant, and a record of all spent states from transactions relevant to you. You can compare it to a cryptocurrency wallet — record of what you have spent and how much you have available to spend. For more information, see <a href=\"../developing-applications/ledger/vault.html\">Vault</a>."
+    },
+    "Virtual node": {
+        "definition": "The combination of the context of a user and the ephemeral compute instances created to progress a transaction on that identity's behalf.",
+        "more": "Corda 5 virtualizes the execution of flow process steps, allowing flows for multiple identities and from multiple applications to be executed within the same compute environment at the same time. A virtual node is created to handle the execution steps needed and then allowed to dematerialize. A virtual node runs one version of the CPI, which also runs that CPI’s flows and contracts. The cluster can run many virtual node identities on a multi-tenant node while keeping keys, data, and code separate. For Corda 5 users, a virtual node is equivalent to a Corda 5 node. “Virtual” means that the flows are virtualized into a series of messages sent between worker processes, which are stateless."
+    },
+    "Worker": {
+        "definition": "JVM processes that run in a cluster and perform a specific task. The processes required to form a cluster depend on the deployment topology. Workers increase or scale back their capacity depending on the number of available tasks. ",
+        "more": "Corda 5 includes dedicated workers such as REST workers, flow workers, DB workers and crypto workers. Additional workers are also available to handle cross-cluster communication and network membership. You can add additional worker replicas to provide further resilience and scaling. For information about Corda workers, see <a href=\"../key-concepts/cluster-admin/workers.html\">Workers</a>."
+    },
+    "X.500": {
+        "definition": "A series of international standards defining a global directory service protocol for computer networks. It provides a structured framework for storing, accessing, and managing information about network resources and users in a hierarchical and distributed manner.",
+        "more": "For information about how X.500 names can be defined in Corda, see <a href=\"../deploying-operating/vnodes/x500.html\"> Rules for X.500 Member Names</a>."
+    },
+    "X.509": {
+        "definition": "A widely used standard for digital certificates in public key infrastructure (PKI) systems. An X.509 certificate contains an identity (such as an individual or hostname) and a public key. ",
+        "more": "It binds the identity to the public key using a digital signature. These certificates are typically issued and signed by trusted Certificate Authorities (CAs) and include information about the certificate owner, the public key, the CA's digital signature, and other relevant details. X.509 certificates are commonly employed in various security protocols, such as SSL/TLS, to establish secure connections and authenticate the parties involved in online transactions or data exchanges."
+    },
+    "CSR": {
+        "definition": "Certificate Signing Request. This is a specially formatted encrypted message sent from a Secure Sockets Layer (SSL) digital certificate applicant to a certificate authority (CA). The CSR validates the information the CA requires to issue a certificate.",
+        "more": "A CSR must be generated for each cluster when setting up the TLS key pair or session certificates."
+    },
+    "Wrapping key": {
+        "definition": "A key used to encrypt other keys at rest.",
+        "more": "Corda keys are stored in the cluster and virtual node Crypto databases and encrypted at rest with wrapping keys. These managed wrapping keys are in turn wrapped by a master wrapping key. For more information, see <a href=\"../key-concepts/cluster-admin.html#key-management\">Key Management</a>."
+    },
+    "PEM": {
+        "definition": "A container format for the CA certificate. This is the format of the TLS certificate specified when onboarding members and is used to validate member certificates.",
+        "more": ""
+    }
+}
