@@ -27,7 +27,6 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* The transaction validator utility now exits with an error if it detects the network parameters file is missing.
 * The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVE's have also been addressed but not listed here.
 
 | Vulnerability  | Component |

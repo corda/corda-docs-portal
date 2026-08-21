@@ -37,7 +37,6 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* The transaction validator utility now exits with an error if it detects the network parameters file is missing.
 * The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVE's have also been addressed but not listed here.
 
 | Vulnerability  | Component |
