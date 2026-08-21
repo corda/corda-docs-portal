@@ -49,9 +49,9 @@ This table shows the updates in dependency versions for Corda Open Source 4.13.4
 |-------------------------------------|---------|--------|
 | io.netty:netty-*                    | Netty   | 4.1.132.Final       |
 
-## Corda Open Source Edition 4.13.3 release notes
+## Corda Open Source Edition 4.13.4 release notes
 
-Corda Open Source Edition 4.13.3 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
+Corda Open Source Edition 4.13.4 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
 
 ## Upgrade recommendation
 
@@ -93,6 +93,30 @@ This table shows the updates in dependency versions for Corda Open Source 4.13.3
 | org.apache.commons:commons-configuration2 | Commons Configuration2 | 2.13.0 (transitive) | 2.15.0 |
 | io.projectreactor.netty:reactor-netty-http | Reactor Netty | 1.2.10 (transitive) | 1.2.18 |
 | io.micrometer:micrometer-core | Micrometer | 1.16.5 (transitive) | 1.16.6 |
+
+## Corda Open Source Edition 4.13.3 release notes
+
+Corda Open Source Edition 4.13.3 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+## Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+### Fixed issues
+
+* The following vulnerabilities in dependencies have been addressed:
+
+| Vulnerability  | Component |
+|----------------|-----------|
+| CVE-2026-33870 | Netty     |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Open Source 4.13.3. Dependencies with unchanged versions are omitted.
+
+| Dependency                          | Name    | Version |
+|-------------------------------------|---------|--------|
+| io.netty:netty-*                    | Netty   | 4.1.132.Final       |
 
 ## Corda Open Source Edition 4.13.2 release notes
 
