@@ -24,7 +24,7 @@
 			{{ end }}
 			{{ $isCorda5Version := in .Site.Params.corda5versions .Page.Params.version }}
 			{{ if eq $isCorda5Version false }}			
-    			<h1>{{ .Title }}</h1>
+    			<div data-pagefind-body><div data-pagefind-weight="10"><h1>{{ .Title }}</h1></div></div>
 			{{ end }}
       {{ if .Site.Params.editPage -}}
         {{ partial "main/edit-page.html" . }}
