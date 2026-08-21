@@ -17,6 +17,55 @@ weight: 10
 
 # Corda Enterprise Edition 4.14 release notes
 
+## Corda Enterprise Edition 4.14.3 release notes
+
+Corda Enterprise Edition 4.14.3 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVE's have also been addressed but not listed here.
+
+| Vulnerability  | Component |
+|----------------|-----------|
+| CVE-2026-54512 | Jackson   |
+| CVE-2026-58062| BouncyCastle |
+| CVE-2026-8763 | BouncyCastle |
+| CVE-2026-59650 | BouncyCastle |
+| CVE-2026-54513 | BouncyCastle |
+| CVE-2026-44249 | Netty     |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.14.3. Dependencies with unchanged versions are omitted.
+
+| Dependency | Name | 4.14.2 Enterprise | 4.14.3 Enterprise |
+| ---------- | ---- | ----------------- | ----------------- |
+| org.apache.activemq:artemis-\* | Artemis | 2.52.0 | 2.55.0 |
+| org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.9 | 2.73.12 |
+| com.fasterxml.jackson.\* | Jackson | 2.18.6 | 2.21.5 |
+| com.fasterxml.jackson.module:jackson-module-kotlin | Jackson for Kotlin | 2.17.2 | 2.19.4 |
+| org.eclipse.jetty.ee10:jetty-ee10-\* | Jetty | 12.0.33 | 12.0.36 |
+| io.netty:netty-\* | Netty | 4.1.132.Final | 4.1.136.Final |
+| org.apache.logging.log4j:\* | Log4j | 2.25.3 | 2.25.5 |
+| org.apache.shiro:shiro-core | Shiro | 2.1.0 | 3.0.0 |
+| org.hibernate:hibernate-\* | Hibernate | 5.6.14.Final | 5.6.15.Final |
+| com.github.ben-manes.caffeine:caffeine | Caffeine | 3.1.8 | 3.2.3 |
+| io.opentelemetry:\* | OpenTelemetry | 1.20.1 | 1.63.0 |
+| io.opentelemetry.semconv:opentelemetry-semconv | OpenTelemetry SemConv | 1.20.1-alpha | 1.41.1 |
+| com.azure:azure-identity | Azure Identity | 1.18.1 | 1.18.3 |
+| com.azure.resourcemanager:azure-resourcemanager | Azure Resource Manager | 2.52.0 | 2.62.0 |
+| org.apache.commons:commons-configuration2 | Commons Configuration2 | 2.11.0 | 2.15.0 |
+| com.github.docker-java:docker-java | Docker Java | 3.6.0 | 3.7.0 |
+| org.jsoup:jsoup | jsoup | - | 1.23.1 |
+| io.projectreactor.netty:reactor-netty-http | Reactor Netty | 1.2.10 (transitive) | 1.2.18 |
+| io.micrometer:micrometer-core | Micrometer | 1.16.5 (transitive) | 1.16.6 |
+| com.azure:azure-security-keyvault-keys | Azure Key Vault Keys | - | 4.10.6 |
+| org.apache.httpcomponents.core5:httpcore5-h2 | HttpCore5 H2 | - | 5.3.6 |
+
 ## Corda Enterprise Edition 4.14.2 release notes
 
 Corda Enterprise Edition 4.14.2 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.

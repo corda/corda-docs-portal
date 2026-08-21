@@ -27,6 +27,22 @@ If you deviate from the above compatibility guidelines, for example, using the A
 
 ## Corda Enterprise 4.12
 
+### Archive Service 1.2.4
+
+Archive Service 1.2.1 is a patch release focussed on resolving vulnerabilities.
+
+### Archive Service 1.2.3
+
+Archive Service 1.2.3 is a patch release that sets quasar version to 0.9.0_r3.
+
+### Archive Service 1.2.2
+
+Archive Service 1.2.2 is a patch release that fixes an internal build issue.
+
+### Archive Service 1.2.1
+
+Archive Service 1.2.1 is a patch release focussed on resolving vulnerabilities.
+
 ### Archive Service 1.2
 
 Archive Service 1.2 is a major release supporting Java 17 and Kotlin 1.9.20. If you want to use the Archive Service, this is the only release that works with Corda 4.12.
