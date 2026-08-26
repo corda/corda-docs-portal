@@ -413,12 +413,12 @@ Attachment Tables
 
 ```text
 Usage:
-archive-service export-snapshot [--exporter-config=<path>] [--exporters=<list>] [--skip-binary-export]
+archive-service export-snapshot [--export-config=<path>] [--exporters=<list>] [--skip-binary-export]
 Description:
 export snapshot to long-term storage
 Options:
       --exporters=<list>        Comma separated list of exporters
-      --exporter-config=<path>  Path to exporter configuration file
+      --export-config=<path>    Path to exporter configuration file
       --skip-binary-export      Mark step as complete even if no binary export was created
 ```
 Copy the archived items from the vault to permanent storage using the listed exporters.
