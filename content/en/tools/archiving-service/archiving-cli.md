@@ -79,7 +79,7 @@ Commands:
 
 You must use the Archive Service CLI to execute commands from a machine that can issue Corda RPC commands to the node.
 
-Use the command line argument `--node-configuration` to specify a file giving the necessary RPC settings to connect to the node, as shown below.
+Use the command line argument `-f, --config-file` to specify a configuration file giving the necessary RPC settings to connect to the node, as shown below. If not specified, the service reads `node.conf` from the base directory, which is set with `-b, --base-directory` and defaults to the current directory.
 
 ```kotlin
 myLegalName="O=Node	ABC,L=London,C=GB"
@@ -116,6 +116,8 @@ then the obfuscation passphrase and seed will need to be given on the command li
 {{< /note >}}
 
 Use the command line options `--rpc-url`, `--rpc-user`, and `--rpc-password` to specify the RPC connection string, user name and password if the RPC credentials are encrypted or recorded in a database.
+
+If the node's RPC interface uses SSL, use `--rpc-ssl-truststore-path` and `--rpc-ssl-truststore-password` to specify the path to, and password of, the truststore containing the node's RPC SSL certificate.
 
 ## Workflow
 
