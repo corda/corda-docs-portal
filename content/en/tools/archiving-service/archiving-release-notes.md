@@ -29,7 +29,7 @@ If you deviate from the above compatibility guidelines, the Archive Service will
 
 ### Archive Service 2.0
 
-Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.20. This version works with Corda 4.12.
+Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.25. This version works with Corda 4.12.
 
 #### Key changes in 2.0
 
