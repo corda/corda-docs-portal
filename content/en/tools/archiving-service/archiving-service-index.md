@@ -132,7 +132,7 @@ The following are keys for configuring the Archive Service:
 * `target.url` - Backup schema archive URL, required if a backup schema is used.
 * `target.user` - Backup schema archive database user, required if a backup schema is used.
 * `target.password` - Backup schema archive database password, required if a backup schema is used.
-* `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior).
+* `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior). The `delete-transactions` command deliberately ignores this filter: it controls what automatic archiving may select, whereas that command deletes transactions the operator names explicitly.
 
 Passwords can be obfuscated using Corda's Config Obfuscator tool.
 
@@ -420,6 +420,7 @@ Commands:
   status                             display current archiving database maintenance operation status and history
   list-items                         list transactions/attachments for archiving
   create-snapshot                    marks transactions/attachments for archiving
+  delete-transactions                marks specific transactions and their dependents for deletion
   delete-vault                       delete archived items from the vault
   export-snapshot                    export snapshot to offline storage
   delete-snapshot                    delete the snapshot from backup schema

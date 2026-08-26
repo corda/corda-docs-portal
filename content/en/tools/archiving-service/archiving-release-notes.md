@@ -41,10 +41,12 @@ Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.20. Thi
   * `process-all-pending` — refreshes the archiving database by processing pending transactions and collecting archivable items.
   * `statistics` — displays iterative archiving statistics (unprocessed count, pending walkback, pending delete, sizes).
   * `status` — displays current archiving database maintenance operation status and history.
+  * `delete-transactions` — marks specific transactions, identified by their ids, together with every transaction that depends on them, for deletion from the vault — for example, because they hold data that should not be in the ledger. The job is completed with the unchanged `export-snapshot` and `delete-vault` commands. See the [Delete Transactions command]({{< relref "archiving-cli.md#delete-transactions-command" >}}) for the consistency checks and caveats.
 * **New flows**:
   * `ProcessAllPendingFlow` — processes pending transactions and collects archivable items with configurable time limit, batch size, and age filtering.
   * `StatisticsFlow` — returns iterative archiving statistics.
   * `StatusFlow` — returns current operation status and history.
+  * `DeleteTransactionsFlow` — marks specific transactions and their forward dependency closure for deletion (the flow behind the `delete-transactions` command).
   * `PerformanceStatsFlow` and `ResetPerformanceStatsFlow` — retrieve and reset per-step performance statistics (wall-clock time, CPU time, throughput). These flows are subject to change and are not a final part of the Archive Service API.
 * **Updated flow signatures**: `ListItemsFlow` and `MarkItemsFlow` now accept iterative processing parameters (`bypassProcessAllPending`, `timeLimit`, `notNewerThan`, `batchSize`, `skipSafetyIntervalCheck`) instead of filter parameters. `CreateSnapshotFlow` no longer accepts `additionalTransactionTables` or `additionalAttachmentTables` (these are now auto-detected).
 * **Updated library APIs**: New library classes `ProcessAllPending`, `Statistics` and `Status`. Updated `ListItems` and `MarkItems` to match the new flow signatures.

@@ -24,6 +24,7 @@ The Archive Service Library provides programmatic access to the Archive Service.
 * `Status`.
 * `ListItems`.
 * `MarkItems`.
+* `DeleteTransactions`.
 * `CreateSnapshot`.
 * `ExportSnapshot`.
 * `ImportSnapshot`.
@@ -244,6 +245,43 @@ class MarkItems(
       * @return Mark items results
       */
    fun execute(): MarkItemsResults
+}
+```
+
+### Delete transactions
+
+Marks specific transactions - and every transaction that depends on them - for deletion,
+identified by their ids.
+
+```kotlin
+/**
+ * Invoke the delete transactions command to mark specific transactions - and every transaction
+ * that depends on them - for deletion from the vault, identified by their ids. The snapshot,
+ * export and deletion are then performed by the unchanged create-snapshot, export-snapshot and
+ * delete-vault commands.
+ *
+ * @property rpcClient RPC connection to Archive Service node
+ * @property progressTree Callback used to report progress
+ * @property transactionIds ids of the transactions to delete
+ * @property snapshot the job name
+ * @property dryRun if true, only compute and report the dependency closure; nothing is marked
+ * @property skipSafetyIntervalCheck whether to skip the safety interval check on the newest
+ *   transaction of the closure. Default is false.
+ */
+class DeleteTransactions(
+    private val rpcClient: RPCClientService,
+    private val progressTree: ProgressTree? = null,
+    private val transactionIds: List<String>,
+    private val snapshot: String? = null,
+    private val dryRun: Boolean = false,
+    private val skipSafetyIntervalCheck: Boolean = false
+) {
+    /**
+     * Execute the delete transactions command by invoking the DeleteTransactionsFlow
+     *
+     * @return Delete transactions results
+     */
+    fun execute(): DeleteTransactionsResults
 }
 ```
 

@@ -185,6 +185,46 @@ class ListItemsFlow(
  ) : FlowLogic<MarkItemsResults>()
 
 /**
+ * Mark specific transactions, identified by their ids, for deletion from the vault - together
+ * with every transaction that depends on them - without requiring the iterative archiving model
+ * to be populated.
+ *
+ * The transactions actually deleted are the requested ones plus their forward dependency closure:
+ * every transaction that consumes any of their outputs, transitively, as recorded by the vault
+ * and by the iterative model's consumption records. Deleting a transaction while a dependent
+ * remains would leave the dependent with a broken backchain, so every output of every selected
+ * transaction must be provably consumed within the closure, and no transaction the iterative
+ * model records as referencing a closure output may survive. Outputs that are unconsumed or
+ * whose consumption cannot be proven, and surviving referencers, fail the flow and are reported;
+ * the operator can find the related transactions through their CorDapp's own queries (for
+ * example by linear id) and include those ids in the request.
+ *
+ * The archivableContractClassStatePrefixes filter is deliberately ignored: it selects what
+ * automatic archiving may take, whereas here the operator names the transactions explicitly.
+ *
+ * This flow only marks the transactions under an archive job, exactly as MarkItemsFlow does for
+ * the normal archiving path. The snapshot, export and deletion are then performed by the
+ * unchanged CreateSnapshotFlow, ExportSnapshotFlow and DeleteMarkedFlow. Note that aborting the
+ * job afterwards with RestoreSnapshotFlow restores the data but not the model state: the closure
+ * stays pending delete in the iterative model, so the next normal archiving job archives it -
+ * the same way walkback decisions survive an aborted normal job.
+ *
+ * @property transactionIds ids of the transactions to delete
+ * @property snapshot name of the archive snapshot recorded in the archive log tables
+ * @property dryRun if true, only compute and report the dependency closure; nothing is marked
+ * @property skipSafetyIntervalCheck whether to skip the safety interval check on the newest
+ *   transaction of the closure. Default is false.
+ */
+@InitiatingFlow
+@StartableByRPC
+class DeleteTransactionsFlow(
+    private val transactionIds: List<String>,
+    private val snapshot: String? = null,
+    private val dryRun: Boolean = false,
+    private val skipSafetyIntervalCheck: Boolean = false
+) : FlowLogic<DeleteTransactionsResults>()
+
+/**
  * Copy the marked items from the vault schema to the archive schema.
  *
  * @property additionalQueryableTables List of any queryable tables to copy

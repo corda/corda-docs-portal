@@ -141,6 +141,12 @@ To revert any steps up to `delete-vault` or `delete-snapshot`, use:
 
 * `restore-snapshot` - restores the vault and deletes the snapshot
 
+To delete specific transactions identified by their ids - for example, because they hold data
+that should not be in the ledger - use the `delete-transactions` command in place of steps 1-3.
+It marks the given transactions, together with every transaction that depends on them, and
+creates the snapshot; the job is then completed with the same `export-snapshot` and
+`delete-vault` (and optionally `delete-snapshot`) steps.
+
 Commands which access or update the transaction and attachment tables on the Corda vault have an optional
 `--record` parameter to record the SQL to a file rather than execute it immediately.
 
@@ -308,6 +314,96 @@ Transaction Tables
   <table name>: <row count>
 Attachment Tables
   <table name>: <row count>
+  <table name>: <row count>
+```
+
+## Delete Transactions command
+
+```text
+Usage:
+archive-service delete-transactions [<snapshot>] [--transaction-id=<txid>]... [--transaction-ids-file=<path>] [--dry-run] [--skip-safety-interval-check]
+Description:
+marks specific transactions and their dependents for deletion
+Parameters:
+      [<snapshot>]                    archive job name (default today's date)
+Options:
+      --transaction-id=<txid>         Id of a transaction to delete, may be repeated
+      --transaction-ids-file=<path>   Path to a file with one transaction id per line
+      --dry-run                       Only compute and report the transactions that would be deleted
+      --skip-safety-interval-check    Skip the safety interval check on the newest transaction to delete
+```
+
+Deletes specific transactions identified by their ids - for example, because they hold data that
+should not be in the ledger - without requiring the archiving data structures to be populated.
+
+The transactions actually deleted are the requested ones plus their *forward dependency closure*:
+every transaction that consumes any of their outputs, transitively, as recorded by the vault.
+Deleting a transaction while a dependent remained in the vault would leave that dependent with a
+broken backchain, so the closure is the smallest unit that keeps the remaining ledger consistent.
+The sources of a deleted transaction are unaffected; where the archiving data structures already
+track them, their dependency counters are updated so that later archiving runs collect them
+normally.
+
+The dependents are found by following the vault's record of which transaction consumed each
+state, together with the iterative archiving model's consumption records where transactions have
+already been ingested, and only the selected transactions themselves are read, so the cost is
+proportional to the selection, not the ledger. Every output of every selected transaction must be
+provably consumed: either the vault or the iterative model records its consuming transaction
+(which is then included), or another selected transaction consumes it. In addition, no
+transaction the iterative model records as *referencing* a selected output may survive. The
+command fails and reports what does not meet this:
+
+* *Unconsumed output states*: deleting them would destroy live ledger data. Consume them first,
+  or reconsider whether the transaction should be deleted.
+* *Output states whose consumption cannot be proven*: the vault holds no row for them, or records
+  them consumed without the consuming transaction id (for example, states consumed before the
+  node version that records it), and the iterative model has not ingested the consumer either.
+  Find the transactions related to these states - your CorDapp usually has an efficient way, for
+  example a query by linear id - and include their ids in the request.
+* *Transactions referencing the selection*: deleting the selection would leave these with broken
+  backchains. Include their ids in the request to delete them as well.
+
+Use `--dry-run` first: the number of dependents can be larger than the requested list, and the
+dry run reports every transaction that would be deleted, and the findings above, without marking
+anything.
+
+The checks based on the iterative archiving model cover exactly the transactions the model has
+ingested, so they are as complete as the model is current. For the strongest verification -
+in particular, complete reference-usage detection over the ingested ledger - run
+`process-all-pending` before `delete-transactions`. A transaction that references a selected
+output but has not been ingested is not detected by any check, as the vault does not record
+reference usage at all. The model lookups scan the archiving source table (it is deliberately
+not indexed by source transaction, to keep transaction ingestion fast), which is acceptable for
+an occasional targeted deletion.
+
+Two behaviors differ deliberately from the normal archiving workflow:
+
+* The `archivableContractClassStatePrefixes` filter is ignored: it controls what *automatic*
+  archiving may select, whereas here the operator names the transactions explicitly.
+* Aborting the job afterwards with `restore-snapshot` restores the deleted data but not the
+  archiving model's state: the selected transactions remain classified as deletable, so the next
+  normal archiving job archives them. This mirrors how walkback decisions survive an aborted
+  normal job, and is safe because the command only ever selects fully-consumed chains, which
+  normal archiving would eventually collect anyway.
+
+The attachments referenced by the deleted transactions are included in the export but are never
+purged from the vault, as they may be shared with remaining transactions. Attachments left
+unreferenced are collected by a later normal archiving run.
+
+The command marks the transactions and creates the snapshot (copying the items to the backup
+schema if one is configured). The job is then completed with the same `export-snapshot` and
+`delete-vault` (and optionally `delete-snapshot`) commands as a normal archiving job, and can be
+aborted with `restore-snapshot`.
+
+```text
+Number of transactions requested for deletion: 2
+Number of dependent transactions included: 3
+Total number of transactions to delete: 5
+Number of attachments included in the export: 0
+Approximate size of transactions to delete: 12KB
+Transaction Tables
+  <table name>: <row count>
+Attachment Tables
   <table name>: <row count>
 ```
 
