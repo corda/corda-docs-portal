@@ -354,15 +354,13 @@ Imports a snapshot from an external archive.
  * @property snapshot Snapshot to import
  * @property importer Importer to execute
  * @property importerConfig Importer configuration data
- * @property record If true then record SQL rather than execute it
  */
 class ImportSnapshot(
     private val rpcClient: RPCClientService,
     private val progressTree: ProgressTree? = null,
     private val snapshot: String,
     private val importer: String? = null,
-    private val importerConfig: Map<String, Any> = emptyMap(),
-    private val record: Boolean = false
+    private val importerConfig: Map<String, Any> = emptyMap()
 ) {
     /**
      * Execute the import snapshot command by invoking the ImportSnapshotFLow

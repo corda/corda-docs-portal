@@ -228,13 +228,11 @@ class DeleteTransactionsFlow(
  * Copy the marked items from the vault schema to the archive schema.
  *
  * @property additionalQueryableTables List of any queryable tables to copy
- * @property record If true then record SQL rather than execute it
  */
 @InitiatingFlow
 @StartableByRPC
 class CreateSnapshotFlow(
-    private val additionalQueryableTables: List<Pair<String, String>>,
-    private val record: Boolean
+    private val additionalQueryableTables: List<Pair<String, String>>
 ) : FlowLogic<CreateSnapshotResults>()
 
 /**
@@ -242,12 +240,14 @@ class CreateSnapshotFlow(
  *
  * @property exporterList list of exporters to execute
  * @property exporterConfig exporter configuration data
+ * @property skipBinaryExport Mark step as complete even if no binary export was created
  */
 @InitiatingFlow
 @StartableByRPC
 class ExportSnapshotFlow(
     private val exporterList: List<String>?,
-    private val exporterConfig: Map<String, Any>
+    private val exporterConfig: Map<String, Any>,
+    private val skipBinaryExport: Boolean
 ) : FlowLogic<ExportSnapshotResults>()
 
 /**
@@ -258,15 +258,13 @@ class ExportSnapshotFlow(
  * @property snapshot Snapshot to import
  * @property importer Importer to execute
  * @property importerConfig Importer configuration data
- * @property record Record SQL
  */
 @InitiatingFlow
 @StartableByRPC
 class ImportSnapshotFlow(
     private val snapshot: String,
     private val importer: String?,
-    private val importerConfig: Map<String, Any>,
-    private val record: Boolean
+    private val importerConfig: Map<String, Any>
 ) : FlowLogic<ImportSnapshotResults>()
 
 /**
