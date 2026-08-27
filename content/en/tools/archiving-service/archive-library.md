@@ -453,7 +453,7 @@ class RestoreSnapshot(
 ## Exporter interface
 Custom exporters can be implemented by extending the `AbstractExporter` class and
 implementing one or more of the `AttachmentExporter`, `TransactionExporter`, and
-`QueryableTableExporter` interfaces depending on whether the exporter should export
+`QueryableExporter` interfaces depending on whether the exporter should export
 transaction, attachment and/or state table data.
 
 An exporter that holds resources until its export completes - open output streams,
@@ -556,9 +556,9 @@ interface TransactionExporter {
 }
 
 /**
- * Interface to indicate the exporter can export queryable state data
+ * Interface to indicate the exporter can export queryable states data
  */
-interface QueryableTableExporter {
+interface QueryableExporter {
     /**
      * Invoked before the first row is exported
      *
