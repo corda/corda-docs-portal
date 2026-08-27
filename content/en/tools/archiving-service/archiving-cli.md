@@ -454,9 +454,11 @@ ZippedFileExporter:
 
 ```text
 Usage:
-archive-service import-snapshot [--importer-config=<path>] [--importer=<name>]
+archive-service import-snapshot [--importer-config=<path>] [--importer=<name>] <snapshot>
 Description:
 import snapshot from long-term storage
+Parameters:
+      <snapshot>                 archive job name
 Options:
       --importer=<name>         Importer to use
       --importer-config=<path>  Path to importer configuration file
