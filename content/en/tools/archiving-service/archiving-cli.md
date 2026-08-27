@@ -179,14 +179,14 @@ use the `restore-snapshot` command to rollback or abort the incomplete jobs.
 
 ```text
 Usage:
-archive-service process-all-pending [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
+archive-service process-all-pending [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check]
 Description:
 process all pending transactions and collect archivable items
 Options:
       --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
       --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
       --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
-      --skip-safety-interval-check=<bool>   Skip safety interval check when collecting archivable items
+      --skip-safety-interval-check          Skip safety interval check when collecting archivable items
 ```
 
 Processes all pending transactions and then collects all archivable items. The called flow runs until all pending transactions have been added to the internal dependency structures, then collects archivable items until all walkback processing is complete.
@@ -260,16 +260,16 @@ This command's underlying flow (`StatusFlow`) is subject to change — its outpu
 
 ```text
 Usage:
-archive-service list-items [--write=<path>] [--bypass-process-all-pending=<bool>] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
+archive-service list-items [--write=<path>] [--bypass-process-all-pending] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check]
 Description:
 list transactions/attachments for archiving
 Options:
       --write=<path>                        Save output to file
-      --bypass-process-all-pending=<bool>   Skip refreshing the archiving data structures before listing items. Default is false
+      --bypass-process-all-pending          Skip refreshing the archiving data structures before listing items. Default is false
       --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
       --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
       --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
-      --skip-safety-interval-check=<bool>   Skip safety interval check when collecting archivable items
+      --skip-safety-interval-check          Skip safety interval check when collecting archivable items
 ```
 
 Starts by refreshing the archive database (unless `--bypass-process-all-pending` is set to true).
@@ -291,17 +291,17 @@ This command does not update any archive log tables.
 
 ```text
 Usage:
-archive-service create-snapshot [<snapshot>] [--bypass-process-all-pending=<bool>] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
+archive-service create-snapshot [<snapshot>] [--bypass-process-all-pending] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check]
 Description:
 marks transactions/attachments for archiving
 Parameters:
       [<snapshot>]   archive job name (default today's date)
 Options:
-      --bypass-process-all-pending=<bool>   Skip refreshing the archiving data structures before listing items. Default is false
+      --bypass-process-all-pending          Skip refreshing the archiving data structures before listing items. Default is false
       --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
       --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
       --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
-      --skip-safety-interval-check=<bool>   Skip safety interval check when collecting archivable items
+      --skip-safety-interval-check          Skip safety interval check when collecting archivable items
 ```
 
 Starts by refreshing the archive database (unless `--bypass-process-all-pending` is set to true).
