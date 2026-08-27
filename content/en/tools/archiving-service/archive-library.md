@@ -456,6 +456,13 @@ implementing one or more of the `AttachmentExporter`, `TransactionExporter`, and
 `QueryableTableExporter` interfaces depending on whether the exporter should export
 transaction, attachment and/or state table data.
 
+An exporter that holds resources until its export completes - open output streams,
+thread pools or partially written output files - should also override `abortExport()`
+to release them, so that a failed export does not leak them into the node JVM. The
+method is invoked from a `finally` block around the export, so it also runs after a
+successful export: implementations must be idempotent and must leave the output of
+any export phase that completed normally untouched.
+
 ```kotlin
 /**
  * Base class for all exporters. Each export should implement one or both
@@ -476,6 +483,15 @@ abstract class AbstractExporter(
      * @param message Message to send
      */
     fun reportStatus(message: String) = reporter.report(this, message)
+
+    /**
+     * Release any resources still held after a failed export: thread pools, open output
+     * streams and partial output files. Called from a `finally` block around the export,
+     * so it also runs after a successful export. Implementations must therefore be
+     * idempotent and leave the output of any export phase that completed normally
+     * untouched, cleaning up only the phases that were interrupted.
+     */
+    open fun abortExport() {}
 }
 
 /**
