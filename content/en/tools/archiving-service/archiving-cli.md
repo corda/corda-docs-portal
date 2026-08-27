@@ -149,7 +149,7 @@ It marks the given transactions, together with every transaction that depends on
 creates the snapshot; the job is then completed with the same `export-snapshot` and
 `delete-vault` (and optionally `delete-snapshot`) steps.
 
-Commands which access or update the transaction and attachment tables on the Corda vault have an optional
+The `delete-vault`, `delete-snapshot`, and `restore-snapshot` commands have an optional
 `--record` parameter to record the SQL to a file rather than execute it immediately.
 
 ## List Jobs command
@@ -278,6 +278,8 @@ Displays the number of transactions and attachments that will be marked for arch
 ```text
 Number of archivable transactions: 27
 Number of archivable attachments: 0
+Approximate size of archivable transactions: 43KB
+Approximate size of archivable attachments: 0B
 ```
 
 Optionally record to a file the IDs of transactions and attachments which will
@@ -289,7 +291,7 @@ This command does not update any archive log tables.
 
 ```text
 Usage:
-archive-service create-snapshot [--record=<path>] [<snapshot>] [--bypass-process-all-pending=<bool>] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
+archive-service create-snapshot [<snapshot>] [--bypass-process-all-pending=<bool>] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check=<bool>]
 Description:
 marks transactions/attachments for archiving
 Parameters:
@@ -311,6 +313,8 @@ Displays the number of items and the database tables copied as part of the snaps
 ```text
 Number of transactions marked: 27
 Number of attachments marked: 0
+Approximate size of archivable transactions: 43KB
+Approximate size of archivable attachments: 0B
 Transaction Tables
   <table name>: <row count>
   <table name>: <row count>
