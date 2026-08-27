@@ -471,6 +471,8 @@ The command cannot run while the iterative archive service is processing transac
 
 {{< note >}}
 After an import: the import repopulates the iterative tracking data for the imported transactions directly, in the terminal state they were in before they were archived. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).
+
+An import is a temporary restore: because the imported transactions are repopulated in the pending-delete state, the next `mark-items`/`create-snapshot` run re-adopts all of them into its job — the subsequent `export-snapshot` writes them into the new archive again (duplicating data already held in the original archives), and `delete-vault` removes them from the vault again. If you need the imported data available for a period, do not start a new archiving job until you are done with it. See [Importing an archive](archiving-service-index.md#importing-an-archive) for the recommended ways to handle the duplicate export.
 {{< /note >}}
 
 {{< warning >}}
