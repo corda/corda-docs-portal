@@ -627,7 +627,7 @@ abstract class AbstractImporter(
      * @param transactionIds List of transactions to return
      * @param recorder Processes an archived transaction
      */
-    abstract fun retrieveTransactions(transactionIds: List<SecureHash> = emptyList(), recorder: (SecureHash, ByteArray) -> Unit)
+    abstract fun retrieveTransactions(transactionIds: List<SecureHash> = emptyList(), recorder: (SecureHash, ByteArray, String?) -> Unit)
 
     /**
      * Retrieve the attachments from the archive and pass them the recorder
@@ -637,6 +637,6 @@ abstract class AbstractImporter(
      * @param attachmentIds List of transactions to return
      * @param recorder Processes an archived attachment
      */
-    abstract fun retrieveAttachments(attachmentIds: List<SecureHash> = emptyList(), recorder: (SecureHash, ByteArray) -> Unit)
+    abstract fun retrieveAttachments(attachmentIds: List<SecureHash> = emptyList(), recorder: (SecureHash, ByteArray, String?) -> Unit)
 }
 ```
