@@ -251,7 +251,7 @@ When choosing a batch size, consider the following trade-offs:
 * A stop request — whether issued via the internal `StopFlow` building block or by `ProcessAllPendingFlow` reaching its time limit — takes effect on a batch boundary — the batch currently being processed always runs to completion. Very large batch sizes therefore make stopping the archiving process less responsive.
 * The default of 1,000 is a good starting point for most deployments. If you change it, benchmark against a representative copy of your data before using the new value in production.
 
-In addition, the `importer.batch.size` configuration parameter (default: 1,000) controls the import of snapshots: snapshots containing up to this many transactions are deserialized using the parallel importer, while larger snapshots fall back to a sequential import to bound memory usage.
+In addition, the `importer.batch.size` configuration parameter (default: 100,000) controls the import of snapshots: snapshots containing up to this many transactions are deserialized using the parallel importer, while larger snapshots fall back to a sequential import to bound memory usage.
 
 ### Parallelism
 
