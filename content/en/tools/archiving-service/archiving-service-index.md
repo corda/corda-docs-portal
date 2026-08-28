@@ -159,11 +159,11 @@ This filter is evaluated when a transaction is walked back, not when it is first
 
 ## Threshold parameters
 
-The new algorithm uses two threshold parameters:
+The new algorithm uses two built-in threshold parameters. Both are fixed values that cannot be changed through configuration; the operator-facing lever for the grace period is the `notNewerThan` argument of the collecting commands.
 
-* **MinAgeToAdd** — Add only transactions older than this threshold to the internal graphs. Anything newer is treated as potentially in-flight. This period is **60 seconds**.
+* **MinAgeToAdd** — Add only transactions older than this threshold to the internal graphs. Anything newer is treated as potentially in-flight. This period is fixed at **60 seconds**.
 
-* **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This configuration setting is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true`, although this is not recommended for general purposes. Increasing this value reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking. See [Late-arriving reference transactions](#late-arriving-reference-transactions) for what happens when a reference does arrive late.
+* **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is fixed at **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This built-in threshold is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true`, although this is not recommended for general purposes. A longer grace period — achieved by passing an older `notNewerThan` value — reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking. See [Late-arriving reference transactions](#late-arriving-reference-transactions) for what happens when a reference does arrive late.
 
 ## Late-arriving reference transactions
 
@@ -182,7 +182,7 @@ Note that only the referenced transaction itself is reverted; any of its *descen
 
 To reduce the exposure to this edge case:
 
-* Keep `notNewerThan` conservative and do not set `skipSafetyIntervalCheck` to `true` in production. Increase the grace period on networks that make heavy use of reference states or long-running flows.
+* Keep `notNewerThan` conservative and do not set `skipSafetyIntervalCheck` to `true` in production. On networks that make heavy use of reference states or long-running flows, extend the grace period by passing an older `notNewerThan` value.
 * Keep the time between `create-snapshot` and `delete-vault` short, so that late arrivals have little opportunity to invalidate an in-flight job.
 * Retain the exported archives, so that deleted chains can be restored with `import-snapshot` if they are ever needed again.
 
@@ -203,7 +203,7 @@ The `restore-snapshot` and `import-snapshot` commands bring previously archived 
 `restore-snapshot` copies the rows of the aborted jobs back from the backup schema, including the iterative tracking rows of the restored transactions. The restored rows keep the state they had when the snapshot was created: the restored transactions are still classified as archivable, and the dependency counters remain consistent precisely because the restored transactions are not walked back a second time. As a consequence:
 
 * Because restored transactions are not walked back again, they are not re-evaluated against the current `archivableContractClassStatePrefixes` configuration either — despite the filter now being applied live at walkback time for newly-discovered transactions, a restored transaction keeps whatever classification it had before it was archived, and is simply picked up by the next `mark-items`/`create-snapshot` run using that pre-existing classification. There is currently no supported way to force re-evaluation of a restored transaction after a filter change.
-* If a late-arriving transaction referenced a restored transaction *while it was deleted from the vault*, the automatic revert described above could not run, because there was no tracking row to revert at that time. After the restore, such a transaction is picked up again by the next archiving run and may be deleted a second time even though it is now referenced. There is currently no supported way to rebuild the tracking state for this case; keep the safety interval conservative enough for your network's traffic patterns (see [Late-arriving reference transactions](#late-arriving-reference-transactions)) to avoid it.
+* If a late-arriving transaction referenced a restored transaction *while it was deleted from the vault*, the automatic revert described above could not run, because there was no tracking row to revert at that time. After the restore, such a transaction is picked up again by the next archiving run and may be deleted a second time even though it is now referenced. There is currently no supported way to rebuild the tracking state for this case; keep the `notNewerThan` grace period conservative enough for your network's traffic patterns (see [Late-arriving reference transactions](#late-arriving-reference-transactions)) to avoid it.
 
 ### Importing an archive
 
