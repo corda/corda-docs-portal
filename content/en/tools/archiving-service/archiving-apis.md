@@ -214,6 +214,8 @@ class ListItemsFlow(
  * @property dryRun if true, only compute and report the dependency closure; nothing is marked
  * @property skipSafetyIntervalCheck whether to skip the safety interval check on the newest
  *   transaction of the closure. Default is false.
+ * @property maxClosureSize fail once the dependency closure grows beyond this many transactions
+ *   (default: 1000). Deleting a larger closure is better split into smaller self-contained subsets.
  */
 @InitiatingFlow
 @StartableByRPC
@@ -221,7 +223,8 @@ class DeleteTransactionsFlow(
     private val transactionIds: List<String>,
     private val snapshot: String? = null,
     private val dryRun: Boolean = false,
-    private val skipSafetyIntervalCheck: Boolean = false
+    private val skipSafetyIntervalCheck: Boolean = false,
+    private val maxClosureSize: Int = 1_000
 ) : FlowLogic<DeleteTransactionsResults>()
 
 /**

@@ -327,7 +327,7 @@ Attachment Tables
 
 ```text
 Usage:
-archive-service delete-transactions [<snapshot>] [--transaction-id=<txid>]... [--transaction-ids-file=<path>] [--dry-run] [--skip-safety-interval-check]
+archive-service delete-transactions [<snapshot>] [--transaction-id=<txid>]... [--transaction-ids-file=<path>] [--dry-run] [--skip-safety-interval-check] [--max-closure-size=<count>]
 Description:
 marks specific transactions and their dependents for deletion
 Parameters:
@@ -337,6 +337,7 @@ Options:
       --transaction-ids-file=<path>   Path to a file with one transaction id per line
       --dry-run                       Only compute and report the transactions that would be deleted
       --skip-safety-interval-check    Skip the safety interval check on the newest transaction to delete
+      --max-closure-size=<count>      Fail once the dependency closure grows beyond this many transactions (default: 1000)
 ```
 
 Deletes specific transactions identified by their ids - for example, because they hold data that
@@ -372,6 +373,12 @@ command fails and reports what does not meet this:
 Use `--dry-run` first: the number of dependents can be larger than the requested list, and the
 dry run reports every transaction that would be deleted, and the findings above, without marking
 anything.
+
+The size of the dependency closure is bounded by `--max-closure-size` (default 1000): once the
+collection grows beyond it, the command fails, naming the cause and listing the transaction ids
+collected so far. The whole closure is held in memory and processed in one run, so deleting
+smaller self-contained subsets in separate runs is recommended over raising the limit - the
+listed ids can be used to find the next candidates.
 
 The checks based on the iterative archiving model cover exactly the transactions the model has
 ingested, so they are as complete as the model is current. For the strongest verification -
