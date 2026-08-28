@@ -195,7 +195,7 @@ class ListItemsFlow(
  * remains would leave the dependent with a broken backchain, so every output of every selected
  * transaction must be provably consumed within the closure, and no transaction the iterative
  * model records as referencing a closure output may survive. Outputs that are unconsumed or
- * whose consumption cannot be proven, and surviving referencers, fail the flow and are reported;
+ * whose consumption cannot be proven, and surviving referrers, fail the flow and are reported;
  * the operator can find the related transactions through their CorDapp's own queries (for
  * example by linear id) and include those ids in the request.
  *

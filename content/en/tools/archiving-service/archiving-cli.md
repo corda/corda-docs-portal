@@ -355,18 +355,28 @@ The dependents are found by following the vault's record of which transaction co
 state, together with the iterative archiving model's consumption records where transactions have
 already been ingested, and only the selected transactions themselves are read, so the cost is
 proportional to the selection, not the ledger. Every output of every selected transaction must be
-provably consumed: either the vault or the iterative model records its consuming transaction
-(which is then included), or another selected transaction consumes it. In addition, no
-transaction the iterative model records as *referencing* a selected output may survive. The
-command fails and reports what does not meet this:
+provably consumed, and no transaction the iterative model records as *referencing* a selected
+output may survive. Consumption is proven from whatever evidence the vault and the model hold -
+the model is used as it is and never needs to be populated for the command to work:
+
+* A consumer the vault or the model still records joins the selection and is deleted with it.
+* A consumer that was already deleted by an earlier archiving or targeted delete job needs no
+  action: it is recognized from the vault's consumption record, or - for transactions the model
+  never ingested - from the model's *negative output counters*, which count the consumptions
+  already accounted by consumers that were walked back or targeted-deleted before being purged.
+  Such dependents are reported informatively and left out of the selection.
+* A selected transaction whose model row is already marked pending delete needs no per-output
+  proof at all: that flag is the model's own conclusion that everything it produced has been
+  released - the same criterion the normal archiving pipeline deletes on.
+
+The command fails and reports what no evidence covers:
 
 * *Unconsumed output states*: deleting them would destroy live ledger data. Consume them first,
   or reconsider whether the transaction should be deleted.
-* *Output states whose consumption cannot be proven*: the vault holds no row for them, or records
-  them consumed without the consuming transaction id (for example, states consumed before the
-  node version that records it), and the iterative model has not ingested the consumer either.
-  Find the transactions related to these states - your CorDapp usually has an efficient way, for
-  example a query by linear id - and include their ids in the request.
+* *Output states whose consumption cannot be proven*: no vault row, no usable consumption record,
+  and no counter evidence covering them. Find the transactions related to these states - your
+  CorDapp usually has an efficient way, for example a query by linear id - and include their ids
+  in the request.
 * *Transactions referencing the selection*: deleting the selection would leave these with broken
   backchains. Include their ids in the request to delete them as well.
 
