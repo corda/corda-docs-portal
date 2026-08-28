@@ -271,6 +271,10 @@ Recording the participants of each exported transaction in the [archive manifest
 
 Set `exporter.extractParticipants` to false in the CorDapp configuration file to turn the feature off if throughput matters more than the participants.
 
+{{< note >}}
+Set `exporter.extractParticipants` in the CorDapp configuration file, not in the exporter configuration file. The participants of the consumed states are looked up when the items are marked, and marking reads the property from the CorDapp configuration file only. Setting the property only in the exporter configuration passed to `export-snapshot` does not record them, so the manifest lists no consumed participants; the export logs a warning when it detects this.
+{{< /note >}}
+
 ### Zipped archive chunk size
 
 The `ZippedFileExporter` compresses items in chunks and writes each chunk to the archive as soon as it is complete. The items of a chunk are held in memory until it is written, so `exporter.zippedFileExporter.chunkSize` (default 10000) bounds the memory used by the exporter to roughly the chunk size multiplied by the average size of a transaction. Lower it if the node is short of heap when exporting, and raise it only if compression throughput turns out to be the limit. See [Zipped archive chunk size]({{< relref "archiving-cli.md#zipped-archive-chunk-size" >}}) for the configuration format.
