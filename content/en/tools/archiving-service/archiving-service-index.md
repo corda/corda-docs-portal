@@ -267,7 +267,7 @@ Because the archiving work runs inside the node's JVM, it shares CPU with regula
 
 ### Manifest participants
 
-Recording the participants of each exported transaction in the [archive manifest]({{< relref "archiving-cli.md#archive-manifest" >}}) adds cost to two steps. Marking the items looks up the participants of the consumed states in the vault: on a ledger whose transactions consume many states, marking 120,000 transactions consuming 6,000,000 states measured 28 seconds on the lookup. The export deserializes each exported transaction once, to read the participants of the states it creates; without the feature, transactions are copied to the archive as binary blobs and are never deserialized.
+Recording the participants of each exported transaction in the [archive manifest]({{< relref "archiving-cli.md#archive-manifest" >}}) adds cost to two steps. Marking the items looks up the participants of the consumed states in the vault: on a ledger whose transactions consume many states, marking 120,000 transactions consuming 6,000,000 states measured 28 seconds on the lookup. Consumed states the vault holds no participants for, because the node knows them only through the back chain, are resolved by loading the transactions which created them, each once; that cost grows with the number of such states, not with the size of the job. The export deserializes each exported transaction once, to read the participants of the states it creates; without the feature, transactions are copied to the archive as binary blobs and are never deserialized.
 
 Set `exporter.extractParticipants` to false in the CorDapp configuration file to turn the feature off if throughput matters more than the participants.
 
