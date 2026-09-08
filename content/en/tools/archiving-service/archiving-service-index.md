@@ -132,7 +132,7 @@ The following are keys for configuring the Archive Service:
 * `target.url` - Backup schema archive URL, required if a backup schema is used.
 * `target.user` - Backup schema archive database user, required if a backup schema is used.
 * `target.password` - Backup schema archive database password, required if a backup schema is used.
-* `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior). Entries must not be blank: because every contract class name starts with an empty string, a blank entry (for example, from a trailing comma) would silently make every transaction archivable, so the Archive Service rejects the configuration at node startup instead. The `delete-transactions` command deliberately ignores this filter: it controls what automatic archiving may select, whereas that command deletes transactions the operator names explicitly.
+* `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior). Entries must not be blank: because every contract class name starts with an empty string, a blank entry (for example, from a trailing comma) would silently make every transaction archivable, so the Archive Service rejects the configuration at node startup instead. The filter is evaluated when a transaction is walked back; after widening it, run `recalculate-filtering` to re-evaluate the transactions an earlier walkback had already stopped (see the note below). The `delete-transactions` command deliberately ignores this filter: it controls what automatic archiving may select, whereas that command deletes transactions the operator names explicitly.
 
 Passwords can be obfuscated using Corda's Config Obfuscator tool.
 
@@ -155,6 +155,8 @@ archivableContractClassStatePrefixes: ["com.example.contracts", "net.corda.finan
 
 {{< note >}}
 This filter is evaluated when a transaction is walked back, not when it is first discovered. As with any Archive Service CorDapp configuration change, the node must be restarted before a change to this list is picked up at all — but once picked up, it takes effect immediately for any transaction still awaiting walkback, with no reset or reprocessing of already-tracked transactions required.
+
+Transactions that an earlier run already walked back and stopped because of the filter in effect at that time are the exception. Stopping the walkback leaves such a transaction with its dependency counters at zero but neither pending walkback nor pending delete, and nothing re-triggers its walkback later — so a configuration change alone never reaches it. After widening the filter and restarting the node, run the [`recalculate-filtering`]({{< relref "archiving-cli.md#recalculate-filtering-command" >}}) command to re-arm these transactions, then `process-all-pending` to collect the ones the new filter admits; those it still rejects are simply stopped again. Narrowing the filter needs no such step.
 {{< /note >}}
 
 ## Threshold parameters
@@ -202,7 +204,7 @@ The `restore-snapshot` and `import-snapshot` commands bring previously archived 
 
 `restore-snapshot` copies the rows of the aborted jobs back from the backup schema, including the iterative tracking rows of the restored transactions. The restored rows keep the state they had when the snapshot was created: the restored transactions are still classified as archivable, and the dependency counters remain consistent precisely because the restored transactions are not walked back a second time. As a consequence:
 
-* Because restored transactions are not walked back again, they are not re-evaluated against the current `archivableContractClassStatePrefixes` configuration either — despite the filter now being applied live at walkback time for newly-discovered transactions, a restored transaction keeps whatever classification it had before it was archived, and is simply picked up by the next `mark-items`/`create-snapshot` run using that pre-existing classification. There is currently no supported way to force re-evaluation of a restored transaction after a filter change.
+* Because restored transactions are not walked back again, they are not re-evaluated against the current `archivableContractClassStatePrefixes` configuration either — despite the filter now being applied live at walkback time for newly-discovered transactions, a restored transaction keeps whatever classification it had before it was archived, and is simply picked up by the next `mark-items`/`create-snapshot` run using that pre-existing classification. There is currently no supported way to force re-evaluation of a restored transaction after a filter change: `recalculate-filtering` only re-arms transactions that a walkback *stopped* (not pending delete), so it does not touch restored transactions, which are already classified as deletable.
 * If a late-arriving transaction referenced a restored transaction *while it was deleted from the vault*, the automatic revert described above could not run, because there was no tracking row to revert at that time. After the restore, such a transaction is picked up again by the next archiving run and may be deleted a second time even though it is now referenced. There is currently no supported way to rebuild the tracking state for this case; keep the `notNewerThan` grace period conservative enough for your network's traffic patterns (see [Late-arriving reference transactions](#late-arriving-reference-transactions)) to avoid it.
 
 ### Importing an archive
@@ -425,6 +427,7 @@ Commands:
 
   list-jobs                          display status of archiving jobs
   process-all-pending                refreshes the archiving database with processing the pending transactions and collecting archivable items
+  recalculate-filtering              re-apply a changed contract class filter to transactions it previously stopped
   statistics                         display iterative archiving statistics
   status                             display current archiving database maintenance operation status and history
   list-items                         list transactions/attachments for archiving

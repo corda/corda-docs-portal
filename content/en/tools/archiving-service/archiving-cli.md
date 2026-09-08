@@ -63,10 +63,12 @@ Commands:
 
   list-jobs                          display status of archiving jobs
   process-all-pending                refreshes the archiving database with processing the pending transactions and collecting archivable items
+  recalculate-filtering              re-apply a changed contract class filter to transactions it previously stopped
   statistics                         display iterative archiving statistics
   status                             display current archiving database maintenance operation status and history
   list-items                         list transactions/attachments for archiving
   create-snapshot                    marks transactions/attachments for archiving
+  delete-transactions                marks specific transactions and their dependents for deletion
   delete-vault                       delete archived items from the vault
   export-snapshot                    export snapshot to offline storage
   delete-snapshot                    delete the snapshot from backup schema
@@ -149,6 +151,10 @@ It marks the given transactions, together with every transaction that depends on
 creates the snapshot; the job is then completed with the same `export-snapshot` and
 `delete-vault` (and optionally `delete-snapshot`) steps.
 
+After widening the `archivableContractClassStatePrefixes` filter (and restarting the node), run
+`recalculate-filtering` before step 1, so that the transactions an earlier run stopped because of
+the previous filter are re-evaluated against the new one.
+
 The `delete-vault`, `delete-snapshot`, and `restore-snapshot` commands have an optional
 `--record` parameter to record the SQL to a file rather than execute it immediately.
 
@@ -200,6 +206,55 @@ Skip Safety Interval Check: false
 ```
 
 This command does not update any archive log tables.
+
+## Recalculate Filtering command
+
+```text
+Usage:
+archive-service recalculate-filtering
+Description:
+re-apply a changed contract class filter to transactions it previously stopped
+```
+
+Re-applies a changed `archivableContractClassStatePrefixes` filter to transactions that an earlier
+`process-all-pending` run already walked back and stopped because of the filter configured at that
+time.
+
+The filter is evaluated when a transaction is walked back. A transaction that fails it is left with
+its dependency counters at zero but neither pending walkback nor pending delete, and nothing
+re-triggers its walkback later — the counter decrement that made it a walkback candidate has already
+happened. A configuration change therefore only reaches transactions not yet walked back; the ones
+already stopped are stranded. This command re-arms exactly that set — transactions with all counters
+at zero that are neither pending walkback nor pending delete — in a single database update. It does
+not evaluate the filter itself: the next `process-all-pending` run does, archiving the transactions
+the new filter now admits and stopping the rest again. Running it is therefore always safe, and
+running it twice re-arms nothing the second time.
+
+Use it after widening the filter:
+
+1. Change `archivableContractClassStatePrefixes` in the CorDapp configuration and restart the node
+   (like any Archive Service configuration change, the new value is not picked up before a restart;
+   without the restart the next run applies the old filter and stops the re-armed transactions
+   again).
+2. Run `recalculate-filtering`.
+3. Run `process-all-pending` (or `list-items`/`create-snapshot`, which run it implicitly) to collect
+   the newly admitted transactions.
+
+Narrowing the filter needs no such step: transactions still awaiting walkback are evaluated against
+the current filter anyway, and transactions already classified as deletable are not re-evaluated
+(see the [Restore Snapshot command](#restore-snapshot-command) note).
+
+```text
+=== Recalculate Filtering Completed ===
+Filter in effect: [com.example.contracts, com.example.morecontracts]
+Number of transactions re-armed for walkback: 37
+Run 'process-all-pending' to collect the ones the filter now admits.
+```
+
+The command only re-arms; nothing is marked, exported or deleted, and no archive log tables are
+updated. Like the other commands that change the archiving model, it cannot run while the iterative
+archive service is processing transactions or while an import, restore, mark, snapshot or delete
+operation is in progress, and those operations wait for it in turn.
 
 ## Statistics command
 
