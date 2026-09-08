@@ -42,6 +42,12 @@ Archive Service CorDapp configuration change, the node must be restarted before 
 list is picked up at all — but once picked up, it takes effect immediately for any transaction
 still awaiting walkback, with no reset or reprocessing of already-tracked transactions required.
 
+Transactions that an earlier walkback already stopped because of the filter in effect at that time
+are the exception: they are left with their counters at zero but neither pending walkback nor
+pending delete, and a configuration change alone never re-triggers their walkback. After widening
+the filter, start `RecalculateFilteringFlow` to re-arm them, then `ProcessAllPendingFlow` to
+collect the ones the new filter admits.
+
 ## Flows
 
 The following flows are exposed by the Archive Service:
@@ -78,6 +84,40 @@ class ProcessAllPendingFlow(
     private val batchSize: Int = 1_000,
     private val skipSafetyIntervalCheck: Boolean = false
 ) : FlowLogic<Unit>()
+
+/**
+ * Re-applies the archivableContractClassStatePrefixes filter to transactions that an earlier
+ * walkback already stopped because of it.
+ *
+ * The filter is evaluated when a transaction is walked back. A transaction that fails it is left
+ * with its counters at zero but neither pending walkback nor pending delete, and nothing
+ * re-triggers its walkback later, so a filter widened in the configuration only takes effect on
+ * transactions not yet walked back. This flow re-arms those stranded transactions, so the next
+ * collect pass - run by ProcessAllPendingFlow - evaluates the current filter on them and archives
+ * the ones it now admits. Transactions the filter still rejects are simply stopped again by that
+ * pass, so running this flow is always safe and idempotent in effect.
+ *
+ * Only re-arming is done here; nothing is marked, exported or deleted. As with any Archive Service
+ * configuration change, the node must have been restarted with the new filter before this flow is
+ * run, otherwise the collect pass still applies the old one. The flow cannot run while the
+ * iterative archive service is processing transactions or another exclusive operation (import,
+ * restore, mark, snapshot, delete) is in progress.
+ */
+@InitiatingFlow
+@StartableByRPC
+class RecalculateFilteringFlow : FlowLogic<RecalculateFilteringResults>()
+
+/**
+ * Result data of the recalculate filtering operation.
+ */
+@CordaSerializable
+data class RecalculateFilteringResults(
+    /** Number of transactions re-armed for walkback */
+    val rearmedTransactionCount: Long,
+
+    /** Human-readable description of the contract class state prefix filter in effect */
+    val filterDescription: String
+)
 
 /**
  * Flow to get statistics about the iterative archiving process.

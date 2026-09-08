@@ -20,6 +20,7 @@ The Archive Service Library provides programmatic access to the Archive Service.
 
 * `ListJobs`.
 * `ProcessAllPending`.
+* `RecalculateFiltering`.
 * `Statistics`.
 * `Status`.
 * `ListItems`.
@@ -108,6 +109,34 @@ class ProcessAllPending(
      *
      */
     fun execute(): Unit
+}
+```
+
+### Recalculate filtering
+
+Re-applies a changed `archivableContractClassStatePrefixes` filter to transactions that an earlier walkback already stopped because of the previous filter. It only re-arms their walkback; a subsequent `ProcessAllPending` evaluates the current filter on them and collects the ones it admits. See the [Recalculate Filtering command]({{< relref "archiving-cli.md#recalculate-filtering-command" >}}) for details.
+
+```kotlin
+/**
+ * Invoke the recalculate filtering command to re-arm walkback for transactions that an earlier
+ * walkback stopped because of the contract class state prefix filter, so that a changed filter is
+ * applied to them by the next process-all-pending run.
+ *
+ * This command can only be called when the node is online.
+ *
+ * @property rpcClient RPC connection to Archive Service node
+ * @property progressTree Callback used to report progress
+ */
+class RecalculateFiltering(
+    private val rpcClient: RPCClientService,
+    private val progressTree: ProgressTree? = null
+) {
+    /**
+     * Execute the recalculate filtering command by invoking the RecalculateFilteringFlow
+     *
+     * @return Recalculate filtering results
+     */
+    fun execute(): RecalculateFilteringResults
 }
 ```
 
