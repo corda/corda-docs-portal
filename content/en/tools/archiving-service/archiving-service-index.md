@@ -176,11 +176,13 @@ The **MinAgeToCollect** threshold and the `notNewerThan` parameter make this sce
 When the Archive Service processes a late-arriving transaction that references an already-condemned transaction, it reverts the archivability of the referenced transaction: its reference counter is incremented, and its pending walkback/delete markers are cleared, so it is no longer considered archivable. The overall effect depends on how far the referenced transaction had progressed through the archiving pipeline:
 
 * **Collected, but not yet walked back**: the revert is fully consistent. No dependency counters had been modified yet, and the transaction simply returns to the tracked (non-archivable) state.
-* **Already walked back (pending delete)**: only the referenced transaction itself is reverted. Its walkback had already decremented the counters of its parent transactions, so its own back-chain (ancestors) may remain condemned and can still be archived and deleted. In that case, the dependency chain of the late-arriving transaction is no longer complete on this node.
+* **Already walked back (pending delete)**: only the referenced transaction itself is reverted. Its walkback had already decremented the counters of its parent transactions, so its own back-chain (ancestors) may remain condemned and can still be archived and deleted. In that case, the dependency chain of the late-arriving transaction is no longer complete on this node. The Archive Service remembers that the transaction has already been walked back: when the late-arriving transaction is itself archived later and the referenced transaction becomes archivable again, it is marked for deletion directly, **without being walked back a second time**. Its parents' and attachments' counters are therefore never decremented twice, so a parent transaction whose other outputs are still consumed or referenced by live transactions is never condemned as a side effect of the revert.
 * **Already marked into an archive job** (`create-snapshot` has run): the revert does not remove the transaction from the snapshot that was already created — a subsequent `delete-vault` will still delete it. To pick up the revert, abort the job with `restore-snapshot` and re-run the archiving steps.
 * **Already deleted from the vault**: there is nothing left to revert locally. When the transaction is needed again, Corda's back-chain resolution re-downloads it (and its chain) from peers, and the re-recorded transactions re-enter the iterative model as new. The exported archive (`import-snapshot`) is the ultimate backstop for restoring deleted chains.
 
 Note that only the referenced transaction itself is reverted; any of its *descendants* that were already condemned remain condemned. This is correct behavior: resolving the late-arriving transaction requires the referenced transaction and its ancestors, not its other descendants.
+
+The same protection applies to transactions brought back by `import-snapshot` or marked by `delete-transactions`: they are recorded as already walked back when their tracking rows are created, so a late-arriving reference to them followed by a re-collection never disturbs the counters of their retained source transactions either. See [Restore, import, and the iterative tracking data](#restore-import-and-the-iterative-tracking-data).
 
 To reduce the exposure to this edge case:
 
@@ -193,7 +195,7 @@ The safety interval is the primary protection against late-arriving references. 
 {{< /warning >}}
 
 {{< note >}}
-The handling of late-arriving references described here reflects the current behavior and may be improved in future releases.
+The handling of late-arriving references described here reflects the current behavior; in particular, the ancestors of a reverted transaction are not restored, and this may be improved in future releases.
 {{< /note >}}
 
 ## Restore, import, and the iterative tracking data
@@ -219,7 +221,7 @@ This matters because an archived snapshot is not necessarily a self-contained gr
 * it was pinned by a live reference state, or
 * it was excluded from archiving by the `archivableContractClassStatePrefixes` filter.
 
-Because the reimported transaction is never walked back again, such a retained source transaction's counters are left untouched by the import — its consumption was already accounted for once, when the transaction was originally walked back, and importing does not repeat it. This avoids the retained source transaction being incorrectly treated as fully consumed and archived while it still holds a live state.
+Because the reimported transaction is never walked back again, such a retained source transaction's counters are left untouched by the import — its consumption was already accounted for once, when the transaction was originally walked back, and importing does not repeat it. This avoids the retained source transaction being incorrectly treated as fully consumed and archived while it still holds a live state. This holds even if a [late-arriving reference](#late-arriving-reference-transactions) to the reimported transaction later reverts its pending-delete classification: once it becomes archivable again, it is re-classified directly, still without being walked back.
 
 **Importing is a temporary restore — the next archiving run re-archives the imported data.** Repopulating the imported transactions directly in the pending-delete state means the next `mark-items`/`create-snapshot` run adopts all of them into its job, exactly as if they had just been condemned: the following `export-snapshot` writes them into the new archive again — duplicating data that already exists in the original archives, potentially the entire imported snapshot — and `delete-vault` then removes them from the vault again. This is the intended lifecycle: `import-snapshot` brings archived data back so it can be queried, audited, or serve back-chain resolution for a period, and the normal archiving cycle is the cleanup path that returns the vault to its archived state. Plan for two consequences:
 
