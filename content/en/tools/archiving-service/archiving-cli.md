@@ -346,7 +346,7 @@ This command does not update any archive log tables.
 
 ```text
 Usage:
-archive-service create-snapshot [<snapshot>] [--bypass-process-all-pending] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check]
+archive-service create-snapshot [<snapshot>] [--bypass-process-all-pending] [--time-limit=<hours>] [--not-newer-than=<date>] [--batch-size=<batchsize>] [--skip-safety-interval-check] [--filter-config=<path>]
 Description:
 marks transactions/attachments for archiving
 Parameters:
@@ -357,6 +357,7 @@ Options:
       --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
       --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
       --skip-safety-interval-check          Skip safety interval check when collecting archivable items
+      --filter-config=<path>                Path to additional tables (previously filter) configuration file
 ```
 
 Starts by refreshing the archive database (unless `--bypass-process-all-pending` is set to true).
@@ -382,7 +383,7 @@ Attachment Tables
 
 ```text
 Usage:
-archive-service delete-transactions [<snapshot>] [--transaction-id=<txid>]... [--transaction-ids-file=<path>] [--dry-run] [--skip-safety-interval-check] [--max-closure-size=<count>]
+archive-service delete-transactions [<snapshot>] [--transaction-id=<txid>]... [--transaction-ids-file=<path>] [--dry-run] [--skip-safety-interval-check] [--max-closure-size=<count>] [--filter-config=<path>]
 Description:
 marks specific transactions and their dependents for deletion
 Parameters:
@@ -393,6 +394,7 @@ Options:
       --dry-run                       Only compute and report the transactions that would be deleted
       --skip-safety-interval-check    Skip the safety interval check on the newest transaction to delete
       --max-closure-size=<count>      Fail once the dependency closure grows beyond this many transactions (default: 1000)
+      --filter-config=<path>          Path to additional tables (previously filter) configuration file
 ```
 
 Deletes specific transactions identified by their ids - for example, because they hold data that
@@ -790,8 +792,9 @@ queryableTables: [
 ]
 ```
 
-The property can be added to the Archive Service CorDapp configuration file, or passed within the
-`create-snapshot` command configuration.
+The property can be added to the Archive Service CorDapp configuration file, or supplied to the
+`create-snapshot` and `delete-transactions` commands in a separate configuration file given with
+their `--filter-config` option.
 
 A suitable exporter, such as `QueryableStateFileExporter`, must also be listed on the command line to `export-snapshot`.
 

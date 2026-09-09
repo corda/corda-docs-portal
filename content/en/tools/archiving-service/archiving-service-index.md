@@ -54,7 +54,7 @@ An attachment will be marked as archivable when:
 
 The iterative archiving process works by:
 
-1. Adding new (unprocessed) transactions to its internal dependency tracking structures. For each transaction, the service records its input and reference-state dependencies, a counter of its not-yet-consumed outputs, a counter of transactions referencing its outputs, and the attachments it uses.
+1. Adding new (unprocessed) transactions to its internal dependency tracking structures. For each transaction, the service records its input and reference-state dependencies, a counter of its not-yet-consumed outputs, a counter of the reference states pointing at its outputs, and the attachments it uses.
 2. Walking back through the dependency chains: transactions whose output and reference counters are both zero are condemned, and the corresponding counters of their source (parent) transactions are decremented. Any parent whose counters both reach zero is walked back in turn, so entire fully-consumed chains are condemned from the most recent transactions backwards.
 3. Marking those transactions as available for archiving once the entire chain is confirmed to be fully consumed and unreferenced.
 
@@ -487,8 +487,9 @@ queryableTables: [
 ]
 ```
 
-The property can be added to the Archive Service CorDapp configuration file, or passed within the
-`create-snapshot` command configuration.
+The property can be added to the Archive Service CorDapp configuration file, or supplied to the
+`create-snapshot` and `delete-transactions` commands in a separate configuration file given with
+their `--filter-config` option.
 
 A suitable exporter, such as `QueryableStateFileExporter`, must also be listed on the command line to `export-snapshot`.
 
