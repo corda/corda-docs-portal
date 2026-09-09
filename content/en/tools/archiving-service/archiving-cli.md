@@ -467,8 +467,19 @@ Two behaviors differ deliberately from the normal archiving workflow:
   normal archiving would eventually collect anyway.
 
 The attachments referenced by the deleted transactions are included in the export but are never
-purged from the vault, as they may be shared with remaining transactions. Attachments left
-unreferenced are collected by a later normal archiving run.
+purged from the vault by this command, as they may be shared with remaining transactions and the
+command does not require the archiving model - which is what knows the sharing - to be complete.
+What happens to such an attachment afterwards depends on who else uses it:
+
+* An attachment also used by transactions outside the selection is purged by the normal archiving
+  run that archives the last of those transactions, exactly as if the deleted transactions had
+  been archived normally.
+* An attachment used only by the deleted transactions remains in the vault indefinitely. Normal
+  archiving marks attachments through the transactions it archives, and no remaining transaction
+  leads to this one; finding it would require scanning every tracked transaction, which the
+  archiving run deliberately does not do. Its tracking counter, where the model holds one, stays
+  at zero, so the archivable attachment size reported by `statistics` and `list-items` may keep
+  including it.
 
 The command marks the transactions and creates the snapshot (copying the items to the backup
 schema if one is configured). The job is then completed with the same `export-snapshot` and
