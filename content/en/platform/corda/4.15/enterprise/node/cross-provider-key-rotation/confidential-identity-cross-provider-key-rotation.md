@@ -126,10 +126,19 @@ Once a rotation has succeeded and a new key is in use, the change cannot be reve
 ## Behaviour and options
 
 * **Selection.** By default the tool rotates every used confidential identity key that has not already been rotated, including keys that no longer own any unconsumed state. This is the behaviour of the `--rotate-all-used-keys` option, which is enabled by default.
-* **Batching.** Keys are rotated in batches, one database transaction per batch, controlled by `--batch-size` (default `500`). If a batch fails, it is rolled back and its keys are retried one at a time so the others still rotate.
+* **Batching.** Keys are rotated in batches, one database transaction per batch, controlled by `--batch-size` (default `500`). If a key fails, the tool rolls back that batch and retries it by rotating each key individually, which may cause a temporary slowdown while the batch is reprocessed. Once every key in the batch has been processed, the tool goes back to rotating the keys in batches.
 * **Resilience.** A key that fails to rotate does not stop the others. The tool logs each failure, continues with the remaining keys, and prints a final summary of the total, rotated, and failed counts. Re-run the tool after fixing the cause to retry the failed keys. Keys that already rotated are skipped.
 * **No-op guard.** If the new and previous configurations resolve to the same provider, the tool makes no changes.
 * **Dry run.** `--dry-run` reports exactly which keys would be rotated without writing anything.
+
+{{< note >}}
+
+When a key fails to rotate, the whole batch fails and every key in that batch that had already been rotated must be rotated again.
+The database changes are rolled back, but the key pairs already created in the new key provider are not, because `generateWrappedKeyPair` is not transactional.
+If a single key fails in a batch of N keys, the other potentially N-1 keys may already have had new key pairs generated in the key provider.
+Those key pairs become orphaned, because the overall transaction failed and the rotation must be retried. Whether this happens depends on the key provider being used.
+
+{{< /note >}}
 
 For the full command syntax and every option, see the [Node confidential identity cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-confidential-identity-cross-provider-key-rotation-tool" >}}) reference.
 
