@@ -721,7 +721,7 @@ The manifest contains the following columns:
 * `filename`: Original filename, attachments only.
 * `participants`: Semicolon-separated participants of the transaction's states, transactions only.
 
-The participants are the distinct participants of both the states created by the transaction and the states it consumes, using the legal name for well-known parties and the hash of the owning key otherwise. Participants of the created states are listed first.
+The participants are the distinct participants of both the states created by the transaction and the states it consumes, using the legal name for every party the node can resolve to a well-known identity, including a party a state names by its key alone, and the hash of the owning key otherwise. This is the same naming the vault applies to its `state_party` table, so a party is listed the same way wherever it is read from. Participants of the created states are listed first.
 
 Reading the participants of the states created by a transaction requires deserializing the contract states, which needs the CorDapp that defines them to be installed on the node. Transactions themselves are exported as binary blobs and do not need the CorDapp, so an export never fails because a CorDapp is missing: the participants which cannot be read are simply omitted, and the number affected is reported once the export has completed. Install the CorDapp and export again if the participants are required.
 
