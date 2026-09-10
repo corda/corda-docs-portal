@@ -1,5 +1,5 @@
 ---
-date: '2023-06-14'
+date: '2026-06-03T12:00:00Z'
 menu:
   tools:
     identifier: release-notes-archiving
@@ -15,98 +15,45 @@ The Archive Service is a standalone service that operates on a different release
 
 The following table shows the compatibility of the Archive Service versions with Corda Enterprise:
 
-| Archive Service version      | Corda Enterprise version    | JDK version      |
-|------------------------------|-----------------------------| -----------------|
-| 1.0.x                        | 4.10.x and below            | JDK 8            |
-| 1.1.x                        | 4.11.x                      | JDK 8            |
-| 1.2                          | 4.12.x                      | JDK 17           |
+| Archive Service version | Corda Enterprise version | JDK version |
+|------------------------|--------------------------|-------------|
+| 2.x                    | 4.12.x and above         | JDK 17      |
+
+The [Archive Service 1.x series]({{< relref "../archiving-service-1.x/archiving-release-notes.md" >}}) supports Corda Enterprise versions up to and including 4.12.
 
 {{< note >}}
-If you deviate from the above compatibility guidelines, for example, using the Archive Service 1.1.x with Corda Enterprise 4.10.x, the Archive Service will not work.
+If you deviate from the above compatibility guidelines, the Archive Service will not work.
 {{< /note >}}
 
 ## Corda Enterprise 4.12
 
-### Archive Service 1.2.4
+### Archive Service 2.0
 
-Archive Service 1.2.1 is a patch release focussed on resolving vulnerabilities.
+Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.25. This version works with Corda 4.12.
 
-### Archive Service 1.2.3
+#### Key changes in 2.0
 
-Archive Service 1.2.3 is a patch release that sets quasar version to 0.9.0_r3.
+* **LedgerGraph dependency removed**: The Archive Service no longer requires LedgerGraph. It now builds its own internal transaction dependency graph using the vault database directly.
+* **Iterative archiving model**: A new iterative approach processes transactions incrementally, tracking dependencies and walking back through chains to identify archivable items. This replaces the previous in-memory LedgerGraph-based approach.
+* **Runtime filters removed**: The `filterList` and `filterConfig` parameters have been removed from all flows and library APIs. Transaction eligibility is now controlled via the `archivableContractClassStatePrefixes` configuration parameter.
+* **New configuration parameter `archivableContractClassStatePrefixes`**: An optional list of contract class name prefixes that controls which transactions are eligible for archiving. When set, only transactions where all states' contract classes match at least one prefix are considered archivable.
+* **New CLI commands**:
+  * `process-all-pending` — refreshes the archiving database by processing pending transactions and collecting archivable items.
+  * `statistics` — displays iterative archiving statistics (unprocessed count, pending walkback, pending delete, sizes).
+  * `status` — displays current archiving database maintenance operation status and history.
+  * `recalculate-filtering` — re-applies a changed `archivableContractClassStatePrefixes` filter to the transactions an earlier run already stopped because of the previous filter, which a configuration change alone does not reach. Run it after widening the filter and restarting the node, followed by `process-all-pending`. See the [Recalculate Filtering command]({{< relref "archiving-cli.md#recalculate-filtering-command" >}}).
+  * `delete-transactions` — marks specific transactions, identified by their ids, together with every transaction that depends on them, for deletion from the vault — for example, because they hold data that should not be in the ledger. The job is completed with the unchanged `export-snapshot` and `delete-vault` commands. See the [Delete Transactions command]({{< relref "archiving-cli.md#delete-transactions-command" >}}) for the consistency checks and caveats.
+* **New flows**:
+  * `ProcessAllPendingFlow` — processes pending transactions and collects archivable items with configurable time limit, batch size, and age filtering.
+  * `StatisticsFlow` — returns iterative archiving statistics.
+  * `StatusFlow` — returns current operation status and history.
+  * `RecalculateFilteringFlow` — re-arms walkback for transactions stopped by a previous `archivableContractClassStatePrefixes` filter (the flow behind the `recalculate-filtering` command).
+  * `DeleteTransactionsFlow` — marks specific transactions and their forward dependency closure for deletion (the flow behind the `delete-transactions` command).
+  * `PerformanceStatsFlow` and `ResetPerformanceStatsFlow` — retrieve and reset per-step performance statistics (wall-clock time, CPU time, throughput). These flows are subject to change and are not a final part of the Archive Service API.
+* **Updated flow signatures**: `ListItemsFlow` and `MarkItemsFlow` now accept iterative processing parameters (`bypassProcessAllPending`, `timeLimit`, `notNewerThan`, `batchSize`, `skipSafetyIntervalCheck`) instead of filter parameters. `CreateSnapshotFlow` no longer accepts `additionalTransactionTables` or `additionalAttachmentTables` (these are now auto-detected).
+* **Updated library APIs**: New library classes `ProcessAllPending`, `RecalculateFiltering`, `DeleteTransactions`, `Statistics` and `Status`. Updated `ListItems` and `MarkItems` to match the new flow signatures.
+* **Archive manifest**: The `ZippedFileExporter` now writes a manifest file `manifest-<snapshot>.csv` next to the zip files, listing each exported transaction and attachment with its vault timestamp, size, and the participants of the transaction's states. The participants cover both the states created by the transaction and the states it consumes; those of the consumed states are recorded on the archive log when the items are marked, by joining the iterative archiving model to the vault's `state_party` table, and the export reads the recorded value. Consumed states the vault holds no participants for, because the node knows them only through the back chain, are resolved by loading the transactions which created them. The manifest allows the contents of an archive to be audited without opening the zip files. Recording the participants can be turned off with the new `exporter.extractParticipants` configuration property, which avoids the consumed-state lookup when marking the items and the deserialization of each exported transaction. The `TransactionExporter` and `AttachmentExporter` interfaces gained optional overloads carrying the timestamp and participants; existing custom exporters are unaffected.
+* **Fixed memory use when exporting a large snapshot**: The `ZippedFileExporter` held every exported transaction and attachment in memory until the export completed, so exporting a large snapshot could exhaust the node's heap and slow the export to a halt. Items are now compressed in chunks and written to the archive as each chunk completes, bounded by the new `exporter.zippedFileExporter.chunkSize` property (default 10000).
+* **Failed exports no longer leak resources**: A failed `export-snapshot` left the exporters' compression thread pools, temporary files, and open output streams behind in the node JVM, so repeated failures accumulated leaked resources until the node was restarted. The built-in exporters now release everything they hold when an export fails and delete their partial output files, keeping the output of any export phase that had already completed. Custom exporters can join the cleanup by overriding the new `AbstractExporter.abortExport()` method, which is invoked from a `finally` block around the export — so it also runs after a successful export and must be idempotent. It has a default empty body, so existing custom exporters compile unchanged.
 
-### Archive Service 1.2.2
-
-Archive Service 1.2.2 is a patch release that fixes an internal build issue.
-
-### Archive Service 1.2.1
-
-Archive Service 1.2.1 is a patch release focussed on resolving vulnerabilities.
-
-### Archive Service 1.2
-
-Archive Service 1.2 is a major release supporting Java 17 and Kotlin 1.9.20. If you want to use the Archive Service, this is the only release that works with Corda 4.12.
-
-## Corda Enterprise 4.11
-
-### Archive Service 1.1.1
-
-Archive Service 1.1.1 is a patch release focused on resolving issues.
-
-#### Fixed Issues
-
-* When creating a backup table, the Archive Service created a backup table index name greater than 30 characters. This caused problems with Oracle 11.
-
-* When used with a Corda 4.11 node, it was possible for the Archive Service `create-snapshot` command to fail. This issue occurred when the node database was one of SQL Server, Oracle, or PostgreSQL, and the Archive Service was configured to use a backup schema.
-
-* When done immediately after a `delete-vault` operation, the `import-snapshot` failed to import transactions in an Archive Service regression.
-
-### Archive Service 1.1
-
-In this release:
-
-* Version 1.1 is a compatibility release of the Archive Service. This and all future 1.1.x releases will only work with Corda 4.11.x and above and will not be compatible with Corda Enterprise 4.10.x and below. Use the latest Archive Service 1.0.x for Corda Enterprise 4.10.x and below.
-* In Corda Enterprise 4.11 a new column has been added to the node transactions table for additional signatures. The new Archive Service release includes this new column in its snapshot data.
-
-## Corda Enterprise 4.10 and below
-
-### Archive Service 1.0.6
-
-Archive Service 1.0.6 is a patch release focused on resolving issues.
-
-#### Fixed Issues
-
-* When the node database was Oracle and the Archive Service was configured to use a backup schema, it was possible for the Archive Service `create-snapshot` command to fail.
-
-* When creating a backup table, the Archive Service created a backup table index name greater than 30 characters. This caused problems with Oracle 11.
-
-### Archive Service 1.0.5
-
-#### Fixed issues
-The Archive Service misunderstood reference states. As a result, the Archive Service could not archive a transaction if it referenced an unconsumed transaction and there were no unconsumed transactions that referenced it.
-
-As of this release, the Archive Service marks a transaction, that only has outbound references (to unconsumed transactions) and no inbound references (from unconsumed transactions), as archivable. Any inbound references will still make a transaction unarchivable.
-
-### Archive Service 1.0.4
-
-#### Fixed issues
-When using a Microsoft SQL Server database, an error was generated when using the `vault-states` filter with a positive value specified for the `retentionDays` parameter.
-
-### Archive Service 1.0.3
-
-A new configuration option has been added which allows the Archive Service to skip transactions that have legacy contract states that cause exceptions during a JSON snapshot export. This configuration option is: `ignoreSnapshotExportFailures: true`.
-
-By default, this value is false and the behaviour of the Archive Service is unchanged. However, if you are experiencing a `TransactionDeserializationException` or a `JsonMappingException` during the export of a JSON snapshot, this configuration option can be added to skip these transactions for a successful export. These transactions are not included in the export, but if a binary export is also created, all transactions can be preserved.
-
-### Archive Service 1.0.2
-
-In this release:
-
-* The archiving support of tokens when they are moved between more than one party and then redeemed has been improved.
-* Logging of the Archiving tool has been increased to aid in troubleshooting.
-* The Archiving client can now connect to nodes which are set up to use RPC SSL connection settings.
-* Tables are now ordered by table name length in descending order to prevent foreign key constraints from being violated when deleting rows.
-
-### Archive Service 1.0.1
-
-The Archive Service is now compatible with [Ledger Graph V1.2.1 On Demand function]({{< relref "archiving-service-index.html#archiving-and-ondemand-ledgergraph" >}}).
+The 1.x series release notes can be found in the [Archive Service 1.x release notes]({{< relref "../archiving-service-1.x/archiving-release-notes.md" >}}) page.
