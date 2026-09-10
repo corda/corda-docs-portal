@@ -430,8 +430,8 @@ ha-utilities node-certificate-rotation [-hvV] [--config-obfuscation-passphrase[=
 
 ### Output
 
-The tool reads the content of the node's original `certificates` directory, which sits next to the provided `node.conf`, and writes the new keystores and certificates to `<base-directory>/certificates`, where `<base-directory>` is the value of the `-b`
-option and defaults to `output`. The original directory is not changed, so you must copy the generated keystores into the node's `certificates` directory before you start the node. The tool does not change or remove existing keys in the HSM, so the new keys are written under the new aliases you configured.
+After a successful rotation, the tool creates a `<base-directory>/certificates` directory containing the new keystores and certificates for the rotated node identity. The node's original `certificates` directory, which sits next to the provided `node.conf`, remains unchanged.
+Copy all files from `<base-directory>/certificates` to the node's certificates directory before starting the node. The tool does not change or remove existing keys, so the new keys are written under the new aliases you configured.
 
 ## Node cross-provider key rotation tool
 The HA Utilities tool performs a cross-provider key rotation for a Corda node and Corda notary. It allows key providers to be changed without losing access to existing states.
@@ -464,9 +464,9 @@ ha-utilities node-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLe
 
 ### Output
 
-After a successful key rotation, the tool creates an `output/certificates` directory containing Java KeyStore (JKS) files and a `key-rotation-proofs.bin` file.
+After a successful key rotation, the tool creates a `<base-directory>/certificates` directory containing Java KeyStore (JKS) files and a `key-rotation-proofs.bin` file.
 The JKS files contain the new certificates for the rotated node identity. The `key-rotation-proofs.bin` file contains the key rotation proofs required for the node to consume existing states signed with the previous key.
-Copy all files from `output/certificates` to the node’s certificates directory before starting the node. When the node starts, it loads the key rotation proofs and deletes the key-rotation-proofs.bin file after processing it.
+Copy all files from `<base-directory>/certificates` to the node’s certificates directory before starting the node. When the node starts, it loads the key rotation proofs and deletes the key-rotation-proofs.bin file after processing it.
 
 ## Node confidential identity cross-provider key rotation tool
 
