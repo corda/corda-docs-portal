@@ -125,7 +125,7 @@ Once a rotation has succeeded and a new key is in use, the change cannot be reve
 
 ## Behaviour and options
 
-* **Selection.** By default the tool rotates every used confidential identity key that has not already been rotated, including keys that no longer own any unconsumed state. This is the behaviour of the `--rotate-all-used-keys` option, which is enabled by default.
+* **Selection.** By default, the tool rotates every used confidential identity key that has not already been rotated, including keys that no longer own any unconsumed state. Pass `--skip-keys-without-unconsumed-states` to rotate only the keys that still own at least one unconsumed state.
 * **Batching.** Keys are rotated in batches, one database transaction per batch, controlled by `--batch-size` (default `500`). If a key fails, the tool rolls back that batch and retries it by rotating each key individually, which may cause a temporary slowdown while the batch is reprocessed. Once every key in the batch has been processed, the tool goes back to rotating the keys in batches.
 * **Resilience.** A key that fails to rotate does not stop the others. The tool logs each failure, continues with the remaining keys, and prints a final summary of the total, rotated, and failed counts. Re-run the tool after fixing the cause to retry the failed keys. Keys that already rotated are skipped.
 * **No-op guard.** If the new and previous configurations resolve to the same provider, the tool makes no changes.

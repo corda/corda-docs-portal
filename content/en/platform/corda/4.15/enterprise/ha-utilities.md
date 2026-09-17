@@ -481,19 +481,18 @@ Before running the tool, ensure that the required HSM client-side JAR files are 
 
 ### Command-line options
 ```shell
-ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--rotate-all-used-keys]
+ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--skip-keys-without-unconsumed-states]
 ```
 
 
 * `-v`, `--verbose`, `--log-to-console`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO
-* `-b`, `--base-directory=FOLDER`: The working directory where all the files are kept.
 * `-f`, `--config-file=FILE`: The path to the node config file, pointing to the new key provider. Default: node.conf
 * `-g`, `--config-file-previous=FILE`: The path to the previously used node config file, pointing to the old key provider. Default: node.conf.previous
 * `-n`, `--network-parameters=FILE`: The path to the network parameters file, used to check the network minimum platform version. Default: network-parameters
 * `--batch-size=N`: Number of keys rotated per database transaction. A batch that fails is retried one key at a time. Default: 500
 * `--dry-run`: Report what would be rotated without writing any changes.
-* `--rotate-all-used-keys`: Rotate all used confidential identity keys, including those that do not own any unconsumed vault states. Default: true
+* `--skip-keys-without-unconsumed-states`: Rotate only used confidential identity keys that own at least one unconsumed vault state. By default every used confidential identity key is rotated, including those that own no unconsumed vault states. Default: false
 * `--config-obfuscation-passphrase[=<cliPassphrase>]`: The passphrase used in the key derivation function when generating an AES key.
 * `--config-obfuscation-seed[=<cliSeed>]`: The seed used in the key derivation function to create a salt.
 * `-h`, `--help`: Show this help message and exit.

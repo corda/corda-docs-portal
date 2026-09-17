@@ -28,7 +28,7 @@ Key rotation is a system-critical operation. An unsuccessful rotation can leave 
 
 {{< warning >}}
 
-You must not change the node's `myLegalName` during certificate rotation. The old and new keys must be reachable through the same crypto service configuration.
+You must not change the node's `myLegalName` during certificate rotation. Also, the old key must remain reachable if unconsumed states signed with it exist in the vault. If the old key is not reachable, the node will not be able to consume those states, and they will remain locked in the vault.
 
 {{< /warning >}}
 
@@ -36,7 +36,7 @@ You must not change the node's `myLegalName` during certificate rotation. The ol
 
 A node's legal identity key is the key it uses to sign transactions and prove who it is on the network. Every state the node has ever signed is bound to the key that signed it. Reissuing that key therefore has to preserve the node's ability to keep signing for the states the old key already owns.
 
-Same-provider key rotation always generates a **fresh key pair**. Reissuing a certificate with the original key is a separate, less secure approach that this feature does not support. The process is similar to the initial node registration. The [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool-node-same-provider-key-rotation-tool" >}}) generates a new node CA key, sends a Certificate Signing Request to the CENM Identity Manager service, and then generates new node identity and TLS certificates around the renewed node CA certificate. From that point on:
+Same-provider key rotation always generates a **fresh key pair**. Reissuing a certificate with the original key is a separate, less secure approach that this feature does not support. The process is similar to the initial node registration. The [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}) generates a new node CA key, sends a Certificate Signing Request to the CENM Identity Manager service, and then generates new node identity and TLS certificates around the renewed node CA certificate. From that point on:
 
 * The new key and its certificates are stored under **new aliases** in the keystore or HSM, using the same crypto service configuration as before. Most HSMs do not allow the alias of an existing key to change, so the replacement key is always stored under a new alias.
 * The old identity key stays in the keystore so the node can still sign for the states that key already owns. You keep it available by listing its alias in `previousIdentityKeyAliases`.
@@ -70,7 +70,7 @@ Same-provider key rotation is a system-critical operation. An unsuccessful rotat
 4. Confirm that every node on the network runs a Corda version that supports certificate rotation, and that the network minimum platform version is high enough. Certificate rotation was introduced in Corda 4.7, which requires a network minimum platform version of `9`. To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
 5. Assign new keystore aliases for the new keys in `node.conf`, and keep the old identity key available for signing. See [Rotating a node key](#rotating-a-node-key).
 6. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps](#adapting-your-cordapps).
-7. Make `corda-tools-ha-utilities.jar` available in the node or notary directory. For the tool's full command syntax and options, see the [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool-node-same-provider-key-rotation-tool" >}}) reference.
+7. Make `corda-tools-ha-utilities.jar` available in the node or notary directory. For the tool's full command syntax and options, see the [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}) reference.
 8. When the node uses an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
 9. Enable key rotation in the Identity Manager service. See [Enabling key rotation in the Identity Manager service](#enabling-key-rotation-in-the-identity-manager-service).
 
@@ -191,5 +191,5 @@ Test every CorDapp for compatibility before you rotate a key.
 
 ## References
 
-* [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool-node-same-provider-key-rotation-tool" >}}) in the HA Utilities reference, for the full command syntax and options.
+* [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}) in the HA Utilities reference, for the full command syntax and options.
 * [Cross-provider key rotation]({{< relref "../cross-provider-key-rotation/cross-provider-key-rotation.md" >}}), for moving a key to a different key provider.
