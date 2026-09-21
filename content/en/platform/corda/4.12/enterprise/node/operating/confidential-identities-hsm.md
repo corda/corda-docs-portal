@@ -120,17 +120,17 @@ The following table contains the current support and the associated configuratio
 
 {{< table >}}
 
-| Master key storage    | cryptoServiceName         | cryptoServiceConf                           | mode               |
-| --------------------- | ------------------------- | ------------------------------------------- | ------------------ |
-| file-based keystore   | `BC_SIMPLE`               | not used                                    | `DEGRADED_WRAPPED` |
-| Securosys PrimusX HSM | `PRIMUS_X`                | path to the PrimusX configuration file      | `WRAPPED`          |
-| AWS CloudHSM          | `AWS_CLOUD`               | path to the AWS CloudHSM configuration file | `WRAPPED`          |
-| Azure Cloud HSM       | `AZURE_CLOUD_HSM`         | path to the Azure Cloud HSM configuration file | `WRAPPED`       |
-| nCipher               | `N_SHIELD`                | path to `nshield.conf`                      | `NATIVE`           |
-| Futurex               | `FUTUREX`                 | path to`futurex.conf`                       | `WRAPPED`          |
-| Azure Key Vault       | path to `AZURE_KEY_VAULT` | `az_keyvault.conf`                          | `NATIVE`           |
-| Utimaco               | `UTIMACO`                 | path to `utimaco.conf`                      | `WRAPPED`          |
-| Gemalto Luna          | `GEMALTO_LUNA`            | path to `gemalto.conf`                      | `WRAPPED`          |
+| Master key storage    | cryptoServiceName         | cryptoServiceConf                              | mode               |
+| --------------------- | ------------------------- | ---------------------------------------------- | ------------------ |
+| file-based keystore   | `BC_SIMPLE`               | not used                                       | `DEGRADED_WRAPPED` |
+| Securosys PrimusX HSM | `PRIMUS_X`                | path to the PrimusX configuration file         | `WRAPPED`          |
+| AWS CloudHSM          | `AWS_CLOUD`               | path to the AWS CloudHSM configuration file    | `WRAPPED`          |
+| Azure Cloud HSM       | `AZURE_CLOUD_HSM`         | path to the Azure Cloud HSM configuration file | `WRAPPED`          |
+| nCipher               | `N_SHIELD`                | path to `nshield.conf`                         | `NATIVE`           |
+| Futurex               | `FUTUREX`                 | path to`futurex.conf`                          | `WRAPPED`          |
+| Azure Key Vault       | path to `AZURE_KEY_VAULT` | `az_keyvault.conf`                             | `NATIVE`           |
+| Utimaco               | `UTIMACO`                 | path to `utimaco.conf`                         | `WRAPPED`          |
+| Gemalto Luna          | `GEMALTO_LUNA`            | path to `gemalto.conf`                         | `WRAPPED`          |
 
 {{< /table >}}
 
@@ -180,8 +180,7 @@ freshIdentitiesConfiguration {
     masterKeyAlias="master-key"
 }
 ```
-
 The following parameters are used for confidential identities on Azure Cloud HSM:
-* Real SP 800-38F KWP (RFC 5649) AES key wrap by default - FIPS-approved. Two other transforms are available (see `wrapTransform` in the HSM configuration file) but are not FIPS-approved; no Corda release has ever shipped wrapped keys under either of them, so there is no existing deployment to preserve compatibility with.
-* Persistent, non-extractable 256-bit AES key as the wrapping key (KEK).
-* Non-persistent, extractable EC or RSA key pair as the ephemeral key, generated fresh per confidential identity and destroyed from the HSM immediately after wrapping.
+* SP 800-38F KWP (RFC 5649) AES key wrap by default, configurable via `wrapTransform` (the alternatives are not FIPS-approved)
+* Persistent, non-extractable 256-bit AES key as a wrapping key (KEK)
+* Non-persistent (destroyed immediately after wrapping), extractable EC or RSA key pair as an ephemeral key

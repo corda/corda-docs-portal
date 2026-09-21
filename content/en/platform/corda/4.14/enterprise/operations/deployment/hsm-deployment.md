@@ -388,20 +388,6 @@ java -Djava.library.path=/opt/cloudhsm/lib -jar corda.jar
 
 Corda Enterprise nodes can be configured to generate keys in [Azure Cloud HSM](https://learn.microsoft.com/en-us/azure/cloud-hsm/overview) using the [Azure Cloud HSM Client SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM) (tested with SDK version 2.0.2.5).
 
-{{< note >}}
-Unlike the other HSMs on this page, Azure Cloud HSM does not need a JCE/JCA driver JAR copied into the node's `drivers` folder. Corda talks to it directly through the JDK's own bundled PKCS11 support, so the only software prerequisite on the node's host is the Azure Cloud HSM Client SDK itself.
-{{< /note >}}
-
-Before starting the node, the Azure Cloud HSM Client SDK must be installed on the node's host, and its `azcloudhsm_client` daemon must be running and connected to the cluster - Corda's PKCS11 calls talk to this daemon over a local socket. If it is not running, the node fails to start with an error while loading the PKCS11 module (`Unable to load Azure Cloud HSM PKCS11 module at ...`).
-
-{{< note >}}
-The node already recovers automatically from an individual PKCS11 session going stale (for example, an idle timeout). A restart of the `azcloudhsm_client` daemon process itself is a different, more disruptive event: it severs every connection the node's PKCS11 module had open, and the node needs to be restarted to reconnect. This can be automated by monitoring either that process or the node's logs for CryptoService exceptions coming from operations with the HSM.
-{{< /note >}}
-
-{{< note >}}
-Azure Cloud HSM support needs two extra JVM flags to access the JDK's own restricted PKCS11 bindings it's built on: `--add-modules=jdk.crypto.cryptoki` and `--add-exports=jdk.crypto.cryptoki/sun.security.pkcs11.wrapper=ALL-UNNAMED`. These are already included in the node capsule's own JVM arguments and applied automatically whenever you run `corda.jar` normally - no manual `java` flag is needed.
-{{< /note >}}
-
 In the `node.conf`, the `cryptoServiceName` needs to be set to "AZURE_CLOUD_HSM", and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
 
 ```kotlin
@@ -411,16 +397,23 @@ cryptoServiceConf : "azure_cloud_hsm.conf"
 
 The configuration file for Azure Cloud HSM has the following fields:
 
-{{< table >}}
-|key|required|value|
-|---|--------|-----|
-|username|Yes|the name of the crypto user (CU) in the HSM|
-|password|Yes|the password for the CU|
-|partition|Yes|any distinguishing name for the HSM's partition. Corda does not send this value to the HSM - Azure Cloud HSM exposes exactly one logical partition per cluster, so there is nothing to select - it is only used to detect when two node configurations point at the same physical HSM. Microsoft's own [Azure Cloud HSM troubleshooting guide](https://learn.microsoft.com/en-us/azure/cloud-hsm/troubleshoot) uses `PARTITION_1` in its JCE login example.|
-|wrapTransform|No|the AES key-wrap mechanism used when wrapping confidential identity keys - one of `KWP`, `LEGACY_PKCS5_PAD` or `CBC_PKCS5_PAD`. Defaults to `KWP` (real SP 800-38F KWP, FIPS-approved); the other two are available but are not FIPS-approved, and no Corda release has ever shipped wrapped keys under either of them. Each wrapped key remembers which transform it was wrapped under, so changing this setting only affects newly-wrapped keys - existing ones keep unwrapping correctly regardless.|
-|libraryPath|No|absolute path to the Azure Cloud HSM PKCS11 library. Defaults to `/opt/azurecloudhsm/lib64/libazcloudhsm_pkcs11.so`, the SDK's standard install location.|
-|requireTrustedWrappingKey|No|boolean, defaults to `true`. A CU session can never mark its own wrapping key `CKA_TRUSTED` - that requires a CO/SO session, set up out of band, to create the wrapping key object (under the alias Corda will use) before node registration runs. Set to `false` to let Corda generate and manage an ordinary, non-trusted wrapping key itself instead.|
-{{< /table >}}
+* **username**:
+the name of the crypto user (CU) in the HSM.
+
+* **password**:
+the password for the CU.
+
+* **partition**:
+any distinguishing name for the HSM’s partition. Corda does not send this value to the HSM - Azure Cloud HSM exposes exactly one logical partition per cluster, so there is nothing to select - it is only used to detect when two node configurations point at the same physical HSM. Microsoft’s own [Azure Cloud HSM troubleshooting guide](https://learn.microsoft.com/en-us/azure/cloud-hsm/troubleshoot) uses `PARTITION_1` in its JCE login example.
+
+* **wrapTransform**:
+(optional) the AES key-wrap mechanism used when wrapping confidential identity keys, one of `KWP`, `LEGACY_PKCS5_PAD` or `CBC_PKCS5_PAD`. The default is `KWP` (real SP 800-38F KWP, FIPS-approved); the other two are available but are not FIPS-approved, and no Corda release has ever shipped wrapped keys under either of them. Each wrapped key remembers which transform it was wrapped under, so changing this setting only affects newly-wrapped keys - existing ones keep unwrapping correctly regardless.
+
+* **libraryPath**:
+(optional) absolute path to the Azure Cloud HSM PKCS11 library. The default is `/opt/azurecloudhsm/lib64/libazcloudhsm_pkcs11.so`, the SDK’s standard install location.
+
+* **requireTrustedWrappingKey**:
+(optional) boolean, the default is true. A CU session can never mark its own wrapping key `CKA_TRUSTED` - that requires a CO/SO session, set up out of band, to create the wrapping key object (under the alias Corda will use) before node registration runs. Set to false to let Corda generate and manage an ordinary, non-trusted wrapping key itself instead.
 
 Example configuration file:
 
@@ -429,3 +422,14 @@ username:  "my-username"
 password:  "my-password"
 partition: "PARTITION_1"
 ```
+
+In addition to the configuration, the following steps are required:
+
+1. The Azure Cloud HSM Client SDK needs to be installed on the node’s host. Unlike the other HSMs on this page, no JCE/JCA driver JAR needs to be placed in the node’s `drivers` folder - Corda talks to the HSM directly through the JDK’s own bundled PKCS11 support, so the SDK is the only software prerequisite.
+2. The SDK’s `azcloudhsm_client` daemon must be running and connected to the cluster before the node starts, as Corda’s PKCS11 calls talk to it over a local socket. If it is not running, the node fails to start with an error while loading the PKCS11 module (`Unable to load Azure Cloud HSM PKCS11 module at ...`).
+
+No additional JVM arguments need to be set. Azure Cloud HSM support requires `--add-modules=jdk.crypto.cryptoki` and `--add-exports=jdk.crypto.cryptoki/sun.security.pkcs11.wrapper=ALL-UNNAMED` to access the JDK’s own restricted PKCS11 bindings, but these are already included in the node capsule’s JVM arguments and applied automatically whenever you run `corda.jar`.
+
+{{< note >}}
+The node recovers automatically from an individual PKCS11 session going stale (for example, an idle timeout). A restart of the `azcloudhsm_client` daemon process itself is a different, more disruptive event: it severs every connection the node’s PKCS11 module had open, and the node needs to be restarted to reconnect. This can be done automatically by monitoring either that process or the node’s logs for CryptoService exceptions coming from operations with the HSM.
+{{< /note >}}
