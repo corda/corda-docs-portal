@@ -16,7 +16,9 @@ weight: 181
 
 # Confidential identity cross-provider key rotation
 
-Confidential identity (CI) cross-provider key rotation lets a node move its **confidential identity keys** from one key provider to another, for example between a file-based keystore and a hardware security module (HSM) in either direction, or between two HSMs, without losing the ability to sign for the states those keys already own. It is available in Corda Enterprise 4.15 and later.
+Confidential identity (CI) cross-provider key rotation lets a node move its **confidential identity keys** from one key provider to another.
+For example, between a file-based keystore and a hardware security module (HSM) in either direction, or between two HSMs, without losing the
+ability to sign for the states those keys already own. It is available in Corda Enterprise 4.15 and later.
 
 The tool rotates the confidential identity keys a node generates for its transactions. These keys are held wrapped under a master key in a crypto service or HSM (see [Using an HSM with confidential identities]({{< relref "../../node/operating/confidential-identities-hsm.md#wrapped-mode" >}})). To move a node's **legal identity** key instead, use [Cross-provider key rotation]({{< relref "cross-provider-key-rotation.md" >}}).
 
@@ -30,7 +32,9 @@ This tool rotates only the anonymous, certificate-less confidential identity key
 
 **Wrapped certificate-based (CERT) confidential identity keys become permanently unsignable after the provider switch.** This tool does not rotate CERT keys, so once the node switches to the new provider these CERT keys can no longer be signed with, and every unconsumed state still owned by one is permanently stuck. This cannot be recovered by re-running the tool or by rotating again.
 
-Consume or reissue every state owned by a CERT key before you rotate. The tool refuses to run when it finds CERT keys, unless you pass `--ignore-cert-keys-check` to proceed anyway, which accepts that any unconsumed states still owned by those CERT keys will be permanently lost.
+Consume or reissue every state owned by a CERT key before you rotate. The tool refuses to run when it finds CERT keys.
+Unless you pass `--ignore-cert-keys-check` to proceed anyway, which accepts that any unconsumed states still owned by
+those CERT keys will be permanently lost.
 
 {{< /important >}}
 
@@ -44,7 +48,7 @@ Key rotation is a system-critical operation that writes directly to the node dat
 
 The tool rotates a node's **wrapped** confidential identity keys. These are the confidential identity private keys stored encrypted under a master (wrapping) key held in a crypto service or HSM, generated when `freshIdentitiesConfiguration` is configured. See [Using an HSM with confidential identities]({{< relref "../../node/operating/confidential-identities-hsm.md#wrapped-mode" >}}).
 
-The tool moves these keys from one provider to another. In every case the replacement key is generated **wrapped on the new provider**.
+The tool moves these keys from one provider to another. In every case, the replacement key is generated **wrapped on the new provider**.
 
 The tool supports the following provider migrations:
 
