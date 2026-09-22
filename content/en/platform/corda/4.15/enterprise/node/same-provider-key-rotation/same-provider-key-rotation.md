@@ -16,7 +16,7 @@ weight: 179
 
 # Same-provider key rotation
 
-Same-provider key rotation reissues a node's or notary's legal identity keys and certificates with a new key held in the **same** key provider, such as within one hardware security module (HSM) or one file-based keystore, without losing access to the states and transactions it already holds. It re-registers the node with a new certificate in the Network Map in {{< cenmlatestrelref "cenm/_index.md" "CENM" >}}. It is available in Corda Enterprise 4.7 and later.
+Same-provider key rotation reissues a node's or notary's legal identity keys and certificates, using a new key held in the **same** key provider. The provider can be one hardware security module (HSM) or one file-based keystore. The node keeps access to the states and transactions it already holds. It re-registers the node with a new certificate in the Network Map in {{< cenmlatestrelref "cenm/_index.md" "CENM" >}}. It is available in Corda Enterprise 4.7 and later.
 
 To move a key to a **different** key provider, such as from one HSM to another, use [Cross-provider key rotation]({{< relref "../cross-provider-key-rotation/cross-provider-key-rotation.md" >}}) instead.
 
@@ -36,15 +36,15 @@ You must not change the node's `myLegalName` during certificate rotation. Also, 
 
 A node's legal identity key is the key it uses to sign transactions and prove who it is on the network. Every state the node has ever signed is bound to the key that signed it. Reissuing that key therefore has to preserve the node's ability to keep signing for the states the old key already owns.
 
-Same-provider key rotation always generates a **fresh key pair**. Reissuing a certificate with the original key is a separate, less secure approach that this feature does not support. The process is similar to the initial node registration. The [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}) generates a new node CA key, sends a Certificate Signing Request to the CENM Identity Manager service, and then generates new node identity and TLS certificates around the renewed node CA certificate. From that point on:
+Same-provider key rotation always generates a **fresh key pair**. Reissuing a certificate with the original key is a separate, less secure approach that this feature does not support. The process is similar to the initial node registration. The [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}) generates a new node CA key and sends a Certificate Signing Request to the CENM Identity Manager service. It then generates new node identity and TLS certificates around the renewed node CA certificate. From that point on:
 
 * The new key and its certificates are stored under **new aliases** in the keystore or HSM, using the same crypto service configuration as before. Most HSMs do not allow the alias of an existing key to change, so the replacement key is always stored under a new alias.
 * The old identity key stays in the keystore so the node can still sign for the states that key already owns. You keep it available by listing its alias in `previousIdentityKeyAliases`.
-* The node keeps the same `myLegalName`. When the node starts with its new certificates, it publishes a new `NodeInfo`, and the network map replaces the old `NodeInfo` with the new one by X.500 name. The old `NodeInfo` is removed from the network map automatically.
+* The node keeps the same `myLegalName`. When the node starts with its new certificates, it publishes a new `NodeInfo`. The network map replaces the old `NodeInfo` with the new one by X.500 name. The old `NodeInfo` is removed from the network map automatically.
 
 ### How this differs from cross-provider key rotation
 
-[Cross-provider key rotation]({{< relref "../cross-provider-key-rotation/cross-provider-key-rotation.md" >}}) moves a key to a different key provider and records a key rotation proof that links the old key to the new one, so the same crypto material never has to leave the old provider. Same-provider key rotation is a different operation. It keeps the same provider, generates a new key there, and reissues the node's certificates by re-registering with the network operator. It does not produce a key rotation proof, and it does not support changing the HSM or crypto service. When a node uses an HSM, the old and new node CA and node identity keys must be reachable through the same crypto service configuration.
+[Cross-provider key rotation]({{< relref "../cross-provider-key-rotation/cross-provider-key-rotation.md" >}}) moves a key to a different key provider. It records a key rotation proof that links the old key to the new one, so the crypto material never has to leave the old provider. Same-provider key rotation is a different operation. It keeps the same provider, generates a new key there, and reissues the node's certificates by re-registering with the network operator. It does not produce a key rotation proof, and it does not support changing the HSM or crypto service. When a node uses an HSM, the old and new node CA and node identity keys must be reachable through the same crypto service configuration.
 
 ## Before you begin
 
@@ -62,7 +62,7 @@ Confidential identities generated without certificates, such as those used by th
 
 ## Prerequisites
 
-Same-provider key rotation is a system-critical operation. An unsuccessful rotation can leave the affected node or notary unable to access its existing states, so complete every item in this checklist before you rotate any key.
+Same-provider key rotation is a system-critical operation. An unsuccessful rotation can leave the affected node or notary unable to access its existing states. Complete every item in this checklist before you rotate any key.
 
 1. Rehearse the complete procedure in a non-production environment that mirrors production, and confirm that the node or notary restarts and can access its states afterwards.
 2. Take verified backups of the node directory, the node database, the keystores, and any HSM keys. For a notary rotation, also back up the notary database. Confirm that you can restore these backups before you continue.
@@ -99,7 +99,7 @@ Leaving key rotation enabled after the operation is a security risk. Enable this
 1. Confirm that all [prerequisites](#prerequisites) are met.
 2. Make sure that from now on no new flows are launched against the node by other nodes. See [Operational restrictions](#operational-restrictions).
 3. Stop the node gracefully.
-4. Edit `node.conf` to assign new aliases for the new keys, and list the current identity key alias in `previousIdentityKeyAliases` so the node can still sign for its existing states.
+4. Edit `node.conf` to assign new aliases for the new keys. List the current identity key alias in `previousIdentityKeyAliases`, so the node can still sign for its existing states.
 
    ```hocon
    enterpriseConfiguration = {
@@ -133,7 +133,7 @@ Rotating a notary key changes the notary's node information, so this procedure a
 1. Confirm that all [prerequisites](#prerequisites) are met.
 2. Shut down all nodes and notaries gracefully.
 3. Take a backup of the directories, databases, keystores, and HSM keys for every node, including the notary.
-4. Edit `node.conf` for the notary to assign new aliases for the new keys. A notary does not need `previousIdentityKeyAliases`, because its old key is not used for signing after rotation. If the notary has a single identity, meaning `notary.serviceLegalName` is not present, reconfigure it to use two identities by assigning a new value to `myLegalName` and copying the old value of `myLegalName` to `notary.serviceLegalName`. Keep `notary.serviceLegalName` and `myLegalName` unchanged otherwise.
+4. Edit `node.conf` for the notary to assign new aliases for the new keys. A notary does not need `previousIdentityKeyAliases`, because its old key is not used for signing after rotation. A notary has a single identity when `notary.serviceLegalName` is not present. In that case, reconfigure it to use two identities. Assign a new value to `myLegalName`, and copy the old value of `myLegalName` to `notary.serviceLegalName`. Keep `notary.serviceLegalName` and `myLegalName` unchanged otherwise.
 
    ```hocon
    enterpriseConfiguration = {
@@ -167,7 +167,7 @@ Rotating a notary key changes the notary's node information, so this procedure a
 
 ### Pending flows
 
-Before you start a rotation, make sure there are no unfinished flows running on the node and that no new incoming flows are initiated. Flow draining mode helps complete the flows the node itself started, but it does not stop other peers from initiating new flows against the node. Those start-flow messages accumulate in the `p2p.inbound.<old key hash>` broker inbox and are never processed after the node restarts with its new identity, so those flows can get stuck or fail. The simplest way to rotate safely is to shut down every node that can communicate with the node being rotated.
+Before you start a rotation, make sure there are no unfinished flows running on the node and that no new incoming flows are initiated. Flow draining mode helps complete the flows the node itself started, but it does not stop other peers from initiating new flows against the node. Those start-flow messages accumulate in the `p2p.inbound.<old key hash>` broker inbox. They are never processed after the node restarts with its new identity, so those flows can get stuck or fail. The simplest way to rotate safely is to shut down every node that can communicate with the node being rotated.
 
 ### NodeInfo propagation
 
@@ -183,9 +183,9 @@ A rotation has not completed successfully if the node or notary fails to start o
 
 ## Adapting your CorDapps
 
-Most CorDapps keep working after a rotation, because the node handles the rotated identity transparently. The Vault stores a party as its X.500 name and always deserialises it with the current identity, and vault queries do not distinguish between states belonging to parties with the same X.500 name.
+Most CorDapps keep working after a rotation, because the node handles the rotated identity transparently. The Vault stores a party as its X.500 name and always deserialises it with the current identity. Vault queries do not distinguish between states belonging to parties with the same X.500 name.
 
-Some CorDapps need changes. After a rotation, the `Party` and `PartyAndCertificate` objects for the rotated identity are not equal to the objects created before the rotation, because the underlying public key has changed. Any logic that compares a key or certificate directly, including comparisons against values stored in vault states, can break. For example, Corda Finance `CashExitFlow` will not exit states issued by the old key without changes, because it compares the stored issuer key hash with the current identity key hash. If a CorDapp cannot be adapted, an alternative is to write dedicated flows that re-sign the affected states with the new key.
+Some CorDapps need changes. After a rotation, the `Party` and `PartyAndCertificate` objects for the rotated identity are not equal to the objects created before the rotation. The underlying public key has changed. Any logic that compares a key or certificate directly, including comparisons against values stored in vault states, can break. For example, Corda Finance `CashExitFlow` will not exit states issued by the old key without changes. It compares the stored issuer key hash with the current identity key hash. If a CorDapp cannot be adapted, an alternative is to write dedicated flows that re-sign the affected states with the new key.
 
 Test every CorDapp for compatibility before you rotate a key.
 

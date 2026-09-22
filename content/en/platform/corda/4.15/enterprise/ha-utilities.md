@@ -384,9 +384,8 @@ contain the notary service certificate chain. See [HSM support for notaries]({{<
 
 ## Node certificate rotation tool
 
-This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in {{< cenmlatestrelref "cenm/_index.md" "CENM" >}}.
-It reissues the keys and certificates within the same key provider, generating a new key pair for the node CA, sending a Certificate Signing Request to the CENM Identity Manager service,
-and then generating new node identity and TLS certificates around the renewed node CA certificate. Before running the tool, assign new aliases for the new keys in `node.conf`.
+This tool reissues a node's legal identity keys and certificates. It re-registers the node, including a notary node, with a new certificate in the Network Map in {{< cenmlatestrelref "cenm/_index.md" "CENM" >}}.
+It reissues the keys and certificates within the same key provider. It generates a new key pair for the node CA and sends a Certificate Signing Request to the CENM Identity Manager service. It then generates new node identity and TLS certificates around the renewed node CA certificate. Before running the tool, assign new aliases for the new keys in `node.conf`.
 Additionally, for a regular node, keep the old identity key available for signing by listing its alias in `previousIdentityKeyAliases`.
 
 ```hocon
@@ -435,10 +434,10 @@ Copy all files from `<base-directory>/certificates` to the node's certificates d
 
 ## Node cross-provider key rotation tool
 The HA Utilities tool performs a cross-provider key rotation for a Corda node and Corda notary. It allows key providers to be changed without losing access to existing states.
-This tool generates a new node identity key with the new key provider and creates the key rotation proofs required for the node to continue consuming states signed with its previous key.
+This tool generates a new node identity key with the new key provider. It also creates the key rotation proofs that let the node keep consuming states signed with its previous key.
 Before running the tool, ensure that the node configuration points to the new key provider and that a copy of the previous configuration is available.
 Stop the node before performing the key rotation.
-Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. See [Rotate a node key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotate-a-node-key" >}}) and [Rotate a notary key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotate-a-notary-key" >}}) for the full procedures.
+Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. See [Rotating a node key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-node-key" >}}) and [Rotating a notary key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-notary-key" >}}) for the full procedures.
 
 The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the drivers subdirectory of the configured base directory.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
@@ -470,13 +469,19 @@ Copy all files from `<base-directory>/certificates` to the node’s certificates
 
 ## Node confidential identity cross-provider key rotation tool
 
-The HA Utilities tool performs a cross-provider key rotation for a Corda node's confidential identity keys. It allows the key provider that backs those keys to be changed without losing the ability to sign for the states they already own. Unlike the node's well-known legal identity key, confidential identity keys are anonymous and certificate-less, so this tool does not reissue certificates, update network parameters, or require a flag day, and it does not need key rotation to be enabled in the CENM Identity Manager service.
+The HA Utilities tool performs a cross-provider key rotation for a Corda node's confidential identity keys. It allows the key provider that backs those keys to be changed without losing the ability to sign for the states they already own. Unlike the node's well-known legal identity key, confidential identity keys are anonymous and certificate-less. This tool therefore does not reissue certificates, update network parameters, or require a flag day. It also does not need key rotation to be enabled in the CENM Identity Manager service.
 
-For each confidential identity key that needs rotating, the tool generates a new wrapped key on the new provider, creates a key rotation proof signed by the old key, stores the proof in the node database, copies the key's identity mapping to the new key, and marks the old key as rotated. The replacement key is always generated wrapped on the new provider.
+For each confidential identity key that needs rotating, the tool:
+
+1. Generates a new wrapped key on the new provider.
+2. Creates a key rotation proof signed by the old key.
+3. Stores the proof in the node database.
+4. Copies the old key's identity mapping onto the new key.
+5. Marks the old key as rotated.
 
 Before running the tool, ensure that the node configuration points to the new key provider and that a copy of the previous configuration is available. Both configuration files must point to the same node database. Stop the node before performing the key rotation. For the full procedure, see [Confidential identity cross-provider key rotation]({{< relref "node/cross-provider-key-rotation/confidential-identity-cross-provider-key-rotation.md" >}}).
 
-The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys. It does not rotate CERT keys, so they would become permanently unsignable after the provider switch, breaking every unconsumed state they still own. Consume or reissue those states before rotating, or pass `--ignore-cert-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
+The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys. It does not rotate CERT keys, so they would become permanently unsignable after the provider switch, breaking every unconsumed state they still own. Consume or reissue those states before rotating. Alternatively, pass `--ignore-cert-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
 
 The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the `drivers` subdirectory of the configured base directory.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
@@ -494,7 +499,7 @@ ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--lo
 * `-n`, `--network-parameters=FILE`: The path to the network parameters file, used to check the network minimum platform version. Default: network-parameters
 * `--batch-size=N`: Number of keys rotated per database transaction, which must be a positive number. A batch that fails is retried one key at a time. Default: 500
 * `--dry-run`: Report what would be rotated without writing any changes.
-* `--ignore-cert-keys-check`: Proceed even if the node has wrapped certificate-based (CERT) confidential identity keys. This tool does not rotate CERT keys, so they stay wrapped under the old provider and become permanently unsignable after the switch, breaking every unconsumed state they still own. Using this accepts that any unconsumed states still owned by those CERT keys will be permanently lost. The tool logs an audit warning when the override is used. Default: false
+* `--ignore-cert-keys-check`: Proceed even if the node has wrapped certificate-based (CERT) confidential identity keys. This tool does not rotate CERT keys. They stay wrapped under the old provider and become permanently unsignable after the switch, breaking every unconsumed state they still own. Using this accepts that any unconsumed states still owned by those CERT keys will be permanently lost. The tool logs an audit warning when the override is used. Default: false
 * `--config-obfuscation-passphrase[=<cliPassphrase>]`: The passphrase used in the key derivation function when generating an AES key.
 * `--config-obfuscation-seed[=<cliSeed>]`: The seed used in the key derivation function to create a salt.
 * `-h`, `--help`: Show this help message and exit.
@@ -502,6 +507,6 @@ ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--lo
 
 ### Output
 
-The tool writes directly to the node database. For each confidential key, it generates a new wrapped key on the new provider, stores the key rotation proof in the database, copies the key's identity mapping onto the new key, and marks the old key as rotated. These proofs let the node keep signing for the states owned by the old keys after it restarts with the new provider.
+The tool writes directly to the node database. For each key, it generates a replacement wrapped key on the new provider and records a key rotation proof. These proofs let the node keep signing for the old keys' states after it restarts on the new provider.
 
-The tool logs a summary reporting the total number of keys processed, the number rotated, and the number that failed. A key that fails to rotate does not stop the others, but if any key fails the tool exits with a non-zero status and reports that the rotation is incomplete. Do not switch the node to the new key provider while any key is still unrotated. Re-run the tool after fixing the cause to retry the outstanding keys. Re-running is idempotent, so keys already rotated onto the new provider are skipped.
+The tool logs a summary reporting the total number of keys processed, the number rotated, and the number that failed. A key that fails to rotate does not stop the others. If any key fails, the tool exits with a non-zero status and reports that the rotation is incomplete. Do not switch the node to the new key provider while any key is still unrotated. Re-run the tool after fixing the cause to retry the outstanding keys. Re-running is idempotent, so keys already rotated onto the new provider are skipped.
