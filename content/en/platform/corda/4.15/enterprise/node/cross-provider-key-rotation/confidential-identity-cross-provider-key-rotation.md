@@ -30,11 +30,9 @@ This tool rotates only the anonymous, certificate-less confidential identity key
 
 {{< important >}}
 
-**Wrapped certificate-based (CERT) confidential identity keys become permanently unsignable after the provider switch.** This tool does not rotate CERT keys, so once the node switches to the new provider these CERT keys can no longer be signed with, and every unconsumed state still owned by one is permanently stuck. This cannot be recovered by re-running the tool or by rotating again.
+**Wrapped certificate-based (CERT) confidential identity keys become permanently unsignable after the provider switch.** This tool does not rotate CERT keys. Once the node switches to the new provider, they can no longer be signed with, and every unconsumed state they own is permanently stuck. This cannot be recovered by re-running the tool or by rotating again.
 
-Consume or reissue every state owned by a CERT key before you rotate. The tool refuses to run when it finds CERT keys.
-Unless you pass `--ignore-cert-keys-check` to proceed anyway, which accepts that any unconsumed states still owned by
-those CERT keys will be permanently lost.
+Consume or reissue every state owned by a CERT key before you rotate. The tool refuses to run when it finds CERT keys. To rotate anyway, pass `--ignore-cert-keys-check`. Using it means accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
 
 {{< /important >}}
 
@@ -46,9 +44,9 @@ Key rotation is a system-critical operation that writes directly to the node dat
 
 ## Which keys it rotates
 
-The tool rotates a node's **wrapped** confidential identity keys. These are the confidential identity private keys stored encrypted under a master (wrapping) key held in a crypto service or HSM, generated when `freshIdentitiesConfiguration` is configured. See [Using an HSM with confidential identities]({{< relref "../../node/operating/confidential-identities-hsm.md#wrapped-mode" >}}).
+The tool rotates a node's **wrapped** confidential identity keys. These are the confidential identity private keys stored encrypted under a master (wrapping) key in a crypto service or HSM. The node generates them when `freshIdentitiesConfiguration` is configured. See [Using an HSM with confidential identities]({{< relref "../../node/operating/confidential-identities-hsm.md#wrapped-mode" >}}).
 
-The tool moves these keys from one provider to another. In every case, the replacement key is generated **wrapped on the new provider**.
+The tool moves these keys from one provider to another, generating each replacement as a new wrapped key on the new provider.
 
 The tool supports the following provider migrations:
 
@@ -58,19 +56,19 @@ The tool supports the following provider migrations:
 | HSM                      | File-based keystore |
 | HSM                      | Another HSM |
 
-The new provider must have `freshIdentitiesConfiguration` enabled, and the replacement key is always generated wrapped on it.
+Every replacement is generated as a wrapped key, so the new provider must have `freshIdentitiesConfiguration` enabled.
 
 ## How it works
 
-Every confidential identity key a node holds may own unconsumed states that the node must still be able to sign for. Moving the key to a new provider therefore creates a problem to solve. The node must remain able to sign for those states even though the key now lives in a different provider, and a well-behaved HSM will not let you export and re-import private key material.
+Every confidential identity key a node holds may own unconsumed states that the node must still be able to sign for. Moving the key to a new provider therefore creates a problem to solve. The node must remain able to sign for those states, even though the key now lives in a different provider. A well-behaved HSM will not let you export and re-import private key material.
 
 The tool solves this with a **key rotation proof**. For every confidential identity key that needs rotating, the tool does three things:
 
 1. It generates a new wrapped key on the **new** provider.
 2. It uses the **old** key to sign the new key's public key. This signature is the proof that the owner of the old key authorised the replacement.
-3. It stores the proof in the node database, copies the old key's identity mapping onto the new key so the new key belongs to the same party, and marks the old key as rotated.
+3. It stores the proof in the node database. It copies the old key's identity mapping onto the new key, so the new key belongs to the same party. Finally, it marks the old key as rotated.
 
-From then on, whenever the node is asked to sign with the old confidential identity key, it follows the proof to the new key and signs with the new key on the new provider.
+From then on, a request to sign with the old confidential identity key follows the proof to the new key. The node signs with the new key on the new provider.
 Nothing is moved or deleted. The old key stays in place linked to the new key by the proof. Each further rotation simply extends the proof chain.
 
 Because "already rotated" is defined purely by the presence of a proof, the operation is idempotent and resumable. Re-running the tool skips keys that are already done, and an interrupted run continues where it left off.
@@ -106,7 +104,7 @@ Complete every item in this checklist before you rotate any key:
 1. Confirm that all [prerequisites](#prerequisites) are met.
 2. Stop the node.
 3. In the node directory, copy the current configuration file (which points to the old key provider) to `node.conf.previous`.
-4. Edit `node.conf` so that it points to the new key provider. The new configuration must have `freshIdentitiesConfiguration` enabled, because replacement keys are always generated wrapped on the new provider.
+4. Edit `node.conf` so that it points to the new key provider. The new configuration must have `freshIdentitiesConfiguration` enabled, because every replacement is generated as a wrapped key on the new provider.
 5. Run the key rotation tool. Both configuration files must point to the same node database:
 
    ```shell
@@ -127,18 +125,15 @@ Once a rotation has succeeded and a new key is in use, the change cannot be reve
 ## Behaviour and options
 
 * **Selection.** The tool rotates every used confidential identity key that has not already been rotated, including keys that no longer own any unconsumed vault state.
-* **Certificate keys.** The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys, because it does not rotate them and they would become permanently unsignable after the switch. Pass `--ignore-cert-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
-* **Batching.** Keys are rotated in batches, one database transaction per batch, controlled by `--batch-size` (default `500`). If a key fails, the tool rolls back that batch and retries it by rotating each key individually, which may cause a temporary slowdown while the batch is reprocessed. Once every key in the batch has been processed, the tool goes back to rotating the keys in batches.
+* **Certificate keys.** The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys. It does not rotate them, and they would become permanently unsignable after the switch. Pass `--ignore-cert-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
+* **Batching.** Keys are rotated in batches, one database transaction per batch, controlled by `--batch-size` (default `500`). If a key fails, the tool rolls back that batch and retries it by rotating each key individually. This may cause a temporary slowdown while the batch is reprocessed. Once every key in the batch has been processed, the tool goes back to rotating the keys in batches.
 * **Resilience.** A key that fails to rotate does not stop the others. The tool logs each failure, continues with the remaining keys, and prints a final summary of the total, rotated, and failed counts. If any key fails, the tool exits with a non-zero status and reports that the rotation is incomplete. Do not switch the node to the new key provider while any key is still unrotated. Fix the cause and re-run the tool to retry the outstanding keys. Re-running is idempotent, so keys already rotated onto the new provider are skipped.
-* **No-op guard.** If the new and previous configurations resolve to the same provider, the tool makes no changes. It decides this by comparing a hash of the key provider configuration, rather than by probing the provider. Because the hash is computed over the configuration’s raw bytes, reformatting or rewriting the previous configuration for the same HSM changes the hash, so the tool treats it as a new provider and performs a full, unnecessary rotation. Change only what is needed to point at the new provider, and otherwise leave the provider configuration unchanged.
+* **No-op guard.** If the new and previous configurations resolve to the same provider, the tool makes no changes. It decides this by comparing a hash of the key provider configuration, rather than by probing the provider. The hash is computed over the configuration’s raw bytes. Reformatting or rewriting the previous configuration for the same HSM changes the hash. The tool then treats it as a new provider and performs a full, unnecessary rotation. Change only what is needed to point at the new provider, and otherwise leave the provider configuration unchanged.
 * **Dry run.** `--dry-run` reports exactly which keys would be rotated without writing anything.
 
 {{< note >}}
 
-When a key fails to rotate, the whole batch fails and every key in that batch that had already been rotated must be rotated again.
-The database changes are rolled back, but the key pairs already created in the new key provider are not, because `generateWrappedKeyPair` is not transactional.
-If a single key fails in a batch of N keys, the other potentially N-1 keys may already have had new key pairs generated in the key provider.
-Those key pairs become orphaned, because the overall transaction failed and the rotation must be retried. Whether this happens depends on the key provider being used.
+When a key fails, the whole batch fails, and every key in that batch that had already rotated must be rotated again. The database changes are rolled back, but the new key pairs already created in the key provider are not, because `generateWrappedKeyPair` is not transactional. So if one key fails in a batch of N, up to N-1 other keys may already have new key pairs in the provider. Those key pairs are orphaned, because the transaction failed and the rotation must be retried. Whether this happens depends on the key provider.
 
 {{< /note >}}
 
@@ -154,9 +149,9 @@ A rotation has not completed successfully if the node fails to start or cannot s
 
 ## Adapting your CorDapps
 
-Confidential identity keys use the same key rotation proof mechanism as legal identity keys, so the same CorDapp considerations apply. The node follows proofs transparently for most applications, but CorDapps that store and later compare party or key details, or that perform their own transaction validation, may need changes. Because confidential identities are typically short-lived, the proof overhead usually disappears once the states they own are consumed.
+Confidential identity keys use the same key rotation proof mechanism as legal identity keys, so the same CorDapp considerations apply. The node follows proofs transparently for most applications. Some CorDapps still need changes, such as those that store and later compare party or key details, or that perform their own transaction validation. Because confidential identities are typically short-lived, the proof overhead usually disappears once the states they own are consumed.
 
-For the full guidance on resolving identities from a single source, signing and validating correctly, including proofs when parties must stay identical, and transaction size and performance, see [Adapting your CorDapps]({{< relref "cross-provider-key-rotation.md#adapting-your-cordapps" >}}) on the legal identity page.
+See [Adapting your CorDapps]({{< relref "cross-provider-key-rotation.md#adapting-your-cordapps" >}}) on the legal identity page for the full guidance. It covers resolving identities from a single source, signing and validating correctly, including proofs when parties must stay identical, and transaction size and performance.
 
 ## References
 

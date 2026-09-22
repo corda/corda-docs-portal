@@ -15,7 +15,7 @@ weight: 180
 
 # Cross-provider key rotation
 
-Cross-provider key rotation lets a node or notary move its legal identity key to a different key provider, such as from one hardware security module (HSM) to another, without losing access to the states and transactions it already holds. It is available in Corda Enterprise 4.15 and later.
+Cross-provider key rotation moves a node's or notary's legal identity key from one key provider to another, for example between hardware security modules (HSMs). The node keeps access to the states and transactions it already holds. It is available in Corda Enterprise 4.15 and later.
 
 This page is written for two audiences:
 
@@ -32,17 +32,17 @@ Key rotation is a system-critical operation. An unsuccessful rotation can leave 
 
 A node's legal identity key is the key it uses to sign transactions and prove who it is on the network. Every state a node has ever signed is bound to the key that signed it. Moving that key to a new provider therefore creates a problem to solve. The node must remain able to spend states that were signed with the old key, even though that key now lives in a different provider.
 
-Cross-provider key rotation solves this with a **key rotation proof**. When you rotate a key, the HA Utilities tool generates a new legal identity key in the new provider and creates a proof, signed by the old key, that links the old key to the new one. From that point on:
+Cross-provider key rotation solves this with a **key rotation proof**. When you rotate a key, the HA Utilities tool generates a new legal identity key in the new provider. It then creates a proof, signed by the old key, that links the old key to the new one. From that point on:
 
 * When a transaction consumes a state that was signed with the old key, it carries the relevant key rotation proof. The proof shows any verifier that the new key legitimately controls the identity that signed the original state.
 * Verification checks both the transaction signature and every proof in the chain. A transaction is valid only if all of them are valid.
 * Each proof adds a small, fixed overhead to the transaction (see [Transaction size and performance](#transaction-size-and-performance)).
 
-For many applications the proofs are temporary. Once every state signed with the old key has been consumed, new transactions no longer need proofs and the overhead disappears. For applications that must preserve the same parties across a state's whole lifetime, such as bilateral agreements, the proofs may be needed indefinitely unless the CorDapp is adapted.
+For many applications the proofs are temporary. Once every state signed with the old key has been consumed, new transactions no longer need proofs and the overhead disappears. Some applications must preserve the same parties across a state's whole lifetime, such as bilateral agreements. For these, the proofs may be needed indefinitely unless the CorDapp is adapted.
 
 ### How this differs from same-provider key rotation
 
-Corda also supports same-provider key rotation, which reissues a node's legal identity key and certificate within the same key provider using the [node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool-node-same-provider-key-rotation-tool" >}}). Cross-provider rotation is a different operation with a different tool and different steps. It generates the new key in a different provider and produces the key rotation proofs described above.
+Corda also supports same-provider key rotation, which reissues a node's legal identity key and certificate within the same key provider. It uses the [node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}). Cross-provider rotation is a different operation with a different tool and different steps. It generates the new key in a different provider and produces the key rotation proofs described above.
 
 {{< note >}}
 
@@ -56,7 +56,7 @@ Use this page only for moving between providers.
 
 Nodes running Corda 4.15 interoperate with earlier Corda versions in exactly the same way as Corda 4.14 did. The API changes that support key rotation do not affect interoperability. This includes interoperability between Corda Open Source and Corda Enterprise.
 
-A Corda Open Source node cannot initiate a cross-provider key rotation, but a Corda Open Source node running 4.15 or later can verify transactions that contain key rotation proofs. A Corda Enterprise node can therefore adopt cross-provider key rotation without breaking compatibility with Corda Open Source nodes on the network.
+A Corda Open Source node cannot initiate a cross-provider key rotation. If it runs Corda 4.15 or later, it can still verify transactions that contain key rotation proofs. A Corda Enterprise node can therefore adopt cross-provider key rotation without breaking compatibility with Corda Open Source nodes on the network.
 
 ### Limitations
 
@@ -66,7 +66,7 @@ A Corda Open Source node cannot initiate a cross-provider key rotation, but a Co
 
 ## Prerequisites
 
-Cross-provider key rotation is a system-critical operation. An unsuccessful rotation can leave the affected node or notary unable to access its existing states, so complete every item in this checklist before you rotate any key:
+Cross-provider key rotation is a system-critical operation. An unsuccessful rotation can leave the affected node or notary unable to access its existing states. Complete every item in this checklist before you rotate any key:
 
 1. Rehearse the complete procedure in a non-production environment that mirrors production, and confirm that the node or notary restarts and can access its states afterwards. Do not run a rotation in production that you have not first validated in a test environment.
 2. Take verified backups of the node database and the entire node directory, including the current `certificates` directory and its Java KeyStore (JKS) files. For a notary rotation, also back up the notary database. Confirm that you can restore these backups before you continue, because they are the only way to roll back a failed rotation.
@@ -137,7 +137,7 @@ Once you copy the new files into `certificates`, the old certificates are gone u
 
 {{< important >}}
 
-Once a cross-provider key rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. Reusing the old key afterwards is not supported, because Corda treats the new key as the node's current identity and reintroducing a rotated key causes undefined behaviour. Any states already signed with the new key would also become permanently inaccessible, because the notary would no longer use the key that owns them. If you later need to move back to the original provider, perform a new cross-provider key rotation rather than reinstating the old key.
+Once a cross-provider key rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. Reusing the old key afterwards is not supported. Corda treats the new key as the node's current identity, so reintroducing a rotated key causes undefined behaviour. Any states already signed with the new key would also become permanently inaccessible. The node no longer uses the key that owns them. If you later need to move back to the original provider, perform a new cross-provider key rotation rather than reinstating the old key.
 
 {{< /important >}}
 
@@ -207,7 +207,7 @@ As with a node rotation, the old certificates are unavailable once the new files
 
 {{< important >}}
 
-Once a cross-provider key rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. Reusing the old key afterwards is not supported, because Corda treats the new key as the notary's current identity and reintroducing a rotated key causes undefined behaviour. Any states already signed with the new key would also become permanently inaccessible, because the node would no longer use the key that owns them. If you later need to move back to the original provider, perform a new cross-provider key rotation rather than reinstating the old key.
+Once a cross-provider key rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. Reusing the old key afterwards is not supported. Corda treats the new key as the notary's current identity, so reintroducing a rotated key causes undefined behaviour. Any states already signed with the new key would also become permanently inaccessible. The notary no longer uses the key that owns them. If you later need to move back to the original provider, perform a new cross-provider key rotation rather than reinstating the old key.
 
 {{< /important >}}
 
@@ -226,7 +226,7 @@ Most CorDapps keep working after a key rotation without changes, because the nod
 
 ### When a CorDapp needs changes
 
-After a rotation, the `Party` and `PartyAndCertificate` objects for the rotated identity are **not equal** to the objects created before the rotation, because the underlying public key has changed. Any logic that compares a key or certificate directly, including comparisons against values stored in vault states, can therefore break.
+After a rotation, the `Party` and `PartyAndCertificate` objects for the rotated identity are **not equal** to the objects created before the rotation. The underlying public key has changed. Any logic that compares a key or certificate directly, including comparisons against values stored in vault states, can therefore break.
 
 The node absorbs most of this automatically:
 
@@ -255,7 +255,7 @@ When a party in an input state must match a party in an output state, follow the
 
 {{< note >}}
 
-Use `PartyIdentityResolver` only for parties or keys stored in a state, where an old identity should be replaced by the new one once it becomes available, and in contracts where a transaction must keep ownership unchanged. Do not use it to build counterparty identities. Once a stored party or key has been updated to the new identity, never revert it to the old one.
+Use `PartyIdentityResolver` for parties or keys stored in a state, where an old identity should be replaced by the new one once it becomes available. Also use it in contracts where a transaction must keep ownership unchanged. Do not use it to build counterparty identities. Once a stored party or key has been updated to the new identity, never revert it to the old one.
 
 {{< /note >}}
 
@@ -277,7 +277,7 @@ When a transaction requires the parties in its input and output states to remain
 
 ### Transaction size and performance
 
-Each key rotation proof adds approximately 128 bytes to a transaction, and validating a transaction now also validates every proof in its chain, which adds one cryptographic check per proof.
+Each key rotation proof adds approximately 128 bytes to a transaction. Validating a transaction now also validates every proof in its chain, which adds one cryptographic check per proof.
 
 * **Payment-style CorDapps:** the overhead applies only while transactions still consume states signed with the old key. Once all legacy states are consumed, transaction size and performance return to their previous baseline.
 * **Bilateral-agreement CorDapps:** the overhead can apply to all future transactions unless the CorDapp is updated so that proofs are no longer required.
