@@ -472,16 +472,18 @@ Copy all files from `<base-directory>/certificates` to the node’s certificates
 
 The HA Utilities tool performs a cross-provider key rotation for a Corda node's confidential identity keys. It allows the key provider that backs those keys to be changed without losing the ability to sign for the states they already own. Unlike the node's well-known legal identity key, confidential identity keys are anonymous and certificate-less, so this tool does not reissue certificates, update network parameters, or require a flag day, and it does not need key rotation to be enabled in the CENM Identity Manager service.
 
-For each confidential identity key that needs rotating, the tool generates a new wrapped key on the new provider, creates a key rotation proof signed by the old key, stores the proof in the node database, copies the key's identity mapping to the new key, and marks the old key as rotated. The tool rotates both encrypted (wrapped) keys and keys stored in plaintext, so it can also move a node's plaintext confidential identity keys onto an HSM. The replacement key is always generated wrapped on the new provider.
+For each confidential identity key that needs rotating, the tool generates a new wrapped key on the new provider, creates a key rotation proof signed by the old key, stores the proof in the node database, copies the key's identity mapping to the new key, and marks the old key as rotated. The replacement key is always generated wrapped on the new provider.
 
 Before running the tool, ensure that the node configuration points to the new key provider and that a copy of the previous configuration is available. Both configuration files must point to the same node database. Stop the node before performing the key rotation. For the full procedure, see [Confidential identity cross-provider key rotation]({{< relref "node/cross-provider-key-rotation/confidential-identity-cross-provider-key-rotation.md" >}}).
+
+The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys. It does not rotate CERT keys, so they would become permanently unsignable after the provider switch, breaking every unconsumed state they still own. Consume or reissue those states before rotating, or pass `--ignore-certificate-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
 
 The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the `drivers` subdirectory of the configured base directory.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
 
 ### Command-line options
 ```shell
-ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--skip-keys-without-unconsumed-states]
+ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--ignore-certificate-keys-check]
 ```
 
 
@@ -492,7 +494,7 @@ ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--lo
 * `-n`, `--network-parameters=FILE`: The path to the network parameters file, used to check the network minimum platform version. Default: network-parameters
 * `--batch-size=N`: Number of keys rotated per database transaction. A batch that fails is retried one key at a time. Default: 500
 * `--dry-run`: Report what would be rotated without writing any changes.
-* `--skip-keys-without-unconsumed-states`: Rotate only used confidential identity keys that own at least one unconsumed vault state. By default every used confidential identity key is rotated, including those that own no unconsumed vault states. Default: false
+* `--ignore-certificate-keys-check`: Proceed even if the node has wrapped certificate-based (CERT) confidential identity keys. This tool does not rotate CERT keys, so they stay wrapped under the old provider and become permanently unsignable after the switch, breaking every unconsumed state they still own. Using this accepts that any unconsumed states still owned by those CERT keys will be permanently lost. The tool logs an audit warning when the override is used. Default: false
 * `--config-obfuscation-passphrase[=<cliPassphrase>]`: The passphrase used in the key derivation function when generating an AES key.
 * `--config-obfuscation-seed[=<cliSeed>]`: The seed used in the key derivation function to create a salt.
 * `-h`, `--help`: Show this help message and exit.
