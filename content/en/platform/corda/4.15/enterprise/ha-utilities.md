@@ -476,14 +476,14 @@ For each confidential identity key that needs rotating, the tool generates a new
 
 Before running the tool, ensure that the node configuration points to the new key provider and that a copy of the previous configuration is available. Both configuration files must point to the same node database. Stop the node before performing the key rotation. For the full procedure, see [Confidential identity cross-provider key rotation]({{< relref "node/cross-provider-key-rotation/confidential-identity-cross-provider-key-rotation.md" >}}).
 
-The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys. It does not rotate CERT keys, so they would become permanently unsignable after the provider switch, breaking every unconsumed state they still own. Consume or reissue those states before rotating, or pass `--ignore-certificate-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
+The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys. It does not rotate CERT keys, so they would become permanently unsignable after the provider switch, breaking every unconsumed state they still own. Consume or reissue those states before rotating, or pass `--ignore-cert-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
 
 The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the `drivers` subdirectory of the configured base directory.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
 
 ### Command-line options
 ```shell
-ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--ignore-certificate-keys-check]
+ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--ignore-cert-keys-check]
 ```
 
 
@@ -492,9 +492,9 @@ ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--lo
 * `-f`, `--config-file=FILE`: The path to the node config file, pointing to the new key provider. Default: node.conf
 * `-g`, `--config-file-previous=FILE`: The path to the previously used node config file, pointing to the old key provider. Default: node.conf.previous
 * `-n`, `--network-parameters=FILE`: The path to the network parameters file, used to check the network minimum platform version. Default: network-parameters
-* `--batch-size=N`: Number of keys rotated per database transaction. A batch that fails is retried one key at a time. Default: 500
+* `--batch-size=N`: Number of keys rotated per database transaction, which must be a positive number. A batch that fails is retried one key at a time. Default: 500
 * `--dry-run`: Report what would be rotated without writing any changes.
-* `--ignore-certificate-keys-check`: Proceed even if the node has wrapped certificate-based (CERT) confidential identity keys. This tool does not rotate CERT keys, so they stay wrapped under the old provider and become permanently unsignable after the switch, breaking every unconsumed state they still own. Using this accepts that any unconsumed states still owned by those CERT keys will be permanently lost. The tool logs an audit warning when the override is used. Default: false
+* `--ignore-cert-keys-check`: Proceed even if the node has wrapped certificate-based (CERT) confidential identity keys. This tool does not rotate CERT keys, so they stay wrapped under the old provider and become permanently unsignable after the switch, breaking every unconsumed state they still own. Using this accepts that any unconsumed states still owned by those CERT keys will be permanently lost. The tool logs an audit warning when the override is used. Default: false
 * `--config-obfuscation-passphrase[=<cliPassphrase>]`: The passphrase used in the key derivation function when generating an AES key.
 * `--config-obfuscation-seed[=<cliSeed>]`: The seed used in the key derivation function to create a salt.
 * `-h`, `--help`: Show this help message and exit.
@@ -504,4 +504,4 @@ ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--lo
 
 The tool writes directly to the node database. For each confidential key, it generates a new wrapped key on the new provider, stores the key rotation proof in the database, copies the key's identity mapping onto the new key, and marks the old key as rotated. These proofs let the node keep signing for the states owned by the old keys after it restarts with the new provider.
 
-The tool logs a summary reporting the total number of keys processed, the number rotated, and the number that failed. A key that fails to rotate does not stop the others. Re-run the tool after fixing the cause to retry the failed keys, as keys that have already rotated are skipped.
+The tool logs a summary reporting the total number of keys processed, the number rotated, and the number that failed. A key that fails to rotate does not stop the others, but if any key fails the tool exits with a non-zero status and reports that the rotation is incomplete. Do not switch the node to the new key provider while any key is still unrotated. Re-run the tool after fixing the cause to retry the outstanding keys. Re-running is idempotent, so keys already rotated onto the new provider are skipped.

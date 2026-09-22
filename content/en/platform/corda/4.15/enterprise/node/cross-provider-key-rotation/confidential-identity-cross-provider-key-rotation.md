@@ -30,7 +30,7 @@ This tool rotates only the anonymous, certificate-less confidential identity key
 
 **Wrapped certificate-based (CERT) confidential identity keys become permanently unsignable after the provider switch.** This tool does not rotate CERT keys, so once the node switches to the new provider these CERT keys can no longer be signed with, and every unconsumed state still owned by one is permanently stuck. This cannot be recovered by re-running the tool or by rotating again.
 
-Consume or reissue every state owned by a CERT key before you rotate. The tool refuses to run when it finds CERT keys, unless you pass `--ignore-certificate-keys-check` to proceed anyway, which accepts that any unconsumed states still owned by those CERT keys will be permanently lost.
+Consume or reissue every state owned by a CERT key before you rotate. The tool refuses to run when it finds CERT keys, unless you pass `--ignore-cert-keys-check` to proceed anyway, which accepts that any unconsumed states still owned by those CERT keys will be permanently lost.
 
 {{< /important >}}
 
@@ -111,7 +111,7 @@ Complete every item in this checklist before you rotate any key:
 
    To preview the keys that would be rotated without writing any changes, add `--dry-run`.
 
-6. Confirm from the tool's summary log that the expected number of keys rotated and that none failed. The summary reports the total, the number rotated, and the number that failed.
+6. Confirm the tool reported zero failures and exited successfully. The summary reports the total, the number rotated, and the number that failed. If any key failed, the rotation is incomplete, so do not start the node on the new provider. Fix the cause and re-run the tool until it reports zero failures.
 7. Start the node and confirm that it can sign for its states.
 
 {{< important >}}
@@ -123,17 +123,11 @@ Once a rotation has succeeded and a new key is in use, the change cannot be reve
 ## Behaviour and options
 
 * **Selection.** The tool rotates every used confidential identity key that has not already been rotated, including keys that no longer own any unconsumed vault state.
-* **Certificate keys.** The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys, because it does not rotate them and they would become permanently unsignable after the switch. Pass `--ignore-certificate-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
+* **Certificate keys.** The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys, because it does not rotate them and they would become permanently unsignable after the switch. Pass `--ignore-cert-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
 * **Batching.** Keys are rotated in batches, one database transaction per batch, controlled by `--batch-size` (default `500`). If a key fails, the tool rolls back that batch and retries it by rotating each key individually, which may cause a temporary slowdown while the batch is reprocessed. Once every key in the batch has been processed, the tool goes back to rotating the keys in batches.
-* **Resilience.** A key that fails to rotate does not stop the others. The tool logs each failure, continues with the remaining keys, and prints a final summary of the total, rotated, and failed counts. While the node is still stopped for the rotation, you can re-run the tool after fixing the cause to retry the failed keys. Keys that already rotated are skipped.
-* **No-op guard.** If the new and previous configurations resolve to the same provider, the tool makes no changes. It decides this by comparing a hash of the key provider configuration and the master key alias, rather than by probing the provider. Because the hash is computed over the configuration’s raw bytes, reformatting or rewriting the previous configuration for the same HSM changes the hash, so the tool treats it as a new provider and performs a full, unnecessary rotation. Change only what is needed to point at the new provider, and otherwise leave the provider configuration unchanged.
+* **Resilience.** A key that fails to rotate does not stop the others. The tool logs each failure, continues with the remaining keys, and prints a final summary of the total, rotated, and failed counts. If any key fails, the tool exits with a non-zero status and reports that the rotation is incomplete. Do not switch the node to the new key provider while any key is still unrotated. Fix the cause and re-run the tool to retry the outstanding keys. Re-running is idempotent, so keys already rotated onto the new provider are skipped.
+* **No-op guard.** If the new and previous configurations resolve to the same provider, the tool makes no changes. It decides this by comparing a hash of the key provider configuration, rather than by probing the provider. Because the hash is computed over the configuration’s raw bytes, reformatting or rewriting the previous configuration for the same HSM changes the hash, so the tool treats it as a new provider and performs a full, unnecessary rotation. Change only what is needed to point at the new provider, and otherwise leave the provider configuration unchanged.
 * **Dry run.** `--dry-run` reports exactly which keys would be rotated without writing anything.
-
-{{< warning >}}
-
-Do not run the tool again once the node has restarted on the new provider. A second rotation at that point is not a no-op. It retires the fresh confidential identity key pool the node has generated on the new provider, and needing another rotation means the first one did not complete correctly. Restore the node to its pre-rotation state from a backup and repeat the whole procedure instead.
-
-{{< /warning >}}
 
 {{< note >}}
 
