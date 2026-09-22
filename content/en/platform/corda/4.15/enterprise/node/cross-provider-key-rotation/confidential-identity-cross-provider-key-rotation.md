@@ -82,7 +82,6 @@ Nodes running Corda 4.15 interoperate with earlier Corda versions in exactly the
 * Only Corda Enterprise nodes running Corda 4.15 or later can initiate a rotation.
 * A rotation cannot be reversed. Moving back to a previous provider requires performing another rotation.
 * Each rotation adds a key rotation proof to the chain, which places a small, fixed overhead on affected transactions. See [Transaction size and performance]({{< relref "cross-provider-key-rotation.md#transaction-size-and-performance" >}}).
-* The tool rotates confidential identity keys only. It does not rotate the node's legal identity key.
 
 ## Prerequisites
 
@@ -91,11 +90,12 @@ Complete every item in this checklist before you rotate any key:
 1. Rehearse the complete procedure in a non-production environment that mirrors production, and confirm that the node restarts and can consume existing states afterwards.
 2. Take a verified backup of the node database and the entire node directory. Confirm that you can restore it before you continue because it is the only way to roll back a failed rotation.
 3. Plan for downtime. The node must be stopped throughout the rotation.
-4. Confirm that every node on the network runs Corda 4.15 or later. And that the network minimum platform version is `170` or later. To upgrade, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}). To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
-5. Confirm that the new key provider is configured, running, and accessible to the node.
-6. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps]({{< relref "cross-provider-key-rotation.md#adapting-your-cordapps" >}}).
-7. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node directory. For the tool's full command syntax and options, see the [Node confidential identity cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-confidential-identity-cross-provider-key-rotation-tool" >}}) reference.
-8. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. For more details see [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
+4. Confirm that every node on the network runs Corda 4.15 or later. To upgrade, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}).
+5. And that the network minimum platform version is `170` or later. To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
+6. Confirm that the new key provider is configured, running, and accessible to the node.
+7. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps]({{< relref "cross-provider-key-rotation.md#adapting-your-cordapps" >}}).
+8. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node directory. For the tool's full command syntax and options, see the [Node confidential identity cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-confidential-identity-cross-provider-key-rotation-tool" >}}) reference.
+9. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. For more details see [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
 
 ## Rotating confidential identity keys
 
@@ -103,7 +103,7 @@ Complete every item in this checklist before you rotate any key:
 2. Stop the node.
 3. In the node directory, copy the current configuration file (which points to the old key provider) to `node.conf.previous`.
 4. Edit `node.conf` so that it points to the new key provider. The new configuration must have `freshIdentitiesConfiguration` enabled, because the tool creates every new key as a wrapped key on that provider.
-5. Run the key rotation tool. Both configuration files must point to the same node database:
+5. Run the key rotation tool:
 
    ```shell
    java -jar corda-tools-ha-utilities.jar node-confidential-identity-cross-provider-key-rotation
@@ -111,12 +111,12 @@ Complete every item in this checklist before you rotate any key:
 
    To preview the keys that would be rotated without writing any changes, add `--dry-run`.
 
-6. Confirm the tool reported zero failures and exited successfully. The summary reports the total, the number rotated, and the number that failed. If any key failed, the rotation is incomplete, so do not start the node on the new provider. Fix the cause and re-run the tool until it reports zero failures.
+6. Confirm the tool reported zero failures and exited successfully. The summary reports how many keys were processed, how many rotated, and how many failed. If any key failed, the rotation is incomplete, so do not start the node on the new provider. Fix the cause and re-run the tool until it reports zero failures.
 7. Start the node and confirm that it can sign for its states.
 
 {{< important >}}
 
-Once a rotation has succeeded and a new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore an old key after a successful rotation. If you later need to move back to the original provider, perform a new rotation rather than reinstating the old key.
+Once a rotation has succeeded and the new key is in use, you cannot reverse it without losing unconsumed states and risking inconsistencies. A backup can restore the node to its state before the rotation, even a successful one. However, the rollback loses any unconsumed states already assigned to the new key, because a backup taken before the rotation does not contain them. It can also leave the node inconsistent once it is started again. If you later need to move back to the original provider, perform a new rotation rather than restoring a backup or reinstating the old key.
 
 {{< /important >}}
 
