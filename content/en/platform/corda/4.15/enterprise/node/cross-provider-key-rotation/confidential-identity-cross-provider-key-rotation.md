@@ -46,9 +46,7 @@ Key rotation is a system-critical operation that writes directly to the node dat
 
 The tool rotates a node's **wrapped** confidential identity keys. These are the confidential identity private keys stored encrypted under a master (wrapping) key in a crypto service or HSM. The node generates them when `freshIdentitiesConfiguration` is configured. See [Using an HSM with confidential identities]({{< relref "../../node/operating/confidential-identities-hsm.md#wrapped-mode" >}}).
 
-The tool moves these keys from one provider to another, generating each replacement as a new wrapped key on the new provider.
-
-The tool supports the following provider migrations:
+The following migrations are supported:
 
 | From (previous provider) | To (new provider) |
 |--------------------------|---|
@@ -56,7 +54,7 @@ The tool supports the following provider migrations:
 | HSM                      | File-based keystore |
 | HSM                      | Another HSM |
 
-Every replacement is generated as a wrapped key, so the new provider must have `freshIdentitiesConfiguration` enabled.
+For each key it rotates, the tool creates a new wrapped key on the new provider. That provider must therefore have `freshIdentitiesConfiguration` enabled.
 
 ## How it works
 
@@ -65,7 +63,7 @@ Every confidential identity key a node holds may own unconsumed states that the 
 The tool solves this with a **key rotation proof**. For every confidential identity key that needs rotating, the tool does three things:
 
 1. It generates a new wrapped key on the **new** provider.
-2. It uses the **old** key to sign the new key's public key. This signature is the proof that the owner of the old key authorised the replacement.
+2. It uses the **old** key to sign the new key's public key. This signature is the proof that the owner of the old key authorised the new key.
 3. It stores the proof in the node database. It copies the old key's identity mapping onto the new key, so the new key belongs to the same party. Finally, it marks the old key as rotated.
 
 From then on, a request to sign with the old confidential identity key follows the proof to the new key. The node signs with the new key on the new provider.
@@ -104,7 +102,7 @@ Complete every item in this checklist before you rotate any key:
 1. Confirm that all [prerequisites](#prerequisites) are met.
 2. Stop the node.
 3. In the node directory, copy the current configuration file (which points to the old key provider) to `node.conf.previous`.
-4. Edit `node.conf` so that it points to the new key provider. The new configuration must have `freshIdentitiesConfiguration` enabled, because every replacement is generated as a wrapped key on the new provider.
+4. Edit `node.conf` so that it points to the new key provider. The new configuration must have `freshIdentitiesConfiguration` enabled, because the tool creates every new key as a wrapped key on that provider.
 5. Run the key rotation tool. Both configuration files must point to the same node database:
 
    ```shell
