@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-15:
     identifier: corda-enterprise-4-15-corda-nodes-confidential-identity-cross-provider-key-rotation
     name: "Confidential identity cross-provider key rotation"
-    parent: corda-enterprise-4-15-corda-nodes
+    parent: corda-enterprise-4-15-corda-nodes-key-rotation
 tags:
 - key rotation
 - hsm
