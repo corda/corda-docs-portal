@@ -197,6 +197,8 @@ Options:
 
 Processes all pending transactions and then collects all archivable items. The called flow runs until all pending transactions have been added to the internal dependency structures, then collects archivable items until all walkback processing is complete.
 
+Adding the pending transactions reads the node's transaction table in batches ordered by `(timestamp, tx_id)`, continuing from the last processed transaction, which relies on the index the CorDapp's schema migration creates. If the command is unexpectedly slow on a large vault, see [Transaction table index]({{< relref "archiving-service-index.md#transaction-table-index" >}}).
+
 ```text
 === Process All Pending Completed ===
 Time Limit: 8

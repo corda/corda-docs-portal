@@ -107,6 +107,14 @@ drwxr-xr-x 2 corda corda   4096 Aug 26 06:43 config
 -rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-2.0.jar
 ```
 
+### Database migration
+
+Like any CorDapp with custom schemas, the Archive Service CorDapp ships Liquibase change sets. Apply them with the [Database Management Tool]({{< relref "../../platform/corda/4.12/enterprise/database-management-tool.md" >}}) (`execute-migration --app-schemas`, or `dry-run` to produce a script for your database administrator) before starting the node with the new CorDapp version, as described in [Database schema setup]({{< relref "../../platform/corda/4.12/enterprise/node/operating/node-database-admin.md" >}}).
+
+Besides the tables of the iterative archiving model, the migration adds one index to the node's own transaction table: `node_transactions_status_timestamp_tx_id_idx` on `node_transactions (status, timestamp, tx_id)`. The Archive Service reads the transaction table in batches ordered by `(timestamp, tx_id)`, continuing from the last processed transaction. Without the index, every batch is a full scan and a sort of the table, so processing a ledger takes time proportional to the square of its size (301 ms per 1,000-row batch measured on a 3 million-row PostgreSQL table). With the index, a batch is a single index range scan. The same index is the one the Corda Enterprise transaction validation utility requires for parallel reading. Expect about 110 bytes per transaction (323 MB for 3 million transactions, 2.5 seconds to build with the table cached in memory) and tens of microseconds of additional write cost per recorded transaction.
+
+The change set builds the index with a plain `CREATE INDEX`, which blocks writes to the transaction table for the duration of the build. This costs nothing when the migration is run with the node stopped, which is the normal procedure. If the transaction table is too large to lock during the maintenance window, create the index beforehand on the running node with `CREATE INDEX CONCURRENTLY`, with exactly these columns and under any name. The change set detects an existing index on `(status, timestamp, tx_id)` or on `(timestamp, tx_id)` and records itself as applied instead of building a second one.
+
 ## Configuration
 
 The Archive Service CorDapp is configured using a HOCON configuration file located in the `config` sub-directory
@@ -240,7 +248,7 @@ Conversely, `import-snapshot` does not check or enforce that a transaction's own
 
 ## Performance tuning
 
-The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by the batch size and the parallelism of the node's JVM, and on the export side by the manifest participants feature and the chunk size of the zipped archives.
+The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by the batch size and the parallelism of the node's JVM, and on the export side by the manifest participants feature and the chunk size of the zipped archives. Reading new transactions from the vault relies on the [transaction table index](#transaction-table-index) that the CorDapp's schema migration creates.
 
 ### Batch size
 
@@ -272,6 +280,10 @@ Parallel streams run on the common `ForkJoinPool` of the node's JVM. By default,
 ```
 
 Because the archiving work runs inside the node's JVM, it shares CPU with regular node operation. Lowering the parallelism leaves more headroom for other node activity while archiving is running; raising it (on machines with many cores) can speed up archiving during dedicated maintenance windows. Note that the common `ForkJoinPool` is shared by the whole JVM, so this setting also affects any other code in the node that uses parallel streams.
+
+### Transaction table index
+
+Processing new transactions pages the node's transaction table by `(timestamp, tx_id)`, continuing from the last processed transaction, and the `statistics` command counts the unprocessed transactions with the same query. Both are served by the `node_transactions_status_timestamp_tx_id_idx` index that the CorDapp's schema migration creates, described under [Database migration](#database-migration). With it, each batch is a single index range scan and the time to process the pending transactions grows linearly with their number. Without it, every batch is a full scan and a sort of the whole transaction table, and the time grows with the square of the table size. If `process-all-pending` is unexpectedly slow on a large vault, check that the index, or an equivalent one on `(status, timestamp, tx_id)` or `(timestamp, tx_id)`, is present on the transaction table.
 
 ### Manifest participants
 
