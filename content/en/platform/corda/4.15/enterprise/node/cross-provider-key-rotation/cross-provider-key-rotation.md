@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-15:
     identifier: corda-enterprise-4-15-corda-nodes-cross-provider-key-rotation
     name: "Cross-provider key rotation"
-    parent: corda-enterprise-4-15-corda-nodes
+    parent: corda-enterprise-4-15-corda-nodes-key-rotation
 tags:
 - key rotation
 - hsm
@@ -40,16 +40,6 @@ Cross-provider key rotation solves this with a **key rotation proof**. When you 
 * Each proof adds a small, fixed overhead to the transaction (see [Transaction size and performance](#transaction-size-and-performance)).
 
 For many applications the proofs are temporary. Once every state signed with the old key has been consumed, new transactions no longer need proofs and the overhead disappears. Some applications must preserve the same parties across a state's whole lifetime, such as bilateral agreements. For these, the proofs may be needed indefinitely unless the CorDapp is adapted.
-
-### How this differs from same-provider key rotation
-
-Corda also supports same-provider key rotation, which reissues a node's legal identity key and certificate within the same key provider. It uses the [node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}). Cross-provider rotation is a different operation with a different tool and different steps. It generates the new key in a different provider and produces the key rotation proofs described above.
-
-{{< note >}}
-
-Use this page only for moving between providers.
-
-{{< /note >}}
 
 ## Before you begin
 
@@ -127,7 +117,7 @@ These safeguards catch the most common misconfiguration, but they do not cover e
 ## Rotating a node key
 
 1. Confirm that all [prerequisites](#prerequisites) are met.
-2. Stop the node.
+2. Make sure that from now on no new flows are launched against the node by other nodes, then stop the node. See [Operational restrictions](#operational-restrictions).
 3. In the node directory, copy the current configuration file (which points to the old key provider) to `node.conf.previous`.
 4. Edit `node.conf` so that it points to the new key provider.
 5. Run the key rotation tool:
@@ -222,6 +212,16 @@ As with a node rotation, the old certificates are unavailable once the new files
 Once a cross-provider key rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. Reusing the old key afterwards is not supported. Corda treats the new key as the notary's current identity, so reintroducing a rotated key causes undefined behaviour. Any states already signed with the new key would also become permanently inaccessible. The notary no longer uses the key that owns them. If you later need to move back to the original provider, perform a new cross-provider key rotation rather than reinstating the old key.
 
 {{< /important >}}
+
+## Operational restrictions
+
+### Pending flows
+
+Before you start a rotation, make sure there are no unfinished flows running on the node and that no new incoming flows are initiated. Flow draining mode helps complete the flows the node itself started, but it does not stop other peers from initiating new flows against the node. Those start-flow messages accumulate in the `p2p.inbound.<old key hash>` broker inbox. They are never processed after the node restarts with its new identity, so those flows can get stuck or fail. The simplest way to rotate safely is to shut down every node that can communicate with the node being rotated.
+
+### NodeInfo propagation
+
+It takes some time for the new `NodeInfo` to propagate across the network after a node starts with its new identity. Starting a flow during this interval, either from or to the rotated node, is unsafe. Wait a few minutes after starting the node before you launch any flow activity.
 
 ## Recovering from a failed rotation
 

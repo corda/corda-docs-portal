@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-15:
     identifier: corda-enterprise-4-15-corda-nodes-same-provider-key-rotation
     name: "Same-provider key rotation"
-    parent: corda-enterprise-4-15-corda-nodes
+    parent: corda-enterprise-4-15-corda-nodes-key-rotation
 tags:
 - key rotation
 - hsm
@@ -41,14 +41,6 @@ Same-provider key rotation always generates a **fresh key pair**. Reissuing a ce
 * The new key and its certificates are stored under **new aliases** in the keystore or HSM, using the same crypto service configuration as before. Most HSMs do not allow the alias of an existing key to change, so the replacement key is always stored under a new alias.
 * The old identity key stays in the keystore so the node can still sign for the states that key already owns. You keep it available by listing its alias in `previousIdentityKeyAliases`.
 * The node keeps the same `myLegalName`. When the node starts with its new certificates, it publishes a new `NodeInfo`. The network map replaces the old `NodeInfo` with the new one by X.500 name. The old `NodeInfo` is removed from the network map automatically.
-
-### How this differs from cross-provider key rotation
-
-[Cross-provider key rotation]({{< relref "../cross-provider-key-rotation/cross-provider-key-rotation.md" >}}) moves
-a key to a different key provider. It records a key rotation proof that links the old key to the new one, so the
-crypto material never has to leave the old provider. Same-provider key rotation is a different operation.
-It does not produce a key rotation proof, and it does not support changing the key provider. The old and new node CA and
-node identity keys must be reachable through the same crypto service configuration.
 
 ## Before you begin
 
