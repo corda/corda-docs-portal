@@ -15,7 +15,8 @@ weight: 180
 
 # Cross-provider key rotation
 
-Cross-provider key rotation moves a node's or notary's legal identity key from one key provider to another, for example between hardware security modules (HSMs). The node keeps access to the states and transactions it already holds. It is available in Corda Enterprise 4.15 and later.
+Cross-provider key rotation moves a node's or notary's legal identity key from one key provider to another without
+losing access to the states and transactions that it already holds. It is available in Corda Enterprise 4.15 and later.
 
 This page is written for two audiences:
 
@@ -32,10 +33,10 @@ Key rotation is a system-critical operation. An unsuccessful rotation can leave 
 
 A node's legal identity key is the key it uses to sign transactions and prove who it is on the network. Every state a node has ever signed is bound to the key that signed it. Moving that key to a new provider therefore creates a problem to solve. The node must remain able to spend states that were signed with the old key, even though that key now lives in a different provider.
 
-Cross-provider key rotation solves this with a **key rotation proof**. When you rotate a key, the HA Utilities tool generates a new legal identity key in the new provider. It then creates a proof, signed by the old key, that links the old key to the new one. From that point on:
+Cross-provider key rotation solves this with a **key rotation proof**. When you rotate a key, the [HA Utilities]({{< relref "../../ha-utilities.md" >}}) tool generates a new legal identity key in the new provider. It then creates a proof, signed by the old key, that links the old key to the new one. From that point on:
 
 * When a transaction consumes a state that was signed with the old key, it carries the relevant key rotation proof. The proof shows any verifier that the new key legitimately controls the identity that signed the original state.
-* Verification checks both the transaction signature and every proof in the chain. A transaction is valid only if all of them are valid.
+* Verification checks both the transaction signature and every proof in the chain. A transaction is valid only if the signature and every proof are valid.
 * Each proof adds a small, fixed overhead to the transaction (see [Transaction size and performance](#transaction-size-and-performance)).
 
 For many applications the proofs are temporary. Once every state signed with the old key has been consumed, new transactions no longer need proofs and the overhead disappears. Some applications must preserve the same parties across a state's whole lifetime, such as bilateral agreements. For these, the proofs may be needed indefinitely unless the CorDapp is adapted.
@@ -58,25 +59,36 @@ Nodes running Corda 4.15 interoperate with earlier Corda versions in exactly the
 
 A Corda Open Source node cannot initiate a cross-provider key rotation. If it runs Corda 4.15 or later, it can still verify transactions that contain key rotation proofs. A Corda Enterprise node can therefore adopt cross-provider key rotation without breaking compatibility with Corda Open Source nodes on the network.
 
+### Supported key providers
+
+The following migrations are supported:
+
+| From (previous provider) | To (new provider) |
+|--------------------------|---|
+| File-based keystore      | HSM |
+| HSM                      | File-based keystore |
+| HSM                      | Another HSM |
+
 ### Limitations
 
 * Only Corda Enterprise nodes and notaries running Corda 4.15 or later can initiate a rotation.
-* A rotation cannot be reversed. After a successful rotation you cannot return to the old key, and moving back to a previous provider requires performing another key rotation.
+* A rotation cannot be reversed. Moving back to a previous provider requires performing another rotation.
 * Each rotation adds a key rotation proof to the chain, which places a small overhead on affected transactions. Performing several rotations over time lengthens the proof chain and increases that overhead. See [Transaction size and performance](#transaction-size-and-performance).
 
 ## Prerequisites
 
 Cross-provider key rotation is a system-critical operation. An unsuccessful rotation can leave the affected node or notary unable to access its existing states. Complete every item in this checklist before you rotate any key:
 
-1. Rehearse the complete procedure in a non-production environment that mirrors production, and confirm that the node or notary restarts and can access its states afterwards. Do not run a rotation in production that you have not first validated in a test environment.
+1. Rehearse the complete procedure in a non-production environment that mirrors production. Confirm that the node or notary restarts and can access its states afterwards. Do not run a rotation in production that you have not first validated in a test environment.
 2. Take verified backups of the node database and the entire node directory, including the current `certificates` directory and its Java KeyStore (JKS) files. For a notary rotation, also back up the notary database. Confirm that you can restore these backups before you continue, because they are the only way to roll back a failed rotation.
 3. Plan for downtime and prepare a rollback plan. The affected node must be stopped throughout the rotation, and a notary rotation also requires stopping every other node on the network. See [Recovering from a failed rotation](#recovering-from-a-failed-rotation).
-4. Confirm that every node on the network runs Corda 4.15 or later, and that the network minimum platform version is `170`. To upgrade, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}). To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
-5. Confirm that the new key provider is configured, running, and accessible to the affected node or notary.
-6. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps](#adapting-your-cordapps).
-7. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node or notary directory. For the tool's full command syntax and options, see the [Node cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-cross-provider-key-rotation-tool" >}}) reference.
-8. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
-9. Enable key rotation in the Identity Manager service. See [Enabling key rotation in the Identity Manager service](#enabling-key-rotation-in-the-identity-manager-service).
+4. Confirm that every node on the network runs Corda 4.15 or later. To upgrade, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}).
+5. Confirm that the network minimum platform version is `170`. To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
+6. Confirm that the new key provider is configured, running, and accessible to the affected node or notary.
+7. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps](#adapting-your-cordapps).
+8. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node or notary directory. For the tool's full command syntax and options, see the [Node cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-cross-provider-key-rotation-tool" >}}) reference.
+9. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
+10. Enable key rotation in the Identity Manager service. See [Enabling key rotation in the Identity Manager service](#enabling-key-rotation-in-the-identity-manager-service).
 
 ### Enabling key rotation in the Identity Manager service
 
@@ -90,7 +102,7 @@ workflows = {
 }
 ```
 
-For a description of the Identity Manager service, see the {{< cenmlatestrelref "cenm/identity-manager.md" "Identity Manager Service" >}} documentation. For a description of the `allowKeyRotation` parameter and the surrounding workflow configuration, see {{< cenmlatestrelref "cenm/config-identity-manager-parameters.md#allowkeyrotation" "Identity Manager configuration parameters" >}}.
+For a description of the Identity Manager service, see the {{< cenmlatestrelref "cenm/identity-manager.md" "Identity Manager Service" >}} documentation. For a description of the `allowKeyRotation` parameter and the surrounding workflow configuration, see {{< cenmlatestrelref "cenm/config-identity-manager-parameters.md" "Identity Manager configuration parameters" >}}.
 
 {{< warning >}}
 
@@ -100,11 +112,11 @@ Leaving key rotation enabled after the operation is a security risk. Enable this
 
 ## Platform version safeguards
 
-Corda enforces the minimum platform version requirement with three safeguards:
+Corda enforces this requirement. If the network minimum platform version is below `170`, the following safeguards apply:
 
-* The key rotation tool fails if the network minimum platform version is below `170`.
-* A Corda 4.15 node fails to start if a key rotation file is present and the network minimum platform version is below `170`.
-* A Corda 4.15 transaction builder throws an exception if a command includes a key rotation proof and the network minimum platform version is below `170`.
+* The key rotation tool fails.
+* A Corda 4.15 node fails to start when a key rotation file is present.
+* A Corda 4.15 transaction builder throws an exception when a command includes a key rotation proof.
 
 {{< important >}}
 
@@ -126,7 +138,7 @@ These safeguards catch the most common misconfiguration, but they do not cover e
 
 6. The tool creates an `output/certificates` directory. It contains the Java KeyStore (JKS) files with the new certificates and a `key-rotation-proofs.bin` file. The proof file is what lets the node keep consuming states signed with the old key.
 7. Copy every file from `output/certificates` into the node's `certificates` directory.
-8. Start the node. On startup it loads the proofs from `key-rotation-proofs.bin` and deletes the file once it has processed them.
+8. Start the node. On startup, it loads the proofs from `key-rotation-proofs.bin` and deletes the file once it has processed them.
 9. Confirm that the node has started successfully and can access its states. Then set `allowKeyRotation` back to `false` in the Identity Manager service.
 
 {{< warning >}}
@@ -216,7 +228,7 @@ Once a cross-provider key rotation has succeeded and the new key is in use, the 
 A rotation has not completed successfully if the node or notary fails to start or cannot access its states. If this happens, do not attempt to re-run the tool over the partially rotated files. Instead:
 
 1. Stop the affected node or notary.
-2. Restore the node directory, the node database, and (for a notary) the notary database from the verified backups while following the steps in [prerequisites](#prerequisites).
+2. Restore the node directory, the node database, and (for a notary) the notary database from the verified backups you took in the [prerequisites](#prerequisites).
 3. Restore the previous `certificates` directory from backup so that the node uses its original key again.
 4. Start the node and confirm that it is healthy before retrying.
 
@@ -273,7 +285,7 @@ Do not run a mix of CorDapp versions in which some support key rotation and othe
 
 ### Including proofs when parties must stay identical
 
-When a transaction requires the parties in its input and output states to remain identical, include the required proof in `Command.keyRotationProofChainMap`. This matters most for CorDapps that implement bilateral agreements.
+When a transaction requires the parties in its input and output states to remain identical, include the required proof in `Command.keyRotationProofChainMap`. This matters most for CorDapps that are similar to the bilateral agreement CorDapp.
 
 ### Transaction size and performance
 
@@ -282,7 +294,8 @@ Each key rotation proof adds approximately 128 bytes to a transaction. Validatin
 * **Payment-style CorDapps:** the overhead applies only while transactions still consume states signed with the old key. Once all legacy states are consumed, transaction size and performance return to their previous baseline.
 * **Bilateral-agreement CorDapps:** the overhead can apply to all future transactions unless the CorDapp is updated so that proofs are no longer required.
 
-Assess the impact against your required throughput, and measure it in an environment that reflects your production workload. See [Performance testing]({{< relref "../../performance-testing/introduction.md" >}}).
+If performance is paramount, always assess the impact against your required throughput,
+and measure it in an environment that reflects your production workload. See [Performance testing]({{< relref "../../performance-testing/introduction.md" >}}).
 
 ### Upgrade patterns
 
@@ -296,4 +309,4 @@ For a worked example, study the `ModificationFlow` in the `negotiation-cordapp` 
 ## References
 
 * [Node cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-cross-provider-key-rotation-tool" >}}) in the HA Utilities reference, for the full command syntax and options.
-* `negotiation-cordapp` sample, [`ModificationFlow.java`](https://github.com/corda/samples-java/blob/release/4.12/Advanced/negotiation-cordapp/workflows/src/main/java/net/corda/samples/negotiation/flows/ModificationFlow.java).
+* [ModificationFlow.java in the negotiation-cordapp sample](https://github.com/corda/samples-java/blob/release/4.12/Advanced/negotiation-cordapp/workflows/src/main/java/net/corda/samples/negotiation/flows/ModificationFlow.java), for a worked example of modifying a Cordapp to support key rotation.

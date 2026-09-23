@@ -86,7 +86,7 @@ workflows = {
 }
 ```
 
-For a description of the Identity Manager service, see the {{< cenmlatestrelref "cenm/identity-manager.md" "Identity Manager Service" >}} documentation. For a description of the `allowKeyRotation` parameter, see {{< cenmlatestrelref "cenm/config-identity-manager-parameters.md#allowkeyrotation" "Identity Manager configuration parameters" >}}.
+For a description of the Identity Manager service, see the {{< cenmlatestrelref "cenm/identity-manager.md" "Identity Manager Service" >}} documentation. For a description of the `allowKeyRotation` parameter, see {{< cenmlatestrelref "cenm/config-identity-manager-parameters.md" "Identity Manager configuration parameters" >}}.
 
 {{< warning >}}
 
