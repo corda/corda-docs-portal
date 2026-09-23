@@ -44,7 +44,11 @@ Same-provider key rotation always generates a **fresh key pair**. Reissuing a ce
 
 ### How this differs from cross-provider key rotation
 
-[Cross-provider key rotation]({{< relref "../cross-provider-key-rotation/cross-provider-key-rotation.md" >}}) moves a key to a different key provider. It records a key rotation proof that links the old key to the new one, so the crypto material never has to leave the old provider. Same-provider key rotation is a different operation. It keeps the same provider, generates a new key there, and reissues the node's certificates by re-registering with the network operator. It does not produce a key rotation proof, and it does not support changing the HSM or crypto service. When a node uses an HSM, the old and new node CA and node identity keys must be reachable through the same crypto service configuration.
+[Cross-provider key rotation]({{< relref "../cross-provider-key-rotation/cross-provider-key-rotation.md" >}}) moves
+a key to a different key provider. It records a key rotation proof that links the old key to the new one, so the
+crypto material never has to leave the old provider. Same-provider key rotation is a different operation.
+It does not produce a key rotation proof, and it does not support changing the key provider. The old and new node CA and
+node identity keys must be reachable through the same crypto service configuration.
 
 ## Before you begin
 
@@ -52,13 +56,13 @@ Same-provider key rotation always generates a **fresh key pair**. Reissuing a ce
 
 New node certificates are reissued with the same X.500 name in the subject. The node keeps signing for its existing states with the old key, so the ledger is not altered by a rotation.
 
-Confidential identities generated without certificates, such as those used by the Token SDK, are compatible with same-provider key rotation. Old-style [confidential identities with certificates]({{< relref "../../cordapps/api-confidential-identity.md" >}}) are not supported after a rotation.
+Confidential identities generated without certificates, such as those used by the Token SDK, are compatible with same-provider
+key rotation. Old-style [confidential identities with certificates]({{< relref "../../cordapps/api-confidential-identity.md" >}}) are
+not supported by this tool.
 
 ### Limitations
 
-* A rotation cannot be reversed. After a successful rotation the node uses its new key, and returning to the old key is not supported.
-* When an HSM is used, the change of HSM is not supported.
-* Application logic that compares a key or certificate directly may need changes. See [Adapting your CorDapps](#adapting-your-cordapps).
+* The key provider cannot be changed.
 
 ## Prerequisites
 
@@ -69,7 +73,7 @@ Same-provider key rotation is a system-critical operation. An unsuccessful rotat
 3. Plan for downtime and prepare a rollback plan. The affected node must be stopped throughout the rotation, and a notary rotation also requires stopping every other node on the network.
 4. Confirm that every node on the network runs a Corda version that supports certificate rotation, and that the network minimum platform version is high enough. Certificate rotation was introduced in Corda 4.7, which requires a network minimum platform version of `9`. To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
 5. Assign new keystore aliases for the new keys in `node.conf`, and keep the old identity key available for signing. See [Rotating a node key](#rotating-a-node-key).
-6. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps](#adapting-your-cordapps).
+6. Confirm that all deployed CorDapps are compatible with key rotation.
 7. Make `corda-tools-ha-utilities.jar` available in the node or notary directory. For the tool's full command syntax and options, see the [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}) reference.
 8. When the node uses an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
 9. Enable key rotation in the Identity Manager service. See [Enabling key rotation in the Identity Manager service](#enabling-key-rotation-in-the-identity-manager-service).
@@ -119,12 +123,6 @@ Leaving key rotation enabled after the operation is a security risk. Enable this
 6. The tool reads the current `certificates` directory and writes the new keystores to `output/certificates`. Copy every file from `output/certificates` into the node's `certificates` directory.
 7. Start the node.
 8. Wait a few minutes for the new `NodeInfo` to propagate across the network before you launch new flows. Then confirm that the node has started successfully and can access its states, and set `allowKeyRotation` back to `false` in the Identity Manager service.
-
-{{< important >}}
-
-Once a rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. The node keeps the old key only to sign for the states it already owns, not as an active identity.
-
-{{< /important >}}
 
 ## Rotating a notary key
 
@@ -180,14 +178,6 @@ A rotation has not completed successfully if the node or notary fails to start o
 1. Stop the affected node or notary.
 2. Restore the node directory, the node database, the keystores, and any HSM keys from the verified backups. For a notary, also restore the notary database.
 3. Start the node and confirm that it is healthy before retrying.
-
-## Adapting your CorDapps
-
-Most CorDapps keep working after a rotation, because the node handles the rotated identity transparently. The Vault stores a party as its X.500 name and always deserialises it with the current identity. Vault queries do not distinguish between states belonging to parties with the same X.500 name.
-
-Some CorDapps need changes. After a rotation, the `Party` and `PartyAndCertificate` objects for the rotated identity are not equal to the objects created before the rotation. The underlying public key has changed. Any logic that compares a key or certificate directly, including comparisons against values stored in vault states, can break. For example, Corda Finance `CashExitFlow` will not exit states issued by the old key without changes. It compares the stored issuer key hash with the current identity key hash. If a CorDapp cannot be adapted, an alternative is to write dedicated flows that re-sign the affected states with the new key.
-
-Test every CorDapp for compatibility before you rotate a key.
 
 ## References
 
