@@ -648,6 +648,27 @@ name = "Operating a node"
 parent = "corda-enterprise-4-15-corda-nodes"
 weight = 60
 
+[[corda-enterprise-4-15]]
+identifier = "corda-enterprise-4-15-notary-key-rotation"
+name = "Key rotation"
+parent = "corda-enterprise-4-15-corda-nodes-notary-operate"
+url = "/en/platform/corda/4.15/enterprise/node/key-rotation.html"
+weight = 5
+
+[[corda-enterprise-4-15]]
+identifier = "corda-enterprise-4-15-notary-same-provider-key-rotation"
+name = "Same-provider key rotation"
+parent = "corda-enterprise-4-15-notary-key-rotation"
+url = "/en/platform/corda/4.15/enterprise/node/same-provider-key-rotation/same-provider-key-rotation.html#rotating-a-notary-key"
+weight = 10
+
+[[corda-enterprise-4-15]]
+identifier = "corda-enterprise-4-15-notary-cross-provider-key-rotation"
+name = "Cross-provider key rotation"
+parent = "corda-enterprise-4-15-notary-key-rotation"
+url = "/en/platform/corda/4.15/enterprise/node/cross-provider-key-rotation/cross-provider-key-rotation.html#rotating-a-notary-key"
+weight = 20
+
 [[corda-community-4-15]]
 identifier = "corda-community-4-15-upgrading"
 name = "Upgrading CorDapps and nodes"
