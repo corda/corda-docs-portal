@@ -77,6 +77,7 @@ Some characteristics of a good 'archive-friendly' CorDapp are:
 * Short transaction chains that will get consumed in their entirety.
 * Consumes and redeems 'irrelevant states' – for example if you store evolvable data it should be consumed even if it is no longer directly queried or used in a transaction.
 * Avoids consuming outputs of one transaction via multiple transactions. This could mean ensuring fungible assets are distributed as narrowly as possible – rather than from multiple cash supplies.
+* Ends every business process by consuming its states. For the Archive Service, "removing" something from the ledger – offboarding a participant, closing an account, retiring a product – means a transaction that consumes the remaining states and produces no outputs (an exit or settle transaction). Merely ceasing to use a state, deleting off-ledger data, or revoking a party's access does not consume anything: a state that is never consumed keeps its transaction, and through it the whole chain that led to it, non-archivable for as long as the vault exists, however old it is.
 
 ## Archive Service CorDapp
 
@@ -107,13 +108,32 @@ drwxr-xr-x 2 corda corda   4096 Aug 26 06:43 config
 -rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-2.0.jar
 ```
 
+{{< note >}}
+The Archive Service is distributed as two differently named JAR files. The CorDapp is `archive-service-<version>.jar` and goes into the node's `cordapps` directory, as shown above. The command-line tool is `corda-tools-archive-service-<version>.jar`; it is run with `java -jar` from any machine that can reach the node's RPC port and must not be copied into the `cordapps` directory. See [Archive Service command-line tool](#archive-service-command-line-tool).
+{{< /note >}}
+
 ### Database migration
 
-Like any CorDapp with custom schemas, the Archive Service CorDapp ships Liquibase change sets. Apply them with the [Database Management Tool]({{< relref "../../platform/corda/4.12/enterprise/database-management-tool.md" >}}) (`execute-migration --app-schemas`, or `dry-run` to produce a script for your database administrator) before starting the node with the new CorDapp version, as described in [Database schema setup]({{< relref "../../platform/corda/4.12/enterprise/node/operating/node-database-admin.md" >}}).
+Like any CorDapp with custom schemas, the Archive Service CorDapp ships Liquibase change sets, which must be applied before the node is started with the new CorDapp version. There are two ways to do this:
+
+* With the node's own `run-migration-scripts --app-schemas` sub-command, run while the node is stopped, if the node's database user is allowed to alter the schema. See [Node command-line options]({{< relref "../../platform/corda/4.12/enterprise/node/node-commandline.md#sub-commands" >}}).
+* With the [Database Management Tool]({{< relref "../../platform/corda/4.12/enterprise/database-management-tool.md" >}}) (`execute-migration --app-schemas`, or `dry-run` to produce a script for your database administrator) when the node runs with a restricted database user, as described in [Database schema setup]({{< relref "../../platform/corda/4.12/enterprise/node/operating/node-database-admin.md" >}}).
+
+If you use a [backup schema](#using-the-backup-schema), create it only after this migration has been applied, as the backup schema user needs grants on the tables the migration creates.
 
 Besides the tables of the iterative archiving model, the migration adds one index to the node's own transaction table: `node_transactions_status_timestamp_tx_id_idx` on `node_transactions (status, timestamp, tx_id)`. The Archive Service reads the transaction table in batches ordered by `(timestamp, tx_id)`, continuing from the last processed transaction. Without the index, every batch is a full scan and a sort of the table, so processing a ledger takes time proportional to the square of its size (301 ms per 1,000-row batch measured on a 3 million-row PostgreSQL table). With the index, a batch is a single index range scan. The same index is the one the Corda Enterprise transaction validation utility requires for parallel reading. Expect about 110 bytes per transaction (323 MB for 3 million transactions, 2.5 seconds to build with the table cached in memory) and tens of microseconds of additional write cost per recorded transaction.
 
 The change set builds the index with a plain `CREATE INDEX`, which blocks writes to the transaction table for the duration of the build. This costs nothing when the migration is run with the node stopped, which is the normal procedure. If the transaction table is too large to lock during the maintenance window, create the index beforehand on the running node with `CREATE INDEX CONCURRENTLY`, with exactly these columns and under any name. The change set detects an existing index on `(status, timestamp, tx_id)` or on `(timestamp, tx_id)` and records itself as applied instead of building a second one.
+
+### Keeping the CorDapp installed between archiving runs
+
+Archiving is typically run periodically, for example once a year. Keep the Archive Service CorDapp installed between runs. The CorDapp does no work on its own: its processing thread is idle until an archiving command arms it, so an installed but unused Archive Service costs the node nothing beyond the write cost of the transaction table index, which is part of the database schema and present whether or not the CorDapp is installed.
+
+The Archive Service keeps all of its state in its own tables in the node database, not in the CorDapp JAR or in memory: the iterative tracking model, the position up to which the transaction table has been processed (`ITERATIVE_ARCHIVING_LAST_PROCESSED`), and the history of archive jobs. Because of this, the CorDapp can be removed from the `cordapps` directory and reinstalled later without consequences: it resumes from the last processed transaction and does not re-scan the ledger. Reinstall the same version together with its configuration file; a newer version requires its [database migration](#database-migration) like a first installation.
+
+{{< warning >}}
+Never drop or empty the Archive Service tables once transactions have been deleted from the vault. The model cannot be rebuilt from the vault alone: a transaction's output counter is set to the number of its outputs when it is first discovered and only decremented when the consuming transaction is itself processed. After a rebuild, the retained source transactions of already-archived consumers would be counted as fully unconsumed forever, as their consumers are no longer in the vault, and would never become archivable again. The job history is needed as well: `import-snapshot` identifies an archive by its job name and fails if the job record is missing.
+{{< /warning >}}
 
 ## Configuration
 
@@ -345,7 +365,7 @@ grant insert on all tables in schema corda to archive;
 ```
 
 {{< note >}}
-You must execute the commands to create backup schema after the node has set up the main schema using the `run-migration-scripts` command.
+You must execute the commands to create the backup schema after the main schema has been set up, including the Archive Service CorDapp's own tables, by the node's `run-migration-scripts` sub-command or the Database Management Tool, as described under [Database migration](#database-migration). The grants above only cover tables that exist when they are run.
 {{< /note >}}
 
 ### Oracle
@@ -491,6 +511,38 @@ See the [Archive Service CLI documentation]({{< relref "archiving-cli.md#archive
 
 Custom exporters can be implemented for individual archive solutions.
 For more details see the [Archive Service Library documentation]({{< relref "archive-library.md" >}}).
+
+## Importers
+
+Importers read an archive written by an exporter back into the vault, using the `import-snapshot` command.
+The Archive Service ships one importer, `ZippedFileImporter`, which reads the archive written by the
+`ZippedFileExporter`. This is why `delete-vault` refuses to run unless a `ZippedFileExporter` export has
+been made (or `--skip-binary-export` is given): it is the only archive format that can be imported.
+
+The snapshot named on the command line is the **archive job name** that was given to `create-snapshot`
+(or defaulted to the date), as displayed by `list-jobs`; it is not a file name. The job must be complete
+(`delete-snapshot` has been run when a backup schema is used, `delete-vault` in single-schema mode), and its
+record must still exist in the node database, which is one reason not to drop the Archive Service tables between runs (see
+[Keeping the CorDapp installed between archiving runs](#keeping-the-cordapp-installed-between-archiving-runs)).
+
+```text
+java -jar corda-tools-archive-service-2.0.jar import-snapshot --importer=ZippedFileImporter T1
+```
+
+The importer can alternatively be set with the property `importer.importer` in the CorDapp configuration
+file or in the file given with `--importer-config`. Exactly one importer must be named, or the command fails.
+
+The files that make up a snapshot for `ZippedFileImporter` are the two zip files the `ZippedFileExporter` wrote
+for the job, `transaction-<job>.zip` and `attachment-<job>.zip`. It reads them from the directory configured
+by `exporter.zippedFileExporter.directory`, the same property the exporter uses, taken from the CorDapp
+configuration file or the `--importer-config` file. Both files must be present in that directory. The manifest
+`manifest-<job>.csv` is an audit aid and is not read by the import, and neither are the files written by other
+exporters, such as the CSV files of the `QueryableStateFileExporter`: the vault's queryable state tables are
+repopulated by Corda as the imported transactions are recorded.
+
+After a successful import, the job is removed from the job history, and the imported transactions are tracked as
+pending delete again, so the next archiving job re-exports them under its own name. See
+[Importing an archive](#importing-an-archive) for the consequences.
 
 ## Queryable state tables
 
