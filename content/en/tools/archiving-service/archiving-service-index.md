@@ -148,23 +148,58 @@ total 12
 ```
 
 The Archive Service configuration file provides the database connection details used by the service to
-record a temporary snapshot of the vault data.
+record a temporary snapshot of the vault data, the archiving filter, the table lists, and the exporter and
+importer settings. Every key is optional. The exporter and importer keys can also be given in the file passed to
+`export-snapshot --export-config` or `import-snapshot --importer-config`, where they override the CorDapp
+configuration file for that run (with the exception noted for `exporter.extractParticipants`).
 
-The following are keys for configuring the Archive Service:
+The following are keys for configuring the Archive Service, with their defaults.
 
-* `generator` - SQL generator, defaults to vault's database type.
-* `driver` - JDBC driver, defaults to vault's database driver.
-* `source.user` - Vault database user, defaults to vault database user.
-* `source.schema` - Vault schema name, defaults to vault database schema.
-* `target.schema` - Backup schema name, optional, indicates that a backup schema should be created.
-* `target.url` - Backup schema archive URL, required if a backup schema is used.
-* `target.user` - Backup schema archive database user, required if a backup schema is used.
-* `target.password` - Backup schema archive database password, required if a backup schema is used.
+Database:
+
+* `generator` - SQL generator class name: `PostgresGenerator`, `H2Generator`, `OracleGenerator` or `MSSQLGenerator`. Default: derived from the product name of the node's database.
+* `driver` - JDBC driver class used to connect to the backup schema. Default: derived from the generator; not used in single-schema mode.
+* `source.user` - Vault database user. Default: the user of the node's database connection.
+* `source.schema` - Vault schema name. Default: the schema of the node's database connection.
+* `target.schema` - Backup schema name. Default: same as `source.schema`, which means no backup schema is used (single-schema mode). Setting it to a different schema enables the [backup schema](#using-the-backup-schema).
+* `target.url` - JDBC URL of the backup schema database. No default; required if a backup schema is used.
+* `target.user` - Backup schema database user. No default; required if a backup schema is used.
+* `target.password` - Backup schema database password. No default; required if a backup schema is used.
+
+Archiving:
+
+* `ignoreSnapshotExportFailures` - Boolean, default `false`. Only consulted by the `FormattedTransactionExporter`: when `true`, a transaction that cannot be rendered as JSON is logged and skipped instead of failing the export.
 * `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior). Entries must not be blank: because every contract class name starts with an empty string, a blank entry (for example, from a trailing comma) would silently make every transaction archivable, so the Archive Service rejects the configuration at node startup instead. The filter is evaluated when a transaction is walked back; after widening it, run `recalculate-filtering` to re-evaluate the transactions an earlier walkback had already stopped (see the note below). The `delete-transactions` command deliberately ignores this filter: it controls what automatic archiving may select, whereas that command deletes transactions the operator names explicitly.
+
+Tables (each entry is `TABLE` or `TABLE:KEY_COLUMN`; the key column defaults to `TRANSACTION_ID` for transaction and queryable tables and to `ATT_ID` for attachment tables; all default to empty lists). See [Queryable state tables](#queryable-state-tables) and [Additional tables](#additional-tables):
+
+* `additionalTransactionTables` - Transaction tables to archive in addition to the automatically detected ones.
+* `excludeTransactionTables` - Automatically detected transaction tables to leave out of the archive process.
+* `additionalAttachmentTables` - Attachment tables to archive in addition to the automatically detected ones.
+* `excludeAttachmentTables` - Automatically detected attachment tables to leave out of the archive process.
+* `queryableTables` - Queryable state tables whose rows are exported to CSV. Can also be given to `create-snapshot` and `delete-transactions` with `--filter-config`.
+* `excludeQueryableTables` - Queryable state tables to leave out even if listed.
+
+Exporters (see [Exporters](#exporters)):
+
+* `exporter.exporters` - List of exporter class names to run on `export-snapshot`. Default: empty, no exporters. Also settable with `--exporters` on the command line.
+* `exporter.scanPackages` - Additional packages to scan for custom exporter classes. Default: empty; the built-in package `com.r3.archive.exporters` is always scanned.
+* `exporter.extractParticipants` - Boolean, default `true`. Record the participants of each exported transaction in the archive manifest. Read from the CorDapp configuration file when the items are marked and must be set there; see [Manifest participants](#manifest-participants).
+* `exporter.zippedFileExporter.directory` - Directory the `ZippedFileExporter` writes to and the `ZippedFileImporter` reads from. Default: `.`, the node's working directory.
+* `exporter.zippedFileExporter.chunkSize` - Items compressed per chunk, default `10000`; see [Zipped archive chunk size](#zipped-archive-chunk-size).
+* `exporter.formattedTransactionExporter.directory` - Directory the `FormattedTransactionExporter` writes its JSON zip archives to. Default: `.`.
+* `exporter.queryableStateFileExporter.directory` - Directory the `QueryableStateFileExporter` writes its CSV files to. Default: `.`.
+* `exporter.queryableStateFileExporter.time.format` - Java date pattern for date and timestamp columns in those CSV files. Default: `yyyy-MM-dd'T'HH:mm:ssZ`.
+
+Importers (see [Importers](#importers)):
+
+* `importer.importer` - The importer class name to run on `import-snapshot`. Default: none; exactly one must be given, here or with `--importer`.
+* `importer.scanPackages` - Additional packages to scan for custom importer classes. Default: empty; the built-in package `com.r3.archive.importers` is always scanned.
+* `importer.batch.size` - Default `100000`. Snapshots with up to this many transactions are deserialized by the parallel importer; larger ones are imported sequentially to bound memory usage.
 
 Passwords can be obfuscated using Corda's Config Obfuscator tool.
 
-The following is a sample configuration file:
+The following is a typical configuration file, enabling a backup schema and a contract filter:
 
 ```text
 generator: PostgresGenerator
@@ -179,6 +214,63 @@ target: {
 
 # Optional: Only archive transactions involving these contract types
 archivableContractClassStatePrefixes: ["com.example.contracts", "net.corda.finance"]
+```
+
+The following file lists every key with its default value. It is equivalent to an empty configuration file,
+except for the `target` block, which is shown commented out because setting any of its keys is what enables
+the backup schema:
+
+```text
+# Database connection. The defaults are derived from the node's own database connection.
+generator: "PostgresGenerator"              # PostgresGenerator | H2Generator | OracleGenerator | MSSQLGenerator
+driver: "org.postgresql.Driver"             # only used when a backup schema is configured
+source: {
+    user: "corda"                           # default: the node's database user
+    schema: "corda"                         # default: the node's database schema
+}
+# target: {
+#     schema: "archive"                     # default: same as source.schema (no backup schema)
+#     url: "jdbc:postgresql:postgres"       # no default, required with a backup schema
+#     user: "archive"                       # no default, required with a backup schema
+#     password: "archive"                   # no default, required with a backup schema
+# }
+
+# Archiving
+archivableContractClassStatePrefixes: []    # empty: every transaction is archivable
+ignoreSnapshotExportFailures: false
+
+# Tables, as "TABLE" or "TABLE:KEY_COLUMN"
+additionalTransactionTables: []
+excludeTransactionTables: []
+additionalAttachmentTables: []
+excludeAttachmentTables: []
+queryableTables: []
+excludeQueryableTables: []
+
+# Exporters
+exporter: {
+    exporters: []                           # none; ZippedFileExporter, FormattedTransactionExporter, QueryableStateFileExporter
+    scanPackages: []
+    extractParticipants: true
+    zippedFileExporter: {
+        directory: "."
+        chunkSize: 10000
+    }
+    formattedTransactionExporter: {
+        directory: "."
+    }
+    queryableStateFileExporter: {
+        directory: "."
+        time.format: "yyyy-MM-dd'T'HH:mm:ssZ"
+    }
+}
+
+# Importers
+importer: {
+    importer: []                            # none; exactly one is required by import-snapshot, e.g. ["ZippedFileImporter"]
+    scanPackages: []
+    batch.size: 100000
+}
 ```
 
 {{< note >}}

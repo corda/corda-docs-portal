@@ -777,15 +777,22 @@ The Archive Service uses a separate JPA entity manager factory to manage the arc
 
 The Archive Service can be configured through the CorDapp's configuration file in `cordapps/config` directory. The name of the configuration file must be identical to the Archive Service CorDapp file but with the suffix `conf` rather than `jar`.
 
-The following are keys for configuring the Archive Service.
+The following are the keys for configuring the Archive Service. Every key is optional. The exporter and importer keys can also be given in the file passed with `--export-config` or `--importer-config`, where they override the CorDapp configuration file for that run. See [Configuration](archiving-service-index.md#configuration) for the full description of each key and a complete example file listing every default.
 
-* `generator`: SQL generator, defaults to vault's database type.
-* `driver`: JDBC driver, defaults to vault's database driver.
-* `source.schema`: Vault schema name, defaults to vault database schema.
-* `target.schema`: Backup schema name, optional, indicates that a backup schema should be created.
+* `generator`: SQL generator (`PostgresGenerator`, `H2Generator`, `OracleGenerator`, `MSSQLGenerator`), defaults to the vault's database type.
+* `driver`: JDBC driver for the backup schema, defaults to the driver matching the generator.
+* `source.user`: Vault database user, defaults to the node's database user.
+* `source.schema`: Vault schema name, defaults to the node's database schema.
+* `target.schema`: Backup schema name, defaults to `source.schema`; a different value enables the backup schema.
 * `target.url`: Backup schema archive URL, required if a backup schema is used.
 * `target.user`: Backup schema archive database user, required if a backup schema is used.
 * `target.password`: Backup schema archive database password, required if a backup schema is used.
+* `archivableContractClassStatePrefixes`: Contract class name prefixes restricting which transactions may be archived, default empty (all).
+* `ignoreSnapshotExportFailures`: Default `false`; when `true` the `FormattedTransactionExporter` skips transactions it cannot render as JSON instead of failing.
+* `additionalTransactionTables`, `excludeTransactionTables`, `additionalAttachmentTables`, `excludeAttachmentTables`, `queryableTables`, `excludeQueryableTables`: Table lists, default empty; see [Queryable state tables](#queryable-state-tables) and [Additional tables](#additional-tables).
+* `exporter.exporters`: Exporters to run, default none. `exporter.scanPackages`: Extra packages to scan for custom exporters, default none. `exporter.extractParticipants`: Default `true`; see [Archive manifest](#archive-manifest).
+* `exporter.zippedFileExporter.directory` (default `.`), `exporter.zippedFileExporter.chunkSize` (default `10000`), `exporter.formattedTransactionExporter.directory` (default `.`), `exporter.queryableStateFileExporter.directory` (default `.`), `exporter.queryableStateFileExporter.time.format` (default `yyyy-MM-dd'T'HH:mm:ssZ`): Per-exporter settings.
+* `importer.importer`: Importer to run on `import-snapshot`, no default, exactly one required. `importer.scanPackages`: Extra packages to scan for custom importers, default none. `importer.batch.size`: Default `100000`, the largest snapshot imported with the parallel importer.
 
 Passwords can be obfuscated using the [Corda Configuration Obfuscator tool](../../platform/corda/{{< latest-c4-version >}}/enterprise/tools-config-obfuscator.md).
 
