@@ -381,6 +381,10 @@ Attachment Tables
   <table name>: <row count>
 ```
 
+{{< note >}}
+`--skip-safety-interval-check` relaxes only the MinAgeToCollect check of the collection step, not MinAgeToAdd, and that step is part of the implicit `process-all-pending` refresh. It therefore has no effect when `--bypass-process-all-pending` is also given, on this command and on `list-items` alike. See [Threshold parameters](archiving-service-index.md#threshold-parameters).
+{{< /note >}}
+
 ## Delete Transactions command
 
 ```text
@@ -555,6 +559,8 @@ Copy the archived items from a snapshot archive back to the vault.
 Displays the results of the import.
 
 The command cannot run while the iterative archive service is processing transactions, and the iterative archive service will not start processing a new batch while the import is running.
+
+The command also fails with a pending-job error while any job is incomplete. With a backup schema, a job stays pending until `delete-snapshot` has run, so an import is not possible between `delete-vault` and `delete-snapshot`; use `restore-snapshot` to undo a job in that window instead. In single-schema mode `delete-vault` completes the job.
 
 {{< note >}}
 After an import: the import repopulates the iterative tracking data for the imported transactions directly, in the terminal state they were in before they were archived. See [Restore, import, and the iterative tracking data](archiving-service-index.md#restore-import-and-the-iterative-tracking-data).

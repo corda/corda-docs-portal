@@ -193,7 +193,7 @@ The new algorithm uses two built-in threshold parameters. Both are fixed values 
 
 * **MinAgeToAdd** — Add only transactions older than this threshold to the internal graphs. Anything newer is treated as potentially in-flight. This period is fixed at **60 seconds**.
 
-* **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is fixed at **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This built-in threshold is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true`, although this is not recommended for general purposes. A longer grace period — achieved by passing an older `notNewerThan` value — reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking. See [Late-arriving reference transactions](#late-arriving-reference-transactions) for what happens when a reference does arrive late.
+* **MinAgeToCollect** — Treat transactions as archivable only when they are older than this threshold (on top of the other factors). This period is fixed at **one hour**. The purpose of this threshold is to allow for peer recovery and to handle potentially incoming transactions with reference states via back-chain resolution. This built-in threshold is a minimum limit for the new `notNewerThan` arguments. The related checks can be disabled for testing by setting `skipSafetyIntervalCheck` to `true` (CLI: `--skip-safety-interval-check`), although this is not recommended for general purposes. The flag bypasses only this MinAgeToCollect check, not MinAgeToAdd, and it acts inside the process-all-pending step: on `list-items` and `create-snapshot` it has no effect when `--bypass-process-all-pending` is also given, as the collection it would relax is then not run at all. A longer grace period — achieved by passing an older `notNewerThan` value — reduces the likelihood that transactions already archived will be used as reference states by later incoming transactions, which would break reference tracking. See [Late-arriving reference transactions](#late-arriving-reference-transactions) for what happens when a reference does arrive late.
 
 ## Late-arriving reference transactions
 
@@ -520,8 +520,7 @@ The Archive Service ships one importer, `ZippedFileImporter`, which reads the ar
 been made (or `--skip-binary-export` is given): it is the only archive format that can be imported.
 
 The snapshot named on the command line is the **archive job name** that was given to `create-snapshot`
-(or defaulted to the date), as displayed by `list-jobs`; it is not a file name. The job must be complete
-(`delete-snapshot` has been run when a backup schema is used, `delete-vault` in single-schema mode), and its
+(or defaulted to the date), as displayed by `list-jobs`; it is not a file name. The job must be complete, and its
 record must still exist in the node database, which is one reason not to drop the Archive Service tables between runs (see
 [Keeping the CorDapp installed between archiving runs](#keeping-the-cordapp-installed-between-archiving-runs)).
 
@@ -531,6 +530,13 @@ java -jar corda-tools-archive-service-2.0.jar import-snapshot --importer=ZippedF
 
 The importer can alternatively be set with the property `importer.importer` in the CorDapp configuration
 file or in the file given with `--importer-config`. Exactly one importer must be named, or the command fails.
+
+A job counts as complete once its snapshot has been purged. In single-schema mode `delete-vault` does this, so
+the job can be imported right after it. With a backup schema, only `delete-snapshot` does, so between
+`delete-vault` and `delete-snapshot` the job is still pending and `import-snapshot` fails with a pending-job
+error, for this job or any other incomplete one. That window is what `restore-snapshot` is for: it copies the
+deleted rows back from the backup schema and clears the job, whereas `import-snapshot` is the way back once the
+backup schema copy is gone.
 
 The files that make up a snapshot for `ZippedFileImporter` are the two zip files the `ZippedFileExporter` wrote
 for the job, `transaction-<job>.zip` and `attachment-<job>.zip`. It reads them from the directory configured
