@@ -18,6 +18,7 @@ weight: 30
 
 
 * [Backing up and restoring highly-available notaries]({{< relref "backup-restore.md" >}})
+* [Rotating a notary key]({{< relref "../node/key-rotation.md" >}})
 * [Migrating notary workers]({{< relref "machine-migration.md" >}})
 * [Migrating notary databases]({{< relref "notary-db-migration.md" >}})
 * [Highly-available notary metrics]({{< relref "notary-metrics.md" >}})
