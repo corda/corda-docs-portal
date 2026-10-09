@@ -516,6 +516,30 @@ You need to restart the node in the following circumstances:
 * After 'delete-vault' has been run using the '--record' option.
 * After 'restore-snapshot' has been run using the '--record' option.
 
+## Reclaiming vault storage on PostgreSQL
+
+On PostgreSQL, Corda keeps the serialised bytes of each transaction (`node_transactions.transaction_value`) and the content of each attachment (`node_attachments.content`) as PostgreSQL *large objects*: the table row holds only an `oid` that refers to the data, which lives in the `pg_largeobject` system table. The large objects are the bulk of what is archived — in the Archive Service performance tests, 1 million transactions occupied about 2 GB in `node_transactions` and 5 to 7 GB in `pg_largeobject`.
+
+PostgreSQL does not delete a large object when the row referring to it is deleted. `delete-vault` removes the archived transaction and attachment rows, but their large objects stay behind as orphans, and the vault database does not get smaller. The same applies when the SQL recorded with `--record` is executed by a database administrator, and to jobs created with `delete-transactions`.
+
+To release that storage, run the `vacuumlo` utility that ships with PostgreSQL (in the `postgresql-contrib` package on most distributions) against the vault database, as a database superuser:
+
+```text
+vacuumlo -n -v -h <host> -U <superuser> <vault database>
+vacuumlo -v -h <host> -U <superuser> <vault database>
+```
+
+The first command is a dry run (`-n`) that reports how many large objects would be removed; the second removes them. `vacuumlo` removes every large object that no `oid` column in the database refers to, so it is safe to run while other archiving jobs are in progress:
+
+* With a backup schema, the snapshot copies carry the same `oid` values, so a job's large objects remain referenced until `delete-snapshot` drops the snapshot. Run `vacuumlo` after `delete-snapshot`; running it earlier does no harm, but releases nothing for that job.
+* In single-schema mode, run it after `delete-vault`.
+
+Like any deletion, removing large objects leaves dead rows in `pg_largeobject`, which autovacuum makes available for reuse by new transactions. If the space must be returned to the operating system, follow up with `VACUUM FULL pg_largeobject`, which takes an exclusive lock on the table and should be run while the node is stopped. When very many large objects are to be removed, `vacuumlo -l <number>` limits the number removed per database transaction.
+
+{{< note >}}
+`vacuumlo` and `VACUUM FULL` are PostgreSQL maintenance operations outside the Archive Service; they are not run by any of its commands. Include them in the runbook of every archiving job, or storage use on the vault database will only ever grow.
+{{< /note >}}
+
 ## Archive Service command-line tool
 
 The command-line tool is a 'fat-jar' that can be executed directly using the `java -jar` option.

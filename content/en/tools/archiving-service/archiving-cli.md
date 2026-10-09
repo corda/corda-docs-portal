@@ -590,6 +590,10 @@ database updates are executed.
 If the Corda database user has not been granted rights to delete items from the vault schema then the
 `--record` option must be used.
 
+{{< note >}}
+On PostgreSQL, deleting the rows does not release the transaction and attachment bytes, which Corda stores as large objects outside the deleted tables. Run PostgreSQL's `vacuumlo` once the job is complete, as described under [Reclaiming vault storage on PostgreSQL]({{< relref "archiving-service-index.md#reclaiming-vault-storage-on-postgresql" >}}).
+{{< /note >}}
+
 ## Delete Snapshot command
 
 ```text
@@ -605,6 +609,8 @@ If the `--record` option is given then the SQL is written to the file and no
 database updates are executed.
 
 This command can only be used if a backup schema has been configured.
+
+Dropping the snapshot removes the last references to the job's transaction and attachment large objects on PostgreSQL, so this is the point after which `vacuumlo` releases their storage — see [Reclaiming vault storage on PostgreSQL]({{< relref "archiving-service-index.md#reclaiming-vault-storage-on-postgresql" >}}).
 
 ## Restore Snapshot command
 
