@@ -92,6 +92,27 @@ The available set of metrics depends on the cache type. The `maximum-size` and `
 {{< /table >}}
 
 
+## Certificates
+
+General information about the node’s certificates.
+
+{{< table >}}
+
+| Metric Query                                           | Description                                                                                                                                                    |
+|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| net.corda:type=Certificates,name=Identity.Alias        | The key store alias of the node's legal identity certificate (by default, `identity-private-key`).                                                             |
+| net.corda:type=Certificates,name=Identity.DaysToExpiry | The number of whole days left before the node's legal identity certificate expires, rounded down. The value becomes negative once the certificate has expired. |
+| net.corda:type=Certificates,name=Identity.SerialNumber | The serial number, in hexadecimal, of the node's legal identity certificate (as shown by `keytool -list -v`).                                                  |
+| net.corda:type=Certificates,name=NodeCA.Alias          | The key store alias of the node CA certificate, which issued the node's legal identity certificate (by default, `cordaclientca`).                              |
+| net.corda:type=Certificates,name=NodeCA.DaysToExpiry   | The number of whole days left before the node CA certificate expires, rounded down. The value becomes negative once the certificate has expired.               |
+| net.corda:type=Certificates,name=NodeCA.SerialNumber   | The serial number, in hexadecimal, of the node CA certificate.                                                                                                 |
+| net.corda:type=Certificates,name=TLS.Alias             | The key store alias of the node's TLS certificate (by default, `cordaclienttls`).                                                                              |
+| net.corda:type=Certificates,name=TLS.DaysToExpiry      | The number of whole days left before the node's TLS certificate expires, rounded down. The value becomes negative once the certificate has expired.            |
+| net.corda:type=Certificates,name=TLS.SerialNumber      | The serial number, in hexadecimal, of the node's TLS certificate.                                                                                              |
+
+{{< /table >}}
+
+
 ## Flows
 
 Note that metrics related to the default thread pool do not have a *.default* suffix; this is for backward compatibility.
@@ -128,6 +149,9 @@ Note that metrics related to the default thread pool do not have a *.default* su
 | net.corda:type=Flows,name=SuspendedDurationMax | Longest suspension duration among all currently suspended flows. |
 | net.corda:type=Flows,name=SuspendedForMoreThanThreshold.Count | Number of flows suspended longer than the configured threshold, which is set via NodeConfiguration.flowMonitorSuspensionLoggingThresholdMillis. |
 | net.corda:type=Flows,name=SuspendedForMoreThanThreshold.ThresholdInSeconds | The value in seconds to which the threshold is set. |
+| net.corda:type=Flows,name=Paused | The number of flows that are currently paused, for example because the node was started in safe mode or the flows were paused from the shell. Paused flows do not progress until they are retried, so a value greater than zero usually requires an operator to act. |
+| net.corda:type=Flows,name=WaitingOnNotary.Count | The number of flows on this node that are currently suspended waiting for a response from a notary. A value that keeps rising means the notary is slow or cannot be reached. This includes the case where the notary is failing internally. For example, because of a database problem, since the notary retries the request instead of rejecting it. |
+| net.corda:type=Flows,name=WaitingOnNotary.MaxAgeSeconds | How long, in seconds, the oldest flow waiting for a notary response has been waiting. The value is zero if no flow is waiting. A value that keeps growing indicates that notarisation is stuck. |
 | net.corda:type={hikariConfigConnectionPoolName},name=pool.Status | Database reachability status: OK if reachable, FAILED if the node cannot connect. |
 {{< /table >}}
 
@@ -183,6 +207,24 @@ Actions are reified IO actions to execute as part of state machine transitions. 
 {{< /table >}}
 
 
+## Node
+
+
+{{< table >}}
+
+| Metric Query                                    | Description                                                                                                                                                                                                                                                                                                                                          |
+|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| net.corda:type=Node,name=Mode                   | The mode the node is running in. Possible values: `NORMAL` (processing flows normally), `DRAINING` (flows draining mode is enabled, so the node finishes in-flight flows but does not start new ones) or `READ_ONLY` (the node was started in read-only mode). If the node is read-only, `READ_ONLY` is reported regardless of the draining setting. |
+| net.corda:type=Node,name=PlatformVersion        | The platform version of the Corda software the node is running (for example, `170`). It can be compared with the minimum platform version of the network to check whether the node is compatible.                                                                                                                                                    |
+| net.corda:type=Node,name=ReleaseVersion         | The Corda release version the node is running (for example, `4.15`).                                                                                                                                                                                                                                                                                 |
+| net.corda:type=Node,name=Revision               | The source code revision (commit ID) the node was built from. Together with `ReleaseVersion`, it identifies the exact build the node is running, including snapshot builds.                                                                                                                                                                          |
+| net.corda:type=Node,name=StartTime              | When the node was started, as an ISO-8601 UTC timestamp (for example, `2026-10-08T13:10:05.959Z`). A change in this value indicates that the node has restarted.                                                                                                                                                                                     |
+| net.corda:type=Node,name=UptimeSeconds          | The number of seconds since the node was started. A drop in this value indicates that the node has restarted.                                                                                                                                                                                                                                        |
+| net.corda:type=Node,name=StartupDurationSeconds | How long, in seconds with millisecond precision, the node took to start, from when it was created until it was fully started. The value is `-1` while the node is still starting.                                                                                                                                                                    |
+
+{{< /table >}}
+
+
 ## P2P
 
 
@@ -217,5 +259,12 @@ Actions are reified IO actions to execute as part of state machine transitions. 
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 |net.corda:type=NetworkParameter,name=UpdateProposed|A gauge with a `true` / `false` value to indicate that a network parameter update was proposed but it has not been accepted yet.|
 |net.corda:type=Transaction,name=SignDuration|A histogram measuring the time taken to sign a transaction.|
+|net.corda:type=Transaction,name=NotarisationRejected.Conflict|The number of notarisation requests from this node that the notary rejected because one or more input states had already been consumed by another transaction (a double-spend attempt). It usually points to an application issue, or two transactions competing for the same states.|
+|net.corda:type=Transaction,name=NotarisationRejected.TimeWindowInvalid|The number of notarisation requests from this node that the notary rejected because the transaction's time window did not include the notary's current time. It can point to clock differences between nodes or to time windows that are too narrow.|
+|net.corda:type=Transaction,name=NotarisationRejected.TransactionInvalid|The number of notarisation requests from this node that the notary rejected because the transaction was invalid. For example, because contract verification failed on a validating notary or the notary does not trust the CorDapp used by the transaction.|
+|net.corda:type=Transaction,name=NotarisationRejected.General|The number of notarisation requests from this node that the notary rejected with a general (internal) error. |
+|net.corda:type=Transaction,name=NotarisationRejected.Other|The number of notarisation requests from this node that the notary rejected for any other reason, such as the request being sent to the wrong notary or an invalid request signature.|
 
 {{< /table >}}
+
+The `Transaction.NotarisationRejected` metrics count the rejections seen when the node finalises a transaction or recovers its finality. They do not count notarisation requests made directly by CorDapps through `NotaryFlow.Client`, or by `NotaryChangeFlow`. The counters only go up while the node is running and are reset to zero when it restarts, so monitoring should alert on their increase over time rather than on their absolute value.
