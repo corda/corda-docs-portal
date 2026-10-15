@@ -272,8 +272,9 @@ The graphite server must be running with python pickle transport enabled. Please
 All garbage collected programs can run faster if you give them more memory, as they need to collect less
 frequently. As a default JVM will happily consume all the memory on your system if you let it, in *development mode* Corda is
 configured with a 512mb Java heap by default. When other overheads are added, this yields
-a total memory usage of about 800mb for a node (the overheads come from things like compiled code, metadata,
-off-heap buffers, thread stacks, etc).
+a total memory usage of about 600mb to 800mb for a node (the overheads come from things like compiled code, class metadata,
+off-heap buffers, thread stacks and memory retained by the C library). [Node sizing and memory requirements]({{< relref "../setup/node-sizing.md" >}})
+breaks this down, gives a minimal configuration, and lists the commands with which you can verify how much memory your node uses.
 
 If you want to make your node go faster and profiling suggests excessive GC overhead is the cause, or if your
 node is running out of memory, you can give it more by running the node like this:

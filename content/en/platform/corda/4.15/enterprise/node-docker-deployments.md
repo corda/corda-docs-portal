@@ -26,6 +26,10 @@ Requirements: A valid node.conf and a valid set of certificates - (signed by the
 {{< /note >}}
 In this example, the certificates are stored at `/home/user/cordaBase/certificates`, the node configuration is in `/home/user/cordaBase/config/node.conf` and the CorDapps to run are in `/path/to/cordapps`
 
+{{< note >}}
+The container's `--memory` limit does not size the node's heap. The node launcher uses a 4 GB heap when `devMode` is `false`, which exceeds the 2 GB limit in these examples, so set the heap explicitly: either through `custom.jvmArgs` in `node.conf`, or by passing `-Xmx` in the image's `JVM_ARGS` environment variable, which the launcher applies on top of the configured arguments. Size `--memory` at the node's expected resident memory plus the launcher plus headroom, not at the heap size, and pass `MALLOC_ARENA_MAX=2` as an environment variable. See [Node sizing and memory requirements]({{< relref "node/setup/node-sizing.md#containers" >}}).
+{{< /note >}}
+
 ```shell
 docker run -ti \
         --memory=2048m \

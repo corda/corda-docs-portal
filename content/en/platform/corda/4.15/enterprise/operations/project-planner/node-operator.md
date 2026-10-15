@@ -22,20 +22,12 @@ For more information on node configuration, see [node configuration]({{< relref 
 
 ## Node sizing
 
-When defining the requirements of a node, it is important to define the resources that the node will require. While every
-Corda deployment will have different requirements - depending on the CorDapps and business model of the parties - the
-following table gives approximate sizings for typical node deployments.
-
-{{< table >}}
-
-|Size|JVM Heap|# Cores|Minimum Host RAM|
-|------------|---------|-------|----------------|
-|Small|1GB|1|2GB to 3GB|
-|Medium|4GB|8|8GB|
-|Large|32GB|32|64GB|
-|X-Large|> 32GB|> 32|> 64GB|
-
-{{< /table >}}
+When defining the requirements of a node, it is important to define the resources that the node will require. Every
+Corda deployment has different requirements, depending on the CorDapps and business model of the parties. A minimal
+Corda Enterprise 4.15 node runs on a 2 vCPU / 2 GB host; a node with the default configuration needs a 4 GB heap and
+correspondingly more host memory, and nodes that hold many flows in flight need heap in proportion. See
+[Node sizing and memory requirements]({{< relref "../../node/setup/node-sizing.md" >}}) for measured figures, a
+minimal configuration, and how to estimate the requirements of a workload.
 
 ## Node databases
 
