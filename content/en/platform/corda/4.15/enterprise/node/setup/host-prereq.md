@@ -70,37 +70,35 @@ The recommended minimum vault database size is 2GB. As with the Corda node, the 
 Corda Enterprise uses Liquibase to generate the requisite database schemas for both the Corda node the CorDapps the node has installed. The `run-migration-scripts` sub-command controls whether these database schemas are generated automatically. In many production scenarios, you may require more control over the creation and running of those scripts. In these cases, simply do not run the `run-migration-scripts` sub-command. The [Corda Enterprise database management tool]({{< relref "../../cordapps/database-management.md#creating-script-for-initial-table-creation-using-the-corda-database-management-tool" >}}) can assist a database administrator by creating scripts for initial table creation.
 
 
-## Corda nNode, Bridge and Float
+## Corda Node, Bridge and Float
 
 Prerequisite and sizing information for the Corda Node, Bridge and Float components.
 
 
 ### VM Sizing Guidelines
 
-{{< note >}}
-You should allocate a minimum Java heap memory size of 4 GB to a Corda Node running in a production environment.
+How much a Corda node needs depends on its configuration and on how many flows it holds in flight,
+not only on its heap size. [Node sizing and memory requirements]({{< relref "node-sizing.md" >}})
+describes the measured memory footprint of a Corda Enterprise 4.15 node, a minimal configuration
+that runs on a 2 vCPU / 2 GB host, how to estimate the requirements of other workloads, and how to
+verify what a running node uses. In summary:
 
-{{< /note >}}
-Minimum specification for a testing environment with components on separate VMs:
+{{< table >}}
 
+|Deployment|Corda Node|Notes|
+|:---|:---|:---|
+|Minimal configuration (see the sizing page)|2 vCPU, 2 GB|512 MB heap, two flow threads; about 0.6 GB resident under load plus 0.1 GB for the launcher|
+|Default configuration|4 vCPU, 4 GB or more|4 GB heap by default in production mode; measured at 1.1 GB idle and 2.1 GB under load on a large host|
+|Multiple nodes on one host|add the per-node figure for each node|Pools and caches scale with the heap and the CPU count, so set them explicitly when several nodes share a host|
 
-* Corda Node 2 CPU Core, 4 GB Memory
-* Corda Bridge 2 CPU Core, 2 GB Memory
-* Corda Float 2 CPU Core, 2 GB Memory
+{{< /table >}}
 
-Recommended production specification for components on separate VMs:
+For the Corda Firewall components the guidance is unchanged:
 
+* Corda Bridge 2 CPU Core, 2 GB Memory (4 CPU Core, 4 GB Memory when serving several nodes)
+* Corda Float 2 CPU Core, 2 GB Memory (4 GB Memory when serving several nodes)
 
-* Corda Node 4 CPU Core, 8 GB Memory
-* Corda Bridge 2 CPU Core, 2 GB Memory
-* Corda Float 2 CPU Core, 2 GB Memory
-
-Recommended production specification for multiple nodes
-
-
-* Corda Node(s) 8 CPU Core, 16 GB Memory, assuming two nodes, scale linearly for more
-* Corda Bridge(s) 4 CPU Core, 4 GB Memory
-* Corda Float(s) 2 CPU Core, 4 GB Memory
+See [Memory requirements for Corda Firewall]({{< relref "../corda-firewall-component.md#memory-requirements-for-corda-firewall" >}}).
 
 
 ### Additional details
