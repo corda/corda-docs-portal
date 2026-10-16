@@ -43,8 +43,10 @@ Use this page for sizing.
 * With the **default configuration** the node starts a 4 GB heap and sizes its thread pools from the
   CPU count. On a 48-core host it used **1.1 GB idle and 2.1 GB under load**, and scaled to about
   570 flows per second with eight concurrent clients in the same test.
-* Each **suspended flow** costs roughly **2 × its serialized checkpoint size + 12 KB** of heap
-  while it is in flight. 5,000 suspended small flows add about 90 MB.
+* Each **suspended flow** keeps its live state plus a compressed serialized copy of it in heap
+  while it is in flight, plus about 12 KB of bookkeeping: measured at **14 KB for a trivial flow**
+  and about **150 KB for a flow holding 64 KB of incompressible state**. 5,000 suspended small
+  flows add about 90 MB.
 * The database, the Corda Firewall and notaries are separate processes with their own requirements
   and are not included in any figure on this page.
 
@@ -59,7 +61,7 @@ typical sizes for a 4.15 node, and the settings that control them.
 |---|---|---|
 | Live heap, idle node | 75 to 100 MB | Fixed cost: node services, Artemis broker, Hibernate metadata, Kotlin reflection, logging buffers |
 | Heap committed | grows toward `-Xmx` under load | `-Xmx`, `-Xms`; with Serial GC also `-XX:MaxHeapFreeRatio` / `-XX:MinHeapFreeRatio` |
-| In-flight flows | 2 × serialized checkpoint + 12 KB per suspended flow | your flows; [pausing](#suspended-flows-and-restarts) releases it |
+| In-flight flows | per suspended flow: its live object graph, plus the Snappy-compressed serialized copy that is also written to `node_checkpoint_blobs`, plus about 12 KB | your flows; [pausing](#suspended-flows-and-restarts) releases it |
 | Caches scaled from the heap | `transactionCacheSizeMegaBytes` is 8 MB + 5% of the heap above 300 MB (about 200 MB at 4 GB); the attachment content cache is 10 MB + the same increment; about 25 other caches get `transactionCacheSizeBytes / 8 KB` entries each | `transactionCacheSizeMegaBytes`, `attachmentContentCacheSizeMegaBytes` |
 | Class metadata (metaspace) | 110 to 125 MB for the node; more per CorDapp | `-XX:MaxMetaspaceSize` as a cap; the CorDapps you install |
 | Compiled code (code cache) | 40 to 90 MB | `-XX:ReservedCodeCacheSize`; JIT activity, which grows with the number of cores |
@@ -224,7 +226,7 @@ a one-output transaction per run, with no counterparties or notary involved. See
 | Idle after startup | 430 MB resident (node), 73 MB live heap, 73 threads; 20 s startup |
 | Load from 1, 2 and 4 concurrent clients, 2 minutes each | 72, 204 and 203 flows per second; average latency 14, 10 and 20 ms; 600 MB resident peak |
 | Two-hour soak at 2 clients | 160 to 192 flows per second throughout; resident memory flat at 607 MB after the first 20 minutes; live heap 98 MB at the end |
-| 1,200 suspended flows, 200 of them holding 64 KB of state | 556 MB resident; 14 KB of heap per small flow, 147 KB per flow with 64 KB of state |
+| 1,200 suspended flows, 200 of them holding 64 KB of incompressible state | 556 MB resident; 14 KB of heap per small flow, 147 KB per flow with 64 KB of state |
 | Restart with 5,000 suspended flows | 25 s instead of 20 s; 554 MB resident peak during the restore; all flows resumed |
 
 {{< /table >}}
@@ -240,11 +242,19 @@ requests beyond two concurrent flows queue, and latency grows with the queue.
 
 Estimate the heap first, then add the non-heap parts:
 
-1. **Live heap** = 100 MB + suspended flows × (2 × serialized checkpoint size + 12 KB) + the
-   caches you configure. A trivial flow has a checkpoint of about 2 KB and costs about 14 KB in
-   memory; a flow holding 64 KB of state has a 68 KB checkpoint and costs about 150 KB. Read your
-   own checkpoint sizes from the `flow_state` and `checkpoint_value` columns of
-   `node_checkpoint_blobs` under load.
+1. **Live heap** = 100 MB + suspended flows × (live state + stored checkpoint + 12 KB) + the
+   caches you configure. A suspended flow holds its state twice: as live objects and as the
+   serialized checkpoint, which the node compresses with Snappy before keeping it in memory and
+   writing it to the `flow_state` column of `node_checkpoint_blobs`. The stored size is therefore a
+   lower bound for the live state. For incompressible state (hashes, signatures, encrypted or
+   random data) the two are equal and the cost is about 2 × stored size + 12 KB; for compressible
+   state (text, repeated structures) the live objects can be several times the stored size.
+   Measured points: a trivial flow with a 2 KB checkpoint costs about 14 KB; a flow holding 64 KB
+   of incompressible state has a 68 KB checkpoint and costs about 150 KB.
+
+   The reliable method for your own flows is to measure: with the node otherwise idle, start N
+   instances of the flow in a state where they stay suspended, force a garbage collection, and
+   divide the increase in live heap by N, using the [commands below](#verifying-how-much-memory-your-node-uses).
 2. **Heap size (`-Xmx`)** = live heap × 1.5 for Serial GC, × 2 for G1, so the collector has room
    to work without running continuously.
 3. **Non-heap** = 250 MB + 1 MB per expected thread + direct memory + metaspace for your CorDapps.
@@ -253,10 +263,11 @@ Estimate the heap first, then add the non-heap parts:
 4. **Host memory** = heap + non-heap + 0.1 GB launcher + 25% headroom, plus the operating system
    and page cache. Count the external verifier separately if you have legacy contracts.
 
-For example, a node that must hold 5,000 suspended flows of 2 KB checkpoints needs about
-100 + 5,000 × 16 KB ≈ 180 MB of live heap, so a 512 MB Serial heap (or 1 GB with G1), about
-400 MB of non-heap, and a 2 GB host still suffices. A node holding 2,000 flows with 64 KB of
-state each needs about 400 MB of live heap and therefore a 1 GB heap and a 3 GB host.
+For example, a node that must hold 5,000 suspended flows with small state and 2 KB checkpoints
+needs about 100 + 5,000 × 16 KB ≈ 180 MB of live heap, so a 512 MB Serial heap (or 1 GB with
+G1), about 400 MB of non-heap, and a 2 GB host still suffices. A node holding 2,000 flows with
+64 KB of incompressible state each needs about 400 MB of live heap and therefore a 1 GB heap and
+a 3 GB host.
 
 ### Measured tiers
 
@@ -322,8 +333,8 @@ image uses musl and does not need it. See
 ### Suspended flows and restarts
 
 A flow that is waiting for a counterparty, a notary or a timer keeps both its live state and a
-serialized copy of it in memory until it completes. Long-waiting flows are therefore the main
-reason a node's memory grows beyond the figures above. Pausing a flow releases both copies;
+compressed serialized copy of it in memory until it completes. Long-waiting flows are therefore the
+main reason a node's memory grows beyond the figures above. Pausing a flow releases both copies;
 paused flows are restored from the database when they are retried or when the node restarts. See
 [Pause and resume flows]({{< relref "../../flow-pause-and-resume.md" >}}).
 
