@@ -264,8 +264,8 @@ Estimate the heap first, then add the non-heap parts:
    and page cache. Count the external verifier separately if you have legacy contracts.
 
 For example, a node that must hold 5,000 suspended flows with small state and 2 KB checkpoints
-needs about 100 + 5,000 × 16 KB ≈ 180 MB of live heap, so a 512 MB Serial heap (or 1 GB with
-G1), about 400 MB of non-heap, and a 2 GB host still suffices. A node holding 2,000 flows with
+needs about 100 + 5,000 × 16 KB ≈ 180 MB of live heap, so a 512 MB heap with Serial GC (or a
+1 GB heap with G1), about 400 MB of non-heap, and a 2 GB host still suffices. A node holding 2,000 flows with
 64 KB of incompressible state each needs about 400 MB of live heap and therefore a 1 GB heap and
 a 3 GB host.
 
@@ -275,9 +275,9 @@ a 3 GB host.
 
 | Tier | Configuration | Host | Measured |
 |---|---|---|---|
-| Minimal | as above: 512 MB Serial heap, 2 flow and 2 RPC threads | 2 vCPU, 2 GB | 0.43 GB idle, 0.6 GB peak, up to 200 flows/s |
+| Minimal | as above: 512 MB heap with Serial GC, 2 flow and 2 RPC threads | 2 vCPU, 2 GB | 0.43 GB idle, 0.6 GB peak, up to 200 flows/s |
 | Minimal on a large host | as above, 48 cores available | 48 cores | 0.6 GB idle, 0.8 GB peak, 175 flows/s at 4 clients |
-| Default | capsule defaults: 4 GB G1 heap, 30 flow threads and 48 RPC threads on this host | 48 cores | 1.1 GB idle, 2.1 GB peak at 8 clients, 570 flows/s at 8 clients |
+| Default | capsule defaults: 4 GB heap with G1 GC, 30 flow threads and 48 RPC threads on this host | 48 cores | 1.1 GB idle, 2.1 GB peak at 8 clients, 570 flows/s at 8 clients |
 
 {{< /table >}}
 
