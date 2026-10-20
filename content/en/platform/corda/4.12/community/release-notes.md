@@ -26,6 +26,14 @@ Corda Open Source Edition 4.12.13 is a patch release of Corda Open Source Editio
 
 ### Upgrade recommendation
 
+{{< important >}}
+**The Corda platform version has changed from 140 to 141 in this patch release. You must drain the node of all flows before you upgrade to Corda Open Source Edition 4.12.13.**
+
+The platform version has changed because the Quasar fix in this release changes the flow stack format. Checkpoints created by an earlier version of Corda are not compatible with 4.12.13, and the node rejects them on startup.
+
+Before you apply this patch release, make sure there are no running, paused, or hospitalized flows on the node. Allow any remaining flows to complete, or safely kill them, before you upgrade. For more information, see [Draining mode]({{< relref "key-concepts-node.md#draining-mode" >}}).
+{{< /important >}}
+
 As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
 
 The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
@@ -35,7 +43,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 * Fixed an issue where the node scheduler could stop scheduling flows after a temporary failure to read scheduled states from the database. The scheduler now logs the error and retries after a short delay.
 * Fixed an issue where `CashPaymentFlow` ignored the `anonymous` parameter when sending change back to the payer. Change is now sent to the well-known identity when `anonymous` is `false`.
 * Restored the `sum` extension function for `Iterable<BigDecimal>` in `net.corda.core.internal`, so that contracts built against Corda 4.11 that use it continue to work.
-* Upgraded Quasar to 0.9.3_r3 to fix a stack frame corruption issue that could occur when checkpointing flows. The Corda platform version is now 141 (previously 140). Checkpoints created by earlier versions of Corda are rejected by the node on startup, so drain all flows before upgrading a node.
+* Upgraded Quasar to 0.9.3_r3 to fix a stack frame corruption issue that could occur when checkpointing flows. This changes the flow stack format, so the Corda platform version is now 141 (previously 140). See the important note in the upgrade recommendation.
 * The following vulnerabilities in dependencies have been addressed:
 
 | Vulnerability  | Component |
