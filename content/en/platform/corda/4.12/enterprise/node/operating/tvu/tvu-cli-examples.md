@@ -88,6 +88,42 @@ Reverify erroneous transactions specified in the `.zip` file created using the `
 java -jar transaction-validator.jar -i /cordallp/corda/nodeA/errors/2024-01-25-18-24-25.zip
 ```
 
+## Parallel reading
+
+Read transactions through four database cursors at once instead of one. Before you use the `-r` option, create an index on `node_transactions (status, timestamp, tx_id)`. For example, on PostgreSQL:
+
+```
+CREATE INDEX CONCURRENTLY node_tx_status_ts_txid_idx ON node_transactions (status, timestamp, tx_id)
+```
+
+If the index is missing, the TVU does not start and prints the statement that creates the index for your database.
+
+```
+java -jar transaction-validator.jar -r 4
+```
+
+The node does not use this index, and it adds work to every write to the `node_transactions` table. When you have finished using the TVU, drop the index. For example, on PostgreSQL:
+
+```
+DROP INDEX node_tx_status_ts_txid_idx
+```
+
+{{< note >}}
+Parallel reading is available from Corda Enterprise 4.12.13 only.
+{{< /note >}}
+
+## Multiple external verifiers
+
+Spread verification across four external verifier processes instead of one.
+
+```
+java -jar transaction-validator.jar -x 4
+```
+
+{{< note >}}
+Multiple external verifiers are available from Corda Enterprise 4.12.13 only.
+{{< /note >}}
+
 ## Transaction processor
 
 Process transactions as specified in the `net.corda.tvu.LogTransaction` class. Put the JAR file containing the `net.corda.tvu.LogTransaction` class in the `/cordallp/corda/nodeA/drivers` directory.
