@@ -13,6 +13,963 @@ menu:
 
 Before you install the downloaded release packs, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the checksum of your downloaded file, then comparing its value to the checksum values provided below.
 
+## Release packs and checksums for Corda Open Source Edition 4.12.13
+
+* Release pack: https://download.corda.net/corda-open-source/4.12.13/corda-open-source-4.12.13.tar
+* MD5 checksum: https://download.corda.net/corda-open-source/4.12.13/corda-open-source-4.12.13.tar.md5
+* ASC: https://download.corda.net/corda-open-source/4.12.13/corda-open-source-4.12.13.tar.asc
+* SHA-256 checksum: https://download.corda.net/corda-open-source/4.12.13/corda-open-source-4.12.13.tar.sha256
+
+* corda-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-configuration-parsing-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-configuration-parsing-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-configuration-parsing-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-configuration-parsing-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-logging-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-logging-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-logging-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-logging-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-validation-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-validation-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-validation-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-common-validation-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-confidential-identities-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-confidential-identities-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-confidential-identities-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-confidential-identities-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-test-utils-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-test-utils-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-test-utils-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-core-test-utils-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-contracts-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-contracts-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-contracts-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-contracts-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-workflows-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-workflows-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-workflows-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-finance-workflows-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jackson-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jackson-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jackson-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jackson-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jfx-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jfx-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jfx-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-jfx-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-mock-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-mock-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-mock-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-mock-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-api-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-api-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-api-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-api-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-driver-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-driver-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-driver-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-node-driver-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-driver-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-driver-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-driver-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-opentelemetry-driver-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.18.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.18-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.18.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.20.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.20-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.20.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.21.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.21-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.0.21.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.1.1.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.1.1-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.1.1.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.1.3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.1.3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordapp-5.1.3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-rpc-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-rpc-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-rpc-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-rpc-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-serialization-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-serialization-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-serialization-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-serialization-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-shell-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-shell-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-shell-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-shell-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-standalone-shell-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-standalone-shell-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-standalone-shell-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-standalone-shell-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-common-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-common-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-common-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-common-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-db-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-db-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-db-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-db-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-4.12.13-ignore.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-impl-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-impl-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-impl-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-testserver-impl-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-utils-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-utils-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-utils-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-test-utils-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-blob-inspector-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-blob-inspector-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-blob-inspector-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-blob-inspector-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-checkpoint-agent-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-checkpoint-agent-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-checkpoint-agent-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-checkpoint-agent-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-cliutils-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-cliutils-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-cliutils-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-cliutils-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-explorer-4.12.13-ignore.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-explorer-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-explorer-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-explorer-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-network-bootstrapper-4.12.13.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-network-bootstrapper-4.12.13-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-network-bootstrapper-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-network-bootstrapper-4.12.13-sources.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* corda-tools-network-builder-4.12.13.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.18.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.18-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.18.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.20.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.20-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.20.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.21.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.21-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.0.21.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.1.1.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.1.1-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.1.1.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.1.3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.1.3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* cordformation-5.1.3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* library-master-v1.1-beta-g6215ec8-87.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* library-master-v1.1-beta-g6215ec8-87.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.0_r3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.0_r3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.0_r3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.1_r3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.1_r3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.1_r3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.2_r3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.2_r3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-core-0.9.2_r3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.0_r3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.1_r3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.1_r3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.1_r3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.2_r3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.2_r3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-osgi-annotations-0.9.2_r3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.18.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.18-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.18.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.20.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.20-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.20.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.21.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.21-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.0.21.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.1.1.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.1.1-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.1.1.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.1.3.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.1.3-javadoc.jar (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
+* quasar-utils-5.1.3.pom (<SIZE> / <BYTES> bytes)
+  * `<SHA1>` (sha1)
+  * `<SHA256>` (sha256)
+  * `<MD5>` (md5)
+
 ## Release packs and checksums for Corda Open Source Edition 4.12.12
 
 * Release pack: https://download.corda.net/corda-open-source/4.12.12/corda-open-source-4.12.12.tar
