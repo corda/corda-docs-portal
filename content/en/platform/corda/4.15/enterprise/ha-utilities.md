@@ -444,7 +444,7 @@ Before running the tool, ensure that the required HSM client-side JAR files are 
 
 ### Command-line options
 ```shell
-ha-utilities node-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [--config-file=FILE] [--config-file-previous=FILE]...
+ha-utilities node-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [-t=FILE] [-p=PASSWORD]
 ```
 
 
