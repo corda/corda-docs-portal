@@ -145,12 +145,25 @@ Once a cross-provider key rotation has succeeded and the new key is in use, the 
 
 ## Rotating a notary key
 
-Rotating a notary key changes the notary's node information, so this procedure also includes a network parameters update and a flag day. The steps below are the end-to-end sequence. For the details of each network operation, follow the linked pages.
+A notary node has two identities, each backed by keys held in the notary's key provider. One is the notary's own legal identity, named by `myLegalName`. The other is the notary service identity, named by `notary.serviceLegalName`, whose signing key is held under the alias `enterpriseConfiguration.distributedNotaryKeyAlias`. The notary service identity key is the one listed in the network parameters and the one that signs notarised transactions. In a notary cluster, it is shared by every worker. Keys cannot be moved between key providers, so moving a notary to a new key provider also requires a new notary service key in that provider.
+
+How that new key is created depends on the kind of notary. Keep `distributedNotaryKeyAlias` unchanged in `notary.conf` and `notary.conf.previous` in both cases.
+
+* **A single notary** does not share the key with any other notary. `node-cross-provider-key-rotation` creates the new notary service identity as part of the rotation. It generates the key with the new key provider, obtains a certificate for it from the Identity Manager, and stores the certificate in the new node key store, exactly as `initial-registration` does for a new notary.
+* **A notary cluster** shares the key between its workers, so it is created once, for the cluster, before any worker is rotated. This is the same two-step procedure as the registration of an HA notary (see [Registering a HA notary]({{< relref "../../notary/ha-notary-service-setup.md#registering-a-ha-notary" >}})). The tool `notary-registration --renew`, run against the new key provider, generates the key and obtains its certificate. The key store it writes is then copied to every worker, and each worker's rotation finds the notary service identity in place and rotates only the worker's own identity. Keep in mind that the tool does not create the notary service identity for a cluster worker. Without the new key store it stops, before submitting anything, with an error message.
+
+In both cases the request for the new notary service certificate is a re-issuance request, handled by the Identity Manager's approval workflow like the request made at registration. `allowKeyRotation` must be enabled in the Identity Manager for the duration of the rotation (see [Prerequisites](#prerequisites)).
+
+No key rotation proof is produced for the notary service key, and none is needed to keep earlier transactions usable. A state records the notary identity, X.500 name and public key, that was current when it was created. A transaction notarised by the notary's new identity can consume such a state, because the platform only requires the notary of each input state and the notary of the transaction to have the same X.500 name, which does not change during a rotation. The network parameters check, however, is made on the public key. Every notary identity that a transaction refers to, including those of its input states, must be listed in the network parameters. The previous notary identity must therefore stay in the network parameters until no unconsumed state refers to it. The previous private key plays no part in this. After the rotation, the new key signs every notarisation, including those that consume states created under the previous identity. Because the notary list in the network parameters changes, rotating a notary always includes a network parameters update and a flag day.
+
+In both procedures below, the new notary identity is added to the network parameters **alongside** the previous one, and the previous one is removed in a later update, once no unconsumed state refers to it (see [Retiring the previous notary identity](#retiring-the-previous-notary-identity)). The procedures differ in what keeps running. A single notary is rotated with the notary and all nodes stopped. A cluster keeps serving: each worker is stopped only while the tool runs on it, then restarted on its previous configuration, so the cluster keeps signing with the previous key until the flag day, and the other nodes stay up. The CENM services keep running in both cases.
+
+### Rotating a single notary
 
 1. Confirm that all [prerequisites](#prerequisites) are met.
 2. Stop the notary, then stop every other node on the network.
 3. In the notary directory, copy the current `notary.conf` (which points to the old key provider) to `notary.conf.previous`.
-4. Edit `notary.conf` so that it points to the new key provider.
+4. Edit `notary.conf` so that it points to the new key provider. Keep `myLegalName`, `notary.serviceLegalName` and `enterpriseConfiguration.distributedNotaryKeyAlias` unchanged.
 5. Run the key rotation tool:
 
    ```shell
@@ -158,19 +171,22 @@ Rotating a notary key changes the notary's node information, so this procedure a
    ```
 
 6. Copy every file from the generated `output/certificates` directory into the notary's `certificates` directory.
-7. Delete the existing `nodeInfo-*` file from the notary directory, then generate a new one:
+7. Generate the notary's node info from the rotated configuration. The new file carries the new notary service identity and has the same name as the previous one, because Corda derives the name from the notary's legal name, so it overwrites the previous file in the notary directory. In the Network Map Service's directory, keep the previous node info under another name before copying the new one there. The parameters update in the next step needs both files:
 
    ```shell
    java -jar corda.jar generate-node-info --config-file=notary.conf
    ```
 
-8. On the Network Map Service host, stop the service and delete the notary's old `nodeInfo-*` file from its directory.
-9. Update the network parameters with the notary's new node information. Create a `network-parameters-update.conf` file similar to the following:
+8. Update the network parameters so that the notary list contains **both** the previous and the new notary identity under the same notary name. The previous entry is the node info the current parameters were built from, and the new entry is the one generated in the previous step. The previous identity must remain listed while unconsumed states created under it exist. Create a `network-parameters-update.conf` file similar to the following:
 
    ```hocon
    notaries : [
      {
-       notaryNodeInfoFile: <PathToNotaryInfoFile>
+       notaryNodeInfoFile: <PathToPreviousNotaryInfoFile>
+       validating: <Boolean>
+     },
+     {
+       notaryNodeInfoFile: <PathToNewNotaryInfoFile>
        validating: <Boolean>
      }
    ]
@@ -184,22 +200,83 @@ Rotating a notary key changes the notary's node information, so this procedure a
    }
    ```
 
-   Apply it, then start the Network Map Service and wait for it to sign the new parameters:
+   Both node info files must be available to the Network Map Service. Apply the update, then start the Network Map Service and wait for it to sign the new parameters:
 
    ```shell
    java -jar networkmap.jar -f networkmap.conf --set-network-parameters=FILE --network-truststore=FILE --truststore-password=<networkTrustStorePassword> --root-alias=<networkRootCertificateAlias>
    ```
 
-   For the full workflow, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
+   For the full workflow, including the equivalent CENM command-line interface commands (`netmap netparams update submit`, `advertise` and `execute`), see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
 
-10. Issue the flag day to execute the update:
+9. Issue the flag day to execute the update:
 
     ```shell
     java -jar networkmap.jar -f networkmap.conf --flag-day
     ```
 
-11. Confirm that every node accepts the network parameters update before the deadline. See [Handling flag days]({{< relref "../../notary/handling-flag-days.md" >}}).
-12. Restart the notary and the remaining nodes as required by the update. Confirm that they start successfully, then set `allowKeyRotation` back to `false` in the Identity Manager service.
+10. Delete the cached `network-parameters` file from the notary directory and from every node directory that was stopped during the update. A node that was offline during the flag day still holds the previous parameters in that file and refuses to start with `Node is using network parameters with hash ... but the network map is advertising ...`. Without the file, it downloads the current parameters from the Network Map Service when it starts. Nodes that stayed online and accepted the update do not need this. See [Handling flag days]({{< relref "../../notary/handling-flag-days.md" >}}).
+11. Start the notary and the remaining nodes. Confirm that they start successfully and that the notary's log does not warn that its identity is not in the whitelist, then set `allowKeyRotation` back to `false` in the Identity Manager service.
+
+### Rotating a notary cluster
+
+The new notary service key and certificate are created once, before the workers are rotated. The workers are then rotated one at a time, in any order, so that the rest of the cluster keeps serving, and each returns to serving on its previous configuration until the flag day, because the tool writes only under `output/`. After the flag day every worker is switched to its rotated files and restarted once. The other nodes of the network stay up throughout.
+
+Procedure:
+
+1. Confirm that all [prerequisites](#prerequisites) are met.
+2. On one worker, prepare the new configuration: copy the current `notary.conf` to `notary.conf.previous`, then edit `notary.conf` so that it points to the new key provider, keeping `myLegalName`, `notary.serviceLegalName` and `enterpriseConfiguration.distributedNotaryKeyAlias` unchanged. The worker can keep running on its previous configuration meanwhile.
+3. On that worker, create the new notary service identity with the registration tool, sending its output to a new file. The tool generates the notary service key with the new key provider, obtains its certificate chain from the Identity Manager, and writes the chain (and the key, if the new key provider is a file-based key store) to the output key store:
+
+   ```shell
+   java -jar corda-tools-ha-utilities.jar notary-registration --renew --config-file notary.conf --output-keystore output/certificates/nodekeystore.jks --network-root-truststore certificates/network-root-truststore.jks --network-root-truststore-password <password>
+   ```
+
+   The output file must not exist beforehand: pointed at a key store that already holds an entry under `distributedNotaryKeyAlias` (such as the current `certificates/nodekeystore.jks`), the tool reports that the certificate already exists and does nothing.
+
+4. Copy `output/certificates/nodekeystore.jks` to every other worker, at the same path under the worker's directory. The key store password is the node key store password of the configuration, which all workers share.
+5. Rotate the workers one at a time, in any order:
+
+   a. Stop the worker.
+
+   b. Prepare its new configuration as in step 2, with the worker's own `identityKeyAlias` and `clientCaKeyAlias`.
+
+   c. Run the key rotation tool. The worker's own identity is rotated into `output/certificates`, next to the notary service certificate installed in step 4:
+
+      ```shell
+      java -jar corda-tools-ha-utilities.jar node-cross-provider-key-rotation --config-file notary.conf --config-file-previous notary.conf.previous
+      ```
+
+   d. Start the worker again on its **previous** configuration and certificates: nothing under `certificates` or `notary.conf.previous` has changed, and the previous identity is still the one in the network parameters, so the worker keeps serving until the flag day.
+
+6. Generate the new node info on one worker. Its `generate-node-info` needs the rotated files in place so stop the worker, move `certificates` aside and `output/certificates` into its place, run the command, then either leave the worker stopped until the flag day or restore the previous files and start it again. The new node info has the same file name as the previous one, because Corda derives the name from the notary's legal name. Keep a copy of the previous node info under another name, where the Network Map Service can read it, since the parameters update needs both:
+
+   ```shell
+   java -jar corda.jar generate-node-info --config-file=notary.conf
+   ```
+
+7. Update the network parameters so that the notary list contains **both** the previous and the new notary identity under the same notary name. The previous entry is the node info the current parameters were built from, and the new entry is the one generated in the previous step. Keeping the previous identity is what lets the workers keep serving until the flag day and lets existing states that name it continue to evolve. Advertise the update, have the running nodes and workers accept it, and execute the flag day. For the commands, see step 8 of [Rotating a single notary](#rotating-a-single-notary) and [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
+
+   ```hocon
+   notaries : [
+     {
+       notaryNodeInfoFile: <PathToPreviousNotaryInfoFile>
+       validating: <Boolean>
+     },
+     {
+       notaryNodeInfoFile: <PathToNewNotaryInfoFile>
+       validating: <Boolean>
+     }
+   ]
+   ```
+
+8. After the flag day, switch each worker to its rotated files. Stop it, move `certificates` aside and `output/certificates` into its place, copy `network-root-truststore.jks` from the previous `certificates` directory into the new one, delete the cached `network-parameters` file (the worker was on the previous parameters at the flag day, see step 10 of the single-notary procedure), and start it on the new `notary.conf`. Confirm that its log does not warn that its identity is not in the whitelist, then confirm with a transaction from a node that the cluster notarises. If the notary uses the JPA backing store, its request log (`notary_request_log`, column `worker_node_x500_name`) records which worker served each request.
+9. Once every worker runs on the new key provider, set `allowKeyRotation` back to `false` in the Identity Manager service.
+
+### Retiring the previous notary identity
+
+Both procedures leave the previous notary identity in the network parameters. Nodes do not select it for new transactions, because the network map only holds the notary's new node info, but it must remain listed while unconsumed states created under it exist. Every notary identity that a transaction refers to, including those of its input states, is checked against the network parameters. Retire it when no unconsumed state names it by submitting a network parameters update that lists only the new node info, and revoking the previous notary service certificate in the Identity Manager service.
+
+The previous private key is not needed to consume those states. After the rotation, the new key signs every notarisation. Keep `notary.conf.previous` and the previous `certificates` directory only until the notary, or every worker of a cluster, has been switched to the new key provider. They are the rollback until then.
 
 {{< warning >}}
 
@@ -209,7 +286,7 @@ As with a node rotation, the old certificates are unavailable once the new files
 
 {{< important >}}
 
-Once a cross-provider key rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. Reusing the old key afterwards is not supported. Corda treats the new key as the notary's current identity, so reintroducing a rotated key causes undefined behaviour. Any states already signed with the new key would also become permanently inaccessible. The notary no longer uses the key that owns them. If you later need to move back to the original provider, perform a new cross-provider key rotation rather than reinstating the old key.
+Once a cross-provider key rotation has succeeded and the new key is in use, the change cannot be reversed. Backups can roll back a rotation that has not yet succeeded, but they cannot restore the old key after a successful rotation. Reusing the old key afterwards is not supported. Corda treats the new key as the notary's current identity, so reintroducing a rotated key causes undefined behaviour.
 
 {{< /important >}}
 
@@ -306,13 +383,13 @@ and measure it in an environment that reflects your production workload. See [Pe
 
 ### Sample: the negotiation CorDapp
 
-The `negotiation-cordapp` sample models a bilateral agreement. A `ProposalState` names the `buyer`, the `seller`, the `proposer` and the `proposee`; only the proposee can modify or accept a proposal, and whoever modifies becomes the new proposer. The sample repositories contain the original CorDapp and two adapted copies (see [References](#references)):
+The `negotiation-cordapp` sample models a bilateral agreement. A `ProposalState` names the `buyer`, the `seller`, the `proposer` and the `proposee`. Only the proposee can modify or accept a proposal, and whoever modifies becomes the new proposer. The sample repositories contain the original CorDapp and two adapted copies (see [References](#references)):
 
 | Sample | Pattern | Where the proof is stored | Proof needed |
 |--------|---------|---------------------------|--------------|
 | `negotiation-cordapp` | Original. | Nowhere: the flow fails after a rotation. | n/a |
-| `negotiation-cordapp-key-rotation-support` | Add key rotation support. | In the signature of the node that rotated | On every transaction that consumes a state naming the old key, indefinitely. |
-| `negotiation-cordapp-key-rotation-proof-free` | Enable proof-free transactions. | In the command (or in the signature when the counterparty starts the transaction) | Once per state that reference an old key. Later transactions carry no proof. |
+| `negotiation-cordapp-key-rotation-support` | Add key rotation support. | In the signature of the node that rotated. | On every transaction that consumes a state naming the old key, indefinitely. |
+| `negotiation-cordapp-key-rotation-proof-free` | Enable proof-free transactions. | In the command (or in the signature when the counterparty starts the transaction). | Once per state that references an old key. Later transactions carry no proof. |
 
 #### Why the original flow breaks
 
@@ -653,7 +730,7 @@ a = network.rotateKey(a, null);
 {{% /tab %}}
 {{< /tabs >}}
 
-The tests then run the sample's flows and inspect the resulting `SignedTransaction`: `stx.tx.commands.single().keyRotationProofChainMap` for a proof in the command, and `signature.signatureMetadata.proofChain` on each entry of `stx.sigs` for a proof in a signature, checking the chain with `KeyRotationProofChain.isValid(originalKey, rotatedKey)`. `InternalMockNetwork`, `createKeyRotationMockNode` and `rotateKey` are in `corda-node-driver`; because their signatures mention node-internal types, the test compile classpath also needs `corda-node`, `corda-node-api` and `corda-extensions-api` as `testCompileOnly` dependencies.
+The tests then run the sample's flows and inspect the resulting `SignedTransaction`: `stx.tx.commands.single().keyRotationProofChainMap` for a proof in the command, and `signature.signatureMetadata.proofChain` on each entry of `stx.sigs` for a proof in a signature, checking the chain with `KeyRotationProofChain.isValid(originalKey, rotatedKey)`. `InternalMockNetwork`, `createKeyRotationMockNode` and `rotateKey` are in `corda-node-driver`. Because their signatures mention node-internal types, the test compile classpath also needs `corda-node`, `corda-node-api` and `corda-extensions-api` as `testCompileOnly` dependencies.
 
 ## References
 
