@@ -64,6 +64,7 @@ The following migrations are supported:
 * Only Corda Enterprise nodes and notaries running Corda 4.15 or later can initiate a rotation.
 * A rotation cannot be reversed. Moving back to a previous provider requires performing another rotation.
 * Each rotation adds a key rotation proof to the chain, which places a small overhead on affected transactions. Performing several rotations over time lengthens the proof chain and increases that overhead. See [Transaction size and performance](#transaction-size-and-performance).
+* Raft, BFT-SMaRt, and Solana notaries cannot be rotated across key providers. The tool refuses to run when either configuration uses one of these notary implementations.
 
 ## Prerequisites
 

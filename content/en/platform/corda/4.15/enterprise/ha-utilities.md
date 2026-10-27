@@ -439,6 +439,8 @@ Before running the tool, ensure that the node configuration points to the new ke
 Stop the node before performing the key rotation.
 Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. See [Rotating a node key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-node-key" >}}) and [Rotating a notary key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-notary-key" >}}) for the full procedures.
 
+Raft, BFT-SMaRt, and Solana notaries are not supported. Both configurations must describe the same kind of node. If one is for a notary and the other is not, the tool stops with a configuration mismatch error.
+
 The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the drivers subdirectory of the configured base directory.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
 
