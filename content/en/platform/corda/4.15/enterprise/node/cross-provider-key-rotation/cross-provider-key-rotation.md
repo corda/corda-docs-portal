@@ -374,7 +374,7 @@ Once a state names only current keys, consuming it needs no proof at all.
 
 ### Transaction size and performance
 
-Each key rotation proof adds approximately 128 bytes to a transaction. Validating a transaction now also validates every proof in its chain, which adds one cryptographic check per proof.
+Key rotation proofs add a few hundred bytes per proof, plus a one-off schema overhead per transaction. Validating a transaction now also validates every proof in its chain, which adds one cryptographic check per proof.
 
 * **Payment-style CorDapps:** the overhead applies only while transactions still consume states signed with the old key. Once all legacy states are consumed, transaction size and performance return to their previous baseline.
 * **Bilateral-agreement CorDapps:** the overhead can apply to all future transactions unless the CorDapp is updated so that proofs are no longer required.
