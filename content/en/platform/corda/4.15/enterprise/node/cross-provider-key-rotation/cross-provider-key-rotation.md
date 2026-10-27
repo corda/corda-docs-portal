@@ -232,7 +232,7 @@ Procedure:
    java -jar corda-tools-ha-utilities.jar notary-registration --renew --config-file notary.conf --output-keystore output/certificates/nodekeystore.jks --network-root-truststore certificates/network-root-truststore.jks --network-root-truststore-password <password>
    ```
 
-   The output file must not exist beforehand: pointed at a key store that already holds an entry under `distributedNotaryKeyAlias` (such as the current `certificates/nodekeystore.jks`), the tool reports that the certificate already exists and does nothing.
+   If the output key store already holds an entry under `distributedNotaryKeyAlias` (such as the current `certificates/nodekeystore.jks`), the tool reports that the certificate already exists and does nothing. An empty key store left by an earlier failed run is fine.
 
 4. Copy `output/certificates/nodekeystore.jks` to every other worker, at the same path under the worker's directory. The tool wrote this keystore with the node key store password from the configuration of the worker that ran the renewal. Nothing requires the other workers to use that password. If a worker uses a different node key store password, change the password of its copy to match, rather than re-running the renewal, which would create a second notary service key. Change the store password with `keytool -storepasswd`. When the key provider is file-based, the private key is held in the keystore, so also change the key password with `keytool -keypasswd`.
 5. Rotate the workers one at a time, in any order:
