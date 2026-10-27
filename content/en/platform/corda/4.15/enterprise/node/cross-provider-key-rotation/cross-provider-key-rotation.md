@@ -249,7 +249,14 @@ Procedure:
 
    d. Start the worker again on its **previous** configuration and certificates: nothing under `certificates` or `notary.conf.previous` has changed, and the previous identity is still the one in the network parameters, so the worker keeps serving until the flag day.
 
-6. Generate the new node info on one worker. `generate-node-info` must use the keystores generated during the key rotation. So stop the worker, back up its current `certificates` directory, then copy `nodekeystore.jks`, `sslkeystore.jks` and `truststore.jks` from `output/certificates` into `certificates`. Finally, run the command. Do not copy `key-rotation-proofs.bin`. A node loads that file on every start and records the rotation in its database, so it must not be present while the worker is still on its previous identity. Were it present, the worker could no longer sign or accept the network parameters update with its previous key. Afterwards, restore the backup over `certificates` so the worker keeps serving on its previous identity, or leave the worker stopped until the flag day. The new node info has the same file name as the previous one, because Corda derives the name from the notary's legal name. Keep a copy of the previous node info under another name, where the Network Map Service can read it, since the parameters update needs both:
+6. Generate the new node info on one worker. `generate-node-info` must use the keystores generated during the key rotation. So stop the worker, back up its current `certificates` directory, then copy `nodekeystore.jks`, `sslkeystore.jks` and `truststore.jks` from `output/certificates` into `certificates`. Finally, run the command.
+   Afterwards, restore the backup over `certificates` so the worker keeps serving on its previous identity, or leave the worker stopped until the flag day. The new node info has the same file name as the previous one, because Corda derives the name from the notary's legal name. Keep a copy of the previous node info under another name, where the Network Map Service can read it, since the parameters update needs both:
+
+   {{< warning >}}
+
+   Do not copy `key-rotation-proofs.bin`. A node loads that file on every start and records the rotation in its database, so it must not be present while the worker is still on its previous identity. Were it present, the worker could no longer sign or accept the network parameters update with its previous key.
+
+   {{< /warning >}}
 
    ```shell
    java -jar corda.jar generate-node-info --config-file=notary.conf
