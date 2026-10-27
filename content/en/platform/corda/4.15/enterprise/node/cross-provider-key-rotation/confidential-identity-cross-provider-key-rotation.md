@@ -95,7 +95,7 @@ Complete every item in this checklist before you rotate any key:
 6. Confirm that the new key provider is configured, running, and accessible to the node.
 7. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps]({{< relref "cross-provider-key-rotation.md#adapting-your-cordapps" >}}).
 8. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node directory. For the tool's full command syntax and options, see the [Node confidential identity cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-confidential-identity-cross-provider-key-rotation-tool" >}}) reference.
-9. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. For more details see [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
+9. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the directory the tool is run from. The HA Utilities JAR does not include them. For more details see [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
 
 ## Rotating confidential identity keys
 

@@ -435,14 +435,20 @@ Copy all files from `<base-directory>/certificates` to the node's certificates d
 ## Node cross-provider key rotation tool
 The HA Utilities tool performs a cross-provider key rotation for a Corda node and Corda notary. It allows key providers to be changed without losing access to existing states.
 This tool generates a new node identity key with the new key provider. It also creates the key rotation proofs that let the node keep consuming states signed with its previous key.
+
 Before running the tool, ensure that the node configuration points to the new key provider and that a copy of the previous configuration is available.
 Stop the node before performing the key rotation.
+For a HA notary worker, the notary service identity must already be available in the new key provider.
 Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. See [Rotating a node key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-node-key" >}}) and [Rotating a notary key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-notary-key" >}}) for the full procedures.
-
-Raft, BFT-SMaRt, and Solana notaries are not supported. Both configurations must describe the same kind of node. If one is for a notary and the other is not, the tool stops with a configuration mismatch error.
 
 The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the drivers subdirectory of the configured base directory.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
+
+{{< warning >}}
+
+Raft, BFT-SMaRt, and Solana notaries are not supported. Both configurations must describe the same kind of node. If one is for a notary and the other is not, the tool stops with a configuration mismatch error.
+
+{{< /warning >}}
 
 ### Command-line options
 ```shell
@@ -452,12 +458,12 @@ ha-utilities node-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLe
 
 * `-v`, `--verbose`, `--log-to-console`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO
-* `-b`, `--base-directory=FOLDER`: The working directory where all the files are kept.
+* `-b`, `--base-directory=FOLDER`: Output base directory where the files will be generated. Default: output
 * `-f`, `--config-file=FILE`: The path to the config file. Default: node.conf
 * `-n`, `--network-parameters=FILE`: The path to the network parameters file. Default: network-parameters
-* `-g`, `--config-file-previous=FILE`: The path to the previous used node config file. Default: node.conf.previous
-* `-t`, `--network-root-truststore=FILE`: Network root trust store obtained from network operator.
-* `-p`, `--network-root-truststore-password=PASSWORD`: Network root trust store password obtained from network operator.
+* `-g`, `--config-file-previous=FILE`: The path to the previously used node config file. Default: node.conf.previous
+* `-t`, `--network-root-truststore=FILE`: Network root trust store obtained from network operator. If not set, the existing `truststore.jks` is used.
+* `-p`, `--network-root-truststore-password=PASSWORD`: Network root trust store password obtained from network operator. If not set, taken from the node config.
 * `--config-obfuscation-passphrase[=<cliPassphrase>]`: The passphrase used in the key derivation function when generating an AES key
 * `--config-obfuscation-seed[=<cliSeed>]`: The seed used in the key derivation function to create a salt
 * `-h`, `--help`: Show this help message and exit.
@@ -485,12 +491,12 @@ Before running the tool, ensure that the node configuration points to the new ke
 
 The tool refuses to run when the node has wrapped certificate-based (CERT) confidential identity keys. It does not rotate CERT keys, so they would become permanently unsignable after the provider switch, breaking every unconsumed state they still own. Consume or reissue those states before rotating. Alternatively, pass `--ignore-cert-keys-check` to rotate anyway, accepting that any unconsumed states still owned by those CERT keys will be permanently lost.
 
-The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the `drivers` subdirectory of the configured base directory.
+The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the `drivers` subdirectory of the directory the tool is run from.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
 
 ### Command-line options
 ```shell
-ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--ignore-cert-keys-check]
+ha-utilities node-confidential-identity-cross-provider-key-rotation [-hvV] [--logging-level=<loggingLevel>] [-f=FILE] [-g=FILE] [-n=FILE] [--batch-size=N] [--dry-run] [--ignore-cert-keys-check]
 ```
 
 
