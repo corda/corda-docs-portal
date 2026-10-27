@@ -91,7 +91,7 @@ Complete every item in this checklist before you rotate any key:
 2. Take a verified backup of the node database and the entire node directory. Confirm that you can restore it before you continue because it is the only way to roll back a failed rotation.
 3. Plan for downtime. The node must be stopped throughout the rotation.
 4. Confirm that every node on the network runs Corda 4.15 or later. To upgrade, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}).
-5. And that the network minimum platform version is `170` or later. To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
+5. Confirm that the network minimum platform version is `170` or later. To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
 6. Confirm that the new key provider is configured, running, and accessible to the node.
 7. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps]({{< relref "cross-provider-key-rotation.md#adapting-your-cordapps" >}}).
 8. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node directory. For the tool's full command syntax and options, see the [Node confidential identity cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-confidential-identity-cross-provider-key-rotation-tool" >}}) reference.

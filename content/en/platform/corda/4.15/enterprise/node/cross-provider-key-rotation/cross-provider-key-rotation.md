@@ -146,7 +146,7 @@ Once a cross-provider key rotation has succeeded and the new key is in use, the 
 
 ## Rotating a notary key
 
-A notary node has two identities, each backed by keys held in the notary's key provider. One is the notary's own legal identity, named by `myLegalName`. The other is the notary service identity, named by `notary.serviceLegalName`, whose signing key is held under the alias `enterpriseConfiguration.distributedNotaryKeyAlias`. The notary service identity key is the one listed in the network parameters and the one that signs notarised transactions. In a notary cluster, it is shared by every worker. Keys cannot be moved between key providers, so moving a notary to a new key provider also requires a new notary service key in that provider.
+A notary node has two identities, each backed by keys held in the notary's key provider. One is the notary's own legal identity, named by `myLegalName`. The other is the notary service identity, named by `notary.serviceLegalName`, whose signing key is held under the alias `enterpriseConfiguration.distributedNotaryKeyAlias`. The notary service identity key is the one listed in the network parameters and the one that signs notarised transactions. In a notary cluster, it is shared by every worker. Moving a notary to a new key provider also requires a new notary service key in that provider, because the rotation does not transfer the existing key.
 
 How that new key is created depends on the kind of notary. Keep `distributedNotaryKeyAlias` unchanged in `notary.conf` and `notary.conf.previous` in both cases.
 
