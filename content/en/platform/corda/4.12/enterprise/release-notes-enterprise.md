@@ -51,14 +51,13 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 * Upgraded Quasar to 0.9.3_r3 to fix a stack frame corruption issue that could occur when checkpointing flows. This changes the flow stack format, so the Corda platform version is now 141 (previously 140). See the important note in the upgrade recommendation.
 * The Transaction Validator Utility now uses the database settings from the node configuration when it connects to the database.
 * Improved the performance of the Transaction Validator Utility on large databases. The new `--threadpool-size`, `--readers` and `--verifiers` options control the number of processing threads, database cursors and external verifier processes.
-* The following table shows the vulnerabilities addressed in this patch release.
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
 
 | Vulnerability  | Component |
 |----------------|-----------|
-| CVE-2026-57822 | Artemis   |
-| CVE-2026-59903 | Netty     |
-| CVE-2026-59296 | Micrometer |
-| CVE-2026-59969 | ZooKeeper |
+| CVE-2026-57967 | Artemis   |
+| CVE-2026-49364 | Artemis   |
+| CVE-2026-75595 | Netty     |
 | CVE-2026-71290 | Apache HttpClient |
 | CVE-2026-84939 | FreeMarker |
 

@@ -44,13 +44,13 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 * Fixed an issue where `CashPaymentFlow` ignored the `anonymous` parameter when sending change back to the payer. Change is now sent to the well-known identity when `anonymous` is `false`.
 * Restored the `sum` extension function for `Iterable<BigDecimal>` in `net.corda.core.internal`, so that contracts built against Corda 4.11 that use it continue to work.
 * Upgraded Quasar to 0.9.3_r3 to fix a stack frame corruption issue that could occur when checkpointing flows. This changes the flow stack format, so the Corda platform version is now 141 (previously 140). See the important note in the upgrade recommendation.
-* The following vulnerabilities in dependencies have been addressed:
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
 
 | Vulnerability  | Component |
 |----------------|-----------|
-| CVE-2026-57822 | Artemis   |
-| CVE-2026-59903 | Netty     |
-| CVE-2026-59296 | Micrometer |
+| CVE-2026-57967 | Artemis   |
+| CVE-2026-49364 | Artemis   |
+| CVE-2026-75595 | Netty     |
 
 ### Third-party components upgrade
 
