@@ -249,7 +249,7 @@ Procedure:
 
    d. Start the worker again on its **previous** configuration and certificates: nothing under `certificates` or `notary.conf.previous` has changed, and the previous identity is still the one in the network parameters, so the worker keeps serving until the flag day.
 
-6. Generate the new node info on one worker. Its `generate-node-info` needs the rotated files in place so stop the worker, move `certificates` aside and `output/certificates` into its place, run the command, then either leave the worker stopped until the flag day or restore the previous files and start it again. The new node info has the same file name as the previous one, because Corda derives the name from the notary's legal name. Keep a copy of the previous node info under another name, where the Network Map Service can read it, since the parameters update needs both:
+6. Generate the new node info on one worker. `generate-node-info` needs the rotated files in place, so stop the worker, back up its current `certificates` directory, then copy every file from `output/certificates` into `certificates` and run the command. Afterwards restore the backup over `certificates` so the worker keeps serving on its previous identity, or leave the worker stopped until the flag day. The new node info has the same file name as the previous one, because Corda derives the name from the notary's legal name. Keep a copy of the previous node info under another name, where the Network Map Service can read it, since the parameters update needs both:
 
    ```shell
    java -jar corda.jar generate-node-info --config-file=notary.conf
@@ -270,7 +270,7 @@ Procedure:
    ]
    ```
 
-8. After the flag day, switch each worker to its rotated files. Stop it, move `certificates` aside and `output/certificates` into its place, copy `network-root-truststore.jks` from the previous `certificates` directory into the new one, delete the cached `network-parameters` file (the worker was on the previous parameters at the flag day, see step 10 of the single-notary procedure), and start it on the new `notary.conf`. Confirm that its log does not warn that its identity is not in the whitelist, then confirm with a transaction from a node that the cluster notarises. If the notary uses the JPA backing store, its request log (`notary_request_log`, column `worker_node_x500_name`) records which worker served each request.
+8. After the flag day, switch each worker to its rotated files. Stop it, copy every file from `output/certificates` into `certificates`, delete the cached `network-parameters` file (the worker was on the previous parameters at the flag day, see step 10 of the single-notary procedure), and start it on the new `notary.conf`. Copying into the existing directory keeps the files the tool does not write, such as `network-root-truststore.jks` and, for file-based wrapped confidential identities, `wrappingkeystore.pkcs12`. Confirm that its log does not warn that its identity is not in the whitelist, then confirm with a transaction from a node that the cluster notarises. If the notary uses the JPA backing store, its request log (`notary_request_log`, column `worker_node_x500_name`) records which worker served each request.
 9. Once every worker runs on the new key provider, set `allowKeyRotation` back to `false` in the Identity Manager service.
 
 ### Retiring the previous notary identity
