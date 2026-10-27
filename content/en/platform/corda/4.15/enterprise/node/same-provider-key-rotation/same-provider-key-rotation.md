@@ -67,7 +67,7 @@ Same-provider key rotation is a system-critical operation. An unsuccessful rotat
 5. Assign new keystore aliases for the new keys in `node.conf`, and keep the old identity key available for signing. See [Rotating a node key](#rotating-a-node-key).
 6. Confirm that all deployed CorDapps are compatible with key rotation.
 7. Make `corda-tools-ha-utilities.jar` available in the node or notary directory. For the tool's full command syntax and options, see the [Node certificate rotation tool]({{< relref "../../ha-utilities.md#node-certificate-rotation-tool" >}}) reference.
-8. When the node uses an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
+8. When the node uses an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the directory given with `-b`, or of the directory the tool is run from when `-b` is not given. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
 9. Enable key rotation in the Identity Manager service. See [Enabling key rotation in the Identity Manager service](#enabling-key-rotation-in-the-identity-manager-service).
 
 ### Enabling key rotation in the Identity Manager service

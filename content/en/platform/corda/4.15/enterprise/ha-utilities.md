@@ -405,7 +405,7 @@ You must not change the node's `myLegalName` during certificate rotation. Also, 
 
 For the full procedure, including the notary network parameters update and flag day, see [Same-provider key rotation]({{< relref "node/same-provider-key-rotation/same-provider-key-rotation.md" >}}).
 
-The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the drivers subdirectory of the configured base directory.
+The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the `drivers` subdirectory of the directory given with `-b`, or of the directory the tool is run from when `-b` is not given.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
 
 
@@ -441,7 +441,7 @@ Stop the node before performing the key rotation.
 For a HA notary worker, the notary service identity must already be available in the new key provider.
 Although the tool can be used for both Corda nodes and notary services, the notary key rotation procedure follows different steps. See [Rotating a node key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-node-key" >}}) and [Rotating a notary key]({{< relref "node/cross-provider-key-rotation/cross-provider-key-rotation.md#rotating-a-notary-key" >}}) for the full procedures.
 
-The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the drivers subdirectory of the configured base directory.
+The tool does not include the third-party client-side JAR files required to connect to an HSM. These JAR files must be supplied by the HSM vendor. The tool expects to load them from the `drivers` subdirectory of the directory given with `-b`, or of the directory the tool is run from when `-b` is not given.
 Before running the tool, ensure that the required HSM client-side JAR files are present in this directory. This is necessary only when connecting to an HSM.
 
 {{< warning >}}

@@ -78,7 +78,7 @@ Cross-provider key rotation is a system-critical operation. An unsuccessful rota
 6. Confirm that the new key provider is configured, running, and accessible to the affected node or notary.
 7. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps](#adapting-your-cordapps).
 8. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node or notary directory. For the tool's full command syntax and options, see the [Node cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-cross-provider-key-rotation-tool" >}}) reference.
-9. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the configured base directory. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
+9. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the directory given with `-b`, or of the directory the tool is run from when `-b` is not given. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
 10. Enable key rotation in the Identity Manager service. See [Enabling key rotation in the Identity Manager service](#enabling-key-rotation-in-the-identity-manager-service).
 
 ### Enabling key rotation in the Identity Manager service
