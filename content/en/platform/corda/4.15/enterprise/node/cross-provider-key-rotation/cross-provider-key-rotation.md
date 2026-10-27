@@ -129,7 +129,7 @@ These safeguards catch the most common misconfiguration, but they do not cover e
 
 6. The tool creates an `output/certificates` directory. It contains the Java KeyStore (JKS) files with the new certificates and a `key-rotation-proofs.bin` file. The proof file is what lets the node keep consuming states signed with the old key.
 7. Copy every file from `output/certificates` into the node's `certificates` directory.
-8. Start the node. On startup, it loads the proofs from `key-rotation-proofs.bin` and deletes the file once it has processed them.
+8. Start the node. On startup, it loads the proofs from `key-rotation-proofs.bin`, records any that are not already in its database, and deletes the file once it has processed them. Re-processing the same file, for example one restored from a backup, has no effect, because a proof already recorded is skipped.
 9. Confirm that the node has started successfully and can access its states. Then set `allowKeyRotation` back to `false` in the Identity Manager service.
 
 {{< warning >}}
