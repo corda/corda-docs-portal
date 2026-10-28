@@ -10,12 +10,12 @@ tags:
 - archive transactions
 
 
-title: Archive Service APIs
+title: Archive Service 1.x APIs
 weight: 730
 ---
 
 
-# Archive Service APIs
+# Archive Service 1.x APIs
 
 The following APIs are exposed by the Archive Service:
 

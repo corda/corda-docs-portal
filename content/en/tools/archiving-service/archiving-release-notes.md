@@ -5,11 +5,11 @@ menu:
     identifier: release-notes-archiving
     parent: tools-archiving
     name: "Release notes"
-title: Archive Service release notes
+title: Archive Service 2.x release notes
 weight: 705
 ---
 
-# Archive Service release notes
+# Archive Service 2.x release notes
 
 The Archive Service is a standalone service that operates on a different release cadence to the Corda platform.
 

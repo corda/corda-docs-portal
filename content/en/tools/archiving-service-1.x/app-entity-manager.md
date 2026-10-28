@@ -12,11 +12,11 @@ tags:
 - off-ledger database
 - off-ledger db
 
-title: App Entity Manager
+title: App Entity Manager 1.x
 weight: 720
 ---
 
-# App Entity Manager
+# App Entity Manager 1.x
 
 The `AppEntityManager` library can be used by CorDapps to access off-ledger databases using JPA APIs.
 

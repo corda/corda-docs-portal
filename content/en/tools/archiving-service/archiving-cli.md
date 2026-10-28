@@ -10,11 +10,11 @@ tags:
 - archive transactions
 
 
-title: Archive Service CLI
+title: Archive Service 2.x CLI
 weight: 735
 ---
 
-# Archive Service Command-Line Interface (CLI)
+# Archive Service 2.x Command-Line Interface (CLI)
 
 The Archive Service can be used to archive transactions and attachments from the Corda vault which can no longer be part of an ongoing or new transaction flow. These archivable transactions and attachments are only associated with transactions which have no unconsumed transaction outputs (UTXOs).
 

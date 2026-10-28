@@ -10,12 +10,12 @@ tags:
 - archive transactions
 
 
-title: Archive Service APIs
+title: Archive Service 2.x APIs
 weight: 730
 ---
 
 
-# Archive Service APIs
+# Archive Service 2.x APIs
 
 {{< note >}}
 Archive Service 2.0 introduces an iterative archiving model that replaces the previous LedgerGraph-based filtering approach. Runtime filters (`filterList`, `filterConfig`) have been removed from all flows. Transaction eligibility is now controlled via the `archivableContractClassStatePrefixes` CorDapp configuration parameter.

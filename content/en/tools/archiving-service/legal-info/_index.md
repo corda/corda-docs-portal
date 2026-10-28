@@ -10,13 +10,13 @@ menu:
 tags:
 - legal
 - info
-title: Third-party software licence information - Archive Service
+title: Third-party software licence information - Archive Service 2.x
 section_menu: tools
 
 ---
 
-# Archive Service third-party software notices and licence information
+# Archive Service 2.x third-party software notices and licence information
 
-The third-party software notices and license information for Archive Service can be found here:
+The third-party software notices and license information for Archive Service 2.x can be found here:
 
 {{< childpages >}}

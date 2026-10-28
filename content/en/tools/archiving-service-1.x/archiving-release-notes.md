@@ -5,11 +5,11 @@ menu:
     identifier: release-notes-archiving-1x
     parent: tools-archiving-1x
     name: "Release notes"
-title: Archive Service release notes
+title: Archive Service 1.x release notes
 weight: 705
 ---
 
-# Archive Service release notes
+# Archive Service 1.x release notes
 
 The 2.x series release notes can be found in the [Archive Service 2.x release notes]({{< relref "../archiving-service/archiving-release-notes.html" >}}) page.
 

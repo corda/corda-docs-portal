@@ -6,11 +6,11 @@ menu:
 tags:
 - release
 - checksums
-title: Checksums of Archive Service release files
+title: Checksums of Archive Service 2.x release files
 weight: 710
 ---
 
-# Checksums of Archive Service release files
+# Checksums of Archive Service 2.x release files
 
 You can download the Archive Service release files if you have access to the repositories.
 

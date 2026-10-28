@@ -1,10 +1,10 @@
 ---
 date: '2026-06-03T12:00:00Z'
-description: "Documentation for the Corda Archive Service; this is used to make an archive of transactions and attachments from the Corda vault which can no longer be part of an ongoing or new transaction flow"
+description: "Documentation for the Corda Archive Service 2.x; this is used to make an archive of transactions and attachments from the Corda vault which can no longer be part of an ongoing or new transaction flow"
 section_menu: tools
 menu:
   tools:
-    name: Archive Service
+    name: Archive Service 2.x
     weight: 700
     identifier: tools-archiving
 tags:
@@ -13,10 +13,10 @@ tags:
 - archive install
 - archive transactions
 
-title: Archive Service
+title: Archive Service 2.x
 ---
 
-# Archive Service
+# Archive Service 2.x
 
 The Archive Service allows you to make an archive of transactions and attachments from the Corda vault which can no longer
 be part of an ongoing or new transaction flow. This can reduce pressure on your node's database, and declutter your vault.

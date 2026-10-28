@@ -10,11 +10,11 @@ tags:
 - archive transactions
 
 
-title: Archive Service Library
+title: Archive Service 2.x Library
 weight: 725
 ---
 
-# The Archive Service library
+# The Archive Service 2.x library
 
 The Archive Service Library provides programmatic access to the Archive Service. The library provides the following Archive Service APIs:
 
