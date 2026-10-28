@@ -49,8 +49,8 @@ handling, and ensures the Corda service is run at boot.
    mkdir /opt/corda; chown corda:corda /opt/corda
    ```
 
-4. Download the [Corda jar](https://download.corda.net/maven/corda-releases/net/corda/corda/4.13/corda-4.12.jar)
-(under `/4.13/corda-4.12.jar`) and place it in `/opt/corda`.
+4. Download the [Corda jar](https://download.corda.net/maven/corda-releases/net/corda/corda/4.13/corda-4.13.jar)
+(under `/4.13/corda-4.13.jar`) and place it in `/opt/corda`.
 5. Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.
 6. Save the following as `/opt/corda/node.conf`; see [Node configuration]({{< relref "corda-configuration-file.md" >}}) for a description of these options:
@@ -168,7 +168,7 @@ R3 recommends running Corda as a Windows service. This provides service handling
    mkdir C:\Corda\cordapps
    ```
 3. Download the following JAR file:
-   https://download.corda.net/maven/corda-releases/net/corda/corda/4.13/corda-4.12.jar
+   https://download.corda.net/maven/corda-releases/net/corda/corda/4.13/corda-4.13.jar
 
 4. Copy the file to the `Corda/cordapps` directory, and rename it `corda.jar`.
 5. Alternatively, download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory.

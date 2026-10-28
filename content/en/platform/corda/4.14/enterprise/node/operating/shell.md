@@ -95,7 +95,7 @@ You can access the standalone shell from [software.r3.com](https://software.r3.c
 Run the `corda-standalone-shell` JAR using:
 
 ```
- java -jar corda-standalone-shell-4.11.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
+ java -jar corda-standalone-shell-4.14.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
     [--truststore-file=<trustStoreFile>]
     [--truststore-password=<trustStorePassword>]
     [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]
@@ -147,7 +147,7 @@ Where:
 
 You can install the shell in your node in two different ways:
 
-* [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-shell/4.14/corda-shell-4.11.jar) the `corda-shell` JAR from Maven and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+* [Download](https://download.corda.net/maven/corda-releases/net/corda/corda-shell/4.14/corda-shell-4.14.jar) the `corda-shell` JAR from Maven and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 
 * When using `cordaformation`, the shell can be included in the generated nodes by adding the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:
 
