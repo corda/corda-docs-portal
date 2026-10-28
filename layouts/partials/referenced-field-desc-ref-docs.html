@@ -1,90 +1,119 @@
-{{/* Called by field-desc-ref-docs or conditional-field-desc-ref-docs to format any config field descriptions defined in another file, referenced from the original file */}}
+{{/* 
+Called by field-desc-ref-docs or conditional-field-desc-ref-docs 
+to format any config field descriptions defined in another file, referenced from the original file 
+*/}}
+
 {{ $refurl := .url }}
-{{ $refjson := getJSON $refurl }}
-<ul>
-{{ range $key, $value := $refjson.properties }}
-    {{ with $value }}
+
+{{ with resources.GetRemote $refurl }}
+  {{ $refjson := . | transform.Unmarshal }}
+
+  <ul>
+    {{ range $key, $value := $refjson.properties }}
+      {{ with $value }}
         <li>
-            <code>{{ $key }}</code> - {{ $value.description}} 
-            {{ with $value.enum }}
-                This must be set to one of the following values:
-                <ul>
-                    {{ range $enumval := $value.enum }}
-                        <li>{{ $enumval }}</li>
-                    {{ end }}
-                </ul>
+          <code>{{ $key }}</code> – {{ .description }}
+
+          {{ with .enum }}
+            This must be set to one of the following values:
+            <ul>
+              {{ range . }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          {{ end }}
+
+          {{ if isset . "minimum" }}
+            <br>Minimum value: {{ string .minimum }}.
+          {{ end }}
+
+          {{ if isset . "maximum" }}
+            <br>Maximum value: {{ string .maximum }}.
+          {{ end }}
+
+          {{ if isset . "default" }}
+            {{ with .default }}
+              <br>Default value: {{ string . }}.
             {{ end }}
-            {{ if isset $value "minimum" }}
-                <br>Minimum value: {{ string ($value.minimum) }}.
-            {{ end }}
-            {{ if isset $value "maximum" }}
-                <br>Maximum value: {{ string ($value.maximum) }}.
-            {{ end }}
-            {{ if isset $value "default" }}
-                {{ with $value.default }}
-                    <br>Default value: {{ string ($value.default) }}.
-                {{ end }}
-            {{ end }}
+          {{ end }}
         </li>
-        <ul>
-        {{/*Check if there is a value at a second level*/}}
-        {{ range $childk, $childv := $value.properties }}
-            {{ with $childv }}
-            <li>
-                <code>{{ $childk }}</code> - {{ $childv.description}} 
-                {{ with $childv.enum }}
+
+        {{/* Second-level properties */}}
+        {{ with .properties }}
+          <ul>
+            {{ range $childk, $childv := . }}
+              {{ with $childv }}
+                <li>
+                  <code>{{ $childk }}</code> – {{ .description }}
+
+                  {{ with .enum }}
                     This must be set to one of the following values:
                     <ul>
-                        {{ range $enumval := $childv.enum }}
-                            <li>{{ $enumval }}</li>
-                        {{ end }}
+                      {{ range . }}
+                        <li>{{ . }}</li>
+                      {{ end }}
                     </ul>
-                {{ end }}
-                {{ if isset $childv "minimum" }}
-                    <br>Minimum value: {{ string ($childv.minimum) }}.
-                {{ end }}
-                {{ if isset $childv "maximum" }}
-                    <br>Maximum value: {{ string ($childv.maximum) }}.
-                {{ end }}
-                {{ if isset $childv "default" }}
-                    {{ with $childv.default }}
-                        <br>Default value: {{ string ($childv.default) }}.
+                  {{ end }}
+
+                  {{ if isset . "minimum" }}
+                    <br>Minimum value: {{ string .minimum }}.
+                  {{ end }}
+
+                  {{ if isset . "maximum" }}
+                    <br>Maximum value: {{ string .maximum }}.
+                  {{ end }}
+
+                  {{ if isset . "default" }}
+                    {{ with .default }}
+                      <br>Default value: {{ string . }}.
                     {{ end }}
-                {{ end }}
-            </li>
-            <ul>
-            {{/*Check if there is a value at a third level*/}}
-            {{ range $childk2, $childv2 := $childv.properties }}
-            {{ with $childv2 }}
-            
-                    <li>
-                        <code>{{ $childk2 }}</code> - {{ $childv2.description}} 
-                        {{ with $childv2.enum }}
+                  {{ end }}
+                </li>
+
+                {{/* Third-level properties */}}
+                {{ with .properties }}
+                  <ul>
+                    {{ range $childk2, $childv2 := . }}
+                      {{ with $childv2 }}
+                        <li>
+                          <code>{{ $childk2 }}</code> – {{ .description }}
+
+                          {{ with .enum }}
                             This must be set to one of the following values:
                             <ul>
-                                {{ range $enumval := $childv2.enum }}
-                                    <li>{{ $enumval }}</li>
-                                {{ end }}
+                              {{ range . }}
+                                <li>{{ . }}</li>
+                              {{ end }}
                             </ul>
-                        {{ end }}
-                        {{ if isset $childv2 "minimum" }}
-                            <br>Minimum value: {{ string ($childv2.minimum) }}.
-                        {{ end }}
-                        {{ if isset $childv2 "maximum" }}
-                            <br>Maximum value: {{ string ($childv2.maximum) }}.
-                        {{ end }}
-                        {{ if isset $childv2 "default" }}
-                            {{ with $childv2.default }}
-                                <br>Default value: {{ string ($childv2.default) }}.
+                          {{ end }}
+
+                          {{ if isset . "minimum" }}
+                            <br>Minimum value: {{ string .minimum }}.
+                          {{ end }}
+
+                          {{ if isset . "maximum" }}
+                            <br>Maximum value: {{ string .maximum }}.
+                          {{ end }}
+
+                          {{ if isset . "default" }}
+                            {{ with .default }}
+                              <br>Default value: {{ string . }}.
                             {{ end }}
-                        {{ end }}
-                    </li>  
+                          {{ end }}
+                        </li>
+                      {{ end }}
+                    {{ end }}
+                  </ul>
+                {{ end }}
+
+              {{ end }}
             {{ end }}
-            {{ end }}
-            </ul>
-            {{ end }}
+          </ul>
         {{ end }}
-        </ul>      
+
+      {{ end }}
     {{ end }}
+  </ul>
+{{ else }}
+  <p>Error: Failed to fetch or parse JSON from <code>{{ $refurl }}</code></p>
 {{ end }}
-</ul>
