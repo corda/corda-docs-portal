@@ -52,11 +52,32 @@ An attachment will be marked as archivable when:
 * It is not a contract attachment.
 * Every transaction that uses it is itself archivable.
 
-The iterative archiving process works by:
+### How the iterative model works
 
-1. Adding new (unprocessed) transactions to its internal dependency tracking structures. For each transaction, the service records its input and reference-state dependencies, a counter of its not-yet-consumed outputs, a counter of the reference states pointing at its outputs, and the attachments it uses.
-2. Walking back through the dependency chains: transactions whose output and reference counters are both zero are condemned, and the corresponding counters of their source (parent) transactions are decremented. Any parent whose counters both reach zero is walked back in turn, so entire fully-consumed chains are condemned from the most recent transactions backwards.
-3. Marking those transactions as available for archiving once the entire chain is confirmed to be fully consumed and unreferenced.
+The Archive Service keeps a small tracking record for every transaction in its own tables in the node database. The records are built up and evaluated by two steps that `process-all-pending` (and `list-items` and `create-snapshot`, which run it implicitly) alternate until nothing is left to do:
+
+1. **Adding transactions.** New transactions are read from the node's transaction table in the order they were recorded, continuing from the last one processed. For each transaction the service records:
+   * its *sources*: the transactions whose outputs it consumes as inputs or uses as reference states;
+   * an *output counter*, set to the number of outputs the transaction creates;
+   * a *reference counter* on each source whose output it uses as a reference state, incremented once per referencing transaction;
+   * the attachments it uses, with a usage counter per attachment.
+
+   Consuming an input does **not** decrement the source's output counter at this point. A counter is only released when the consuming transaction is itself walked back (step 2), so a source is never counted as consumed on behalf of a transaction that may still be needed. A transaction that creates no outputs and is not referenced, typically a settlement or exit transaction that ends a chain, has both of its counters at zero from the start and becomes *pending walkback*: such transactions are the starting points of every walkback.
+
+2. **Walking back.** The service takes the pending-walkback transactions that are older than the `notNewerThan` grace period and, for each of them, checks the contract filter if one is configured, decrements the output or reference counter of each of its sources and the usage counter of each of its attachments, and classifies the transaction as *archivable* (pending delete). A source whose output and reference counters have both reached zero is now fully consumed and unreferenced, so it is marked pending walkback in turn, and the next pass walks it back and releases *its* sources. A source left with a non-zero counter stays in the vault: one of its outputs is still unconsumed, or is still consumed or referenced by a transaction that is not archivable. The walk therefore proceeds from the most recent transactions backwards and stops at the first transaction that is still needed.
+
+3. **Marking.** `create-snapshot` (and `list-items`) select the archivable transactions, and the attachments whose usage counters have reached zero and that are not contract attachments, into an archive job. Marking, export and deletion are separate commands; see the [workflow]({{< relref "archiving-cli.md#workflow" >}}).
+
+The following diagram shows the walkback on a small ledger. Transaction `A` issues two states, `B` transfers the first one and `C` settles the result, while `D` transfers the second one and its output is still unconsumed. The arrows point from a source to the transaction consuming one of its outputs.
+
+![Walkback of a partially consumed transaction chain](walkback.svg)
+
+1. After the transactions have been added, only `C` creates no outputs, so only `C` is pending walkback. The output counters of `A`, `B` and `D` still count every output they created, including the ones `B`, `C` and `D` consumed.
+2. Walking back `C` classifies it as archivable and releases the output of `B` it consumed. `B`'s counter reaches zero, so `B` is marked pending walkback.
+3. Walking back `B` classifies it as archivable and releases one of `A`'s two outputs. `A`'s counter is now one, not zero, so the walkback stops here: `A` and `D` stay in the vault. `B` and `C` can be archived now, as a transaction is archivable as soon as everything downstream of it is, whatever the state of its sources.
+4. `A` becomes archivable only after `D`'s output is consumed by a transaction that is itself walked back. When a later run adds such a transaction `E`, walking back `E` releases `D`, and walking back `D` releases `A`'s last output. `B` and `C` are not revisited: the counters remember which consumptions have already been released, so each run continues where the previous one stopped.
+
+Reference states work the same way with the reference counter: a transaction whose output is used as a reference state stays in the vault until every referencing transaction has been walked back.
 
 You can optionally restrict which transactions are eligible for archiving based on their contract class names using the `archivableContractClassStatePrefixes` configuration parameter. See [Configuration](#configuration) for details.
 
@@ -135,6 +156,17 @@ The Archive Service keeps all of its state in its own tables in the node databas
 Never drop or empty the Archive Service tables once transactions have been deleted from the vault. The model cannot be rebuilt from the vault alone: a transaction's output counter is set to the number of its outputs when it is first discovered and only decremented when the consuming transaction is itself processed. After a rebuild, the retained source transactions of already-archived consumers would be counted as fully unconsumed forever, as their consumers are no longer in the vault, and would never become archivable again. The job history is needed as well: `import-snapshot` identifies an archive by its job name and fails if the job record is missing.
 {{< /warning >}}
 
+### Running process-all-pending between archiving jobs
+
+`process-all-pending` is the command that builds and refreshes the tracking model described under [How the iterative model works](#how-the-iterative-model-works): it adds the transactions recorded since the previous run and walks back the chains they complete. `list-items` and `create-snapshot` run it implicitly, so an archiving job started on a model that is out of date does this work first.
+
+The first run on an existing ledger has to process every transaction in the vault, as nothing has been tracked yet. Its duration grows with the number of transactions (provided the [transaction table index](#transaction-table-index) is present; without it, with the square of that number), and on a large ledger it can take hours. The run stops at the next batch boundary once its `--time-limit` (default 8 hours) is exceeded, and the command then fails with a time-out error. The position reached and the counters are persisted after every batch, so running the command again continues from where it stopped. The `statistics` command shows how many transactions are still unprocessed and how many are pending walkback.
+
+Every later run is incremental: it only adds the transactions recorded since the previous run and walks back the chains those complete, so its cost grows with the new activity on the ledger, not with the size of the ledger. Running `process-all-pending` regularly, for example from a scheduler between archiving jobs, keeps the model current, so that `list-items` and `create-snapshot` have little left to do when an archiving job is started. For scheduled runs:
+
+* Give them the same conservative `--not-newer-than` value you would give the archiving job. A run classifies every complete chain older than that timestamp (default: one hour before the run) as archivable, and later runs do not revisit that decision; see [Late-arriving reference transactions](#late-arriving-reference-transactions).
+* Do not let runs overlap: choose a schedule interval longer than the time limit, or a time limit shorter than the interval. A run started while an exclusive command (`import-snapshot`, `restore-snapshot`, `create-snapshot`, `delete-vault` or `delete-transactions`) is in progress waits for that command to finish, within its own time limit.
+
 ## Configuration
 
 The Archive Service CorDapp is configured using a HOCON configuration file located in the `config` sub-directory
@@ -153,9 +185,9 @@ importer settings. Every key is optional. The exporter and importer keys can als
 `export-snapshot --export-config` or `import-snapshot --importer-config`, where they override the CorDapp
 configuration file for that run (with the exception noted for `exporter.extractParticipants`).
 
-The following are keys for configuring the Archive Service, with their defaults.
+The following sections list the configuration keys, grouped by purpose, with their defaults. The [example configuration files](#example-configuration-files) at the end show them together.
 
-Database:
+### Database connection settings
 
 * `generator` - SQL generator class name: `PostgresGenerator`, `H2Generator`, `OracleGenerator` or `MSSQLGenerator`. Default: derived from the product name of the node's database.
 * `driver` - JDBC driver class used to connect to the backup schema. Default: derived from the generator; not used in single-schema mode.
@@ -166,21 +198,33 @@ Database:
 * `target.user` - Backup schema database user. No default; required if a backup schema is used.
 * `target.password` - Backup schema database password. No default; required if a backup schema is used.
 
-Archiving:
+Passwords can be obfuscated using Corda's Config Obfuscator tool.
+
+### Archiving settings
 
 * `ignoreSnapshotExportFailures` - Boolean, default `false`. Only consulted by the `FormattedTransactionExporter`: when `true`, a transaction that cannot be rendered as JSON is logged and skipped instead of failing the export.
 * `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior). Entries must not be blank: because every contract class name starts with an empty string, a blank entry (for example, from a trailing comma) would silently make every transaction archivable, so the Archive Service rejects the configuration at node startup instead. The filter is evaluated when a transaction is walked back; after widening it, run `recalculate-filtering` to re-evaluate the transactions an earlier walkback had already stopped (see the note below). The `delete-transactions` command deliberately ignores this filter: it controls what automatic archiving may select, whereas that command deletes transactions the operator names explicitly.
 
-Tables (each entry is `TABLE` or `TABLE:KEY_COLUMN`; the key column defaults to `TRANSACTION_ID` for transaction and queryable tables and to `ATT_ID` for attachment tables; all default to empty lists). See [Queryable state tables](#queryable-state-tables) and [Additional tables](#additional-tables):
+{{< note >}}
+The `archivableContractClassStatePrefixes` filter is evaluated when a transaction is walked back, not when it is first discovered. As with any Archive Service CorDapp configuration change, the node must be restarted before a change to this list is picked up at all — but once picked up, it takes effect immediately for any transaction still awaiting walkback, with no reset or reprocessing of already-tracked transactions required.
 
-* `additionalTransactionTables` - Transaction tables to archive in addition to the automatically detected ones.
+Transactions that an earlier run already walked back and stopped because of the filter in effect at that time are the exception. Stopping the walkback leaves such a transaction with its dependency counters at zero but neither pending walkback nor pending delete, and nothing re-triggers its walkback later — so a configuration change alone never reaches it. After widening the filter and restarting the node, run the [`recalculate-filtering`]({{< relref "archiving-cli.md#recalculate-filtering-command" >}}) command to re-arm these transactions, then `process-all-pending` to collect the ones the new filter admits; those it still rejects are simply stopped again. Narrowing the filter needs no such step.
+{{< /note >}}
+
+### Table settings
+
+Each entry is `TABLE` or `TABLE:KEY_COLUMN`. The key column defaults to `TRANSACTION_ID` for transaction and queryable tables and to `ATT_ID` for attachment tables. All six keys default to empty lists. The transaction and attachment tables to archive are detected automatically from the vault schema, as described under [Additional tables](#additional-tables); the queryable tables are described under [Queryable state tables](#queryable-state-tables).
+
+* `additionalTransactionTables` - Transaction tables to archive in addition to the [automatically detected ones](#additional-tables).
 * `excludeTransactionTables` - Automatically detected transaction tables to leave out of the archive process.
-* `additionalAttachmentTables` - Attachment tables to archive in addition to the automatically detected ones.
+* `additionalAttachmentTables` - Attachment tables to archive in addition to the [automatically detected ones](#additional-tables).
 * `excludeAttachmentTables` - Automatically detected attachment tables to leave out of the archive process.
 * `queryableTables` - Queryable state tables whose rows are exported to CSV. Can also be given to `create-snapshot` and `delete-transactions` with `--filter-config`.
 * `excludeQueryableTables` - Queryable state tables to leave out even if listed.
 
-Exporters (see [Exporters](#exporters)):
+### Exporter settings
+
+See [Exporters](#exporters) for how the exporters are used.
 
 * `exporter.exporters` - List of exporter class names to run on `export-snapshot`. Default: empty, no exporters. Also settable with `--exporters` on the command line.
 * `exporter.scanPackages` - Additional packages to scan for custom exporter classes. Default: empty; the built-in package `com.r3.archive.exporters` is always scanned.
@@ -191,13 +235,15 @@ Exporters (see [Exporters](#exporters)):
 * `exporter.queryableStateFileExporter.directory` - Directory the `QueryableStateFileExporter` writes its CSV files to. Default: `.`.
 * `exporter.queryableStateFileExporter.time.format` - Java date pattern for date and timestamp columns in those CSV files. Default: `yyyy-MM-dd'T'HH:mm:ssZ`.
 
-Importers (see [Importers](#importers)):
+### Importer settings
+
+See [Importers](#importers) for how the importer is used.
 
 * `importer.importer` - The importer class name to run on `import-snapshot`. Default: none; exactly one must be given, here or with `--importer`.
 * `importer.scanPackages` - Additional packages to scan for custom importer classes. Default: empty; the built-in package `com.r3.archive.importers` is always scanned.
 * `importer.batch.size` - Default `100000`. Snapshots with up to this many transactions are deserialized by the parallel importer; larger ones are imported sequentially to bound memory usage.
 
-Passwords can be obfuscated using Corda's Config Obfuscator tool.
+### Example configuration files
 
 The following is a typical configuration file, enabling a backup schema and a contract filter:
 
@@ -273,12 +319,6 @@ importer: {
 }
 ```
 
-{{< note >}}
-This filter is evaluated when a transaction is walked back, not when it is first discovered. As with any Archive Service CorDapp configuration change, the node must be restarted before a change to this list is picked up at all — but once picked up, it takes effect immediately for any transaction still awaiting walkback, with no reset or reprocessing of already-tracked transactions required.
-
-Transactions that an earlier run already walked back and stopped because of the filter in effect at that time are the exception. Stopping the walkback leaves such a transaction with its dependency counters at zero but neither pending walkback nor pending delete, and nothing re-triggers its walkback later — so a configuration change alone never reaches it. After widening the filter and restarting the node, run the [`recalculate-filtering`]({{< relref "archiving-cli.md#recalculate-filtering-command" >}}) command to re-arm these transactions, then `process-all-pending` to collect the ones the new filter admits; those it still rejects are simply stopped again. Narrowing the filter needs no such step.
-{{< /note >}}
-
 ## Threshold parameters
 
 The new algorithm uses two built-in threshold parameters. Both are fixed values that cannot be changed through configuration; the operator-facing lever for the grace period is the `notNewerThan` argument of the collecting commands.
@@ -293,14 +333,14 @@ Corda transactions can arrive at a node out of notarisation order — most commo
 
 The **MinAgeToCollect** threshold and the `notNewerThan` parameter make this scenario unlikely by keeping a safety interval between a transaction being recorded and it becoming collectable, but they cannot eliminate it entirely — a reference can, in principle, arrive arbitrarily late.
 
-When the Archive Service processes a late-arriving transaction that references an already-condemned transaction, it reverts the archivability of the referenced transaction: its reference counter is incremented, and its pending walkback/delete markers are cleared, so it is no longer considered archivable. The overall effect depends on how far the referenced transaction had progressed through the archiving pipeline:
+When the Archive Service processes a late-arriving transaction that references a transaction already classified as archivable, it reverts the archivability of the referenced transaction: its reference counter is incremented, and its pending walkback/delete markers are cleared, so it is no longer considered archivable. The overall effect depends on how far the referenced transaction had progressed through the archiving pipeline:
 
 * **Collected, but not yet walked back**: the revert is fully consistent. No dependency counters had been modified yet, and the transaction simply returns to the tracked (non-archivable) state.
-* **Already walked back (pending delete)**: only the referenced transaction itself is reverted. Its walkback had already decremented the counters of its parent transactions, so its own back-chain (ancestors) may remain condemned and can still be archived and deleted. In that case, the dependency chain of the late-arriving transaction is no longer complete on this node. The Archive Service remembers that the transaction has already been walked back: when the late-arriving transaction is itself archived later and the referenced transaction becomes archivable again, it is marked for deletion directly, **without being walked back a second time**. Its parents' and attachments' counters are therefore never decremented twice, so a parent transaction whose other outputs are still consumed or referenced by live transactions is never condemned as a side effect of the revert. An attachment shared between a reverted transaction and transactions that are being archived is exported with them but kept in the vault until the reverted transaction is archived too.
+* **Already walked back (pending delete)**: only the referenced transaction itself is reverted. Its walkback had already decremented the counters of its parent transactions, so its own back-chain (ancestors) may remain archivable and can still be archived and deleted. In that case, the dependency chain of the late-arriving transaction is no longer complete on this node. The Archive Service remembers that the transaction has already been walked back: when the late-arriving transaction is itself archived later and the referenced transaction becomes archivable again, it is marked for deletion directly, **without being walked back a second time**. Its parents' and attachments' counters are therefore never decremented twice, so a parent transaction whose other outputs are still consumed or referenced by live transactions never becomes archivable as a side effect of the revert. An attachment shared between a reverted transaction and transactions that are being archived is exported with them but kept in the vault until the reverted transaction is archived too.
 * **Already marked into an archive job** (`create-snapshot` has run): the revert does not remove the transaction from the snapshot that was already created — a subsequent `delete-vault` will still delete it. To pick up the revert, abort the job with `restore-snapshot` **before** running `delete-vault`, then re-run the archiving steps: the live tracking rows are intact at that point, so the reverted transaction is simply left out of the new job. Once `delete-vault` has run, the reverted transaction's tracking rows are gone along with it, and a `restore-snapshot` afterwards reinstates the copies taken when the snapshot was created — that is, from before the revert, still classified as deletable. The revert is lost and the next archiving job deletes the transaction again although it is referenced; see [Restoring a snapshot](#restoring-a-snapshot).
 * **Already deleted from the vault**: there is nothing left to revert locally. When the transaction is needed again, Corda's back-chain resolution re-downloads it (and its chain) from peers, and the re-recorded transactions re-enter the iterative model as new — but only they do. Their consumers were archived earlier and are not re-downloaded, so nothing ever releases the re-recorded transactions' output counters: they are tracked as fully unconsumed and stay non-archivable for as long as the vault exists, even after the late-arriving transaction itself has been archived. The same applies to any re-downloaded ancestors. The vault likewise lists their outputs as unconsumed, as the consuming transactions are absent. Importing the archive that holds the consumers does not repair this on its own, as the reimported consumers are deliberately not walked back against their sources (see [Importing an archive](#importing-an-archive)). To remove such a transaction, import that archive and then delete it explicitly with `delete-transactions`: with the consumers present, their consumption of its outputs is provable, and the command reconciles the counters the normal pipeline cannot. This can only succeed once the late-arriving transaction referencing it has been archived, as a live referrer fails the command.
 
-Note that only the referenced transaction itself is reverted; any of its *descendants* that were already condemned remain condemned. This is correct behavior: resolving the late-arriving transaction requires the referenced transaction and its ancestors, not its other descendants.
+Note that only the referenced transaction itself is reverted; any of its *descendants* that were already classified as archivable remain archivable. This is correct behavior: resolving the late-arriving transaction requires the referenced transaction and its ancestors, not its other descendants.
 
 The same protection applies to transactions brought back by `import-snapshot` or marked by `delete-transactions`: they are recorded as already walked back when their tracking rows are created, so a late-arriving reference to them followed by a re-collection never disturbs the counters of their retained source transactions either. See [Restore, import, and the iterative tracking data](#restore-import-and-the-iterative-tracking-data).
 
@@ -347,14 +387,14 @@ The same rule has a consequence for a source transaction that was archived and l
 
 A reference that arrived *while the transaction was deleted* is honoured as well. The automatic revert could not run at that time, as there was no tracking row to revert, but the reference counter was still recorded. The import reads it: a reimported transaction with a live reference count is repopulated as retained rather than pending delete, so the next archiving job leaves it in the vault until its referrers are archived — which then re-classifies it as deletable, again without walking it back. This is the one respect in which an import differs from a [restore](#restoring-a-snapshot), which copies the tracking rows back as they were and cannot take such a reference into account.
 
-**Importing is a temporary restore — the next archiving run re-archives the imported data.** Repopulating the imported transactions directly in the pending-delete state means the next `mark-items`/`create-snapshot` run adopts all of them into its job, exactly as if they had just been condemned: the following `export-snapshot` writes them into the new archive again — duplicating data that already exists in the original archives, potentially the entire imported snapshot — and `delete-vault` then removes them from the vault again. This is the intended lifecycle: `import-snapshot` brings archived data back so it can be queried, audited, or serve back-chain resolution for a period, and the normal archiving cycle is the cleanup path that returns the vault to its archived state. Plan for two consequences:
+**Importing is a temporary restore — the next archiving run re-archives the imported data.** Repopulating the imported transactions directly in the pending-delete state means the next `mark-items`/`create-snapshot` run adopts all of them into its job, exactly as if they had just become archivable: the following `export-snapshot` writes them into the new archive again — duplicating data that already exists in the original archives, potentially the entire imported snapshot — and `delete-vault` then removes them from the vault again. This is the intended lifecycle: `import-snapshot` brings archived data back so it can be queried, audited, or serve back-chain resolution for a period, and the normal archiving cycle is the cleanup path that returns the vault to its archived state. Plan for two consequences:
 
 * The imported data remains in the vault only until the next archiving job completes. If you need it available for a period, do not start a new archiving job until you are done with it. Bypassing the iterative refresh (`--bypass-process-all-pending`) does not change this — the imported transactions are already classified as pending delete, so any new job picks them up.
 * The export of that next job duplicates data your existing archives already hold. Either keep or delete the duplicate archive according to your retention policy — the original archives remain valid — or avoid writing it altogether: if `list-items` confirms that the job contains only reimported transactions, complete the export step by running `export-snapshot --skip-binary-export` without specifying any exporters (and with none configured on the node), then proceed to `delete-vault`. Never skip the binary export if the job has also adopted transactions that were never archived before — in that case let the export run and accept the duplicated data, as that export is the only archive of the new transactions.
 
 Conversely, `import-snapshot` does not check or enforce that a transaction's own input and reference transactions are imported together with it. If a transaction is reimported while one or more of its input or reference transactions are not, the reimported transaction ends up in a half-visible, unverifiable, and inconsistent state — its backchain cannot be resolved or verified, since the dependency it points to is not present in the vault. It is the responsibility of operators to ensure that all of a transaction's related dependencies are imported back along with it.
 
-**A dependency is not necessarily held in the same archive.** A transaction is only condemned once all of the transactions consuming or referencing it have been condemned, so in the normal flow a source (parent) transaction is archived either in the same snapshot as its consumers or in a *later* one. For example, if `A`'s second output is consumed only after `B` has already been archived, `B` is archived first and `A` follows in a subsequent job — so restoring `B` completely requires the later archive that holds `A`. The [late-arriving reference](#late-arriving-reference-transactions) revert can also produce the opposite order, leaving an ancestor condemned and archived while its descendant is not. Reconstructing a chain may therefore require importing more than one snapshot, and the archive holding a missing dependency is not always the one you would expect. Retain the exported archives as a set rather than individually.
+**A dependency is not necessarily held in the same archive.** A transaction only becomes archivable once all of the transactions consuming or referencing it have become archivable, so in the normal flow a source (parent) transaction is archived either in the same snapshot as its consumers or in a *later* one. For example, if `A`'s second output is consumed only after `B` has already been archived, `B` is archived first and `A` follows in a subsequent job — so restoring `B` completely requires the later archive that holds `A`. The [late-arriving reference](#late-arriving-reference-transactions) revert can also produce the opposite order, leaving an ancestor archived while its descendant is not. Reconstructing a chain may therefore require importing more than one snapshot, and the archive holding a missing dependency is not always the one you would expect. Retain the exported archives as a set rather than individually.
 
 **What an incomplete backchain does and does not affect.** Every transaction in an archive is fully consumed — that is a precondition for archiving it — so its output states cannot be used as inputs to new transactions whether or not its backchain is complete, and Corda does not re-verify transactions that are already recorded. The practical impact of a missing dependency is therefore on the operations that walk the chain: back-chain resolution requests from peers cannot be satisfied, and the chain cannot be re-verified or audited locally. Data already at rest in the vault continues to be readable.
 
@@ -685,8 +725,24 @@ A suitable exporter, such as `QueryableStateFileExporter`, must also be listed o
 
 ## Additional tables
 
-Archive Service automatically detects transaction and attachment tables that use the columns
-`TRANSACTION_ID` or `ATT_ID` within the vault schema and include them in the archive process.
+Archiving a transaction or an attachment removes not only its row in `NODE_TRANSACTIONS` or `NODE_ATTACHMENTS`
+but also the rows that hold data about it in other tables, such as the vault state tables and the distribution
+records. The Archive Service detects these tables automatically when the snapshot of a job is created, by querying
+the database catalogue of the vault schema (`information_schema`, or `all_tab_columns` on Oracle) for the tables that have:
+
+* a column named `TRANSACTION_ID` of at least 64 characters: a transaction table, whose rows are archived by the
+  transaction IDs of the job;
+* a column named `ATT_ID` of at least 255 characters: an attachment table, whose rows are archived by the attachment
+  IDs of the job.
+
+Table and column names are matched case-insensitively, and the width condition leaves out columns that cannot hold a
+transaction or attachment ID. `NODE_TRANSACTIONS` (keyed by `TX_ID`) and `NODE_ATTACHMENTS` are always included, the
+Archive Service's own job log tables (`ARCHIVABLE_TX`, `ARCHIVABLE_ATT`) are always left out, and its iterative tracking
+tables are archived together with the transactions they describe. The rule covers Corda's own per-transaction tables,
+such as `VAULT_STATES`, `VAULT_LINEAR_STATES`, `VAULT_FUNGIBLE_STATES` and the distribution records, as well as the
+custom schema tables of your CorDapps whose key column is named `TRANSACTION_ID`, which is the case for every table
+mapped from a `PersistentState`. The detected tables are recorded with the job, so `delete-vault` and
+`restore-snapshot` act on the same set of tables the snapshot was taken from.
 
 Additional transaction and attachment tables which use different column names can be registered using the
 properties `additionalTransactionTables` and `additionalAttachmentTables` with the following format:

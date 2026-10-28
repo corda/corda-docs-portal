@@ -25,13 +25,11 @@ The [Archive Service 1.x series]({{< relref "../archiving-service-1.x/archiving-
 If you deviate from the above compatibility guidelines, the Archive Service will not work.
 {{< /note >}}
 
-## Corda Enterprise 4.12
+## Archive Service 2.0
 
-### Archive Service 2.0
+Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.25. The minimum supported Corda Enterprise version is 4.12.
 
-Archive Service 2.0 is a major release supporting Java 17 and Kotlin 1.9.25. This version works with Corda 4.12.
-
-#### Key changes in 2.0
+### Key changes in 2.0
 
 * **LedgerGraph dependency removed**: The Archive Service no longer requires LedgerGraph. It now builds its own internal transaction dependency graph using the vault database directly.
 * **Iterative archiving model**: A new iterative approach processes transactions incrementally, tracking dependencies and walking back through chains to identify archivable items. This replaces the previous in-memory LedgerGraph-based approach.

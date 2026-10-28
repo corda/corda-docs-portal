@@ -131,7 +131,7 @@ If the process has to be aborted, you can use the `restore-snapshot` command.
 
 The workflow is as follows:
 
-1. `process-all-pending`: refreshes the archiving database by processing pending transactions and collecting archivable items.
+1. `process-all-pending`: refreshes the archiving database by processing pending transactions and collecting archivable items. The first run processes the whole ledger and can take a long time; later runs are incremental, and the command can be run on a schedule between archiving jobs so that the job itself has less to do. See [Running process-all-pending between archiving jobs]({{< relref "archiving-service-index.md#running-process-all-pending-between-archiving-jobs" >}}).
 2. `list-items`: used to view which transactions and attachments will be archived. (Implicitly calls `process-all-pending` to refresh the archive database.)
 3. `create-snapshot`: marks the transactions and attachments that will be archived. (Implicitly calls `process-all-pending` to refresh the archive database.)
 4. `export-snapshot`: exports the archivable items to a long-term archive.
@@ -198,6 +198,8 @@ Options:
 Processes all pending transactions and then collects all archivable items. The called flow runs until all pending transactions have been added to the internal dependency structures, then collects archivable items until all walkback processing is complete.
 
 Adding the pending transactions reads the node's transaction table in batches ordered by `(timestamp, tx_id)`, continuing from the last processed transaction, which relies on the index the CorDapp's schema migration creates. If the command is unexpectedly slow on a large vault, see [Transaction table index]({{< relref "archiving-service-index.md#transaction-table-index" >}}).
+
+The first run on an existing ledger processes every transaction in the vault and can take hours on a large ledger. Later runs are incremental: they only process the transactions recorded since the previous run, so the command is suitable for running on a schedule between archiving jobs, which leaves `list-items` and `create-snapshot` little to do when a job is started. If the time limit is exceeded, the command fails with a time-out error; progress is persisted after every batch, so run it again to continue from where it stopped. The `statistics` command shows the remaining work. See [Running process-all-pending between archiving jobs]({{< relref "archiving-service-index.md#running-process-all-pending-between-archiving-jobs" >}}).
 
 ```text
 === Process All Pending Completed ===
@@ -832,7 +834,7 @@ A suitable exporter, such as `QueryableStateFileExporter`, must also be listed o
 
 ## Additional tables
 
-Archive Service will automatically detect transaction and attachment tables which use the columns `TRANSACTION_ID` or `ATT_ID` within the vault schema and include them in the archive process.
+Archive Service will automatically detect transaction and attachment tables which use the columns `TRANSACTION_ID` or `ATT_ID` within the vault schema and include them in the archive process. See [Additional tables]({{< relref "archiving-service-index.md#additional-tables" >}}) for the detection rule.
 
 Additional transaction and attachment tables which use different column names can be registered using the properties `additionalTransactionTables` and `additionalAttachmentTables` with the following format.
 
