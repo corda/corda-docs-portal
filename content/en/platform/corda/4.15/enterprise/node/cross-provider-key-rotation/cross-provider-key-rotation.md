@@ -29,6 +29,17 @@ Key rotation is a system-critical operation. An unsuccessful rotation can leave 
 
 {{< /warning >}}
 
+{{< warning >}}
+
+A key rotation affects CorDapps across the whole network, not only on the rotated node.
+A party is identified by its public key. Once a node rotates its key, the `Party` recorded in a state before the rotation
+is no longer equal to that node's current identity, on every node that holds such a state. Any CorDapp, on any node,
+that compares parties, keys or certificates directly, or that looks up states by a party, is likely to stop working for
+that node's states until it is updated to support key rotation. Before any node on the network rotates its key, confirm
+that every CorDapp deployed on every node has been updated and tested against a rotated key. See [Adapting your CorDapps](#adapting-your-cordapps).
+
+{{< /warning >}}
+
 ## How it works
 
 A node's legal identity key is the key it uses to sign transactions and prove who it is on the network. Every state a node has ever signed is bound to the key that signed it. Moving that key to a new provider therefore creates a problem to solve. The node must remain able to spend states that were signed with the old key, even though that key now lives in a different provider.
@@ -76,7 +87,7 @@ Cross-provider key rotation is a system-critical operation. An unsuccessful rota
 4. Confirm that every node on the network runs Corda 4.15 or later. To upgrade, see [Upgrading a node]({{< relref "../../node-upgrade-notes.md" >}}).
 5. Confirm that the network minimum platform version is `170`. To raise the minimum platform version, see [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
 6. Confirm that the new key provider is configured, running, and accessible to the affected node or notary.
-7. Confirm that all deployed CorDapps are compatible with key rotation. See [Adapting your CorDapps](#adapting-your-cordapps).
+7. Confirm that every CorDapp deployed on every node of the network is compatible with key rotation, not only the CorDapps of the node being rotated. The rotated node's states are held by its counterparties too. See [Adapting your CorDapps](#adapting-your-cordapps).
 8. Make `corda-tools-ha-utilities.jar` version 4.15 or later available in the node or notary directory. For the tool's full command syntax and options, see the [Node cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-cross-provider-key-rotation-tool" >}}) reference.
 9. When the new provider is an HSM, place the vendor-supplied client-side JAR files in the `drivers` subdirectory of the directory given with `-b`, or of the directory the tool is run from when `-b` is not given. The HA Utilities JAR does not include them. See [HSM integration]({{< relref "../../operations/deployment/hsm-integration.md" >}}).
 10. Enable key rotation in the Identity Manager service. See [Enabling key rotation in the Identity Manager service](#enabling-key-rotation-in-the-identity-manager-service).
@@ -333,6 +344,8 @@ The node absorbs most of this automatically:
 * `CollectSignaturesFlow`, `FinalityFlow` and signature verification accept a signature made with a rotated key in place of the original key, as long as the key rotation proof is available in the transaction.
 
 The risk is concentrated in CorDapps that store party or key details directly in a state and later compare them. A bilateral-agreement CorDapp such as the `negotiation-cordapp` (see [References](#references)) stores party details in its state and its `ModificationFlow` does not work after a rotation without changes, because those stored details no longer equal the value returned by `ourIdentity`. The [sample](#sample-the-negotiation-cordapp) below shows exactly where it breaks and the two ways to fix it. If a CorDapp cannot be adapted, an alternative is to write dedicated flows that re-sign the affected states with the new keys.
+
+The same applies to a CorDapp that identifies its **own** node by key. After the rotation `ourIdentity` is the current identity, so a flow that looks for states by the node's own party, for example an issuer looking for the cash it issued, no longer finds the states created before the rotation. `KeyManagementService.rotatedKeys()` returns the identity keys the node held before its rotations. A flow can rebuild its previous identities from them, with the same X.500 name and the previous key, and include them in its queries. The `CashExitFlow` of the Finance CorDapp does this to exit cash issued under a previous identity, which names that identity as its issuer.
 
 Test every CorDapp for compatibility before you rotate a key. See [Testing a CorDapp against a rotated key](#testing-a-cordapp-against-a-rotated-key).
 
