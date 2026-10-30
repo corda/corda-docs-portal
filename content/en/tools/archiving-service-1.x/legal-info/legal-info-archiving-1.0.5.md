@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     identifier: archive-service-1-0-5-legal-info
-    parent: archive-service-legal-info
+    parent: archive-service-legal-info-1x
     weight: 400
     name: "1.0.5"
 tags:
