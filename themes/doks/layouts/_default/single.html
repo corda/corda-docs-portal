@@ -33,7 +33,7 @@
 				</nav>
 			{{ end }}
 			{{ if eq $isCorda5Version false }}			
-    			<h1>{{ .Title }}</h1>
+    			<div data-pagefind-body><h1 data-pagefind-weight="20">{{ .Title }}</h1></div>
 			{{ end }}
       {{ if .Site.Params.editPage -}}
         {{ partial "main/edit-page.html" . }}
