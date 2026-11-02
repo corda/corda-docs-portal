@@ -258,8 +258,7 @@ Procedure:
 
    d. Start the worker again on its **previous** configuration and certificates: nothing under `certificates` or `notary.conf.previous` has changed, and the previous identity is still the one in the network parameters, so the worker keeps serving until the flag day.
 
-6. Generate the new node info on one worker. `generate-node-info` must use the keystores generated during the key rotation. So stop the worker, back up its current `certificates` directory, then copy `nodekeystore.jks`, `sslkeystore.jks` and `truststore.jks` from `output/certificates` into `certificates`. Finally, run the command.
-   Afterwards, restore the backup over `certificates` so the worker keeps serving on its previous identity, or leave the worker stopped until the flag day. The new node info has the same file name as the previous one, because Corda derives the name from the notary's legal name. Keep a copy of the previous node info under another name, where the Network Map Service can read it, since the parameters update needs both:
+6. Generate the new node info on one worker. `generate-node-info` must use the keystores generated during the key rotation. Stop the worker, back up its current `certificates` directory, then copy `nodekeystore.jks`, `sslkeystore.jks` and `truststore.jks` from `output/certificates` into `certificates`.
 
    {{< warning >}}
 
@@ -267,9 +266,13 @@ Procedure:
 
    {{< /warning >}}
 
+   Run the command:
+
    ```shell
    java -jar corda.jar generate-node-info --config-file=notary.conf
    ```
+
+   The new node info has the same file name as the previous one, because Corda derives the name from the notary's legal name. Keep a copy of the previous node info under another name, where the Network Map Service can read it, since the parameters update needs both. Afterwards, restore the backup over `certificates` so the worker keeps serving on its previous identity, or leave the worker stopped until the flag day.
 
 7. Update the network parameters so that the notary list contains **both** the previous and the new notary identity under the same notary name. The previous entry is the node info the current parameters were built from, and the new entry is the one generated in the previous step. Keeping the previous identity is what lets the workers keep serving until the flag day and lets existing states that name it continue to evolve. Advertise the update, have the running nodes and workers accept it, and execute the flag day. For the commands, see step 8 of [Rotating a single notary](#rotating-a-single-notary) and [Updating the network parameters]({{< relref "../../operations/deployment/updating-network-parameters.md" >}}).
 
