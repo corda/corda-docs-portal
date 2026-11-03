@@ -46,7 +46,7 @@ You will now be able to run the command line application from anywhere by runnin
 For example, for the Corda node, install the shell extensions using
 
 ```shell
-java -jar corda-4.11.jar install-shell-extensions
+java -jar corda-4.12.jar install-shell-extensions
 ```
 
 And then run the node by running:
@@ -79,17 +79,17 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 
 {{< table >}}
 
-|Description|Alias|JAR Name|
-|---------------------------------------------------------|------------------------------|----------------------------------------------------------|
-|[Corda node]({{< relref "../deploy/running-a-node.md#starting-a-corda-node-from-the-command-prompt" >}})|`corda --<option>`|`corda-4.11.jar`|
-|Network bootstrapper|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.11.jar`|
-|[Standalone shell]({{< relref "shell.md#the-standalone-shell" >}})|`corda-shell --<option>`|`corda-shell-4.11.jar`|
-|Blob inspector|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.11.jar`|
+| Description                                                                                              | Alias                       | JAR Name                                    |
+|----------------------------------------------------------------------------------------------------------|-----------------------------|---------------------------------------------|
+| [Corda node]({{< relref "../deploy/running-a-node.md#starting-a-corda-node-from-the-command-prompt" >}}) | `corda --<option>`          | `corda-4.12.jar`                            |
+| Network bootstrapper                                                                                     | `bootstrapper --<option>`   | `corda-tools-network-bootstrapper-4.12.jar` |
+| [Standalone shell]({{< relref "shell.md#the-standalone-shell" >}})                                       | `corda-shell --<option>`    | `corda-shell-4.12.jar`                      |
+| Blob inspector                                                                                           | `blob-inspector --<option>` | `corda-tools-blob-inspector-4.12.jar`       |
 
 {{< /table >}}
 
 
 ## List of existing Enterprise CLI applications
 
-Database Manager                `database-manager --<option>`  `corda-tools-database-manager-4.11.jar`
-Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.11.jar`                                 |
+Database Manager                `database-manager --<option>`  `corda-tools-database-manager-4.12.jar`
+Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.12.jar`                                 |

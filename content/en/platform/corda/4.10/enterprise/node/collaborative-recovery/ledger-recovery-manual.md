@@ -234,7 +234,7 @@ An example of how to deserialize a given transaction is defined here as well:
 
 Generic: `java -jar corda-tools-blob-inspector.jar <PATH_TO_ARCHIVE_DIRECTORY>`
 
-Example command: `java -jar corda-tools-blob-inspector-4.3.jar /private/var/folders/208d202e-40fe-4427-9f8d-b38b5b54a7e6/transactions/0B996DCD52265D866DC9424779556229CB30AB489C2AF6B60454F84B122A6E1B`
+Example command: `java -jar corda-tools-blob-inspector-4.10.jar /private/var/folders/208d202e-40fe-4427-9f8d-b38b5b54a7e6/transactions/0B996DCD52265D866DC9424779556229CB30AB489C2AF6B60454F84B122A6E1B`
 
 Example output:
 

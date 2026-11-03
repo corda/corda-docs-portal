@@ -51,7 +51,7 @@ You will now be able to run the command line application from anywhere by runnin
 For example, for the Corda node, install the shell extensions using
 
 ```shell
-java -jar corda-4.12.jar install-shell-extensions
+java -jar corda-4.14.jar install-shell-extensions
 ```
 
 And then run the node by running:
