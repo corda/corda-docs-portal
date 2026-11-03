@@ -22,16 +22,10 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u492** and **Azul Zulu Enterprise 8u491**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.11 has been tested and verified to work with **Azul Zulu Enterprise 8u492**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
-
-{{< warning >}}
-In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
-which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
-for your deployment needs.
-{{< /warning >}}
 
 ### JDK support in development
 
@@ -41,10 +35,10 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 | Supported JDKs                                                                   | Latest supported version |
 |----------------------------------------------------------------------------------|--------------------------|
-| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)             | 8u492                    |
+| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)             | 8u491                    |
 | [Amazon Corretto 8](https://aws.amazon.com/corretto/)                            | 8.252.09.1               |
 | [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/overview/)      | 8u322                    |
-| [Zulu OpenJDK](https://www.azul.com/)                                            | 8u491                    |
+| [Zulu OpenJDK](https://www.azul.com/)                                            | 8u492                    |
 
 {{< /table >}}
 
