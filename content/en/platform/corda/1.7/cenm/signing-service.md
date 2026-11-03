@@ -38,6 +38,7 @@ The Signing Service supports the following HSMs (see [CENM support matrix]({{< r
 * Securosys PrimusX
 * Azure Key Vault
 * AWS CloudHSM
+* Azure Cloud HSM
 
 The verification and signing of data is done via the set of user configured signing tasks within the service, with each
 task being configured with:
@@ -80,6 +81,15 @@ Once the Signing Service has been configured, you can run it using the following
 ```bash
 java -jar signer-<VERSION>.jar --config-file <CONFIG_FILE>
 ```
+
+If any signing key uses Azure Cloud HSM, add two JVM flags to that command. They give the Signing Service access to the
+JDK’s own restricted PKCS11 bindings, which its Azure Cloud HSM support is built on:
+
+```bash
+java --add-modules=jdk.crypto.cryptoki --add-exports=jdk.crypto.cryptoki/sun.security.pkcs11.wrapper=ALL-UNNAMED -jar signer-<VERSION>.jar --config-file <CONFIG_FILE>
+```
+
+When the Signing Service is started by the Angel Service, both flags are added automatically.
 
 You can use the following optional parameter to specify the working directory:
 
@@ -268,6 +278,14 @@ Or if `gradle` is not on the path but `gradlew` is in the current directory, run
 ```
 
 This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the configuration.
+
+
+##### Azure Cloud HSM
+
+Azure Cloud HSM needs no `hsmLibraries` entry and no vendor JAR. The Signing Service talks to the HSM through the JDK’s
+own PKCS11 support, loading the Azure Cloud HSM Client SDK’s native library directly from the signing key’s
+`libraryPath` - see [Azure Cloud HSM signing key example](#azure-cloud-hsm-signing-key-example). It does need two extra
+JVM flags, described in [Running the Signing Service](#running-the-signing-service).
 
 
 #### Global certificate store
@@ -768,6 +786,61 @@ The password for the local certificate store
 
 
 
+#### Azure Cloud HSM signing key example
+
+Azure Cloud HSM requires the Azure Cloud HSM Client SDK to be installed on the machine, with its `azcloudhsm_client`
+daemon running and connected to the cluster - the Signing Service talks to the HSM through it. For details about
+installing and configuring the SDK, see Microsoft’s [Azure Cloud HSM documentation](https://learn.microsoft.com/en-us/azure/cloud-hsm/overview). No `hsmLibraries` entry is needed.
+
+
+* **alias**:
+Alias of the signing key within the HSM
+
+
+* **type**:
+The signing key type - `AZURE_CLOUD_HSM` in this case
+
+
+* **credentialsAzure**:
+The credentials for logging in to the HSM.
+
+
+* **partition**:
+Partition for the HSM. Azure Cloud HSM exposes exactly one logical partition per cluster, so there is nothing to
+select - `PARTITION_1` is the conventional value.
+
+
+* **userName**:
+An existing CU type user in the HSM.
+
+
+* **password**:
+Password for the given CU account.
+
+
+
+
+* **libraryPath**:
+(optional) Absolute path to the Azure Cloud HSM PKCS11 library. The default is
+`/opt/azurecloudhsm/lib64/libazcloudhsm_pkcs11.so`, the SDK’s standard install location.
+
+
+* **localCertificateStore**:
+must be used.
+* **file**:
+The location of the local certificate store. This will be created if it does not exist.
+The local certificate store should contain the entire certificate chain from the signing key back to the root,
+because the `globalCertificateStore` property is not in effect for Azure Cloud HSM.
+
+
+* **password**:
+The password for the local certificate store
+
+
+
+
+
+
 ### Signers map entry example
 
 Each entry in the `signers` map should be keyed on the user-defined, human-readable alias. This can be any
@@ -1155,6 +1228,19 @@ signingKeys = {
         type = AMAZON_CLOUD_HSM
         credentialsAmazon {
             partition = "example-partition"
+            userName = "example-user"
+            password = "example-password"
+        }
+        localCertificateStore = {
+            file = "exampleCertificateStore.jks"
+            password = "password"
+        }
+    },
+    "ExampleAzureCloudHsmSigningKey" = {
+        alias = "example-parameter-key-alias"
+        type = AZURE_CLOUD_HSM
+        credentialsAzure {
+            partition = "PARTITION_1"
             userName = "example-user"
             password = "example-password"
         }

@@ -73,7 +73,7 @@ existing) certificate entry in the corresponding certificate store. See the belo
 
 The key store configuration defines the type of the underlying key store along with any type specific information. The
 possible key store types are currently the same set as the possible key types. That is, `LOCAL`, `UTIMACO_HSM`,
-`GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
+`GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM`, `AMAZON_CLOUD_HSM` or `AZURE_CLOUD_HSM`.
 
 
 ### Local key store configuration
@@ -311,6 +311,59 @@ The password for the local certificate store
 
 
 
+### Azure Cloud HSM key store configuration
+
+Azure Cloud HSM requires the Azure Cloud HSM Client SDK to be installed on the machine, with its `azcloudhsm_client`
+daemon running and connected to the cluster - the PKI Tool talks to the HSM through it. For details about installing
+and configuring the SDK, see Microsoft’s [Azure Cloud HSM documentation](https://learn.microsoft.com/en-us/azure/cloud-hsm/overview).
+
+Unlike the other HSMs, Azure Cloud HSM needs no vendor JAR and no `hsmLibraries` entry: the PKI Tool loads the SDK’s
+native PKCS11 library directly, from `libraryPath`. It does need two extra JVM flags, described in
+[Running the PKI tool]({{< relref "pki-tool.md#running-the-pki-tool" >}}).
+
+
+* **type**:
+Key store type. `AZURE_CLOUD_HSM` in this case.
+
+
+* **credentialsAzure**:
+The credentials for logging in to the HSM.
+
+
+* **partition**:
+Partition for the HSM. Azure Cloud HSM exposes exactly one logical partition per cluster, so there is nothing to
+select - `PARTITION_1` is the conventional value.
+
+
+* **userName**:
+An existing CU type user in the HSM.
+
+
+* **password**:
+Password for the given CU account.
+
+
+
+
+* **libraryPath**:
+(optional) Absolute path to the Azure Cloud HSM PKCS11 library. The default is
+`/opt/azurecloudhsm/lib64/libazcloudhsm_pkcs11.so`, the SDK’s standard install location.
+
+
+* **localCertificateStore**:
+must be used.
+* **file**:
+The location of the local certificate store. This will be created if it does not exist.
+
+
+* **password**:
+The password for the local certificate store
+
+
+
+
+
+
 ## Certificate Configuration
 
 The certificate configuration is specific to a particular entity within the hierarchy and defines all properties and
@@ -498,7 +551,7 @@ to specify the CRL endpoints without having to configure or generate a CRL file.
 The key configuration defines the properties of the key pair associated with the entity. This key pair can be generated
 (or already exist) in either a local key store or a supported HSM. Similar to the key store configuration above, each
 key configuration has an associated type, with possible values: `LOCAL`, `UTIMACO_HSM`, `GEMALTO_HSM`,
-`SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
+`SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM`, `AMAZON_CLOUD_HSM` or `AZURE_CLOUD_HSM`.
 
 
 #### Local Key Configuration
@@ -579,7 +632,7 @@ The remaining HSM key configurations follow the similar format:
 
 
 * **type**:
-Key type. `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM` in this case.
+Key type. `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM`, `AZURE_MSAL_KEY_VAULT_HSM`, `AMAZON_CLOUD_HSM` or `AZURE_CLOUD_HSM` in this case.
 
 
 * **alias**:
