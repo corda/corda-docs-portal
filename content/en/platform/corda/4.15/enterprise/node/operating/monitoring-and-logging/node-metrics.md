@@ -250,6 +250,21 @@ Actions are reified IO actions to execute as part of state machine transitions. 
 {{< /table >}}
 
 
+## Scheduler
+
+The node runs scheduled states (see [Event scheduling]({{< relref "../../../event-scheduling.md" >}})) on a single background thread. These metrics expose the health of that thread, so that a problem which stops scheduled flows from being run, for example a transient database outage, can be detected rather than remaining silent while the node otherwise continues to report as healthy.
+
+{{< table >}}
+
+| Metric Query                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| net.corda:type=NodeSchedulerService,name=ConsecutiveDatabaseFailures | The number of consecutive times the scheduler has failed to load the next scheduled state from the database, for example during a transient database connection outage. It is `0` while the scheduler is healthy and resets to `0` as soon as a load succeeds. So a value that stays above zero means scheduled flows are not being processed and usually requires an operator to act. This is the primary metric to alert on. |
+| net.corda:type=NodeSchedulerService,name=DatabaseFailures            | A running total of all failures to load the next scheduled state from the database since the node started. Unlike `ConsecutiveDatabaseFailures`, it never resets, so its rate of increase reveals intermittent database problems that the consecutive-failure count would otherwise hide.                                                                                                                           |
+| net.corda:type=NodeSchedulerService,name=MillisStalled               | How long, in milliseconds, the scheduler loop has been overdue to resume its next iteration. It is `0` for a healthy scheduler however long it is legitimately waiting for the next scheduled activity, and grows only if the loop stops making progress. A value that stays above a small threshold (for example, tens of seconds) indicates that the scheduler thread is stuck.                                              |
+
+{{< /table >}}
+
+
 ## Other metrics
 
 
