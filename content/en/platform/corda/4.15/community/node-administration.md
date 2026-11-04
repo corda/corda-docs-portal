@@ -143,14 +143,14 @@ The following JMX statistics are exported:
 * Node status, indicating what the node is currently doing. The status is published as: `net.corda.Node.Status`, and is available almost immediately at startup.
 * Corda specific metrics: flow information (total started, finished, in-flight; flow duration by flow type), attachments (count)
 * Apache Artemis metrics: queue information for P2P and RPC services
-* Scheduler health metrics, published under `net.corda.NodeSchedulerService.*`, which show when the node's scheduler can no longer run scheduled flows. For example, during a database outage. See the descriptions below.
+* Scheduler health metrics, published under `net.corda.NodeSchedulerService.*`, which show when the node's scheduler can no longer run scheduled flows, for example during a database outage. See the descriptions below.
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system
 
 The node runs scheduled states on a single background thread. If that thread can no longer read the next scheduled state from the database, for example, during a transient database connection outage, scheduled flows stop running while the node otherwise continues to report as healthy. The scheduler health metrics make this condition observable:
 
 * `net.corda.NodeSchedulerService.ConsecutiveDatabaseFailures` - the number of consecutive times the scheduler has failed to load the next scheduled state from the database. It is `0` while the scheduler is healthy and resets to `0` as soon as a load succeeds, so a value that stays above zero means scheduled flows are not being processed and usually requires an operator to act. This is the primary metric to alert on.
 * `net.corda.NodeSchedulerService.DatabaseFailures` - a running total of all such failures since the node started. Unlike `ConsecutiveDatabaseFailures`, it never resets. So its rate of increase reveals intermittent database problems that the consecutive-failure count would otherwise hide.
-* `net.corda.NodeSchedulerService.MillisStalled` - how long, in milliseconds, the scheduler loop has been overdue to resume its next iteration. It is `0` for a healthy scheduler however long it is legitimately waiting for the next scheduled activity, and grows only if the loop stops making progress. A value that stays above a small threshold (for example, tens of seconds) indicates that the scheduler thread is stuck.
+* `net.corda.NodeSchedulerService.MillisStalled` - how long, in milliseconds, the scheduler loop has been overdue to resume its next iteration. It is `0` for a healthy scheduler however long it is legitimately waiting for the next scheduled activity, and grows when the loop does not resume on time. A value that stays above a small threshold (for example, tens of seconds) means the scheduler thread is blocked, for example on a database call that has not yet timed out, or has stopped. If `ConsecutiveDatabaseFailures` is `0` at the same time, the cause is not the database. It also grows while the node is in flows draining mode and a scheduled activity is already due, because the scheduler deliberately holds the activity back until draining mode is switched off, so confirm the node is not in flows draining mode before treating a high value as a stuck scheduler.
 
 
 ### Notes for production use
