@@ -65,7 +65,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.13. Dependencies with unchanged versions are omitted.
 
-| Dependency | Name | 4.12.12 Enterprise | 4.12.13 Enterprise |
+| Dependency | Name | 4.12.12-1 Enterprise | 4.12.13 Enterprise |
 | ---------- | ---- | ------------------ | ------------------ |
 | org.apache.activemq:artemis-\* | Artemis | 2.55.0 | 2.57.0 |
 | org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.12 | 2.73.13 |
@@ -80,9 +80,9 @@ This table shows the updates in dependency versions for Corda Enterprise Edition
 | org.apache.httpcomponents.client5:httpclient5 | Apache HttpClient | 5.3 (transitive) | 5.6.4 |
 | org.freemarker:freemarker | FreeMarker | 2.3.32 (transitive) | 2.3.35 |
 
-## Corda Enterprise Edition 4.12.12 release notes
+## Corda Enterprise Edition 4.12.12-1 release notes
 
-Corda Enterprise Edition 4.12.12 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+Corda Enterprise Edition 4.12.12-1 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
 
 ### Upgrade recommendation
 
@@ -100,7 +100,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVE's have also been addressed but not listed here.
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
 
 | Vulnerability  | Component |
 |----------------|-----------|
@@ -113,9 +113,9 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Third-party components upgrade
 
-This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.11. Dependencies with unchanged versions are omitted.
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.12-1. Dependencies with unchanged versions are omitted.
 
-| Dependency | Name | 4.12.11 Enterprise | 4.12.12 Enterprise |
+| Dependency | Name | 4.12.11 Enterprise | 4.12.12-1 Enterprise |
 | ---------- | ---- | ------------------ | ------------------ |
 | org.apache.activemq:artemis-\* | Artemis | 2.52.0 | 2.55.0 |
 | org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.9 | 2.73.12 |
