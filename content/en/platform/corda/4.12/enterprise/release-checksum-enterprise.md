@@ -33,18 +33,18 @@ The following release packs are provided as optionals for external tools, SDKs, 
 * optional-sdk-4.12.13.tar.gz
 * optional-tools-4.12.13.tar.gz
 
-## Release packs and checksums for Corda Enterprise Edition 4.12.12
+## Release packs and checksums for Corda Enterprise Edition 4.12.12-1
 
-The release packs and checksum files for Corda Enterprise 4.12.12 can be downloaded from the [Customer Hub](https://customerhub.r3.com).
+The release packs and checksum files for Corda Enterprise 4.12.12-1 can be downloaded from the [Customer Hub](https://customerhub.r3.com).
 
 The following release packs are available, along with their respective checksum files:
 
-* devtest-4.12.12.tar.gz: required for building, developing, and testing CorDapps.
-* runtime-4.12.12.tar.gz: required to run Corda.
+* devtest-4.12.12-1.tar.gz: required for building, developing, and testing CorDapps.
+* runtime-4.12.12-1.tar.gz: required to run Corda.
 
 The following release packs are provided as optionals for external tools, SDKs, and CorDapps:
-* optional-sdk-4.12.12.tar.gz
-* optional-tools-4.12.12.tar.gz
+* optional-sdk-4.12.12-1.tar.gz
+* optional-tools-4.12.12-1.tar.gz
 
 ## Release packs and checksums for Corda Enterprise Edition 4.12.11
 

@@ -56,7 +56,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 This table shows the updates in dependency versions for Corda Open Source 4.12.13. Dependencies with unchanged versions are omitted.
 
-| Dependency | Name | 4.12.12 Open Source | 4.12.13 Open Source |
+| Dependency | Name | 4.12.12-1 Open Source | 4.12.13 Open Source |
 | ---------- | ---- | ------------------- | ------------------- |
 | org.apache.activemq:artemis-\* | Artemis | 2.55.0 | 2.57.0 |
 | org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.12 | 2.73.13 |
@@ -67,9 +67,9 @@ This table shows the updates in dependency versions for Corda Open Source 4.12.1
 | io.projectreactor.netty:reactor-netty-http | Reactor Netty | 1.2.18 (transitive) | 1.3.7 |
 | io.micrometer:micrometer-core | Micrometer | 1.16.6 (transitive) | 1.17.1 |
 
-## Corda Open Source Edition 4.12.12 release notes
+## Corda Open Source Edition 4.12.12-1 release notes
 
-Corda Open Source Edition 4.12.12 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
+Corda Open Source Edition 4.12.12-1 is a patch release of Corda Open Source Edition focused on upgrading dependencies to address security updates.
 
 ### Upgrade recommendation
 
@@ -79,7 +79,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVE's have also been addressed but not listed here.
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
 
 | Vulnerability  | Component |
 |----------------|-----------|
@@ -92,9 +92,9 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Third-party components upgrade
 
-This table shows the updates in dependency versions for Corda Open Source 4.12.11. Dependencies with unchanged versions are omitted.
+This table shows the updates in dependency versions for Corda Open Source 4.12.12-1. Dependencies with unchanged versions are omitted.
 
-| Dependency | Name | 4.12.11 Open Source | 4.12.12 Open Source |
+| Dependency | Name | 4.12.11 Open Source | 4.12.12-1 Open Source |
 | ---------- | ---- | ------------------- | ------------------- |
 | org.apache.activemq:artemis-\* | Artemis | 2.52.0 | 2.55.0 |
 | org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.9 | 2.73.12 |
@@ -343,7 +343,7 @@ The following table lists the dependency version changes between 4.12.3 and 4.12
 
 ## Corda Open Source Edition 4.12.3 release notes
 
-Corda Open Source Edition 4.12.3 is a patch release of Corda Community Edition focused on resolving issues.
+Corda Open Source Edition 4.12.3 is a patch release of Corda Open Source Edition focused on resolving issues.
 
 ### Upgrade recommendation
 
@@ -359,7 +359,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ## Corda Open Source Edition 4.12.2 release notes
 
-Corda Open Source Edition 4.12.2 is a patch release of Corda Community Edition focused on resolving issues.
+Corda Open Source Edition 4.12.2 is a patch release of Corda Open Source Edition focused on resolving issues.
 
 ### Upgrade recommendation
 
@@ -409,7 +409,7 @@ The following table lists the dependency version changes between 4.12.1 and 4.12
 
 ## Corda Open Source Edition 4.12.1 release notes
 
-Corda Open Source Edition 4.12.1 is a patch release of Corda Community Edition focused on resolving issues.
+Corda Open Source Edition 4.12.1 is a patch release of Corda Open Source Edition focused on resolving issues.
 
 ### Upgrade recommendation
 

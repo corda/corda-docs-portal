@@ -17,7 +17,65 @@ weight: 10
 
 # Corda Enterprise Edition 4.14 release notes
 
+## Corda Enterprise Edition 4.14.4 release notes
+
+Corda Enterprise Edition 4.14.4 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+**The Corda platform version has changed from 160 to 161 in this patch release. You must drain the node of all flows before you upgrade to Corda Enterprise Edition 4.14.4.**
+
+The platform version has changed because the Quasar fix in this release changes the flow stack format. Checkpoints created by an earlier version of Corda are not compatible with 4.14.4, and the node rejects them on startup.
+
+Before you apply this patch release, make sure there are no running, paused, or hospitalized flows on the node. Allow any remaining flows to complete, or safely kill them, before you upgrade. For more information, see [Drain the node]({{< relref "minor-version-node-upgrade.md#step-1-drain-the-node" >}}) and [Troubleshooting stuck flows]({{< relref "node/operating/monitoring-and-logging/diagnosing-stuck-flows.md" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node]({{< relref "upgrading-index.md" >}}).
+
+### Fixed issues
+
+* Fixed an issue where the node scheduler could stop scheduling flows after a temporary failure to read scheduled states from the database. The scheduler now logs the error and retries after a short delay.
+* Fixed an issue where `CashPaymentFlow` ignored the `anonymous` parameter when sending change back to the payer. Change is now sent to the well-known identity when `anonymous` is `false`.
+* Restored the `sum` extension function for `Iterable<BigDecimal>` in `net.corda.core.internal`, so that contracts built against Corda 4.11 that use it continue to work.
+* Upgraded Quasar to 0.9.3_r3 to fix a stack frame corruption issue that could occur when checkpointing flows. This changes the flow stack format, so the Corda platform version is now 161 (previously 160). See the important note in the upgrade recommendation.
+* The Transaction Validator Utility now uses the database settings from the node configuration when it connects to the database.
+* Improved the performance of the Transaction Validator Utility on large databases. The new `--readers` and `--verifiers` options control the number of database cursors and external verifier processes.
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
+
+| Vulnerability  | Component |
+|----------------|-----------|
+| CVE-2026-57822 | Artemis   |
+| CVE-2026-57967 | Artemis   |
+| CVE-2026-49364 | Artemis   |
+| CVE-2026-75595 | Netty     |
+| CVE-2026-71290 | Apache HttpClient |
+| CVE-2026-84939 | FreeMarker |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.14.4. Dependencies with unchanged versions are omitted.
+
+| Dependency | Name | 4.14.3 Enterprise | 4.14.4 Enterprise |
+| ---------- | ---- | ----------------- | ----------------- |
+| org.apache.activemq:artemis-\* | Artemis | 2.55.0 | 2.57.0 |
+| org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.12 | 2.73.13 |
+| com.fasterxml.jackson.\* | Jackson | 2.21.5 | 2.21.7 |
+| org.eclipse.jetty.ee10:jetty-ee10-\* | Jetty | 12.0.36 | 12.0.38 |
+| io.netty:netty-\* | Netty | 4.1.136.Final | 4.1.138.Final |
+| org.apache.qpid:proton-j | Proton-J | 0.34.1 | 0.35.0 |
+| io.projectreactor.netty:reactor-netty-http | Reactor Netty | 1.2.18 | 1.3.7 |
+| io.micrometer:micrometer-core | Micrometer | 1.16.6 | 1.17.1 |
+| org.apache.zookeeper:zookeeper | ZooKeeper | 3.9.5 | 3.9.6 |
+| org.jsoup:jsoup | jsoup | 1.23.1 | 1.23.2 |
+| org.apache.httpcomponents.client5:httpclient5 | Apache HttpClient | 5.3 (transitive) | 5.6.4 |
+| org.freemarker:freemarker | FreeMarker | 2.3.32 (transitive) | 2.3.35 |
+
 ## Corda Enterprise Edition 4.14.3 release notes
+
+{{< note >}}
+Corda Enterprise Edition 4.14.3 is no longer available for download. Use [Corda Enterprise Edition 4.14.4](#corda-enterprise-edition-4144-release-notes) or later, which includes all the fixes and dependency upgrades in 4.14.3.
+{{< /note >}}
 
 Corda Enterprise Edition 4.14.3 is a patch release of Corda Enterprise Edition focused on resolving issues and upgrading dependencies to address security updates.
 
@@ -27,7 +85,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVE's have also been addressed but not listed here.
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
 
 | Vulnerability  | Component |
 |----------------|-----------|
@@ -113,7 +171,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Third-party components upgrade
 
-This table shows the updates in dependency versions for Corda Enterprise Edition 4.12.10. Dependencies with unchanged versions are omitted.
+This table shows the updates in dependency versions for Corda Enterprise Edition 4.14.1. Dependencies with unchanged versions are omitted.
 
 | Dependency                          | Name           | Version       |
 |-------------------------------------|----------------|---------------|
