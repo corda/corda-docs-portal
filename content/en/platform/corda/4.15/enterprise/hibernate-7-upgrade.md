@@ -92,8 +92,9 @@ where Hibernate 5 used a PostgreSQL dialect. The visible effect is that a Cockro
 (error 40001, `WriteTooOldError`) is now reported as a rollback, which the notary retries, where 4.14 failed the whole batch. To keep the old
 behaviour, set `hibernateDialect` to `org.hibernate.dialect.PostgreSQLDialect`.
 
-Hibernate 7's minimum CockroachDB version is 23.2. A notary on CockroachDB 23.1.x, which the platform support matrix still lists, starts
-with the `HHH000511` warning described under [Check your database version](#check-your-database-version).
+Hibernate 7's minimum CockroachDB version is 23.2, which is also the oldest version in the platform support matrix for 4.15. A notary on
+CockroachDB 23.1.x or older starts with the `HHH000511` warning described under [Check your database version](#check-your-database-version);
+upgrade it before moving the notary to 4.15.
 
 ### Running CorDapps built for Corda 4.14 or earlier
 
