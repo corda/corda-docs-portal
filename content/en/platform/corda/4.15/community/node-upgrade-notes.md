@@ -76,9 +76,17 @@ This step is only required when updating from versions less than or equal to 4.5
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
+### CorDapps built for Corda 4.14 or earlier
+
+Corda Open Source Edition 4.15 uses Hibernate 7, which reads the `jakarta.persistence` annotations rather than the `javax.persistence` annotations that CorDapps built for Corda 4.14 or earlier contain. You do not need to replace such CorDapps: the node converts their classes as it loads them, and the jar, its hash and its signature are unchanged. The node refuses to start if a CorDapp uses a Hibernate 5 annotation, class or member that Hibernate 7 no longer has, and its error message lists every affected class. Before you upgrade production, start a 4.15 test node with your CorDapps in its `cordapps` directory and run their flows: the start-up check reports every CorDapp that must be rebuilt for 4.15, and Hibernate 7's behaviour changes apply to converted CorDapps as to rebuilt ones. See [Running CorDapps built for Corda 4.14 or earlier]({{< relref "hibernate-7-upgrade.md#running-cordapps-built-for-corda-414-or-earlier" >}}).
+
 ## Step 7: Start the node with `run-migration-scripts` subcommand
 
 Start the node with the `run-migration-scripts` sub-command with `--core-schemas` and `--app-schemas`.
+
+{{< note >}}
+Corda 4.15 upgrades Hibernate from version 5.6 to version 7.4.12. The Hibernate upgrade does not change any table, column, index or sequence and has no changesets of its own, because Hibernate 7 is configured to read and write the formats that existing databases already use, and Corda Open Source Edition 4.15 adds no other changesets. This step remains the standard upgrade step; on a database that is already at 4.14 it runs no changesets, but it logs `Upgrading checksum for Changeset ...` once per existing changeset, because the Liquibase upgrade to 4.33.0 stores checksums in a new format. See [Hibernate 7 and Jakarta Persistence in Corda Open Source Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
+{{< /note >}}
 
 ```bash
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
