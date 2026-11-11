@@ -558,6 +558,19 @@ signingKeys = {
             file = "exampleCertificateStore.jks"
             password = "password"
         }
+    },
+    "ExampleAzureCloudHsmSigningKey" = {
+        alias = "example-parameter-key-alias"
+        type = AZURE_CLOUD_HSM
+        credentialsAzure {
+            partition = "PARTITION_1"
+            userName = "example-user"
+            password = "example-password"
+        }
+        localCertificateStore = {
+            file = "exampleCertificateStore.jks"
+            password = "password"
+        }
     }
 }
 
