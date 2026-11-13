@@ -88,7 +88,7 @@ verify what a running node uses. In summary:
 |Deployment|Corda Node|Notes|
 |:---|:---|:---|
 |Minimal configuration (see the sizing page)|2 vCPU, 2 GB|512 MB heap, two flow threads; about 0.6 GB resident under load plus 0.1 GB for the launcher|
-|Default configuration|4 vCPU, 4 GB or more|4 GB heap by default in production mode; measured at 1.1 GB idle and 2.1 GB under load on a large host|
+|Default configuration|4 vCPU, 6 GB or more|4 GB heap when `devMode = false` is set explicitly; the node used 1.1 GB idle and 2.1 GB under load on a 48-core host, but a fully used 4 GB heap plus the memory outside it needs about 6 GB|
 |Multiple nodes on one host|add the per-node figure for each node|Pools and caches scale with the heap and the CPU count, so set them explicitly when several nodes share a host|
 
 {{< /table >}}

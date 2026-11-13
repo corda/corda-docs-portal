@@ -70,8 +70,10 @@ The capsuled Corda node has the default flag `-Xmx512m`. This gives the node a r
 low 512 MB of heap space. No garbage collector is selected by the launcher: the JDK chooses one itself, which on Java 17 is G1
 on hosts with at least two processors and about 1.8 GB of memory, and the Serial collector otherwise.
 
-When `devMode` is explicitly set to `false`, the default node memory size will be enlarged to 4G: `-Xmx4G`. This happens regardless
-of any container memory limit, so always set the heap yourself when the node runs in a container. For guidance on choosing the heap
+When `devMode = false` is set explicitly in the node configuration file, the default node memory size will be enlarged to 4G: `-Xmx4G`.
+A node whose configuration has no `devMode` line runs in production mode on Linux but keeps the 512 MB default, because the launcher
+decides from the configuration file alone. The 4G default is applied regardless of any container memory limit, so always set the heap
+yourself when the node runs in a container. For guidance on choosing the heap
 size and the collector, see [Node sizing and memory requirements]({{< relref "../setup/node-sizing.md" >}}).
 
 
