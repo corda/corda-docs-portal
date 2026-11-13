@@ -60,12 +60,15 @@ A CorDapp can initialise an entity manager factory by using the following proper
 * `hibernate.show_sql` - default false.
 * `hibernate.format_sql` - default false.
 * `hibernate.hbm2ddl.auto` - default update.
+* `hibernate.jdbc.time_zone` - no default, which is the time zone of the JVM. Set it to `UTC`, the Corda node's own setting, to read and write timestamps as the node does, for example when reading the node's tables through the library. Available from Archive Service 2.0.1.
 * `hibernate.dialect` - database dialect, no default.
 * `hibernate.ejb.loaded.classes` - comma separated list of entity classes, default empty.
 * `javax.persistence.jdbc.driver` - no default.
 * `javax.persistence.jdbc.url` - no default.
 * `javax.persistence.jdbc.user` - no default.
 * `javax.persistence.jdbc.password` - no default.
+
+The `javax.persistence.jdbc.*` names are the library's own configuration keys: the library translates them into Hibernate's `hibernate.connection.*` settings before it bootstraps its session factory, so Hibernate never sees them. They are the same on every Corda Enterprise version, see [Hibernate 7 nodes](#hibernate-7-nodes-corda-enterprise-415-and-later).
 
 The CorDapp configuration should contain the following properties.
 
@@ -163,6 +166,18 @@ fun ServiceHub.closeAppEntityManager()
 JPA configuration properties can be recorded in the CorDapp's
 configuration file in the `cordapps/config` directory. The configuration file
 must have the same name as the CorDapp's jar file but with the suffix `conf`.
+
+## Hibernate 7 nodes (Corda Enterprise 4.15 and later)
+
+Corda Enterprise 4.15 upgrades the node's Hibernate from version 5 to version 7, which reads the `jakarta.persistence` API instead of `javax.persistence`. The node [converts the classes of a CorDapp built for `javax.persistence`]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#running-cordapps-built-for-corda-414-or-earlier" >}}), this library among them, as it loads them, so the library and the CorDapps that use it run unchanged on a Hibernate 7 node from Archive Service 2.0.1 onwards. (Archive Service 2.0 refers to Hibernate 5 classes that Hibernate 7 no longer has, and a 4.15 node refuses to load it.)
+
+On a Hibernate 7 node the library:
+
+* Keeps its configuration as it is. The conversion renames type references, not configuration strings, and existing configuration files, including the `javax.persistence.jdbc.*` keys, keep working unchanged.
+* Applies the node's own Hibernate 5 compatibility settings (`HibernateCompatibility` in the node's `node-api`) to its session factory, so that it reads and writes the node's tables as the node does: plain `TIMESTAMP` columns for `Instant`, binary or native `UUID` columns, a single `hibernate_sequence`, JDBC date and time types from native queries, and no changes to existing columns by `hibernate.hbm2ddl.auto=update`.
+* Reads and writes timestamps in the JVM's time zone unless `hibernate.jdbc.time_zone` is set, as on a Hibernate 5 node.
+
+Entity classes used with the library need no change for Hibernate 7 beyond what [Updating a CorDapp for Corda 4.15]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#updating-a-cordapp-for-corda-415" >}}) requires of any CorDapp.
 
 ## Development H2 default database
 Since the default node H2 database cannot be shared it is not possible to use this

@@ -17,13 +17,31 @@ The following table shows the compatibility of the Archive Service versions with
 
 | Archive Service version | Corda Enterprise version | JDK version |
 |------------------------|--------------------------|-------------|
-| 2.x                    | 4.12.x and above         | JDK 17      |
+| 2.0.1                  | 4.12.x and above         | JDK 17      |
+| 2.0                    | 4.12.x to 4.14.x         | JDK 17      |
 
 The [Archive Service 1.x series]({{< relref "../archiving-service-1.x/archiving-release-notes.md" >}}) supports Corda Enterprise versions up to and including 4.12.
 
 {{< note >}}
-If you deviate from the above compatibility guidelines, the Archive Service will not work.
+If you deviate from the above compatibility guidelines, the Archive Service will not work. In particular, Archive Service 2.0 does not start on a Corda Enterprise 4.15 node; use 2.0.1 or later.
 {{< /note >}}
+
+## Archive Service 2.0.1
+
+Archive Service 2.0.1 is a compatibility release for Corda Enterprise 4.15. It runs on Corda Enterprise 4.12.x and later, so the same Archive Service version serves a node before and after its upgrade to 4.15.
+
+Upgrading from 2.0 is a replacement of the two JAR files (the CorDapp and the command-line tool). The CorDapp configuration file follows the name of the CorDapp JAR, so rename `cordapps/config/archive-service-2.0.conf` to `archive-service-2.0.1.conf`; its contents need no change. There is no database schema change: 2.0.1 adds no Liquibase change sets and alters none of the existing ones, so the Database Management Tool has nothing to apply for the Archive Service itself. The upgrade of the node to Corda Enterprise 4.15 has its own database migration step, which also re-validates the Archive Service change sets already recorded in `DATABASECHANGELOG`; see [Things you may notice]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#things-you-may-notice" >}}) in the Corda Enterprise 4.15 Hibernate 7 upgrade guide.
+
+### Corda Enterprise 4.15 support
+
+Corda Enterprise 4.15 upgrades the node's Hibernate from version 5 to version 7. The node [converts CorDapps built for the earlier `javax.persistence` API]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#running-cordapps-built-for-corda-414-or-earlier" >}}) as it loads them, but it refuses a CorDapp that refers to Hibernate 5 classes that Hibernate 7 no longer has. Archive Service 2.0 did so in the [App Entity Manager]({{< relref "app-entity-manager.md" >}}), which the Archive Service uses for its [backup schema]({{< relref "archiving-service-index.md#using-the-backup-schema" >}}). In 2.0.1:
+
+* The App Entity Manager starts its own Hibernate session factory on Hibernate 5 and Hibernate 7 nodes alike. On a Hibernate 7 node it applies the node's own Hibernate compatibility settings, so that it reads and writes the node's tables exactly as the node does. The configuration is unchanged, including the `javax.persistence.jdbc.*` property names. See [Hibernate 7 nodes]({{< relref "app-entity-manager.md#hibernate-7-nodes-corda-enterprise-415-and-later" >}}).
+* The Archive Service reads the date, time and binary columns that Hibernate 7 returns as different Java types than Hibernate 5. Exported transaction timestamps and the CSV exports of queryable state tables read the same whichever Corda Enterprise version produced them.
+
+### Changed behaviour
+
+* The App Entity Manager accepts a new property, `hibernate.jdbc.time_zone`. It has no default, so the behaviour is unchanged: a CorDapp that uses the library for an off-ledger database of its own stores and reads its `Instant` and timestamp values in the JVM's time zone, as before. Set the property to `UTC`, the Corda node's own setting, to store and read them as the node does, for example in a CorDapp that reads the node's tables through the library. The Archive Service itself does not depend on it: its own queries run through the node's session factory, and the session factory of the backup schema only runs SQL statements that copy, restore and delete rows within the database.
 
 ## Archive Service 2.0
 
