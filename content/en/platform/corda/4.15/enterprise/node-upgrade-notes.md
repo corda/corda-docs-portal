@@ -82,6 +82,10 @@ You can perform an automatic database update when:
 
 If you meet the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-start-the-node).
 
+{{< note >}}
+Corda Enterprise Edition 4.15 upgrades Hibernate from version 5.6 to version 7.4.12. The Hibernate upgrade itself does not change any table, column, index or sequence and has no changesets of its own, because Hibernate 7 is configured to read and write the formats that existing databases already use. The 4.15 database update described in this step is still required: it creates the new tables that other 4.15 features add. It also logs `Upgrading checksum for Changeset ...` once per existing changeset, because the Liquibase upgrade to 4.33.0 stores checksums in a new format; those lines are not migrations. See [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
+{{< /note >}}
+
 
 If you cannot perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below. You can then move on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
 
@@ -308,11 +312,17 @@ Corda 4 requires Java 17.0.9 or any higher Java 17 patch level. Java 18+ is not 
 
 {{< note >}}
 
-You only need to perform this step if you are updating from version 4.5 or older.
+You only need to perform this step if you are updating from version 4.5 or older, or if `database.hibernateDialect` is set in your configuration.
 
 {{< /note >}}
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
+
+If `database.hibernateDialect` names a dialect that is specific to one database version, such as `org.hibernate.dialect.SQLServer2012Dialect`, `Oracle12cDialect` or `PostgreSQL95Dialect`, remove it. Hibernate 7 no longer has these dialects and detects the database and its version itself. A node that still has such a setting starts, uses the dialect that replaces it and logs a warning. See [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "hibernate-7-upgrade.md#check-the-databasehibernatedialect-setting" >}}).
+
+### CorDapps built for Corda 4.14 or earlier
+
+Corda Enterprise Edition 4.15 uses Hibernate 7, which reads the `jakarta.persistence` annotations rather than the `javax.persistence` annotations that CorDapps built for Corda 4.14 or earlier contain. You do not need to replace such CorDapps: the node converts their classes as it loads them, and the jar, its hash and its signature are unchanged. The node refuses to start if a CorDapp uses a Hibernate 5 annotation, class or member that Hibernate 7 no longer has, and its error message lists every affected class. Before you upgrade production, start a 4.15 test node with your CorDapps in its `cordapps` directory and run their flows: the start-up check reports every CorDapp that must be rebuilt for 4.15, and Hibernate 7's behaviour changes apply to converted CorDapps as to rebuilt ones. See [Running CorDapps built for Corda 4.14 or earlier]({{< relref "hibernate-7-upgrade.md#running-cordapps-built-for-corda-414-or-earlier" >}}).
 
 ## Step 6: Validate existing transactions
 

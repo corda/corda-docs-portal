@@ -38,8 +38,9 @@ import net.corda.core.identity.AbstractParty
 import net.corda.core.schemas.MappedSchema
 import net.corda.core.schemas.PersistentState
 import java.util.*
-import javax.persistence.*
-import org.hibernate.annotations.Type
+import jakarta.persistence.*
+import org.hibernate.annotations.JdbcTypeCode
+import org.hibernate.type.SqlTypes
 
 object MySchema
 
@@ -55,7 +56,7 @@ object MySchemaV1 : MappedSchema(schemaFamily = MySchema.javaClass,
         @Column(name = "value", nullable = false)
         var value: Int,
         @Column(name = "linear_id", nullable = false)
-        @Type(type = "uuid-char")
+        @JdbcTypeCode(SqlTypes.VARCHAR)
         var linearId: UUID
     ) : PersistentState() {
         // Default constructor required by hibernate.
@@ -95,7 +96,7 @@ The corresponding Liquibase `changeSet` for the JPA entity is:
 Each `changeSet` tag is uniquely identified by the combination of the `author` tag, the `id` tag, and the file classpath name.
 The first entry `createTable` defines a new table. The table and the column names match the relevant names defined in JPA annotations of `PersistentIOU` class.
 The columns `output_index` and `transaction_id` are mapped from the `PersistentState` superclass fields. The `addPrimaryKey` tag adds the compound primary key.
-To achieve compatibility with supported databases, the mapping of `linearId` field is a custom `uuid-char` type. This type can be mapped to a `VARCHAR(255)` column.
+To achieve compatibility with supported databases, the `linearId` field is mapped with `@JdbcTypeCode(SqlTypes.VARCHAR)`, which stores the UUID as 36 characters in a `VARCHAR(255)` column. Before Corda 4.15 the same mapping was written `@Type(type = "uuid-char")`; the node substitutes it in a CorDapp built for Corda 4.14 or earlier, see [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "../hibernate-7-upgrade.md" >}}).
 Corda contains a built-in custom JPA converter for the `AbstractParty` type to a varchar column type, defined as `NVARCHAR(255)`.
 
 
