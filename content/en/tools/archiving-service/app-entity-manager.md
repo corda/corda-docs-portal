@@ -169,7 +169,7 @@ must have the same name as the CorDapp's jar file but with the suffix `conf`.
 
 ## Hibernate 7 nodes (Corda Enterprise 4.15 and later)
 
-Corda Enterprise 4.15 upgrades the node's Hibernate from version 5 to version 7, which reads the `jakarta.persistence` API instead of `javax.persistence`. The node converts the classes of a CorDapp built for `javax.persistence`, this library among them, as it loads them, so the library and the CorDapps that use it run unchanged on a Hibernate 7 node from Archive Service 2.0.1 onwards. (Archive Service 2.0 refers to Hibernate 5 classes that Hibernate 7 no longer has, and a 4.15 node refuses to load it.)
+Corda Enterprise 4.15 upgrades the node's Hibernate from version 5 to version 7, which reads the `jakarta.persistence` API instead of `javax.persistence`. The node [converts the classes of a CorDapp built for `javax.persistence`]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#running-cordapps-built-for-corda-414-or-earlier" >}}), this library among them, as it loads them, so the library and the CorDapps that use it run unchanged on a Hibernate 7 node from Archive Service 2.0.1 onwards. (Archive Service 2.0 refers to Hibernate 5 classes that Hibernate 7 no longer has, and a 4.15 node refuses to load it.)
 
 On a Hibernate 7 node the library:
 
@@ -177,7 +177,7 @@ On a Hibernate 7 node the library:
 * Applies the node's own Hibernate 5 compatibility settings (`HibernateCompatibility` in the node's `node-api`) to its session factory, so that it reads and writes the node's tables as the node does: plain `TIMESTAMP` columns for `Instant`, binary or native `UUID` columns, a single `hibernate_sequence`, JDBC date and time types from native queries, and no changes to existing columns by `hibernate.hbm2ddl.auto=update`.
 * Reads and writes timestamps in the JVM's time zone unless `hibernate.jdbc.time_zone` is set, as on a Hibernate 5 node.
 
-Entity classes used with the library need no change for Hibernate 7 beyond what the Corda Enterprise 4.15 upgrade notes require of any CorDapp.
+Entity classes used with the library need no change for Hibernate 7 beyond what [Updating a CorDapp for Corda 4.15]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#updating-a-cordapp-for-corda-415" >}}) requires of any CorDapp.
 
 ## Development H2 default database
 Since the default node H2 database cannot be shared it is not possible to use this
