@@ -96,7 +96,7 @@ You can access the standalone shell from [software.r3.com](https://software.r3.c
 Run the `corda-standalone-shell` jar using the followind command:
 
 ```shell
- java -jar corda-standalone-shell-4.12.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
+ java -jar corda-standalone-shell-4.13.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
     [--truststore-file=<trustStoreFile>]
     [--truststore-password=<trustStorePassword>]
     [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]
@@ -232,8 +232,8 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](../../../../api-ref/corda/4.13/community/kotlin/docs/net.corda.core.messaging/-corda-r-p-c-ops/). 
- 
+[here](../../../../api-ref/corda/4.13/community/kotlin/docs/net.corda.core.messaging/-corda-r-p-c-ops/).
+
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
 #### Example command

@@ -708,7 +708,7 @@ File copy from previous stages:
 `vmInfra1` box will host Artemis `master` instance. To generate application distribution with the config files, please run:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.11.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-master --user "CN=artemis, O=Corda, L=London, C=GB" --ha MASTER --acceptor-address vmInfra1:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra1:11005,vmInfra2:11005
+java -jar corda-tools-ha-utilities-4.12.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-master --user "CN=artemis, O=Corda, L=London, C=GB" --ha MASTER --acceptor-address vmInfra1:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra1:11005,vmInfra2:11005
 ```
 
 Where `ARTEMIS_DISTRIBUTION_DIR` - is the path to the directory where Artemis was downloaded and extracted. Example: `/home/apache-artemis-2.6.3`
@@ -730,7 +730,7 @@ Repeat steps from [Artemis cluster participant](#artemis-cluster-participant) se
 `vmInfra2` box will host Artemis `slave` instance. To generate application distribution with the config files, please run:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.11.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-slave --user "CN=artemis, O=Corda, L=London, C=GB" --ha SLAVE --acceptor-address vmInfra2:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra2:11005,vmInfra1:11005
+java -jar corda-tools-ha-utilities-4.12.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-slave --user "CN=artemis, O=Corda, L=London, C=GB" --ha SLAVE --acceptor-address vmInfra2:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra2:11005,vmInfra1:11005
 ```
 
 Where `ARTEMIS_DISTRIBUTION_DIR` - is the path to the directory where Artemis was downloaded and extracted. Example: `/home/apache-artemis-2.6.3`
