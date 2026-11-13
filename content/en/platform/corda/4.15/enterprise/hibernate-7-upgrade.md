@@ -29,7 +29,7 @@ refer to.
 
 | You are...                                        | What you need to do |
 |---------------------------------------------------|---------------------|
-| **A node or notary operator**                     | Check that your database version is supported. Nothing else for this upgrade: the move to Hibernate 7 needs no database change and no configuration change. Corda 4.15 does add database migrations for other features, so the usual [database update]({{< relref "node-upgrade-notes.md#step-3-update-the-database" >}}) is still part of the node upgrade. CorDapps built for Corda 4.14 or earlier load without a rebuild. The node converts their `javax.persistence` classes to `jakarta.persistence` as it loads them, and refuses to start if a CorDapp uses something Hibernate 7 no longer has. See [Running CorDapps built for Corda 4.14 or earlier](#running-cordapps-built-for-corda-414-or-earlier). Hibernate 7's behaviour changes apply to converted CorDapps as they do to rebuilt ones, so test your CorDapps on a 4.15 node before you upgrade production. |
+| **A node or notary operator**                     | Check that your database version is supported. Nothing else for this upgrade: the move to Hibernate 7 needs no database change and no configuration change. Corda 4.15 does add database migrations for other features, so the usual [database update]({{< relref "node-upgrade-notes.md#step-3-update-the-database" >}}) is still part of the node upgrade. CorDapps built for Corda 4.14 or earlier load without a rebuild. The node converts their `javax.persistence` classes to `jakarta.persistence` as it loads them, and refuses to start if a CorDapp uses something Hibernate 7 no longer has. See [Running CorDapps built for Corda 4.14 or earlier](#running-cordapps-built-for-corda-414-or-earlier). Hibernate 7's behaviour changes apply to converted CorDapps as they do to rebuilt ones, so test your CorDapps on a 4.15 node before you upgrade production. If you run the [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md#archive-service-201" >}}), upgrade it to 2.0.1 or later before the node. |
 | **A CorDapp developer** with a custom schema      | Nothing to run on 4.15. When you next rebuild, port your schema classes to `jakarta.persistence`. A script does most of it. See [Updating a CorDapp for Corda 4.15](#updating-a-cordapp-for-corda-415). A CorDapp that uses a Hibernate `@Type` other than the ones the node substitutes must be ported before it can run on 4.15. |
 | **A CorDapp developer** without a custom schema   | Nothing. Code that calls `ServiceHub.withEntityManager` or uses JPA classes directly is converted like the schemas. Port it when you next rebuild. Code that uses Hibernate classes directly is not converted: if it uses a class or member that Hibernate 7 no longer has, such as `Session.save`, the node refuses the CorDapp at start-up and the CorDapp must be ported. |
 
@@ -200,6 +200,10 @@ The CorDapps that contain them need to be rebuilt for Corda 4.15 ...
 
 Obtain an updated CorDapp from its vendor, or update it yourself as described in [Updating a CorDapp for Corda 4.15](#updating-a-cordapp-for-corda-415),
 before you start the node on 4.15.
+
+The Archive Service is refused for the last reason: Archive Service 2.0 and earlier refer to the Hibernate 5 type classes in the App Entity
+Manager they use for the backup schema. Upgrade to [Archive Service 2.0.1]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md#archive-service-201" >}})
+or later before the node upgrade; it runs on Corda Enterprise 4.12 and later, so the same version serves the node before and after.
 
 The code-reference check is stricter than the JVM, which links lazily: a class is refused for a reference in a method that may never run,
 whether in the CorDapp's own code or in a library it bundles. If you cannot get a rebuilt CorDapp and accept that such code fails only when it
