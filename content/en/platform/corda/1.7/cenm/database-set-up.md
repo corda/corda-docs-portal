@@ -40,15 +40,18 @@ The services **must** use separate database schemas (either in the same database
 
 CENM currently supports the following databases:
 
-* PostgreSQL 9.6 (JDBC 42.2.8)
-* PostgreSQL 10.10 (JDBC 42.2.8)
-* PostgreSQL 11.5 (JDBC 42.2.8)
-* PostgreSQL 12.2 (JDBC 42.2.8)
-* Azure SQL (Microsoft JDBC Driver 6.4)
-* SQL Server 2017 (Microsoft JDBC Driver 6.4)
-* Oracle 11gR2 (Oracle JDBC 6)
-* Oracle 12cR2 (Oracle JDBC 8)
+* PostgreSQL 14.x (JDBC 42.7.11)
+* PostgreSQL 15.x (JDBC 42.7.11)
+* PostgreSQL 16.x (JDBC 42.7.11)
+* PostgreSQL 17.x (JDBC 42.7.11)
+* PostgreSQL 18.x (JDBC 42.7.11)
+* Azure SQL (Microsoft JDBC Driver 13.4.0)
+* SQL Server 2017 (Microsoft JDBC Driver 13.4.0)
 * Oracle 19c (Oracle JDBC 8)
+* Oracle 23ai (Oracle JDBC 8)
+* Oracle 23ai (Oracle JDBC 11)
+* Oracle 26ai (Oracle JDBC 8)
+* Oracle 26ai (Oracle JDBC 11)
 
 The appropriate JDBC driver JAR file must be provided and its location should be specified in the service configuration.
 

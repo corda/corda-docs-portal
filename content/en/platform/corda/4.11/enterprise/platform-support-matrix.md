@@ -22,7 +22,7 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u472** and **Azul Zulu Enterprise 8u471**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.11 has been tested and verified to work with **Oracle JDK 8 JVM 8u492** and **Azul Zulu Enterprise 8u491**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
@@ -41,10 +41,10 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 | Supported JDKs                                                                   | Latest supported version |
 |----------------------------------------------------------------------------------|--------------------------|
-| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)             | 8u472                    |
+| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)             | 8u492                    |
 | [Amazon Corretto 8](https://aws.amazon.com/corretto/)                            | 8.252.09.1               |
 | [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/overview/)      | 8u322                    |
-| [Zulu OpenJDK](https://www.azul.com/)                                            | 8u471                    |
+| [Zulu OpenJDK](https://www.azul.com/)                                            | 8u491                    |
 
 {{< /table >}}
 
@@ -60,7 +60,7 @@ Production use of Corda Enterprise Edition 4.11 is only supported on Linux OS; s
 |-------------------------------|------------------|----------------------|
 | Red Hat Enterprise Linux      | x86-64           | 8.x, 9.x, 10.x       |
 | Suse Linux Enterprise Server  | x86-64           | 12.x, 11.x           |
-| Ubuntu Linux                  | x86-64           | 20.04, 22.04, 24.04  |
+| Ubuntu Linux                  | x86-64           | 22.04, 24.04, 26.04  |
 | Oracle Linux                  | x86-64           | 7.x, 6.x             |
 
 {{< /table >}}
@@ -89,13 +89,13 @@ The following database types are supported both in production and for developmen
 {{< table >}}
 | Vendor      | CPU architecture | Versions                                    | JDBC Driver                     |
 |------------|-------------------|---------------------------------------------|---------------------------------|
-| Microsoft  | x86-64            | Azure SQL, SQL Server 2022                  | Microsoft JDBC Driver 13.2.1    |
+| Microsoft  | x86-64            | Azure SQL, SQL Server 2022                  | Microsoft JDBC Driver 13.4.0    |
 | Oracle     | x86-64            | 19c                                         | Oracle JDBC 8                   |
 | Oracle     | x86-64            | 23ai (23.4)                                 | Oracle JDBC 8                   |
 | Oracle     | x86-64            | 23ai (23.4)                                 | Oracle JDBC 11                  |
 | Oracle     | x86-64            | 26ai                                        | Oracle JDBC 8                   |
 | Oracle     | x86-64            | 26ai                                        | Oracle JDBC 11                  |
-| PostgreSQL | x86-64            | 14.x, 15.x, 16.x, 17.x, 18.x ]              | PostgreSQL JDBC Driver 42.7.8   |
+| PostgreSQL | x86-64            | 14.x, 15.x, 16.x, 17.x, 18.x                | PostgreSQL JDBC Driver 42.7.11   |
 
 
 {{< /table >}}
@@ -115,10 +115,10 @@ The following database types are supported both in production and for developmen
 
 {{< table >}}
 
-| Vendor      | CPU architecture | Versions        | JDBC Driver                  |
-|-------------|------------------|-----------------|------------------------------|
-| CockroachDB | x86-64           | 23.1.x, 24.1.x  | PostgreSQL JDBC Driver 42.5.0 |
-| Oracle RAC  | x86-64           | 19c             | Oracle JDBC 8                |
+| Vendor      | CPU architecture | Versions                       | JDBC Driver                    |
+|-------------|------------------|--------------------------------|--------------------------------|
+| CockroachDB | x86-64           | 23.2.x, 24.3.x, 25.4.x, 26.2.x | PostgreSQL JDBC Driver 42.7.11 |
+| Oracle RAC  | x86-64           | 19c                            | Oracle JDBC 8                  |
 
 {{< /table >}}
 

@@ -97,7 +97,61 @@ The size of the internal thread pool used to process transactions.
 
 If this parameter is not provided it defaults to the number of processors available to the Java virtual machine.
 
+### `-r`, `--readers`
+
+The number of database cursors that read transactions in parallel. Increase this value when reading from the database, rather than verification, is the bottleneck. Each reader uses its own database connection, and the utility sizes the database connection pool to accommodate the thread pool and the readers.
+
+Parallel reading requires an index on `node_transactions (status, timestamp, tx_id)`. If the index is missing, the utility does not start and prints the statement that creates the index. The node does not use this index, so drop it when you have finished using the TVU. This option is ignored when transaction IDs are supplied for reverification with `-i` or `--id-load-file`.
+
+If this parameter is not provided it defaults to `1`, which does not require the index.
+
+Example:
+```
+java -jar transaction-validator.jar -r 4
+```
+
+{{< note >}}
+This parameter is available from Corda Enterprise 4.12.13 only.
+{{< /note >}}
+
+### `-x`, `--verifiers`
+
+The number of external verifier processes that verification is spread across. A single external verifier handles one transaction at a time, so it limits throughput when most transactions require external verification, for example when you check transactions created by an older version of Corda.
+
+Each external verifier is a separate JVM, so it uses additional memory. To set the heap size of the verifiers, use `custom.externalVerifierJvmArgs` in the `node.conf` file. If you start more than one verifier, verifier `<n>` runs in `<base-directory>/verifier-pool/<n>` and writes its logs to the `logs` directory in that directory.
+
+If this parameter is not provided it defaults to `1`.
+
+Example:
+```
+java -jar transaction-validator.jar -x 4
+```
+
+{{< note >}}
+This parameter is available from Corda Enterprise 4.12.13 only.
+{{< /note >}}
+
 ### TVU CLI System Properties
+
+### `net.corda.txStream.rowsPerSlice`
+
+When you use parallel reading (`-r` or `--readers`), the utility divides the transactions into slices that the readers process. This system property sets the approximate number of transactions in each slice. The default is `25000`. For example:
+
+```java -Dnet.corda.txStream.rowsPerSlice=50000 -jar transaction-validator.jar -r 4```
+
+{{< note >}}
+This system property is available from Corda Enterprise 4.12.13 only.
+{{< /note >}}
+
+### `net.corda.txStream.fetchSize`
+
+The number of transactions that the database driver fetches from the database in each round trip, for each reader. The default is `100`. Each reader holds this many transactions in memory, so lower the value for very large transactions or a small heap. For example:
+
+```java -Dnet.corda.txStream.fetchSize=50 -jar transaction-validator.jar -r 4```
+
+{{< note >}}
+This system property is available from Corda Enterprise 4.12.13 only.
+{{< /note >}}
 
 ### `log-path`
 

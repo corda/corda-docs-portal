@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="400" viewBox="0 0 980 400" font-family="Helvetica, Arial, sans-serif" font-size="12">
+  <title>Walkback of a partially consumed transaction chain</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555555"/>
+    </marker>
+    <style>
+      .tracked  { fill: #ffffff; stroke: #888888; stroke-width: 1.5; }
+      .pending  { fill: #fde9b6; stroke: #c98a00; stroke-width: 1.5; }
+      .archv    { fill: #cfe9c8; stroke: #3a8a3a; stroke-width: 1.5; }
+      .absent   { fill: #ffffff; stroke: #bbbbbb; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .name     { font-weight: bold; font-size: 13px; fill: #222222; text-anchor: middle; }
+      .cnt      { font-size: 11px; fill: #333333; text-anchor: middle; }
+      .edge     { stroke: #555555; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+      .stub     { stroke: #c98a00; stroke-width: 1.5; stroke-dasharray: 3 3; fill: none; }
+      .title    { font-size: 13px; font-weight: bold; fill: #222222; }
+      .note     { font-size: 11px; fill: #555555; }
+      .panel    { fill: none; stroke: #dddddd; stroke-width: 1; }
+    </style>
+  </defs>
+  <rect width="980" height="400" fill="#ffffff"/>
+
+  <!-- Panel 1: after adding the transactions -->
+  <g transform="translate(10,10)">
+    <rect class="panel" x="0" y="0" width="230" height="330" rx="6"/>
+    <text class="title" x="10" y="22">1. Transactions added</text>
+    <rect class="tracked" x="73" y="50" width="84" height="40" rx="5"/>
+    <text class="name" x="115" y="67">A</text><text class="cnt" x="115" y="82">outputs 2</text>
+    <rect class="tracked" x="23" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="157">B</text><text class="cnt" x="65" y="172">outputs 1</text>
+    <rect class="tracked" x="123" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="165" y="157">D</text><text class="cnt" x="165" y="172">outputs 1</text>
+    <rect class="pending" x="23" y="230" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="247">C</text><text class="cnt" x="65" y="262">outputs 0</text>
+    <path class="edge" d="M 100 90 L 70 139"/>
+    <path class="edge" d="M 130 90 L 160 139"/>
+    <path class="edge" d="M 65 180 L 65 229"/>
+    <path class="stub" d="M 165 180 L 165 205"/>
+    <text class="note" x="165" y="220" text-anchor="middle">unconsumed</text>
+    <text class="note" x="10" y="300">C creates no outputs and is not</text>
+    <text class="note" x="10" y="315">referenced: pending walkback.</text>
+  </g>
+
+  <!-- Panel 2: C walked back -->
+  <g transform="translate(255,10)">
+    <rect class="panel" x="0" y="0" width="230" height="330" rx="6"/>
+    <text class="title" x="10" y="22">2. C walked back</text>
+    <rect class="tracked" x="73" y="50" width="84" height="40" rx="5"/>
+    <text class="name" x="115" y="67">A</text><text class="cnt" x="115" y="82">outputs 2</text>
+    <rect class="pending" x="23" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="157">B</text><text class="cnt" x="65" y="172">outputs 1 → 0</text>
+    <rect class="tracked" x="123" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="165" y="157">D</text><text class="cnt" x="165" y="172">outputs 1</text>
+    <rect class="archv" x="23" y="230" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="247">C</text><text class="cnt" x="65" y="262">archivable</text>
+    <path class="edge" d="M 100 90 L 70 139"/>
+    <path class="edge" d="M 130 90 L 160 139"/>
+    <path class="edge" d="M 65 180 L 65 229"/>
+    <path class="stub" d="M 165 180 L 165 205"/>
+    <text class="note" x="165" y="220" text-anchor="middle">unconsumed</text>
+    <text class="note" x="10" y="300">C releases the output of B it</text>
+    <text class="note" x="10" y="315">consumed: B reaches zero.</text>
+  </g>
+
+  <!-- Panel 3: B walked back, walkback stops at A -->
+  <g transform="translate(500,10)">
+    <rect class="panel" x="0" y="0" width="230" height="330" rx="6"/>
+    <text class="title" x="10" y="22">3. B walked back</text>
+    <rect class="tracked" x="73" y="50" width="84" height="40" rx="5"/>
+    <text class="name" x="115" y="67">A</text><text class="cnt" x="115" y="82">outputs 2 → 1</text>
+    <rect class="archv" x="23" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="157">B</text><text class="cnt" x="65" y="172">archivable</text>
+    <rect class="tracked" x="123" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="165" y="157">D</text><text class="cnt" x="165" y="172">outputs 1</text>
+    <rect class="archv" x="23" y="230" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="247">C</text><text class="cnt" x="65" y="262">archivable</text>
+    <path class="edge" d="M 100 90 L 70 139"/>
+    <path class="edge" d="M 130 90 L 160 139"/>
+    <path class="edge" d="M 65 180 L 65 229"/>
+    <path class="stub" d="M 165 180 L 165 205"/>
+    <text class="note" x="165" y="220" text-anchor="middle">unconsumed</text>
+    <text class="note" x="10" y="300">A still has one output unreleased:</text>
+    <text class="note" x="10" y="315">the walkback stops. A and D stay.</text>
+  </g>
+
+  <!-- Panel 4: a later run, after E settles D's output -->
+  <g transform="translate(745,10)">
+    <rect class="panel" x="0" y="0" width="230" height="330" rx="6"/>
+    <text class="title" x="10" y="22">4. Later: E settles D's output</text>
+    <rect class="archv" x="73" y="50" width="84" height="40" rx="5"/>
+    <text class="name" x="115" y="67">A</text><text class="cnt" x="115" y="82">archivable</text>
+    <rect class="archv" x="23" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="157">B</text><text class="cnt" x="65" y="172">archivable</text>
+    <rect class="archv" x="123" y="140" width="84" height="40" rx="5"/>
+    <text class="name" x="165" y="157">D</text><text class="cnt" x="165" y="172">archivable</text>
+    <rect class="archv" x="23" y="230" width="84" height="40" rx="5"/>
+    <text class="name" x="65" y="247">C</text><text class="cnt" x="65" y="262">archivable</text>
+    <rect class="archv" x="123" y="230" width="84" height="40" rx="5"/>
+    <text class="name" x="165" y="247">E</text><text class="cnt" x="165" y="262">archivable</text>
+    <path class="edge" d="M 100 90 L 70 139"/>
+    <path class="edge" d="M 130 90 L 160 139"/>
+    <path class="edge" d="M 65 180 L 65 229"/>
+    <path class="edge" d="M 165 180 L 165 229"/>
+    <text class="note" x="10" y="300">E is walked back, then D, then A.</text>
+    <text class="note" x="10" y="315">B and C are not revisited.</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(10,355)">
+    <rect class="tracked" x="0" y="0" width="18" height="14" rx="3"/>
+    <text class="note" x="24" y="11">tracked, not archivable (an output is still unconsumed or referenced)</text>
+    <rect class="pending" x="400" y="0" width="18" height="14" rx="3"/>
+    <text class="note" x="424" y="11">pending walkback (both counters zero)</text>
+    <rect class="archv" x="660" y="0" width="18" height="14" rx="3"/>
+    <text class="note" x="684" y="11">archivable (walked back, pending delete)</text>
+    <path class="edge" d="M 0 30 L 30 30"/>
+    <text class="note" x="38" y="34">consumes an output of</text>
+  </g>
+</svg>

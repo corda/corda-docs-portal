@@ -27,7 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda Open Source Edition 4.13 has been tested and verified to work with **Oracle JDK 17.0.17** and **Azul Zulu Enterprise 17.0.17**.
+Corda Open Source Edition 4.13 has been tested and verified to work with **Oracle JDK 17.0.19** and **Azul Zulu Enterprise 17.0.19**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
 
@@ -39,8 +39,8 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 | Supported JDKs                                                       | Latest supported version |
 |----------------------------------------------------------------------|--------------------------|
-| [Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)      | 17.0.17                  |
-| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/) | 17.0.17                  |
+| [Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)      | 17.0.19                  |
+| [Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/) | 17.0.19                  |
 
 {{< /table >}}
 
@@ -50,12 +50,12 @@ Production use of Corda Open Source 4.13 is only supported on Linux OS; see deta
 
 {{< table >}}
 
-|Platform|CPU architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 9.x, 10.x|
-|Suse Linux Enterprise Server|x86-64|11.x, 12.x|
-|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
-|Oracle Linux|x86-64|6.x, 7.x|
+| Platform                     | CPU architecture | Versions            |
+|------------------------------|------------------|---------------------|
+| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x      |
+| Suse Linux Enterprise Server | x86-64           | 11.x, 12.x          |
+| Ubuntu Linux                 | x86-64           | 22.04, 24.04, 26.04 |
+| Oracle Linux                 | x86-64           | 6.x, 7.x            |
 
 {{< /table >}}
 
@@ -77,8 +77,8 @@ The following operating systems can be used with Corda for development purposes.
 
 {{< table >}}
 
-| Vendor     | CPU architecture | Versions                     | JDBC driver                   |
-|------------|------------------|------------------------------|-------------------------------|
-| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.8 |
+| Vendor     | CPU architecture | Versions                     | JDBC driver                    |
+|------------|------------------|------------------------------|--------------------------------|
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.11 |
 
 {{< /table >}}
