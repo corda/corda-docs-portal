@@ -125,8 +125,8 @@ myLegalName = <node_legal_name>
    -  `<login>` and `<password>` must be for a database user with visibility of the `<schema>`.
    -  `<schema>` is the schema namespace.
    -  `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
-2. Download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-3. Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
+2. Download the Microsoft JDBC Driver for SQL Server (version 13.6.2 or later) from [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+3. Extract the archive and copy the single file `mssql-jdbc-13.6.2.jre11.jar` into the `drivers` directory.
 
 
 #### SQL Server: template file and JDBC driver
@@ -151,8 +151,8 @@ myLegalName = <node_legal_name>
    -  `<login>` and `<password>` must be for a database user with visibility of the `<schema>`.
    -  `<schema>` is the schema namespace.
    -  `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
-2. Download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-3. Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
+2. Download the Microsoft JDBC Driver for SQL Server, version 13.6.2 or later, from the [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) or Maven Central.
+3. Extract the archive and copy the single file `mssql-jdbc-13.6.2.jre11.jar` into the `drivers` directory.
 
 
 #### Oracle: template file and JDBC driver
@@ -175,7 +175,7 @@ myLegalName = <node_legal_name>
 1. Complete the template by replacing the placeholders `<host>`, `<port>`, `<sid>`, `<user>`, `<password>`, `<schema>`, and `<node_legal_name>`' with appropriate values:
    - `<schema>` is the database schema namespace. For a basic setup, the schema name equals `<user>`.
    - `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
-2. Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
+2. Copy the Oracle JDBC driver `ojdbc8.jar` or `ojdbc11.jar` from the Oracle JDBC 23.26.4 release (or later) for Oracle 19c, 23ai or 26ai into the `drivers` directory.
 
 
 #### PostgreSQL: template file and JDBC driver
@@ -200,7 +200,7 @@ myLegalName = <node_legal_name>
    - The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
    - `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-2. Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
+2. Copy the PostgreSQL JDBC Driver *42.7.14* (or later, *JDBC 4.2*) into the `drivers` directory.
 
 
 ### Step 3.2. Extract the DDL and DML scripts using the database management tool

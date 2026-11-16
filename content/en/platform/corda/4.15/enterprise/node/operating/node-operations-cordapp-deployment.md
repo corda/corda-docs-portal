@@ -104,8 +104,8 @@ database = {
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to both administrative and restrictive users.
 
-Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into the `drivers` directory.
+The Microsoft JDBC Driver for SQL Server (version 13.6.2 or later) can be downloaded from [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+Extract the archive, and copy the single file *mssql-jdbc-13.6.2.jre11.jar* into the `drivers` directory.
 
 
 
@@ -130,8 +130,8 @@ database = {
 
 Replace placeholders *<host>* and *<port>* with appropriate values. The default SQL Server port is 1433.
 
-Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into the `drivers` directory.
+Download the Microsoft JDBC Driver for SQL Server, version 13.6.2 or later, from the [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) or Maven Central.
+Extract the archive, and copy the single file *mssql-jdbc-13.6.2.jre11.jar* into the `drivers` directory.
 
 
 
@@ -157,7 +157,7 @@ Replace the placeholder values *<host>*, *<port>* and *<sid>* with appropriate v
 For a basic Oracle installation, the default *<sid>* value is *xe*.
 If the user was created with *administrative* permissions the schema name `database.schema` equal to the user name (*my_user*).
 
-Copy Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c into the `drivers` directory.
+Copy the Oracle JDBC driver *ojdbc8.jar* or *ojdbc11.jar* from the Oracle JDBC 23.26.4 release (or later) for Oracle 19c, 23ai or 26ai into the `drivers` directory.
 
 
 
@@ -183,7 +183,7 @@ Replace placeholders *<host>*, *<port>* and *<database>* with appropriate values
 The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
 
-Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
+Copy the PostgreSQL JDBC Driver *42.7.14* (or later, *JDBC 4.2*) into the `drivers` directory.
 
 
 ### Step 3: Extract DDL script using database management tool

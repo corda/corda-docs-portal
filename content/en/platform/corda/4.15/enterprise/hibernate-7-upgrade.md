@@ -44,17 +44,21 @@ upgrade notes.
 
 ### Check your database version
 
-Hibernate 7 raised the minimum database versions it supports. Every node database in the [platform support matrix]({{< relref "platform-support-matrix.md" >}})
+Hibernate 7.4 raised the minimum database versions it supports. Every node database in the [platform support matrix]({{< relref "platform-support-matrix.md" >}})
 for 4.15 is at or above the minimum. If you run a database version that is not in the matrix, Hibernate may generate SQL that it does not
 support, so upgrade the database before you upgrade the node. Use a current JDBC driver for your database.
 
-| Database                                  | Minimum version supported by Hibernate 7 |
+| Database                                  | Minimum version supported by Hibernate 7.4 |
 |-------------------------------------------|------------------------------------------|
 | PostgreSQL                                | 14                                       |
 | Oracle                                    | 19c                                      |
 | Microsoft SQL Server / Azure SQL          | 2014 (12.0)                              |
 | CockroachDB (standalone JPA notary only)  | 23.2                                     |
 | H2 (development only)                     | 2.1.214                                  |
+
+The support matrix for 4.15 starts above two of these minimums: PostgreSQL 15 (PostgreSQL 14 reached its final release in November 2026) and
+CockroachDB 24.3 (the 23.2 line left vendor support in July 2026). A node on PostgreSQL 14 or a notary on CockroachDB 23.2 runs without the
+warning below, but is outside the support matrix.
 
 Hibernate does not refuse an older database. It logs a warning at start-up, for example `HHH000511: The 13.0 version for [PostgreSQL] is no
 longer supported, hence certain features may not work properly.`, and carries on. If you see this message, plan a database upgrade.
@@ -92,9 +96,9 @@ where Hibernate 5 used a PostgreSQL dialect. The visible effect is that a Cockro
 (error 40001, `WriteTooOldError`) is now reported as a rollback, which the notary retries, where 4.14 failed the whole batch. To keep the old
 behaviour, set `hibernateDialect` to `org.hibernate.dialect.PostgreSQLDialect`.
 
-Hibernate 7's minimum CockroachDB version is 23.2, which is also the oldest version in the platform support matrix for 4.15. A notary on
-CockroachDB 23.1.x or older starts with the `HHH000511` warning described under [Check your database version](#check-your-database-version);
-upgrade it before moving the notary to 4.15.
+Hibernate 7.4's minimum CockroachDB version is 23.2; the oldest version in the platform support matrix for 4.15 is 24.3.x, because the 23.2
+line left Cockroach Labs' support in July 2026. A notary on CockroachDB 23.1.x or older starts with the `HHH000511` warning described under
+[Check your database version](#check-your-database-version); upgrade it to a version in the matrix before moving the notary to 4.15.
 
 ### Running CorDapps built for Corda 4.14 or earlier
 

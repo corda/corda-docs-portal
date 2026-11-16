@@ -65,10 +65,9 @@ All Corda nodes have a database. A range of third-party databases are supported 
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|11gR2|Oracle JDBC 6|
-|Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10 11.5|PostgreSQL JDBC Driver 42.1.4 / 42.2.8|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 13.6.2|
+|Oracle|x86-64|19c, 23ai (23.4), 26ai|Oracle JDBC 8 or 11 (23.26.4)|
+|PostgreSQL|x86-64|15.x, 16.x, 17.x, 18.x|PostgreSQL JDBC Driver 42.7.14|
 
 {{< /table >}}
 
@@ -78,8 +77,8 @@ All Corda nodes have a database. A range of third-party databases are supported 
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|20.1.6|PostgreSQL JDBCDriver 42.1.4|
-|Oracle RAC|x86-64|19c|Oracle JDBC 8|
+|CockroachDB|x86-64|24.3.x, 25.4.x, 26.2.x|PostgreSQL JDBC Driver 42.7.14|
+|Oracle RAC|x86-64|19c|Oracle JDBC 8 (23.26.4)|
 
 {{< /table >}}
 

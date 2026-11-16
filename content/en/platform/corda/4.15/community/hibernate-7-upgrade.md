@@ -44,14 +44,17 @@ step, as for any release, and runs no changesets on such a database. See
 
 ### Check your database version
 
-Hibernate 7 raised the minimum database versions it supports. The databases in the [platform support matrix]({{< relref "release-platform-support-matrix.md" >}})
+Hibernate 7.4 raised the minimum database versions it supports. The databases in the [platform support matrix]({{< relref "release-platform-support-matrix.md" >}})
 for 4.15 are at or above the minimum. If you run a database version that is not in the matrix, Hibernate may generate SQL that it does not
 support, so upgrade the database before you upgrade the node. Use a current JDBC driver for your database.
 
-| Database                | Minimum version supported by Hibernate 7 |
+| Database                | Minimum version supported by Hibernate 7.4 |
 |-------------------------|------------------------------------------|
 | PostgreSQL              | 14                                       |
 | H2 (development only)   | 2.1.214                                  |
+
+The support matrix for 4.15 starts at PostgreSQL 15, above Hibernate's minimum, because PostgreSQL 14 reached its final release in November
+2026. A node on PostgreSQL 14 runs without the warning below, but is outside the support matrix.
 
 Hibernate does not refuse an older database. It logs a warning at start-up, for example `HHH000511: The 13.0 version for [PostgreSQL] is no
 longer supported, hence certain features may not work properly.`, and carries on. If you see this message, plan a database upgrade.
