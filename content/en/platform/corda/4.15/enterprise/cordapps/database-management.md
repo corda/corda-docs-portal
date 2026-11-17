@@ -97,6 +97,7 @@ Each `changeSet` tag is uniquely identified by the combination of the `author` t
 The first entry `createTable` defines a new table. The table and the column names match the relevant names defined in JPA annotations of `PersistentIOU` class.
 The columns `output_index` and `transaction_id` are mapped from the `PersistentState` superclass fields. The `addPrimaryKey` tag adds the compound primary key.
 To achieve compatibility with supported databases, the `linearId` field is mapped with `@JdbcTypeCode(SqlTypes.VARCHAR)`, which stores the UUID as 36 characters in a `VARCHAR(255)` column. Before Corda 4.15 the same mapping was written `@Type(type = "uuid-char")`; the node substitutes it in a CorDapp built for Corda 4.14 or earlier, see [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "../hibernate-7-upgrade.md" >}}).
+On Oracle and SQL Server, Corda Enterprise maps every `String` attribute, and the `String` side of every JPA `AttributeConverter`, to the national character type, so string columns are declared `NVARCHAR` and only `@JdbcTypeCode(SqlTypes.VARCHAR)` columns, such as `linear_id` above, are declared `VARCHAR`. A mismatch is no longer refused when a Corda 4.15 node starts, see [Character columns on Oracle and SQL Server]({{< relref "../hibernate-7-upgrade.md#character-columns-on-oracle-and-sql-server" >}}).
 Corda contains a built-in custom JPA converter for the `AbstractParty` type to a varchar column type, defined as `NVARCHAR(255)`.
 
 
@@ -325,6 +326,9 @@ If you upgrade a node to Enterprise, then any CorDapps running on the node must 
 Any custom tables (which are required by CorDapps) were created manually or by Hibernate upon node startup.
 Therefore, the database doesn’t contain an entry in the *DATABASECHANGELOG* table, which is created by the Liquibase runner.
 You need to create the entries and provide them to a node operator to run them manually.
+
+Check the column types as well. An open source CorDapp's changelog often declares `varchar` for its string columns, which an Enterprise node
+maps as `NVARCHAR` on Oracle and SQL Server; see [Character columns on Oracle and SQL Server]({{< relref "../hibernate-7-upgrade.md#character-columns-on-oracle-and-sql-server" >}}).
 
 See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure]({{< relref "../node-operations-upgrading-os-to-ent.md#upgrade-from-corda-open-source-edition-to-corda-enterprise" >}}) to learn how to obtain SQL statements.
 

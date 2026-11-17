@@ -63,8 +63,7 @@ The `dry-run` subcommand can be used to output the database migration to the spe
 Usage:
 
 ```shell
-database-manager dry-run [-hvV] [--doorman-jar-path=<doormanJarPath>]
-                         [--logging-level=<loggingLevel>] [--mode=<mode>]
+database-manager dry-run [-hvV] [--logging-level=<loggingLevel>] [--mode=<mode>]
                          -b=<baseDirectory> [-f=<configFile>] [<outputFile>]
 ```
 
@@ -75,8 +74,7 @@ Additional options:
 
 * `--base-directory`, `-b`: (Required) The node working directory where all the files are kept. This defaults to the current working directory if not set.
 * `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
-* `--mode`: The operating mode. Possible values: NODE, DOORMAN, JPA_NOTARY. Default: NODE.
-* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman (Identity Manager) JAR file.
+* `--mode`: The operating mode. Possible values: NODE, JPA_NOTARY. Default: NODE.
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
 * `--core-schemas`: Output DB-specific DDL to apply the core node schema migrations.
@@ -92,8 +90,7 @@ The `execute-migration` subcommand runs migration scripts on the node’s databa
 Usage:
 
 ```shell
-database-manager execute-migration [-hvV] [--doorman-jar-path=<doormanJarPath>]
-                                   [--logging-level=<loggingLevel>]
+database-manager execute-migration [-hvV] [--logging-level=<loggingLevel>]
                                    [--mode=<mode>] -b=<baseDirectory>
                                    [-f=<configFile>]
 ```
@@ -101,8 +98,7 @@ database-manager execute-migration [-hvV] [--doorman-jar-path=<doormanJarPath>]
 
 * `--base-directory`, `-b`: (Required) The node working directory where all the files are kept. This defaults to the current working directory if not set.
 * `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
-* `--mode`: The operating mode. Possible values: NODE, DOORMAN, JPA_NOTARY. Default: NODE.
-* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman (Identity Manager) JAR file.
+* `--mode`: The operating mode. Possible values: NODE, JPA_NOTARY. Default: NODE.
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
 * `--core-schemas`: Run Liquibase migrations for the node core schema.
@@ -124,8 +120,7 @@ only [during the migration process](http://www.liquibase.org/documentation/datab
 Usage:
 
 ```shell
-database-manager release-lock [-hvV] [--doorman-jar-path=<doormanJarPath>]
-                              [--logging-level=<loggingLevel>] [--mode=<mode>]
+database-manager release-lock [-hvV] [--logging-level=<loggingLevel>] [--mode=<mode>]
                               -b=<baseDirectory> [-f=<configFile>]
 ```
 
@@ -133,8 +128,7 @@ Additional options:
 
 * `--base-directory`, `-b`: (Required) The node working directory where all the files are kept (default: `.`).
 * `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
-* `--mode`: The operating mode. Possible values: NODE, DOORMAN, JPA_NOTARY. Default: NODE.
-* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman JAR.
+* `--mode`: The operating mode. Possible values: NODE, JPA_NOTARY. Default: NODE.
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
 * `--help`, `-h`: See a list of available commands and descriptions.
