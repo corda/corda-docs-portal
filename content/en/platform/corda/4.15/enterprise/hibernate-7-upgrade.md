@@ -606,7 +606,9 @@ The failure to recognise: a CorDapp built for 4.14 or earlier whose flow binds i
 `NoClassDefFoundError: javax/persistence/EntityManager` when the flow runs. The test JVM has no `javax.persistence`, and the class was not
 converted. The same jar runs on a real 4.15 node and on out-of-process driver nodes, where it is converted. A library CorDapp that is built
 once for both lines avoids the binding, see [A CorDapp that must run on 4.14 and 4.15](#a-cordapp-that-must-run-on-414-and-415); Token SDK
-1.3.5 does, and its earlier versions fail this way.
+1.3.5 does, and its earlier versions fail this way. A CorDapp that uses the Archive Service's App Entity Manager and is rebuilt for 4.15
+depends on the Archive Service's `jakarta` artefact, which is built for `jakarta.persistence` and runs in such tests; see
+[The `jakarta` artefact for CorDapps built for Corda 4.15]({{< relref "../../../../tools/archiving-service/app-entity-manager.md#the-jakarta-artefact-for-cordapps-built-for-corda-415" >}}).
 
 ### A CorDapp you cannot rebuild
 
@@ -638,7 +640,8 @@ Hibernate implements. Code shared by both builds must not name either interface:
 shapes, or use `ServiceHub.jdbcSession()`. Because the conversion is per class, the same applies to a `javax.persistence`-typed call into
 another CorDapp's API, such as the Archive Service's App Entity Manager: keep that call in a class that refers to no `jakarta.persistence`
 type, so that the node still converts it, or make it reflective too. A class that mixes the two is left unconverted and fails with
-`NoClassDefFoundError`.
+`NoClassDefFoundError`. A CorDapp built for 4.15 alone has no such constraint: it depends on the Archive Service's `jakarta` artefact, see
+[The `jakarta` artefact for CorDapps built for Corda 4.15]({{< relref "../../../../tools/archiving-service/app-entity-manager.md#the-jakarta-artefact-for-cordapps-built-for-corda-415" >}}).
 
 **Map `uuid-char` and `string` columns with one annotation set per Hibernate version, not with a converter.** A JPA `AttributeConverter`
 whose column side is `String` is nationalised on Oracle and SQL Server (see
