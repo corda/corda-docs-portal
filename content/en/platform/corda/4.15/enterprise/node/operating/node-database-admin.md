@@ -390,8 +390,8 @@ database = {
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to both administrative and restrictive users.
 
-The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
-extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into the `drivers` directory.
+The Microsoft JDBC Driver for SQL Server (version 13.6.2 or later) can be downloaded from [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server),
+extract the archive and copy the single file *mssql-jdbc-13.6.2.jre11.jar* into the `drivers` directory.
 
 
 
@@ -416,8 +416,8 @@ database = {
 
 Replace placeholders *<host>*, *<port>* with appropriate values, the default SQL Server port is 1433.
 
-The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
-extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into the `drivers` directory.
+Download the Microsoft JDBC Driver for SQL Server, version 13.6.2 or later, from the [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) or Maven Central,
+extract the archive and copy the single file *mssql-jdbc-13.6.2.jre11.jar* into the `drivers` directory.
 
 
 
@@ -454,7 +454,7 @@ database = {
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values.
 For a basic Oracle installation, the default *<sid>* value is *xe*.
 
-Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c into the `drivers` directory.
+Copy the Oracle JDBC driver *ojdbc8.jar* or *ojdbc11.jar* from the Oracle JDBC 23.26.4 release (or later) for Oracle 19c, 23ai or 26ai into the `drivers` directory.
 
 
 
@@ -481,7 +481,7 @@ Replace the placeholders *<host>*, *<port>* and *<database>* with appropriate va
 The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
 
-Copy PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* into the `drivers` directory.
+Copy the PostgreSQL JDBC Driver *42.7.14* (or later, *JDBC 4.2*) into the `drivers` directory.
 
 
 ### Step 2.3: Extract the DDL script using the database management tool
@@ -724,8 +724,8 @@ database = {
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to the user.
 
-The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (the archive comes with two JARs) to the `drivers` directory.
+The Microsoft JDBC Driver for SQL Server (version 13.6.2 or later) can be downloaded from [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+Extract the archive and copy the single file *mssql-jdbc-13.6.2.jre11.jar* (the archive comes with two JARs) to the `drivers` directory.
 
 ### SQL Server
 
@@ -752,7 +752,7 @@ By default the connection to the database is not SSL. To secure the JDBC connect
 
 The `database.schema` is the database schema name assigned to the user.
 
-The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615). Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` (the archive comes with two JARs) and copy the JAR to the `drivers` directory.
+Download the Microsoft JDBC Driver for SQL Server, version 13.6.2 or later, from the [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) or Maven Central. Extract the archive and copy the single file `mssql-jdbc-13.6.2.jre11.jar` (the archive comes with two JARs) and copy the JAR to the `drivers` directory.
 
 Ensure JDBC connection properties match the SQL Server setup, especially when trying to reuse Azure SQL JDBC URLs
 which are invalid for SQL Server. This may lead to a Corda node failing to start with message:
@@ -788,7 +788,7 @@ Set the `database.schema` value to *my_admin_user*.
 The Corda node doesn’t guarantee to prefix all SQL queries with the schema namespace.
 The additional configuration entry `connectionInitSql` sets the current schema to the admin user (*my_user*) on connection to the database.
 
-Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers`.
+Place the Oracle JDBC driver *ojdbc8.jar* or *ojdbc11.jar* from the Oracle JDBC 23.26.4 release (or later) for Oracle 19c, 23ai or 26ai in the node directory `drivers`.
 
 Database schema name can be set in JDBC URL string; for example, currentSchema=my_schema.
 
@@ -896,7 +896,7 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 This behaviour differs from Corda Open Source Edition where the value is not wrapped in double quotes.
 
-Place the PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* in the node directory `drivers` described in [Step 3: Configuring the Corda node](#step-3-configuring-the-corda-node).
+Place the PostgreSQL JDBC Driver *42.7.14* (or later, *JDBC 4.2*) in the node directory `drivers` described in [Step 3: Configuring the Corda node](#step-3-configuring-the-corda-node).
 
 
 

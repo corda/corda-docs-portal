@@ -56,7 +56,23 @@ If you are using them you should re-namespace them to a package namespace you co
 | 3.3 | 3 |
 {{< /table >}}
 
-## Upgrading CordDapps to platform version 160
+## Upgrading CorDapps to platform version 170
+
+Platform version 170 represents Corda 4.15, which upgrades the node's object-relational mapper from Hibernate ORM 5.6 to Hibernate ORM 7.4.12. Hibernate 7 implements Jakarta Persistence, so the persistence annotations and the `EntityManager` that CorDapps use move from the `javax.persistence` package to the `jakarta.persistence` package. The Hibernate upgrade needs no database migration, and Corda Open Source Edition 4.15 adds no other changesets.
+
+A CorDapp built for Corda 4.14 or earlier does not have to be rebuilt to run on a 4.15 node: the node converts its `javax.persistence` classes to `jakarta.persistence` as it loads them, and substitutes the Hibernate 5 `@Type` names that Corda registered (`uuid-char`, `corda-wrapper-binary`, `corda-blob`) and Hibernate 5's own. The node refuses to start if a CorDapp uses a Hibernate 5 annotation, class or member that Hibernate 7 no longer has, such as a custom `@Type` or `Session.save`, so test every CorDapp on a 4.15 node before you upgrade production.
+
+To rebuild a CorDapp for Corda 4.15:
+
+1. Replace `javax.persistence` with `jakarta.persistence`, and `javax.persistence:javax.persistence-api` with `jakarta.persistence:jakarta.persistence-api:3.2.0`.
+2. Replace `org.hibernate:hibernate-core` with `org.hibernate.orm:hibernate-core:7.4.12.Final`, and keep it a `cordaProvided` (compile-only) dependency.
+3. Replace `@Type(type = "uuid-char")` with `@JdbcTypeCode(SqlTypes.VARCHAR)`, `@Type(type = "corda-wrapper-binary")` with `@JdbcTypeCode(SqlTypes.VARBINARY)`, and `@Type(type = "corda-blob")` with `@JdbcTypeCode(CordaSqlTypes.CORDA_BLOB)`.
+4. Replace `Session.save`, `update`/`saveOrUpdate` and `delete` with `persist`, `merge` and `remove`. Use attribute names, not column names, in HQL and JPQL.
+5. Increase the CorDapp version, rebuild, test against every database you support, and sign with the same key as before.
+
+The script `tools/scripts/migrate-cordapp-to-hibernate7.sh` in the [Corda repository](https://github.com/corda/corda/blob/release/os/4.15/tools/scripts/migrate-cordapp-to-hibernate7.sh) applies steps 1 and 2, and the `uuid-char` and `corda-wrapper-binary` replacements of step 3, to a source tree, and lists the other `@Type` names, the `Session` calls and the queries for you to change by hand. For the full list of changes, the Hibernate 7 behaviour changes that affect rebuilt and converted CorDapps alike, and what makes the node refuse a CorDapp, see [Hibernate 7 and Jakarta Persistence in Corda Open Source Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
+
+## Upgrading CorDapps to platform version 160
 
 No manual upgrade steps are required.
 

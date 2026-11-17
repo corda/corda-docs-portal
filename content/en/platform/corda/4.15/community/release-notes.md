@@ -17,7 +17,41 @@ tags:
 
 ---
 
-# Corda Open Source Edition 4.14 release notes
+# Corda Open Source Edition 4.15 release notes
+
+## Corda Open Source Edition 4.15 release notes
+
+The Corda Open Source Edition 4.15 release upgrades the node's object-relational mapper to Hibernate ORM 7 and upgrades third-party components.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+### Platform version change
+
+Corda 4.15 uses platform version 170.
+
+### New features, enhancements and restrictions
+
+#### Hibernate 7 and Jakarta Persistence
+
+Corda Open Source Edition 4.15 upgrades Hibernate ORM from version 5.6, which is end of life, to version 7.4.12. Hibernate 7 implements Jakarta Persistence 3.2, so the persistence annotations that CorDapps use for their vault schemas, and the `EntityManager` that `ServiceHub.withEntityManager` provides, move from the `javax.persistence` package to the `jakarta.persistence` package. The Hibernate upgrade itself needs no database migration, because Corda configures Hibernate 7 to read and write the formats that existing databases already use, including the single `hibernate_sequence`, UTC `TIMESTAMP` columns for `Instant` and binary `UUID` columns. Corda Open Source Edition 4.15 adds no other changesets either.
+
+* **CorDapps built for Corda 4.14 or earlier run without a rebuild.** The node's CorDapp class loader converts their `javax.persistence` classes to `jakarta.persistence` as it loads them, and substitutes the Hibernate 5 `@Type` names (`uuid-char`, `corda-wrapper-binary`, `corda-blob`, `yes_no`, `true_false` and others) with the Hibernate 7 mappings that store the same format. New `YesNoBooleanConverter`, `TrueFalseBooleanConverter` and `SingleCharacterConverter` converters keep the `CHAR` columns a 4.14 node used readable. The jar, its hash and its signature are unchanged. The node refuses to start, naming every affected class, if a CorDapp uses a Hibernate 5 annotation, class or member that Hibernate 7 no longer has, such as `@TypeDef`, a custom `@Type` or `Session.save`. Hibernate 7's behaviour changes, such as strict HQL validation and `persist` marking the transaction for rollback on a duplicate, apply to converted CorDapps as to rebuilt ones.
+* **Rebuilt CorDapps use `jakarta.persistence`.** `ServiceHub.withEntityManager` now provides a `jakarta.persistence.EntityManager`, `@Type(type = "...")` is replaced by `@JdbcTypeCode`, and Hibernate's `Session.save`, `update` and `delete` are replaced by `persist`, `merge` and `remove`. A Gradle build that has Hibernate 5 in the same configuration as Corda 4.15 fails with a capability conflict on `hibernate-core`. A script in the Corda repository applies the package, dependency and common `@Type` changes, and lists the rest for review.
+
+For what node operators and CorDapp developers need to do, see [Hibernate 7 and Jakarta Persistence in Corda Open Source Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
+
+### Third-party component upgrades
+
+The following table lists the dependency version changes for 4.15 Open Source Edition:
+
+| Dependency                                   | Name                     | New Version     |
+| -------------------------------------------- | ------------------------ | --------------- |
+| org.hibernate.orm:hibernate-core             | Hibernate ORM            | 7.4.12.Final    |
+| jakarta.persistence:jakarta.persistence-api  | Jakarta Persistence API  | 3.2.0           |
+| com.zaxxer:HikariCP                          | HikariCP                 | 7.1.0           |
+| org.liquibase:liquibase-core                 | Liquibase                | 4.33.0          |
 
 ## Corda Open Source Edition 4.14.2 release notes
 

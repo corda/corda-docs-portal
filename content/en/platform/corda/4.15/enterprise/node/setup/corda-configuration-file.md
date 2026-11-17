@@ -179,7 +179,7 @@ Here are the contents of the `reference.conf` file:
 },
 
 //Azure SQL
-//Microsoft SQL Server 2017
+//Microsoft SQL Server 2022
 
     "dataSourceProperties" : {
         "dataSource" : {
@@ -200,7 +200,7 @@ Here are the contents of the `reference.conf` file:
         "dataSourceClassName" : "org.postgresql.ds.PGSimpleDataSource"
     },
 
-// Oracle 11gR2/12cR2 RDBMS
+// Oracle 19c, 23ai or 26ai RDBMS
     "dataSourceProperties" : {
         "dataSourceClassName" : "oracle.jdbc.pool.OracleDataSource",
         "dataSource" : {

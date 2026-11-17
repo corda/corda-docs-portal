@@ -66,8 +66,8 @@ You can configure `Dockerform` to use a standalone database to test with non-H2 
 
 ```groovy
 ext {
-    postgresql_version     = '42.2.12'
-    postgres_image_version = '11'
+    postgresql_version     = '42.7.14'
+    postgres_image_version = '16'
     dbUser                 = 'myuser'
     dbPassword             = 'mypassword'
     dbSchema               = 'myschema'
