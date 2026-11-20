@@ -179,6 +179,28 @@ On a Hibernate 7 node the library:
 
 Entity classes used with the library need no change for Hibernate 7 beyond what [Updating a CorDapp for Corda 4.15]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#updating-a-cordapp-for-corda-415" >}}) requires of any CorDapp.
 
+### The `jakarta` artefact for CorDapps built for Corda 4.15
+
+From Archive Service 2.0.1 the Archive Service CorDapp, which bundles this library, is published twice from the same sources:
+
+| Artefact | Persistence API | Use it on |
+|---|---|---|
+| `archive-service-<version>.jar` | `javax.persistence` | Corda Enterprise 4.12 to 4.14 nodes, and 4.15 nodes, which convert it as they load it |
+| `archive-service-<version>-jakarta.jar` (Maven classifier `jakarta`) | `jakarta.persistence` | Corda Enterprise 4.15 nodes, and CorDapps and tests built for Corda Enterprise 4.15 |
+
+The `jakarta` jar is the default jar converted at build time with the Corda 4.15 node's own transformer, so it contains exactly what the node would make of the default jar as it loads it, with the same CorDapp manifest, Liquibase change sets and configuration. The demo CorDapp, `archive-service-demo`, has the same pair.
+
+A CorDapp that calls `withEntityManager` or `withAppEntityManager` is typed on the persistence API's `EntityManager`, so it has to depend on the artefact of the API it is built for:
+
+* A CorDapp built for Corda Enterprise 4.12 to 4.14 (`javax.persistence`) depends on the default artefact. It runs on a 4.15 node as it is, converted by the node. It cannot run in-process tests (`MockNetwork`, `MockServices`, an in-process driver node) on Corda Enterprise 4.15: those load the CorDapp's classes from the test classpath, not through the node's converting class loader, so a `javax.persistence` typed `withEntityManager` block fails there with `NoClassDefFoundError: javax/persistence/EntityManager`. This is a limitation of Corda Enterprise 4.15, described under [Testing]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#testing" >}}) in the Hibernate 7 upgrade guide. Keep such a CorDapp's own tests on Corda Enterprise 4.12 to 4.14, or test the jar on an out-of-process driver node or a real node.
+* A CorDapp rebuilt for Corda Enterprise 4.15 (`jakarta.persistence`) depends on the `jakarta` artefact, for example:
+
+  ```groovy
+  cordapp "com.r3.archive:archive-service:2.0.1:jakarta"
+  ```
+
+  On a 4.15 node `ServiceHub.withEntityManager` is typed on `jakarta.persistence.EntityManager`, and a class that uses it next to the default artefact's `javax.persistence` typed `withAppEntityManager` would refer to both APIs, which the node's converter leaves alone (see [A CorDapp that must run on 4.14 and 4.15]({{< relref "../../platform/corda/4.15/enterprise/hibernate-7-upgrade.md#a-cordapp-that-must-run-on-414-and-415" >}})), so it would fail on the node. With the `jakarta` artefact the [entity example](#entity-example) above imports `jakarta.persistence.*` instead, and the configuration, including the `javax.persistence.jdbc.*` keys, stays as it is.
+
 ## Development H2 default database
 Since the default node H2 database cannot be shared it is not possible to use this
 service to create an alternative schema on the default vault H2 database.

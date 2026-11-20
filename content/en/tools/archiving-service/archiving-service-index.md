@@ -131,6 +131,8 @@ drwxr-xr-x 2 corda corda   4096 Aug 26 06:43 config
 
 {{< note >}}
 The Archive Service is distributed as two differently named JAR files. The CorDapp is `archive-service-<version>.jar` and goes into the node's `cordapps` directory, as shown above. The command-line tool is `corda-tools-archive-service-<version>.jar`; it is run with `java -jar` from any machine that can reach the node's RPC port and must not be copied into the `cordapps` directory. See [Archive Service command-line tool](#archive-service-command-line-tool).
+
+From Archive Service 2.0.1 the CorDapp also comes as `archive-service-<version>-jakarta.jar`, built for the `jakarta.persistence` API of Corda Enterprise 4.15. A 4.15 node runs either jar (it converts the default one as it loads it); earlier Corda Enterprise versions run only the default one. Install one of the two, not both, and name the configuration file after the jar you install. See the [release notes]({{< relref "archiving-release-notes.md#corda-enterprise-415-support" >}}).
 {{< /note >}}
 
 ### Database migration
