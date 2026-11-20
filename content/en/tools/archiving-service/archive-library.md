@@ -215,7 +215,7 @@ Returns the list of archivable items.
  * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
  * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
  * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
- * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property batchSize number of transactions to process in a batch (default: 5000, min: 10, max: 1000000)
  * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
  */
 class ListItems(
@@ -255,7 +255,7 @@ Marks all archivable items with the snapshot name.
  * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
  * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
  * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
- * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property batchSize number of transactions to process in a batch (default: 5000, min: 10, max: 1000000)
  * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
  */
 class MarkItems(
