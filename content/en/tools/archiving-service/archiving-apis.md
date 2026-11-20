@@ -73,7 +73,7 @@ class ListJobsFlow(
  *
  * @param timeLimit Maximum time to run both operations. Default is 8 hours.
  * @param notNewerThan Only collect transactions older than this timestamp. Default is now minus the grace period.
- * @param batchSize Batch size for the internal transaction-processing step. Default is 1,000.
+ * @param batchSize Batch size for the internal transaction-processing step. Default is 5,000.
  * @param skipSafetyIntervalCheck Whether to skip the safety interval check when collecting archivable items. Default is false.
  */
 @InitiatingFlow
@@ -81,7 +81,7 @@ class ListJobsFlow(
 class ProcessAllPendingFlow(
     private val timeLimit: Duration = Duration.ofHours(8),
     private val notNewerThan: Instant? = null,
-    private val batchSize: Int = 1_000,
+    private val batchSize: Int = 5_000,
     private val skipSafetyIntervalCheck: Boolean = false
 ) : FlowLogic<Unit>()
 
@@ -141,7 +141,13 @@ data class StatisticsResult(
     val transactionBeforeMinAgeCount: Long,
     val transactionAfterMinAgeCount: Long,
     val archivableTransactionSize: Long,
-    val archivableAttachmentSize: Long
+    val archivableAttachmentSize: Long,
+    /**
+     * Whether the node's transaction table has an index that serves the ingestion (led by
+     * `(status, timestamp, tx_id)` or `(timestamp, tx_id)`, any name); null when the index
+     * catalogue could not be read.
+     */
+    val transactionTableIndexPresent: Boolean? = null
 )
 
 /**
@@ -187,7 +193,7 @@ data class OperationHistoryEntry(
  * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
  * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
  * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
- * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property batchSize number of transactions to process in a batch (default: 5000, min: 10, max: 1000000)
  * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
  */
 @InitiatingFlow
@@ -197,7 +203,7 @@ class ListItemsFlow(
     private val bypassProcessAllPending: Boolean = false,
     private val timeLimit: Duration = Duration.ofHours(8),
     private val notNewerThan: Instant? = null,
-    private val batchSize: Int = 1_000,
+    private val batchSize: Int = 5_000,
     private val skipSafetyIntervalCheck: Boolean = false
 ) : FlowLogic<ListItemsResults>()
 
@@ -210,7 +216,7 @@ class ListItemsFlow(
  * @property bypassProcessAllPending if true, bypass refreshing the archiving data structures. Default is false.
  * @property timeLimit maximum duration to process the pending transactions. Default is 8 hours.
  * @property notNewerThan only collect transactions older than this timestamp (ISO-8601 format). Default is null which means now minus grace period.
- * @property batchSize number of transactions to process in a batch (default: 1000, min: 10, max: 1000000)
+ * @property batchSize number of transactions to process in a batch (default: 5000, min: 10, max: 1000000)
  * @property skipSafetyIntervalCheck whether to skip the safety interval check when collecting items. Default is false.
   */
  @InitiatingFlow
@@ -220,7 +226,7 @@ class ListItemsFlow(
     private val bypassProcessAllPending: Boolean = false,
     private val timeLimit: Duration = Duration.ofHours(8),
     private val notNewerThan: Instant? = null,
-    private val batchSize: Int = 1_000,
+    private val batchSize: Int = 5_000,
     private val skipSafetyIntervalCheck: Boolean = false
  ) : FlowLogic<MarkItemsResults>()
 

@@ -142,13 +142,11 @@ Like any CorDapp with custom schemas, the Archive Service CorDapp ships Liquibas
 
 If you use a [backup schema](#using-the-backup-schema), create it only after this migration has been applied, as the backup schema user needs grants on the tables the migration creates.
 
-Besides the tables of the iterative archiving model, the migration adds one index to the node's own transaction table: `node_transactions_status_timestamp_tx_id_idx` on `node_transactions (status, timestamp, tx_id)`. The Archive Service reads the transaction table in batches ordered by `(timestamp, tx_id)`, continuing from the last processed transaction. Without the index, every batch is a full scan and a sort of the table, so processing a ledger takes time proportional to the square of its size (301 ms per 1,000-row batch measured on a 3 million-row PostgreSQL table). With the index, a batch is a single index range scan. The same index is the one the Corda Enterprise transaction validation utility requires for parallel reading. Expect about 110 bytes per transaction (323 MB for 3 million transactions, 2.5 seconds to build with the table cached in memory) and tens of microseconds of additional write cost per recorded transaction.
-
-The change set builds the index with a plain `CREATE INDEX`, which blocks writes to the transaction table for the duration of the build. This costs nothing when the migration is run with the node stopped, which is the normal procedure. If the transaction table is too large to lock during the maintenance window, create the index beforehand on the running node with `CREATE INDEX CONCURRENTLY`, with exactly these columns and under any name. The change set detects an existing index on `(status, timestamp, tx_id)` or on `(timestamp, tx_id)` and records itself as applied instead of building a second one.
+The migration only creates the tables of the iterative archiving model. Archive Service 2.0 also created an index on the node's own transaction table from its migration; since 2.0.1 that index is optional and the migration neither creates nor drops it, see [Transaction table index](#transaction-table-index). A database migrated by 2.0 keeps the index, and the `DATABASECHANGELOG` row of the removed change set (which Liquibase ignores), until the index is dropped by hand.
 
 ### Keeping the CorDapp installed between archiving runs
 
-Archiving is typically run periodically, for example once a year. Keep the Archive Service CorDapp installed between runs. The CorDapp does no work on its own: its processing thread is idle until an archiving command arms it, so an installed but unused Archive Service costs the node nothing beyond the write cost of the transaction table index, which is part of the database schema and present whether or not the CorDapp is installed.
+Archiving is typically run periodically, for example once a year. Keep the Archive Service CorDapp installed between runs. The CorDapp does no work on its own: its processing thread is idle until an archiving command arms it, so an installed but unused Archive Service costs the node nothing beyond the write cost of a permanent [transaction table index](#transaction-table-index), if you keep one (it is part of the database, present whether or not the CorDapp is installed).
 
 The Archive Service keeps all of its state in its own tables in the node database, not in the CorDapp JAR or in memory: the iterative tracking model, the position up to which the transaction table has been processed (`ITERATIVE_ARCHIVING_LAST_PROCESSED`), and the history of archive jobs. Because of this, the CorDapp can be removed from the `cordapps` directory and reinstalled later without consequences: it resumes from the last processed transaction and does not re-scan the ledger. Reinstall the same version together with its configuration file; a newer version requires its [database migration](#database-migration) like a first installation.
 
@@ -160,7 +158,7 @@ Never drop or empty the Archive Service tables once transactions have been delet
 
 `process-all-pending` is the command that builds and refreshes the tracking model described under [How the iterative model works](#how-the-iterative-model-works): it adds the transactions recorded since the previous run and walks back the chains they complete. `list-items` and `create-snapshot` run it implicitly, so an archiving job started on a model that is out of date does this work first.
 
-The first run on an existing ledger has to process every transaction in the vault, as nothing has been tracked yet. Its duration grows with the number of transactions (provided the [transaction table index](#transaction-table-index) is present; without it, with the square of that number), and on a large ledger it can take hours. The run stops at the next batch boundary once its `--time-limit` (default 8 hours) is exceeded, and the command then fails with a time-out error. The position reached and the counters are persisted after every batch, so running the command again continues from where it stopped. The `statistics` command shows how many transactions are still unprocessed and how many are pending walkback.
+The first run on an existing ledger has to process every transaction in the vault, as nothing has been tracked yet. Its duration grows with the number of transactions (provided a [transaction table index](#transaction-table-index) is present or created on demand; without one, with the square of that number), and on a large ledger it can take hours. The run stops at the next batch boundary once its `--time-limit` (default 8 hours) is exceeded, and the command then fails with a time-out error. The position reached and the counters are persisted after every batch, so running the command again continues from where it stopped. The `statistics` command shows how many transactions are still unprocessed and how many are pending walkback.
 
 Every later run is incremental: it only adds the transactions recorded since the previous run and walks back the chains those complete, so its cost grows with the new activity on the ledger, not with the size of the ledger. Running `process-all-pending` regularly, for example from a scheduler between archiving jobs, keeps the model current, so that `list-items` and `create-snapshot` have little left to do when an archiving job is started. For scheduled runs:
 
@@ -203,6 +201,7 @@ Passwords can be obfuscated using Corda's Config Obfuscator tool.
 ### Archiving settings
 
 * `ignoreSnapshotExportFailures` - Boolean, default `false`. Only consulted by the `FormattedTransactionExporter`: when `true`, a transaction that cannot be rendered as JSON is logged and skipped instead of failing the export.
+* `transactionTableIndex` - `manual` (default), `on-demand` or `always`: what `process-all-pending` does about the [transaction table index](#transaction-table-index). `manual` leaves it to the operator and warns when it is missing; `on-demand` creates it before adding more than one batch of transactions, unless a suitable index already exists, and drops it once they have been added; `always` creates it before adding transactions, unless a suitable index already exists, and keeps it. The last two require a node database user allowed to create (and drop) indexes in its schema.
 * `archivableContractClassStatePrefixes` - Optional list of contract class name prefixes used to filter which transactions are eligible for archiving. When set, only transactions where **all** input, output, and reference states' contract classes match at least one of the given prefixes are considered archivable. Non-matching transactions are tracked in the iterative archiving model but will never be walked back or marked for deletion. If not set or empty, all transactions are archivable (default behavior). Entries must not be blank: because every contract class name starts with an empty string, a blank entry (for example, from a trailing comma) would silently make every transaction archivable, so the Archive Service rejects the configuration at node startup instead. The filter is evaluated when a transaction is walked back; after widening it, run `recalculate-filtering` to re-evaluate the transactions an earlier walkback had already stopped (see the note below). The `delete-transactions` command deliberately ignores this filter: it controls what automatic archiving may select, whereas that command deletes transactions the operator names explicitly.
 
 {{< note >}}
@@ -284,6 +283,7 @@ source: {
 # Archiving
 archivableContractClassStatePrefixes: []    # empty: every transaction is archivable
 ignoreSnapshotExportFailures: false
+transactionTableIndex: manual               # or on-demand / always: process-all-pending creates (and drops) the index
 
 # Tables, as "TABLE" or "TABLE:KEY_COLUMN"
 additionalTransactionTables: []
@@ -400,7 +400,7 @@ Conversely, `import-snapshot` does not check or enforce that a transaction's own
 
 ## Performance tuning
 
-The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by the batch size and the parallelism of the node's JVM, and on the export side by the manifest participants feature and the chunk size of the zipped archives. Reading new transactions from the vault relies on the [transaction table index](#transaction-table-index) that the CorDapp's schema migration creates.
+The iterative archiving process is designed to work with large vaults. Its throughput is mainly influenced by the batch size and the parallelism of the node's JVM, and on the export side by the manifest participants feature and the chunk size of the zipped archives. Reading new transactions from the vault relies on the optional [transaction table index](#transaction-table-index).
 
 ### Batch size
 
@@ -411,13 +411,13 @@ The batch size can be set:
 * On the flows `ProcessAllPendingFlow`, `ListItemsFlow`, and `MarkItemsFlow` using the `batchSize` parameter. `ProcessAllPendingFlow` applies this internally to the same processing/collection steps as the internal `AddTransactionsFlow` and `CollectArchivableFlow` building blocks.
 * On the CLI commands `process-all-pending`, `list-items`, and `create-snapshot` using the `--batch-size` option.
 
-The default batch size is **1,000**; the accepted range is **10** to **1,000,000**.
+The default batch size is **5,000** (1,000 before Archive Service 2.0.1); the accepted range is **10** to **1,000,000**.
 
 When choosing a batch size, consider the following trade-offs:
 
 * Larger batches reduce the per-batch overhead (queries, database transaction commits, progress bookkeeping) and generally increase throughput, at the cost of higher memory usage on the node, as each batch is held in memory while it is processed.
 * A stop request — whether issued via the internal `StopFlow` building block or by `ProcessAllPendingFlow` reaching its time limit — takes effect on a batch boundary — the batch currently being processed always runs to completion. Very large batch sizes therefore make stopping the archiving process less responsive.
-* The default of 1,000 is a good starting point for most deployments. If you change it, benchmark against a representative copy of your data before using the new value in production.
+* The default of 5,000 is a good starting point for most deployments. If you change it, benchmark against a representative copy of your data before using the new value in production.
 
 In addition, the `importer.batch.size` configuration parameter (default: 100,000) controls the import of snapshots: snapshots containing up to this many transactions are deserialized using the parallel importer, while larger snapshots fall back to a sequential import to bound memory usage.
 
@@ -435,7 +435,34 @@ Because the archiving work runs inside the node's JVM, it shares CPU with regula
 
 ### Transaction table index
 
-Processing new transactions pages the node's transaction table by `(timestamp, tx_id)`, continuing from the last processed transaction, and the `statistics` command counts the unprocessed transactions with the same query. Both are served by the `node_transactions_status_timestamp_tx_id_idx` index that the CorDapp's schema migration creates, described under [Database migration](#database-migration). With it, each batch is a single index range scan and the time to process the pending transactions grows linearly with their number. Without it, every batch is a full scan and a sort of the whole transaction table, and the time grows with the square of the table size. If `process-all-pending` is unexpectedly slow on a large vault, check that the index, or an equivalent one on `(status, timestamp, tx_id)` or `(timestamp, tx_id)`, is present on the transaction table.
+Processing new transactions (`process-all-pending`, and `list-items` and `create-snapshot`, which run it first) pages the node's transaction table by `(timestamp, tx_id)`, continuing from the last processed transaction, and the `statistics` command counts the unprocessed transactions with the same query. An index on `node_transactions` led by `(status, timestamp, tx_id)` or by `(timestamp, tx_id)`, under any name, serves each batch as a single index range scan, and the time to process the pending transactions grows linearly with their number. Without one, every batch is a full scan and a sort of the whole transaction table, so the time grows with the number of batches times the size of the table: measured on PostgreSQL, 862 seconds instead of 165 seconds for 1.04 million transactions in batches of 1,000, and growing with the square of the ledger - about 7 hours for 10 million transactions with the table cached in memory, days when it is not. Later, incremental runs scan the whole table once per batch of new transactions.
+
+Archive Service 2.0 created this index from its database migration. Since 2.0.1 the index is optional, because of what it costs the node: about 113 bytes per transaction (323 MB for 3 million transactions), and a dearer write for every transaction the node records. Corda's two-phase finality updates the status and timestamp of a transaction row once the transaction is verified, and with both columns indexed that update is no longer an in-page (HOT) update on PostgreSQL but a full one with new entries in both indexes. Measured on PostgreSQL 16, that write costs 2 to 3 times as much (0.5 to 1.3 ms per transaction single-threaded, 1.2 to 3.9 ms with 8 concurrent writers) and about 0.5 KB more write-ahead log. On a node whose transactions take tens to hundreds of milliseconds end to end this is a few percent of their latency; on a write-bound node it is more. Choose one of the following:
+
+* **A permanent index.** Recommended above about a million transactions, when `process-all-pending` runs on a schedule, and when the Corda Enterprise 4.15 transaction validation utility's parallel reader is used, which needs the same index. Create it on the running node, under any name, with the node's writers unblocked while it builds:
+
+  ```sql
+  -- PostgreSQL
+  CREATE INDEX CONCURRENTLY node_transactions_status_timestamp_tx_id_idx ON node_transactions (status, timestamp, tx_id);
+  -- Oracle (ONLINE requires the Enterprise Edition; omit it on another edition)
+  CREATE INDEX node_transactions_status_timestamp_tx_id_idx ON node_transactions (status, timestamp, tx_id) ONLINE;
+  -- SQL Server (ONLINE requires the Enterprise Edition; omit it on another edition)
+  CREATE INDEX node_transactions_status_timestamp_tx_id_idx ON node_transactions (status, timestamp, tx_id) WITH (ONLINE = ON);
+  ```
+
+  Or set `transactionTableIndex: always` in the CorDapp [configuration](#configuration): `process-all-pending` then creates the index, named `node_transactions_status_timestamp_tx_id_idx`, on its next run (unless a suitable index already exists) and keeps it. The node's database user must be allowed to create indexes in its schema.
+
+* **An index on demand.** Set `transactionTableIndex: on-demand` in the CorDapp [configuration](#configuration). `process-all-pending` then creates the index, under the same name, before adding more than one batch of transactions (unless a suitable index already exists), and drops it once the transactions have been added, so the node pays the write cost only while archiving runs. The node's database user must be allowed to create and drop indexes in its schema. Building the index costs about one scan of the table, with the node's writers unblocked as above. Only the index of that name is ever dropped: an index created under another name is left alone and makes the on-demand creation a no-op, while an index of that name created by the 2.0 migration is dropped at the end of the first on-demand run. A run that times out or fails while adding transactions leaves the index in place; the next run that completes adding transactions drops it.
+
+* **No index**, for a small ledger or a node that cannot take the write cost. Nothing to do: `process-all-pending` warns in the node log and, after its first batch, logs that batch's duration and the number of batches still to come (each of which scans the whole table again), and `statistics` shows `Transaction table index: missing`. A larger `--batch-size` (for example `10000`) reduces the number of scans in proportion; each batch holds its transactions' bytes in memory.
+
+To drop an index created by the 2.0 migration or by hand:
+
+```sql
+DROP INDEX CONCURRENTLY node_transactions_status_timestamp_tx_id_idx;         -- PostgreSQL
+DROP INDEX node_transactions_status_timestamp_tx_id_idx;                      -- Oracle
+DROP INDEX node_transactions_status_timestamp_tx_id_idx ON node_transactions; -- SQL Server
+```
 
 ### Manifest participants
 
