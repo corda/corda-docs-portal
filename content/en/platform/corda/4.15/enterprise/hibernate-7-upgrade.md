@@ -231,10 +231,11 @@ the same change a rebuilt one would, so run its flows on a 4.15 test node before
 
 ### Things you may notice
 
-* The first database update after the upgrade, with the Database Management Tool or `run-migration-scripts`, logs
-  `Upgrading checksum for Changeset ...` once for every changeset the database already has, before the 4.15 changesets run. Corda 4.15 moves
-  Liquibase from 4.20.0 to 4.33.0, which stores changeset checksums in a new format, so Liquibase rewrites the checksum column of its
-  changelog table. These lines are not migrations. A 4.14 node still accepts the checksums after a rollback.
+* After the upgrade, the Liquibase changelog table (`DATABASECHANGELOG`) holds checksums in two formats. Corda 4.15 moves Liquibase from
+  4.20.0 to 4.33.0, which records changeset checksums in a new format, starting with `9:` where the earlier one starts with `8:`. The Database
+  Management Tool and `run-migration-scripts` pass Liquibase only the changesets that have not been applied yet, so the changesets 4.15
+  applies are recorded in the new format, and the rows of the changesets the database already has keep their checksums. This is expected.
+  Liquibase 4.33.0 still validates the earlier rows, and a 4.14 node still accepts them after a rollback, as they are unchanged.
 * Hibernate logs messages such as `HHH90006001: Setting 'hibernate.id.db_structure_naming_strategy' is still incubating` once per session
   factory at start-up. They are informational.
 * If the database does not match what Corda expects, start-up fails with `HibernateSchemaChangeException` and the reason, as before. The reason
