@@ -36,7 +36,7 @@ java -jar transaction-validator.jar -b /corda/cordapp-template-java/build/nodes/
 
 ### `-c`, `--class-load`
 
-The full user-defined class name used for transaction processing. The class must implement `(SignedTransactionWithTimestamp) -> Unit` and should be placed under the node's drivers directory: `/drivers`. The node's base directory is taken as specified by the configuration in `-b` or `--base-directory` parameter.
+The full user-defined class name used for transaction processing. The class must implement `(SignedTransactionWithTimestamp) -> Unit` and should be placed under the node's drivers directory: `/drivers`. The node's base directory is taken as specified by the configuration in `-b` or `--base-directory` parameter. The class is loaded by a plain class loader, not by the node's CorDapp class loader, so on Corda 4.15 it is not converted from `javax.persistence`: if it uses JPA, write it against `jakarta.persistence`.
 
 If this option is not provided, then the utility proceeds with default transaction validation which includes transaction verification and deserialization.
 

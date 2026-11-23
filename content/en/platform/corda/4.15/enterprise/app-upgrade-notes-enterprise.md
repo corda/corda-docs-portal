@@ -19,6 +19,8 @@ weight: 20
 
 Before upgrading to Corda Enterprise Edition 4.15, upgrade your CorDapp to Corda Open Source Edition 4.15. See [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) for detailed instructions.
 
+Corda 4.15 moves the node from Hibernate 5 to Hibernate ORM 7 and Jakarta Persistence. A CorDapp built for 4.14 or earlier runs without a rebuild, and a rebuilt CorDapp uses the `jakarta.persistence` package. For what this means for your CorDapp's persistence code and queries, and for the databases and JDBC drivers 4.15 supports, see [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
+
 You do not need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda Open Source Edition 4.x.
 However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and do not envisage your CorDapp being run in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.13]({{< relref "#re-compiling-for-corda-enterprise-edition-413" >}}) guide.
