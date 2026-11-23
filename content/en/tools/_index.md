@@ -26,6 +26,7 @@ Learn how to use various tools and add-ons to help you with Corda operations and
 * [Corda Business network membership extension](/en/tools/business-network-extension/bne-index.md)
 * [Node management console](/en/tools/node-management-console/nmc-index.md)
 * [Flow management console](/en/tools/flow-management-console/fmc-index.md)
-* [The Archive Service](/en/tools/archiving-service/archiving-service-index.md)
+* [The Archive Service 2.x](/en/tools/archiving-service/archiving-service-index.md) (Corda Enterprise 4.12 and newer)
+* [The Archive Service 1.x](/en/tools/archiving-service-1.x/archiving-service-index.md) (Corda Enterprise up to and including 4.12)
 * [Collaborative recovery](/en/tools/collaborative-recovery/cl-index.md)
 * [LedgerGraph](/en/tools/ledgergraph/ledgergraph-index.md)

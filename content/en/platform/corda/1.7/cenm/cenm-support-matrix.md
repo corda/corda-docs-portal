@@ -27,13 +27,13 @@ Both the Signing Service and the PKI Tool support a variety of HSMs.
 
 {{< table >}}
 
-|Device|Firmware Version|Driver Version|High Availability (HA)|
-|--------------------------------|----------------------------------|------------------|------|
-|Utimaco SecurityServer Se Gen2|4.21.1|4.21.1|No|
-|Gemalto Luna|7.3.3|10.4.0|Yes (Tested and officially supported)|
-|Securosys PrimusX|2.7.4|1.8.2|No|
-|Azure Key Vault|N/A|1.1.1|No|
-|AWS CloudHSM|N/A|3.2.1|No|
+| Device                         | Firmware Version | Driver Version | High Availability (HA)                |
+|--------------------------------|------------------|----------------|---------------------------------------|
+| Utimaco SecurityServer Se Gen2 | 4.21.1           | 4.21.1         | No                                    |
+| Gemalto Luna                   | 7.3.3            | 10.4.0         | Yes (Tested and officially supported) |
+| Securosys PrimusX              | 2.7.4            | 1.8.2          | No                                    |
+| Azure Key Vault                | N/A              | 1.1.1          | No                                    |
+| AWS CloudHSM                   | N/A              | 3.2.1          | No                                    |
 
 {{< /table >}}
 
@@ -41,19 +41,19 @@ Both the Signing Service and the PKI Tool support a variety of HSMs.
 
 CENM currently supports the following databases:
 
-|Vendor|CPU architecture|Versions|JDBC driver|
-|-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|19c|Oracle JDBC 6|
-|Oracle|x86-64|19c|Oracle JDBC 8|
-|Oracle|x86-64|12cR2|Oracle JDBC 8|
-|Oracle|x86-64|11gR2|Oracle JDBC 6 |
-|Oracle|x86-64|23ai (23.4)|Oracle JDBC 8 |
-|PostgreSQL|x86-64|12.x, 13.x, 14.x, 15.x, 16.x|PostgreSQL JDBC Driver 42.1.4 / 42.5.2|
+| Vendor     | CPU architecture | Versions                     | JDBC driver                    |
+|------------|------------------|------------------------------|--------------------------------|
+| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 13.4.0   |
+| Oracle     | x86-64           | 19c                          | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 11                 |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 11                 |
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.11 |
 
 ## JDK support
 
-Corda Enterprise Network Manager 1.7 has been tested and verified to work with **Oracle JDK 17.0.16** and **Azul Zulu Enterprise 17.0.16**. For the Azure deployment downloadable, go to [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
+Corda Enterprise Network Manager 1.7 has been tested and verified to work with **Oracle JDK 17.0.19** and **Azul Zulu Enterprise 17.0.19**. For the Azure deployment downloadable, go to [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported, but should be compatible with Corda Enterprise Network Manager 1.7.
 
@@ -68,12 +68,12 @@ for your deployment needs.
 
 {{< table >}}
 
-|Platform|CPU Architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 9.x|
-|Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
-|Oracle Linux|x86-64|7.x, 6.x|
+| Platform                     | CPU Architecture | Versions            |
+|------------------------------|------------------|---------------------|
+| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x      |
+| Suse Linux Enterprise Server | x86-64           | 12.x, 11.x          |
+| Ubuntu Linux                 | x86-64           | 22.04, 24.04, 26.04 |
+| Oracle Linux                 | x86-64           | 7.x, 6.x            |
 
 {{< /table >}}
 
@@ -83,11 +83,11 @@ for your deployment needs.
 
 {{< table >}}
 
-|Platform|CPU Architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Microsoft Windows|x86-64|10, 8.x|
-|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
-|Apple macOS|x86-64|10.9 and above|
+| Platform                 | CPU Architecture | Versions            |
+|--------------------------|------------------|---------------------|
+| Microsoft Windows        | x86-64           | 10, 8.x             |
+| Microsoft Windows Server | x86-64           | 2016, 2012 R2, 2012 |
+| Apple macOS              | x86-64           | 10.9 and above      |
 
 {{< /table >}}
 
@@ -97,11 +97,14 @@ for your deployment needs.
 
 {{< table >}}
 
-|Vendor|CPU Architecture|Versions|JDBC Driver|
-|-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|11gR2|Oracle JDBC 6|
-|Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|12.x, 13.x, 13.x, 14.x, 15.x, 16.x|PostgreSQL JDBC Driver 42.5.2|
+| Vendor     | CPU Architecture | Versions                     | JDBC Driver                    |
+|------------|------------------|------------------------------|--------------------------------|
+| Microsoft  | x86-64           | Azure SQL, SQL Server 2022   | Microsoft JDBC Driver 13.4.0   |
+| Oracle     | x86-64           | 19c                          | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 23ai (23.4)                  | Oracle JDBC 11                 |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 8                  |
+| Oracle     | x86-64           | 26ai                         | Oracle JDBC 11                 |
+| PostgreSQL | x86-64           | 14.x, 15.x, 16.x, 17.x, 18.x | PostgreSQL JDBC Driver 42.7.11 |
 
 {{< /table >}}
