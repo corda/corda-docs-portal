@@ -20,6 +20,45 @@ tags:
 
 # Corda Open Source Edition 4.12 release notes
 
+## Corda Open Source Edition 4.12.14 release notes
+
+Corda Open Source Edition 4.12.14 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+The Corda platform version is 141, the same as in 4.12.13. If you are upgrading from 4.12.12-1 or earlier, the platform version changes from 140 to 141, so you must drain the node of all flows before you upgrade. For details, see the upgrade recommendation in the Corda Open Source Edition 4.12.13 release notes below.
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "../community/_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Corda Open Source Edition 4.11 to 4.12 upgrade guide]({{< relref "comm-upgrade-guide.md" >}}).
+
+The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12. If you have any nodes on versions 4.10 or below, you must upgrade them to 4.11 first. To do that, consult the relevant release upgrade documentation.
+
+### Fixed issues
+
+* The Corda Docker images now use JDK 17.0.21.1 (Azul Zulu 17.70+201 and Amazon Corretto 17.0.21.1.2), which fixes CVE-2026-114938 in the JDK. If you run Corda on your own JDK 17 installation, upgrade it to 17.0.21.1 or later.
+* Fixed an issue where flows restored from a checkpoint, for example after a node restart or a retry by the flow hospital, failed with an `IndexOutOfBoundsException` when OpenTelemetry was enabled with `spanStartEndEventsEnabled` set to `true`.
+* Fixed an issue where a flow restored from a checkpoint failed with a `NullPointerException`, and was kept in the flow hospital instead of resuming, if a telemetry component was enabled on the node after the checkpoint was written.
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
+
+| Vulnerability   | Component |
+|-----------------|-----------|
+| CVE-2026-110879 | Jackson   |
+| CVE-2026-116539 | TCNative  |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Open Source 4.12.14. Dependencies with unchanged versions are omitted.
+
+| Dependency | Name | 4.12.13 Open Source | 4.12.14 Open Source |
+| ---------- | ---- | ------------------- | ------------------- |
+| org.ow2.asm:asm | ASM | 9.5 | 9.11 |
+| com.google.guava:guava | Guava | 33.1.0-jre | 33.7.2-jre |
+| com.fasterxml.jackson.\* | Jackson | 2.21.7 | 2.21.8 |
+| org.eclipse.jetty.ee10:jetty-ee10-\* | Jetty | 12.0.38 | 12.0.39 |
+| io.opentelemetry:\* | OpenTelemetry | 1.63.0 | 1.67.0 |
+| io.netty:netty-tcnative-\* | TCNative | 2.0.74.Final | 2.0.84.Final |
+
 ## Corda Open Source Edition 4.12.13 release notes
 
 Corda Open Source Edition 4.12.13 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.

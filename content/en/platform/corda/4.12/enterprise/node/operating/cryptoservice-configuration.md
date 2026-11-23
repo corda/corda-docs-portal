@@ -120,6 +120,9 @@ the login password, or, if logging in with a key file, the password for the key 
 * **keyFile**:
 (optional) key file for file-based log in.
 
+* **additionalHosts**:
+(optional) list of further addresses of the same HSM, or of other HSMs in the same cluster, all using `port`. For example, the IP address of the HSM next to its host name in `host`. Each address must be different from `host` and from the other entries, ignoring case, and must not be blank. When `additionalHosts` is set, the Utimaco driver reconnects automatically after an HSM restart or a network interruption, with both older and 6.x drivers. When it is not set, older drivers still reconnect automatically, but with 6.x drivers you must restart the node after it loses the connection to the HSM. Available from Corda Enterprise 4.12.14.
+
 Example configuration file:
 
 ```kotlin
@@ -135,6 +138,14 @@ keyGenMechanism: 4
 authThreshold: 1
 username: user
 password: "my-password"
+```
+
+Example of `host` and `additionalHosts` for automatic reconnection with 6.x drivers:
+
+```kotlin
+host: "hsm.example.com"
+additionalHosts: ["10.0.0.5"]
+port: 3001
 ```
 
 In addition to the configuration, the node needs to access binaries provided by Utimaco. The `CryptoServerJCE.jar` for release 4.21.1, which can be obtained from Utimaco, needs to be placed in the node’s `drivers` folder.
