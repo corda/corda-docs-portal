@@ -191,13 +191,13 @@ process all pending transactions and collect archivable items
 Options:
       --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
       --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
-      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
+      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 5000)
       --skip-safety-interval-check          Skip safety interval check when collecting archivable items
 ```
 
 Processes all pending transactions and then collects all archivable items. The called flow runs until all pending transactions have been added to the internal dependency structures, then collects archivable items until all walkback processing is complete.
 
-Adding the pending transactions reads the node's transaction table in batches ordered by `(timestamp, tx_id)`, continuing from the last processed transaction, which relies on the index the CorDapp's schema migration creates. If the command is unexpectedly slow on a large vault, see [Transaction table index]({{< relref "archiving-service-index.md#transaction-table-index" >}}).
+Adding the pending transactions reads the node's transaction table in batches ordered by `(timestamp, tx_id)`, continuing from the last processed transaction. Without an index on the transaction table every batch scans and sorts the whole table; the command then warns in the node log and, after its first batch, logs that batch's duration and the number of batches still to come. With `transactionTableIndex: on-demand` in the CorDapp configuration, the command creates the index before adding more than one batch of transactions and drops it once they have been added; with `transactionTableIndex: always` it creates the index on its next run and keeps it. See [Transaction table index]({{< relref "archiving-service-index.md#transaction-table-index" >}}) for the trade-off and the statements to create or drop the index by hand.
 
 The first run on an existing ledger processes every transaction in the vault and can take hours on a large ledger. Later runs are incremental: they only process the transactions recorded since the previous run, so the command is suitable for running on a schedule between archiving jobs, which leaves `list-items` and `create-snapshot` little to do when a job is started. If the time limit is exceeded, the command fails with a time-out error; progress is persisted after every batch, so run it again to continue from where it stopped. The `statistics` command shows the remaining work. See [Running process-all-pending between archiving jobs]({{< relref "archiving-service-index.md#running-process-all-pending-between-archiving-jobs" >}}).
 
@@ -205,7 +205,7 @@ The first run on an existing ledger processes every transaction in the vault and
 === Process All Pending Completed ===
 Time Limit: 8
 Not Newer Than: 2026-04-14T10:17:38Z
-Batch Size: 1000
+Batch Size: 5000
 Skip Safety Interval Check: false
 ```
 
@@ -281,7 +281,10 @@ Transactions older than min age (60 seconds): N
 Transactions newer than min age (60 seconds): N
 Archivable transaction size: N bytes
 Archivable attachment size: N bytes
+Transaction table index: present
 ```
+
+The last line reports whether the node's transaction table has an index that serves `process-all-pending` (`present`, `missing`, or `unknown` when the node's database user cannot read the index metadata); see [Transaction table index]({{< relref "archiving-service-index.md#transaction-table-index" >}}).
 
 This command does not update any archive log tables.
 
@@ -327,7 +330,7 @@ Options:
       --bypass-process-all-pending          Skip refreshing the archiving data structures before listing items. Default is false
       --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
       --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
-      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
+      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 5000)
       --skip-safety-interval-check          Skip safety interval check when collecting archivable items
 ```
 
@@ -359,7 +362,7 @@ Options:
       --bypass-process-all-pending          Skip refreshing the archiving data structures before listing items. Default is false
       --time-limit=<hours>                  Maximum time to run ProcessAllPendingFlow (in hours, default: 8)
       --not-newer-than=<date>               Only collect transactions older than this timestamp (ISO format)
-      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 1000)
+      --batch-size=<batchsize>              Batch size for ProcessAllPendingFlow (default: 5000)
       --skip-safety-interval-check          Skip safety interval check when collecting archivable items
       --filter-config=<path>                Path to additional tables (previously filter) configuration file
 ```
@@ -797,6 +800,7 @@ The following are the keys for configuring the Archive Service. Every key is opt
 * `target.password`: Backup schema archive database password, required if a backup schema is used.
 * `archivableContractClassStatePrefixes`: Contract class name prefixes restricting which transactions may be archived, default empty (all).
 * `ignoreSnapshotExportFailures`: Default `false`; when `true` the `FormattedTransactionExporter` skips transactions it cannot render as JSON instead of failing.
+* `transactionTableIndex`: `manual` (default), `on-demand` or `always`; whether `process-all-pending` leaves the [transaction table index]({{< relref "archiving-service-index.md#transaction-table-index" >}}) to the operator, creates it before adding more than one batch of transactions and drops it afterwards, or creates it and keeps it.
 * `additionalTransactionTables`, `excludeTransactionTables`, `additionalAttachmentTables`, `excludeAttachmentTables`, `queryableTables`, `excludeQueryableTables`: Table lists, default empty; see [Queryable state tables](#queryable-state-tables) and [Additional tables](#additional-tables).
 * `exporter.exporters`: Exporters to run, default none. `exporter.scanPackages`: Extra packages to scan for custom exporters, default none. `exporter.extractParticipants`: Default `true`; see [Archive manifest](#archive-manifest).
 * `exporter.zippedFileExporter.directory` (default `.`), `exporter.zippedFileExporter.chunkSize` (default `10000`), `exporter.formattedTransactionExporter.directory` (default `.`), `exporter.queryableStateFileExporter.directory` (default `.`), `exporter.queryableStateFileExporter.time.format` (default `yyyy-MM-dd'T'HH:mm:ssZ`): Per-exporter settings.
