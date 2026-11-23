@@ -273,8 +273,8 @@ Replace the placeholders *<database_server>* and *<my_database>* with appropriat
 The `database.schema` is the database schema name assigned to the user.
 You need  *administrative* permissions in order to run the `run-migration-scripts` sub-command to initialise or migrate the database schema.
 
-The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
-extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (as the archive comes with two JARs) to the `drivers` directory.
+The Microsoft JDBC Driver for SQL Server (version 13.6.2 or later) can be downloaded from [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server),
+extract the archive and copy the single file *mssql-jdbc-13.6.2.jre11.jar* (as the archive comes with two JARs) to the `drivers` directory.
 
 #### SQL Server
 
@@ -302,8 +302,8 @@ By default the connection to the database is not SSL, for securing JDBC connecti
 You can only run the  `run-migration-scripts` sub-command to initialise or migrate the database schema when using *administrative* permissions.
 The `database.schema` is the database schema name assigned to the user.
 
-Microsoft JDBC 6.2 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
-extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` to the `drivers` folder, as the archive comes with two JARs.
+Download the Microsoft JDBC Driver for SQL Server, version 13.6.2 or later, from the [Microsoft JDBC Driver for SQL Server download page](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) or Maven Central,
+extract the archive and copy the single file `mssql-jdbc-13.6.2.jre11.jar` to the `drivers` folder, as the archive comes with two JARs.
 
 Ensure JDBC connection properties match the SQL Server setup, especially when trying to reuse the Azure provided SQL JDBC URL
 which is invalid for SQL Server.  This may lead to the node failing to start with the message:
@@ -335,7 +335,7 @@ If the user was created with *administrative* permissions the schema name `datab
 
 When the database user has *administrative* permissions they can run the `run-migration-scripts` sub-command to initialise or migrate the database schema - this is not possible when using *restricted* permissions.
 
-Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c to the node directory `drivers`.
+Copy the Oracle JDBC driver *ojdbc8.jar* or *ojdbc11.jar* from the Oracle JDBC 23.26.4 release (or later) for Oracle 19c, 23ai or 26ai to the node directory `drivers`.
 
 
 
@@ -365,7 +365,7 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 
 You can only run the `run-migration-scripts` sub-command when using *administrative* permissions.
 
-Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* to the node directory `drivers`.
+Copy the PostgreSQL JDBC Driver *42.7.14* (or later, *JDBC 4.2*) to the node directory `drivers`.
 
 
 

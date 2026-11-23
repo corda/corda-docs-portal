@@ -15,6 +15,7 @@ weight: 2
 * [Upgrading a node to Corda 4.15]({{< relref "node-upgrade-notes.md" >}})
 * [Upgrading a CorDapp to Corda Enterprise Edition 4.15]({{< relref "app-upgrade-notes-enterprise.md" >}})
 * [Upgrading a CorDapp to a newer platform version]({{< relref "app-upgrade-notes.md" >}})
+* [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}})
 * [Upgrading a Corda OS node to Corda Enterprise]({{< relref "node-operations-upgrading-os-to-ent.md" >}})
 * [Upgrading deployed CorDapps]({{< relref "node-operations-upgrade-cordapps.md" >}})
 * [Upgrading a running CorDapp]({{< relref "cordapps/upgrading-cordapps.md" >}})

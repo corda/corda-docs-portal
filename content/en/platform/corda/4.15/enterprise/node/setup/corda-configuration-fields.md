@@ -161,6 +161,7 @@ Database configuration
   * Some database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate    property 'hibernate.default_schema'. This is optional.
 * `hibernateDialect`
   * Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.     All supported databases do not require this option, as Hibernate sets the correct dialect value out of box.
+  * Hibernate 7, which Corda 4.15 uses, removed the dialects that were specific to one database version, such as `org.hibernate.dialect.SQLServer2012Dialect`, `Oracle12cDialect`, `PostgreSQL95Dialect` and `CockroachDB201Dialect`. If one of these is configured, the node uses the dialect that replaces it (`SQLServerDialect`, `OracleDialect`, `PostgreSQLDialect` or `CockroachDialect`) and logs a warning. Remove the setting, or update it. A custom dialect class must be built for Hibernate 7. See [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "../../hibernate-7-upgrade.md#check-the-databasehibernatedialect-setting" >}}).
 
 ## dataSourceProperties
 
@@ -858,7 +859,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
       * `schema`
         * Sets the schema to be used by Hibernate
       * `hibernateDialect`
-        * Optionally sets the Hibernate dialect to use when communicating with the database.
+        * Optionally sets the Hibernate dialect to use when communicating with the database. A version-specific dialect that Hibernate 7 removed, such as `org.hibernate.dialect.PostgreSQL95Dialect` or `CockroachDB201Dialect`, is replaced by the current dialect for that database with a warning in the log. On CockroachDB, Hibernate 7 uses its `CockroachDialect` when no dialect is set; set `org.hibernate.dialect.PostgreSQLDialect` to keep the dialect that Corda 4.14 used.
     * `dataSourceProperties`
       * This section is used to configure the JDBC connection to the database cluster. For example:
       * `autoCommit`

@@ -200,8 +200,8 @@ constructed either by the state itself or a plugin to the `SchemaService`. This 
 associate a `StateRef` with a persisted representation of a `ContractState` and allows joining with the set of
 unconsumed states in the vault.
 
-The `PersistentState` subclass should be marked up as a JPA 2.1 *Entity* with a defined table name and having
-properties (in Kotlin, getters/setters in Java) annotated to map to the appropriate columns and SQL types. Additional
+The `PersistentState` subclass should be marked up as a Jakarta Persistence (JPA) *Entity* with a defined table name and having
+properties (in Kotlin, getters/setters in Java) annotated to map to the appropriate columns and SQL types. Corda 4.15 uses Hibernate ORM 7 and the `jakarta.persistence` annotations. A CorDapp built for Corda 4.14 or earlier, which uses the `javax.persistence` annotations, is converted by the node as it is loaded; see [Hibernate 7 and Jakarta Persistence in Corda Open Source Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}). Additional
 entities can be included to model these properties where they are more complex, for example collections (see [Persisting hierarchical data](#persisting-hierarchical-data)), so
 the mapping does not have to be *flat*. The `MappedSchema` constructor accepts a list of all JPA entity classes for that schema in
 the `MappedTypes` parameter. It must provide this list in order to initialize the ORM layer.
@@ -220,8 +220,9 @@ import net.corda.core.schemas.PersistentState
 import net.corda.core.serialization.CordaSerializable
 import net.corda.core.utilities.MAX_HASH_HEX_SIZE
 import net.corda.core.contracts.MAX_ISSUER_REF_SIZE
-import org.hibernate.annotations.Type
-import javax.persistence.*
+import org.hibernate.annotations.JdbcTypeCode
+import org.hibernate.type.SqlTypes
+import jakarta.persistence.*
 
 /**
  * An object used to fully qualify the [CashSchema] family name (i.e. independent of version).
@@ -255,7 +256,7 @@ object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version 
             var issuerPartyHash: String,
 
             @Column(name = "issuer_ref", length = MAX_ISSUER_REF_SIZE, nullable = false)
-            @Type(type = "corda-wrapper-binary")
+            @JdbcTypeCode(SqlTypes.VARBINARY)
             var issuerRef: ByteArray
     ) : PersistentState()
 }
