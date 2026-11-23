@@ -19,11 +19,106 @@ tags:
 
 # Corda Open Source Edition 4.14 release notes
 
+## Corda Open Source Edition 4.14.4 release notes
+
+Corda Open Source Edition 4.14.4 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+{{< important >}}
+**The Corda platform version has changed from 160 to 161 in this patch release. You must drain the node of all flows before you upgrade to Corda Open Source Edition 4.14.4.**
+
+The platform version has changed because the Quasar fix in this release changes the flow stack format. Checkpoints created by an earlier version of Corda are not compatible with 4.14.4, and the node rejects them on startup.
+
+Before you apply this patch release, make sure there are no running, paused, or hospitalized flows on the node. Allow any remaining flows to complete, or safely kill them, before you upgrade. For more information, see [Draining mode]({{< relref "key-concepts-node.md#draining-mode" >}}).
+{{< /important >}}
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+### Fixed issues
+
+* Fixed an issue where the node scheduler could stop scheduling flows after a temporary failure to read scheduled states from the database. The scheduler now logs the error and retries after a short delay.
+* Fixed an issue where `CashPaymentFlow` ignored the `anonymous` parameter when sending change back to the payer. Change is now sent to the well-known identity when `anonymous` is `false`.
+* Restored the `sum` extension function for `Iterable<BigDecimal>` in `net.corda.core.internal`, so that contracts built against Corda 4.11 that use it continue to work.
+* Upgraded Quasar to 0.9.3_r3 to fix a stack frame corruption issue that could occur when checkpointing flows. This changes the flow stack format, so the Corda platform version is now 161 (previously 160). See the important note in the upgrade recommendation.
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
+
+| Vulnerability  | Component |
+|----------------|-----------|
+| CVE-2026-57822 | Artemis   |
+| CVE-2026-57967 | Artemis   |
+| CVE-2026-49364 | Artemis   |
+| CVE-2026-75595 | Netty     |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Open Source 4.14.4. Dependencies with unchanged versions are omitted.
+
+| Dependency | Name | 4.14.3 Open Source | 4.14.4 Open Source |
+| ---------- | ---- | ------------------ | ------------------ |
+| org.apache.activemq:artemis-\* | Artemis | 2.55.0 | 2.57.0 |
+| org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.12 | 2.73.13 |
+| com.fasterxml.jackson.\* | Jackson | 2.21.5 | 2.21.7 |
+| org.eclipse.jetty.ee10:jetty-ee10-\* | Jetty | 12.0.36 | 12.0.38 |
+| io.netty:netty-\* | Netty | 4.1.136.Final | 4.1.138.Final |
+| org.apache.qpid:proton-j | Proton-J | 0.34.1 | 0.35.0 |
+| io.projectreactor.netty:reactor-netty-http | Reactor Netty | 1.2.18 | 1.3.7 |
+| io.micrometer:micrometer-core | Micrometer | 1.16.6 | 1.17.1 |
+
+## Corda Open Source Edition 4.14.3 release notes
+
+{{< note >}}
+Corda Open Source Edition 4.14.3 is no longer available for download. Use [Corda Open Source Edition 4.14.4](#corda-open-source-edition-4144-release-notes) or later, which includes all the fixes and dependency upgrades in 4.14.3.
+{{< /note >}}
+
+Corda Open Source Edition 4.14.3 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
+
+### Fixed issues
+
+* The following Critical vulnerabilities in dependencies have been addressed. High, medium and low severity CVEs have also been addressed but are not listed here.
+
+| Vulnerability  | Component |
+|----------------|-----------|
+| CVE-2026-54512 | Jackson   |
+| CVE-2026-58062| BouncyCastle |
+| CVE-2026-8763 | BouncyCastle |
+| CVE-2026-59650 | BouncyCastle |
+| CVE-2026-54513 | BouncyCastle |
+| CVE-2026-44249 | Netty     |
+
+### Third-party components upgrade
+
+This table shows the updates in dependency versions for Corda Open Source 4.14.3. Dependencies with unchanged versions are omitted.
+
+| Dependency | Name | 4.14.2 Open Source | 4.14.3 Open Source |
+| ---------- | ---- | ------------------ | ------------------ |
+| org.apache.activemq:artemis-\* | Artemis | 2.52.0 | 2.55.0 |
+| org.bouncycastle:\*-lts8on | Bouncy Castle | 2.73.9 | 2.73.12 |
+| com.fasterxml.jackson.\* | Jackson | 2.18.6 | 2.21.5 |
+| com.fasterxml.jackson.module:jackson-module-kotlin | Jackson for Kotlin | 2.17.0 | 2.19.4 |
+| org.eclipse.jetty.ee10:jetty-ee10-\* | Jetty | 12.0.33 | 12.0.36 |
+| io.netty:netty-\* | Netty | 4.1.132.Final | 4.1.136.Final |
+| org.apache.logging.log4j:\* | Log4j | 2.25.3 | 2.25.5 |
+| org.apache.shiro:shiro-core | Shiro | 2.1.0 | 3.0.0 |
+| org.hibernate:hibernate-\* | Hibernate | 5.6.14.Final | 5.6.15.Final |
+| com.github.ben-manes.caffeine:caffeine | Caffeine | 3.1.8 | 3.2.3 |
+| io.opentelemetry:\* | OpenTelemetry | 1.20.1 | 1.63.0 |
+| io.opentelemetry.semconv:opentelemetry-semconv | OpenTelemetry SemConv | 1.20.1-alpha | 1.41.1 |
+| com.azure:azure-identity | Azure Identity | 1.18.1 | 1.18.3 |
+| com.azure.resourcemanager:azure-resourcemanager | Azure Resource Manager | 2.52.0 | 2.62.0 |
+| org.apache.commons:commons-configuration2 | Commons Configuration2 | 2.13.0 (transitive) | 2.15.0 |
+| io.projectreactor.netty:reactor-netty-http | Reactor Netty | 1.2.10 (transitive) | 1.2.18 |
+| io.micrometer:micrometer-core | Micrometer | 1.16.5 (transitive) | 1.16.6 |
+
 ## Corda Open Source Edition 4.14.2 release notes
 
-Corda Open Source Edition 4.14.2 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
+Corda Open Source Edition 4.14.2 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
 
-## Upgrade recommendation
+### Upgrade recommendation
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
 
@@ -45,9 +140,9 @@ This table shows the updates in dependency versions for Corda Open Source 4.14.2
 
 ## Corda Open Source Edition 4.14.1 release notes
 
-Corda Open Source Edition 4.14.1 is a patch release of Corda Community Edition focused on resolving issues and upgrading dependencies to address security updates.
+Corda Open Source Edition 4.14.1 is a patch release of Corda Open Source Edition focused on resolving issues and upgrading dependencies to address security updates.
 
-## Upgrade recommendation
+### Upgrade recommendation
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda]({{< relref "_index.md" >}}) as soon as possible. The latest Corda Open Source release notes are on this page, and for the latest upgrade guide, refer to [Upgrading CorDapps to newer platform versions]({{< relref "app-upgrade-notes.md" >}}) and [Upgrading your node]({{< relref "node-upgrade-notes.md" >}}).
 
@@ -65,7 +160,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Third-party components upgrade
 
-This table shows the updates in dependency versions for Corda Open Source 4.12.10. Dependencies with unchanged versions are omitted.
+This table shows the updates in dependency versions for Corda Open Source 4.14.1. Dependencies with unchanged versions are omitted.
 
 | Dependency                          | Name           | Version       |
 |-------------------------------------|----------------|---------------|

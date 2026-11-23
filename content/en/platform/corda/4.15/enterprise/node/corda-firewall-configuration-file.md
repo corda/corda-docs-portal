@@ -472,7 +472,7 @@ In this example we are going to use Finance CorDapp which is supplied as part of
 As discussed above each of the nodes will be using database to store node’s data. Corda Enterprise supports a number of databases, however in order
 for a Corda node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
 
-In this example we are using MSSql Server DB, therefore `mssql-jdbc-6.4.0.jre8.jar` will be installed.
+In this example we are using MSSql Server DB, therefore `mssql-jdbc-13.6.2.jre11.jar` will be installed.
 
 
 #### Keystore aggregation for the Bridge

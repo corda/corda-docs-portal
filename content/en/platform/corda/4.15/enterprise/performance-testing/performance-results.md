@@ -94,6 +94,11 @@ See the sections below for a discussion of the configurations used in these test
 
 ### Sizing
 
+{{< note >}}
+The table below dates from the Corda Enterprise 4.0 benchmarks. For current guidance, measured on Corda Enterprise 4.15, including a
+minimal configuration that runs on a 2 vCPU / 2 GB host, see [Node sizing and memory requirements]({{< relref "../node/setup/node-sizing.md" >}}).
+{{< /note >}}
+
 With all of the preceding caveats and those that follow in the more detailed sections regarding how much all this depends on the
 CorDapps and workload, here are some simplistic node sizes.  Refer to detail elsewhere in this section on what processing can be achieved with
 these sizings.
@@ -244,9 +249,10 @@ The performance tests shown in the chart above were carried out following this r
 
 ### Sizing the heap
 
-The Corda Enterprise performance tests are usually run with 32GB heaps as this seems to give plenty of breathing room to the node JVM process. Settings below
-1GB certainly start to apply memory pressure, can result in an `OutOfMemoryError`, and are therefore not recommended. This is due to many internal data structures within the
-Artemis MQ message broker and several caches in the Corda Enterprise node that have fixed upper bounds.  Typically you want to be generous with the heap size.
+The Corda Enterprise performance tests are usually run with 32GB heaps as this seems to give plenty of breathing room to the node JVM process. For
+throughput-oriented deployments you want to be generous with the heap size: several caches are sized from it, and flows waiting for counterparties
+hold their state in it. Heaps below 1GB are nevertheless workable for lightly loaded nodes when the thread pools and caches are configured for it;
+Corda Enterprise 4.15 measurements with a 512 MB heap are given in [Node sizing and memory requirements]({{< relref "../node/setup/node-sizing.md" >}}).
 
 As with other JVM processes, do not set the maximum heap size of the node to use all available memory on the host.  The operating system, file buffers,
 threads etc all consume non-heap memory.

@@ -147,7 +147,7 @@ This is a sample node.conf which details a configuration connecting to a Corda U
 },
 
 //Azure SQL
-//Microsoft SQL Server 2017
+//Microsoft SQL Server 2022
 
     "dataSourceProperties" : {
         "dataSource" : {
@@ -166,7 +166,7 @@ This is a sample node.conf which details a configuration connecting to a Corda U
         },
         "dataSourceClassName" : "org.postgresql.ds.PGSimpleDataSource"
     },
-// Oracle 11gR2/12cR2 RDBMS
+// Oracle 19c, 23ai or 26ai RDBMS
     "dataSourceProperties" : {
         "dataSourceClassName" : "oracle.jdbc.pool.OracleDataSource",
         "dataSource" : {
