@@ -29,4 +29,8 @@ The Archive Service consists of the following:
 
 It also makes use of the Application **Entity Manager**, which allows CorDapps to access off-ledger databases using JPA APIs.
 
+{{< note >}}
+Corda Enterprise 4.15 requires Archive Service 2.0.1 or later. Earlier Archive Service versions refer to Hibernate 5 classes that the node's Hibernate 7 no longer has, and the node [refuses to load them]({{< relref "../../hibernate-7-upgrade.md#what-makes-the-node-refuse-a-cordapp" >}}). See the [Archive Service release notes]({{< relref "../../../../../../tools/archiving-service/archiving-release-notes.md#archive-service-201" >}}).
+{{< /note >}}
+
 Read the full documentation about [The Archive Service]({{< relref "../../../../../../tools/archiving-service/archiving-service-index.md" >}})
