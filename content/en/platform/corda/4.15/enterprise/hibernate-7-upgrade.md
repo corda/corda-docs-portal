@@ -120,6 +120,14 @@ classes are converted. A CorDapp built for Corda 4.15 (`jakarta.persistence`) is
 CorDapp /opt/corda/cordapps/my-cordapp-1.0.jar was built for Corda 4.14 or earlier (javax.persistence); its classes are converted to jakarta.persistence for Hibernate 7 as they are loaded
 ```
 
+The classes of contract attachments are converted too when a transaction is verified, both in the node and in the external verifier,
+which have `jakarta.persistence` on their classpath and not `javax.persistence`. A contract jar built for Corda 4.14 or earlier keeps
+verifying, and so do the transactions already on the ledger that use it, even if verification reaches a class that names a
+`javax.persistence` type in its code or in the signatures of its members, for example an `AttributeConverter` implementation or a `catch`
+of `PersistenceException`. Only the package is renamed there: the Hibernate annotations of such a class are neither substituted nor
+checked, as verification maps nothing to the database. The attachment itself is not touched, so its hash and its signers, and the hash
+and signature constraints that depend on them, are unaffected.
+
 The Database Management Tool and the Transaction Validator Utility load CorDapps through the same class loader, so a CorDapp built for 4.14
 or earlier is converted there too.
 
