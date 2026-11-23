@@ -698,22 +698,21 @@ A forged proof does not help an attacker take over a party: `KeyRotationProofCha
 
 #### Testing a CorDapp against a rotated key
 
-Both adapted samples ship tests that rotate a node's key in the middle of a negotiation and check where the proof appears. They use the same test infrastructure as the Corda Enterprise key rotation tests, not the public `MockNetwork`, for two reasons: `MockNetwork` nodes run the Corda Open Source flows, which cannot produce a rotated signature, and only `InternalMockNetwork` can rotate a node's key.
+Both adapted samples ship tests that rotate a node's key in the middle of a negotiation and check where the proof appears. They use the public `MockNetwork`: `MockNetworkParameters.withEnterpriseNodes(true)` makes every node a Corda Enterprise node, running the Enterprise `CollectSignaturesFlow` and `FinalityFlow` that produce and verify a signature made with a rotated key, and `MockNetwork.rotateKey` rotates a node's key.
 
 {{< tabs name="key-rotation-test-network" >}}
 {{% tab name="Kotlin" %}}
 ```kotlin
-// Every node is an Enterprise node: createKeyRotationMockNode gives it the Enterprise CollectSignaturesFlow and FinalityFlow.
+// withEnterpriseNodes(true): every node is an Enterprise node, with the Enterprise CollectSignaturesFlow and FinalityFlow.
 // Key rotation needs network minimum platform version 170.
-network = InternalMockNetwork(
-        notarySpecs = listOf(MockNetworkNotarySpec(CordaX500Name("Notary", "London", "GB"))),
-        cordappsForAllNodes = setOf(
-                TestCordapp.findCordapp("net.corda.samples.negotiation.flows") as TestCordappInternal,
-                TestCordapp.findCordapp("net.corda.samples.negotiation.contracts") as TestCordappInternal
-        ),
-        initialNetworkParameters = NetworkParameters(170, emptyList(), 10485760, 10485760 * 50, Instant.now(), 1, emptyMap()),
-        defaultFactory = ::createKeyRotationMockNode
-)
+val networkParameters = NetworkParameters(170, emptyList(), 10485760, 10485760 * 50, Instant.now(), 1, emptyMap())
+network = MockNetwork(MockNetworkParameters()
+        .withNotarySpecs(listOf(MockNetworkNotarySpec(CordaX500Name.parse("O=Notary,L=London,C=GB"))))
+        .withNetworkParameters(networkParameters)
+        .withCordappsForAllNodes(listOf(
+                TestCordapp.findCordapp("net.corda.samples.negotiation.flows"),
+                TestCordapp.findCordapp("net.corda.samples.negotiation.contracts")))
+        .withEnterpriseNodes(true))
 a = network.createPartyNode(CordaX500Name("Node A", "London", "GB"))
 b = network.createPartyNode(CordaX500Name("Node B", "New York", "US"))
 
@@ -724,24 +723,16 @@ a = network.rotateKey(a, null)
 {{% /tab %}}
 {{% tab name="Java" %}}
 ```java
-// Every node is an Enterprise node: createKeyRotationMockNode gives it the Enterprise CollectSignaturesFlow and FinalityFlow.
+// withEnterpriseNodes(true): every node is an Enterprise node, with the Enterprise CollectSignaturesFlow and FinalityFlow.
 // Key rotation needs network minimum platform version 170.
 NetworkParameters networkParameters = new NetworkParameters(170, Collections.emptyList(), 10485760, 10485760 * 50, Instant.now(), 1, Collections.emptyMap());
-network = new InternalMockNetwork(
-            Collections.emptyList(),
-            new MockNetworkParameters(),
-            false,
-            false,
-            new InMemoryMessagingNetwork.ServicePeerAllocationStrategy.Random(),
-            ImmutableList.of(new MockNetworkNotarySpec(CordaX500Name.parse("O=Notary,L=London,C=GB"))),
-            Paths.get("build", "mock-network", DriverDSLImplKt.getTimestampAsDirectoryName()),
-            networkParameters,
-            InternalMockNetwork.Companion::createKeyRotationMockNode,
-            ImmutableList.of(
-                (TestCordappInternal) TestCordapp.findCordapp("net.corda.samples.negotiation.flows"),
-                (TestCordappInternal) TestCordapp.findCordapp("net.corda.samples.negotiation.contracts")
-            ),
-            true);
+network = new MockNetwork(new MockNetworkParameters()
+        .withNotarySpecs(ImmutableList.of(new MockNetworkNotarySpec(CordaX500Name.parse("O=Notary,L=London,C=GB"))))
+        .withNetworkParameters(networkParameters)
+        .withCordappsForAllNodes(ImmutableList.of(
+                TestCordapp.findCordapp("net.corda.samples.negotiation.flows"),
+                TestCordapp.findCordapp("net.corda.samples.negotiation.contracts")))
+        .withEnterpriseNodes(true));
 a = network.createPartyNode(new CordaX500Name("Node A", "London", "GB"));
 b = network.createPartyNode(new CordaX500Name("Node B", "New York", "US"));
 
@@ -752,11 +743,11 @@ a = network.rotateKey(a, null);
 {{% /tab %}}
 {{< /tabs >}}
 
-The tests then run the sample's flows and inspect the resulting `SignedTransaction`: `stx.tx.commands.single().keyRotationProofChainMap` for a proof in the command, and `signature.signatureMetadata.proofChain` on each entry of `stx.sigs` for a proof in a signature, checking the chain with `KeyRotationProofChain.isValid(originalKey, rotatedKey)`. `InternalMockNetwork`, `createKeyRotationMockNode` and `rotateKey` are in `corda-node-driver`. Because their signatures mention node-internal types, the test compile classpath also needs `corda-node`, `corda-node-api` and `corda-extensions-api` as `testCompileOnly` dependencies.
+The tests then run the sample's flows and inspect the resulting `SignedTransaction`: `stx.tx.commands.single().keyRotationProofChainMap` for a proof in the command, and `signature.signatureMetadata.proofChain` on each entry of `stx.sigs` for a proof in a signature, checking the chain with `KeyRotationProofChain.isValid(originalKey, rotatedKey)`. `MockNetwork`, `withEnterpriseNodes` and `rotateKey` are in `corda-node-driver`.
 
 ## References
 
 * [Node cross-provider key rotation tool]({{< relref "../../ha-utilities.md#node-cross-provider-key-rotation-tool" >}}) in the HA Utilities reference, for the full command syntax and options.
-* [negotiation-cordapp](https://github.com/corda/samples-java/tree/release/4.15/Advanced/negotiation-cordapp) (Java) and its [Kotlin version](https://github.com/corda/samples-kotlin/tree/release/4.15/Advanced/negotiation-cordapp): the original bilateral-agreement sample that does not survive a key rotation.
-* [negotiation-cordapp-key-rotation-support](https://github.com/corda/samples-java/tree/release/4.15/Advanced/negotiation-cordapp-key-rotation-support) (Java) and its [Kotlin version](https://github.com/corda/samples-kotlin/tree/release/4.15/Advanced/negotiation-cordapp-key-rotation-support): pattern 1, proofs in the signature.
-* [negotiation-cordapp-key-rotation-proof-free](https://github.com/corda/samples-java/tree/release/4.15/Advanced/negotiation-cordapp-key-rotation-proof-free) (Java) and its [Kotlin version](https://github.com/corda/samples-kotlin/tree/release/4.15/Advanced/negotiation-cordapp-key-rotation-proof-free): pattern 2, proofs in the command and proof-free transactions afterwards.
+* [negotiation-cordapp](https://github.com/corda/samples-java/tree/release/ent/4.15/Advanced/negotiation-cordapp) (Java) and its [Kotlin version](https://github.com/corda/samples-kotlin/tree/release/ent/4.15/Advanced/negotiation-cordapp): the original bilateral-agreement sample that does not survive a key rotation.
+* [negotiation-cordapp-key-rotation-support](https://github.com/corda/samples-java/tree/release/ent/4.15/Advanced/negotiation-cordapp-key-rotation-support) (Java) and its [Kotlin version](https://github.com/corda/samples-kotlin/tree/release/ent/4.15/Advanced/negotiation-cordapp-key-rotation-support): pattern 1, proofs in the signature.
+* [negotiation-cordapp-key-rotation-proof-free](https://github.com/corda/samples-java/tree/release/ent/4.15/Advanced/negotiation-cordapp-key-rotation-proof-free) (Java) and its [Kotlin version](https://github.com/corda/samples-kotlin/tree/release/ent/4.15/Advanced/negotiation-cordapp-key-rotation-proof-free): pattern 2, proofs in the command and proof-free transactions afterwards.
