@@ -27,9 +27,9 @@ Nodes can use this configuration option to advertise HA endpoints and aliases to
 
 ## attachmentContentCacheSizeMegaBytes
 
-Optionally specify how much memory should be used to cache attachment contents in memory.
+Optionally specify how much memory should be used to cache attachment contents in memory. The cache holds the raw bytes of attachment JARs.
 
-*Default:* 8 MB plus 5% of all heap memory above 300MB.
+*Default:* 10 MB plus 5% of all heap memory above 300MB, so about 200 MB on a 4 GB heap. See [Node sizing and memory requirements]({{< relref "node-sizing.md" >}}).
 
 ## blacklistedAttachmentSigningKeys
 
@@ -411,7 +411,7 @@ Allows fine-grained controls of various features only available in the Enterpris
 
         The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
   using for example H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
-  architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
+  architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number. The default is computed from the processor count the JVM reports when the configuration is loaded, so a lightly used node on a large host starts far more flow threads, and database connections, than it needs; set the value explicitly in that case, or limit the reported processor count with `-XX:ActiveProcessorCount`. See [Node sizing and memory requirements]({{< relref "node-sizing.md" >}}).
 
     - `rpcThreadPoolSize`
 
@@ -1139,6 +1139,8 @@ Internal option.
 An optional map of additional system properties to be set when launching via `corda.jar` only.
 Keys and values of the map should be strings; for example, `systemProperties = { "visualvm.display.name" = FooBar }`
 
+Several memory-relevant thread pools and buffer pools of the embedded messaging layer are configured only through system properties, for example `io.netty.allocator.numDirectArenas`, `activemq.artemis.client.global.thread.pool.max.size`, `net.corda.nodeapi.amqpbridgemanager.NumBridgeThreads` and `net.corda.nodeapi.amqpclient.NumClientThread`. See [Node sizing and memory requirements]({{< relref "node-sizing.md" >}}) for the values used in the minimal configuration.
+
 *Default:* not defined
 
 ## telemetry
@@ -1169,9 +1171,9 @@ telemetry {
 
 ## transactionCacheSizeMegaBytes
 
-Optionally specify how much memory should be used for caching of ledger transactions in memory.
+Optionally specify how much memory should be used for caching of ledger transactions in memory. This value also determines the entry bounds of about 25 other node caches (identities, network map, keys, message deduplication, and others, each bounded at this size divided by 8 KB) and the memory limit of the embedded Artemis broker (the larger of this value and 10 × the network's `maxMessageSize`).
 
-*Default:* 8 MB plus 5% of all heap memory above 300MB.
+*Default:* 8 MB plus 5% of all heap memory above 300MB, so about 200 MB on a 4 GB heap. See [Node sizing and memory requirements]({{< relref "node-sizing.md" >}}).
 
 ## tlsCertCrlDistPoint
 
