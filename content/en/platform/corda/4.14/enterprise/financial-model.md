@@ -29,7 +29,7 @@ These provide a common language for states and contracts.
 
 ## Amount
 
-The [Amount](../../../../../en/api-ref/corda/4.14/community/kotlin/corda/net.corda.core.contracts/-amount/index.html) class represents an amount of
+The [Amount](../../../../../en/api-ref/corda/4.14/community/kotlin/docs/net.corda.core.contracts/-amount/index.html) class represents an amount of
 a fungible asset. It is a generic class which wraps around the token. For example, the `Amount` could be:
 * The standard JDK type `Currency`.
 * An `Issued` instance.
