@@ -156,7 +156,7 @@ Also, having the mapper in the same package as the main app would make installin
 
 ## Thread pool metrics
 
-The following [metric]({{< relref "../node/operating/monitoring-and-logging/node-metrics.md" >}}) was introduced in 4.15 specifically for thread pools:
+The following [metric]({{< relref "../node/operating/monitoring-and-logging/node-metrics.md" >}}) was introduced in 4.13 specifically for thread pools:
 
 | Name                     | Description                         |
 |--------------------------|-------------------------------------|
