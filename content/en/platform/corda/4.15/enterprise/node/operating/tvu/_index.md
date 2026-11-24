@@ -19,7 +19,7 @@ tags:
 # Transaction Validator Utility
 
 {{< note >}}
-In version 4.12, the Transaction Validator Utility was required when performing [an upgrade from 4.11 to 4.12]({{< relref "../../../../../4.12/enterprise/upgrade-guide.md" >}}). However, for an upgrade from 4.13 to 4.15, the tool is not required. Its purpose in 4.15 is to offer the following features.
+In version 4.12, the Transaction Validator Utility was required when performing [an upgrade from 4.11 to 4.12]({{< relref "../../../../../4.12/enterprise/upgrade-guide.md" >}}). However, for an upgrade from 4.14 to 4.15, the tool is not required. Its purpose in 4.15 is to offer the following features.
 {{< /note >}}
 
 TVU's useful features include:
