@@ -145,7 +145,7 @@ Therefore, you have to add the following variables to your build configuration:
 
 ```shell
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_core_release_version = '4.12'
+ext.corda_core_release_version = '4.15'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
@@ -164,4 +164,4 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 
 ## Upgrading from Corda Enterprise 3.x
 
-You can only upgrade to Corda Enterprise Edition 4.12 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.12. For example, 3.3 to 4.5, and then 4.5 to 4.11.
+You can only upgrade to Corda Enterprise Edition 4.15 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.15. For example, 3.3 to 4.5, and then 4.5 to 4.11.
