@@ -26,7 +26,7 @@ You can use Archive service commands to mark archivable items in your vault, arc
 {{< note >}}
 Archive Service 2.0 introduces a new **iterative archiving model** that replaces the previous LedgerGraph-based approach. The Archive Service now builds its own internal graph of transactions and attachments using the vault database directly. LedgerGraph is no longer required.
 
-Archive Service 2.x requires Corda Enterprise 4.12 or newer. For earlier Corda Enterprise versions, use [Archive Service 1.x]({{< relref "../archiving-service-1.x/archiving-service-index.md" >}}), which supports Corda Enterprise versions up to and including 4.12. Corda Enterprise 4.15 and later require Archive Service 2.0.1 or newer; see the [release notes]({{< relref "archiving-release-notes.md#archive-service-201" >}}).
+Archive Service 2.x requires Corda Enterprise 4.12.13 or newer. For earlier Corda Enterprise versions, use [Archive Service 1.x]({{< relref "../archiving-service-1.x/archiving-service-index.md" >}}), which supports Corda Enterprise versions up to and including 4.12. Corda Enterprise 4.15 and later require Archive Service 2.0.1 or newer; see the [release notes]({{< relref "archiving-release-notes.md#archive-service-201" >}}).
 {{< /note >}}
 
 The Archive Service consists of the following:
@@ -110,8 +110,8 @@ As part of the configuration process, you can choose to create a backup schema. 
 
 The Archive Service requires:
 
-* Node minimum platform version 140.
-* Corda Enterprise minimum version 4.12. Corda Enterprise 4.15 and later require Archive Service 2.0.1 or newer.
+* Node minimum platform version 141.
+* Corda Enterprise minimum version 4.12.13. Corda Enterprise 4.15 and later require Archive Service 2.0.1 or newer.
 * JDK 17.
 * Currently only supports PostgreSQL databases.
 
@@ -125,8 +125,8 @@ The Archive Service CorDapp JAR file should be copied to the node's `cordapps` d
 
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/
-drwxr-xr-x 2 corda corda   4096 Aug 26 06:43 config
--rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-2.0.jar
+drwxr-xr-x 2 corda corda    4096 Aug 26 06:43 config
+-rw-r--r-- 1 corda corda 2461910 Aug 26 06:35 archive-service-2.0.1.jar
 ```
 
 {{< note >}}
@@ -174,7 +174,7 @@ with the `jar` suffix changed to `conf`.
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/config
 total 12
--rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-2.0.conf
+-rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-2.0.1.conf
 ```
 
 The Archive Service configuration file provides the database connection details used by the service to
@@ -612,7 +612,7 @@ Like any deletion, removing large objects leaves dead rows in `pg_largeobject`, 
 The command-line tool is a 'fat-jar' that can be executed directly using the `java -jar` option.
 
 ```text
-$ java -jar corda-tools-archive-service-2.0.jar --help
+$ java -jar corda-tools-archive-service-2.0.1.jar --help
 archive-service [--config-obfuscation-passphrase[=<cliPassphrase>]]
                 [--config-obfuscation-seed[=<cliSeed>]]
 				[--rpc-password[=<rpcPassword>]]
@@ -708,7 +708,7 @@ record must still exist in the node database, which is one reason not to drop th
 [Keeping the CorDapp installed between archiving runs](#keeping-the-cordapp-installed-between-archiving-runs)).
 
 ```text
-java -jar corda-tools-archive-service-2.0.jar import-snapshot --importer=ZippedFileImporter T1
+java -jar corda-tools-archive-service-2.0.1.jar import-snapshot --importer=ZippedFileImporter T1
 ```
 
 The importer can alternatively be set with the property `importer.importer` in the CorDapp configuration
