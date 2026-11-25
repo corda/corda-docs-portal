@@ -42,9 +42,9 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.15, you need to:
     corda_core_release_distribution = 'net.corda'
     corda_release_version = '4.15'
     corda_core_release_version = '4.15'
-    corda_gradle_plugins_version = '5.1.1'
-    kotlin_version = '1.9.20'4
-    quasar_version = '0.9.0_r3'
+    corda_gradle_plugins_version = '5.1.3'
+    kotlin_version = '1.9.20'
+    quasar_version = '0.9.3_r3'
     ```
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
 dependencies on `corda-core` and/or `corda-serialization` must use the `corda_core_release_distribution` and

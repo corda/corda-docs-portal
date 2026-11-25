@@ -24,7 +24,7 @@ containers to abstract the complexity of managing a distributed network away fro
 {{< figure alt="network builder v4" width=80% zoom="/en/images/network-builder-v4.png" >}}
 The network you build will either be made up of local `Docker` nodes *or* of nodes spread across Azure
 containers.
-For each node, a separate Docker image is built based on [corda/community:4.15-zulu-openjdk](https://hub.docker.com/layers/corda/open-source/4.15-zulu-openjdk/images/sha256-2f069280eb776569679b02efacab6032235aeeb2de41779e790317d22e6d5104).
+For each node, a separate Docker image is built based on [corda/open-source:4.15-zulu-openjdk](https://hub.docker.com/layers/corda/open-source/4.15-zulu-openjdk/images/sha256-59242b2e090735738cfae076e32f8b96980d142084ad852eb4d89b3003012410).
 Unlike the official image, a *node.conf* file and CorDapps are embedded into the image
 (they are not externally provided to the running container via volumes/mount points).
 More backends may be added in future. The tool is open source, so contributions to add more

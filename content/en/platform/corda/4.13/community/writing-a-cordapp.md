@@ -47,8 +47,8 @@ transactions.
 
 You should base your project on one of the following templates:
 
-* [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.13) (for CorDapps written in Java)
-* [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.13) (for CorDapps written in Kotlin)
+* [Java CorDapp template](https://github.com/corda/cordapp-template-java/tree/release/4.12) (for CorDapps written in Java)
+* [Kotlin CorDapp template](https://github.com/corda/cordapp-template-kotlin/tree/release/4.12) (for CorDapps written in Kotlin)
 
 Please use the branch of the template that corresponds to the major version of Corda you are using. For example,
 someone building a CorDapp on Corda 4.8 should use the `release-V4` branch of the template.
