@@ -125,8 +125,8 @@ The Archive Service CorDapp JAR file should be copied to the node's `cordapps` d
 
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/
-drwxr-xr-x 2 corda corda   4096 Aug 26 06:43 config
--rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-2.0.jar
+drwxr-xr-x 2 corda corda    4096 Aug 26 06:43 config
+-rw-r--r-- 1 corda corda 2461910 Aug 26 06:35 archive-service-2.0.1.jar
 ```
 
 {{< note >}}
@@ -174,7 +174,7 @@ with the `jar` suffix changed to `conf`.
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/config
 total 12
--rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-2.0.conf
+-rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-2.0.1.conf
 ```
 
 The Archive Service configuration file provides the database connection details used by the service to
@@ -612,7 +612,7 @@ Like any deletion, removing large objects leaves dead rows in `pg_largeobject`, 
 The command-line tool is a 'fat-jar' that can be executed directly using the `java -jar` option.
 
 ```text
-$ java -jar corda-tools-archive-service-2.0.jar --help
+$ java -jar corda-tools-archive-service-2.0.1.jar --help
 archive-service [--config-obfuscation-passphrase[=<cliPassphrase>]]
                 [--config-obfuscation-seed[=<cliSeed>]]
 				[--rpc-password[=<rpcPassword>]]
@@ -708,7 +708,7 @@ record must still exist in the node database, which is one reason not to drop th
 [Keeping the CorDapp installed between archiving runs](#keeping-the-cordapp-installed-between-archiving-runs)).
 
 ```text
-java -jar corda-tools-archive-service-2.0.jar import-snapshot --importer=ZippedFileImporter T1
+java -jar corda-tools-archive-service-2.0.1.jar import-snapshot --importer=ZippedFileImporter T1
 ```
 
 The importer can alternatively be set with the property `importer.importer` in the CorDapp configuration

@@ -27,7 +27,7 @@ Archive Service 2.0 no longer uses runtime filters. Transaction eligibility is n
 CLI help screen:
 
 ```text
-$ java -jar corda-tools-archive-service-2.0.jar --help
+$ java -jar corda-tools-archive-service-2.0.1.jar --help
 archive-service [--config-obfuscation-passphrase[=<cliPassphrase>]]
                 [--config-obfuscation-seed[=<cliSeed>]]
 				[--rpc-password[=<rpcPassword>]]
@@ -648,7 +648,7 @@ Restoring a snapshot undoes the deletion, not the classification: the restored t
 The `-t` or `--tracker` option can be used on the command to display progress as each command executes.
 
 ```text
-corda@CrimsonSolo:/opt/corda/node$ java -jar corda-tools-archive-service-2.0.jar -t create-snapshot
+corda@CrimsonSolo:/opt/corda/node$ java -jar corda-tools-archive-service-2.0.1.jar -t create-snapshot
   ✔ Starting
   ✔ Reading configuration
   ✔ Check workflow progress
