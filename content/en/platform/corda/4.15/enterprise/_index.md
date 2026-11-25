@@ -8,7 +8,7 @@ title: "Corda Enterprise 4.15"
 date: '2026-08-04'
 menu:
   versions:
-    weight: -1200
+    weight: -1300
   corda-enterprise-4-15:
     identifier: about-corda-landing-4-15-enterprise
     weight: -30

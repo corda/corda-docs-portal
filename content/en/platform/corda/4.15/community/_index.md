@@ -8,7 +8,7 @@ title: "Corda Open Source 4.15"
 date: '2023-02-19'
 menu:
   versions:
-    weight: -1150
+    weight: -1250
   corda-community-4-15:
     identifier: about-corda-landing-4-15-community
     weight: -5
