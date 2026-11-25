@@ -396,7 +396,7 @@ To register a package, you need to provide the:
 
 ### Register a namespace with a sample CorDapp
 
-We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/release/4.14/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.14/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
+We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/release/4.12/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/release/4.12/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
 1. Check the sample CorDapp out, then follow the [instructions to build it]({{< relref "tutorial-cordapp.md" >}}).
    {{< note >}}You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).{{< /note >}}
