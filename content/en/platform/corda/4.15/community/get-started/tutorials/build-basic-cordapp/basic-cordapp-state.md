@@ -28,7 +28,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 1. Navigate to the Kotlin and Java template repositories and decide which you'd like to clone:
 * https://github.com/corda/cordapp-template-kotlin/tree/release/4.12
-* (https://github.com/corda/cordapp-template-java/tree/release/4.12
+* https://github.com/corda/cordapp-template-java/tree/release/4.12
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
@@ -37,13 +37,13 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 {{< tabs name="tabs-1" >}}
 {{% tab name="Kotlin" %}}
 ```kotlin
-git clone https://github.com/corda/cordapp-template-kotlin/tree/release/4.12.git
+git clone -b release/4.12 https://github.com/corda/cordapp-template-kotlin
 ```
 {{% /tab %}}
 
 {{% tab name="Java" %}}
 ```java
-git clone (https://github.com/corda/cordapp-template-java/tree/release/4.12.git
+git clone -b release/4.12 https://github.com/corda/cordapp-template-java
 ```
 {{% /tab %}}
 
