@@ -56,13 +56,13 @@ CorDapps can be written in any language targeting the JVM. However, source files
    {{< tabs name="tabs-1" >}}
    {{% tab name="Java" %}}
    ```java
-   git clone https://github.com/corda/samples-java/tree/release/4.12
+   git clone -b release/4.15 https://github.com/corda/samples-java
    ```
    {{% /tab %}}
 
    {{% tab name="Kotlin" %}}
    ```kotlin
-   git clone https://github.com/corda/samples-kotlin/tree/release/4.12
+   git clone -b release/4.15 https://github.com/corda/samples-kotlin
    ```
    {{% /tab %}}
 
