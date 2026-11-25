@@ -19,7 +19,7 @@ tags:
 # Transaction Validator Utility
 
 {{< note >}}
-In version 4.12, the Transaction Validator Utility was required when performing [an upgrade from 4.11 to 4.12]({{< relref "../../../../../4.12/enterprise/upgrade-guide.md" >}}). However, for an upgrade from 4.13 to 4.15, the tool is not required. Its purpose in 4.15 is to offer the following features.
+In version 4.12, the Transaction Validator Utility was required when performing [an upgrade from 4.11 to 4.12]({{< relref "../../../../../4.12/enterprise/upgrade-guide.md" >}}). However, for an upgrade from 4.14 to 4.15, the tool is not required. Its purpose in 4.15 is to offer the following features.
 {{< /note >}}
 
 TVU's useful features include:
@@ -31,4 +31,6 @@ TVU's useful features include:
 * **Reverification using transaction ID:** Can verify only certain transactions specified in a newline-separated transaction ID text file. The utility only processes transactions with the transaction IDs in these files. See [reverification using transaction ID CLI example]({{< relref "tvu-cli-examples.md#reverification-using-transaction-id" >}}).
 * **Error registration:** Can register any errors relating to transaction validation in a `.zip` file. This error `.zip` file stores erroneous transactions’ raw data. See [error registration CLI example]({{< relref "tvu-cli-examples.md#error-registration" >}}).
 * **Erroneous transaction reverification:** Can revalidate the erroneous transactions specified in an error `.zip` file. See [erroneous transaction reverification CLI example]({{< relref "tvu-cli-examples.md#erroneous-transaction-reverification" >}}).
+* **Parallel reading:** Can read transactions from the database through several database cursors at once, which speeds up validation when reading from the database is the bottleneck. See [parallel reading CLI example]({{< relref "tvu-cli-examples.md#parallel-reading" >}}).
+* **Multiple external verifiers:** Can spread verification across several external verifier processes, which speeds up validation when most transactions require external verification. See [multiple external verifiers CLI example]({{< relref "tvu-cli-examples.md#multiple-external-verifiers" >}}).
 * **Transaction processor:** Can act as a transaction processor, performing user-supplied tasks on each transaction. All the functionalities detailed in the previous points, that is, progress registration/reloading, error registration, and ID re-verification work for this mode as well. See [transaction processor CLI example]({{< relref "tvu-cli-examples.md#transaction-processor" >}}).

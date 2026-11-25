@@ -129,7 +129,7 @@ By default, a Corda node does not run the shell.
 When using `cordaformation` the shell can be included in generated node's by including the following in the `build.gradle` file containing `deployNodes`:
 
 ```
-cordaDriver "net.corda:corda-shell:4.12"
+cordaDriver "net.corda:corda-shell:4.15"
 ```
 
 ## The shell via SSH

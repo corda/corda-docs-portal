@@ -54,7 +54,7 @@ An easy way to build a valid set of nodes is by running `deployNodes`. In this d
 
 Run the following commands:
 
-1 `git clone https://github.com/corda/samples-java/tree/release/4.15`
+1 `git clone -b release/4.15 https://github.com/corda/samples-java`
 2 `cd samples-java/Basic/cordapp-example`
 3 `./gradlew clean workflows-java:deployNodes`
 

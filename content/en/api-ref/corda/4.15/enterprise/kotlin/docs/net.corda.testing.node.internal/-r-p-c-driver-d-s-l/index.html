@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>RPCDriverDSL</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    docs
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+4.15        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":docs:dokkaHtml/customSourceSet"
+                                       data-filter=":docs:dokkaHtml/customSourceSet"/>
+                                <span class="checkbox--icon"></span>
+                                customSourceSet
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    docs
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="docs::net.corda.testing.node.internal/RPCDriverDSL///PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.testing.node.internal</a><span class="delimiter">/</span><span class="current">RPCDriverDSL</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>RPCDriver</span><wbr></wbr><span><span>DSL</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">RPCDriverDSL</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">driverDSL<span class="token operator">: </span><a href="../-driver-d-s-l-impl/index.html">DriverDSLImpl</a><span class="token punctuation">, </span></span><span class="parameter ">externalTrace<span class="token operator">: </span>ERROR CLASS: Symbol not found for Trace?<span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="../-internal-driver-d-s-l/index.html">InternalDriverDSL</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="-1414677690%2FConstructors%2F-367327816" anchor-label="RPCDriverDSL" id="-1414677690%2FConstructors%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-p-c-driver-d-s-l.html"><span>RPCDriver</span><wbr></wbr><span><span>DSL</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1414677690%2FConstructors%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">driverDSL<span class="token operator">: </span><a href="../-driver-d-s-l-impl/index.html">DriverDSLImpl</a><span class="token punctuation">, </span></span><span class="parameter ">externalTrace<span class="token operator">: </span>ERROR CLASS: Symbol not found for Trace?<span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="48224377%2FProperties%2F-367327816" anchor-label="cordappsClassLoader" id="48224377%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-internal-driver-d-s-l/cordapps-class-loader.html"><span>cordapps</span><wbr></wbr><span>Class</span><wbr></wbr><span><span>Loader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="48224377%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-internal-driver-d-s-l/cordapps-class-loader.html">cordappsClassLoader</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html">ClassLoader</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1708795578%2FProperties%2F-367327816" anchor-label="defaultNotaryHandle" id="-1708795578%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/default-notary-handle.html"><span>default</span><wbr></wbr><span>Notary</span><wbr></wbr><span><span>Handle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1708795578%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../../net.corda.testing.driver/-driver-d-s-l/default-notary-handle.html">defaultNotaryHandle</a><span class="token operator">: </span><a href="../../net.corda.testing.driver/-notary-handle/index.html">NotaryHandle</a></div><div class="brief "><p class="paragraph">Returns the <a href="../../net.corda.testing.driver/-notary-handle/index.html">NotaryHandle</a> for the single notary on the network. Throws if there are none or more than one.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="111010608%2FProperties%2F-367327816" anchor-label="defaultNotaryIdentity" id="111010608%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/default-notary-identity.html"><span>default</span><wbr></wbr><span>Notary</span><wbr></wbr><span><span>Identity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="111010608%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../../net.corda.testing.driver/-driver-d-s-l/default-notary-identity.html">defaultNotaryIdentity</a><span class="token operator">: </span>ERROR CLASS: Symbol not found for Party</div><div class="brief "><p class="paragraph">Returns the identity of the single notary on the network. Throws if there are none or more than one.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1628846828%2FProperties%2F-367327816" anchor-label="defaultNotaryNode" id="1628846828%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/default-notary-node.html"><span>default</span><wbr></wbr><span>Notary</span><wbr></wbr><span><span>Node</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1628846828%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../../net.corda.testing.driver/-driver-d-s-l/default-notary-node.html">defaultNotaryNode</a><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/NodeHandle&gt;</div><div class="brief "><p class="paragraph">Returns a CordaFuture on the <a href="../../net.corda.testing.driver/-node-handle/index.html">NodeHandle</a> for the single-node notary on the network. Throws if there are no notaries or more than one, or if the notary is a distributed cluster.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-351703858%2FProperties%2F-367327816" anchor-label="notaryHandles" id="-351703858%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/notary-handles.html"><span>notary</span><wbr></wbr><span><span>Handles</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-351703858%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../../net.corda.testing.driver/-driver-d-s-l/notary-handles.html">notaryHandles</a><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="../../net.corda.testing.driver/-notary-handle/index.html">NotaryHandle</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a list of <a href="../../net.corda.testing.driver/-notary-handle/index.html">NotaryHandle</a>s matching the list of <a href="../../net.corda.testing.node/-notary-spec/index.html">NotarySpec</a>s passed into <a href="../../net.corda.testing.driver/driver.html">driver</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="626313597%2FProperties%2F-367327816" anchor-label="shutdownManager" id="626313597%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-internal-driver-d-s-l/shutdown-manager.html"><span>shutdown</span><wbr></wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="626313597%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-internal-driver-d-s-l/shutdown-manager.html">shutdownManager</a><span class="token operator">: </span><a href="../-shutdown-manager/index.html">ShutdownManager</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1248794845%2FFunctions%2F-367327816" anchor-label="assertUncompletedCheckpoints" id="-1248794845%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../assert-uncompleted-checkpoints.html"><span>assert</span><wbr></wbr><span>Uncompleted</span><wbr></wbr><span><span>Checkpoints</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1248794845%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/index.html">DriverDSL</a><span class="token punctuation">.</span><a href="../assert-uncompleted-checkpoints.html"><span class="token function">assertUncompletedCheckpoints</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name<span class="token punctuation">, </span></span><span class="parameter ">expected<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1861943263%2FFunctions%2F-367327816" anchor-label="baseDirectory" id="1861943263%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/base-directory.html"><span>base</span><wbr></wbr><span><span>Directory</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1861943263%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/base-directory.html"><span class="token function">baseDirectory</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">nodeName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a></div><div class="brief "><p class="paragraph">Returns the base directory for a node with the given CordaX500Name. This method is useful if the base directory is needed before the node is started.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-internal-driver-d-s-l/base-directory.html"><span class="token function">baseDirectory</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">nodeName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1210784606%2FFunctions%2F-367327816" anchor-label="nextPort" id="-1210784606%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/next-port.html"><span>next</span><wbr></wbr><span><span>Port</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1210784606%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/next-port.html"><span class="token function">nextPort</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span></div><div class="brief "><p class="paragraph">Returns the next port to use when instantiating test processes that must not conflict on the same machine</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1366602317%2FFunctions%2F-367327816" anchor-label="pollUntilNonNull" id="-1366602317%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-internal-driver-d-s-l/poll-until-non-null.html"><span>poll</span><wbr></wbr><span>Until</span><wbr></wbr><span>Non</span><wbr></wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1366602317%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../-internal-driver-d-s-l/poll-until-non-null.html">A</a><span class="token operator">&gt; </span><a href="../-internal-driver-d-s-l/poll-until-non-null.html"><span class="token function">pollUntilNonNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">pollName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">pollInterval<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a><span class="token operator"> = </span>DEFAULT_POLL_INTERVAL<span class="token punctuation">, </span></span><span class="parameter ">warnCount<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span>DEFAULT_WARN_COUNT<span class="token punctuation">, </span></span><span class="parameter ">check<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="net.corda.testing.node.internal/RPCDriverDSL/pollUntilNonNull/#kotlin.String#java.time.Duration#kotlin.Int#kotlin.Function0[TypeParam(bounds=[kotlin.Any?])?]/PointingToGenericParameters(0)/">A</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;A&gt;</div><div class="brief "><p class="paragraph">Polls a function until it returns a non-null value. Note that there is no timeout on the polling.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="191582313%2FFunctions%2F-367327816" anchor-label="pollUntilTrue" id="191582313%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-internal-driver-d-s-l/poll-until-true.html"><span>poll</span><wbr></wbr><span>Until</span><wbr></wbr><span><span>True</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="191582313%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-internal-driver-d-s-l/poll-until-true.html"><span class="token function">pollUntilTrue</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">pollName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">pollInterval<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a><span class="token operator"> = </span>DEFAULT_POLL_INTERVAL<span class="token punctuation">, </span></span><span class="parameter ">warnCount<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span>DEFAULT_WARN_COUNT<span class="token punctuation">, </span></span><span class="parameter ">check<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="kotlin/Boolean///PointingToDeclaration/">Boolean</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;kotlin/Unit&gt;</div><div class="brief "><p class="paragraph">Polls the given function until it returns true.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="58177456%2FFunctions%2F-367327816" anchor-label="shutdown" id="58177456%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-internal-driver-d-s-l/shutdown.html"><span><span>shutdown</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="58177456%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-internal-driver-d-s-l/shutdown.html"><span class="token function">shutdown</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1608197966%2FFunctions%2F-367327816" anchor-label="start" id="-1608197966%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-internal-driver-d-s-l/start.html"><span><span>start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1608197966%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-internal-driver-d-s-l/start.html"><span class="token function">start</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="252350295%2FFunctions%2F-367327816" anchor-label="startArtemisSession" id="252350295%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-artemis-session.html"><span>start</span><wbr></wbr><span>Artemis</span><wbr></wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="252350295%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="start-artemis-session.html"><span class="token function">startArtemisSession</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcAddress<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for ClientSession</div><div class="brief "><p class="paragraph">Starts a Netty Artemis session connecting to an RPC server.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1142296172%2FFunctions%2F-367327816" anchor-label="startInVmArtemisSession" id="1142296172%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-in-vm-artemis-session.html"><span>start</span><wbr></wbr><span>In</span><wbr></wbr><span>Vm</span><wbr></wbr><span>Artemis</span><wbr></wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1142296172%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="start-in-vm-artemis-session.html"><span class="token function">startInVmArtemisSession</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for ClientSession</div><div class="brief "><p class="paragraph">Starts an In-VM Artemis session connecting to the RPC server.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-981340191%2FFunctions%2F-367327816" anchor-label="startInVmRpcClient" id="-981340191%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-in-vm-rpc-client.html"><span>start</span><wbr></wbr><span>In</span><wbr></wbr><span>Vm</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-981340191%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-in-vm-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-in-vm-rpc-client.html"><span class="token function">startInVmRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcOpsClass<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="start-in-vm-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;I&gt;</div><div class="brief "><p class="paragraph">Starts an In-VM RPC client.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="448472680%2FFunctions%2F-367327816" anchor-label="startInVmRpcClient" id="448472680%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../start-in-vm-rpc-client.html"><span>start</span><wbr></wbr><span>In</span><wbr></wbr><span>Vm</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="448472680%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../start-in-vm-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="index.html">RPCDriverDSL</a><span class="token punctuation">.</span><a href="../start-in-vm-rpc-client.html"><span class="token function">startInVmRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-379103867%2FFunctions%2F-367327816" anchor-label="startInVmRpcServer" id="-379103867%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-in-vm-rpc-server.html"><span>start</span><wbr></wbr><span>In</span><wbr></wbr><span>Vm</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-379103867%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-in-vm-rpc-server.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-in-vm-rpc-server.html"><span class="token function">startInVmRpcServer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcUser<span class="token operator">: </span><a href="../../net.corda.testing.node/-user/index.html">User</a><span class="token operator"> = </span>rpcTestUser<span class="token punctuation">, </span></span><span class="parameter ">nodeLegalName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name<span class="token operator"> = </span>fakeNodeLegalName<span class="token punctuation">, </span></span><span class="parameter ">maxFileSize<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span>MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">maxBufferedBytesPerClient<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>10L * MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span>ERROR CLASS: Symbol not found for RPCServerConfiguration<span class="token operator"> = </span>RPCServerConfiguration.DEFAULT<span class="token punctuation">, </span></span><span class="parameter ">ops<span class="token operator">: </span><a href="start-in-vm-rpc-server.html">I</a><span class="token punctuation">, </span></span><span class="parameter ">queueDrainTimeout<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a><span class="token operator"> = </span>5.seconds</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/node/internal/RpcServerHandle&lt;I&gt;&gt;</div><div class="brief "><p class="paragraph">Starts an In-VM RPC server. Note that only a single one may be started.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1586659072%2FFunctions%2F-367327816" anchor-label="startNode" id="-1586659072%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/start-node.html"><span>start</span><wbr></wbr><span><span>Node</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1586659072%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/start-node.html"><span class="token function">startNode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/NodeHandle&gt;</div><div class="brief "><p class="paragraph">Start a node using the default values of <a href="../../net.corda.testing.driver/-node-parameters/index.html">NodeParameters</a>.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/start-node.html"><span class="token function">startNode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">parameters<span class="token operator">: </span><a href="../../net.corda.testing.driver/-node-parameters/index.html">NodeParameters</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/NodeHandle&gt;</div><div class="brief "><p class="paragraph">Start a node using the parameter values of the given <a href="../../net.corda.testing.driver/-node-parameters/index.html">NodeParameters</a>.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/start-node.html"><span class="token function">startNode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">defaultParameters<span class="token operator">: </span><a href="../../net.corda.testing.driver/-node-parameters/index.html">NodeParameters</a><span class="token operator"> = </span>NodeParameters()<span class="token punctuation">, </span></span><span class="parameter ">providedName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name?<span class="token operator">?</span><span class="token operator"> = </span>defaultParameters.providedName<span class="token punctuation">, </span></span><span class="parameter ">rpcUsers<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="../../net.corda.testing.node/-user/index.html">User</a><span class="token operator">&gt;</span><span class="token operator"> = </span>defaultParameters.rpcUsers<span class="token punctuation">, </span></span><span class="parameter ">verifierType<span class="token operator">: </span><a href="../../net.corda.testing.driver/-verifier-type/index.html">VerifierType</a><span class="token operator"> = </span>defaultParameters.verifierType<span class="token punctuation">, </span></span><span class="parameter ">customOverrides<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Map///PointingToDeclaration/">Map</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span><span data-unresolved-link="kotlin/Any///PointingToDeclaration/">Any</span><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token operator"> = </span>defaultParameters.customOverrides<span class="token punctuation">, </span></span><span class="parameter ">startInSameProcess<span class="token operator">: </span><span data-unresolved-link="kotlin/Boolean///PointingToDeclaration/">Boolean</span><span class="token operator">?</span><span class="token operator"> = </span>defaultParameters.startInSameProcess<span class="token punctuation">, </span></span><span class="parameter ">maximumHeapSize<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>defaultParameters.maximumHeapSize</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/NodeHandle&gt;</div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/start-node.html"><span class="token function">startNode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">defaultParameters<span class="token operator">: </span><a href="../../net.corda.testing.driver/-node-parameters/index.html">NodeParameters</a><span class="token operator"> = </span>NodeParameters()<span class="token punctuation">, </span></span><span class="parameter ">providedName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name?<span class="token operator">?</span><span class="token operator"> = </span>defaultParameters.providedName<span class="token punctuation">, </span></span><span class="parameter ">rpcUsers<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="../../net.corda.testing.node/-user/index.html">User</a><span class="token operator">&gt;</span><span class="token operator"> = </span>defaultParameters.rpcUsers<span class="token punctuation">, </span></span><span class="parameter ">verifierType<span class="token operator">: </span><a href="../../net.corda.testing.driver/-verifier-type/index.html">VerifierType</a><span class="token operator"> = </span>defaultParameters.verifierType<span class="token punctuation">, </span></span><span class="parameter ">customOverrides<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Map///PointingToDeclaration/">Map</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span><span data-unresolved-link="kotlin/Any///PointingToDeclaration/">Any</span><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token operator"> = </span>defaultParameters.customOverrides<span class="token punctuation">, </span></span><span class="parameter ">startInSameProcess<span class="token operator">: </span><span data-unresolved-link="kotlin/Boolean///PointingToDeclaration/">Boolean</span><span class="token operator">?</span><span class="token operator"> = </span>defaultParameters.startInSameProcess<span class="token punctuation">, </span></span><span class="parameter ">maximumHeapSize<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>defaultParameters.maximumHeapSize<span class="token punctuation">, </span></span><span class="parameter ">logLevelOverride<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>defaultParameters.logLevelOverride</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/NodeHandle&gt;</div><div class="brief "><p class="paragraph">Start a node.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-internal-driver-d-s-l/start-node.html"><span class="token function">startNode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">parameters<span class="token operator">: </span><a href="../../net.corda.testing.driver/-node-parameters/index.html">NodeParameters</a><span class="token operator"> = </span>NodeParameters()<span class="token punctuation">, </span></span><span class="parameter ">bytemanPort<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/NodeHandle&gt;</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1913592287%2FFunctions%2F-367327816" anchor-label="startNode" id="1913592287%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../start-node.html"><span>start</span><wbr></wbr><span><span>Node</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1913592287%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/index.html">DriverDSL</a><span class="token punctuation">.</span><a href="../start-node.html"><span class="token function">startNode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">providedName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name<span class="token punctuation">, </span></span><span class="parameter ">devMode<span class="token operator">: </span><span data-unresolved-link="kotlin/Boolean///PointingToDeclaration/">Boolean</span><span class="token punctuation">, </span></span><span class="parameter ">parameters<span class="token operator">: </span><a href="../../net.corda.testing.driver/-node-parameters/index.html">NodeParameters</a><span class="token operator"> = </span>NodeParameters()</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/NodeHandle&gt;</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1510334921%2FFunctions%2F-367327816" anchor-label="startRandomRpcClient" id="1510334921%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-random-rpc-client.html"><span>start</span><wbr></wbr><span>Random</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1510334921%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-random-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-random-rpc-client.html"><span class="token function">startRandomRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcOpsClass<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="start-random-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">rpcAddress<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;java/lang/Process&gt;</div><div class="brief "><p class="paragraph">Starts a Netty RPC client in a new JVM process that calls random RPCs with random arguments.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="476494480%2FFunctions%2F-367327816" anchor-label="startRandomRpcClient" id="476494480%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../start-random-rpc-client.html"><span>start</span><wbr></wbr><span>Random</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="476494480%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../start-random-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="index.html">RPCDriverDSL</a><span class="token punctuation">.</span><a href="../start-random-rpc-client.html"><span class="token function">startRandomRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">hostAndPort<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2036226852%2FFunctions%2F-367327816" anchor-label="startRpcBroker" id="2036226852%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-rpc-broker.html"><span>start</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Broker</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2036226852%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="start-rpc-broker.html"><span class="token function">startRpcBroker</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serverName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span><span class="token string">&quot;driver-rpc-server-&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">rpcUser<span class="token operator">: </span><a href="../../net.corda.testing.node/-user/index.html">User</a><span class="token operator"> = </span>rpcTestUser<span class="token punctuation">, </span></span><span class="parameter ">maxFileSize<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span>MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">maxBufferedBytesPerClient<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>10L * MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">customPort<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort?<span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/node/internal/RpcBrokerHandle&gt;</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-146371156%2FFunctions%2F-367327816" anchor-label="startRpcClient" id="-146371156%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-rpc-client.html"><span>start</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-146371156%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-rpc-client.html"><span class="token function">startRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcOpsClass<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">rpcAddress<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;I&gt;</div><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-rpc-client.html"><span class="token function">startRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcOpsClass<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">haAddressPool<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;I&gt;</div><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-rpc-client.html"><span class="token function">startRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcOpsClass<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">rpcAddress<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT<span class="token punctuation">, </span></span><span class="parameter ">listeners<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Iterable///PointingToDeclaration/">Iterable</span><span class="token operator">&lt;</span><a href="../../net.corda.client.rpc.ext/-r-p-c-connection-listener/index.html">RPCConnectionListener</a><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator"> = </span>emptyList()</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;ERROR CLASS: Symbol not found for Pair&lt;net/corda/client/rpc/RPCConnection&lt;I&gt;, net/corda/client/rpc/internal/RPCClient&lt;I&gt;&gt;&gt;</div><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-rpc-client.html"><span class="token function">startRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcOpsClass<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">haAddressPool<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT<span class="token punctuation">, </span></span><span class="parameter ">listeners<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Iterable///PointingToDeclaration/">Iterable</span><span class="token operator">&lt;</span><a href="../../net.corda.client.rpc.ext/-r-p-c-connection-listener/index.html">RPCConnectionListener</a><span class="token operator">&lt;</span><a href="start-rpc-client.html">I</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator"> = </span>emptyList()</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;ERROR CLASS: Symbol not found for Pair&lt;net/corda/client/rpc/RPCConnection&lt;I&gt;, net/corda/client/rpc/internal/RPCClient&lt;I&gt;&gt;&gt;</div><div class="brief "><p class="paragraph">Starts a Netty RPC client.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1721943056%2FFunctions%2F-367327816" anchor-label="startRpcClient" id="-1721943056%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../start-rpc-client.html"><span>start</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1721943056%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../start-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="index.html">RPCDriverDSL</a><span class="token punctuation">.</span><a href="../start-rpc-client.html"><span class="token function">startRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcAddress<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Ambiguity: startRpcClient, [net/corda/testing/node/internal/RPCDriverDSL.startRpcClient, net/corda/testing/node/internal/RPCDriverDSL.startRpcClient, net/corda/testing/node/internal/RPCDriverDSL.startRpcClient, net/corda/testing/node/internal/RPCDriverDSL.startRpcClient]</div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../start-rpc-client.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="index.html">RPCDriverDSL</a><span class="token punctuation">.</span><a href="../start-rpc-client.html"><span class="token function">startRpcClient</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">haAddressPool<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span>ERROR CLASS: Symbol not found for NetworkHostAndPort<span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">username<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.username<span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>rpcTestUser.password<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><a href="../../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a><span class="token operator"> = </span>CordaRPCClientConfiguration.DEFAULT</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Ambiguity: startRpcClient, [net/corda/testing/node/internal/RPCDriverDSL.startRpcClient, net/corda/testing/node/internal/RPCDriverDSL.startRpcClient, net/corda/testing/node/internal/RPCDriverDSL.startRpcClient, net/corda/testing/node/internal/RPCDriverDSL.startRpcClient]</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="765766896%2FFunctions%2F-367327816" anchor-label="startRpcServer" id="765766896%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-rpc-server.html"><span>start</span><wbr></wbr><span>Rpc</span><wbr></wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="765766896%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-rpc-server.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-rpc-server.html"><span class="token function">startRpcServer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serverName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span><span class="token string">&quot;driver-rpc-server-&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">rpcUser<span class="token operator">: </span><a href="../../net.corda.testing.node/-user/index.html">User</a><span class="token operator"> = </span>rpcTestUser<span class="token punctuation">, </span></span><span class="parameter ">nodeLegalName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name<span class="token operator"> = </span>fakeNodeLegalName<span class="token punctuation">, </span></span><span class="parameter ">maxFileSize<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span>MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">maxBufferedBytesPerClient<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>5L * MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span>ERROR CLASS: Symbol not found for RPCServerConfiguration<span class="token operator"> = </span>RPCServerConfiguration.DEFAULT<span class="token punctuation">, </span></span><span class="parameter ">customPort<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort?<span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">ops<span class="token operator">: </span><a href="start-rpc-server.html">I</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Ambiguity: startRpcServer, [net/corda/testing/node/internal/RPCDriverDSL.startRpcServer, net/corda/testing/node/internal/RPCDriverDSL.startRpcServer]</div><br><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-rpc-server.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-rpc-server.html"><span class="token function">startRpcServer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serverName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span><span class="token string">&quot;driver-rpc-server-&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">rpcUser<span class="token operator">: </span><a href="../../net.corda.testing.node/-user/index.html">User</a><span class="token operator"> = </span>rpcTestUser<span class="token punctuation">, </span></span><span class="parameter ">nodeLegalName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name<span class="token operator"> = </span>fakeNodeLegalName<span class="token punctuation">, </span></span><span class="parameter ">maxFileSize<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span>MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">maxBufferedBytesPerClient<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>5L * MAX_MESSAGE_SIZE<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span>ERROR CLASS: Symbol not found for RPCServerConfiguration<span class="token operator"> = </span>RPCServerConfiguration.DEFAULT<span class="token punctuation">, </span></span><span class="parameter ">customPort<span class="token operator">: </span>ERROR CLASS: Symbol not found for NetworkHostAndPort?<span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">listOps<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="start-rpc-server.html">I</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/node/internal/RpcServerHandle&lt;I&gt;&gt;</div><div class="brief "><p class="paragraph">Starts a Netty RPC server.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2129390232%2FFunctions%2F-367327816" anchor-label="startRpcServerWithBrokerRunning" id="-2129390232%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-rpc-server-with-broker-running.html"><span>start</span><wbr></wbr><span>Rpc</span><wbr></wbr><span>Server</span><wbr></wbr><span>With</span><wbr></wbr><span>Broker</span><wbr></wbr><span><span>Running</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2129390232%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="start-rpc-server-with-broker-running.html">I</a><span class="token operator"> : </span>ERROR CLASS: Symbol not found for RPCOps<span class="token operator">&gt; </span><a href="start-rpc-server-with-broker-running.html"><span class="token function">startRpcServerWithBrokerRunning</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">rpcUser<span class="token operator">: </span><a href="../../net.corda.testing.node/-user/index.html">User</a><span class="token operator"> = </span>rpcTestUser<span class="token punctuation">, </span></span><span class="parameter ">nodeLegalName<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name<span class="token operator"> = </span>fakeNodeLegalName<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span>ERROR CLASS: Symbol not found for RPCServerConfiguration<span class="token operator"> = </span>RPCServerConfiguration.DEFAULT<span class="token punctuation">, </span></span><span class="parameter ">ops<span class="token operator">: </span><a href="start-rpc-server-with-broker-running.html">I</a><span class="token punctuation">, </span></span><span class="parameter ">brokerHandle<span class="token operator">: </span><a href="../-rpc-broker-handle/index.html">RpcBrokerHandle</a><span class="token punctuation">, </span></span><span class="parameter ">queueDrainTimeout<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a><span class="token operator"> = </span>5.seconds</span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Ambiguity: startRpcServerWithBrokerRunning, [net/corda/testing/node/internal/RPCDriverDSL.startRpcServerWithBrokerRunning, net/corda/testing/node/internal/RPCDriverDSL.startRpcServerWithBrokerRunning]</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1294995303%2FFunctions%2F-367327816" anchor-label="startWebserver" id="1294995303%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../net.corda.testing.driver/-driver-d-s-l/start-webserver.html"><span>start</span><wbr></wbr><span><span>Webserver</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1294995303%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/start-webserver.html"><span class="token function">startWebserver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handle<span class="token operator">: </span><a href="../../net.corda.testing.driver/-node-handle/index.html">NodeHandle</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/WebserverHandle&gt;</div><div class="brief "><p class="paragraph">Call <a href="../../net.corda.testing.driver/-driver-d-s-l/start-webserver.html">startWebserver</a> with a default maximumHeapSize.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../net.corda.testing.driver/-driver-d-s-l/start-webserver.html"><span class="token function">startWebserver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handle<span class="token operator">: </span><a href="../../net.corda.testing.driver/-node-handle/index.html">NodeHandle</a><span class="token punctuation">, </span></span><span class="parameter ">maximumHeapSize<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaFuture&lt;net/corda/testing/driver/WebserverHandle&gt;</div><div class="brief "><p class="paragraph">Starts a web server for a node</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1072710530%2FFunctions%2F-367327816" anchor-label="withDatabaseConnection" id="1072710530%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../with-database-connection.html"><span>with</span><wbr></wbr><span>Database</span><wbr></wbr><span><span>Connection</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1072710530%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../with-database-connection.html">T</a><span class="token operator">&gt; </span><a href="../../net.corda.testing.driver/-driver-d-s-l/index.html">DriverDSL</a><span class="token punctuation">.</span><a href="../with-database-connection.html"><span class="token function">withDatabaseConnection</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span>ERROR CLASS: Symbol not found for CordaX500Name<span class="token punctuation">, </span></span><span class="parameter ">block<span class="token operator">: </span><span class="token punctuation">(</span><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html">Connection</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../with-database-connection.html">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../with-database-connection.html">T</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
