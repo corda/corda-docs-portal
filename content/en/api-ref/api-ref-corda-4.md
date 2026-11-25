@@ -9,7 +9,7 @@ project: "API Reference"
 title: Corda 4 API references
 ---
 
-This page provides links to the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community 4.9, Corda Community and Open Source Edition 4.10 and 4.11, Corda Open Source Edition 4.12 and 4.13, Corda Enterprise 4.8 to 4.13, and Corda Enterprise Network Manager (CENM) 1.2 to 1.6.
+This page provides links to the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community 4.9, Corda Community and Open Source Edition 4.10 and 4.11, Corda Open Source Edition 4.12, 4.13, 4.14 and 4.15, Corda Enterprise 4.8 to 4.15, and Corda Enterprise Network Manager (CENM) 1.2 to 1.6.
 
 ## Corda Enterprise 4.x
 
