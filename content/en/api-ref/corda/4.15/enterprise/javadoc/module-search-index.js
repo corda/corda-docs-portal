@@ -1,1 +1,1 @@
-var moduleSearchIndex = [{"l":"corda","url":"index.html"}]
+var moduleSearchIndex = [{"l":"docs","url":"index.html"}]
