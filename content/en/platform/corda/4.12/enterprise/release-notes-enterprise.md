@@ -41,7 +41,7 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* Fixed the JDK vulnerability CVE-2026-114938 in the Corda Enterprise Docker images. The vulnerability is in the JDK's HotSpot compiler and affects JDK 17.0.6 and later on x86-64 processors that support AVX-512 VBMI. The images previously used JDK 17.0.19 (Azul Zulu, Ubuntu and Alpine images) and JDK 17.0.20 (Amazon Corretto, Amazon Linux image). They now use JDK 17.0.21.1 (Azul Zulu 17.70+201 and Amazon Corretto 17.0.21.1.2), which fixes it. If you run Corda on your own JDK 17 installation, upgrade it to 17.0.21.1 or later.
+* Fixed the JDK vulnerability CVE-2026-114938 in the Corda Enterprise Docker images. The vulnerability is in the JDK's HotSpot compiler and affects JDK 17.0.6 and later on x86-64 processors that support AVX-512 VBMI. The images previously used JDK 17.0.19 (Ubuntu and Alpine images) and JDK 17.0.20 (Amazon Linux image). They now use JDK 17.0.21.1, which fixes it. If you run Corda on your own JDK 17 installation, upgrade it to 17.0.21.1 or later.
 * Fixed an issue where flows restored from a checkpoint, for example after a node restart or a retry by the flow hospital, failed with an `IndexOutOfBoundsException` when OpenTelemetry was enabled with `spanStartEndEventsEnabled` set to `true`.
 * Fixed an issue where a flow restored from a checkpoint failed with a `NullPointerException`, and was kept in the flow hospital instead of resuming, if a telemetry component was enabled on the node after the checkpoint was written.
 * Fixed an issue where node registration with a Utimaco HSM failed with the error `B90C0103` when using newer Utimaco CryptoServer JCE drivers, which report a key that does not exist in this way. The Utimaco configuration also has a new optional `additionalHosts` setting, which lists further addresses of the same HSM, or of other HSMs in the same cluster. When it is set, the driver reconnects automatically after an HSM restart or a network interruption. Use this setting with 6.x drivers.
@@ -50,11 +50,11 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 * Fixed an issue where the Transaction Validator Utility could fail to create its error zip file with a `ZipException: duplicate entry`, and error files could be lost. A failed zip no longer leaves a partial `.zip` file behind, and each failure's stack trace is now written to its `.txt` file once instead of three times.
 * The following vulnerabilities have been addressed: the High severity JDK vulnerability in the Docker images, and the Critical vulnerabilities in dependencies. Other high, medium and low severity CVEs have also been addressed but are not listed here.
 
-| Vulnerability   | Component           |
-|-----------------|---------------------|
-| CVE-2026-114938 | JDK (Docker images) |
-| CVE-2026-110879 | Jackson             |
-| CVE-2026-116539 | TCNative            |
+| Vulnerability   | Severity | Component           | Fixed in     |
+|-----------------|----------|---------------------|--------------|
+| CVE-2026-114938 | High     | JDK (Docker images) | 17.0.21.1    |
+| CVE-2026-110879 | Critical | Jackson             | 2.21.8       |
+| CVE-2026-116539 | Critical | TCNative            | 2.0.84.Final |
 
 ### Third-party components upgrade
 

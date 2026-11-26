@@ -36,16 +36,16 @@ The steps from this guide only work for direct upgrades from Corda 4.11 to 4.12.
 
 ### Fixed issues
 
-* Fixed the JDK vulnerability CVE-2026-114938 in the Corda Docker images. The vulnerability is in the JDK's HotSpot compiler and affects JDK 17.0.6 and later on x86-64 processors that support AVX-512 VBMI. The images previously used JDK 17.0.19 (Azul Zulu) and JDK 17.0.20 (Amazon Corretto). They now use JDK 17.0.21.1 (Azul Zulu 17.70+201 and Amazon Corretto 17.0.21.1.2), which fixes it. If you run Corda on your own JDK 17 installation, upgrade it to 17.0.21.1 or later.
+* Fixed the JDK vulnerability CVE-2026-114938 in the Corda Docker images. The vulnerability is in the JDK's HotSpot compiler and affects JDK 17.0.6 and later on x86-64 processors that support AVX-512 VBMI. The images previously used JDK 17.0.19 (Ubuntu image) and JDK 17.0.20 (Amazon Linux image). They now use JDK 17.0.21.1, which fixes it. If you run Corda on your own JDK 17 installation, upgrade it to 17.0.21.1 or later.
 * Fixed an issue where flows restored from a checkpoint, for example after a node restart or a retry by the flow hospital, failed with an `IndexOutOfBoundsException` when OpenTelemetry was enabled with `spanStartEndEventsEnabled` set to `true`.
 * Fixed an issue where a flow restored from a checkpoint failed with a `NullPointerException`, and was kept in the flow hospital instead of resuming, if a telemetry component was enabled on the node after the checkpoint was written.
 * The following vulnerabilities have been addressed: the High severity JDK vulnerability in the Docker images, and the Critical vulnerabilities in dependencies. Other high, medium and low severity CVEs have also been addressed but are not listed here.
 
-| Vulnerability   | Component           |
-|-----------------|---------------------|
-| CVE-2026-114938 | JDK (Docker images) |
-| CVE-2026-110879 | Jackson             |
-| CVE-2026-116539 | TCNative            |
+| Vulnerability   | Severity | Component           | Fixed in     |
+|-----------------|----------|---------------------|--------------|
+| CVE-2026-114938 | High     | JDK (Docker images) | 17.0.21.1    |
+| CVE-2026-110879 | Critical | Jackson             | 2.21.8       |
+| CVE-2026-116539 | Critical | TCNative            | 2.0.84.Final |
 
 ### Third-party components upgrade
 
