@@ -48,7 +48,7 @@ Ensure you have copies of the following files (provided by R3), before creating 
 * Network Map distribution `.zip`
 * PKI Tool distribution `.zip` *(for PKI generation)*
 * A Corda JAR *(for the Notary node)*
-* 3 Machines set up with Java 8 installed *(if not running locally).*
+* 3 Machines set up with Java 17 installed *(if not running locally).*
 
 {{< note >}}
 Due to known issues when executing transactions between nodes, using Java `8u252` subversion is not recommended.

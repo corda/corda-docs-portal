@@ -42,7 +42,7 @@ Note the `.0`.
 {{< /note >}}
 
 ```bash
-  docker pull corda/enterprise-cenm-cli:1.5.4-zulu-openjdk8u242
+  docker pull corda/enterprise-cenm-cli:1.7.0-zulu-openjdk17.0.15
 ```
 
 You have installed the Docker image with CENM CLI tool.
