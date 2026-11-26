@@ -88,7 +88,7 @@ To set up a database that the service will use, and to configure the service to 
 1. [Create database user with schema permissions](#create-database-user-with-schema-permissions).
 2. [Create the database schema](#create-database-schema).
 3. [Configure the CENM service](#configure-cenm-service).
-4. [Configure the database](#configure-database).
+4. [Configure the database](#configuring-the-database).
 
 
 ### Create database user with schema permissions
@@ -483,7 +483,7 @@ database = {
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database). The `database.schema` is the database schema name assigned to the user.
 
 You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
-The [Configure database](#configure-database) section further below explains the correct location for the driver JAR file in the CENM service installation structure.
+The [Configure database](#configuring-the-database) section further below explains the correct location for the driver JAR file in the CENM service installation structure.
 
 #### SQL Server
 
@@ -518,7 +518,7 @@ database = {
 Replace the placeholders `<host>` and `<port>` with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
 You can download the Microsoft JDBC 6.2 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
-The [Configure database ](#configure-database) section further below explains the correct location for the driver JAR file in the CENM service installation structure.
+The [Configure database ](#configuring-the-database) section further below explains the correct location for the driver JAR file in the CENM service installation structure.
 
 Ensure that the JDBC connection properties match the SQL Server setup, especially when trying to reuse Azure SQL JDBC URLs, which are invalid for SQL Server. This may lead to CENM failing to start with the following message:
 

@@ -71,7 +71,7 @@ In the example below, you can see the steps to set up a new network with the CLI
 
 To set up a new network with the CLI:
 
-1. Login by setting the [context login address](#define-contexts-and-servers), your username, and password:
+1. Login by setting the [context login address](#defining-contexts-and-servers), your username, and password:
 
    ```
    cenm context login http://10.230.41.12 -u alice.barthes -p w34rfrt45g4y65EERTR5
