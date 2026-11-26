@@ -46,7 +46,7 @@ Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [A
 
 ### Compatibility
 
-The deployment scripts are compatible with Corda Enterprise Network Manager version 1.5.
+The deployment scripts are compatible with Corda Enterprise Network Manager version 1.7.
 The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum version 3.1.1.
 
 ## Deployment
@@ -108,7 +108,7 @@ The deployment steps are given below:
 - Download the Docker image with the {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "CENM Command-line Interface Tool" >}} so you can manage CENM services:
 
     ```bash
-    docker pull corda/enterprise-cenm-cli:1.6-zulu-openjdk8u392
+    docker pull corda/enterprise-cenm-cli:1.7.0-zulu-openjdk17.0.15
     ```
 
 #### 2. Set up the Kubernetes cluster
@@ -203,7 +203,7 @@ Use the {{< cenmlatestrelref "cenm/cenm-cli-tool.md" "CENM Command-line Interfac
 To start the CENM CLI Tool, run Docker command starting a Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.6-zulu-openjdk8u392
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.7.0-zulu-openjdk17.0.15
   ```
 
 The welcome message will appear:
