@@ -34,8 +34,8 @@ A file-based `sslkeystore.jks` is still required to store TLS certificates, even
 ```
 enterpriseConfiguration = {
     tlsCryptoServiceConfig = {
-       cryptoServiceName="AWS_CLOUD"
-       cryptoServiceConf="aws_cloud.conf"
+       cryptoServiceName="UTIMACO"
+       cryptoServiceConf="utimaco.conf"
     }
 }
 ```

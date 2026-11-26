@@ -1,0 +1,96 @@
+---
+date: '2020-06-18T12:00:00Z'
+menu:
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-ops-project-planning
+tags:
+- operations
+- deployment
+- planning
+title: Business network operator project planning
+weight: 300
+---
+
+# Business network operator project planning
+
+When planning a Corda deployment as a business network operator, there are several considerations:
+
+- Deployment environments
+- Notary compatibility
+- HSM compatibility
+- Database compatibility
+- Corda Enterprise Network Manager deployment
+
+When deploying a private network, the business network operator is responsible for all major components of the Corda network. In most enterprise deployments of Corda this includes:
+
+* Nodes
+* An HA notary cluster
+* An HA Corda Firewall
+* An HSM
+* The certificate hierarchy of the network
+
+The business network operator also deploys Corda Enterprise Network Manager in a private network. This deployment includes an identity manager and a network map.
+
+When deploying a public network, the Network Operator is responsible for all major components of the Corda network.
+
+## Deployment environments
+
+Business Network Operators will need several deployments of Corda Enterprise, at least including:
+
+- A development environment including minimal network infrastructure.
+- A testing environment including a basic network, without HA notary, Corda Firewall, or HSMs.
+- A UAT environment, that includes the full network infrastructure, with a shared HSM, and HA Corda Firewall.
+- The production environment, including an HA notary cluster, HA Corda Firewalls on all nodes, HSMs, and network services.
+
+## Node sizing and databases
+
+When defining the requirements of a node, it is important to define the resources that the node will require. Every
+Corda deployment has different requirements, depending on the CorDapps and business model of the parties. A minimal
+Corda Enterprise 4.15 node runs on a 2 vCPU / 2 GB host; a node with the default configuration starts a 4 GB heap and
+needs a host of about 6 GB, and nodes that hold many flows in flight need heap in proportion. See
+[Node sizing and memory requirements]({{< relref "../../node/setup/node-sizing.md" >}}) for measured figures, a
+minimal configuration, and how to estimate the requirements of a workload.
+
+All Corda nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
+
+{{< table >}}
+
+|Vendor|CPU Architecture|Versions|JDBC Driver|
+|-------------------------------|------------------|------------------|------------------------|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 13.6.2|
+|Oracle|x86-64|19c, 23ai (23.4), 26ai|Oracle JDBC 8 or 11 (23.26.4)|
+|PostgreSQL|x86-64|15.x, 16.x, 17.x, 18.x|PostgreSQL JDBC Driver 42.7.14|
+
+{{< /table >}}
+
+## Notary databases
+
+{{< table >}}
+
+|Vendor|CPU Architecture|Versions|JDBC Driver|
+|-------------------------------|------------------|------------------|--------------------|
+|CockroachDB|x86-64|24.3.x, 25.4.x, 26.2.x|PostgreSQL JDBC Driver 42.7.14|
+|Oracle RAC|x86-64|19c|Oracle JDBC 8 (23.26.4)|
+
+{{< /table >}}
+
+## Hardware security modules (HSM)
+
+{{< table >}}
+
+|Device|Legal identity and CA keys|TLS keys|Confidential Identity keys|Notary service keys|
+|-------------------------------|----------------------------|----------------------------|----------------------------|-----------------------------|
+| Utimaco SecurityServer Se Gen2| * Firmware version 4.21.1  | * Firmware version 4.21.1  | Not supported              | * Firmware version 4.21.1   |
+|                               | * Driver version 4.21.1    | * Driver version 4.21.1    |                            | * Driver version 4.21.1     |
+| Gemalto Luna                  | * Firmware version 7.0.3   | * Firmware version 7.0.3   | Not supported              | * Firmware version 7.0.3    |
+|                               | * Driver version 7.3       | * Driver version 7.3       |                            | * Driver version 7.3        |
+| FutureX Vectera Plus          | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8  |
+|                               | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      | * PKCS#11 version 3.1       |
+|                               | * FXJCA version 1.17       | * FXJCA version 1.17       | * FXJCA version 1.17       | * FXJCA version 1.17        |
+| Azure Key Vault               | * Driver version 1.2.1     | * Driver version 1.2.1     | * Driver version 1.2.1 (SOFTWARE mode only)| * Driver version 1.2.1      |
+| Securosys PrimusX             | * Firmware version 2.7.4 or newer   | * Firmware version 2.7.4   | * Firmware version 2.8.5 or newer   | * Firmware version 2.7.4 or newer  |
+|                               | * Driver version 1.8.2 or newer     | * Driver version 1.8.2 or newer     | * Driver version 2.3.4 or newer     | * Driver version 1.8.2 or newer      |
+| nCipher nShield Connect       | * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11 |
+|                               | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2    |
+
+{{< /table >}}

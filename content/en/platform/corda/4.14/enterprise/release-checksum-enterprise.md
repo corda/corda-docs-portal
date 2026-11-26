@@ -76,7 +76,7 @@ The following release packs are provided as optionals for external tools, SDKs, 
 
 The release packs and checksum files for Corda Enterprise 4.14 can be downloaded from the [Customer Hub](https://customerhub.r3.com).
 
-The following release packs are available, along with their re4spective checksum files:
+The following release packs are available, along with their respective checksum files:
 
 * devtest-4.14.tar.gz: required for building, developing, and testing CorDapps.
 * runtime-4.14.tar.gz: required to run Corda.

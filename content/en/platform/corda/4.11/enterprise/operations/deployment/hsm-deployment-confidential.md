@@ -120,7 +120,6 @@ The following table contains the current support and the associated configuratio
 | --------------------- | ------------------------- | ------------------------------------------- | ------------------ |
 | file-based keystore   | `BC_SIMPLE`               | not used                                    | `DEGRADED_WRAPPED` |
 | Securosys PrimusX HSM | `PRIMUS_X`                | path to the PrimusX configuration file      | `WRAPPED`          |
-| AWS CloudHSM          | `AWS_CLOUD`               | path to the AWS CloudHSM configuration file | `WRAPPED`          |
 | nCipher               | `N_SHIELD`                | path to `nshield.conf`                      | `NATIVE`           |
 | Futurex               | `FUTUREX`                 | path to`futurex.conf`                       | `WRAPPED`          |
 | Azure Key Vault       | path to `AZURE_KEY_VAULT` | `az_keyvault.conf`                          | `NATIVE`           |
@@ -138,25 +137,6 @@ you will have to re-run the node registration process, which will skip the steps
 Note that Corda still ensures that only the wrapped keys corresponding to confidential identities are allowed to be exported and only in wrapped form.
 * Specifically for PrimusX HSM, you will also need to enable the JCE API for wrapping (`jce_process.active` set to `enabled`) and ideally disable key invalidation (`invalidate_keys` set to `disabled`),
 so that ephemeral keys do not continue to consume memory after being used and explicitly cleaned up.
-
-## AWS CloudHSM
-
-Configuration file example:
-
-```json
-freshIdentitiesConfiguration {
-    mode="WRAPPED"
-    cryptoServiceConfiguration {
-       cryptoServiceName="AWS_CLOUD"
-       cryptoServiceConf="aws_cloud.conf"
-    }
-    masterKeyAlias="master-key"
-}
-```
-The following parameters are used for confidential identities on AWS CloudHSM:
-* AES Key Wrap Algorithm (RFC 3394) with PKCS#5 padding
-* Persistent, non-extractable 256-bit AES key as a wrapping key (KEK)
-* Non-persistent (valid for the current session only), extractable EC secp256r1 key pair as an ephemeral key
 
 ## nCipher HSMs
 

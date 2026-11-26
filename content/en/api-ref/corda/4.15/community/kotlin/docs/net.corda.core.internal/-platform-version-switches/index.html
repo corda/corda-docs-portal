@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>PlatformVersionSwitches</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    docs
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+4.15        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":docs:dokkaHtml/customSourceSet"
+                                       data-filter=":docs:dokkaHtml/customSourceSet"/>
+                                <span class="checkbox--icon"></span>
+                                customSourceSet
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    docs
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="docs::net.corda.core.internal/PlatformVersionSwitches///PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../../index.html">docs</a><span class="delimiter">/</span><a href="../index.html">net.corda.core.internal</a><span class="delimiter">/</span><span class="current">PlatformVersionSwitches</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Platform</span><wbr></wbr><span>Version</span><wbr></wbr><span><span>Switches</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">PlatformVersionSwitches</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="816411053%2FProperties%2F-367327816" anchor-label="BATCH_DOWNLOAD_COUNTERPARTY_BACKCHAIN" id="816411053%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-b-a-t-c-h_-d-o-w-n-l-o-a-d_-c-o-u-n-t-e-r-p-a-r-t-y_-b-a-c-k-c-h-a-i-n.html"><span>BATCH_</span><wbr></wbr><span>DOWNLOAD_</span><wbr></wbr><span>COUNTERPARTY_</span><wbr></wbr><span>BACKCHAIN</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="816411053%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-b-a-t-c-h_-d-o-w-n-l-o-a-d_-c-o-u-n-t-e-r-p-a-r-t-y_-b-a-c-k-c-h-a-i-n.html">BATCH_DOWNLOAD_COUNTERPARTY_BACKCHAIN</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">6</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-683851752%2FProperties%2F-367327816" anchor-label="BELONGS_TO_CONTRACT_ENFORCEMENT" id="-683851752%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-b-e-l-o-n-g-s_-t-o_-c-o-n-t-r-a-c-t_-e-n-f-o-r-c-e-m-e-n-t.html"><span>BELONGS_</span><wbr></wbr><span>TO_</span><wbr></wbr><span>CONTRACT_</span><wbr></wbr><span><span>ENFORCEMENT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-683851752%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-b-e-l-o-n-g-s_-t-o_-c-o-n-t-r-a-c-t_-e-n-f-o-r-c-e-m-e-n-t.html">BELONGS_TO_CONTRACT_ENFORCEMENT</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="350522704%2FProperties%2F-367327816" anchor-label="CERTIFICATE_ROTATION" id="350522704%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-e-r-t-i-f-i-c-a-t-e_-r-o-t-a-t-i-o-n.html"><span>CERTIFICATE_</span><wbr></wbr><span>ROTATION</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="350522704%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-c-e-r-t-i-f-i-c-a-t-e_-r-o-t-a-t-i-o-n.html">CERTIFICATE_ROTATION</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">9</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="93892599%2FProperties%2F-367327816" anchor-label="CROSS_PROVIDER_KEY_ROTATION" id="93892599%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-o-s-s_-p-r-o-v-i-d-e-r_-k-e-y_-r-o-t-a-t-i-o-n.html"><span>CROSS_</span><wbr></wbr><span>PROVIDER_</span><wbr></wbr><span>KEY_</span><wbr></wbr><span>ROTATION</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="93892599%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-c-r-o-s-s_-p-r-o-v-i-d-e-r_-k-e-y_-r-o-t-a-t-i-o-n.html">CROSS_PROVIDER_KEY_ROTATION</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">170</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2044118723%2FProperties%2F-367327816" anchor-label="ENABLE_P2P_COMPRESSION" id="-2044118723%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e-n-a-b-l-e_-p2-p_-c-o-m-p-r-e-s-s-i-o-n.html"><span>ENABLE_</span><wbr></wbr><span>P2P_</span><wbr></wbr><span><span>COMPRESSION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2044118723%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-e-n-a-b-l-e_-p2-p_-c-o-m-p-r-e-s-s-i-o-n.html">ENABLE_P2P_COMPRESSION</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">7</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-273405091%2FProperties%2F-367327816" anchor-label="FETCH_MISSING_NETWORK_PARAMETERS" id="-273405091%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-f-e-t-c-h_-m-i-s-s-i-n-g_-n-e-t-w-o-r-k_-p-a-r-a-m-e-t-e-r-s.html"><span>FETCH_</span><wbr></wbr><span>MISSING_</span><wbr></wbr><span>NETWORK_</span><wbr></wbr><span>PARAMETERS</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-273405091%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-f-e-t-c-h_-m-i-s-s-i-n-g_-n-e-t-w-o-r-k_-p-a-r-a-m-e-t-e-r-s.html">FETCH_MISSING_NETWORK_PARAMETERS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1361408037%2FProperties%2F-367327816" anchor-label="FIRST_VERSION" id="-1361408037%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-f-i-r-s-t_-v-e-r-s-i-o-n.html"><span>FIRST_</span><wbr></wbr><span>VERSION</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1361408037%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-f-i-r-s-t_-v-e-r-s-i-o-n.html">FIRST_VERSION</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">1</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1423177485%2FProperties%2F-367327816" anchor-label="IGNORE_JOLOKIA_JSON_SIMPLE_IN_CORDAPPS" id="-1423177485%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-g-n-o-r-e_-j-o-l-o-k-i-a_-j-s-o-n_-s-i-m-p-l-e_-i-n_-c-o-r-d-a-p-p-s.html"><span>IGNORE_</span><wbr></wbr><span>JOLOKIA_</span><wbr></wbr><span>JSON_</span><wbr></wbr><span>SIMPLE_</span><wbr></wbr><span>IN_</span><wbr></wbr><span>CORDAPPS</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1423177485%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-g-n-o-r-e_-j-o-l-o-k-i-a_-j-s-o-n_-s-i-m-p-l-e_-i-n_-c-o-r-d-a-p-p-s.html">IGNORE_JOLOKIA_JSON_SIMPLE_IN_CORDAPPS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2123520196%2FProperties%2F-367327816" anchor-label="LEGACY_ATTACHMENTS" id="-2123520196%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-g-a-c-y_-a-t-t-a-c-h-m-e-n-t-s.html"><span>LEGACY_</span><wbr></wbr><span><span>ATTACHMENTS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2123520196%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-l-e-g-a-c-y_-a-t-t-a-c-h-m-e-n-t-s.html">LEGACY_ATTACHMENTS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">140</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1417273752%2FProperties%2F-367327816" anchor-label="LIMIT_KEYS_IN_SIGNATURE_CONSTRAINTS" id="-1417273752%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-i-m-i-t_-k-e-y-s_-i-n_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t-s.html"><span>LIMIT_</span><wbr></wbr><span>KEYS_</span><wbr></wbr><span>IN_</span><wbr></wbr><span>SIGNATURE_</span><wbr></wbr><span><span>CONSTRAINTS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1417273752%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-l-i-m-i-t_-k-e-y-s_-i-n_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t-s.html">LIMIT_KEYS_IN_SIGNATURE_CONSTRAINTS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">5</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="612420049%2FProperties%2F-367327816" anchor-label="MIGRATE_ATTACHMENT_TO_SIGNATURE_CONSTRAINTS" id="612420049%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-g-r-a-t-e_-a-t-t-a-c-h-m-e-n-t_-t-o_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t-s.html"><span>MIGRATE_</span><wbr></wbr><span>ATTACHMENT_</span><wbr></wbr><span>TO_</span><wbr></wbr><span>SIGNATURE_</span><wbr></wbr><span><span>CONSTRAINTS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="612420049%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-g-r-a-t-e_-a-t-t-a-c-h-m-e-n-t_-t-o_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t-s.html">MIGRATE_ATTACHMENT_TO_SIGNATURE_CONSTRAINTS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="386639164%2FProperties%2F-367327816" anchor-label="MIGRATE_HASH_TO_SIGNATURE_CONSTRAINTS" id="386639164%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-g-r-a-t-e_-h-a-s-h_-t-o_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t-s.html"><span>MIGRATE_</span><wbr></wbr><span>HASH_</span><wbr></wbr><span>TO_</span><wbr></wbr><span>SIGNATURE_</span><wbr></wbr><span><span>CONSTRAINTS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="386639164%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-g-r-a-t-e_-h-a-s-h_-t-o_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t-s.html">MIGRATE_HASH_TO_SIGNATURE_CONSTRAINTS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1364784908%2FProperties%2F-367327816" anchor-label="MIN_PLATFORM_VERSION_FOR_BACKPRESSURE_MESSAGE" id="-1364784908%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-n_-p-l-a-t-f-o-r-m_-v-e-r-s-i-o-n_-f-o-r_-b-a-c-k-p-r-e-s-s-u-r-e_-m-e-s-s-a-g-e.html"><span>MIN_</span><wbr></wbr><span>PLATFORM_</span><wbr></wbr><span>VERSION_</span><wbr></wbr><span>FOR_</span><wbr></wbr><span>BACKPRESSURE_</span><wbr></wbr><span>MESSAGE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1364784908%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-n_-p-l-a-t-f-o-r-m_-v-e-r-s-i-o-n_-f-o-r_-b-a-c-k-p-r-e-s-s-u-r-e_-m-e-s-s-a-g-e.html">MIN_PLATFORM_VERSION_FOR_BACKPRESSURE_MESSAGE</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-72457923%2FProperties%2F-367327816" anchor-label="NETWORK_PARAMETERS_COMPONENT_GROUP" id="-72457923%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-e-t-w-o-r-k_-p-a-r-a-m-e-t-e-r-s_-c-o-m-p-o-n-e-n-t_-g-r-o-u-p.html"><span>NETWORK_</span><wbr></wbr><span>PARAMETERS_</span><wbr></wbr><span>COMPONENT_</span><wbr></wbr><span>GROUP</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-72457923%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-n-e-t-w-o-r-k_-p-a-r-a-m-e-t-e-r-s_-c-o-m-p-o-n-e-n-t_-g-r-o-u-p.html">NETWORK_PARAMETERS_COMPONENT_GROUP</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1410490251%2FProperties%2F-367327816" anchor-label="NOTARY_INSTRUCTIONS" id="-1410490251%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-o-t-a-r-y_-i-n-s-t-r-u-c-t-i-o-n-s.html"><span>NOTARY_</span><wbr></wbr><span><span>INSTRUCTIONS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1410490251%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-n-o-t-a-r-y_-i-n-s-t-r-u-c-t-i-o-n-s.html">NOTARY_INSTRUCTIONS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">160</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2125655350%2FProperties%2F-367327816" anchor-label="RESTRICTED_DATABASE_OPERATIONS" id="-2125655350%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-t-r-i-c-t-e-d_-d-a-t-a-b-a-s-e_-o-p-e-r-a-t-i-o-n-s.html"><span>RESTRICTED_</span><wbr></wbr><span>DATABASE_</span><wbr></wbr><span>OPERATIONS</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2125655350%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-t-r-i-c-t-e-d_-d-a-t-a-b-a-s-e_-o-p-e-r-a-t-i-o-n-s.html">RESTRICTED_DATABASE_OPERATIONS</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">7</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1778200409%2FProperties%2F-367327816" anchor-label="TWO_PHASE_FINALITY" id="-1778200409%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row table-row_content" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-t-w-o_-p-h-a-s-e_-f-i-n-a-l-i-t-y.html"><span>TWO_</span><wbr></wbr><span>PHASE_</span><wbr></wbr><span>FINALITY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1778200409%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-t-w-o_-p-h-a-s-e_-f-i-n-a-l-i-t-y.html">TWO_PHASE_FINALITY</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator"> = </span><span class="token constant">13</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

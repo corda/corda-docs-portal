@@ -16,6 +16,33 @@ You can download the Archive Service release files if you have access to the rep
 
 Before you install the downloaded files, verify the integrity of each file to ensure that it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Checksums of Archive Service 2.0.1 release files
+
+* archive-service-2.0.1-javadoc.jar (340 bytes / 340 bytes)
+  * `812ce98170d3a8772e57ed70700360b8dc68c23a` (sha1)
+  * `796a628b58102e08ebac2a1c8a89c744` (md5)
+  * `f26b97dd3bc243c42d58c004455eecd537b8fe069a8a662920c6dce1e0819e65` (sha256)
+* archive-service-2.0.1.jar (3 Mb / 2461910 bytes)
+  * `9b17166cfdb79617f534bf817de5050685f6f636` (sha1)
+  * `747c677118491ab03e2bf77ef1a24c1f` (md5)
+  * `89e33507b42010f944299819faca38fb8b9e681ce2ffd16c380ad8f868989af3` (sha256)
+* archive-service-2.0.1.pom (399 bytes / 399 bytes)
+  * `2234d1259459da8aea554471524945a0eca511eb` (sha1)
+  * `e6eae268b7d05410441274ba79cc97de` (md5)
+  * `525a21c007ebd7bfc17ab359617e3e80e162dc6477480fabfe8c385095631247` (sha256)
+* corda-tools-archive-service-2.0.1-javadoc.jar (340 bytes / 340 bytes)
+  * `812ce98170d3a8772e57ed70700360b8dc68c23a` (sha1)
+  * `796a628b58102e08ebac2a1c8a89c744` (md5)
+  * `f26b97dd3bc243c42d58c004455eecd537b8fe069a8a662920c6dce1e0819e65` (sha256)
+* corda-tools-archive-service-2.0.1.jar (118 Mb / 122906108 bytes)
+  * `7752a495797b9c86dd247ab30eb7289a89855f01` (sha1)
+  * `c6e74100d209c8a831d7ef3feeca936e` (md5)
+  * `ded1e13ca9f4d07d7463c9c9b21d39ac9f73af5db2d5db347ad56d94741fe111` (sha256)
+* corda-tools-archive-service-2.0.1.pom (411 bytes / 411 bytes)
+  * `cfca8ddd09bb3380c2f4623d6dcb0807052d4026` (sha1)
+  * `e50ba3274dffd7bb22817a731d332c2c` (md5)
+  * `a7549bf2e061f1436cb337b2bd2dade20137620db9a80ab9ca6836805dcd4969` (sha256)
+
 ## Checksums of Archive Service 2.0 release files
 
 * archive-service-2.0-javadoc.jar (340 bytes / 340 bytes)

@@ -50,11 +50,11 @@ the following layout:
  -- cordapps/
 ```
 
-An easy way to build a valid set of nodes is by running `deployNodes`. In this document, we will be using the output of running `deployNodes` for the [Java samples repository](https://github.com/corda/samples-java/tree/release/4.13).
+An easy way to build a valid set of nodes is by running `deployNodes`. In this document, we will be using the output of running `deployNodes` for the [Java samples repository](https://github.com/corda/samples-java/tree/release/4.12).
 
 Run the following commands:
 
-1 `git clone https://github.com/corda/samples-java/tree/release/4.13`
+1 `git clone -b release/4.12 https://github.com/corda/samples-java`
 2 `cd samples-java/Basic/cordapp-example`
 3 `./gradlew clean workflows-java:deployNodes`
 

@@ -3,7 +3,7 @@ title: Corda Open Source Edition 4.14 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
-- /release-notes.ht3
+- /release-notes.html
 menu:
   corda-community-4-14:
     identifier: corda-community-4-14-release-notes

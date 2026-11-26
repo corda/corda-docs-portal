@@ -101,6 +101,5 @@ All Corda nodes have a database. A range of third-party databases are supported 
 |                               | * Driver version 1.8.2 or newer     | * Driver version 1.8.2 or newer     | * Driver version 2.3.4 or newer     | * Driver version 1.8.2 or newer      |
 | nCipher nShield Connect       | * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11 |
 |                               | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2    |
-| AWS CloudHSM                  | * Driver version 3.1.2     | * Driver version 3.1.2     | * Driver version 3.1.2     | * Driver version 3.1.2      |
 
 {{< /table >}}

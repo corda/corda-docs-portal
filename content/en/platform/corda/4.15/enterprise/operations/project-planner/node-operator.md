@@ -1,0 +1,90 @@
+---
+date: '2020-06-18T12:00:00Z'
+menu:
+  corda-enterprise-4-15:
+    parent: corda-enterprise-4-15-ops-project-planning
+tags:
+- operations
+- deployment
+- planning
+title: Node operator project planning
+weight: 200
+---
+
+# Node operator project planning
+
+A node operator is a member of a Corda business network, but does not operate any of the network services. A Corda node
+is the component that hosts CorDapps, and executes transactions with other network parties.
+
+A Corda node is highly configurable, and care must be taken to correctly configure your node for best performance.
+
+For more information on node configuration, see [node configuration]({{< relref "../../node/setup/node-naming.md" >}}).
+
+## Node sizing
+
+When defining the requirements of a node, it is important to define the resources that the node will require. Every
+Corda deployment has different requirements, depending on the CorDapps and business model of the parties. A minimal
+Corda Enterprise 4.15 node runs on a 2 vCPU / 2 GB host; a node with the default configuration starts a 4 GB heap and
+needs a host of about 6 GB, and nodes that hold many flows in flight need heap in proportion. See
+[Node sizing and memory requirements]({{< relref "../../node/setup/node-sizing.md" >}}) for measured figures, a
+minimal configuration, and how to estimate the requirements of a workload.
+
+## Node databases
+
+All Corda nodes have a database. A range of third-party databases are supported by Corda, shown in the following table:
+
+{{< table >}}
+
+|Vendor|CPU Architecture|Versions|JDBC Driver|
+|-------------------------------|------------------|------------------|------------------------|
+|Microsoft|x86-64|Azure SQL, SQL Server 2022|Microsoft JDBC Driver 13.6.2|
+|Oracle|x86-64|19c, 23ai (23.4), 26ai|Oracle JDBC 8 or 11 (23.26.4)|
+|PostgreSQL|x86-64|15.x, 16.x, 17.x, 18.x|PostgreSQL JDBC Driver 42.7.14|
+
+{{< /table >}}
+
+The node database stores all data required by the node, including CorDapps and state definitions.
+
+To learn more about the node database, see [understanding the node database]({{< relref "../../node/operating/node-database.md" >}}).
+
+## Testing and production environments
+
+There are two key environments that a node operator must access or maintain, a production environment hosting the live
+node, and a testing environment for testing CorDapp updates, node upgrades, or other network changes.
+
+## Production environment
+
+A production environment should contain the node, an HA implementation of the [Corda Firewall]({{< relref "../../node/corda-firewall-component.md" >}}),
+and an HSM that conforms to your organisation's security policies.
+
+The Corda Firewall consists of the Float and Bridge components. A high-availability implementation of Corda Firewall
+requires Zookeeper v3.5.4 running as an external cluster and both the Float and Bridge components running as external clusters.
+
+The following HSMs are compatible with Corda Enterprise:
+
+{{< table >}}
+
+|Device|Legal identity and CA keys|TLS keys|Confidential Identity keys|Notary service keys|
+|-------------------------------|----------------------------|----------------------------|----------------------------|-----------------------------|
+| Utimaco SecurityServer Se Gen2| * Firmware version 4.21.1  | * Firmware version 4.21.1  | Not supported              | * Firmware version 4.21.1   |
+|                               | * Driver version 4.21.1    | * Driver version 4.21.1    |                            | * Driver version 4.21.1     |
+| Gemalto Luna                  | * Firmware version 7.0.3   | * Firmware version 7.0.3   | Not supported              | * Firmware version 7.0.3    |
+|                               | * Driver version 7.3       | * Driver version 7.3       |                            | * Driver version 7.3        |
+| FutureX Vectera Plus          | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8  |
+|                               | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      | * PKCS#11 version 3.1       |
+|                               | * FXJCA version 1.17       | * FXJCA version 1.17       | * FXJCA version 1.17       | * FXJCA version 1.17        |
+| Azure Key Vault               | * Driver version 1.2.1     | * Driver version 1.2.1     | * Driver version 1.2.1 (SOFTWARE mode only)| * Driver version 1.2.1      |
+| Securosys PrimusX             | * Firmware version 2.7.4 or newer  | * Firmware version 2.7.4 or newer   | * Firmware version 2.8.5 or newer   | * Firmware version 2.7.4 or newer    |
+|                               | * Driver version 1.8.2 or newer     | * Driver version 1.8.2 or newer     | * Driver version 2.3.4 or newer     | * Driver version 1.8.2 or newer      |
+| nCipher nShield Connect       | * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11 |
+|                               | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2    |
+
+{{< /table >}}
+
+## UAT environment
+
+In many cases, a business network operator will run a UAT and provide access to that environment to the node operator.
+However, node operators may also run their own UAT or QA environment.
+
+The architecture of a QA or UAT environment should mirror the production environment as closely as possible, in order to
+provide the best testing environment.
