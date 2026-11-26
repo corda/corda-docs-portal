@@ -151,5 +151,6 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 | nCipher nShield Connect       | Firmware version 12.50.11| Firmware version 12.50.11| Firmware version 12.50.11  | Firmware version 12.50.11 |
 |                               | Driver version 12.60.2   | Driver version 12.60.2   | Driver version 12.60.2     | Driver version 12.60.2    |
 | AWS CloudHSM                  | Driver version 3.2.1     | Driver version 3.2.1     | Driver version 3.2.1       | Driver version 3.2.1      |
+| Azure Cloud HSM               | Client SDK version 2.0.2.5| Client SDK version 2.0.2.5| Client SDK version 2.0.2.5| Client SDK version 2.0.2.5|
 
 {{< /table >}}

@@ -34,6 +34,7 @@ Both the Signing Service and the PKI Tool support a variety of HSMs.
 | Securosys PrimusX              | 2.7.4            | 1.8.2          | No                                    |
 | Azure Key Vault                | N/A              | 1.1.1          | No                                    |
 | AWS CloudHSM                   | N/A              | 3.2.1          | No                                    |
+| Azure Cloud HSM                | N/A              | 2.0.2.5        | Yes (built into the service)          |
 
 {{< /table >}}
 

@@ -50,7 +50,7 @@ For more information about X.500 name constraints, see {{< cordalatestrelref "en
 
 * Allows a user to define their desired certificate hierarchy via a configuration file.
 * Ability to generate private and public key pairs along with accompanying X509 certificates for all entities.
-* Supports local key and certificate generation as well as HSM integration for Utimaco, Gemalto, Securosys, Azure Key Vault and AWS CloudHSM.
+* Supports local key and certificate generation as well as HSM integration for Utimaco, Gemalto, Securosys, Azure Key Vault, AWS CloudHSM and Azure Cloud HSM.
 * Supports ‘additive’ mode, allowing a user to use existing keys to generate key pairs and certificates for entities further down the chain.
 * Certificate Revocation List (CRL) file generation.
 
@@ -63,6 +63,15 @@ configuration file:
 ```bash
 java -jar pkitool.jar --config-file <CONFIG_FILE>
 ```
+
+If any key store uses Azure Cloud HSM, add two JVM flags to that command. They give the PKI Tool access to the JDK’s
+own restricted PKCS11 bindings, which its Azure Cloud HSM support is built on:
+
+```bash
+java --add-modules=jdk.crypto.cryptoki --add-exports=jdk.crypto.cryptoki/sun.security.pkcs11.wrapper=ALL-UNNAMED -jar pkitool.jar --config-file <CONFIG_FILE>
+```
+
+The CENM PKI Tool Helm chart already passes both flags.
 
 
 ### Generating certificates for non-production deployments
@@ -502,6 +511,14 @@ Or if `gradle` is not on the path but `gradlew` is in the current directory, run
 ```
 
 This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the configuration.
+
+
+###### Azure Cloud HSM
+
+Azure Cloud HSM needs no `hsmLibraries` entry and no vendor JAR. The PKI Tool talks to the HSM through the JDK’s own
+PKCS11 support, loading the Azure Cloud HSM Client SDK’s native library directly from the key store’s `libraryPath` - see
+[Azure Cloud HSM key store configuration]({{< relref "config-pki-tool-parameters.md#azure-cloud-hsm-key-store-configuration" >}}).
+It does need two extra JVM flags, described in [Running the PKI tool](#running-the-pki-tool).
 
 
 ##### Generating SSL keys
@@ -1384,6 +1401,85 @@ keyStores = {
     		file = "./new-certificate-store.jks"
     		password = "password"
     	}
+    }
+}
+
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
+
+#### Azure Cloud HSM configuration
+
+No `hsmLibraries` block is needed. `libraryPath` is optional and shown here at its default value.
+
+```docker
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = AZURE_CLOUD_HSM
+        credentialsAzure = {
+            partition = "PARTITION_1"
+            userName = "<user>"
+            password = "<password>"
+        }
+        libraryPath = "/opt/azurecloudhsm/lib64/libazcloudhsm_pkcs11.so"
+        localCertificateStore = {
+            file = "./new-certificate-store.jks"
+            password = "password"
+        }
     }
 }
 
