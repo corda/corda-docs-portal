@@ -4,7 +4,7 @@ date: '2026-11-24'
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
-- /release-notes.ht3
+- /release-notes.html
 menu:
   corda-community-4-15:
     identifier: corda-community-4-15-release-notes
@@ -46,53 +46,33 @@ For more information about platform versions, see [Versioning]({{< relref "versi
 
 #### Hibernate 7 and Jakarta Persistence
 
-Corda Open Source Edition 4.15 upgrades Hibernate ORM from version 5.6, which is end of life, to version 7.4.12. Hibernate 7 implements Jakarta Persistence 3.2, so the persistence annotations that CorDapps use for their vault schemas, and the `EntityManager` that `ServiceHub.withEntityManager` provides, move from the `javax.persistence` package to the `jakarta.persistence` package. The Hibernate upgrade itself needs no database migration, because Corda configures Hibernate 7 to read and write the formats that existing databases already use, including the single `hibernate_sequence`, UTC `TIMESTAMP` columns for `Instant` and binary `UUID` columns. Corda Open Source Edition 4.15 adds no other changesets either.
-
-* **CorDapps built for Corda 4.14 or earlier run without a rebuild.** The node's CorDapp class loader converts their `javax.persistence` classes to `jakarta.persistence` as it loads them, and substitutes the Hibernate 5 `@Type` names (`uuid-char`, `corda-wrapper-binary`, `corda-blob`, `yes_no`, `true_false` and others) with the Hibernate 7 mappings that store the same format. New `YesNoBooleanConverter`, `TrueFalseBooleanConverter` and `SingleCharacterConverter` converters keep the `CHAR` columns a 4.14 node used readable. The jar, its hash and its signature are unchanged, so contract constraints are not affected. The node logs one line per converted CorDapp.
-* **Contract attachments are converted too.** The classes of contract attachments built for Corda 4.14 or earlier are converted in the same way when a transaction is verified, in the node and in the external verifier, so their contracts, and the transactions already on the ledger that use them, keep verifying.
-* **The node refuses CorDapps that Hibernate 7 cannot run.** If a CorDapp uses a Hibernate 5 annotation, class or member that Hibernate 7 no longer has, such as `@TypeDef`, a custom `@Type`, or `Session.save`, `update` and `delete`, the node refuses to start and lists every affected class and member at once. Start a 4.15 test node with your CorDapps before upgrading production to find them. If a CorDapp cannot be rebuilt and you accept that such code fails only when it runs, the JVM option `-Dnet.corda.cordapp.missingHibernateReferences=warn` turns the class and member check into warnings; the annotation check cannot be turned off.
-* **Hibernate 7 behaviour changes apply to converted and rebuilt CorDapps alike.** HQL and JPQL are validated strictly, and a query that refers to a column name instead of an attribute name is rejected with `SemanticException`. `persist` of a duplicate entity marks the transaction for rollback. Native queries return `Long` where they returned `BigInteger`. `LIKE` patterns no longer treat a backslash as an escape character on H2 and PostgreSQL. `NOT IN` an empty list now matches every row. An entity attribute of an array type such as `IntArray` is mapped to the database's array type, so a column created before 4.15 fails validation, and a `Byte[]` or `Character[]` attribute is refused at start-up. A query without `ORDER BY` can return rows in a different order. Run the flows of every CorDapp on a 4.15 test node before relying on them in production.
-* **Rebuilt CorDapps use `jakarta.persistence`.** `ServiceHub.withEntityManager` now provides a `jakarta.persistence.EntityManager`, `@Type(type = "...")` is replaced by `@JdbcTypeCode`, and Hibernate's `Session.save`, `update` and `delete` are replaced by `persist`, `merge` and `remove`. The `tools/scripts/migrate-cordapp-to-hibernate7.sh` script in the Corda repository applies the package, dependency and common `@Type` changes, and lists the rest for review. A Gradle build that has Hibernate 5 in the same configuration as Corda 4.15, for example through a dependency on an older `corda-core`, fails with a capability conflict on `hibernate-core`.
-* **Testing.** `MockNetwork`, `MockServices` and in-process driver nodes do not convert CorDapps, because the CorDapp's classes are on the test classpath. A CorDapp built for 4.14 that binds `withEntityManager` to `javax.persistence.EntityManager` fails there with `NoClassDefFoundError: javax/persistence/EntityManager`. Port your own CorDapp, and test unported third-party CorDapp jars on out-of-process driver nodes, which convert them as a real node does.
-* **Databases.** Hibernate 7.4 raised the minimum database versions it supports. Hibernate logs a warning (`HHH000511`) at start-up for an older database and carries on, so upgrade the database before the node. See the [platform support matrix]({{< relref "release-platform-support-matrix.md" >}}).
+Corda Open Source Edition 4.15 upgrades Hibernate ORM from version 5.6, which is end of life, to version 7.4.12, which implements Jakarta Persistence 3.2. The persistence annotations that CorDapps use for their vault schemas, and the `EntityManager` that `ServiceHub.withEntityManager` provides, move from the `javax.persistence` package to the `jakarta.persistence` package. The upgrade needs no database migration, and CorDapps and contract attachments built for Corda 4.14 or earlier run without a rebuild, because the node converts their classes as it loads them. The node refuses to start with a CorDapp that uses a Hibernate 5 feature that Hibernate 7 no longer has, and some query behaviour has changed, so start a 4.15 test node with your CorDapps and run their flows before you upgrade production.
 
 For what node operators and CorDapp developers need to do, see [Hibernate 7 and Jakarta Persistence in Corda Open Source Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
 
 #### Verifying transactions signed with a rotated key
 
-Corda Enterprise Edition 4.15 introduces cross-provider key rotation, which moves a node's or notary's legal identity key to a different key provider, such as from a file-based keystore to an HSM. After a rotation, the node signs for its existing states with the new key and a *key rotation proof*: a signature by the old key over the new one. Transactions that consume states signed with the old key carry the proof chain.
+Corda Enterprise Edition 4.15 introduces cross-provider key rotation, which moves a node's or notary's legal identity key to a different key provider, such as from a file-based keystore to an HSM. A Corda Open Source Edition node cannot rotate its own key across providers, but a 4.15 node verifies transactions that carry key rotation proofs, so it can keep transacting with Corda Enterprise nodes that have rotated their keys. New public APIs, such as `PartyIdentityResolver`, let CorDapps recognise a party across a rotation. A CorDapp that compares parties or keys directly may need changes before any node on the network rotates its key.
 
-A Corda Open Source Edition node cannot rotate its own key across providers, but a 4.15 node verifies transactions that contain key rotation proofs, so it can transact with Corda Enterprise nodes that have rotated their keys. Key rotation requires every node on the network to run Corda 4.15 or later and a network minimum platform version of 170. For more information, see [Cross-provider key rotation]({{< relref "../enterprise/node/cross-provider-key-rotation/cross-provider-key-rotation.md" >}}).
-
-New public APIs support key rotation:
-
-* The `net.corda.core.crypto.keyrotation.crossprovider` package: `KeyRotationProof`, `KeyRotationProofChain`, and `PartyIdentityResolver` and `PartyIdentityResolved`, which resolve a `Party` recorded before a rotation to the party's current identity, so that CorDapps can compare parties across a rotation.
-* `IdentityService.isKeyRotated`, `getProofChain` and `containsProofChain`, and `KeyManagementService.isKeyRotated`, `hasRotatedKeys` and `rotatedKeys`.
-* A nullable `keyRotationProofChainMap` property on `Command` and `CommandWithParties`, and a nullable `proofChain` property on `SignatureMetadata`.
-
-`CollectSignaturesFlow` takes the keys in a key rotation proof into account when it checks that all required signatures are present, and the `OnLedgerAsset` helpers in the finance CorDapp support notaries that have rotated their keys.
-
-A CorDapp that compares parties, keys or certificates directly, or looks up states by party, may stop working for a rotated node's states until it is updated. Before any node on a network rotates its key, check that every CorDapp on every node supports key rotation.
+For more information, see [Parties whose key has been rotated]({{< relref "api-identity.md#parties-whose-key-has-been-rotated" >}}).
 
 #### Node scheduler metrics
 
-New metrics under `net.corda.NodeSchedulerService` show when the node's scheduler can no longer run scheduled flows, for example during a database outage: `ConsecutiveDatabaseFailures`, `DatabaseFailures` and `MillisStalled`. For more information, see [Node administration]({{< relref "node-administration.md" >}}).
+New metrics under `net.corda.NodeSchedulerService` (`ConsecutiveDatabaseFailures`, `DatabaseFailures` and `MillisStalled`) show when the node's scheduler can no longer run scheduled flows, for example during a database outage.
+
+For more information, see [Node administration]({{< relref "node-administration.md" >}}).
 
 #### Warning when RPC runs without TLS
 
-The node now prints a warning at start-up when its RPC port accepts connections without TLS, because RPC usernames and passwords are then sent over the network in clear text. The warning also calls out an `rpcSettings.ssl` block that is ignored because `rpcSettings.useSsl` is not `true`. The node's TLS transports were hardened at the same time: a TLS transport that is missing its key store or trust store now fails instead of falling back to plain text, and P2P connections always use mutual TLS. To enable TLS for RPC, see [Configuring wire security]({{< relref "clientrpc.md#configuring-wire-security" >}}).
+The node now prints a warning at start-up when its RPC port accepts connections without TLS, because RPC usernames and passwords are then sent over the network in clear text. The node's TLS transports were hardened at the same time: a TLS transport that is missing its key store or trust store now fails instead of falling back to plain text, and P2P connections always use mutual TLS.
+
+For more information, see [Configuring wire security]({{< relref "clientrpc.md#configuring-wire-security" >}}).
 
 #### Docker image hardening
 
-The Corda Open Source Docker images have been hardened following a penetration test. Their default behaviour is unchanged, so existing deployments and scripts keep working.
+The Corda Open Source Docker images have been hardened. They use digest-pinned base images with a JDK that fixes CVE-2026-114938, run as the non-root `corda` user with the UID and GID `1000:1000`, keep the Corda binaries read-only, declare their data folders as volumes, and have a health check. Their default behaviour is unchanged, so existing deployments and scripts keep working. If `rpcSettings.address` does not use the default port `10201`, set `CORDA_HEALTHCHECK_PORT`, or the container is reported as unhealthy.
 
-* The base images are pinned by digest and use Azul Zulu 17.0.21.1, which fixes CVE-2026-114938. The OS packages are upgraded at build time, and setuid and setgid bits are removed.
-* The node runs as the non-root `corda` user with the fixed UID and GID `1000:1000`, so Kubernetes `runAsNonRoot: true` works without `runAsUser`. The image supports `--cap-drop ALL` and `--security-opt no-new-privileges`.
-* The Corda binaries are owned by `root` and are read-only. The `persistence`, `artemis` and `certificates` folders have mode `750`, and Corda is unpacked from `corda.jar` on every start, so changes to the unpacked copy do not survive a restart.
-* The image declares its data folders as volumes, and the `cordapps`, `drivers` and configuration folders can be mounted read-only.
-* A new health check reports the container as healthy once the node listens on its RPC port. If `rpcSettings.address` does not use the default port `10201`, set `CORDA_HEALTHCHECK_PORT`; otherwise the container is reported as unhealthy, which Docker Swarm acts on.
-
-A read-only root file system is not supported yet. For more information, see [Official Corda Docker image]({{< relref "docker-image.md" >}}).
+For more information, see [Image security]({{< relref "docker-image.md#image-security" >}}).
 
 ### Platform and dependency changes
 
@@ -101,6 +81,7 @@ A read-only root file system is not supported yet. For more information, see [Of
 * **HikariCP 7.1.0** replaces HikariCP 5.1.0 for the node's database connection pool.
 * **Liquibase 4.33.0** replaces Liquibase 4.20.0. On a database that is already at 4.14, the database migration runs no changesets, but Liquibase stores changeset checksums in a new format, so it logs `Upgrading checksum for Changeset ...` once per existing changeset. Liquibase's analytics are disabled.
 * **H2 2.4.240** replaces H2 2.2.224 for development nodes. Existing H2 database files open without conversion. H2 2.5.x is deliberately not used, because it can lose committed data when the JVM exits without closing the database.
+* **Databases and JDBC drivers.** PostgreSQL 14 is no longer in the platform support matrix, which lists PostgreSQL JDBC Driver 42.7.14. See the [platform support matrix]({{< relref "release-platform-support-matrix.md" >}}).
 * **Jetty 12.1.14** replaces Jetty 12.0.38, and **Jackson 2.22.4** replaces Jackson 2.21.7.
 * **Artemis 2.57.0, Netty 4.1.139.Final and Quasar 0.9.3_r3** are used, as in Corda 4.14.4 apart from a Netty patch release.
 
@@ -110,7 +91,7 @@ For the full list, see [Third-party components upgrade](#third-party-components-
 
 * **`ServiceHub.withEntityManager` now provides a `jakarta.persistence.EntityManager`.** A CorDapp rebuilt for 4.15 must bind the block to the `jakarta.persistence` type. A CorDapp built for 4.14 or earlier is converted by the node and keeps working unchanged. The API checker does not report this change, because the recorded signature has no type parameters.
 * **`Command`, `CommandWithParties` and `SignatureMetadata` have a new nullable property** for key rotation proofs. Their existing constructors are kept, but their `copy` methods now take the new property, so a CorDapp built for 4.14 or earlier that calls `copy` on one of these classes must be rebuilt against 4.15.
-* **New key rotation APIs.** See [Verifying transactions signed with a rotated key](#verifying-transactions-signed-with-a-rotated-key).
+* **New key rotation APIs.** See [Parties whose key has been rotated]({{< relref "api-identity.md#parties-whose-key-has-been-rotated" >}}).
 
 ### Fixed issues
 

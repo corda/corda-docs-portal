@@ -642,7 +642,7 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 ## Configuring wire security
 
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [rpcSettings]({{< relref "corda-configuration-fields.md#rpcsettings" >}})).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSsl=true` (see [rpcSettings]({{< relref "corda-configuration-fields.md#rpcsettings" >}})).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options]({{< relref "node-commandline.md" >}})).
 
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
@@ -651,6 +651,26 @@ The connecting `CordaRPCClient` code must then use one of the constructors with 
 argument with the appropriate path for the `rpcssltruststore.jks` file. The client connection will then use this to validate the RPC server handshake.
 
 Note that RPC TLS does not use mutual authentication, and delegates fine-grained user authentication and authorisation to the RPC security features detailed under [Managing RPC security](#managing-rpc-security).
+
+### Warning when RPC runs without TLS
+
+From Corda Open Source Edition 4.15, the node prints a warning at start-up, on the console and in the node log, when its RPC port accepts connections without TLS, because RPC usernames and passwords are then sent over the network in clear text:
+
+```
+RPC is running without TLS ('rpcSettings.useSsl' is false), so RPC usernames and passwords are sent over the network in clear text. See 'Configuring wire security' in the Client RPC documentation to enable TLS.
+```
+
+If the node configuration has an `rpcSettings.ssl` block but `rpcSettings.useSsl` is not `true`, the `ssl` block is ignored, and the warning says so:
+
+```
+RPC is running without TLS: an 'rpcSettings.ssl' block is configured but 'rpcSettings.useSsl' is not true, so it is ignored and RPC usernames and passwords are sent over the network in clear text. See 'Configuring wire security' in the Client RPC documentation to enable TLS.
+```
+
+To remove the warning, enable TLS for RPC as described above.
+
+### TLS transports
+
+From Corda Open Source Edition 4.15, a TLS transport of the node that is missing its key store or trust store fails, instead of falling back to a connection without TLS. P2P connections always use mutual TLS.
 
 ## Whitelisting classes with the Corda node
 

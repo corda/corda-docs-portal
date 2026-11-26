@@ -348,6 +348,8 @@ The risk is concentrated in CorDapps that store party or key details directly in
 
 The same applies to a CorDapp that identifies its **own** node by key. After the rotation `ourIdentity` is the current identity, so a flow that looks for states by the node's own party, for example an issuer looking for the cash it issued, no longer finds the states created before the rotation. `KeyManagementService.rotatedKeys()` returns the identity keys the node held before its rotations. A flow can rebuild its previous identities from them, with the same X.500 name and the previous key, and include them in its queries. The `CashExitFlow` of the Finance CorDapp does this to exit cash issued under a previous identity, which names that identity as its issuer.
 
+A notary's rotation has the same effect on a CorDapp that compares notaries. The `OnLedgerAsset.generateExit` helper of the Finance CorDapp, which `CashExitFlow` uses, matches the notary of the states it exits by X.500 name, so that states notarised under a notary's previous and current identities are exited together. Comparing the notary `Party` instead would leave out the states notarised under the previous identity, and an exit could then fail with an insufficient balance even though the vault holds enough cash.
+
 Test every CorDapp for compatibility before you rotate a key. See [Testing a CorDapp against a rotated key](#testing-a-cordapp-against-a-rotated-key).
 
 ### Resolving identities from a single, consistent source

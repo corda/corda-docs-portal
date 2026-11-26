@@ -22,7 +22,7 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.15 has been tested and verified to work with **Oracle JDK 17.0.17** and **Azul Zulu Enterprise 17.0.17**.
+Corda Enterprise Edition 4.15 has been tested and verified to work with **Oracle JDK 17.0.19** and **Azul Zulu Enterprise 17.0.19**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.15.
 
@@ -34,8 +34,8 @@ The following JDKs support Corda for development purposes. Corda does not curren
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)|17.0.17|
-|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.17|
+|[Zulu OpenJDK](https://www.azul.com/downloads/azure-only/zulu/)|17.0.19|
+|[Oracle JDK](https://www.oracle.com/ie/java/technologies/downloads/)|17.0.19|
 
 {{< /table >}}
 
@@ -47,12 +47,12 @@ Production use of Corda Enterprise Edition 4.15 is only supported on Linux OS; s
 
 {{< table >}}
 
-|Platform|CPU architecture|Versions|
-|-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|8.x, 9.x, 10.x|
-|Suse Linux Enterprise Server|x86-64|11.x, 12.x|
-|Ubuntu Linux|x86-64|20.04, 22.04, 24.04|
-|Oracle Linux|x86-64|6.x, 7.x|
+| Platform                     | CPU architecture | Versions            |
+|------------------------------|------------------|---------------------|
+| Red Hat Enterprise Linux     | x86-64           | 8.x, 9.x, 10.x      |
+| Suse Linux Enterprise Server | x86-64           | 11.x, 12.x          |
+| Ubuntu Linux                 | x86-64           | 22.04, 24.04, 26.04 |
+| Oracle Linux                 | x86-64           | 6.x, 7.x            |
 
 {{< /table >}}
 
@@ -150,6 +150,5 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 |                               | Driver version 1.8.2 or newer    | Driver version 1.8.2 or newer    | Driver version 2.3.4 or newer       | Driver version 1.8.2 or newer      |
 | nCipher nShield Connect       | Firmware version 12.50.11| Firmware version 12.50.11| Firmware version 12.50.11  | Firmware version 12.50.11 |
 |                               | Driver version 12.60.2   | Driver version 12.60.2   | Driver version 12.60.2     | Driver version 12.60.2    |
-| AWS CloudHSM                  | Driver version 3.2.1     | Driver version 3.2.1     | Driver version 3.2.1       | Driver version 3.2.1      |
 
 {{< /table >}}

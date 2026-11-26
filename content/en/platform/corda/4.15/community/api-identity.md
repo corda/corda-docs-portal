@@ -52,6 +52,42 @@ basis.
 The `PartyAndCertificate` class is also used by the network map service to represent well-known identities, with the
 certificate path proving the certificate was issued by the doorman service.
 
+## Parties whose key has been rotated
+
+From Corda 4.15, a Corda Enterprise node or notary can move its legal identity key to a different key provider, such as from a
+file-based keystore to an HSM. This is called cross-provider key rotation. After a rotation, the node signs for its existing states
+with its new key and a *key rotation proof*: a signature by the old key over the new public key. Transactions that consume states
+signed with the old key carry the chain of proofs, and every verifier checks the proofs together with the transaction signatures.
+
+A Corda Open Source Edition node cannot rotate its own key across providers. A Corda Open Source Edition 4.15 node verifies
+transactions that carry key rotation proofs, so it can keep transacting with Corda Enterprise nodes that have rotated their keys.
+Key rotation requires every node on the network to run Corda 4.15 or later, and a network minimum platform version of 170.
+
+After a rotation, a `Party` recorded in a state before the rotation is no longer equal to the node's current identity, because its
+public key has changed. A CorDapp that compares parties, keys or certificates directly, or looks up states by party, may stop working
+for the rotated node's states until it is updated. Before any node on a network rotates its key, check that every CorDapp on every
+node supports key rotation.
+
+The following APIs support key rotation:
+
+* The `net.corda.core.crypto.keyrotation.crossprovider` package:
+  * `KeyRotationProof` and `KeyRotationProofChain`, the proofs that link an old key to a new one.
+  * `PartyIdentityResolver`, which resolves a `Party` recorded before a rotation to the party's current identity
+    (`resolveToCurrentParty`), and checks whether two parties, or a party and a signing key, belong to the same legal identity
+    across a rotation (`isSameParty` and `isRequiredSigner`). `PartyIdentityResolved` holds a resolved party and its proof chain.
+* `IdentityService.isKeyRotated`, `getProofChain` and `containsProofChain`.
+* `KeyManagementService.isKeyRotated`, `hasRotatedKeys` and `rotatedKeys`. `rotatedKeys` returns the identity keys the node held
+  before its rotations, so that a flow can find states that name one of the node's previous identities.
+* A nullable `keyRotationProofChainMap` property on `Command` and `CommandWithParties`, and a nullable `proofChain` property on
+  `SignatureMetadata`.
+
+The platform flows support rotated keys. `CollectSignaturesFlow` takes the keys in a key rotation proof into account when it checks
+that all required signatures are present. The `OnLedgerAsset` helpers in the Finance CorDapp match notaries by name, so they support
+notaries that have rotated their keys.
+
+For how a rotation works and how to adapt a CorDapp, see [Cross-provider key rotation]({{< relref "../enterprise/node/cross-provider-key-rotation/cross-provider-key-rotation.md" >}})
+in the Corda Enterprise Edition documentation.
+
 
 
 ## Confidential identities
