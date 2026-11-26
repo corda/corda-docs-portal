@@ -36,7 +36,7 @@ You can then take your Corda integration to the next level by deep-diving into s
 * The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
 {{< /note >}}
 
-## Getting started with Corda Enterprise Network Manager (CENM) 1.6
+## Getting started with Corda Enterprise Network Manager (CENM) 1.7
 
 Before you deploy {{< cenmlatestrelref "cenm/_index.md" "CENM" >}}, read about {{< cenmlatestrelref "cenm/corda-networks.md" "Corda networks]" >}} and the {{< cenmlatestrelref "cenm/enm-components.md" "components of CENM" >}}. For instructions on deploying, see:
 * CENM with Docker, Kubernetes, and Helm charts, see {{< cenmlatestrelref "cenm/deployment-kubernetes.md" "CENM Deployment with Docker, Kubernetes, and Helm charts" >}}.
