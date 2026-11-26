@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.r3.enm.servicesapi.networkmap.handlers</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../index.html">
+                    docs
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.7-SNAPSHOT        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active=""
+                        data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":docs:dokkaHtml/customSourceSet"
+                                       data-filter=":docs:dokkaHtml/customSourceSet"/>
+                                <span class="checkbox--icon"></span>
+                                customSourceSet
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    docs
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="docs::com.r3.enm.servicesapi.networkmap.handlers////PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../index.html">docs</a><span class="delimiter">/</span><span class="current">com.r3.enm.servicesapi.networkmap.handlers</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-53366187%2FClasslikes%2F-367327816" anchor-label="CurrentNetworkParametersUpdateResponseMessage" id="-53366187%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-current-network-parameters-update-response-message/index.html"><span>Current</span><wbr></wbr><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Update</span><wbr></wbr><span>Response</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-53366187%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-current-network-parameters-update-response-message/index.html">CurrentNetworkParametersUpdateResponseMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>parametersUpdate<span class="token operator">: </span><a href="../com.r3.enm.servicesapi.networkmap.payload/-parameters-update-data/index.html">ParametersUpdateData</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Response message for the current network parameters update.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-949054796%2FClasslikes%2F-367327816" anchor-label="CurrentNetworkParametersUpdateRetrievalMessage" id="-949054796%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-current-network-parameters-update-retrieval-message/index.html"><span>Current</span><wbr></wbr><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Update</span><wbr></wbr><span>Retrieval</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-949054796%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-current-network-parameters-update-retrieval-message/index.html">CurrentNetworkParametersUpdateRetrievalMessage</a></div><div class="brief "><p class="paragraph">Retrieval message for the current network parameters update.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="926883290%2FClasslikes%2F-367327816" anchor-label="LatestNetworkParametersResponseMessage" id="926883290%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-latest-network-parameters-response-message/index.html"><span>Latest</span><wbr></wbr><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Response</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="926883290%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-latest-network-parameters-response-message/index.html">LatestNetworkParametersResponseMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>networkParameters<span class="token operator">: </span><a href="../com.r3.enm.servicesapi.networkmap.payload/-network-parameters-data/index.html">NetworkParametersData</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Response message for the latest network parameters message.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-626092081%2FClasslikes%2F-367327816" anchor-label="LatestNetworkParametersRetrievalMessage" id="-626092081%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-latest-network-parameters-retrieval-message/index.html"><span>Latest</span><wbr></wbr><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Retrieval</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-626092081%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-latest-network-parameters-retrieval-message/index.html">LatestNetworkParametersRetrievalMessage</a></div><div class="brief "><p class="paragraph">Retrieval message for the latest network parameters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="849055479%2FClasslikes%2F-367327816" anchor-label="LatestUnsignedNetworkMapResponseMessage" id="849055479%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-latest-unsigned-network-map-response-message/index.html"><span>Latest</span><wbr></wbr><span>Unsigned</span><wbr></wbr><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span>Response</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="849055479%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-latest-unsigned-network-map-response-message/index.html">LatestUnsignedNetworkMapResponseMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>networkMapsData<span class="token operator">: </span><a href="../com.r3.enm.servicesapi.networkmap.payload/-network-maps-data/index.html">NetworkMapsData</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Response message for the latest unsigned network map message.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1256213074%2FClasslikes%2F-367327816" anchor-label="LatestUnsignedNetworkMapRetrievalMessage" id="1256213074%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-latest-unsigned-network-map-retrieval-message/index.html"><span>Latest</span><wbr></wbr><span>Unsigned</span><wbr></wbr><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span>Retrieval</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1256213074%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-latest-unsigned-network-map-retrieval-message/index.html">LatestUnsignedNetworkMapRetrievalMessage</a></div><div class="brief "><p class="paragraph">Retrieval message for the latest unsigned network map.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1656942949%2FClasslikes%2F-367327816" anchor-label="LatestUnsignedNetworkParametersResponseMessage" id="1656942949%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-latest-unsigned-network-parameters-response-message/index.html"><span>Latest</span><wbr></wbr><span>Unsigned</span><wbr></wbr><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Response</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1656942949%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-latest-unsigned-network-parameters-response-message/index.html">LatestUnsignedNetworkParametersResponseMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>networkParameters<span class="token operator">: </span><a href="../com.r3.enm.servicesapi.networkmap.payload/-unsigned-network-parameters-data/index.html">UnsignedNetworkParametersData</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Response message for the latest unsigned network parameters message.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="530920868%2FClasslikes%2F-367327816" anchor-label="LatestUnsignedNetworkParametersRetrievalMessage" id="530920868%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-latest-unsigned-network-parameters-retrieval-message/index.html"><span>Latest</span><wbr></wbr><span>Unsigned</span><wbr></wbr><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Retrieval</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="530920868%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-latest-unsigned-network-parameters-retrieval-message/index.html">LatestUnsignedNetworkParametersRetrievalMessage</a></div><div class="brief "><p class="paragraph">Retrieval message for the latest unsigned network parameters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1264692500%2FClasslikes%2F-367327816" anchor-label="NetworkMapPingMessage" id="-1264692500%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-map-ping-message/index.html"><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span>Ping</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1264692500%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-map-ping-message/index.html">NetworkMapPingMessage</a></div><div class="brief "><p class="paragraph">Ping message sent to Network Map service.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="774439534%2FClasslikes%2F-367327816" anchor-label="NetworkMapPingResponse" id="774439534%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-map-ping-response/index.html"><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span>Ping</span><wbr></wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="774439534%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-map-ping-response/index.html">NetworkMapPingResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>receivedAt<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Ping response message from Network Map service.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-786112818%2FClasslikes%2F-367327816" anchor-label="NetworkMapsResponseMessage" id="-786112818%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-maps-response-message/index.html"><span>Network</span><wbr></wbr><span>Maps</span><wbr></wbr><span>Response</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-786112818%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-maps-response-message/index.html">NetworkMapsResponseMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>networkMaps<span class="token operator">: </span><a href="../com.r3.enm.servicesapi.networkmap.payload/-network-maps-data/index.html">NetworkMapsData</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Response message for the network maps.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2105603419%2FClasslikes%2F-367327816" anchor-label="NetworkMapsRetrievalMessage" id="2105603419%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-maps-retrieval-message/index.html"><span>Network</span><wbr></wbr><span>Maps</span><wbr></wbr><span>Retrieval</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2105603419%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-maps-retrieval-message/index.html">NetworkMapsRetrievalMessage</a></div><div class="brief "><p class="paragraph">Retrieval message for network maps.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="350611654%2FClasslikes%2F-367327816" anchor-label="NetworkMapSubmissionMessage" id="350611654%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-map-submission-message/index.html"><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span>Submission</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="350611654%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-map-submission-message/index.html">NetworkMapSubmissionMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>networkId<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signedNetworkMap<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&lt;</span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Submission message for the network map.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-690739244%2FClasslikes%2F-367327816" anchor-label="NetworkMapSubmissionResponse" id="-690739244%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-map-submission-response/index.html"><span>Network</span><wbr></wbr><span>Map</span><wbr></wbr><span>Submission</span><wbr></wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-690739244%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-map-submission-response/index.html">NetworkMapSubmissionResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>errorMessage<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Network map submission response.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1353678932%2FClasslikes%2F-367327816" anchor-label="NetworkParametersSubmissionMessage" id="-1353678932%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-parameters-submission-message/index.html"><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Submission</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1353678932%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-parameters-submission-message/index.html">NetworkParametersSubmissionMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>networkParameters<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signature<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Submission message for the network parameters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1984139858%2FClasslikes%2F-367327816" anchor-label="NetworkParametersSubmissionResponse" id="-1984139858%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-parameters-submission-response/index.html"><span>Network</span><wbr></wbr><span>Parameters</span><wbr></wbr><span>Submission</span><wbr></wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1984139858%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-parameters-submission-response/index.html">NetworkParametersSubmissionResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>errorMessage<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Network parameters submission response.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="669783705%2FClasslikes%2F-367327816" anchor-label="NodeInfoHashesResponseMessage" id="669783705%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-node-info-hashes-response-message/index.html"><span>Node</span><wbr></wbr><span>Info</span><wbr></wbr><span>Hashes</span><wbr></wbr><span>Response</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="669783705%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-node-info-hashes-response-message/index.html">NodeInfoHashesResponseMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>nodeInfoHashes<span class="token operator">: </span><a href="../com.r3.enm.servicesapi.networkmap.payload/-node-info-hashes/index.html">NodeInfoHashes</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Response message for the node info hashes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-6244624%2FClasslikes%2F-367327816" anchor-label="NodeInfoHashesRetrievalMessage" id="-6244624%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-node-info-hashes-retrieval-message/index.html"><span>Node</span><wbr></wbr><span>Info</span><wbr></wbr><span>Hashes</span><wbr></wbr><span>Retrieval</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-6244624%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-node-info-hashes-retrieval-message/index.html">NodeInfoHashesRetrievalMessage</a></div><div class="brief "><p class="paragraph">Retrieval message for the node info hashes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="257914564%2FClasslikes%2F-367327816" anchor-label="SwitchFlagDayMessage" id="257914564%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-switch-flag-day-message/index.html"><span>Switch</span><wbr></wbr><span>Flag</span><wbr></wbr><span>Day</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="257914564%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-switch-flag-day-message/index.html">SwitchFlagDayMessage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>updateId<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Switch flag message.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="730618262%2FClasslikes%2F-367327816" anchor-label="SwitchFlagDayResponse" id="730618262%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-switch-flag-day-response/index.html"><span>Switch</span><wbr></wbr><span>Flag</span><wbr></wbr><span>Day</span><wbr></wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="730618262%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-switch-flag-day-response/index.html">SwitchFlagDayResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>errorMessage<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Switch flag response.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2026 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

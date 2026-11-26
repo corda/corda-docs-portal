@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../index.html">
+                    docs
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.7-SNAPSHOT        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active=""
+                        data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":docs:dokkaHtml/customSourceSet"
+                                       data-filter=":docs:dokkaHtml/customSourceSet"/>
+                                <span class="checkbox--icon"></span>
+                                customSourceSet
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    docs
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="docs::com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault////PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../index.html">docs</a><span class="delimiter">/</span><span class="current">com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1212778501%2FClasslikes%2F-367327816" anchor-label="AzureKeyVaultCryptoService" id="-1212778501%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-azure-key-vault-crypto-service/index.html"><span>Azure</span><wbr></wbr><span>Key</span><wbr></wbr><span>Vault</span><wbr></wbr><span>Crypto</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1212778501%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-azure-key-vault-crypto-service/index.html"><strike>AzureKeyVaultCryptoService</strike></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">keyVaultUrl<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">protection<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-base-azure-key-vault-crypto-service/index.html">BaseAzureKeyVaultCryptoService</a></div><div class="brief "><p class="paragraph">Implementation of a <a href="../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a> that is backed by an Azure Key Vault cloud HSM via MS ADAL (Azure Active Directory Authentication Library).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-194013559%2FClasslikes%2F-367327816" anchor-label="AzureKeyVaultCryptoServiceTest" id="-194013559%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-azure-key-vault-crypto-service-test/index.html"><span>Azure</span><wbr></wbr><span>Key</span><wbr></wbr><span>Vault</span><wbr></wbr><span>Crypto</span><wbr></wbr><span>Service</span><wbr></wbr><span><span>Test</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-194013559%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-azure-key-vault-crypto-service-test/index.html">AzureKeyVaultCryptoServiceTest</a> : <a href="../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/index.html">CryptoServiceSpec</a><span class="token operator">&lt;</span><a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-azure-key-vault-credentials/index.html">AzureKeyVaultCredentials</a><span class="token punctuation">, </span><a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-azure-key-vault-key-config/index.html">AzureKeyVaultKeyConfig</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">These tests need to be run manually. They require an Amazon KeyVault (and the associated service principal) to be set up and will perform operations that are not free of charge.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-639027028%2FClasslikes%2F-367327816" anchor-label="AzureKeyVaultMsalCryptoService" id="-639027028%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-azure-key-vault-msal-crypto-service/index.html"><span>Azure</span><wbr></wbr><span>Key</span><wbr></wbr><span>Vault</span><wbr></wbr><span>Msal</span><wbr></wbr><span>Crypto</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-639027028%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-azure-key-vault-msal-crypto-service/index.html">AzureKeyVaultMsalCryptoService</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">keyVaultUrl<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">protection<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-base-azure-key-vault-crypto-service/index.html">BaseAzureKeyVaultCryptoService</a></div><div class="brief "><p class="paragraph">Implementation of a <a href="../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a> that is backed by an Azure Key Vault cloud HSM via MSAL (Microsoft Authentication Library).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1224775354%2FClasslikes%2F-367327816" anchor-label="AzureKeyVaultMsalCryptoServiceTest" id="1224775354%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-azure-key-vault-msal-crypto-service-test/index.html"><span>Azure</span><wbr></wbr><span>Key</span><wbr></wbr><span>Vault</span><wbr></wbr><span>Msal</span><wbr></wbr><span>Crypto</span><wbr></wbr><span>Service</span><wbr></wbr><span><span>Test</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1224775354%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-azure-key-vault-msal-crypto-service-test/index.html">AzureKeyVaultMsalCryptoServiceTest</a> : <a href="../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service-spec/index.html">CryptoServiceSpec</a><span class="token operator">&lt;</span><a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-azure-key-vault-credentials/index.html">AzureKeyVaultCredentials</a><span class="token punctuation">, </span><a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-azure-key-vault-key-config/index.html">AzureKeyVaultKeyConfig</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">These tests need to be run manually. They require an Amazon KeyVault (and the associated service principal) to be set up and will perform operations that are not free of charge.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1315132266%2FClasslikes%2F-367327816" anchor-label="BaseAzureKeyVaultCryptoService" id="1315132266%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-base-azure-key-vault-crypto-service/index.html"><span>Base</span><wbr></wbr><span>Azure</span><wbr></wbr><span>Key</span><wbr></wbr><span>Vault</span><wbr></wbr><span>Crypto</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1315132266%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-base-azure-key-vault-crypto-service/index.html">BaseAzureKeyVaultCryptoService</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">keyVaultUrl<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">protection<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span> : <a href="../com.r3.corda.networkmanage.common.cryptoservice/-crypto-service/index.html">CryptoService</a><span class="token operator">&lt;</span><a href="../com.r3.corda.networkmanage.common.cryptoservice.authentication/-azure-key-vault-credentials/index.html">AzureKeyVaultCredentials</a><span class="token punctuation">, </span><a href="../com.r3.corda.networkmanage.common.cryptoservice.keygeneration/-azure-key-vault-key-config/index.html">AzureKeyVaultKeyConfig</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2026 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

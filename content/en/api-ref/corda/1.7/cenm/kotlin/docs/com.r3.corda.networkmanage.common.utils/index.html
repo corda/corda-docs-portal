@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.r3.corda.networkmanage.common.utils</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../index.html">
+                    docs
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.7-SNAPSHOT        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active=""
+                        data-filter=":docs:dokkaHtml/customSourceSet">customSourceSet</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":docs:dokkaHtml/customSourceSet"
+                                       data-filter=":docs:dokkaHtml/customSourceSet"/>
+                                <span class="checkbox--icon"></span>
+                                customSourceSet
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    docs
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="docs::com.r3.corda.networkmanage.common.utils////PointingToDeclaration//-367327816">
+  <div class="breadcrumbs"><a href="../../index.html">docs</a><span class="delimiter">/</span><span class="current">com.r3.corda.networkmanage.common.utils</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-210131726%2FClasslikes%2F-367327816" anchor-label="BaseCommand" id="-210131726%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-base-command/index.html"><span>Base</span><wbr></wbr><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-210131726%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-base-command/index.html">BaseCommand</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>serviceName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span><span class="token string">&quot;Network services and tools&quot;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentation<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>DOCS_URL</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-863618321%2FClasslikes%2F-367327816" anchor-label="BaseServiceCommand" id="-863618321%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-base-service-command/index.html"><span>Base</span><wbr></wbr><span>Service</span><wbr></wbr><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-863618321%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-base-service-command/index.html">BaseServiceCommand</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>serviceName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span><span class="token string">&quot;Network services and tools&quot;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentation<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>DOCS_URL</span></span><span class="token punctuation">)</span> : <a href="-base-command/index.html">BaseCommand</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="802666839%2FClasslikes%2F-367327816" anchor-label="ConfigFilePathArgsParser" id="802666839%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-config-file-path-args-parser/index.html"><span>Config</span><wbr></wbr><span>File</span><wbr></wbr><span>Path</span><wbr></wbr><span>Args</span><wbr></wbr><span><span>Parser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="802666839%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-config-file-path-args-parser/index.html">ConfigFilePathArgsParser</a> : <a href="-validated/index.html">Validated</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1112830992%2FClasslikes%2F-367327816" anchor-label="CrlUtilsTest" id="1112830992%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-crl-utils-test/index.html"><span>Crl</span><wbr></wbr><span>Utils</span><wbr></wbr><span><span>Test</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1112830992%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-crl-utils-test/index.html">CrlUtilsTest</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="577405354%2FClasslikes%2F-367327816" anchor-label="ExponentialBackOffTimer" id="577405354%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-exponential-back-off-timer/index.html"><span>Exponential</span><wbr></wbr><span>Back</span><wbr></wbr><span>Off</span><wbr></wbr><span><span>Timer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="577405354%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-exponential-back-off-timer/index.html">ExponentialBackOffTimer</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>ctx<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Timer.html">Timer</a></div><div class="brief "><p class="paragraph">Extension of the Java <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Timer.html">Timer</a> util class that schedules tasks with exponential backoff, as well as the ability to cancel the currently running task as well as future scheduled tasks. It also enables asynchronous cancellation</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-616313822%2FClasslikes%2F-367327816" anchor-label="HsmX509UtilitiesTest" id="-616313822%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-hsm-x509-utilities-test/index.html"><span>Hsm</span><wbr></wbr><span>X509Utilities</span><wbr></wbr><span><span>Test</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-616313822%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-hsm-x509-utilities-test/index.html">HsmX509UtilitiesTest</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-662643600%2FClasslikes%2F-367327816" anchor-label="IllegalCommandLineArgument" id="-662643600%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-illegal-command-line-argument/index.html"><span>Illegal</span><wbr></wbr><span>Command</span><wbr></wbr><span>Line</span><wbr></wbr><span><span>Argument</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-662643600%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-illegal-command-line-argument/index.html">IllegalCommandLineArgument</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="137308552%2FClasslikes%2F-367327816" anchor-label="IllegalSeedArgument" id="137308552%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-illegal-seed-argument/index.html"><span>Illegal</span><wbr></wbr><span>Seed</span><wbr></wbr><span><span>Argument</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="137308552%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-illegal-seed-argument/index.html">IllegalSeedArgument</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span> : <a href="-illegal-command-line-argument/index.html">IllegalCommandLineArgument</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1386338953%2FClasslikes%2F-367327816" anchor-label="KeystoreFilePathArgsParser" id="-1386338953%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-keystore-file-path-args-parser/index.html"><span>Keystore</span><wbr></wbr><span>File</span><wbr></wbr><span>Path</span><wbr></wbr><span>Args</span><wbr></wbr><span><span>Parser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1386338953%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-keystore-file-path-args-parser/index.html">KeystoreFilePathArgsParser</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1499096529%2FClasslikes%2F-367327816" anchor-label="LoggingLevelConverter" id="1499096529%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-logging-level-converter/index.html"><span>Logging</span><wbr></wbr><span>Level</span><wbr></wbr><span><span>Converter</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1499096529%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-logging-level-converter/index.html">LoggingLevelConverter</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-384955%2FClasslikes%2F-367327816" anchor-label="NetworkManagerCommandExceptionHandler" id="-384955%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-manager-command-exception-handler/index.html"><span>Network</span><wbr></wbr><span>Manager</span><wbr></wbr><span>Command</span><wbr></wbr><span>Exception</span><wbr></wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-384955%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-manager-command-exception-handler/index.html">NetworkManagerCommandExceptionHandler</a><span class="token operator">&lt;</span><a href="-network-manager-command-exception-handler/index.html">R</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This class inherits the core functionality of the DefaultExceptionHandler provided by picocli, with a few tweaks. When a return code on error is specified, the DefaultExceptionHandler has the exception's stacktrace printed to console instead of being rethrown, causing our NetworkServicesUncaughtExceptionHandler to not catch anything and the console output to be incorrect.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-417508089%2FClasslikes%2F-367327816" anchor-label="NetworkServicesErrorWithCode" id="-417508089%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-services-error-with-code/index.html"><span>Network</span><wbr></wbr><span>Services</span><wbr></wbr><span>Error</span><wbr></wbr><span>With</span><wbr></wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-417508089%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-services-error-with-code/index.html">NetworkServicesErrorWithCode</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">throwable<span class="token operator">: </span><span data-unresolved-link="kotlin/Throwable///PointingToDeclaration/">Throwable</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>errorCode<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="958337200%2FClasslikes%2F-367327816" anchor-label="NetworkServicesUncaughtExceptionHandler" id="958337200%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-network-services-uncaught-exception-handler/index.html"><span>Network</span><wbr></wbr><span>Services</span><wbr></wbr><span>Uncaught</span><wbr></wbr><span>Exception</span><wbr></wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="958337200%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-network-services-uncaught-exception-handler/index.html">NetworkServicesUncaughtExceptionHandler</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>service<span class="token operator">: </span><a href="-base-command/index.html">BaseCommand</a></span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.UncaughtExceptionHandler.html">Thread.UncaughtExceptionHandler</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1247676472%2FClasslikes%2F-367327816" anchor-label="Revocation" id="1247676472%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-revocation/index.html"><span><span>Revocation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1247676472%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-revocation/index.html">Revocation</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>certificateSerialNumber<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>date<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html">Date</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>reason<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/CRLReason.html">CRLReason</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-914391680%2FClasslikes%2F-367327816" anchor-label="ServiceCommand" id="-914391680%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-service-command/index.html"><span>Service</span><wbr></wbr><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-914391680%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-service-command/index.html">ServiceCommand</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>serviceName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span><span class="token string">&quot;Network services and tools&quot;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentation<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator"> = </span>DOCS_URL</span></span><span class="token punctuation">)</span> : <a href="-base-service-command/index.html">BaseServiceCommand</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-631600500%2FClasslikes%2F-367327816" anchor-label="SupportedCrlReasons" id="-631600500%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-supported-crl-reasons/index.html"><span>Supported</span><wbr></wbr><span>Crl</span><wbr></wbr><span><span>Reasons</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-631600500%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-supported-crl-reasons/index.html">SupportedCrlReasons</a> : <span data-unresolved-link="kotlin/Enum///PointingToDeclaration/">Enum</span><span class="token operator">&lt;</span><a href="-supported-crl-reasons/index.html">SupportedCrlReasons</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1312857559%2FClasslikes%2F-367327816" anchor-label="UtilsTest" id="-1312857559%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-utils-test/index.html"><span>Utils</span><wbr></wbr><span><span>Test</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1312857559%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-utils-test/index.html">UtilsTest</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-589400226%2FClasslikes%2F-367327816" anchor-label="Validated" id="-589400226%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-validated/index.html"><span><span>Validated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-589400226%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-validated/index.html">Validated</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1786324643%2FClasslikes%2F-367327816" anchor-label="VersionProvider" id="1786324643%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-version-provider/index.html"><span>Version</span><wbr></wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1786324643%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-version-provider/index.html">VersionProvider</a></div><div class="brief "><p class="paragraph">Custom version printing when command is called with --version or -V flag.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1452630747%2FClasslikes%2F-367327816" anchor-label="WorkingDirConfigFilePathArgsParser" id="1452630747%2FClasslikes%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-working-dir-config-file-path-args-parser/index.html"><span>Working</span><wbr></wbr><span>Dir</span><wbr></wbr><span>Config</span><wbr></wbr><span>File</span><wbr></wbr><span>Path</span><wbr></wbr><span>Args</span><wbr></wbr><span><span>Parser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1452630747%2FClasslikes%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">class </span><a href="-working-dir-config-file-path-args-parser/index.html">WorkingDirConfigFilePathArgsParser</a> : <a href="-config-file-path-args-parser/index.html">ConfigFilePathArgsParser</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="2078239074%2FProperties%2F-367327816" anchor-label="CORDA_NETWORK_MAP" id="2078239074%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-r-d-a_-n-e-t-w-o-r-k_-m-a-p.html"><span>CORDA_</span><wbr></wbr><span>NETWORK_</span><wbr></wbr><span>MAP</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2078239074%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-c-o-r-d-a_-n-e-t-w-o-r-k_-m-a-p.html">CORDA_NETWORK_MAP</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="101957740%2FProperties%2F-367327816" anchor-label="DUMMY_CERTIFICATE_REVOCATION" id="101957740%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-u-m-m-y_-c-e-r-t-i-f-i-c-a-t-e_-r-e-v-o-c-a-t-i-o-n.html"><span>DUMMY_</span><wbr></wbr><span>CERTIFICATE_</span><wbr></wbr><span>REVOCATION</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="101957740%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">val </span><a href="-d-u-m-m-y_-c-e-r-t-i-f-i-c-a-t-e_-r-e-v-o-c-a-t-i-o-n.html">DUMMY_CERTIFICATE_REVOCATION</a><span class="token operator">: </span><a href="-revocation/index.html">Revocation</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1118950328%2FProperties%2F-367327816" anchor-label="NETWORK_ROOT_TRUSTSTORE_FILENAME" id="1118950328%2FProperties%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-e-t-w-o-r-k_-r-o-o-t_-t-r-u-s-t-s-t-o-r-e_-f-i-l-e-n-a-m-e.html"><span>NETWORK_</span><wbr></wbr><span>ROOT_</span><wbr></wbr><span>TRUSTSTORE_</span><wbr></wbr><span>FILENAME</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1118950328%2FProperties%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-n-e-t-w-o-r-k_-r-o-o-t_-t-r-u-s-t-s-t-o-r-e_-f-i-l-e-n-a-m-e.html">NETWORK_ROOT_TRUSTSTORE_FILENAME</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="909655123%2FFunctions%2F-367327816" anchor-label="buildCertChainForHSM" id="909655123%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-cert-chain-for-h-s-m.html"><span>build</span><wbr></wbr><span>Cert</span><wbr></wbr><span>Chain</span><wbr></wbr><span>For</span><wbr></wbr><span><span>HSM</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="909655123%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="build-cert-chain-for-h-s-m.html"><span class="token function">buildCertChainForHSM</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">certificateAlias<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">keyStore<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html">KeyStore</a><span class="token punctuation">, </span></span><span class="parameter ">certificatesStore<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ctx<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Overload for the buildCertChainForLocal</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="build-cert-chain-for-h-s-m.html"><span class="token function">buildCertChainForHSM</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">certificateAlias<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">keyStore<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html">KeyStore</a><span class="token punctuation">, </span></span><span class="parameter ">certificatesStores<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Collection///PointingToDeclaration/">Collection</span><span class="token operator">&lt;</span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ctx<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The method assumes that the certificates store has been built using the HSM. In this case, as certificate chains larger than 1 are not supported, the key store should always contain the initial certificate. There are two scenarios:</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1946212514%2FFunctions%2F-367327816" anchor-label="buildCertChainForLocal" id="-1946212514%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-cert-chain-for-local.html"><span>build</span><wbr></wbr><span>Cert</span><wbr></wbr><span>Chain</span><wbr></wbr><span>For</span><wbr></wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1946212514%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="build-cert-chain-for-local.html"><span class="token function">buildCertChainForLocal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">certificateAlias<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">certificatesStore<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ctx<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Overload for the buildCertChainForLocal</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="build-cert-chain-for-local.html"><span class="token function">buildCertChainForLocal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">certificateAlias<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">certificatesStores<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Collection///PointingToDeclaration/">Collection</span><span class="token operator">&lt;</span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ctx<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This method assumes that the certificates store has been built locally. This will result in two possible scenarios:</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-679526044%2FFunctions%2F-367327816" anchor-label="buildRemainingCertChain" id="-679526044%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-remaining-cert-chain.html"><span>build</span><wbr></wbr><span>Remaining</span><wbr></wbr><span>Cert</span><wbr></wbr><span><span>Chain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-679526044%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="build-remaining-cert-chain.html"><span class="token function">buildRemainingCertChain</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">currentCertificate<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token punctuation">, </span></span><span class="parameter ">certificatesStores<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Collection///PointingToDeclaration/">Collection</span><span class="token operator">&lt;</span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-25805081%2FFunctions%2F-367327816" anchor-label="commandLineParseAndReturnErr" id="-25805081%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="command-line-parse-and-return-err.html"><span>command</span><wbr></wbr><span>Line</span><wbr></wbr><span>Parse</span><wbr></wbr><span>And</span><wbr></wbr><span>Return</span><wbr></wbr><span><span>Err</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-25805081%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="command-line-parse-and-return-err.html">R</a><span class="token operator"> : </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a><span class="token operator">&gt; </span><a href="command-line-parse-and-return-err.html"><span class="token function">commandLineParseAndReturnErr</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">runnable<span class="token operator">: </span><a href="command-line-parse-and-return-err.html">R</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>args<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1656740290%2FFunctions%2F-367327816" anchor-label="commandLineRunExitOnError" id="1656740290%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="command-line-run-exit-on-error.html"><span>command</span><wbr></wbr><span>Line</span><wbr></wbr><span>Run</span><wbr></wbr><span>Exit</span><wbr></wbr><span>On</span><wbr></wbr><span><span>Error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1656740290%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="command-line-run-exit-on-error.html">R</a><span class="token operator"> : </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a><span class="token operator">&gt; </span><a href="command-line-run-exit-on-error.html"><span class="token function">commandLineRunExitOnError</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">runnable<span class="token operator">: </span><a href="command-line-run-exit-on-error.html">R</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>args<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1098478324%2FFunctions%2F-367327816" anchor-label="createSignedCrl" id="-1098478324%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-signed-crl.html"><span>create</span><wbr></wbr><span>Signed</span><wbr></wbr><span><span>Crl</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1098478324%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-signed-crl.html"><span class="token function">createSignedCrl</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signer<span class="token operator">: </span><a href="../com.r3.corda.networkmanage.common.signer/-signer/-authenticated-signer/index.html">Signer.AuthenticatedSigner</a><span class="token punctuation">, </span></span><span class="parameter ">endpointUrl<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html">URL</a><span class="token punctuation">, </span></span><span class="parameter ">nextUpdateInterval<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a><span class="token punctuation">, </span></span><span class="parameter ">includeInCrl<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Collection///PointingToDeclaration/">Collection</span><span class="token operator">&lt;</span><a href="-revocation/index.html">Revocation</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">indirectIssuingPoint<span class="token operator">: </span><span data-unresolved-link="kotlin/Boolean///PointingToDeclaration/">Boolean</span><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509CRL.html">X509CRL</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="782191776%2FFunctions%2F-367327816" anchor-label="executeTaskWithBackOff" id="782191776%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="execute-task-with-back-off.html"><span>execute</span><wbr></wbr><span>Task</span><wbr></wbr><span>With</span><wbr></wbr><span>Back</span><wbr></wbr><span><span>Off</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="782191776%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="execute-task-with-back-off.html"><span class="token function">executeTaskWithBackOff</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">executor<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html">ScheduledExecutorService</a><span class="token operator"> = </span>Executors.newScheduledThreadPool(1)<span class="token punctuation">, </span></span><span class="parameter ">maxAttempts<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">initialRetryDelayMillis<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token punctuation">, </span></span><span class="parameter ">taskDescription<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">ctx<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">task<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="kotlin/Unit///PointingToDeclaration/">Unit</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Attempts a single execution of the given <a href="execute-task-with-back-off.html">task</a>, and retrying with an exponential backoff strategy if execution fails. An error is logged upon every failure but no exceptions are thrown.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1039350503%2FFunctions%2F-367327816" anchor-label="forEachWithExceptionLogging" id="-1039350503%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="for-each-with-exception-logging.html"><span>for</span><wbr></wbr><span>Each</span><wbr></wbr><span>With</span><wbr></wbr><span>Exception</span><wbr></wbr><span><span>Logging</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1039350503%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="for-each-with-exception-logging.html">T</a><span class="token operator"> : </span><span data-unresolved-link="kotlin/Any///PointingToDeclaration/">Any</span><span class="token operator">&gt; </span><span data-unresolved-link="kotlin.collections/Iterable///PointingToDeclaration/">Iterable</span><span class="token operator">&lt;</span><a href="for-each-with-exception-logging.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="for-each-with-exception-logging.html"><span class="token function">forEachWithExceptionLogging</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">logger<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">transform<span class="token operator">: </span><span class="token punctuation">(</span><a href="for-each-with-exception-logging.html">T</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="kotlin/Unit///PointingToDeclaration/">Unit</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="779033374%2FFunctions%2F-367327816" anchor-label="getCertRole" id="779033374%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cert-role.html"><span>get</span><wbr></wbr><span>Cert</span><wbr></wbr><span><span>Role</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="779033374%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">.</span><a href="get-cert-role.html"><span class="token function">getCertRole</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">Helper method to extract cert role from certificate signing request. Default to NODE_CA if not exist for backward compatibility.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1073818262%2FFunctions%2F-367327816" anchor-label="getObfuscationOptionsIfDefined" id="1073818262%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-obfuscation-options-if-defined.html"><span>get</span><wbr></wbr><span>Obfuscation</span><wbr></wbr><span>Options</span><wbr></wbr><span>If</span><wbr></wbr><span><span>Defined</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1073818262%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-obfuscation-options-if-defined.html"><span class="token function">getObfuscationOptionsIfDefined</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">obfuscationOptions<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Checks if the user has provided the seed or the passphrase for obfuscation, if neither is provided we imply that the config is not obfuscated</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1034359594%2FFunctions%2F-367327816" anchor-label="getVersionString" id="-1034359594%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-version-string.html"><span>get</span><wbr></wbr><span>Version</span><wbr></wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1034359594%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-version-string.html"><span class="token function">getVersionString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/Array///PointingToDeclaration/">Array</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1650381548%2FFunctions%2F-367327816" anchor-label="humanReadableString" id="1650381548%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="human-readable-string.html"><span>human</span><wbr></wbr><span>Readable</span><wbr></wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1650381548%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a><span class="token punctuation">.</span><a href="human-readable-string.html"><span class="token function">humanReadableString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></div><div class="brief "><p class="paragraph">Returns a human readable string instead of the default ISO-8601 based representation.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1947397342%2FFunctions%2F-367327816" anchor-label="mapWithExceptionLogging" id="-1947397342%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="map-with-exception-logging.html"><span>map</span><wbr></wbr><span>With</span><wbr></wbr><span>Exception</span><wbr></wbr><span><span>Logging</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1947397342%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="map-with-exception-logging.html">T</a><span class="token operator"> : </span><span data-unresolved-link="kotlin/Any///PointingToDeclaration/">Any</span><span class="token punctuation">, </span><a href="map-with-exception-logging.html">R</a><span class="token operator"> : </span><span data-unresolved-link="kotlin/Any///PointingToDeclaration/">Any</span><span class="token operator">&gt; </span><span data-unresolved-link="kotlin.collections/Iterable///PointingToDeclaration/">Iterable</span><span class="token operator">&lt;</span><a href="map-with-exception-logging.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="map-with-exception-logging.html"><span class="token function">mapWithExceptionLogging</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">logger<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">transform<span class="token operator">: </span><span class="token punctuation">(</span><a href="map-with-exception-logging.html">T</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="map-with-exception-logging.html">R</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="map-with-exception-logging.html">R</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="909911036%2FFunctions%2F-367327816" anchor-label="scheduleRetryingTask" id="909911036%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="schedule-retrying-task.html"><span>schedule</span><wbr></wbr><span>Retrying</span><wbr></wbr><span><span>Task</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="909911036%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="schedule-retrying-task.html"><span class="token function">scheduleRetryingTask</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">taskDescription<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">taskExecutionInterval<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token punctuation">, </span></span><span class="parameter ">timeoutMillis<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token punctuation">, </span></span><span class="parameter ">ctx<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">maxRetries<span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">maxBackoffTimeMillis<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">task<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="kotlin/Unit///PointingToDeclaration/">Unit</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-exponential-back-off-timer/index.html">ExponentialBackOffTimer</a></div><div class="brief "><p class="paragraph">Schedules a <a href="schedule-retrying-task.html">task</a> to execute every <a href="schedule-retrying-task.html">taskExecutionInterval</a>, with each failed execution using a retrying exponential backoff strategy. After a given execution has succeeded then the next execution (<a href="schedule-retrying-task.html">taskExecutionInterval</a> after the first attempt) will continue as normal, regardless of the number of retries that the previous attempt had.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1963161088%2FFunctions%2F-367327816" anchor-label="toTableFormat" id="-1963161088%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-table-format.html"><span>to</span><wbr></wbr><span>Table</span><wbr></wbr><span><span>Format</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1963161088%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="to-table-format.html"><span class="token function">toTableFormat</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">columnHeaders<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">rowValues<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">headerSeparator<span class="token operator">: </span><span data-unresolved-link="kotlin/Boolean///PointingToDeclaration/">Boolean</span><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Used to display nicely formatted tables. Takes a set of <a href="to-table-format.html">columnHeaders</a> and <a href="to-table-format.html">rowValues</a> and returns the list of padded row strings, with correct spacing, that can be printed to console.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1164424700%2FFunctions%2F-367327816" anchor-label="validateCertificateRole" id="1164424700%2FFunctions%2F-367327816" data-filterable-set=":docs:dokkaHtml/customSourceSet"></a>
+          <div class="table-row" data-filterable-current=":docs:dokkaHtml/customSourceSet" data-filterable-set=":docs:dokkaHtml/customSourceSet">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="validate-certificate-role.html"><span>validate</span><wbr></wbr><span>Certificate</span><wbr></wbr><span><span>Role</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1164424700%2FFunctions%2F-367327816"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":docs:dokkaHtml/customSourceSet"><div class="symbol monospace"><span class="token keyword">fun </span><a href="validate-certificate-role.html"><span class="token function">validateCertificateRole</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">certificate<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token punctuation">, </span></span><span class="parameter ">expectedRole<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">serviceName<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2026 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

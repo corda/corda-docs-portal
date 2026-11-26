@@ -19,7 +19,7 @@ title: Corda Enterprise Network Manager 1.7 release notes
 The CENM 1.7.x releases upgrade the version of Java used to Java 17. This means to use CENM you must install Java 17. See below for details.
 {{</ important >}}
 
-## Corda Enterprise Network Manager 1.7.2 release notes 
+## Corda Enterprise Network Manager 1.7.2 release notes
 
 Corda Enterprise Network Manager 1.7.2 is a patch release focused on upgrading dependencies to address security updates.
 
@@ -37,16 +37,16 @@ The following dependencies have been updated:
 
 <!-- ENT-12994 -->
 <!-- ENT-13867 -->
-<!-- ENT-14199 --> 
+<!-- ENT-14199 -->
 <!-- ENT-14200 -->
 
-## Corda Enterprise Network Manager 1.7.1 release notes 
+## Corda Enterprise Network Manager 1.7.1 release notes
 
 ### Fixed issues
 
 - When developing signer plugins, CENM previously missed some required dependencies for compilation. This issue has now been resolved.
 
-## Corda Enterprise Network Manager 1.7 release notes 
+## Corda Enterprise Network Manager 1.7 release notes
 
 ### New features and enhancements
 
@@ -57,7 +57,7 @@ The following dependencies have been updated:
 - The node management console and flow management console are now bundled in the CENM release pack. Previously they were distributed as part of Corda Enterprise.
 
 ### Fixed issues
- 
+
 - Fixed various issues related to CENM deployment using Docker, Kubernetes, and Helm charts. <!-- ENT-13988 and ENT-14010 -->
 - Fixed an issue where an incorrect error message "No NETWORK_MAP type signing process set up" appeared when displaying unsigned network parameters data via the CENM tool. <!-- ENT-13920 -->
 - The [shell Signing Service]({{< relref "shell.md#signing-service" >}}) `clientHealthCheck` health checks now work correctly across all service types. <!-- ENT-13897 -->
