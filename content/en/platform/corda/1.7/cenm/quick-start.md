@@ -226,7 +226,7 @@ Binding Shell SSHD server on port <SHELL_PORT>
 Network management web services started on <IDENTITY_MANAGER_ADDRESS> with [RegistrationWebService, MonitoringWebService]
 ```
 
-##Register notary with Identity Manager
+### Register notary with Identity Manager
 
 You need to register the Notary with the Identity Manager Service before the Network
 Map Service can be initialised. This is because the list of trusted notaries is
@@ -348,7 +348,7 @@ This example uses a local H2 database. You can modify this to point to a separat
 
 #### Example network parameters configuration
 
-This is a sample configuration file (`network-parameters.conf`) that is passed to the service when you set the network parameters. The <NOTARY_NODE_INFO_FILENAME> should correspond to the node info file copied across while [registering the Notary with the Identity Manager](#register-your-notary-with-the-identity-manager).
+This is a sample configuration file (`network-parameters.conf`) that is passed to the service when you set the network parameters. The <NOTARY_NODE_INFO_FILENAME> should correspond to the node info file copied across while [registering the Notary with the Identity Manager](#register-notary-with-identity-manager).
 The configured path should be relative to the Network Map working directory.
 
 ```guess

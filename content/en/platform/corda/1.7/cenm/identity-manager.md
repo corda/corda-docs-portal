@@ -68,8 +68,8 @@ The main elements that need to be configured for the Identity Manager are:
 * [Issuance workflow](#issuance-workflow)
     * [CSR Approval Mechanism](#csr-approval-mechanism)
     * [CSR Signing Mechanism](#csr-signing-mechanism)
-    * [Issuance Internal Server](#issuance-internal-server)
-    * [Restricting a node’s Corda version (optional)](#restricting-a-node-s-corda-version-optional)
+    * [Issuance Internal Server](#issuance-internal-interface)
+    * [Restricting a node’s Corda version (optional)](#restricting-nodes-corda-version-optional)
 * [Revocation workflow (optional)](#revocation-workflow-optional)
     * [CRR Approval Mechanism](#crr-approval-mechanism)
     * [CRR Signing Mechanism](#crr-signing-mechanism)
@@ -323,7 +323,7 @@ integrated local signer as well as HSM integration and the ability for a user to
 CSRs. It should be used in all production environments where maximum security and validation checks are required.
 
 In order to retrieve the CSR information, the Signing Service will communicate with the Identity Manager via its
-[Issuance internal server](#issuance-internal-server). This is the only configuration option that is needed if signing of CSRs is being done via the
+[Issuance internal server](#issuance-internal-interface). This is the only configuration option that is needed if signing of CSRs is being done via the
 external Signing Service.
 
 
