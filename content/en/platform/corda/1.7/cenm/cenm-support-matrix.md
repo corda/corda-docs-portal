@@ -59,7 +59,7 @@ Other distributions of the [OpenJDK](https://openjdk.java.net/) are not official
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html)
-which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
+which outlines the end of public updates of Java SE 17 for commercial use, please ensure you have the correct Java support contract in place
 for your deployment needs.
 
 {{< /warning >}}

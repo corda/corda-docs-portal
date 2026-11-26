@@ -51,8 +51,6 @@ Ensure you have copies of the following files (provided by R3), before creating 
 * 3 Machines set up with Java 17 installed *(if not running locally).*
 
 {{< note >}}
-Due to known issues when executing transactions between nodes, using Java `8u252` subversion is not recommended.
-
 In this guide, we use placeholder values for external endpoints (for example, `<IDENTITY_MANAGER_ADDRESS>`).
 They depend on the machine in which the service is running and should be replaced with the correct values.
 
