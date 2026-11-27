@@ -63,7 +63,7 @@ To rebuild a CorDapp for Corda 4.15:
 4. Replace `Session.save`, `update`/`saveOrUpdate` and `delete` with `persist`, `merge` and `remove`. Use attribute names, not column names, in HQL and JPQL.
 5. Increase the CorDapp version, rebuild, test against every database you support, and sign with the same key as before.
 
-The script `tools/scripts/migrate-cordapp-to-hibernate7.sh` in the [Corda repository](https://github.com/corda/corda/blob/release/os/4.15/tools/scripts/migrate-cordapp-to-hibernate7.sh) applies steps 1 and 2, and the `uuid-char` and `corda-wrapper-binary` replacements of step 3, to a source tree, and lists the other `@Type` names, the `Session` calls and the queries for you to change by hand. For the full list of changes, the Hibernate 7 behaviour changes that affect rebuilt and converted CorDapps alike, and what makes the node refuse a CorDapp, see [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
+For the full list of changes, the Hibernate 7 behaviour changes that affect rebuilt and converted CorDapps alike, and what makes the node refuse a CorDapp, see [Hibernate 7 and Jakarta Persistence in Corda Enterprise Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
 
 ## Upgrading CorDapps to platform version 160
 

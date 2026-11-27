@@ -30,7 +30,7 @@ refer to.
 | You are...                                        | What you need to do |
 |---------------------------------------------------|---------------------|
 | **A node operator**                               | Check that your database version is supported. Nothing else for this upgrade: the move to Hibernate 7 needs no database change and no configuration change. Starting the node with [`run-migration-scripts`]({{< relref "node-upgrade-notes.md#step-7-start-the-node-with-run-migration-scripts-subcommand" >}}) remains the standard upgrade step; it runs no changesets on a database that is already at 4.14. CorDapps built for Corda 4.14 or earlier load without a rebuild. The node converts their `javax.persistence` classes to `jakarta.persistence` as it loads them, and refuses to start if a CorDapp uses something Hibernate 7 no longer has. See [Running CorDapps built for Corda 4.14 or earlier](#running-cordapps-built-for-corda-414-or-earlier). Hibernate 7's behaviour changes apply to converted CorDapps as they do to rebuilt ones, so test your CorDapps on a 4.15 node before you upgrade production. |
-| **A CorDapp developer** with a custom schema      | Nothing to run on 4.15. When you next rebuild, port your schema classes to `jakarta.persistence`. A script does most of it. See [Updating a CorDapp for Corda 4.15](#updating-a-cordapp-for-corda-415). A CorDapp that uses a Hibernate `@Type` other than the ones the node substitutes must be ported before it can run on 4.15. |
+| **A CorDapp developer** with a custom schema      | Nothing to run on 4.15. When you next rebuild, port your schema classes to `jakarta.persistence`. See [Updating a CorDapp for Corda 4.15](#updating-a-cordapp-for-corda-415). A CorDapp that uses a Hibernate `@Type` other than the ones the node substitutes must be ported before it can run on 4.15. |
 | **A CorDapp developer** without a custom schema   | Nothing. Code that calls `ServiceHub.withEntityManager` or uses JPA classes directly is converted like the schemas. Port it when you next rebuild. Code that uses Hibernate classes directly is not converted: if it uses a class or member that Hibernate 7 no longer has, such as `Session.save`, the node refuses the CorDapp at start-up and the CorDapp must be ported. |
 
 **The Hibernate 7 upgrade itself needs no database migration.** No table, column, index or sequence is added, changed or removed because
@@ -238,26 +238,26 @@ the upgrade, and roll CorDapps back with it.
 Declare Hibernate and the Jakarta Persistence API as `cordaProvided` (compile-only) dependencies, as you did for Hibernate 5. The node
 provides them, and a CorDapp must not bundle them.
 
-### Use the migration script
+`@JdbcTypeCode` is `org.hibernate.annotations.JdbcTypeCode`, `SqlTypes` is `org.hibernate.type.SqlTypes` and `CordaSqlTypes` is
+`net.corda.nodeapi.internal.persistence.factory.CordaSqlTypes`. Change the imports with the annotations, and drop the import of
+`org.hibernate.annotations.Type` once nothing uses it.
 
-The script [migrate-cordapp-to-hibernate7.sh](https://github.com/corda/corda/blob/release/os/4.15/tools/scripts/migrate-cordapp-to-hibernate7.sh)
-in the Corda repository applies the package, dependency, `uuid-char` and `corda-wrapper-binary` changes above to your source tree (Kotlin,
-Java and Gradle files), and then lists everything else for you to change by hand: the other `@Type` names, the `Session` calls, HQL and
-JPQL queries, `@OrderColumn`, and dependencies that bring in Hibernate 5.
+Search every file that declares a dependency or a version: Gradle build scripts, `gradle.properties` and version catalogs (`*.toml`). The
+Hibernate 5 group was `org.hibernate`, and the `hibernate-java8` artifact no longer exists: its `java.time` support is part of
+`hibernate-core`. Anything that brings in Hibernate 5 through another dependency cannot be on the same classpath as Corda 4.15: a Corda 4.14
+or earlier artifact, including a Corda version property or catalog entry that still says 4.14 or earlier, Spring Data JPA from Spring Boot 2,
+and libraries written for Hibernate 5 such as `hibernate-types-5` and `hypersistence-utils-hibernate-5`. See
+[Gradle reports a capability conflict on `hibernate-core`](#gradle-reports-a-capability-conflict-on-hibernate-core).
 
-```bash
-migrate-cordapp-to-hibernate7.sh --dry-run path/to/your/cordapp   # show what would change
-```
-
-```bash
-migrate-cordapp-to-hibernate7.sh path/to/your/cordapp             # apply, then review the report
-```
-
-It is safe to run twice. Always review the diff and run your tests.
-
-The script changes the Hibernate dependencies that your build files declare, and lists the entries in your build files that are likely to
-bring in Hibernate 5 through another dependency: Corda 4.14 or earlier, and Spring Data JPA. Gradle cannot put Hibernate 5 on the same
-classpath as Corda 4.15. See [Gradle reports a capability conflict on `hibernate-core`](#gradle-reports-a-capability-conflict-on-hibernate-core).
+The changes on this page are the ones that CorDapps meet. Hibernate's own migration guides list every change between the versions: the
+[Hibernate ORM 6.0 migration guide](https://docs.hibernate.org/orm/6.0/migration-guide/) covers the move to `jakarta.persistence`, the
+removal of `@TypeDef` and of type names in `@Type`, and the new query engine that validates HQL strictly, and the
+[Hibernate ORM 7.0 migration guide](https://docs.hibernate.org/orm/7.0/migration-guide/) covers Jakarta Persistence 3.2 and the removal
+of `Session.save`, `update`, `saveOrUpdate` and `delete`. Each version in between and up to
+[7.4](https://docs.hibernate.org/orm/7.4/migration-guide/) has a guide at the same address with its own version number. For the API that
+replaces what was removed, see the [Hibernate ORM 7.4 User Guide](https://docs.hibernate.org/orm/7.4/userguide/html_single/), the
+[Hibernate Query Language guide](https://docs.hibernate.org/orm/7.4/querylanguage/html_single/) and the
+[Jakarta Persistence 3.2 specification](https://jakarta.ee/specifications/persistence/3.2/).
 
 ### Changes you have to make by hand
 
@@ -276,8 +276,20 @@ rejects it with `SemanticException`.
 "... join Blob blob on checkpoint.blob = blob"
 ```
 
-**Custom Hibernate types.** `@Type(type = "...")`, `@TypeDef` and the `org.hibernate.type.*TypeDescriptor` classes no longer exist. Use
-`@JdbcTypeCode`, `@JdbcType` and `@JavaType`, or a JPA `AttributeConverter`.
+**Custom Hibernate types.** `@Type(type = "...")`, `@TypeDef` and the `org.hibernate.type.*TypeDescriptor` classes no longer exist, and
+Hibernate's internal packages, such as `org.hibernate.query.criteria.internal`, were rewritten. For a Hibernate 5 type name that Corda or
+Hibernate registered, use the replacement listed under
+[Hibernate annotations the node substitutes](#hibernate-annotations-the-node-substitutes): the node makes the same substitution in a
+converted CorDapp, and it keeps the stored format. Replace a custom `UserType` with a JPA `AttributeConverter` that writes exactly what
+the type wrote and reads what it read, applied with `@Convert` and a `@JdbcTypeCode` naming the column's JDBC type, and unit-test the
+round trip against values that the 4.14 build stored. A type that only chose a different column mapping becomes `@JdbcTypeCode`,
+`@JdbcType` or `@JavaType`.
+
+**Renamed and removed Hibernate annotations.** A rebuilt CorDapp has to make the changes that the node makes to a converted one, listed under
+[Hibernate annotations the node substitutes](#hibernate-annotations-the-node-substitutes): `@Where`, `@WhereJoinTable` and `@OrderBy` become
+`@SQLRestriction`, `@SQLJoinTableRestriction` and `@SQLOrder`; the `@Cascade` constants `DELETE`, `EVICT` and `SAVE_UPDATE` become `REMOVE`,
+`DETACH` and `PERSIST`; `@Index` and `@ForeignKey` are dropped, as the index or foreign key already exists in the database. The annotations
+and members under [What makes the node refuse a CorDapp](#what-makes-the-node-refuse-a-cordapp) have to be replaced as described there.
 
 **Stricter mappings.** For example, `@OrderColumn` is only allowed on a `java.util.List`, not on a `Set`. An association to an entity that was
 never persisted, for example a `@OneToOne` with `@PrimaryKeyJoinColumn`, is reported when the session is flushed. Persist the associated
@@ -333,7 +345,7 @@ stored as binary or character data, is refused when the node starts (`MappingExc
   property. Hibernate 5's `save` and `update` did not.
 
 **`withEntityManager` receives a `jakarta.persistence.EntityManager`.** The block passed to `serviceHub.withEntityManager` receives a
-`jakarta.persistence.EntityManager` in 4.15, so a CorDapp rebuilt for 4.15 has to bind to that type. The script renames the import. The API
+`jakarta.persistence.EntityManager` in 4.15, so a CorDapp rebuilt for 4.15 has to bind to that type. The API
 checker records the method without its type parameter, so it shows no change. Run the tests of every flow that uses `withEntityManager` after
 the rebuild.
 
@@ -405,111 +417,6 @@ Code that relied on catching a duplicate and carrying on in the same transaction
 
 With Corda 4.14 the same code logged only the `NonUniqueObjectException`, and the rest of the transaction was committed. The fix is to check
 for the existing entity before persisting it, or to use `merge` if updating it is what was meant, rather than catching the exception.
-
-### Using an AI assistant
-
-An AI coding assistant can do much of the work that the script leaves by hand, provided it is told what Corda 4.15 expects. The prompts
-below are written for that: each carries the rules that matter, so you can paste it into any assistant that can read your source tree.
-Before you start, run the [migration script](#use-the-migration-script) and commit its changes, so that the assistant works on the remaining
-cases only. Give the assistant this page as context (its URL, or the text of [What changes](#what-changes) and
-[Changes you have to make by hand](#changes-you-have-to-make-by-hand)), and keep the following rules whatever it suggests:
-
-* **The database must stay as it is.** The point of the port is a jar that reads and writes the same columns. Reject any change to a column
-  name, type or length, any new `@Column` or `@Table` attribute, and any replacement for a Hibernate 5 type that stores a different format.
-  The mappings in [What changes](#what-changes) and [Hibernate annotations the node substitutes](#hibernate-annotations-the-node-substitutes)
-  are the ones known to keep the format.
-* **No Hibernate in the jar.** Hibernate and the Jakarta Persistence API stay `cordaProvided`. Reject a suggestion to bundle them, to add
-  `hibernate-core` as an `implementation` dependency, or to pin a different Hibernate version.
-* **Review every diff and run the tests** against every database you support. The assistant cannot see how your database behaves.
-
-**1. Take an inventory before changing anything.**
-
-```text
-This is a Corda CorDapp that I am porting from Corda 4.14 (Hibernate 5.6, javax.persistence) to Corda 4.15 (Hibernate 7.4, jakarta.persistence 3.2).
-Do not change any code yet. Search the whole source tree, including tests and build files, and list every occurrence of:
-- javax.persistence or jakarta.persistence imports, and every class annotated @Entity, @Embeddable or @MappedSuperclass;
-- Hibernate annotations (org.hibernate.annotations.*), with special attention to @Type, @TypeDef, @TypeDefs, @Where, @Cascade, @Index, @ForeignKey and @Table;
-- org.hibernate.Session methods: save, update, saveOrUpdate, delete, persist, merge, remove;
-- HQL/JPQL strings passed to createQuery, and native SQL passed to createNativeQuery, including @NamedQuery;
-- org.hibernate.type.* and org.hibernate.usertype.* classes;
-- serviceHub.withEntityManager and AppServiceHub.database.transaction blocks;
-- Gradle dependencies on org.hibernate, javax.persistence, jakarta.persistence and net.corda, with their versions.
-Present the result as a table with file, line, the construct, and which of these categories it falls into: (a) mechanical rename only, (b) needs a Hibernate 7 replacement, (c) runtime behaviour may change, (d) no change needed. Do not propose fixes yet.
-```
-
-**2. Port the remaining mappings.**
-
-```text
-Port the remaining Hibernate 5 constructs in this CorDapp to Hibernate 7 without changing what is stored in the database. Rules:
-- javax.persistence becomes jakarta.persistence. The EntityManager that serviceHub.withEntityManager provides is now jakarta.persistence.EntityManager.
-- @Type(type = "...") no longer exists. Use exactly these replacements, which keep the column format:
-  "uuid-char" -> @JdbcTypeCode(SqlTypes.VARCHAR); "corda-wrapper-binary" -> @JdbcTypeCode(SqlTypes.VARBINARY);
-  "corda-blob" -> @JdbcTypeCode(CordaSqlTypes.CORDA_BLOB); "materialized_blob" -> @JdbcTypeCode(SqlTypes.BLOB);
-  "materialized_clob" -> @JdbcTypeCode(SqlTypes.CLOB); "text" -> @JdbcTypeCode(SqlTypes.LONGVARCHAR);
-  "uuid-binary" -> @JdbcTypeCode(SqlTypes.BINARY); "binary" -> @JdbcTypeCode(SqlTypes.VARBINARY);
-  "pg-uuid" -> @JdbcTypeCode(SqlTypes.UUID); "string" -> @JdbcTypeCode(SqlTypes.VARCHAR);
-  "numeric_boolean" -> @Convert(converter = org.hibernate.type.NumericBooleanConverter::class), which stores 1/0 as before;
-  "yes_no" or "true_false" -> a JPA AttributeConverter<Boolean, String> with @JdbcTypeCode(SqlTypes.CHAR) that writes Y/N (yes_no) or T/F (true_false) and reads the first character of the value case-insensitively, so that a space-padded CHAR column still reads; do not use Hibernate 7's built-in YesNoConverter or TrueFalseConverter, which reject a padded value;
-  "character" -> an AttributeConverter<Character, String> with @JdbcTypeCode(SqlTypes.CHAR) that takes the first character of the value read.
-  A @Type whose name is the basic type of the attribute itself (for example "long" on a Long) is simply removed.
-  For any other @Type name, stop and list it for me instead of guessing.
-- @TypeDef and @TypeDefs are removed. A custom org.hibernate.usertype.UserType becomes a JPA AttributeConverter that writes exactly the bytes or text the UserType wrote and reads what it read; show me the old and new code side by side.
-- @Where(clause = ...) becomes @SQLRestriction(...); @WhereJoinTable becomes @SQLJoinTableRestriction; @OrderBy(clause = ...) from org.hibernate.annotations becomes @SQLOrder(...).
-- @Cascade(CascadeType.DELETE) becomes REMOVE, SAVE_UPDATE becomes PERSIST, EVICT becomes DETACH. Where code relied on SAVE_UPDATE re-attaching a detached child at flush, merge the child explicitly and add the managed copy the merge returns.
-- @org.hibernate.annotations.Index and @ForeignKey are removed; the index or foreign key already exists in the database.
-- session.save(x) becomes session.persist(x); session.update(x) and session.saveOrUpdate(x) become session.merge(x) (use its return value); session.delete(x) becomes session.remove(x).
-Do not change any column name, column type, length, nullability, table name or sequence, and do not add a Liquibase changeset. Keep Hibernate and the Jakarta Persistence API as cordaProvided dependencies. Make the changes, then list every file you changed and every construct you could not map.
-```
-
-**3. Review queries for strict HQL and the changed `LIKE`, `NOT IN` and ordering behaviour.**
-
-```text
-Review every HQL/JPQL string (createQuery, @NamedQuery) and every JPA criteria query in this CorDapp against Hibernate 7's strict validation and its behaviour changes. Hibernate 5 passed unknown identifiers through to the database; Hibernate 7 rejects them with SemanticException. For each query, check and fix:
-- column names used where an entity attribute name is required (for example tx_id instead of txId);
-- an association compared with the id of its target (where x.blob = blob.id) instead of with the entity (where x.blob = blob);
-- a path or function the entity model does not define;
-- LIKE patterns that rely on a backslash as the escape character: Hibernate 7 adds escape '' on H2 and PostgreSQL, so a backslash is now an ordinary character. If the pattern escapes _ or %, pass the escape character explicitly;
-- NOT IN with a list that can be empty: it now matches every row on every database. Guard the empty case in code;
-- queries without ORDER BY whose callers depend on the order of the results: add an explicit sort.
-Native SQL (createNativeQuery) is not validated, but BIGINT and count(*) results are now Long rather than BigInteger: find every cast of a native result to BigInteger and change it to (result as Number).toLong() or the Java equivalent.
-Report each query with its file and line, what you changed, and why. Leave queries that need no change alone and say so.
-```
-
-**4. Audit exception handling and transaction semantics.**
-
-```text
-Hibernate 7 changes what happens on failure, and this CorDapp was written for Hibernate 5. Review every try/catch around persistence code, every use of Session.save/update/saveOrUpdate/delete (now persist/merge/remove), and every AppServiceHub.database.transaction block, and apply these rules:
-- persist of an entity whose id is already in the session throws jakarta.persistence.EntityExistsException immediately and marks the transaction for rollback. Hibernate 5's save threw NonUniqueObjectException and did not. Code that catches the duplicate and carries on in the same transaction now fails at commit with "Attempted to commit database transaction marked for rollback". Replace such code with a check for the existing entity first (session.find or a query), or with merge if updating it was the intent.
-- persist and merge mark the transaction for rollback on any failure, for example a null in a non-nullable property, not only on a duplicate id.
-- A constraint violation is now thrown as org.hibernate.exception.ConstraintViolationException itself (a PersistenceException) rather than as a PersistenceException whose cause is the ConstraintViolationException. Code that catches PersistenceException is fine; code that tests e.cause is ConstraintViolationException must also test the exception itself, for example by walking the cause chain. The same applies to SQLGrammarException and DataException.
-- An association to an entity that was never persisted is reported when the session is flushed; persist the associated entity too.
-For each place, show the old and new code and explain which rule applies. Do not widen catch blocks to swallow exceptions that were not caught before.
-```
-
-**5. Replace a custom Hibernate type while keeping the stored format.**
-
-```text
-This CorDapp defines a custom Hibernate 5 type (a @TypeDef with an org.hibernate.usertype.UserType or an AbstractSingleColumnStandardBasicType) and uses it with @Type on entity attributes. @TypeDef, UserType in that form and the org.hibernate.type.*TypeDescriptor classes do not exist in Hibernate 7, and the Corda 4.15 node refuses to load a CorDapp that references them.
-Rewrite it as a JPA AttributeConverter<EntityType, ColumnType> annotated @Converter, applied with @Convert(converter = ...) on each attribute that used @Type, plus @JdbcTypeCode(SqlTypes.<the JDBC type the old mapping used>) on the attribute. The converter must write exactly what the UserType's nullSafeSet wrote and read exactly what nullSafeGet read, including null handling, so that rows written by the Corda 4.14 version of this CorDapp read back unchanged and rows written by the new version read back on 4.14. Show the old UserType and the new converter side by side, list every attribute you changed, and write a unit test that round-trips a value through the converter and compares the stored form with what the old UserType produced.
-```
-
-**6. Resolve the Gradle capability conflict.**
-
-```text
-The Gradle build of this CorDapp fails with "Cannot select module with conflict on capability 'org.hibernate:hibernate-core'" after moving to Corda 4.15, which uses org.hibernate.orm:hibernate-core:7.4.12.Final. Hibernate 7 declares that it also provides the old org.hibernate:hibernate-core, so Gradle refuses to put Hibernate 5 on the same classpath. Here is the failing configuration and the output of dependencyInsight for org.hibernate:hibernate-core on it:
-<paste the output of ./gradlew <module>:dependencyInsight --dependency org.hibernate:hibernate-core --configuration <configuration>>
-Identify every dependency path that brings in Hibernate 5. For each, propose the fix in this order of preference: upgrade or remove the dependency; if it does not itself use Hibernate, exclude org.hibernate:hibernate-core from it; only as a last resort, a dependencySubstitution that replaces org.hibernate:hibernate-core with org.hibernate.orm:hibernate-core:7.4.12.Final for the whole build. Do not use a capability resolution rule with selectHighestVersion, which does not work because both candidates have the same version. Warn me about any library that calls Hibernate 5 itself, because it will fail at run time against Hibernate 7.
-```
-
-**7. Interpret a refusal from the node.**
-
-```text
-A Corda 4.15 node refused to start with the error below while loading a CorDapp that was built for Corda 4.14. The node converts javax.persistence to jakarta.persistence itself, so the error lists only the Hibernate 5 annotations, classes, members or @Type names that have no Hibernate 7 equivalent the node can substitute.
-<paste the CordappConversionException message>
-For each class and construct in the message, explain what Hibernate 7 removed, and tell me the smallest source change that replaces it without changing the stored data, using @JdbcTypeCode, @JdbcType, @JavaType or a JPA AttributeConverter. Group the changes by file. If a construct has no equivalent that keeps the stored format, say so rather than inventing one.
-```
-
-Prompts 2 to 5 assume the assistant can edit the source tree. If it can only read, ask it for the diff instead.
 
 ### Rebuilding, signing and versioning
 
@@ -604,7 +511,8 @@ column catches a mapping regression on whichever Hibernate the build has; the H2
 
 ## What stays the same in the database
 
-Hibernate 6 and 7 changed several defaults. Corda sets the following properties so that the data formats used by existing databases and
+Hibernate 6 and 7 changed several defaults, described in the [Hibernate ORM 6.0 migration guide](https://docs.hibernate.org/orm/6.0/migration-guide/)
+and the guides of the later versions. Corda sets the following properties so that the data formats used by existing databases and
 CorDapps do not change. You do not need to set or change any of them.
 
 | Behaviour that changed in Hibernate 6 and later                                          | How Corda keeps the Hibernate 5 behaviour |
