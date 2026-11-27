@@ -238,9 +238,26 @@ the upgrade, and roll CorDapps back with it.
 Declare Hibernate and the Jakarta Persistence API as `cordaProvided` (compile-only) dependencies, as you did for Hibernate 5. The node
 provides them, and a CorDapp must not bundle them.
 
-Check the entries in your build files that are likely to bring in Hibernate 5 through another dependency: Corda 4.14 or earlier,
-and Spring Data JPA. Gradle cannot put Hibernate 5 on the same classpath as Corda 4.15. See
+`@JdbcTypeCode` is `org.hibernate.annotations.JdbcTypeCode`, `SqlTypes` is `org.hibernate.type.SqlTypes` and `CordaSqlTypes` is
+`net.corda.nodeapi.internal.persistence.factory.CordaSqlTypes`. Change the imports with the annotations, and drop the import of
+`org.hibernate.annotations.Type` once nothing uses it.
+
+Search every file that declares a dependency or a version: Gradle build scripts, `gradle.properties` and version catalogs (`*.toml`). The
+Hibernate 5 group was `org.hibernate`, and the `hibernate-java8` artifact no longer exists: its `java.time` support is part of
+`hibernate-core`. Anything that brings in Hibernate 5 through another dependency cannot be on the same classpath as Corda 4.15: a Corda 4.14
+or earlier artifact, including a Corda version property or catalog entry that still says 4.14 or earlier, Spring Data JPA from Spring Boot 2,
+and libraries written for Hibernate 5 such as `hibernate-types-5` and `hypersistence-utils-hibernate-5`. See
 [Gradle reports a capability conflict on `hibernate-core`](#gradle-reports-a-capability-conflict-on-hibernate-core).
+
+The changes on this page are the ones that CorDapps meet. Hibernate's own migration guides list every change between the versions: the
+[Hibernate ORM 6.0 migration guide](https://docs.hibernate.org/orm/6.0/migration-guide/) covers the move to `jakarta.persistence`, the
+removal of `@TypeDef` and of type names in `@Type`, and the new query engine that validates HQL strictly, and the
+[Hibernate ORM 7.0 migration guide](https://docs.hibernate.org/orm/7.0/migration-guide/) covers Jakarta Persistence 3.2 and the removal
+of `Session.save`, `update`, `saveOrUpdate` and `delete`. Each version in between and up to
+[7.4](https://docs.hibernate.org/orm/7.4/migration-guide/) has a guide at the same address with its own version number. For the API that
+replaces what was removed, see the [Hibernate ORM 7.4 User Guide](https://docs.hibernate.org/orm/7.4/userguide/html_single/), the
+[Hibernate Query Language guide](https://docs.hibernate.org/orm/7.4/querylanguage/html_single/) and the
+[Jakarta Persistence 3.2 specification](https://jakarta.ee/specifications/persistence/3.2/).
 
 ### Changes you have to make by hand
 
@@ -259,8 +276,20 @@ rejects it with `SemanticException`.
 "... join Blob blob on checkpoint.blob = blob"
 ```
 
-**Custom Hibernate types.** `@Type(type = "...")`, `@TypeDef` and the `org.hibernate.type.*TypeDescriptor` classes no longer exist. Use
-`@JdbcTypeCode`, `@JdbcType` and `@JavaType`, or a JPA `AttributeConverter`.
+**Custom Hibernate types.** `@Type(type = "...")`, `@TypeDef` and the `org.hibernate.type.*TypeDescriptor` classes no longer exist, and
+Hibernate's internal packages, such as `org.hibernate.query.criteria.internal`, were rewritten. For a Hibernate 5 type name that Corda or
+Hibernate registered, use the replacement listed under
+[Hibernate annotations the node substitutes](#hibernate-annotations-the-node-substitutes): the node makes the same substitution in a
+converted CorDapp, and it keeps the stored format. Replace a custom `UserType` with a JPA `AttributeConverter` that writes exactly what
+the type wrote and reads what it read, applied with `@Convert` and a `@JdbcTypeCode` naming the column's JDBC type, and unit-test the
+round trip against values that the 4.14 build stored. A type that only chose a different column mapping becomes `@JdbcTypeCode`,
+`@JdbcType` or `@JavaType`.
+
+**Renamed and removed Hibernate annotations.** A rebuilt CorDapp has to make the changes that the node makes to a converted one, listed under
+[Hibernate annotations the node substitutes](#hibernate-annotations-the-node-substitutes): `@Where`, `@WhereJoinTable` and `@OrderBy` become
+`@SQLRestriction`, `@SQLJoinTableRestriction` and `@SQLOrder`; the `@Cascade` constants `DELETE`, `EVICT` and `SAVE_UPDATE` become `REMOVE`,
+`DETACH` and `PERSIST`; `@Index` and `@ForeignKey` are dropped, as the index or foreign key already exists in the database. The annotations
+and members under [What makes the node refuse a CorDapp](#what-makes-the-node-refuse-a-cordapp) have to be replaced as described there.
 
 **Stricter mappings.** For example, `@OrderColumn` is only allowed on a `java.util.List`, not on a `Set`. An association to an entity that was
 never persisted, for example a `@OneToOne` with `@PrimaryKeyJoinColumn`, is reported when the session is flushed. Persist the associated
@@ -482,7 +511,8 @@ column catches a mapping regression on whichever Hibernate the build has; the H2
 
 ## What stays the same in the database
 
-Hibernate 6 and 7 changed several defaults. Corda sets the following properties so that the data formats used by existing databases and
+Hibernate 6 and 7 changed several defaults, described in the [Hibernate ORM 6.0 migration guide](https://docs.hibernate.org/orm/6.0/migration-guide/)
+and the guides of the later versions. Corda sets the following properties so that the data formats used by existing databases and
 CorDapps do not change. You do not need to set or change any of them.
 
 | Behaviour that changed in Hibernate 6 and later                                          | How Corda keeps the Hibernate 5 behaviour |
