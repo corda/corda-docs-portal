@@ -30,7 +30,7 @@ refer to.
 | You are...                                        | What you need to do |
 |---------------------------------------------------|---------------------|
 | **A node or notary operator**                     | Check that your database version is supported. Nothing else for this upgrade: the move to Hibernate 7 needs no database change and no configuration change. Corda 4.15 does add database migrations for other features, so the usual [database update]({{< relref "node-upgrade-notes.md#step-3-update-the-database" >}}) is still part of the node upgrade. CorDapps built for Corda 4.14 or earlier load without a rebuild. The node converts their `javax.persistence` classes to `jakarta.persistence` as it loads them, and refuses to start if a CorDapp uses something Hibernate 7 no longer has. See [Running CorDapps built for Corda 4.14 or earlier](#running-cordapps-built-for-corda-414-or-earlier). Hibernate 7's behaviour changes apply to converted CorDapps as they do to rebuilt ones, so test your CorDapps on a 4.15 node before you upgrade production. If you run the [Archive Service]({{< relref "../../../../tools/archiving-service/archiving-release-notes.md#archive-service-201" >}}), upgrade it to 2.0.1 or later before the node. |
-| **A CorDapp developer** with a custom schema      | Nothing to run on 4.15. When you next rebuild, port your schema classes to `jakarta.persistence`. A script does most of it. See [Updating a CorDapp for Corda 4.15](#updating-a-cordapp-for-corda-415). A CorDapp that uses a Hibernate `@Type` other than the ones the node substitutes must be ported before it can run on 4.15. |
+| **A CorDapp developer** with a custom schema      | Nothing to run on 4.15. When you next rebuild, port your schema classes to `jakarta.persistence`. See [Updating a CorDapp for Corda 4.15](#updating-a-cordapp-for-corda-415). A CorDapp that uses a Hibernate `@Type` other than the ones the node substitutes must be ported before it can run on 4.15. |
 | **A CorDapp developer** without a custom schema   | Nothing. Code that calls `ServiceHub.withEntityManager` or uses JPA classes directly is converted like the schemas. Port it when you next rebuild. Code that uses Hibernate classes directly is not converted: if it uses a class or member that Hibernate 7 no longer has, such as `Session.save`, the node refuses the CorDapp at start-up and the CorDapp must be ported. |
 
 **The Hibernate 7 upgrade itself needs no database migration.** No table, column, index or sequence is added, changed or removed because
@@ -288,26 +288,9 @@ upgrade, and roll CorDapps back with it.
 Declare Hibernate and the Jakarta Persistence API as `cordaProvided` (compile-only) dependencies, as you did for Hibernate 5. The node
 provides them, and a CorDapp must not bundle them.
 
-### Use the migration script
-
-The script [migrate-cordapp-to-hibernate7.sh](https://github.com/corda/corda/blob/release/os/4.15/tools/scripts/migrate-cordapp-to-hibernate7.sh)
-in the Corda repository applies the package, dependency, `uuid-char` and `corda-wrapper-binary` changes above to your source tree (Kotlin,
-Java and Gradle files), and then lists everything else for you to change by hand: the other `@Type` names, the `Session` calls, HQL and
-JPQL queries, `@OrderColumn`, and dependencies that bring in Hibernate 5.
-
-```bash
-migrate-cordapp-to-hibernate7.sh --dry-run path/to/your/cordapp   # show what would change
-```
-
-```bash
-migrate-cordapp-to-hibernate7.sh path/to/your/cordapp             # apply, then review the report
-```
-
-It is safe to run twice. Always review the diff and run your tests.
-
-The script changes the Hibernate dependencies that your build files declare, and lists the entries in your build files that are likely to
-bring in Hibernate 5 through another dependency: Corda 4.14 or earlier, and Spring Data JPA. Gradle cannot put Hibernate 5 on the same
-classpath as Corda 4.15. See [Gradle reports a capability conflict on `hibernate-core`](#gradle-reports-a-capability-conflict-on-hibernate-core).
+Check the entries in your build files that are likely to bring in Hibernate 5 through another dependency: Corda 4.14 or earlier,
+and Spring Data JPA. Gradle cannot put Hibernate 5 on the same classpath as Corda 4.15. See
+[Gradle reports a capability conflict on `hibernate-core`](#gradle-reports-a-capability-conflict-on-hibernate-core).
 
 ### Changes you have to make by hand
 
@@ -390,7 +373,7 @@ stored as binary or character data, is refused when the node starts (`MappingExc
   property. Hibernate 5's `save` and `update` did not.
 
 **`withEntityManager` receives a `jakarta.persistence.EntityManager`.** The block passed to `serviceHub.withEntityManager` receives a
-`jakarta.persistence.EntityManager` in 4.15, so a CorDapp rebuilt for 4.15 has to bind to that type. The script renames the import. The API
+`jakarta.persistence.EntityManager` in 4.15, so a CorDapp rebuilt for 4.15 has to bind to that type. The API
 checker records the method without its type parameter, so it shows no change. Run the tests of every flow that uses `withEntityManager` after
 the rebuild.
 
@@ -465,10 +448,9 @@ for the existing entity before persisting it, or to use `merge` if updating it i
 
 ### Using an AI assistant
 
-An AI coding assistant can do much of the work that the script leaves by hand, provided it is told what Corda 4.15 expects. The prompts
-below are written for that: each carries the rules that matter, so you can paste it into any assistant that can read your source tree.
-Before you start, run the [migration script](#use-the-migration-script) and commit its changes, so that the assistant works on the remaining
-cases only. Give the assistant this page as context (its URL, or the text of [What changes](#what-changes) and
+An AI coding assistant can do much of the work, provided it is told what Corda 4.15 expects. The prompts below are written for that:
+each carries the rules that matter, so you can paste it into any assistant that can read your source tree.
+Give the assistant this page as context (its URL, or the text of [What changes](#what-changes) and
 [Changes you have to make by hand](#changes-you-have-to-make-by-hand)), and keep the following rules whatever it suggests:
 
 * **The database must stay as it is.** The point of the port is a jar that reads and writes the same columns. Reject any change to a column
