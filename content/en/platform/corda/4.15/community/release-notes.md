@@ -97,8 +97,7 @@ For the full list, see [Third-party components upgrade](#third-party-components-
 
 ### API changes
 
-* **`ServiceHub.withEntityManager` now provides a `jakarta.persistence.EntityManager`.** A CorDapp rebuilt for 4.15 must bind the block to the `jakarta.persistence` type. A CorDapp built for 4.14 or earlier is converted by the node and keeps working unchanged. The API checker does not report this change, because the recorded signature has no type parameters.
-* **`Command`, `CommandWithParties` and `SignatureMetadata` have a new nullable property** for key rotation proofs. Their existing constructors are kept, but their `copy` methods now take the new property, so a CorDapp built for 4.14 or earlier that calls `copy` on one of these classes must be rebuilt against 4.15.
+* **`ServiceHub.withEntityManager` now provides a `jakarta.persistence.EntityManager`.** A CorDapp rebuilt for 4.15 must bind the block to the `jakarta.persistence` type. A CorDapp built for 4.14 or earlier is converted by the node and keeps working unchanged.
 * **New key rotation APIs.** See [Parties whose key has been rotated]({{< relref "api-identity.md#parties-whose-key-has-been-rotated" >}}).
 
 ### Fixed issues
@@ -106,17 +105,11 @@ For the full list, see [Third-party components upgrade](#third-party-components-
 * Fixed an issue where a flow restored from a checkpoint could fail when telemetry was enabled: with a `NullPointerException` if a telemetry component had been enabled after the checkpoint was written, or with an `IndexOutOfBoundsException` when span start and end events were enabled (`spanStartEndEventsEnabled`).
 * The following vulnerabilities in dependencies have been addressed:
 
-| Vulnerability  | Component |
-|----------------|-----------|
-| CVE-2026-112046 | ASM |
-| CVE-2026-116486 | Objenesis |
-| CVE-2026-114938 | JDK in the Corda Docker images |
-
-### Known issues
-
-#### CVE-2026-92877 in jaxb-core
-
-Corda 4.15 includes `org.glassfish.jaxb:jaxb-core` 4.0.7, which Hibernate ORM 7.4.12 depends on and which is affected by CVE-2026-92877 (XML external entity processing). R3 has assessed that the vulnerability cannot be exploited in Corda: Corda does not use JAXB, Hibernate reads its mapping and configuration XML through a path that is not affected, and the only affected component is used for XML-typed columns, which Corda does not have. No fixed version of `jaxb-core` has been released yet. R3 will upgrade it in a future release.
+| Vulnerability   | Severity | Component           | Fixed in  |
+|-----------------|----------|---------------------|-----------|
+| CVE-2026-114938 | High     | JDK (Docker images) | 17.0.21.1 |
+| CVE-2026-112046 | Medium   | ASM                 | 9.11.1    |
+| CVE-2026-116486 | Low      | Objenesis           | 3.6       |
 
 ### Third-party components upgrade
 
