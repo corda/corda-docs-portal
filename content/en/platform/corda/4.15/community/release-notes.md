@@ -50,6 +50,14 @@ Corda Open Source Edition 4.15 upgrades Hibernate ORM from version 5.6, which is
 
 For what node operators and CorDapp developers need to do, see [Hibernate 7 and Jakarta Persistence in Corda Open Source Edition 4.15]({{< relref "hibernate-7-upgrade.md" >}}).
 
+**R3's CorDapp libraries.** The Token SDK and the Corda Accounts Library each have a release for Corda 4.15:
+
+* **Token SDK 1.3.5** and **Corda Accounts Library 1.1.2** run on Corda 4.12 to 4.14 and on 4.15 with one jar: their schema classes carry both the `javax.persistence` and the `jakarta.persistence` annotations, their flows call the node's entity manager without binding to either API, and neither library declares a Hibernate dependency any more. Both are built against Corda 4.12.13 and need no configuration on a 4.15 node.
+* **Earlier versions** of the two libraries only work as jars already deployed in a node's `cordapps` directory, which a 4.15 node converts as it loads them. They cannot be used to build or test a CorDapp for 4.15: `tokens-workflows` 1.3.4 and earlier declare Hibernate 5 as a runtime dependency, which Gradle refuses next to Corda 4.15, and a CorDapp that depends on an earlier version of either library fails its `MockNetwork`, `MockServices` and in-process driver tests on 4.15, where nothing is converted. Move to Token SDK 1.3.5 and Corda Accounts Library 1.1.2.
+* **Building and testing a CorDapp for 4.15:** declare the two libraries as `cordapp` dependencies as before and test them in a 4.15 `MockNetwork` without further settings. If you build either library from source, build it against Corda 4.12, the default: a build against 4.15 runs on 4.15 only, because its `withEntityManager` code binds to the Jakarta `EntityManager`.
+
+For the details, see the release notes of the [Tokens SDK]({{< relref "../../../../tools/tokens-sdk/tokens-sdk-index.md#changes-in-tokens-sdk-135" >}}) and the [Corda Accounts Library]({{< relref "../../../../tools/accounts/accounts-index.md#changes-in-corda-accounts-library-112" >}}).
+
 #### Verifying transactions signed with a rotated key
 
 Corda Enterprise Edition 4.15 introduces cross-provider key rotation, which moves a node's or notary's legal identity key to a different key provider, such as from a file-based keystore to an HSM. A Corda Open Source Edition node cannot rotate its own key across providers, but a 4.15 node verifies transactions that carry key rotation proofs, so it can keep transacting with Corda Enterprise nodes that have rotated their keys. New public APIs, such as `PartyIdentityResolver`, let CorDapps recognise a party across a rotation. A CorDapp that compares parties or keys directly may need changes before any node on the network rotates its key.
