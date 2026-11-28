@@ -19,7 +19,7 @@ The operating systems supported in Corda Enterprise Network Manager are a subset
 
 Production use of Corda Enterprise Network Manager 1.3+ is only supported on Linux OS; see details below.
 
-For information about supported operating systems for Corda Enterprise, see {{< cordalatestrelref "enterprise/platform-support-matrix.md" "Corda Enterprise 4.12 platform support" >}} or check the relevant support documentation for [previous versions of Corda Enterprise]({{< relref "../../_index.md" >}}).
+For information about supported operating systems for Corda Enterprise, see {{< cordalatestrelref "enterprise/platform-support-matrix.md" "Corda Enterprise platform support" >}} or check the relevant support documentation for [previous versions of Corda Enterprise]({{< relref "../../_index.md" >}}).
 
 ## Hardware security modules (HSMs)
 
@@ -59,7 +59,7 @@ Other distributions of the [OpenJDK](https://openjdk.java.net/) are not official
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html)
-which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
+which outlines the end of public updates of Java SE 17 for commercial use, please ensure you have the correct Java support contract in place
 for your deployment needs.
 
 {{< /warning >}}

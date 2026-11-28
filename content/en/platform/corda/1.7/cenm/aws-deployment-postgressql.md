@@ -61,4 +61,4 @@ In step 4 above, you must create a schema for each CENM service. The guide provi
 2. Deploy the [Identity Manager service]({{< relref "identity-manager.md" >}}) using PostgreSQL on AWS.
 3. Deploy the [Network Map service]({{< relref "network-map.md" >}}) using PostgreSQL on AWS.
 4. Deploy the [Zone Service]({{< relref "zone-service.md" >}}) using PostgreSQL on AWS.
-5. Deploy the [Signing Service]({{< relref "signing-service.md#signing-service" >}}) (it does not use a database).
+5. Deploy the [Signing Service]({{< relref "signing-service.md" >}}) (it does not use a database).

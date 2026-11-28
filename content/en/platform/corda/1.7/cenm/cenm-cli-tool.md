@@ -42,7 +42,7 @@ Note the `.0`.
 {{< /note >}}
 
 ```bash
-  docker pull corda/enterprise-cenm-cli:1.5.4-zulu-openjdk8u242
+  docker pull corda/enterprise-cenm-cli:1.7.0-zulu-openjdk17.0.15
 ```
 
 You have installed the Docker image with CENM CLI tool.
@@ -71,7 +71,7 @@ In the example below, you can see the steps to set up a new network with the CLI
 
 To set up a new network with the CLI:
 
-1. Login by setting the [context login address](#define-contexts-and-servers), your username, and password:
+1. Login by setting the [context login address](#defining-contexts-and-servers), your username, and password:
 
    ```
    cenm context login http://10.230.41.12 -u alice.barthes -p w34rfrt45g4y65EERTR5

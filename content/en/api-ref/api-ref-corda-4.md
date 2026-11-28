@@ -9,7 +9,7 @@ project: "API Reference"
 title: Corda 4 API references
 ---
 
-This page provides links to the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community 4.9, Corda Community and Open Source Edition 4.10 and 4.11, Corda Open Source Edition 4.12, 4.13, 4.14 and 4.15, Corda Enterprise 4.8 to 4.15, and Corda Enterprise Network Manager (CENM) 1.2 to 1.6.
+This page provides links to the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community 4.9, Corda Community and Open Source Edition 4.10 and 4.11, Corda Open Source Edition 4.12, 4.13, 4.14 and 4.15, Corda Enterprise 4.8 to 4.15, and Corda Enterprise Network Manager (CENM) 1.2 to 1.7.
 
 ## Corda Enterprise 4.x
 
@@ -49,6 +49,7 @@ This page provides links to the API reference documentation for all API modules 
 
 |Corda Enterprise version|Javadoc API reference|Kotlin doc API reference|
 |:----|:----|:----|
+|1.7|<a href="../../../en/api-ref/corda/1.7/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.7/cenm/kotlin/index.html" target="_blank">Kotlin</a>|
 |1.6|<a href="../../../en/api-ref/corda/1.6/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.6/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |1.5|<a href="../../../en/api-ref/corda/1.5/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.5/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |1.4|<a href="../../../en/api-ref/corda/1.4/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.4/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|

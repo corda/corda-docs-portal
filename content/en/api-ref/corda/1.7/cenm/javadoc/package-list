@@ -1,0 +1,103 @@
+$dokka.format:javadoc-v1
+$dokka.linkExtension:html
+$dokka.location:com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault/BaseAzureKeyVaultCryptoService.AzureKeyVaultException///PointingToDeclaration/com/r3/corda/networkmanage/common/cryptoservice/azurekeyvault/BaseAzureKeyVaultCryptoService.AzureKeyVaultException.html
+$dokka.location:com.r3.corda.networkmanage.common.cryptoservice.utimaco/UtimacoCryptoService.Companion///PointingToDeclaration/com/r3/corda/networkmanage/common/cryptoservice/utimaco/UtimacoCryptoService.Companion.html
+$dokka.location:com.r3.corda.networkmanage.common.cryptoservice.utimaco/UtimacoCryptoService.CryptoServerProviderConfig///PointingToDeclaration/com/r3/corda/networkmanage/common/cryptoservice/utimaco/UtimacoCryptoService.CryptoServerProviderConfig.html
+$dokka.location:com.r3.corda.networkmanage.common.cryptoservice.utimaco/UtimacoCryptoService.UtimacoHSMException///PointingToDeclaration/com/r3/corda/networkmanage/common/cryptoservice/utimaco/UtimacoCryptoService.UtimacoHSMException.html
+$dokka.location:com.r3.corda.networkmanage.common.cryptoservice/CryptoService.Companion///PointingToDeclaration/com/r3/corda/networkmanage/common/cryptoservice/CryptoService.Companion.html
+$dokka.location:com.r3.corda.networkmanage.common.cryptoservice/CryptoServiceFactoryImpl.Companion///PointingToDeclaration/com/r3/corda/networkmanage/common/cryptoservice/CryptoServiceFactoryImpl.Companion.html
+$dokka.location:com.r3.corda.networkmanage.common.healthcheck/ClientHealthChecker.ClientType///PointingToDeclaration/com/r3/corda/networkmanage/common/healthcheck/ClientHealthChecker.ClientType.html
+$dokka.location:com.r3.corda.networkmanage.common.hsm.authentication/CryptoServiceAuthenticator.GlobalCryptoLock///PointingToDeclaration/com/r3/corda/networkmanage/common/hsm/authentication/CryptoServiceAuthenticator.GlobalCryptoLock.html
+$dokka.location:com.r3.corda.networkmanage.common.hsm.signer/SignerImpl.AuthenticatedSigner///PointingToDeclaration/com/r3/corda/networkmanage/common/hsm/signer/SignerImpl.AuthenticatedSigner.html
+$dokka.location:com.r3.corda.networkmanage.common.serialization/PKCS10CertificationRequestSerializer.PKCS10CertificationRequestSerializerProxy///PointingToDeclaration/com/r3/corda/networkmanage/common/serialization/PKCS10CertificationRequestSerializer.PKCS10CertificationRequestSerializerProxy.html
+$dokka.location:com.r3.corda.networkmanage.common.signer.crl/CertificateRevocationListSigner.Companion///PointingToDeclaration/com/r3/corda/networkmanage/common/signer/crl/CertificateRevocationListSigner.Companion.html
+$dokka.location:com.r3.corda.networkmanage.common.signer/LocalSigner.AuthenticatedLocalSigner///PointingToDeclaration/com/r3/corda/networkmanage/common/signer/LocalSigner.AuthenticatedLocalSigner.html
+$dokka.location:com.r3.corda.networkmanage.common.signer/Signer.AuthenticatedSigner///PointingToDeclaration/com/r3/corda/networkmanage/common/signer/Signer.AuthenticatedSigner.html
+$dokka.location:com.r3.corda.networkmanage.common.utils/ExponentialBackOffTimer.Companion///PointingToDeclaration/com/r3/corda/networkmanage/common/utils/ExponentialBackOffTimer.Companion.html
+$dokka.location:com.r3.corda.networkmanage.common.utils/ServiceCommand.Companion///PointingToDeclaration/com/r3/corda/networkmanage/common/utils/ServiceCommand.Companion.html
+$dokka.location:com.r3.corda.networkmanage.common.utils/ServiceCommand.ServiceType///PointingToDeclaration/com/r3/corda/networkmanage/common/utils/ServiceCommand.ServiceType.html
+$dokka.location:com.r3.corda.networkmanage.common.validator/LegalNameValidator.Rule.Companion///PointingToDeclaration/com/r3/corda/networkmanage/common/validator/LegalNameValidator.Rule.Companion.html
+$dokka.location:com.r3.corda.networkmanage.common.validator/LegalNameValidator.Rule///PointingToDeclaration/com/r3/corda/networkmanage/common/validator/LegalNameValidator.Rule.html
+$dokka.location:com.r3.corda.networkmanage.common/CertPathCheckerTests.TestHierarchy///PointingToDeclaration/com/r3/corda/networkmanage/common/CertPathCheckerTests.TestHierarchy.html
+$dokka.location:com.r3.corda.networkmanage.shared.healthcheck/ClientHealthCheckerTest.Companion///PointingToDeclaration/com/r3/corda/networkmanage/shared/healthcheck/ClientHealthCheckerTest.Companion.html
+$dokka.location:com.r3.corda.networkmanage.shared.healthcheck/ClientHealthCheckerTest.TestEnmClientHealthChecker///PointingToDeclaration/com/r3/corda/networkmanage/shared/healthcheck/ClientHealthCheckerTest.TestEnmClientHealthChecker.html
+$dokka.location:com.r3.corda.networkmanage.shared.healthcheck/ClientHealthCheckerTest.TestRpcClientHealthChecker///PointingToDeclaration/com/r3/corda/networkmanage/shared/healthcheck/ClientHealthCheckerTest.TestRpcClientHealthChecker.html
+$dokka.location:com.r3.enm.model/CertificateRevocationRequestSubmission.Companion///PointingToDeclaration/com/r3/enm/model/CertificateRevocationRequestSubmission.Companion.html
+$dokka.location:com.r3.enm.model/RejectionReason.UNKNOWN///PointingToDeclaration/com/r3/enm/model/RejectionReason.UNKNOWN.html
+$dokka.location:com.r3.enm.model/RejectionReason.UNPARSEABLE///PointingToDeclaration/com/r3/enm/model/RejectionReason.UNPARSEABLE.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/AddNodeToPrivateNetworkMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/AddNodeToPrivateNetworkMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/AddNodeToPrivateNetworkResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/AddNodeToPrivateNetworkResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/ApprovedCertificateSigningRequestsResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/ApprovedCertificateSigningRequestsResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/CertificateSubmissionMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/CertificateSubmissionMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/CertificateSubmissionResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/CertificateSubmissionResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/DoormanPingResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/DoormanPingResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/NewPrivateNetworkMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/NewPrivateNetworkMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/NewPrivateNetworkResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/NewPrivateNetworkResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/RetrievePrivateNetworkMappingMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/RetrievePrivateNetworkMappingMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/RetrievePrivateNetworkMappingResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/RetrievePrivateNetworkMappingResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/RetrieveValidCertificatePathRequestMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/RetrieveValidCertificatePathRequestMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.identitymanager.handlers/RetrieveValidCertificatePathRequestResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/identitymanager/handlers/RetrieveValidCertificatePathRequestResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/CurrentNetworkParametersUpdateResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/CurrentNetworkParametersUpdateResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/LatestNetworkParametersResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/LatestNetworkParametersResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/LatestUnsignedNetworkMapResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/LatestUnsignedNetworkMapResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/LatestUnsignedNetworkParametersResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/LatestUnsignedNetworkParametersResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/NetworkMapPingResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/NetworkMapPingResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/NetworkMapSubmissionMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/NetworkMapSubmissionMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/NetworkMapSubmissionResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/NetworkMapSubmissionResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/NetworkMapsResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/NetworkMapsResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/NetworkParametersSubmissionMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/NetworkParametersSubmissionMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/NetworkParametersSubmissionResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/NetworkParametersSubmissionResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/NodeInfoHashesResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/NodeInfoHashesResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/SwitchFlagDayMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/SwitchFlagDayMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.networkmap.handlers/SwitchFlagDayResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/networkmap/handlers/SwitchFlagDayResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.revocation.handlers/ApprovedCertificateRevocationRequestsResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/revocation/handlers/ApprovedCertificateRevocationRequestsResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.revocation.handlers/CrlRetrievalMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/revocation/handlers/CrlRetrievalMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.revocation.handlers/CrlRetrievalResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/revocation/handlers/CrlRetrievalResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.revocation.handlers/CrlSubmissionMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/revocation/handlers/CrlSubmissionMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.revocation.handlers/CrlSubmissionResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/revocation/handlers/CrlSubmissionResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.revocation.handlers/RevocationPingResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/revocation/handlers/RevocationPingResponse.Companion.html
+$dokka.location:com.r3.enm.servicesapi.zone.handlers/ConfigRequestMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/zone/handlers/ConfigRequestMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.zone.handlers/ConfigResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/zone/handlers/ConfigResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.zone.handlers/ConfigStatusUpdateMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/zone/handlers/ConfigStatusUpdateMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.zone.handlers/NetworkParametersRequestMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/zone/handlers/NetworkParametersRequestMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.zone.handlers/NetworkParametersResponseMessage.Companion///PointingToDeclaration/com/r3/enm/servicesapi/zone/handlers/NetworkParametersResponseMessage.Companion.html
+$dokka.location:com.r3.enm.servicesapi.zone.handlers/ZonePingResponse.Companion///PointingToDeclaration/com/r3/enm/servicesapi/zone/handlers/ZonePingResponse.Companion.html
+com.r3.corda.networkmanage.common
+com.r3.corda.networkmanage.common.adminclient
+com.r3.corda.networkmanage.common.cryptoservice
+com.r3.corda.networkmanage.common.cryptoservice.authentication
+com.r3.corda.networkmanage.common.cryptoservice.azurekeyvault
+com.r3.corda.networkmanage.common.cryptoservice.bouncycastle
+com.r3.corda.networkmanage.common.cryptoservice.cloudhsm
+com.r3.corda.networkmanage.common.cryptoservice.gemalto
+com.r3.corda.networkmanage.common.cryptoservice.keygeneration
+com.r3.corda.networkmanage.common.cryptoservice.securosys
+com.r3.corda.networkmanage.common.cryptoservice.utimaco
+com.r3.corda.networkmanage.common.healthcheck
+com.r3.corda.networkmanage.common.hsm.authentication
+com.r3.corda.networkmanage.common.hsm.signer
+com.r3.corda.networkmanage.common.hsm.utils
+com.r3.corda.networkmanage.common.migration
+com.r3.corda.networkmanage.common.persistence
+com.r3.corda.networkmanage.common.serialization
+com.r3.corda.networkmanage.common.shell
+com.r3.corda.networkmanage.common.signer
+com.r3.corda.networkmanage.common.signer.crl
+com.r3.corda.networkmanage.common.signer.csr
+com.r3.corda.networkmanage.common.signer.networkmap
+com.r3.corda.networkmanage.common.signer.networkparameters
+com.r3.corda.networkmanage.common.utils
+com.r3.corda.networkmanage.common.validator
+com.r3.corda.networkmanage.shared.healthcheck
+com.r3.enm.model
+com.r3.enm.servicesapi.identitymanager
+com.r3.enm.servicesapi.identitymanager.handlers
+com.r3.enm.servicesapi.networkmap
+com.r3.enm.servicesapi.networkmap.handlers
+com.r3.enm.servicesapi.networkmap.payload
+com.r3.enm.servicesapi.revocation
+com.r3.enm.servicesapi.revocation.handlers
+com.r3.enm.servicesapi.revocation.payload
+com.r3.enm.servicesapi.zone
+com.r3.enm.servicesapi.zone.handlers
+com.r3.enmplugins.approveall
