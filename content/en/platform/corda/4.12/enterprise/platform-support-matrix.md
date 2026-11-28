@@ -22,7 +22,7 @@ Corda Enterprise Edition supports a subset of the platforms that are supported b
 
 ### JDK support in production
 
-Corda Enterprise Edition 4.12 has been tested and verified to work with **Oracle JDK 17.0.19** and **Azul Zulu Enterprise 17.0.19**.
+Corda Enterprise Edition 4.12 has been tested and verified to work with **Azul Zulu Enterprise 17.0.19**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.12.
 

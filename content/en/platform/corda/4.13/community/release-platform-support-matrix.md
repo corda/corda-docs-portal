@@ -27,7 +27,7 @@ Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-to
 
 ## JDK support
 
-Corda Open Source Edition 4.13 has been tested and verified to work with **Oracle JDK 17.0.19** and **Azul Zulu Enterprise 17.0.19**.
+Corda Open Source Edition 4.13 has been tested and verified to work with **Azul Zulu Enterprise 17.0.19**.
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.11.
 
