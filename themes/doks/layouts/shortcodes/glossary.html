@@ -1,16 +1,34 @@
-{{/* Displays the full list of terms and definitions defined for Corda 5 in glossaryitems.json. */}}
-{{/*The "definition" field in glossaryitems.json should only be one sentence. This is the text displayed as the ToolTip throughout the content and also displayed by default on the Glossary page.*/}}
-{{/*The "more" field in glossaryitems.json displays any additional content displayed by expanding the paragraph on the Glossary page.*/}}
+{{/* 
+Displays the full list of terms and definitions defined for Corda 5 in glossaryitems.json.
+
+The "definition" field should be a one-sentence tooltip shown throughout content and on the Glossary page.
+The "more" field adds extra expandable content on the Glossary page.
+*/}}
 
 {{ $versionfolder := replace (lower (.Page.Params.version)) " " "/" }}
-{{ $file := printf "%s" "/glossaryitems.json" | printf "%s%s" $versionfolder | printf "%s%s" "content/en/platform/" }}
-{{ $glossarylist := getJSON $file }}
-    {{ range $term, $value := $glossarylist }}
-        {{ $termkebab := lower (replace $term " " "-") }}
+{{ $filepath := printf "en/platform/%s/glossaryitems.json" $versionfolder }}
 
-        {{ with $value.more }}
-           <details><summary><h4 id="{{ $termkebab }}">{{ $term }}</h4>{{ $value.definition }}</summary>{{ safeHTML $value.more }}</details>
-        {{ else }}
-            <p style="margin-top: 1rem";><h4 id="{{ $termkebab }}">{{ $term }}</h4>{{ $value.definition }}</p>
-        {{ end }}
+{{ with resources.Get $filepath }}
+  {{ $glossarylist := . | transform.Unmarshal }}
+  
+  {{ range $term, $value := $glossarylist }}
+    {{ $termkebab := lower (replace $term " " "-") }}
+
+    {{ with $value.more }}
+      <details>
+        <summary>
+          <h4 id="{{ $termkebab }}">{{ $term }}</h4>
+          {{ $value.definition }}
+        </summary>
+        {{ safeHTML $value.more }}
+      </details>
+    {{ else }}
+      <p style="margin-top: 1rem;">
+        <h4 id="{{ $termkebab }}">{{ $term }}</h4>
+        {{ $value.definition }}
+      </p>
     {{ end }}
+  {{ end }}
+{{ else }}
+  <p>Error: Could not load glossary JSON from <code>{{ $filepath }}</code>.</p>
+{{ end }}

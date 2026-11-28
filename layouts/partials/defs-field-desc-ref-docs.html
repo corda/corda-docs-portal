@@ -1,17 +1,25 @@
 {{/* Called by field-desc-ref-docs to format any config field descriptions defined in a reusable definition */}}
+
 {{ $def := .def }}
 {{ $url := .url }}
-{{ $json := getJSON $url }}
-{{ $defmap := index $json "$defs"}}
+
+{{ with resources.GetRemote $url }}
+    {{ $json := . | transform.Unmarshal }}
+    {{ $defmap := index $json "$defs" }}
+
     {{ range $key, $value := $defmap }}
-        {{ if eq $key $def}}
-                {{ range $key2, $value2 := $value.anyOf }}
-                    {{ if isset $value2 "minimum" }}
-                        <br>Minimum value: {{ string ($value2.minimum) }}
-                    {{ end }}
-                    {{ if isset $value2 "maximum" }}
-                        <br>Maximum value: {{ string ($value2.maximum) }}
-                    {{ end }}
+        {{ if eq $key $def }}
+            {{ range $key2, $value2 := $value.anyOf }}
+                {{ if isset $value2 "minimum" }}
+                    <br>Minimum value: {{ string ($value2.minimum) }}
                 {{ end }}
+                {{ if isset $value2 "maximum" }}
+                    <br>Maximum value: {{ string ($value2.maximum) }}
+                {{ end }}
+            {{ end }}
         {{ end }}
-    {{ end }} 
+    {{ end }}
+{{ else }}
+    <p>Error: Failed to fetch or parse remote JSON from {{ $url }}</p>
+{{ end }}
+
